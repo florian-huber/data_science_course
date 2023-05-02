@@ -1,0 +1,36 @@
+name: CI Tests
+
+on:
+  push:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+
+  basic_checks:
+    name: Basic environment and code checks / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash -l {0}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: ['ubuntu-latest', 'macos-latest', 'windows-latest']
+        
+    steps:
+      - uses: actions/checkout@v2
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          environment-file: environment.yml
+      - name: Python info
+        run: |
+          which python
+          python --version
+      - name: Show conda info and list
+        run: |
+          conda info
+          conda list
+      - name: Show pip list
+        run: |
+          pip list
