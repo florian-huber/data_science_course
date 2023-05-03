@@ -1,0 +1,13 @@
+## Introduction: Data Science for Not-Yet-Scientists
+
+In today's world, data is generated at an unprecedented pace, and our ability to harness it is changing the way we live, work, and even think. Data science, the interdisciplinary field that blends statistics, computer science, and domain-specific knowledge, empowers us to extract insights from this vast ocean of data. As data science becomes increasingly essential across various industries and sectors, there is a growing need for skilled professionals who can make sense of data and transform it into actionable information. This book is designed to be your guide in this exciting and fast-evolving field.
+
+There are numerous data science books, courses, and materials available, catering to different levels of expertise and backgrounds. However, many of these resources assume a strong foundation in computer science, math, or quantitative scientific disciplines. This is because until very recently such career shifts were the typical path to becoming a data scientist (also holds for the author of this book). But more and more universities or higher educational programs start to aim at the formation of a new generation of data scientists. Students which have no prior IT-related formation or scientific degrees. This book is for them! It fills the described gap by providing a comprehensive, hands-on introduction to data science for those who are just starting their journey or considering a career in this fascinating domain.
+
+What sets this book apart from other resources is its focus on accessibility and practicality. We've designed it to be understandable to new undergraduate students, with only basic Python programming and math skills as requirements. You don't need to be an expert in computer science or have a strong background in statistics to grasp the concepts and techniques covered in this book.
+
+Throughout the chapters, you'll find a wealth of hands-on examples and exercises that will help you develop a deep understanding of data science concepts and techniques. By working through these practical examples, you'll be able to apply your newly-acquired knowledge to real-world situations, making you better equipped to tackle data-driven challenges in your chosen field.
+
+We believe that anyone with a curious mind and a passion for learning can excel in data science, regardless of their academic or professional background. This book is our attempt to break down barriers and make data science accessible to a broader audience, empowering not-yet-scientists to become proficient in this essential skill for the modern world.
+
+So, are you ready to embark on your data science journey? Let's dive in and unlock the power of data together!
