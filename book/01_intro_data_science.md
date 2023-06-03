@@ -8,11 +8,10 @@ Many quantitative scientists could also argue that they often do exactly this. T
 
 Beyond the short definition of data science mentioned, opinions on what data science exactly is converge a bit. Frequently this simply depends on the respective application area. Data science in consulting and business often means something different than data science in a more academic environment. However, in most cases, everyone can at least agree on a Venn diagram that is very often used in introductions in this - or slightly modified - form: Data science as the intersection of Digital Techniques (*digital tools/methods*), Statistics, and Domain Expertise.
 
-:::{figure-md} markdown-fig
 <img src="../images/figures_venn_diagram.png" alt="Data Science Venn diagram" width="50%">
 
-This is a caption in **Markdown**!
-::: 
+Venn diagram to indicate the intersection of fields for data science.
+
 
 ### Data is nothing new. So why now data science?
 
