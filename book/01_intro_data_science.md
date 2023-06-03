@@ -8,7 +8,11 @@ Many quantitative scientists could also argue that they often do exactly this. T
 
 Beyond the short definition of data science mentioned, opinions on what data science exactly is converge a bit. Frequently this simply depends on the respective application area. Data science in consulting and business often means something different than data science in a more academic environment. However, in most cases, everyone can at least agree on a Venn diagram that is very often used in introductions in this - or slightly modified - form: Data science as the intersection of Digital Techniques (*digital tools/methods*), Statistics, and Domain Expertise.
 
-<img src="..\images\figures_venn_diagram.png" alt="figures_venn_diagram" style="zoom:30%;" />
+:::{figure-md} markdown-fig
+<img src="../images/figures_venn_diagram.png" alt="Data Science Venn diagram" width="50%">
+
+This is a caption in **Markdown**!
+::: 
 
 ### Data is nothing new. So why now data science?
 
@@ -18,7 +22,7 @@ The prominence of data science in today's world can be attributed to several con
 
 (1) The exponential **increase in the volume of data generated**. Thanks to digitalization and the rise of the Internet, mobile devices, and IoT (Internet of Things), we are producing data at a previously unimaginable scale. This big data presents both a challenge and an opportunity - the challenge being how to handle and process this vast amount of information, and the opportunity being the valuable insights that can be gleaned from it. 
 
-This is accompagnied by an increased recognition of the importance of data-driven decision-making across diverse sectors. Various industries, governments, and institutions have realized that leveraging the power of data can  lead to increased efficiency, better decision-making, and provide a competitive advantage. 
+This is accompanied by an increased recognition of the importance of data-driven decision-making across diverse sectors. Various industries, governments, and institutions have realized that leveraging the power of data can  lead to increased efficiency, better decision-making, and provide a competitive advantage. 
 
 This existence (and appreciation) of larger and larger amounts of data can be seen as a substrate for the rise of data science, but it really needed a combination of several other developments to be able to properly work with such data.
 
@@ -32,4 +36,4 @@ This existence (and appreciation) of larger and larger amounts of data can be se
 
 So, while data is not new, the volume of data, our ability to process it, and the recognition of its value, are. These changes have given rise to the burgeoning field of data science, marking a new era in our relationship with data.
 
-<img src="..\images\figure_foundations_of_data_science_history.png" alt="figures_venn_diagram" style="zoom:50%;" />
+<img src="../images/figure_foundations_of_data_science_history.png" alt="Data Science foundation" style="zoom:50%;" />
