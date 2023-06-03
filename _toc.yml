@@ -1,0 +1,6 @@
+format: jb-book
+root: book/cover
+chapters:
+- file: book/intro
+- file: book/01_intro_data_science
+- file: book/bibliography
