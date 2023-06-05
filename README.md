@@ -1,5 +1,5 @@
-# data_science_course
-Introduction to data science (for not yet scientists)
+# Introduction to data science (for not yet scientists)
+Data Science course developed at the Düsseldorf University of Applied Sciences (HSD) and the Centre for Digitalization and Digitality (ZDD).
 
 
 ## Create new environment for this course (recommended)
