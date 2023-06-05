@@ -15,3 +15,6 @@ Let's delve into each of these aspects in a bit more detail:
 Therefore, the reach of data science is not limited to technology or business; it has immediate societal implications. But let's have a closer look at some specific examples to get a better idea of what this actually means.
 
 ... add examples and images from lecture here...
+
+{cite}`zuboff2019`
+

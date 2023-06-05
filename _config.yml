@@ -12,6 +12,7 @@ execute:
 
 sphinx:
   config:
+    bibtex_reference_style: author_year
     language: en
 
 # Define the name of the latex output file for PDF builds
@@ -29,7 +30,7 @@ parse:
 
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:
-  - references.bib
+  - book/references.bib
 
 # Information about where the book exists on the web
 repository:
