@@ -10,8 +10,7 @@ Beyond the short definition of data science mentioned, opinions on what data sci
 
 <img src="../images/figures_venn_diagram.png" alt="Data Science Venn diagram" width="50%">
 
-Venn diagram to indicate the intersection of fields for data science.
-
+**Figure 1.** Venn diagram to indicate the intersection of fields for data science.
 
 ### Data is nothing new. So why now data science?
 
@@ -36,3 +35,16 @@ This existence (and appreciation) of larger and larger amounts of data can be se
 So, while data is not new, the volume of data, our ability to process it, and the recognition of its value, are. These changes have given rise to the burgeoning field of data science, marking a new era in our relationship with data.
 
 <img src="../images/figure_foundations_of_data_science_history.png" alt="Data Science foundation" style="zoom:50%;" />
+
+**Figure 2.** The concurrent developments leading to Data Science. 
+
+### A brief splotlight: the many facets of Data Science
+
+Data science, by its very nature, stands at the bustling intersection of digital techniques, statistical methodologies, and domain expertise. It is a broad and incredibly diverse field with intricate links to many different sectors and disciplines. This diversity results in a wide variety of roles and responsibilities,  each bringing unique skills and viewpoints to address an array of  challenges and opportunities.
+
+One of the key characteristics that makes data science so dynamic is its inherent multidisciplinarity. Data science **isn't just about dealing with numbers or coding**—it's about leveraging a suite of digital tools and statistical methods to draw insights from data, and applying these insights to a specific context or domain. A data scientist working in healthcare, for instance, might use different techniques and have a different focus than a data scientist working in retail or finance. The beauty of data science lies in this versatility—it is a field where myriad skills and disciplines converge and collaborate.
+
+Given the breadth and depth of the field, being a successful data scientist often requires more than just technical skills. A natural curiosity to explore and understand data, openness to new ideas and methods, the eagerness to continuously learn and adapt, and most crucially, the ability to communicate and collaborate effectively are all vital attributes. After all, data science is a team sport. No single person can master all facets of data science; instead, it's about bringing diverse skills together, working with others, and learning from each other.
+
+In the forthcoming pages, we aim to guide you through the multifaceted world of data science, shedding light on its various dimensions, the skills required, and the myriad ways in which data science can be applied. As you delve deeper into this exciting field, we hope to inspire you with the potential and the possibilities of data science, and prepare you for a journey of continuous learning and discovery. Welcome to the exciting world of data science!
+
