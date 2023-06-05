@@ -40,7 +40,7 @@ In many cases target advertisement does little harm. It might even seem like a w
 
 However, things get a bit more complex when we consider the marketing of more sensitive products. Let's take the example of maternity wear. Suppose a company uses data science to detect early signs of pregnancy, like changes in online shopping behavior. They might then start sending ads for maternity clothes. This could potentially lead to uncomfortable or even harmful situations  ({numref}`fig_advertise03`).  
 
-For instance, what if the individual hasn't yet told their family or friends about the pregnancy? Or, in a more distressing scenario, what if the pregnancy is unwanted, or complications arise? In such cases, receiving maternity ads could cause emotional distress. And it's not limited to maternity products; this applies to any sensitive product or service.
+For instance, what if the individual hasn't yet told their family or friends about the pregnancy? [^target-story].Or, in a more distressing scenario, what if the pregnancy is unwanted, or complications arise? In such cases, receiving maternity ads could cause emotional distress. And it's not limited to maternity products; this applies to any sensitive product or service.
 
 ```{figure} ../images/fig_targeted_advertisement_03.svg
 :name: fig_advertise03
@@ -52,3 +52,6 @@ But even advertisements can quickly turn into ethically much more complicated ma
 
 {cite}`zuboff2019`
 
+
+
+[^target-story]: Such a case around a company called "target" [appeared in 2012 in the New York Times](https://www.nytimes.com/2012/02/19/magazine/shopping-habits.htmlmention) and was often refereed to in debates around the power of "big data" in such a context. Worth noting maybe, that not everyone fully believed the story itself, e.g. this [blog post](https://medium.com/@colin.fraser/target-didnt-figure-out-a-teen-girl-was-pregnant-before-her-father-did-a6be13b973a5).
