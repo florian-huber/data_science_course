@@ -4,5 +4,6 @@ chapters:
 - file: book/intro
 - file: book/01_intro_data_science
 - file: book/02_data_science_ethics_society
+- file: book/03_use_of_this_book
 - file: book/acknowledgements
 - file: book/bibliography
