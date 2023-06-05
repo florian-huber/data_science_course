@@ -14,7 +14,41 @@ Let's delve into each of these aspects in a bit more detail:
 
 Therefore, the reach of data science is not limited to technology or business; it has immediate societal implications. But let's have a closer look at some specific examples to get a better idea of what this actually means.
 
-... add examples and images from lecture here...
+
+
+### Let's look at some examples!
+
+#### Targeted Advertisement - good, bad, neutral?
+
+Even before the digital revolution, targeted advertising was a commonly  used strategy. Businesses would use basic demographic information, such  as age, gender, and location, to tailor their messages to specific  audiences. However, with the advent of the internet and the surge in  digital data, the face of targeted advertising has transformed  completely. Today's targeted ads are not just influenced by basic  personal features but are significantly shaped by individual online behaviors, including search histories, website visits, and social media interactions {numref}`fig_advertise01`. This evolution has ushered in a new era of personalized  advertising, elevating its precision and relevance to unprecedented  levels.
+
+
+
+```{figure} ../images/fig_targeted_advertisement_01.svg
+:name: fig_advertise01
+
+Targeted advertisement can nowadays use much more data and information on a potential customer (here: Alice) when compared to pre-digital times.
+```
+
+You may already be feeling a touch of unease. Is it truly beneficial for companies or other organizations to have access to all this data? On the flip side, consider this: isn't it a **win/win situation**? Companies can reach a much more suitable audience, and individuals  receive advertisements tailored to their profiles and interests. Take, for example, Alice ({numref}`fig_advertise02`).  Because of her age (neither too young nor too old),  location (within 2 hours of the festival venue), and interests (many  likes for Hip-Hop bands), she receives an advertisement for a Hip-Hop  festival. This offer is a clear match for her. However, Alice wouldn't  get a mail catalog for a package tour operator catering to a different  customer profile—typically older and, let's say, less concerned about  the carbon emissions of their tours. That's a plus for Alice. And a plus for both companies, isn't it?
+
+```{figure} ../images/fig_targeted_advertisement_02.svg
+:name: fig_advertise02
+
+In many cases target advertisement does little harm. It might even seem like a win/win situation at first.
+```
+
+However, things get a bit more complex when we consider the marketing of more sensitive products. Let's take the example of maternity wear. Suppose a company uses data science to detect early signs of pregnancy, like changes in online shopping behavior. They might then start sending ads for maternity clothes. This could potentially lead to uncomfortable or even harmful situations  ({numref}`fig_advertise03).  
+
+For instance, what if the individual hasn't yet told their family or friends about the pregnancy? Or, in a more distressing scenario, what if the pregnancy is unwanted, or complications arise? In such cases, receiving maternity ads could cause emotional distress. And it's not limited to maternity products; this applies to any sensitive product or service.
+
+```{figure} ../images/fig_targeted_advertisement_03.svg
+:name: fig_advertise03
+
+But even advertisements can quickly turn into ethically much more complicated matters. 
+```
+
+
 
 {cite}`zuboff2019`
 
