@@ -16,3 +16,4 @@ dependencies:
     - jupyter
     - matplotlib
     - networkx
+    - squarify
