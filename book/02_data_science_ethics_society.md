@@ -48,9 +48,22 @@ For instance, what if the individual hasn't yet told their family or friends abo
 But even advertisements can quickly turn into ethically much more complicated matters. 
 ```
 
+And what if the advertisement is not product in a classical sense, but a high-paying job?
+Consider a study using AdFisher, an automated tool designed to scrutinize the interplay between user behavior, Google ads, and the Ad Settings that Google provides for user control and transparency {cite}`datta2015automated`. During  the course of the research, it was discovered that modifying the user  profile to 'female' surprisingly resulted in fewer advertisements for  high-paying jobs compared to when it was set to 'male' ({numref}`fig_advertise04`).This highlighted a potentially discriminatory consequence of algorithmic  decision-making, underscoring the need for ethical considerations in  data science. Yet, the complexity of the digital ad ecosystem, with its  numerous players, rendered it challenging to definitively pin down the  origin of this bias, illustrating the multifaceted nature of ethical  issues in our field.
+
+```{figure} ../images/fig_targeted_advertisement_04.svg
+:name: fig_advertise04
+
+Advertisments can have potentially large impacts... for instance if we talk about job advertisements. 
+```
+
+A similar study examined Facebook's ad delivery process, revealing  another layer of potential algorithmic discrimination {cite}`Ali_2019`. The research  indicated that, even when advertisers aim for inclusivity in their  targeting parameters, the optimization processes employed by Facebook  could inadvertently skew ad delivery along gender and racial lines. This was particularly evident in advertisements for employment and housing  opportunities. As such, these findings underline the importance of  scrutinizing not just the algorithms behind data analytics but also the  optimization mechanisms of digital platforms themselves, further  emphasizing the role data scientists must play in promoting fairness and preventing discrimination.
+
+OK. here the ethical dimension of the data science application already is fairly obvious. But we can still go a few steps further to even more drastic examples
 
 
-{cite}`zuboff2019`
+
+It is crucial to understand that, from an ethical standpoint, **data is not neutral** {cite}`DataFeminism2020`, and likewise, **algorithms are not neutral** {cite}`Stinson2022`. As (future) data scientists, we must exercise the utmost care when  working with data and algorithms. The examples provided should  illustrate the importance of critically reflecting on the intentions  behind our actions as data scientists. This reflection should encompass  various perspectives to comprehend the "bigger picture". For instance,  Shoshana Zuboff's "The Age of Surveillance Capitalism" {cite}`zuboff2019` delves into how corporations like Google leverage users' personal data, or "behavioral surplus", to customize advertisements, essentially  transforming users into products. Zuboff criticizes this practice,  asserting that it undermines individuals' autonomy and capacity to  influence their future. She proposes regulations and corporate  accountability to ensure that technology benefits users rather than  merely serving large corporations. Hence, the fact that we, as data  scientists, *can* potentially extract maximum information or yield the "best" predictions from data does not mean we *should* do so. Complex? Yes, but remember the wisdom of Spider-Man: *with great power comes great responsibility*!
 
 
 
