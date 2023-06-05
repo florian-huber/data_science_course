@@ -38,7 +38,7 @@ You may already be feeling a touch of unease. Is it truly beneficial for compani
 In many cases target advertisement does little harm. It might even seem like a win/win situation at first.
 ```
 
-However, things get a bit more complex when we consider the marketing of more sensitive products. Let's take the example of maternity wear. Suppose a company uses data science to detect early signs of pregnancy, like changes in online shopping behavior. They might then start sending ads for maternity clothes. This could potentially lead to uncomfortable or even harmful situations  ({numref}`fig_advertise03).  
+However, things get a bit more complex when we consider the marketing of more sensitive products. Let's take the example of maternity wear. Suppose a company uses data science to detect early signs of pregnancy, like changes in online shopping behavior. They might then start sending ads for maternity clothes. This could potentially lead to uncomfortable or even harmful situations  ({numref}`fig_advertise03`).  
 
 For instance, what if the individual hasn't yet told their family or friends about the pregnancy? Or, in a more distressing scenario, what if the pregnancy is unwanted, or complications arise? In such cases, receiving maternity ads could cause emotional distress. And it's not limited to maternity products; this applies to any sensitive product or service.
 
