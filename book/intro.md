@@ -8,6 +8,8 @@ What sets this book apart from other resources is its focus on accessibility and
 
 Throughout the chapters, you'll find a wealth of hands-on examples and exercises that will help you develop a deep understanding of data science concepts and techniques. By working through these practical examples, you'll be able to apply your newly-acquired knowledge to real-world situations, making you better equipped to tackle data-driven challenges in your chosen field.
 
-We believe that anyone with a curious mind and a passion for learning can excel in data science, regardless of their academic or professional background. This book is our attempt to break down barriers and make data science accessible to a broader audience, empowering not-yet-scientists to become proficient in this essential skill for the modern world.
+We firmly believe that becoming proficient in data science is within reach for anyone who possesses a combination of intellectual curiosity, a passion for learning, and a knack for logical puzzles or detective work. Additionally, a basic affinity for math and statistics goes a long way. Your academic or professional background doesn't define your potential in data science. Rather, your perseverance, your willingness to engage with complex problems, and your commitment to continuous learning will be your guiding stars.
 
-So, are you ready to embark on your data science journey? Let's dive in and unlock the power of data together!
+This book represents our endeavor to dismantle any perceived barriers in your way, aiming to make data science comprehensible and accessible to a wide range of readers. We aim to empower aspiring data scientists to acquire and master the essential skills needed in an increasingly data-driven world.
+
+So, are you ready to embark on your data science journey? Let's dive in and learn how to do the detective work of a data scientist to extract new knowledge from complex data.
