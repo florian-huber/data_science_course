@@ -3,7 +3,7 @@
 
 title: Data Science for (not yet) scientists
 author: Florian Huber
-logo: logo.png
+logo: images/logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html

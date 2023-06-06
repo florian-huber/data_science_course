@@ -1,9 +1,19 @@
 format: jb-book
 root: book/cover
-chapters:
-- file: book/intro
-- file: book/01_intro_data_science
-- file: book/02_data_science_ethics_society
-- file: book/03_use_of_this_book
-- file: book/acknowledgements
-- file: book/bibliography
+parts:
+  - caption: Introduction
+    numbered: true  # Only applies to chapters in Part 1.
+    chapters:
+    - file: book/intro
+    - file: book/01_intro_data_science
+    - file: book/02_data_science_ethics_society
+    - file: book/03_use_of_this_book
+  - caption: Data Science Basics
+    numbered: true
+    chapters:
+    - file: notebooks/live_coding_11_text_handling_NLP_2_book
+    - file: notebooks/live_coding_11_NLP_3_tfifd_and_machine_learning
+  - caption: References
+    chapters:
+    - file: book/acknowledgements
+    - file: book/bibliography
