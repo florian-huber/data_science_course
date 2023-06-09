@@ -8,6 +8,22 @@ While there's no singular correct way to utilize a textbook, we're here  to prov
 
 
 
+## Skills you should have to work with this book
+
+- Python programming basics (variables, basic data types, loops, functions, module imports)
+  --> Can be learned here... here...here
+- High school math skills (basics statistics, basic algebra)
+
+
+
+## Open source libraries
+
+In this book we make use of many great python libraries, all of which are freely available online thanks to a fantastic open source community that drives the Python ecosystem.
+
+--> add citations for numpy, pandas, scipy, scitkit-learn etc.
+
+
+
 ## Setting Up Your Environment
 
 ### Prerequisites
