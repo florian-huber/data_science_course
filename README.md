@@ -12,3 +12,11 @@ Then, in the folder with the `environment.yml` file simply run:
 conda env create -f environment.yml
 ```
 This should create a Python 3.9 environment with the packages listed in the yaml-file.
+
+
+## Build book using *Jupter Book*
+
+The current book project is meant to be generated using [*Jupyter Book*](https://jupyterbook.org). Once installed run the following terminal command from the cloned folder:
+```
+jupyter-book build . 
+```
