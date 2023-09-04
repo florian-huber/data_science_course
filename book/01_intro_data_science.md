@@ -22,23 +22,25 @@ The prominence of data science in today's world can be attributed to several con
 
 This is accompanied by an increased recognition of the importance of data-driven decision-making across diverse sectors. Various industries, governments, and institutions have realized that leveraging the power of data can  lead to increased efficiency, better decision-making, and provide a competitive advantage. 
 
-This existence (and appreciation) of larger and larger amounts of data can be seen as a substrate for the rise of data science, but it really needed a combination of several other developments to be able to properly work with such data.
+This existence (and appreciation) of larger and larger amounts of data can be seen as a substrate for the rise of data science, but it really needed a combination of several other developments to be able to properly work with such data ({numref}`fig_historical_streams`).
 
 (2) The evolution and expansion of **statistical methodologies** have been a key driver. Statistics provide the foundational principles and techniques  for analyzing data, making inferences, and predicting future trends. In the era of big data, classical and modern statistical techniques form the backbone of most analyses in data science. The relationship is actually so close, that in the 1990s statisticians like Jeff Wu even suggested renaming statistics to "Data Science" (despite all overlap, both terms still exist, and mean related but different things).
 
 (3) The strides we've made in **data handling capabilities** have greatly facilitated the rise of data science. This obviously includes the drastic advancements in computational power and storage capabilities which made it possible to collect, store, and analyze these massive datasets. But this also includes many developments from computer science such as databases. Just a few decades ago, collecting, storing, and analyzing the vast  amounts of data we deal with today would have been unimaginable, let alone impractical.
 
-(4) There has been significant progress in the field of **algorithms** including the field of machine learning, which are essential tools for understanding and interpreting data. These advancements have opened up new possibilities for predictive analytics, automation, and artificial intelligence.
+(4) There has been significant progress in the field of **algorithms** which also includes machine learning. It is algorithms, which are at the hear of nearly every tool that we use as data scientists for understanding and interpreting data. This can be optimization methods dating back more than 200 years (e.g., least square method) all the way to current deep learning approaches. These advancements have opened up new possibilities for predictive analytics, automation, and artificial intelligence.
 
-(5) Lastly, the often-underestimated field of **data visualization** has seen revolutionary advancements. Effective data visualization makes complex data more comprehensible, accessible, and actionable. The development of powerful visualization tools enables us to present data in a visually  compelling manner that fosters understanding and drives informed decisions.
+(5) Lastly, the often-underestimated field of **data visualization** has seen revolutionary advancements. Effective data visualization makes complex data more comprehensible, accessible, and actionable. The development of powerful visualization tools enables us to present data in a visually compelling manner that fosters understanding and drives informed decisions.
 
 So, while data is not new, the volume of data, our ability to process it, and the recognition of its value, are. These changes have given rise to the burgeoning field of data science, marking a new era in our relationship with data.
 
-<img src="../images/figure_foundations_of_data_science_history.png" alt="Data Science foundation" style="zoom:50%;" />
+```{figure} ../images/figure_foundations_of_data_science_history.png
+:name: fig_historical_streams
 
-**Figure 2.** The concurrent developments leading to Data Science. 
+The concurrent developments leading to Data Science [^bayes_and_gauss].
+```
 
-### A brief splotlight: the many facets of Data Science
+### A brief spotlight: the many facets of Data Science
 
 Data science, by its very nature, stands at the bustling intersection of digital techniques, statistical methodologies, and domain expertise. It is a broad and incredibly diverse field with intricate links to many different sectors and disciplines. This diversity results in a wide variety of roles and responsibilities,  each bringing unique skills and viewpoints to address an array of  challenges and opportunities.
 
@@ -48,3 +50,6 @@ Given the breadth and depth of the field, being a successful data scientist ofte
 
 In the forthcoming pages, we aim to guide you through the multifaceted world of data science, shedding light on its various dimensions, the skills required, and the myriad ways in which data science can be applied. As you delve deeper into this exciting field, we hope to inspire you with the potential and the possibilities of data science, and prepare you for a journey of continuous learning and discovery. Welcome to the exciting world of data science!
 
+
+
+[^bayes_and_gauss]: Images of [Thomas Bayes](https://commons.wikimedia.org/wiki/File:Thomas_Bayes.gif) and [Carl Friedrich Gauß](https://commons.wikimedia.org/wiki/File:Bendixen_-_Carl_Friedrich_Gau%C3%9F,_1828.jpg) taken from Wikipedia. For Thomas Bayes it is not even fully certain that the image actually of him.
