@@ -1,4 +1,4 @@
-# Data Science for (Not-Yet) Scientists
+# Introduction to Data Science (for not-yet scientists)
 
 **by Florian Huber**
 
