@@ -1,0 +1,29 @@
+name: deploy-book
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Tag for manually running the deploy book workflow
+        required: True
+        default: ''
+
+# This job installs dependencies, builds the book #TODO: and pushes it to `gh-pages`
+jobs:
+  deploy-book:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          mamba-version: "*"
+          use-mamba: true
+          environment-file: environment.yml
+
+      # Build the book
+      - name: Build the book
+        run: |
+          pip install jupyter-book
+          jupyter-book build .
