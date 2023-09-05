@@ -1,0 +1,21 @@
+name: deploy-book
+
+on:
+  push:
+    branches:
+    - main
+
+# This job installs dependencies, builds the book #TODO: and pushes it to `gh-pages`
+jobs:
+  deploy-book:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          environment-file: environment.yml
+
+      # Build the book
+      - name: Build the book
+        run: |
+          jupyter-book build .
