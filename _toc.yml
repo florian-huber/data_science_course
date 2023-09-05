@@ -11,8 +11,9 @@ parts:
   - caption: Data Science Basics
     numbered: true
     chapters:
-    - file: notebooks/live_coding_11_text_handling_NLP_2_book
-    - file: notebooks/live_coding_11_NLP_3_tfifd_and_machine_learning
+    - file: book/04_data_and_types
+    - file: book/05_data_information_knowledge
+    - file: book/06_data_science_workflow
   - caption: References
     chapters:
     - file: book/acknowledgements
