@@ -1,9 +1,14 @@
 name: deploy-book
 
 on:
-  push:
-    branches:
-    - main
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Tag for manually running the deploy book workflow
+        required: True
+        default: ''
 
 # This job installs dependencies, builds the book #TODO: and pushes it to `gh-pages`
 jobs:
