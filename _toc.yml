@@ -11,9 +11,27 @@ parts:
   - caption: Data Science Basics
     numbered: true
     chapters:
-    - file: notebooks/live_coding_11_text_handling_NLP_2_book
+    - file: book/04_data_and_types
+    - file: book/05_data_information_knowledge
+    - file: book/06_data_science_workflow
+    - file: notebooks/live_coding_04_distributions_statistical_measures
+  - caption: Working with text data
+    numbered: true
+    chapters:
+    - file: notebooks/live_coding_10_working_with_text_data
+    - file: notebooks/live_coding_11_NLP_2_tokenization
     - file: notebooks/live_coding_11_NLP_3_tfifd_and_machine_learning
+    - file: notebooks/live_coding_12_NLP_4_ngrams_word_vectors
+  - caption: Look at the networks
+    numbered: true
+    chapters:
+    - file: notebooks/live_coding_13_graphs
+    - file: notebooks/live_coding_14_graph_visualization
+    - file: notebooks/live_coding_14_graphs_part2
   - caption: References
     chapters:
     - file: book/acknowledgements
     - file: book/bibliography
+  - caption: Source Code and Contributions
+    chapters:
+    - file: book/github

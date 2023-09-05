@@ -1,26 +1,40 @@
 # How to use this book (... if you ask us)
 
-While there's no singular correct way to utilize a textbook, we're here  to provide some guidance on how we intended this resource to be used.  Plus, we'll throw in a few tips based on our years of experience in  teaching data science.
+This textbook has been crafted with attention to detail to facilitate  your journey into data science. However, the essence of its usefulness  lies in how you engage with its content. Here's some advice to optimize  your learning experience:
 
-- Progress at your own speed. If certain concepts seem challenging, don't  rush. Invest some time in looking for supplementary material online  (e.g., tutorials, videos, forums, etc.) that can provide further  clarity.)
-- Reading this book alone won't transform you into a data scientist. To  truly learn data science, you need to actively engage in coding and  working with real data sets. Observing code and nodding along saying,  "yeah, I got it" is not equivalent to having mastered it! We can't  stress this enough - the most prevalent pitfall many students succumb to is passive learning. The true test of your understanding comes when you can independently apply the skills, starting from scratch, not merely  copying, pasting, and executing someone else's code.
-- While chatbots can serve as helpful data science assistants, they are  not a substitute for your active learning. We firmly believe that the  path to becoming a competent data scientist involves learning how to  solve challenges on your own. Relying on a chatbot for answers is akin  to copying solutions from another student or a forum. While this  approach may help you complete your exercises in the short run, it won't contribute much to your long-term learning and skill development.
+- **Progress at Your Own Speed**: Data science is a vast field, and everyone has their own pace. If you find certain concepts daunting, pause and seek additional  resources. The internet is full of tutorials, videos, courses, and forums on practically all aspects that we cover in this book. The key is patience and persistence.
+- **Learning by Doing**: Reading this book alone won't transform you into a data scientist. To truly learn data science, you need to actively engage in coding and working with real data sets. Observing code and nodding along saying,  "yeah, I got it" is usually very away from having mastered it! We can't stress this enough - the most prevalent pitfall many students succumb to is passive learning! The true test of your understanding comes when you can independently apply the skills, starting from scratch, not merely copying, pasting, and executing someone else's code.
+- **Lean on Tech, But Don't Rely on It**: While chatbots can serve as helpful data science assistants, they are not a substitute for your active learning. We firmly believe that the  path to becoming a competent data scientist involves learning how to  solve challenges on your own. Relying on a chatbot for answers is akin to copying solutions from another student or a forum. While this approach may help you complete your exercises in the short run, it won't contribute much to your long-term learning and skill development.
 
 
 
 ## Skills you should have to work with this book
 
-- Python programming basics (variables, basic data types, loops, functions, module imports)
-  --> Can be learned here... here...here
-- High school math skills (basics statistics, basic algebra)
+- **Python Programming Basics**: Understanding of variables, fundamental data types, loops, functions, and module imports are essential. If you're new to Python or need a refresher, consider resources like [Python.org's Beginner's Guide](https://docs.python.org/3/tutorial/index.html), [RealPython](https://realpython.com/), or [GeeksforGeeks Python Programming Language](https://www.geeksforgeeks.org/python-programming-language/).
+- **High School Math Skills**: Basic knowledge of statistics and algebra will serve you well.
 
 
+
+## Why Python?
+
+Python, over the years, has emerged as the lingua franca of data science. But why?
+
+1. **Versatile Libraries**: Python boasts an array of libraries such as NumPy, pandas, and scikit-learn, specifically tailored for data science tasks.
+2. **Community Support**: The vast Python community ensures regular updates, myriad tutorials, and instant help on forums.
+3. **Intuitive Syntax**: Python's clear and readable syntax makes it perfect for beginners.
+4. **Flexibility**: Python seamlessly integrates with other languages, making it ideal for diverse tasks.
+5. **Industry Adoption**: Major tech companies use Python, ensuring ample job opportunities.
+
+While languages like R and tools like KNIME have their strengths, Python's holistic ecosystem and adaptability make it the preferred choice for many. All code examples in this book will be written in Python.
 
 ## Open source libraries
 
-In this book we make use of many great python libraries, all of which are freely available online thanks to a fantastic open source community that drives the Python ecosystem.
+Python's prowess in data science can be attributed to its incredible libraries. These libraries, backed by a robust open-source community, are the backbone of various data operations:
 
---> add citations for numpy, pandas, scipy, scitkit-learn etc.
+- **NumPy**: Fundamental package for numerical computations in Python. [NumPy Documentation](https://numpy.org/doc/)
+- **pandas**: Offers data structures and operations for manipulating numerical tables and time series. [pandas Documentation](https://pandas.pydata.org/docs/)
+- **SciPy**: Builds on NumPy and provides a large number of functions that operate on NumPy arrays and are useful for different types of scientific and engineering applications. [SciPy Documentation](https://docs.scipy.org/doc/scipy/reference/)
+- **scikit-learn**: Simple and efficient tools for data mining and data analysis. [scikit-learn Documentation](https://scikit-learn.org/stable/documentation.html)
 
 
 
