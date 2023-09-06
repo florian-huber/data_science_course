@@ -27,10 +27,6 @@ jobs:
         run: |
           which python
           python --version
-      - name: Show conda info and list
-        run: |
-          conda info
-          conda list
       - name: Show pip list
         run: |
           pip list
