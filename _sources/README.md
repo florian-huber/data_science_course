@@ -1,3 +1,9 @@
+[![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://florian-huber.github.io/data_science_course/)
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/florian-huber/data_science_course/deploy_book.yml?label=Deploy%20book)
+
+
+
+
 # Introduction to data science (for not yet scientists)
 Data Science course developed at the Düsseldorf University of Applied Sciences (HSD) and the Centre for Digitalization and Digitality (ZDD).
 

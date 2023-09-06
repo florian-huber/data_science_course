@@ -11,7 +11,7 @@ This textbook has been crafted with attention to detail to facilitate  your jour
 ## Skills you should have to work with this book
 
 - **Python Programming Basics**: Understanding of variables, fundamental data types, loops, functions, and module imports are essential. If you're new to Python or need a refresher, consider resources like [Python.org's Beginner's Guide](https://docs.python.org/3/tutorial/index.html), [RealPython](https://realpython.com/), or [GeeksforGeeks Python Programming Language](https://www.geeksforgeeks.org/python-programming-language/).
-- **High School Math Skills**: Basic knowledge of statistics and algebra will serve you well.
+- At least **High School Math Skills**: Basic knowledge of statistics and algebra will serve you well, for instance to better understand the methods and their caveats.
 
 
 

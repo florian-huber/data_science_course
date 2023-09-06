@@ -1,4 +1,4 @@
-## What is Data Science?
+# What is Data Science?
 
 Short answer, if we have to break it down to one sentence: **Data Science ≈ "Gaining and communicating insights from complex data through digital techniques"**.
 
@@ -12,7 +12,7 @@ Beyond the short definition of data science mentioned, opinions on what data sci
 
 **Figure 1.** Venn diagram to indicate the intersection of fields for data science.
 
-### Data is nothing new. So why now data science?
+## Data is nothing new. So why now data science?
 
 Data has been a cornerstone of human understanding for millennia - from  ancient civilizations keeping records of harvests and astronomy, to  modern businesses tracking sales and performance. It's clear that data  in itself is not a new concept. However, the emergence and ascendancy of data science as a discipline is a relatively recent phenomenon. So, why now?
 
@@ -40,7 +40,8 @@ So, while data is not new, the volume of data, our ability to process it, and th
 The concurrent developments leading to Data Science [^bayes_and_gauss].
 ```
 
-### A brief spotlight: the many facets of Data Science
+(facets_of_data_science)=
+## A brief spotlight: the many facets of Data Science
 
 Data science, by its very nature, stands at the bustling intersection of digital techniques, statistical methodologies, and domain expertise. It is a broad and incredibly diverse field with intricate links to many different sectors and disciplines. This diversity results in a wide variety of roles and responsibilities,  each bringing unique skills and viewpoints to address an array of  challenges and opportunities.
 
