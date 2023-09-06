@@ -10,7 +10,7 @@ While the last chapter hinted that there's no universally accepted data science 
 - Linear workflows, like **OSEMN** (Obtain, Scrub, Explore, Model, and iNterpret), tend to have a start and end. However, it's essential to understand that even in these linear models, iterations within steps are common {cite}`mason_osemn_2010`.
 - There are also **tree-like workflows**, where after a certain step, the process might branch out into multiple paths, reflecting the multifaceted nature of some data science projects {cite}`guo_data_2022`.
 
-In this book, we'll be introducing our tailored workflow called **ASEMIC** ({numref}`fig_asemic_sketch`). Inspired by OSEMN, this framework is designed to capture the essence of a typical data science project while allowing for flexibility. The ASEMIC model comprises:
+In this book, we'll be introducing our tailored workflow called **ASEMIC** ({numref}`fig_asemic_sketch`). Inspired by OSEMN, this framework is designed to capture the essence of a typical data science project while allowing for flexibility. Important to note is that the data science typically is linked to overarching questions or tasks. Those will largely determine the many decisions we have to take in every phase of our workflow. The ASEMIC model comprises:
 
 - **A**cquire data: This is where we obtain our raw data, the foundation of our entire project.
 - **S**crub data: Data is rarely perfect. In this phase, we clean our data by handling missing values, outliers, and errors.
@@ -37,4 +37,4 @@ More detailed sketch of the ASEMIC data science workflow, highlighting the inter
 
 Drawing parallels with the detective analogy: imagine a detective, after gathering all evidence (Acquire), ensures they're all pertinent and discards the irrelevant ones (Scrub). They then analyze the evidence, looking for patterns or connections (Explore), formulate a theory about the crime (Model), assess how well this theory fits with the facts (Interpret), and finally present their findings to their team or in court (Communicate). Just as a detective might revisit a crime scene or re-interview a witness based on new findings, a data scientist might loop back to earlier steps based on new insights or challenges.
 
-In subsequent sections, we'll delve deeper into each step of the ASEMIC workflow, arming you with the tools, techniques, and knowledge you need to navigate your data science journey.
+In the following sections, we'll use the ASEMIC workflow to navigate through a large variety of data science techniques from data handling to analysis, interpretation, and visualization.

@@ -12,6 +12,7 @@ The "DIKW Pyramid" (Data - Information - Knowledge - Wisdom) beautifully visuali
 
 ```{figure} ../images/fig_DIKW_pyramid.png
 :name: fig_DIKW_pyramid
+:width: 75%
 
 The DIKW Pyramid. [Source: wikipedia](https://en.wikipedia.org/wiki/DIKW_pyramid#/media/File:DIKW_Pyramid.svg)
 ```
