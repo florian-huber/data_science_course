@@ -1,5 +1,7 @@
 [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://florian-huber.github.io/data_science_course/)
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/florian-huber/data_science_course/deploy_book.yml?label=Deploy%20book)
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/florian-huber/data_science_course/CI_tests.yml)
+
 
 
 
