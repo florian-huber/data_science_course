@@ -19,6 +19,10 @@ parts:
     chapters:
     - file: book/07_data_acquisition_and_preparation
     - file: notebooks/live_coding_04_distributions_statistical_measures
+  - caption: In-depth Data Exploration
+    numbered: true
+    chapters:
+    - file: notebooks/live_coding_05_correlation_analysis
   - caption: Working with text data
     numbered: true
     chapters:
