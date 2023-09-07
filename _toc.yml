@@ -14,6 +14,9 @@ parts:
     - file: book/04_data_and_types
     - file: book/05_data_information_knowledge
     - file: book/06_data_science_workflow
+  - caption: Data acquisition and first exploration
+    numbered: true
+    chapters:
     - file: book/07_data_acquisition_and_preparation
     - file: notebooks/live_coding_04_distributions_statistical_measures
   - caption: Working with text data
