@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>5. Data and Data Types &#8212; Data Science for (not yet) scientists</title>
+    <title>8. Data Acquisition &amp; Preparation &#8212; Data Science for (not yet) scientists</title>
   
   
   
@@ -61,11 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'book/04_data_and_types';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/07_data_acquisition_and_preparation';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="6. Data - Information - Knowledge" href="05_data_information_knowledge.html" />
-    <link rel="prev" title="4. How to use this book (… if you ask us)" href="03_use_of_this_book.html" />
+    <link rel="next" title="9. First Data Exploration" href="../notebooks/live_coding_04_distributions_statistical_measures.html" />
+    <link rel="prev" title="7. Data Science Workflow" href="06_data_science_workflow.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -164,14 +164,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="03_use_of_this_book.html">4. How to use this book (… if you ask us)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Science Basics</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">5. Data and Data Types</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="04_data_and_types.html">5. Data and Data Types</a></li>
 <li class="toctree-l1"><a class="reference internal" href="05_data_information_knowledge.html">6. Data - Information - Knowledge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="06_data_science_workflow.html">7. Data Science Workflow</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data acquisition and first exploration</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="07_data_acquisition_and_preparation.html">8. Data Acquisition &amp; Preparation</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Data Acquisition &amp; Preparation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_04_distributions_statistical_measures.html">9. First Data Exploration</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
@@ -254,7 +254,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/florian-huber/data_science_course/issues/new?title=Issue%20on%20page%20%2Fbook/04_data_and_types.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/florian-huber/data_science_course/issues/new?title=Issue%20on%20page%20%2Fbook/07_data_acquisition_and_preparation.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -284,7 +284,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/book/04_data_and_types.md" target="_blank"
+      <li><a href="../_sources/book/07_data_acquisition_and_preparation.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -366,7 +366,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Data and Data Types</h1>
+    <h1>Data Acquisition & Preparation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -376,9 +376,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#history-of-data">5.1. History of Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">5.2. Data Types</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-data">5.3. Big Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-acquisition">8.1. Data Acquisition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-considerations">8.1.1. Key Considerations:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-data-sources">8.1.2. Common Data Sources:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remember-crap-in-crap-out">8.1.3. Remember: Crap in, Crap out!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise-hypothetical-scenario">8.1.4. <strong>Mini-Exercise: Hypothetical Scenario</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">8.2. Data Cleaning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dealing-with-missing-values">8.2.1. Dealing with Missing Values:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-challenges">8.2.2. Typical Challenges:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-cleaning-steps">8.2.3. Further Cleaning Steps:</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -390,92 +400,84 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="data-and-data-types">
-<h1><span class="section-number">5. </span>Data and Data Types<a class="headerlink" href="#data-and-data-types" title="Permalink to this heading">#</a></h1>
-<p>There are many different definitions for the term <strong>data</strong> [add refs]. Here’s one of them, which will do for us to start with:</p>
-<blockquote>
-<div><p>Data ≈ values or findings obtained through observations, measurements, etc.</p>
-</div></blockquote>
-<section id="history-of-data">
-<h2><span class="section-number">5.1. </span>History of Data<a class="headerlink" href="#history-of-data" title="Permalink to this heading">#</a></h2>
-<p>A characteristic of data is that it must be measured or recorded. Hence, data is as old as the oldest human systems for recording data. One of the earliest remnants of such an endeavor is the Ishango bone, estimated to be around 20,000 years old <span id="id1">[<a class="reference internal" href="bibliography.html#id21" title="Vladimir Pletser and Dirk Huylebrouck. The Ishango Artefact: the Missing Base 12 Link. Forma, 1999.">Pletser and Huylebrouck, 1999</a>]</span>. This artifact, displaying systematic notches grouped in blocks, resembles an ancient tally stick, hinting at our ancestral drive to count or record.</p>
-<p>The very essence of data collection goes hand in hand with the birth of writing and symbolic representation. Surprisingly (to me at least), the oldest instances of these systems were not used to create elaborate letters, prose, or captivating stories. Instead, they were wielded for what may seem mundane today: collect and manage taxes and outstanding services. This fits to a saying that is linked to Benjamin Franklin: <em>“…in this world nothing can be said to be certain, except death and taxes”</em>.</p>
-<p>While data has been collected and used for millennia, the term itself is relatively nascent. Originating from the Latin word <em>datum</em>, which means “given”, the English adoption of <em>data</em> is believed to have been in the 1640s. The evolution of the term  underscores our ever-growing understanding and reliance on the  structured representation of knowledge.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="data-acquisition-preparation">
+<h1><span class="section-number">8. </span>Data Acquisition &amp; Preparation<a class="headerlink" href="#data-acquisition-preparation" title="Permalink to this heading">#</a></h1>
+<p>The foundational pillar of any data science project lies in the data itself. Sounds obvious, yet in practice many aspiring data scientists will still be surprised by <strong>how much the quality and quantity of data matters for the success of a data science project</strong>. Without pertinent and high-quality data, even the most sophisticated algorithms will fall short of producing meaningful results. This chapter aims at building a first intuition about the process of data acquisition and preparation, elucidating best practices to ensure your data science journey is built on solid ground.</p>
+<section id="data-acquisition">
+<h2><span class="section-number">8.1. </span>Data Acquisition<a class="headerlink" href="#data-acquisition" title="Permalink to this heading">#</a></h2>
+<p>Before plunging into data collection, it’s imperative to ask: What’s the problem at hand? What kind of data do we need to address it?</p>
+<section id="key-considerations">
+<h3><span class="section-number">8.1.1. </span>Key Considerations:<a class="headerlink" href="#key-considerations" title="Permalink to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Type of Data Needed</strong>: What kind of information will help address the problem? Is it quantitative, qualitative, temporal, or spatial?</p></li>
+<li><p><strong>Data Quality and Quantity</strong>: Do the data offer enough breadth and depth to draw meaningful conclusions? Are there gaps or inconsistencies that might pose challenges?</p></li>
+<li><p><strong>Data Sources</strong>: Is the data readily available? If not, where can one procure it?</p></li>
+<li><p><strong>Usage Restrictions</strong>: Are there any commercial or privacy restrictions tied to the data?</p></li>
+</ol>
 </section>
-<section id="data-types">
-<h2><span class="section-number">5.2. </span>Data Types<a class="headerlink" href="#data-types" title="Permalink to this heading">#</a></h2>
-<p>Before we dive deeper into how to acquire and process data, we first need to know some fundamental terms and their distinctions.</p>
-<p><strong>Structured vs. Unstructured Data</strong></p>
-<p>At the crux of data storage and management lie two primary categories: structured and unstructured data.</p>
-<p><em>Structured data</em> is organized into a defined schema or format. It’s easy to search, manipulate, and analyze because of its systematic arrangement, often in rows and columns. Examples include relational databases and CSV files, but you can also just think of this as any data that you could meaningfully display in Microsoft Excel.</p>
-<p>Conversely, <em>unstructured data</em> doesn’t simply fit into a table. Or, we would say that this data has no specific form or model. As an important consequence, such data is typically harder to classify and analyze using traditional methods. Text documents, videos, and social media posts are common examples of unstructured data.</p>
-<p><strong>Feature vs. Data Points and the Dimensionality of Data</strong></p>
-<p>When we speak of data, especially in tables, we refer to <em>features</em> (or variables or attributes… this all depends on the domain or discipline people come from) and <em>data points</em>. Features are the distinct attributes or properties of the data set. In tabular data, these often appear as columns. For instance, in a table cataloging books, features might include “Title”, “Author”, and “Publication Year”.</p>
-<p>On the other hand, <em>data points</em> are individual pieces of information, often represented as rows in tabular data. For example, each book listed in the aforementioned table would be a data point.</p>
-<p>The concept of dimensionality arises from the number of features. A table with three features is 3-dimensional, while one with 15 features is 15-dimensional. Understanding dimensionality is crucial, especially in domains like machine learning, where high-dimensionality can lead to challenges such as the “curse of dimensionality”.</p>
-<p><strong>Data vs. Metadata</strong></p>
-<p>While <em>data</em> represents the core information we aim to analyze or utilize, <em>metadata</em> is the information about this data. It describes the data’s context, quality, condition, origin, and other characteristics. If data is a book, metadata is the blurb on the back, providing insights about its content, author, and publication details.</p>
-<p><strong>Categorical vs. Numerical Data</strong></p>
-<p><em>Data</em> can often be pigeonholed into categorical or numerical types.</p>
-<p><em>Categorical data</em> is data that can be divided into specific categories but doesn’t have any inherent order or hierarchy. For instance, the colors of a shirt (blue, red, green) are categorical.</p>
-<p><em>Numerical data</em>, as the name suggests, relates to numbers and can be further split into discrete (countable) and continuous (measurable) data. Age, height, and weight are all examples of numerical data.</p>
-<p><strong>Scale Types: An Overview</strong></p>
-<p>Delving deeper into data characterization, we encounter different scales that data can adhere to:</p>
+<section id="common-data-sources">
+<h3><span class="section-number">8.1.2. </span>Common Data Sources:<a class="headerlink" href="#common-data-sources" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
-<li><p><em>Nominal scale</em>: This is the most basic level, used for labeling variables without any quantitative value. It’s the realm of categorical data, like gender or ethnicity.</p></li>
-<li><p><em>Ordinal scale</em>: It denotes categories with a set order or rank. Though there’s a hierarchy, the intervals between the ranks aren’t uniformly defined. Examples include rating scales of “low”, “medium”, and “high”.</p></li>
-<li><p><em>Interval scale</em>: This is numerical data where the intervals between numbers are consistently uniform, but there isn’t a true zero. Temperature, for example, is on an interval scale as 0°C doesn’t signify a lack of temperature.</p></li>
-<li><p><em>Ratio scale</em>: This scale boasts all the properties of the interval scale, but with a clear definition of zero. Length, weight, and age are examples of data on a ratio scale.</p></li>
+<li><p><strong>The Internet I</strong>: A vast ocean of data. Public datasets are easily accessible and can be sourced from governmental agencies, NGOs, or platforms like Kaggle, Zenodo, and UCI.</p></li>
+<li><p><strong>The Internet II</strong>: Web scraping is akin to a treasure hunt, extracting valuable data directly from web pages, given that you respect the legal and ethical boundaries.</p></li>
+<li><p><strong>Internal Corporate Data</strong>: Picture a gold mine that a company sits upon; these are years’ worth of data that can unearth invaluable insights if analyzed correctly.</p></li>
+<li><p><strong>Academic Data</strong>: Scientifically collected and often meticulously maintained, these datasets can be found accompanying research papers.</p></li>
+<li><p><strong>Data Upon Request</strong>: Sometimes, just asking can open doors. Organizations might share data if approached correctly and for a worthy cause.</p></li>
+<li><p><strong>Commercial Datasets</strong>: There are instances when investing in a dataset can prove to be more cost-effective than collecting data from scratch.</p></li>
 </ul>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Scale</p></th>
-<th class="head"><p>Level</p></th>
-<th class="head"><p>Possible Operations</p></th>
-<th class="head"><p>Typical Data Type</p></th>
-<th class="head"><p>Example</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Categorical</p></td>
-<td><p>Nominal</p></td>
-<td><p>Frequencies</p></td>
-<td><p>string</p></td>
-<td><p>[red, yellow, blue]</p></td>
-</tr>
-<tr class="row-odd"><td><p>Categorical</p></td>
-<td><p>Ordinal</p></td>
-<td><p>Median, Quantiles</p></td>
-<td><p>string</p></td>
-<td><p>[good, average, bad]</p></td>
-</tr>
-<tr class="row-even"><td><p>Numerical</p></td>
-<td><p>Interval</p></td>
-<td><p>Means, Variances, Addition, Subtraction</p></td>
-<td><p>int, float</p></td>
-<td><p>Temperature in Celsius (5°C is <strong>not</strong> five times as warm as 1°C)</p></td>
-</tr>
-<tr class="row-odd"><td><p>Numerical</p></td>
-<td><p>Ratio</p></td>
-<td><p>Means, Variances, Addition, Subtraction, Multiplication, Division</p></td>
-<td><p>int, float</p></td>
-<td><p>Lengths, Sizes, Weights, Monetary amounts …</p></td>
-</tr>
-</tbody>
-</table>
+<p>In some data science projects we will start with an already prepared dataset, while in other projects the collection of data can be major (and time consuming!) part of the project itself. It can even happen that we need to reconsider some of our initial targets and strategies if we do not manage to collect the data as expected.</p>
+<p>Once we do hold the data in our hands (well, rather on a disk or cloud drive), we further need to make sure that the data is technically, legally, or quality-wise suitable for what we plan to do with the data in the following phases.</p>
+<p>Once the data is in your hands, several pivotal steps ensure its quality and relevance:</p>
+<ul class="simple">
+<li><p><strong>Data Format</strong>: Ensuring that the data is in a readable and workable format is paramount. Do you need to develop a custom parser, or can off-the-shelf software be used for ingestion?</p></li>
+<li><p><strong>Source Credibility</strong>: If you have ever tried to collect data yourself, you will know that not all data is reliable. The credibility of the data source can significantly impact the reliability of your findings.</p></li>
+<li><p><strong>Data Processing Knowledge</strong>: A thorough understanding of how the data has been previously processed can save you from potential pitfalls. Valuable insights can often be gleaned from data processing logs or accompanying documentation.</p></li>
+<li><p><strong>Legal issues:</strong> Having data is not the same as <em>being allowed to use it</em>. Things like copyrights or privacy issues might render the data unfit for our goals.</p></li>
+</ul>
 </section>
-<section id="big-data">
-<h2><span class="section-number">5.3. </span>Big Data<a class="headerlink" href="#big-data" title="Permalink to this heading">#</a></h2>
-<p>Working in data science there is really no way to avoid dealing with the challenges, the promises, or even the (many) definitions of <strong>Big Data</strong>. Since this is not our core concern in this book, I will simply stick to the very simple definition of saying</p>
-<blockquote>
-<div><p><strong>Big Data</strong> ≈ Data that is too large, too complex, or too volatile to be evaluated using manual and traditional data processing methods.</p>
-</div></blockquote>
-<p>Still, what does this mean? And why is there no sharp definition of which data is “big data” and which is not? Well, in essence, there is no sharp boundary between big and “not big” data. Big makes us first think of  the sheer size of the data, or <strong>volume</strong>, say number of Giga-/Terra-/Peta-bytes. This is, however, far to simple. Astrophysicists collecting super-high-resolution telescope pictures of the sky would probably never consider a dataset that fits on a USB-stick to be <em>big</em> (high resolution images take a lot of disk space!). But librarians or historians might have a very different view on what is big and what is not. To get a better intuition for such volumes: 6.5 million English Wikipedia articles require only 20GB but equate to about 3000 encyclopedia volumes. This easily makes this <em>big data</em>. And yet, ten high-resolution movies require the same storage but don’t form a <em>big</em> dataset.</p>
-<p>Beyond the volume-related discussions, there are other factors that also contribute to whether or not we consider data as <em>big data</em>, which here means: things that further complicate the handling of the data. This can, for instance, be the <strong>variety</strong> of data, but also the <strong>velocity</strong> by which the data needs to be processed or analyzed. Together those terms are called the <strong>“3V’s”</strong> (Volume, Variety, Velocity) that contribute to data being considered <em>big data</em>. Over the years, people started to add to this list, so that we now also have 4V’s or 5V’s … but I will leave this for you to research if you want to know more about these definitions.</p>
-<p>If you still feel like you have no idea what big data actually means, feel free to just go ahead to the next chapters with a basic first intuition of:</p>
-<blockquote>
-<div><p>Anything that can be done with basic Excel methods <strong>is not Big Data</strong>.</p>
-</div></blockquote>
+<section id="remember-crap-in-crap-out">
+<h3><span class="section-number">8.1.3. </span>Remember: Crap in, Crap out!<a class="headerlink" href="#remember-crap-in-crap-out" title="Permalink to this heading">#</a></h3>
+<p>Data is the bedrock of all subsequent data science operations. The notion that advanced algorithms can compensate for shoddy data is a common misconception. It’s pivotal to invest ample time in sourcing and assessing data. The quality of data often becomes the deciding factor between the success and failure of a data science project.</p>
+</section>
+<section id="mini-exercise-hypothetical-scenario">
+<h3><span class="section-number">8.1.4. </span><strong>Mini-Exercise: Hypothetical Scenario</strong><a class="headerlink" href="#mini-exercise-hypothetical-scenario" title="Permalink to this heading">#</a></h3>
+<p>Imagine you are tasked with evaluating the state of digitization in schools in your region.</p>
+<p><strong>Objective</strong>: Assess the current level of digital infrastructure and its utilization in schools.</p>
+<p><strong>Prompt</strong>: Spend a few minutes brainstorming:</p>
+<ol class="arabic simple">
+<li><p>What kind of data might you need?</p></li>
+<li><p>Where could you potentially source this data?</p></li>
+<li><p>Are there potential roadblocks or challenges in procuring or using this data?</p></li>
+</ol>
+</section>
+</section>
+<section id="data-cleaning">
+<h2><span class="section-number">8.2. </span>Data Cleaning<a class="headerlink" href="#data-cleaning" title="Permalink to this heading">#</a></h2>
+<p>Raw data, more often than not, is messy; it requires refinement to reveal its true value. This refinement process is what we term as “data cleaning”. In this section, some of the most common data cleaning steps will be mentioned; steps which are fairly general across many different data types and sources. In actual practice, however, a lot of the more complex data cleaning requires a certain understanding - or <em>domain knowledge</em> - of the data. This is either acquired over time, when you work a lot with similar data and tasks; or it is distilled from a close collaboration with domain experts. Whenever you are not sure what the data in front of you actually means, and you hence are not sure what you may or may not do to the data, better invest time to build a deeper understanding for the data and/or ask someone with more experience on this type of data.</p>
+<p>Here a few examples. If you work with audio data, but don’t know that decibel is measured on a logarithmic scale, you might unintentionally run into serious trouble. Or, if you get colorful medical images but don’t realize that the color scale is just a color scale applied to monochromatic images, your data handling and later conclusions might not make it look like you know what you are doing…</p>
+<section id="dealing-with-missing-values">
+<h3><span class="section-number">8.2.1. </span>Dealing with Missing Values:<a class="headerlink" href="#dealing-with-missing-values" title="Permalink to this heading">#</a></h3>
+<p>Missing data is a common issue many data scientists face. While the gaps can manifest in varied forms such as NaN, “999”, “N/A”,  None, and “”, a standardized approach often involves representing these  uniformly as <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (hint: Python libraries such as <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy</span></code> have there own NaN data types!).</p>
+</section>
+<section id="typical-challenges">
+<h3><span class="section-number">8.2.2. </span>Typical Challenges:<a class="headerlink" href="#typical-challenges" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Duplicates</strong>: Data can have repeated or conflicting entries.</p></li>
+<li><p><strong>Inconsistent Nomenclature</strong>: Consistency in naming conventions can save hours of data wrangling later on. A classic example being different formats of names. “First Name Last Name” versus “Last Name, First Name”.</p></li>
+<li><p><strong>Data Types</strong>: Ensuring that numeric values aren’t masquerading as strings can prevent potential analytical blunders (e.g., “12.5” instead of 12.5).</p></li>
+<li><p><strong>Decimal Delimiters</strong>: Confusion between comma and dot can change data meaning, e.g., 12,010 becoming 12.01.</p></li>
+</ul>
+</section>
+<section id="further-cleaning-steps">
+<h3><span class="section-number">8.2.3. </span>Further Cleaning Steps:<a class="headerlink" href="#further-cleaning-steps" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Unit Conversion</strong>: Ensuring data is in consistent units.</p></li>
+<li><p><strong>Data Standardization</strong>: This can be done via Min-Max scaling (often termed “normalization”) or, frequently more effective, by ensuring data has a mean of 0 and a standard deviation of 1.</p></li>
+<li><p><strong>Non-linear Transformations</strong>: Sometimes, linear thinking won’t do. Transformations like logarithms can provide new perspectives on data.</p></li>
+</ul>
+<p>In essence, data acquisition and preparation are the unsung heroes of a successful data science endeavor. By ensuring the foundation is robust  and the raw materials are of top quality, you set the stage for  analytical brilliance.</p>
+<p>From my own experience: It is not uncommon that 80% of the work in a data science project go into the data acquisition and cleaning.</p>
+</section>
 </section>
 </section>
 
@@ -511,20 +513,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="03_use_of_this_book.html"
+       href="06_data_science_workflow.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>How to use this book (… if you ask us)</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Data Science Workflow</p>
       </div>
     </a>
     <a class="right-next"
-       href="05_data_information_knowledge.html"
+       href="../notebooks/live_coding_04_distributions_statistical_measures.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Data - Information - Knowledge</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>First Data Exploration</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -546,9 +548,19 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#history-of-data">5.1. History of Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">5.2. Data Types</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-data">5.3. Big Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-acquisition">8.1. Data Acquisition</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-considerations">8.1.1. Key Considerations:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-data-sources">8.1.2. Common Data Sources:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remember-crap-in-crap-out">8.1.3. Remember: Crap in, Crap out!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise-hypothetical-scenario">8.1.4. <strong>Mini-Exercise: Hypothetical Scenario</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">8.2. Data Cleaning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dealing-with-missing-values">8.2.1. Dealing with Missing Values:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-challenges">8.2.2. Typical Challenges:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-cleaning-steps">8.2.3. Further Cleaning Steps:</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

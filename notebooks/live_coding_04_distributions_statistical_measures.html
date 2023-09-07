@@ -1,0 +1,1972 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>9. First Data Exploration &#8212; Data Science for (not yet) scientists</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/live_coding_04_distributions_statistical_measures';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Acknowledgements" href="../book/acknowledgements.html" />
+    <link rel="prev" title="8. Data Acquisition &amp; Preparation" href="../book/07_data_acquisition_and_preparation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../book/cover.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../book/cover.html">
+                    Introduction to Data Science (for not-yet scientists)
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/intro.html">1. Introduction: Data Science for Not-Yet-Scientists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/01_intro_data_science.html">2. What is Data Science?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/02_data_science_ethics_society.html">3. Data Science, Ethics, and Society</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/03_use_of_this_book.html">4. How to use this book (… if you ask us)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Science Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/04_data_and_types.html">5. Data and Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/05_data_information_knowledge.html">6. Data - Information - Knowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/06_data_science_workflow.html">7. Data Science Workflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data acquisition and first exploration</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/07_data_acquisition_and_preparation.html">8. Data Acquisition &amp; Preparation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. First Data Exploration</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/bibliography.html">Bibliography</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/github.html">Source Code on GitHub</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/data_science_course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/data_science_course/issues/new?title=Issue%20on%20page%20%2Fnotebooks/live_coding_04_distributions_statistical_measures.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/live_coding_04_distributions_statistical_measures.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>First Data Exploration</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures">9.1. Statistical Measures</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-understanding-statistics-in-a-practical-scenario">9.1.1. Exercise: Understanding Statistics in a Practical Scenario</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures-and-distributions">9.2. Statistical Measures and Distributions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetric-distribution">9.2.1. Symmetric Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-symmetric-distributions">9.2.2. Non-symmetric Distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distributions-with-outliers">9.2.3. Distributions with Outliers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mixed-distributions">9.2.4. Mixed Distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">9.2.5. Statistical Measures</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-dispertion">9.3. Statistical dispertion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-can-statistical-measures-do-and-what-not">9.4. What can statistical measures do (and what not)?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-data-exploration-using-basic-statistics">9.4.1. First Data Exploration (using basic statistics)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise-what-do-you-think">9.4.2. Mini-Exercise: What do you think?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">9.4.3. Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-distributions-visually">9.5. Comparing Distributions Visually</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-talk-money">9.6. Let’s talk money</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wealth">9.6.1. Wealth</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-wealth-distribution-a-different-approach">9.6.2. Exploring Wealth Distribution: A Different Approach</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="first-data-exploration">
+<h1><span class="section-number">9. </span>First Data Exploration<a class="headerlink" href="#first-data-exploration" title="Permalink to this heading">#</a></h1>
+<p>Different from what a linear sketch of a data science workflow might sometimes suggest, it is generally not at a single moment that we inspect our data. Instead, we inspect our data frequently, with varying focus and depths.
+In the previous sections we already saw that the collection and technical handling (e.g., importing) of the data already includes a certain degree of data inspections. Then, during data cleaning we had to have a closer look at that is in the data and what might be missing. Now, we want to take a next step, which often done by doing basic statistics and other quick data explorations. A good data exploration phase is like getting a quick snapshot of the data’s characteristics, anomalies, patterns, and relationships. This foundational step often happens immediately after or even during the data acquisition and cleaning phases.</p>
+<section id="statistical-measures">
+<h2><span class="section-number">9.1. </span>Statistical Measures<a class="headerlink" href="#statistical-measures" title="Permalink to this heading">#</a></h2>
+<p>A comprehensive understanding of the data often starts with basic statistical measures. These measures provide concise summaries, allowing data scientists to grasp the main tendencies and dispersions in the dataset. Many of you will probably (or hopefully?) know many of the measures that are listed in this chapter and the core focus here will be to give a quick refresher. For those of you that feel lost when it comes to basic statistics it would make sense to invest time to gain a more solid foundation into those basics. There are many books, tutorials and courses on this matter, for instance  also the <a class="reference external" href="https://www.w3schools.com/statistics/index.php">w3schools website</a>.</p>
+<ol class="arabic">
+<li><p><strong>Measures of Central Tendency</strong>: These are quintessential in understanding where the ‘center’ of our data lies.</p>
+<ul>
+<li><p><strong>Mean (Arithmetic Mean)</strong>: The arithmetic mean is calculated as the sum of all values divided by the number of values. It’s a common measure to determine the central value in a dataset. Mathematically, if <span class="math notranslate nohighlight">\(X\)</span> is a dataset with <span class="math notranslate nohighlight">\(n\)</span> values, the mean <span class="math notranslate nohighlight">\(\mu\)</span> is calculated as:</p>
+<div class="math notranslate nohighlight">
+\[\mu=\frac{1}{n}\sum_{i=1}^n x_i\]</div>
+</li>
+<li><p><strong>Median</strong>: The median is the middle value of an ordered dataset, separating the higher half from the lower half. If the dataset has an odd number of observations, the median is the middle number. If there’s an even number, it’s the average of the two middle numbers.</p></li>
+<li><p><strong>Mode</strong>: Represents the value that appears most frequently in a dataset. Datasets can have one mode, more than one mode, or no mode at all.</p></li>
+</ul>
+</li>
+<li><p><strong>Quantiles</strong>: They segment the data into intervals which encompass equal probabilities.</p>
+<ul class="simple">
+<li><p><strong>Median</strong>: Also known as the 0.5-Quantile, representing the 50th percentile.</p></li>
+<li><p><strong>Deciles</strong>: Segments the data into 10 equal parts, marking every 10th percentile.</p></li>
+<li><p><strong>Percentiles</strong>: Denotes specific positions in a data set, which is divided into 100 equal parts.</p></li>
+</ul>
+</li>
+<li><p><strong>Measures of Spread</strong>: While central tendency gives an overview of the data’s central point, measures of spread describe how much the data tends to deviate from that point.</p>
+<ul>
+<li><p><strong>Standard Deviation (STD)</strong>: It quantifies the amount of variation in the dataset. A low standard deviation means that values are close to the mean, while a high standard deviation indicates that values are spread out over a wider range.</p>
+<div class="math notranslate nohighlight">
+\[\sigma=\frac{1}{n}\sum_{i=1}^n (x_i−\mu)^2\]</div>
+</li>
+<li><p><strong>Interquartile Range</strong>: Represents the range between the first (25th percentile) and third quartiles (75th percentile).</p></li>
+<li><p><strong>Range</strong>: It’s the simplest measure of spread and is calculated as the difference between the maximum and minimum values in the dataset.</p></li>
+<li><p><strong>Variance</strong>: The average of the squared differences from the mean, often denoted as σ2σ2.</p></li>
+</ul>
+</li>
+</ol>
+<section id="exercise-understanding-statistics-in-a-practical-scenario">
+<h3><span class="section-number">9.1.1. </span>Exercise: Understanding Statistics in a Practical Scenario<a class="headerlink" href="#exercise-understanding-statistics-in-a-practical-scenario" title="Permalink to this heading">#</a></h3>
+<p>Consider the 3rd semester of Media Informatics: The average age (mean) of the students = 22.7 years Standard Deviation (STD) = 2.1 years</p>
+<p>Questions:</p>
+<ol class="arabic simple">
+<li><p>Given the mean and standard deviation, is it probable for there to be students in the 3rd semester of Media Informatics who are older than 40 years?</p></li>
+<li><p>Based on the mean and standard deviation, what would be the estimated minimum and maximum age of the students?</p></li>
+<li><p>Based on the mean, are most of the students above or below 22.7 years of age?</p></li>
+</ol>
+<p>Below is a quick summary of the measures discussed:</p>
+<table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Measures</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head text-center"><p>Nominal</p></th>
+<th class="head text-center"><p>Ordinal</p></th>
+<th class="head text-center"><p>Quantitative</p></th>
+<th class="head text-center"><p>Accounts for All Values</p></th>
+<th class="head text-center"><p>Sensitive to Outliers</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Mode</strong></p></td>
+<td><p>Most frequent value</p></td>
+<td class="text-center"><p>x</p></td>
+<td class="text-center"><p>x</p></td>
+<td class="text-center"><p>x</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Median</strong></p></td>
+<td><p>Central value with equal numbers of data points above and below</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>x</p></td>
+<td class="text-center"><p>x</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Mean (Arithmetic Mean)</strong></p></td>
+<td><p>Average value</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>x</p></td>
+<td class="text-center"><p>x</p></td>
+<td class="text-center"><p>x</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Geometric Mean</strong></p></td>
+<td><p>Average of growth rates; multiplicatively linked</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>x</p></td>
+<td class="text-center"><p>x</p></td>
+<td class="text-center"><p>x</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Harmonic Mean</strong></p></td>
+<td><p>Average of fractions with a constant denominator or a special case of weighted arithmetic mean</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>x</p></td>
+<td class="text-center"><p>x</p></td>
+<td class="text-center"><p>x</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Quantile / Quartile</strong></p></td>
+<td><p>Value below which a specified percentage of observations fall</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>x</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Minimum / Maximum</strong></p></td>
+<td><p>Smallest and largest values respectively</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>x</p></td>
+<td class="text-center"><p>x</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>x</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="statistical-measures-and-distributions">
+<h2><span class="section-number">9.2. </span>Statistical Measures and Distributions<a class="headerlink" href="#statistical-measures-and-distributions" title="Permalink to this heading">#</a></h2>
+<p>Let us look at some distributions and their statistical measures. In the following Python code cells we will import the required libraries and define a simple plotting function for the task.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">squarify</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">os</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define a simple plotting function</span>
+<span class="k">def</span> <span class="nf">plot_dist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">add</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">],</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">)):</span>
+    <span class="k">def</span> <span class="nf">add_stat</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;crimson&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">1.05</span> <span class="o">*</span> <span class="n">value</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;crimson&quot;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">rwidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;mean&quot;</span> <span class="ow">in</span> <span class="n">add</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">add_stat</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="mf">0.9</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;mean: </span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="s2">&quot;median&quot;</span> <span class="ow">in</span> <span class="n">add</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">add_stat</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;median: </span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<section id="symmetric-distribution">
+<h3><span class="section-number">9.2.1. </span>Symmetric Distribution<a class="headerlink" href="#symmetric-distribution" title="Permalink to this heading">#</a></h3>
+<p>Symmetric distributions are those where values are distributed in a way that the shape on one side of the centerline mirrors the shape on the other. In other words, the left half of the distribution is a mirror image of the right half. One of the key properties of a symmetric distribution is that the mean and median will be the same, or very close.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+<span class="n">plot_dist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;median&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/04d9dd447b39484d4731bee57478d03012161841fe6ba9a96519e3ac7f087e78.png" src="../_images/04d9dd447b39484d4731bee57478d03012161841fe6ba9a96519e3ac7f087e78.png" />
+</div>
+</div>
+</section>
+<section id="non-symmetric-distributions">
+<h3><span class="section-number">9.2.2. </span>Non-symmetric Distributions<a class="headerlink" href="#non-symmetric-distributions" title="Permalink to this heading">#</a></h3>
+<p>In reality, most of the data we encounter tends to be non-symmetric. These distributions don’t exhibit mirror-like symmetry around their center. It is important to note here, especially for non-symmetric distributions, the mean might not necessarily represent the “center” of the data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="mf">1.6</span><span class="p">,</span> <span class="mi">26000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">plot_dist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;median&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c44323e23b3d17f899a96dedb1e37260904e1589f87e85ecc4aff357b9a95506.png" src="../_images/c44323e23b3d17f899a96dedb1e37260904e1589f87e85ecc4aff357b9a95506.png" />
+</div>
+</div>
+</section>
+<section id="distributions-with-outliers">
+<h3><span class="section-number">9.2.3. </span>Distributions with Outliers<a class="headerlink" href="#distributions-with-outliers" title="Permalink to this heading">#</a></h3>
+<p>Outliers are values that stand apart from the bulk of the data. Their presence can distort our perceptions about the data and can notably skew our mean. It’s essential to identify and manage outliers for better statistical interpretations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5000</span><span class="p">)</span>
+<span class="n">data</span><span class="p">[:</span><span class="mi">300</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">plot_dist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;median&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ff26af95e6693edd76b2c7ebe1cfd8b5142b778bcb90f117977d8e9b3e17fbf2.png" src="../_images/ff26af95e6693edd76b2c7ebe1cfd8b5142b778bcb90f117977d8e9b3e17fbf2.png" />
+</div>
+</div>
+<p>If you look at the distribution plot with the median and the mean: Which of the two measures is better in this case (and why)?</p>
+</section>
+<section id="mixed-distributions">
+<h3><span class="section-number">9.2.4. </span>Mixed Distributions<a class="headerlink" href="#mixed-distributions" title="Permalink to this heading">#</a></h3>
+<p>At times, our dataset may not belong to a single type of distribution. Instead, it may be the result of a mix of two or more underlying distributions. This phenomenon is observed in mixed distributions. Recognizing and understanding the different underlying distributions can be crucial for analysis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">data1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2000</span><span class="p">)</span>
+<span class="n">data2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">data1</span><span class="p">,</span> <span class="n">data2</span><span class="p">))</span> <span class="o">-</span> <span class="mi">134</span>
+
+<span class="n">plot_dist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;median&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0f30a499df0eaddb5d070d51ec362ca8da036c0d6c2e3d410ee12369b9611b7a.png" src="../_images/0f30a499df0eaddb5d070d51ec362ca8da036c0d6c2e3d410ee12369b9611b7a.png" />
+</div>
+</div>
+<p>Here again: If you look at the distribution plot with the median and the mean, which of the two measures is better in this case (and why)?</p>
+</section>
+<section id="id1">
+<h3><span class="section-number">9.2.5. </span>Statistical Measures<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<p>After observing the distributions, let’s also calculate key statistical measures and see what insights they provide regarding the distribution’s characteristics.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="p">[</span><span class="mi">25</span> <span class="p">,</span><span class="mi">75</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50.09713754299179
+-71.30263005114779 129.6311878602093
+-25.604183317689994
+76.81243703053997
+[-39.37861049  52.79716049]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="statistical-dispertion">
+<h2><span class="section-number">9.3. </span>Statistical dispertion<a class="headerlink" href="#statistical-dispertion" title="Permalink to this heading">#</a></h2>
+<p>Statistical dispersion refers to the spread or variability of a dataset. It helps to understand the extent to which individual data points deviate from the mean. While two distributions might have similar centers (mean or median), their characteristics could differ considerably in terms of spread. For instance, one might be tightly clustered around the mean, whereas the other might be more spread out.</p>
+<p>Dispersion can be illustrated with two distributions that have the same center (mean) but different standard deviations. In the following examples, both distributions are centered at 100, but they have standard deviations of 15 and 1.5, respectively. The standard deviation (often referred to as “STD”) is a measure that tells us how spread out the numbers in a distribution are.</p>
+<p>A higher standard deviation indicates that the data points tend to be farther from the mean, while a smaller standard deviation suggests that they are clustered closely around the mean.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">plot_dist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">55</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;STD: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">52</span><span class="p">,</span> <span class="mi">148</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(52.0, 148.0)
+</pre></div>
+</div>
+<img alt="../_images/0c867c57ec021b468baafca90d494ceef6ddb0c7a236368e2471f0097c78d126.png" src="../_images/0c867c57ec021b468baafca90d494ceef6ddb0c7a236368e2471f0097c78d126.png" />
+</div>
+</div>
+<p>The plot above showcases a normal distribution with a mean of 100 and a standard deviation of 15. The data points are spread relatively far from the mean, resulting in a wider bell shape.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">plot_dist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">55</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;STD: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">52</span><span class="p">,</span> <span class="mi">148</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(52.0, 148.0)
+</pre></div>
+</div>
+<img alt="../_images/4aad74abb84bec73db3b95c2b3489743a424834c7308fe42dc2508e02f774fe1.png" src="../_images/4aad74abb84bec73db3b95c2b3489743a424834c7308fe42dc2508e02f774fe1.png" />
+</div>
+</div>
+<p>In contrast, the second plot demonstrates a distribution with the same mean of 100 but with a much smaller standard deviation of 1.5. This causes the data to be tightly clustered around the mean, making the bell shape much narrower.</p>
+<p>By comparing the two plots, we observe the significance of the standard deviation in understanding the distribution’s spread. While both distributions share the same center, their spreads are vastly different, and recognizing this difference is crucial in many statistical analyses and applications.</p>
+</section>
+<section id="what-can-statistical-measures-do-and-what-not">
+<h2><span class="section-number">9.4. </span>What can statistical measures do (and what not)?<a class="headerlink" href="#what-can-statistical-measures-do-and-what-not" title="Permalink to this heading">#</a></h2>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;https://raw.githubusercontent.com/florian-huber/data_science_course/a595bd6b19565cedff0c3917012be6e05223f7fb/datasets/datasaurus.csv&quot;</span>
+
+<span class="c1"># read data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+<span class="c1"># prepare data</span>
+<span class="n">new_names</span> <span class="o">=</span> <span class="s2">&quot;ABCDEFGHIJKLMNOP&quot;</span>
+<span class="n">convert_names</span> <span class="o">=</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">new_names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;dataset&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())}</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;dataset&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;dataset&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">convert_names</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
+
+<span class="n">datasets</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;dataset&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">():</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;dataset&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">value</span>
+    <span class="n">datasets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;dataset&quot;</span><span class="p">]))</span> 
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<section id="first-data-exploration-using-basic-statistics">
+<h3><span class="section-number">9.4.1. </span>First Data Exploration (using basic statistics)<a class="headerlink" href="#first-data-exploration-using-basic-statistics" title="Permalink to this heading">#</a></h3>
+<p>In the code cell above we imported a dataset that consists of 14 different subsets (“A” to “P”). Each datapoint belongs into only one of those subsets and otherwise consists of only two numerical features: <strong>x</strong> and <strong>y</strong> which can think of as a 2D position.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>dataset</th>
+      <th>x</th>
+      <th>y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>A</td>
+      <td>55.3846</td>
+      <td>97.1795</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>A</td>
+      <td>51.5385</td>
+      <td>96.0256</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>A</td>
+      <td>46.1538</td>
+      <td>94.4872</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We can use Pandas and its <code class="docutils literal notranslate"><span class="pre">groupby</span></code> method to quickly get several important statistical measures on all 14 subsets:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cols</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="s2">&quot;std&quot;</span><span class="p">),</span>
+       <span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;std&quot;</span><span class="p">)]</span>
+<span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;dataset&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()[</span><span class="n">cols</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th colspan="3" halign="left">x</th>
+      <th colspan="3" halign="left">y</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+    </tr>
+    <tr>
+      <th>dataset</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>A</th>
+      <td>142.0</td>
+      <td>54.263273</td>
+      <td>16.765142</td>
+      <td>142.0</td>
+      <td>47.832253</td>
+      <td>26.935403</td>
+    </tr>
+    <tr>
+      <th>B</th>
+      <td>142.0</td>
+      <td>54.266100</td>
+      <td>16.769825</td>
+      <td>142.0</td>
+      <td>47.834721</td>
+      <td>26.939743</td>
+    </tr>
+    <tr>
+      <th>C</th>
+      <td>142.0</td>
+      <td>54.261442</td>
+      <td>16.765898</td>
+      <td>142.0</td>
+      <td>47.830252</td>
+      <td>26.939876</td>
+    </tr>
+    <tr>
+      <th>D</th>
+      <td>142.0</td>
+      <td>54.269927</td>
+      <td>16.769959</td>
+      <td>142.0</td>
+      <td>47.836988</td>
+      <td>26.937684</td>
+    </tr>
+    <tr>
+      <th>E</th>
+      <td>142.0</td>
+      <td>54.260150</td>
+      <td>16.769958</td>
+      <td>142.0</td>
+      <td>47.839717</td>
+      <td>26.930002</td>
+    </tr>
+    <tr>
+      <th>F</th>
+      <td>142.0</td>
+      <td>54.267341</td>
+      <td>16.768959</td>
+      <td>142.0</td>
+      <td>47.839545</td>
+      <td>26.930275</td>
+    </tr>
+    <tr>
+      <th>G</th>
+      <td>142.0</td>
+      <td>54.268805</td>
+      <td>16.766704</td>
+      <td>142.0</td>
+      <td>47.835450</td>
+      <td>26.939998</td>
+    </tr>
+    <tr>
+      <th>H</th>
+      <td>142.0</td>
+      <td>54.260303</td>
+      <td>16.767735</td>
+      <td>142.0</td>
+      <td>47.839829</td>
+      <td>26.930192</td>
+    </tr>
+    <tr>
+      <th>I</th>
+      <td>142.0</td>
+      <td>54.267320</td>
+      <td>16.760013</td>
+      <td>142.0</td>
+      <td>47.837717</td>
+      <td>26.930036</td>
+    </tr>
+    <tr>
+      <th>J</th>
+      <td>142.0</td>
+      <td>54.268730</td>
+      <td>16.769239</td>
+      <td>142.0</td>
+      <td>47.830823</td>
+      <td>26.935727</td>
+    </tr>
+    <tr>
+      <th>K</th>
+      <td>142.0</td>
+      <td>54.265882</td>
+      <td>16.768853</td>
+      <td>142.0</td>
+      <td>47.831496</td>
+      <td>26.938608</td>
+    </tr>
+    <tr>
+      <th>L</th>
+      <td>142.0</td>
+      <td>54.267849</td>
+      <td>16.766759</td>
+      <td>142.0</td>
+      <td>47.835896</td>
+      <td>26.936105</td>
+    </tr>
+    <tr>
+      <th>M</th>
+      <td>142.0</td>
+      <td>54.266916</td>
+      <td>16.770000</td>
+      <td>142.0</td>
+      <td>47.831602</td>
+      <td>26.937902</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="mini-exercise-what-do-you-think">
+<h3><span class="section-number">9.4.2. </span>Mini-Exercise: What do you think?<a class="headerlink" href="#mini-exercise-what-do-you-think" title="Permalink to this heading">#</a></h3>
+<p>If you compare the mean and standard deviation (std) values for all 14 datasets (A to P), what do you expect them to look like? There is 142 datapoints in each subset. Will the datapoints of each subset be distributed similarly or not?</p>
+</section>
+<section id="solution">
+<h3><span class="section-number">9.4.3. </span>Solution<a class="headerlink" href="#solution" title="Permalink to this heading">#</a></h3>
+<p>There is only one good way to find out and that is to inspect the data!
+Try, for instance, to run the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sb</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;dataset&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>I won’t spoil it here right away, but what this dataset should illustrate once and for all is that basic statistical measures are a good starting point. But they often don’t tell us enough about our data! By the way, this dataset is called the <strong>datasaurus</strong> <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id15" title="Justin Matejka and George Fitzmaurice. Same Stats, Different Graphs: Generating Datasets with Varied Appearance and Identical Statistics through Simulated Annealing. In Proceedings of the 2017 CHI Conference on Human Factors in Computing Systems, CHI '17, 1290–1294. New York, NY, USA, May 2017. Association for Computing Machinery. URL: https://doi.org/10.1145/3025453.3025912 (visited on 2023-09-07), doi:10.1145/3025453.3025912.">Matejka and Fitzmaurice, 2017</a>]</span>.</p>
+</section>
+</section>
+<section id="comparing-distributions-visually">
+<h2><span class="section-number">9.5. </span>Comparing Distributions Visually<a class="headerlink" href="#comparing-distributions-visually" title="Permalink to this heading">#</a></h2>
+<p>When we’re analyzing data, one of the most fundamental tasks is to understand the underlying distribution. Especially when dealing with multiple datasets, understanding and comparing their distributions can reveal patterns, outliers, and other crucial insights. As we just saw in the above exercise, visualization tools play an invaluable role in this exploration because they can tell us much more than a few statistical measures such as mean, median, or standard deviation alone. Here’s a deeper look at some popular techniques for visual data representation:</p>
+<ol class="arabic simple">
+<li><p><strong>Box Plot</strong>:</p>
+<ul class="simple">
+<li><p><strong>Description</strong>: A box plot (or whisker plot) displays a summary of a set of data values. It provides a visual summary of the minimum, first quartile, median, third quartile, and maximum of a dataset.</p></li>
+<li><p><strong>Pros</strong>:</p>
+<ul>
+<li><p>Efficiently represents the data’s spread and central tendency.</p></li>
+<li><p>Useful for identifying outliers and comparing distributions across groups.</p></li>
+</ul>
+</li>
+<li><p><strong>Cons</strong>:</p>
+<ul>
+<li><p>Can be challenging to interpret for those unfamiliar with the plot’s elements.</p></li>
+<li><p>Doesn’t represent the nuances in distributions; for instance, two very different distributions (like C and D) could have similar box plots.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Strip Plot</strong>:</p>
+<ul class="simple">
+<li><p><strong>Description</strong>: A scatter plot where one axis is categorical. It’s useful for displaying all items in the dataset.</p></li>
+<li><p><strong>Pros</strong>:</p>
+<ul>
+<li><p>Offers a sense of the density and distribution of data points.</p></li>
+<li><p>Clearly shows individual data points.</p></li>
+</ul>
+</li>
+<li><p><strong>Cons</strong>:</p>
+<ul>
+<li><p>Can become cluttered and less interpretable with large datasets as points overlap.</p></li>
+<li><p>Doesn’t provide summary statistics about the data.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Swarm Plot</strong>:</p>
+<ul class="simple">
+<li><p><strong>Description</strong>: Similar to a strip plot but data points are adjusted (or “swarmed”) to avoid overlap, giving a clearer representation of the distribution of values.</p></li>
+<li><p><strong>Pros</strong>:</p>
+<ul>
+<li><p>Offers a clearer view of the distribution than strip plots for moderate datasets.</p></li>
+<li><p>Good for visualizing the density of the data.</p></li>
+</ul>
+</li>
+<li><p><strong>Cons</strong>:</p>
+<ul>
+<li><p>Not suitable for very large datasets as it can become cluttered and slow to render.</p></li>
+<li><p>Like the strip plot, lacks summary statistics.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Violin Plot</strong>:</p>
+<ul class="simple">
+<li><p><strong>Description</strong>: Combines the benefits of both box plots and kernel density plots. It shows the full distribution of the data along with its summary statistics.</p></li>
+<li><p><strong>Pros</strong>:</p>
+<ul>
+<li><p>Offers a detailed view of the data’s distribution, including its density.</p></li>
+<li><p>Combines the best of box plots (summary statistics) and density plots (distribution shape).</p></li>
+</ul>
+</li>
+<li><p><strong>Cons</strong>:</p>
+<ul>
+<li><p>Requires a degree of smoothing, which can be perceived as manipulating or altering the true nature of the data.</p></li>
+<li><p>Can be harder for newcomers to interpret compared to simpler plots.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>Using these visualization tools thoughtfully allows us to derive meaningful insights from our data, helping guide our analyses and decision-making.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create toy data</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">data1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+<span class="n">data2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+<span class="n">dataC</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">data1</span><span class="p">,</span> <span class="n">data2</span><span class="p">))</span>
+
+<span class="n">datasets_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;A&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="mf">1.6</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span>
+                             <span class="s2">&quot;B&quot;</span><span class="p">:</span> <span class="mf">0.6</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">exponential</span><span class="p">(</span><span class="mf">2.2</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span>
+                             <span class="s2">&quot;C&quot;</span><span class="p">:</span> <span class="n">dataC</span><span class="p">,</span>
+                             <span class="s2">&quot;D&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mi">300</span><span class="p">)})</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">14</span><span class="p">))</span>
+
+<span class="n">sb</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">datasets_test</span><span class="p">),</span>
+          <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">sb</span><span class="o">.</span><span class="n">stripplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">datasets_test</span><span class="p">),</span>
+          <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">sb</span><span class="o">.</span><span class="n">swarmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">datasets_test</span><span class="p">),</span>
+          <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">sb</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;variable&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">datasets_test</span><span class="p">),</span>
+          <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> <span class="n">bw</span><span class="o">=</span><span class="mf">.15</span><span class="p">)</span>  <span class="c1"># bw for &quot;bandwidth&quot; controls the degree of smoothing</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Different ways to include distribution properties&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Different ways to include distribution properties&#39;)
+</pre></div>
+</div>
+<img alt="../_images/fa312cc0742a2ac71dd8d70eb6b34b0a3ee5fa797655ee95861046f4dca1db9c.png" src="../_images/fa312cc0742a2ac71dd8d70eb6b34b0a3ee5fa797655ee95861046f4dca1db9c.png" />
+</div>
+</div>
+<p>By utilizing these visualization techniques, we can get a comprehensive understanding of our datasets’ distributions and make more informed decisions during analysis.</p>
+</section>
+<section id="let-s-talk-money">
+<h2><span class="section-number">9.6. </span>Let’s talk money<a class="headerlink" href="#let-s-talk-money" title="Permalink to this heading">#</a></h2>
+<p>In real life we will come across distributions of all shapes, often non-symmetric. An even though it is considered polite in many cultures to not talk too much about our own wealth and incomes, we all probably know that income and wealth are unlikely to be narrow, symmetric distributions where most people have more or less the same, and earn more or less the same. I will leave the political debates up to you (but secretely do hope to spark some).</p>
+<p>To me, things like wealth and income are good topics to learn about basic statistics. First, because we all know <em>something</em> about money and to some extend care about money (even if we say otherwise). And second, because it is full of striking example of skewed distributions. In fact, let me quote Thomas Piketty here <span id="id3">[<a class="reference internal" href="../book/bibliography.html#id20" title="Thomas Piketty. Capital in the Twenty-First Century:. Belknap Press, Cambridge, MA, April 2014. ISBN 978-0-674-43000-6.">Piketty, 2014</a>]</span>:</p>
+<blockquote>
+<div><p><strong>Wealth is so concentrated that a large segment of society is virtually unaware of its existence.</strong></p>
+</div></blockquote>
+<p>Real numberson incomes in Germany, albeit already evaluated, can be found <a class="reference external" href="https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Einkommen-Konsum-Lebensbedingungen/Einkommen-Einnahmen-Ausgaben/Publikationen/Downloads-Einkommen/einkommensverteilung-2152606139004.pdf;jsessionid=6E880CBD0BFD0E121C71BCEC21D6971B.live742?__blob=publicationFile">here</a>.</p>
+<p>For raw data requests, you can visit <a class="reference external" href="https://paneldata.org/">this site</a>.</p>
+<p>Let’s dive into our fictional, but realistic, data:</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code to generate a simulated income distribution for Germany (2020)</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">income_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">30000</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span> 
+<span class="n">income_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">income_data</span><span class="p">,</span>
+                              <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span>
+                              <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30000</span><span class="p">,</span> <span class="mi">500</span><span class="p">)])</span>
+<span class="n">income_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">income_data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;income&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The visualization will depict income ranges and their frequencies.</span>
+
+<span class="n">plot_dist</span><span class="p">(</span><span class="n">income_data</span><span class="p">[</span><span class="s2">&quot;income&quot;</span><span class="p">],</span> <span class="mi">60</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;median&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of People (Note: simulated data)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Net Household Income per Month in €&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Net Household Income per Month in €&#39;)
+</pre></div>
+</div>
+<img alt="../_images/5901cc76db8077a367b2e427e9a6577e698a40a2c24cb7ca3dd5215bd9a664f5.png" src="../_images/5901cc76db8077a367b2e427e9a6577e698a40a2c24cb7ca3dd5215bd9a664f5.png" />
+</div>
+</div>
+<p>This data shows us the distribution of monthly household incomes, but we can dig deeper.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code to compute and display quantiles of the income data</span>
+<span class="n">income_data</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="n">q</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0.0</th>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <th>0.1</th>
+      <td>1069.9</td>
+    </tr>
+    <tr>
+      <th>0.2</th>
+      <td>1414.0</td>
+    </tr>
+    <tr>
+      <th>0.3</th>
+      <td>1705.0</td>
+    </tr>
+    <tr>
+      <th>0.4</th>
+      <td>1991.0</td>
+    </tr>
+    <tr>
+      <th>0.5</th>
+      <td>2273.0</td>
+    </tr>
+    <tr>
+      <th>0.6</th>
+      <td>2593.0</td>
+    </tr>
+    <tr>
+      <th>0.7</th>
+      <td>2989.0</td>
+    </tr>
+    <tr>
+      <th>0.8</th>
+      <td>3516.0</td>
+    </tr>
+    <tr>
+      <th>0.9</th>
+      <td>4483.1</td>
+    </tr>
+    <tr>
+      <th>1.0</th>
+      <td>29969.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We can further dissect this data by dividing it into deciles:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">income_data</span><span class="p">[</span><span class="s2">&quot;decile&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">income_data</span><span class="p">[</span><span class="s1">&#39;income&#39;</span><span class="p">],</span> <span class="n">q</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">income_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>income</th>
+      <th>decile</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>4912</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2692</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5118</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1257</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2083</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Visualizing median income for each decile:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code to visualize the median income for each decile</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">height</span><span class="o">=</span><span class="n">income_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;decile&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()[</span><span class="s2">&quot;income&quot;</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">income_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;decile&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()[</span><span class="s2">&quot;income&quot;</span><span class="p">]):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="o">+</span> <span class="mi">50</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">€&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Income Decile&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Median Wealth for Each Income Decile&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b286db179d26e9e54bac098df9fa3a4f760d44d24b16cbfc8c194f872bc28fe4.png" src="../_images/b286db179d26e9e54bac098df9fa3a4f760d44d24b16cbfc8c194f872bc28fe4.png" />
+</div>
+</div>
+<p>Such a breakdown offers more insights into the income disparities.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code to determine and display the total income for each decile</span>
+<span class="n">income_sum</span> <span class="o">=</span> <span class="n">income_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;decile&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">income_sum</span><span class="p">[</span><span class="s2">&quot;income&quot;</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">100</span><span class="o">/</span><span class="n">income_sum</span><span class="p">[</span><span class="s2">&quot;income&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">income_sum</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>income</th>
+    </tr>
+    <tr>
+      <th>decile</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2.789230</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4.418895</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5.492008</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>6.492915</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>7.507340</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>8.548762</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>9.789732</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>11.394254</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>13.790309</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>29.776555</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>This can be further visualized using a treemap:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Code to visualize the income distribution across deciles using a treemap</span>
+
+<span class="c1"># labels</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;Decile </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> %&quot;</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">income_sum</span><span class="p">[</span><span class="s2">&quot;income&quot;</span><span class="p">])]</span>
+
+<span class="c1"># plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">squarify</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sizes</span><span class="o">=</span><span class="n">income_sum</span><span class="p">[</span><span class="s1">&#39;income&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.8</span><span class="p">,</span>
+             <span class="n">color</span><span class="o">=</span><span class="n">sb</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;Spectral&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">income_sum</span><span class="p">)),</span> <span class="n">pad</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Total Income per Decile&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/13e7a2a1acf8b608671edd30cd9beb1d045fd9f641f90e6ba312e4d5289704f2.png" src="../_images/13e7a2a1acf8b608671edd30cd9beb1d045fd9f641f90e6ba312e4d5289704f2.png" />
+</div>
+</div>
+<section id="wealth">
+<h3><span class="section-number">9.6.1. </span>Wealth<a class="headerlink" href="#wealth" title="Permalink to this heading">#</a></h3>
+<p>Typically, as the Piketty quote earlier on also said, wealth has a much more skewed distribution than income!</p>
+<p>Here, we will again work with generated, but realistic, data.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simulating a wealth distribution</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">wealth_data</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">power</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">30000</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">7500000</span> 
+<span class="c1"># Subtracting debts</span>
+<span class="n">wealth_data</span> <span class="o">-=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">30000</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40000</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">30000</span><span class="p">)</span>
+<span class="n">wealth_data</span> <span class="o">=</span> <span class="n">wealth_data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="n">wealth_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">wealth_data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;wealth&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wealth_data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>wealth</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>3.000000e+04</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>1.073513e+05</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>2.156466e+05</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>-3.999200e+04</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>9.970000e+02</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>2.574600e+04</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>1.188800e+05</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>2.826167e+06</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Such wealth distributions, particularly when skewed, might be challenging to interpret directly. Different visual representations can offer distinct perspectives:</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_dist</span><span class="p">(</span><span class="n">wealth_data</span><span class="p">[</span><span class="s2">&quot;wealth&quot;</span><span class="p">],</span> <span class="mi">100</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;median&quot;</span><span class="p">],</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">50000</span><span class="p">,</span> <span class="mf">2e6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Wealth&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Number of People (Note: simulated data)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">5e5</span><span class="p">,</span> <span class="mf">1e6</span><span class="p">,</span> <span class="mf">1.5e6</span><span class="p">,</span> <span class="mf">2e6</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;0 €&quot;</span><span class="p">,</span> <span class="s2">&quot;500 k€&quot;</span><span class="p">,</span>
+                                                     <span class="s2">&quot;1M €&quot;</span><span class="p">,</span> <span class="s2">&quot;1.5M €&quot;</span><span class="p">,</span> <span class="s2">&quot;2M €&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x1888d4551f0&gt;,
+  &lt;matplotlib.axis.XTick at 0x1888d455070&gt;,
+  &lt;matplotlib.axis.XTick at 0x1888d455cd0&gt;,
+  &lt;matplotlib.axis.XTick at 0x1888d27d280&gt;,
+  &lt;matplotlib.axis.XTick at 0x1888d27da30&gt;],
+ [Text(0.0, 0, &#39;0 €&#39;),
+  Text(500000.0, 0, &#39;500 k€&#39;),
+  Text(1000000.0, 0, &#39;1M €&#39;),
+  Text(1500000.0, 0, &#39;1.5M €&#39;),
+  Text(2000000.0, 0, &#39;2M €&#39;)])
+</pre></div>
+</div>
+<img alt="../_images/9638ffead695771a8e2b06faf8589cd385979d7ca88fb04b07b4df1f115a999e.png" src="../_images/9638ffead695771a8e2b06faf8589cd385979d7ca88fb04b07b4df1f115a999e.png" />
+</div>
+</div>
+<p>This plot is technically OK. But is has a number of disadvantages. It is visually very centered on the left side due to the strong asymmetry in the wealth distribution. This also leads to the fact, that the <em>long tail</em>, that is all the fortunes above &gt; 500k€ are practically impossible to read in this plot. We can try different plot types.</p>
+<p>We will quickly see, that a <strong>boxplot</strong> is not making things better here:</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">wealth_data</span><span class="p">[</span><span class="s2">&quot;wealth&quot;</span><span class="p">],</span> <span class="n">vert</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">50000</span><span class="p">,</span> <span class="mf">2e6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Wealth&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">5e5</span><span class="p">,</span> <span class="mf">1e6</span><span class="p">,</span> <span class="mf">1.5e6</span><span class="p">,</span> <span class="mf">2e6</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;0 €&quot;</span><span class="p">,</span> <span class="s2">&quot;500 k€&quot;</span><span class="p">,</span>
+                                                     <span class="s2">&quot;1000 k€&quot;</span><span class="p">,</span> <span class="s2">&quot;1500 k€&quot;</span><span class="p">,</span> <span class="s2">&quot;2000 k€&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x1888d161160&gt;,
+  &lt;matplotlib.axis.XTick at 0x1888d161a90&gt;,
+  &lt;matplotlib.axis.XTick at 0x1888d161400&gt;,
+  &lt;matplotlib.axis.XTick at 0x1888b0a88b0&gt;,
+  &lt;matplotlib.axis.XTick at 0x1888b0cb2b0&gt;],
+ [Text(0.0, 0, &#39;0 €&#39;),
+  Text(500000.0, 0, &#39;500 k€&#39;),
+  Text(1000000.0, 0, &#39;1000 k€&#39;),
+  Text(1500000.0, 0, &#39;1500 k€&#39;),
+  Text(2000000.0, 0, &#39;2000 k€&#39;)])
+</pre></div>
+</div>
+<img alt="../_images/2b60e8dc80296029167e6cda2bebf4a0b18f228512ed7837079f472cd43914d0.png" src="../_images/2b60e8dc80296029167e6cda2bebf4a0b18f228512ed7837079f472cd43914d0.png" />
+</div>
+</div>
+<p>A <strong>violin plot</strong> is not as ugly as the boxplot in this case, but it also doesn’t solve our problem.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">wealth_data</span><span class="p">[</span><span class="s2">&quot;wealth&quot;</span><span class="p">],</span> <span class="n">vert</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+             <span class="n">showmedians</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">yticks</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">50000</span><span class="p">,</span> <span class="mf">2e6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Wealth&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">5e5</span><span class="p">,</span> <span class="mf">1e6</span><span class="p">,</span> <span class="mf">1.5e6</span><span class="p">,</span> <span class="mf">2e6</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;0 €&quot;</span><span class="p">,</span> <span class="s2">&quot;500 k€&quot;</span><span class="p">,</span>
+                                                     <span class="s2">&quot;1000 k€&quot;</span><span class="p">,</span> <span class="s2">&quot;1500 k€&quot;</span><span class="p">,</span> <span class="s2">&quot;2000 k€&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x1888d445c70&gt;,
+  &lt;matplotlib.axis.XTick at 0x1888d445f70&gt;,
+  &lt;matplotlib.axis.XTick at 0x1888d4f31c0&gt;,
+  &lt;matplotlib.axis.XTick at 0x1888b127730&gt;,
+  &lt;matplotlib.axis.XTick at 0x1888b127bb0&gt;],
+ [Text(0.0, 0, &#39;0 €&#39;),
+  Text(500000.0, 0, &#39;500 k€&#39;),
+  Text(1000000.0, 0, &#39;1000 k€&#39;),
+  Text(1500000.0, 0, &#39;1500 k€&#39;),
+  Text(2000000.0, 0, &#39;2000 k€&#39;)])
+</pre></div>
+</div>
+<img alt="../_images/bc3b656531096aba79ec7572427ea54c4ea49c25b0d0585e726c2cf3dfddf538.png" src="../_images/bc3b656531096aba79ec7572427ea54c4ea49c25b0d0585e726c2cf3dfddf538.png" />
+</div>
+</div>
+<p>Sometimes it helps to switch from a linear to a logarithmic scale. Not in this case though:</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">wealth_data</span><span class="p">[</span><span class="s2">&quot;wealth&quot;</span><span class="p">],</span> <span class="n">vert</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+             <span class="n">showmedians</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">wealth_data</span><span class="p">[</span><span class="s2">&quot;wealth&quot;</span><span class="p">],</span> <span class="n">vert</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">showfliers</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Wealth&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">5e5</span><span class="p">,</span> <span class="mf">1e6</span><span class="p">,</span> <span class="mf">1.5e6</span><span class="p">,</span> <span class="mf">2e6</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;0 €&quot;</span><span class="p">,</span> <span class="s2">&quot;500 k€&quot;</span><span class="p">,</span>
+                                                     <span class="s2">&quot;1000 k€&quot;</span><span class="p">,</span> <span class="s2">&quot;1500 k€&quot;</span><span class="p">,</span> <span class="s2">&quot;2000 k€&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/c7447e7fa0bd6d394464e78fc52dfa1e028d3336b3021493c8f35825078cbfcc.png" src="../_images/c7447e7fa0bd6d394464e78fc52dfa1e028d3336b3021493c8f35825078cbfcc.png" />
+</div>
+</div>
+</section>
+<section id="exploring-wealth-distribution-a-different-approach">
+<h3><span class="section-number">9.6.2. </span>Exploring Wealth Distribution: A Different Approach<a class="headerlink" href="#exploring-wealth-distribution-a-different-approach" title="Permalink to this heading">#</a></h3>
+<p>Analyzing wealth distribution can be quite abstract due to the vast range of values we might encounter. Even switching to non-linear scales is not overly satisfying here. Partly also, because capital can also be &lt;= 0 (which, unfortunately, it often is).</p>
+<p>One effective way to dissect this vastness is by segmenting it into more digestible chunks – like deciles.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Splitting the wealth data into deciles</span>
+<span class="n">wealth_data</span><span class="p">[</span><span class="s2">&quot;decile&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">wealth_data</span><span class="p">[</span><span class="s1">&#39;wealth&#39;</span><span class="p">],</span> <span class="n">q</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">height</span><span class="o">=</span><span class="n">wealth_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;decile&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()[</span><span class="s2">&quot;wealth&quot;</span><span class="p">])</span>
+
+<span class="c1"># Annotating the median wealth values for each decile</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">wealth_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;decile&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">median</span><span class="p">()[</span><span class="s2">&quot;wealth&quot;</span><span class="p">]):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5000</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">€&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">labels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Wealth Deciles&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Median Wealth for Each Wealth Decile&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/5ac737398c407317b47e233b4526446681b0e0ee0cb2d57dd841aba8ed35132f.png" src="../_images/5ac737398c407317b47e233b4526446681b0e0ee0cb2d57dd841aba8ed35132f.png" />
+</div>
+</div>
+<p>But if we wish to amplify the impact of these insights visually, we can take a more graphical approach.</p>
+<p>Consider the following data which provides a breakdown of wealth percentages across certain segments of the population:</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">wealth_sum</span> <span class="o">=</span> <span class="n">wealth_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;decile&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">wealth_sum</span><span class="p">[</span><span class="s2">&quot;wealth&quot;</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">100</span><span class="o">/</span><span class="n">wealth_sum</span><span class="p">[</span><span class="s2">&quot;wealth&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">wealth_sum</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>wealth</th>
+    </tr>
+    <tr>
+      <th>decile</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-2.337298</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-0.576260</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.113087</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.625263</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.681564</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>3.404859</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>6.310448</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>11.313193</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>21.260922</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>58.204221</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample data representing wealth distribution across segments</span>
+<span class="n">wealth_sum_real</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;wealth&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.8</span><span class="p">,</span> <span class="mf">3.8</span><span class="p">,</span> <span class="mf">7.2</span><span class="p">,</span> <span class="mf">12.</span><span class="p">,</span> <span class="mf">19.5</span><span class="p">,</span> <span class="mf">56.1</span><span class="p">]})</span>
+
+<span class="c1"># Labeling segments for better visualization</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">5</span><span class="si">}</span><span class="s2">. Decile </span><span class="se">\n</span><span class="s2"> </span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2"> %&quot;</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">wealth_sum_real</span><span class="p">[</span><span class="s2">&quot;wealth&quot;</span><span class="p">])]</span>
+<span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;1. - 5. Decile&quot;</span> 
+
+<span class="c1"># Adjusting sizes for the visualization</span>
+<span class="n">sizes</span> <span class="o">=</span> <span class="n">wealth_sum_real</span><span class="p">[</span><span class="s1">&#39;wealth&#39;</span><span class="p">]</span>
+<span class="n">sizes</span><span class="p">[</span><span class="n">sizes</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0001</span>
+
+<span class="c1"># Visualizing the wealth distribution using a treemap</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">squarify</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sizes</span><span class="o">=</span><span class="n">sizes</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.8</span><span class="p">,</span>
+             <span class="n">color</span><span class="o">=</span><span class="n">sb</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;Spectral&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">wealth_sum_real</span><span class="p">)),</span> <span class="n">pad</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Total Wealth for Each Population Decile&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/2b5cbbc469759efe93fff8a81239d9c95e179c8078bab1d06a5da06a1f963bf3.png" src="../_images/2b5cbbc469759efe93fff8a81239d9c95e179c8078bab1d06a5da06a1f963bf3.png" />
+</div>
+</div>
+<p>This visualization provides an illustrative look at how wealth is dispersed across different segments of society. Through such visual aids, abstract numbers transform into tangible insights. And I bet they help a lot in sparking discussions on the distribution of wealth…</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../book/07_data_acquisition_and_preparation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Data Acquisition &amp; Preparation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../book/acknowledgements.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Acknowledgements</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures">9.1. Statistical Measures</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-understanding-statistics-in-a-practical-scenario">9.1.1. Exercise: Understanding Statistics in a Practical Scenario</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-measures-and-distributions">9.2. Statistical Measures and Distributions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetric-distribution">9.2.1. Symmetric Distribution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-symmetric-distributions">9.2.2. Non-symmetric Distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distributions-with-outliers">9.2.3. Distributions with Outliers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mixed-distributions">9.2.4. Mixed Distributions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">9.2.5. Statistical Measures</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-dispertion">9.3. Statistical dispertion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-can-statistical-measures-do-and-what-not">9.4. What can statistical measures do (and what not)?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-data-exploration-using-basic-statistics">9.4.1. First Data Exploration (using basic statistics)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise-what-do-you-think">9.4.2. Mini-Exercise: What do you think?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">9.4.3. Solution</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-distributions-visually">9.5. Comparing Distributions Visually</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-talk-money">9.6. Let’s talk money</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wealth">9.6.1. Wealth</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-wealth-distribution-a-different-approach">9.6.2. Exploring Wealth Distribution: A Different Approach</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Florian Huber
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
