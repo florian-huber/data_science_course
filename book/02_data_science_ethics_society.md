@@ -77,7 +77,7 @@ A very important aspect in this context is the question of accountability, so wh
 
 How do you feel now? Sounds like a heavy burden? Sure. But remember the wisdom of Spider-Man:   
 
-*With great power comes great responsibility*!
+> **With great power comes great responsibility!**
 
 
 
