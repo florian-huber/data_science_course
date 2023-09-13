@@ -23,6 +23,7 @@ parts:
     numbered: true
     chapters:
     - file: notebooks/live_coding_05_correlation_analysis
+    - file: notebooks/live_coding_06_clustering
   - caption: Working with text data
     numbered: true
     chapters:
