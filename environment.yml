@@ -16,4 +16,6 @@ dependencies:
     - jupyter
     - matplotlib
     - networkx
+    - nltk
+    - spacy
     - squarify
