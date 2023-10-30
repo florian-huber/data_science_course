@@ -22,8 +22,8 @@ data.head()
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-Cell [0;32mIn[3], line 2[0m
+[0;31mUnicodeDecodeError[0m                        Traceback (most recent call last)
+Cell [0;32mIn[4], line 2[0m
 [1;32m      1[0m filename [38;5;241m=[39m [38;5;124m"[39m[38;5;124m../datasets/tripadvisor_hotel_reviews.csv[39m[38;5;124m"[39m
 [0;32m----> 2[0m data [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mread_csv[49m[43m([49m[43mfilename[49m[43m)[49m
 [1;32m      3[0m data[38;5;241m.[39mhead()
@@ -50,38 +50,30 @@ File [0;32m~/micromamba/envs/data_science/lib/python3.9/site-packages/pandas/io
 [1;32m   1447[0m [38;5;28mself[39m[38;5;241m.[39mhandles: IOHandles [38;5;241m|[39m [38;5;28;01mNone[39;00m [38;5;241m=[39m [38;5;28;01mNone[39;00m
 [0;32m-> 1448[0m [38;5;28mself[39m[38;5;241m.[39m_engine [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_make_engine[49m[43m([49m[43mf[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mengine[49m[43m)[49m
 
-File [0;32m~/micromamba/envs/data_science/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1705[0m, in [0;36mTextFileReader._make_engine[0;34m(self, f, engine)[0m
-[1;32m   1703[0m     [38;5;28;01mif[39;00m [38;5;124m"[39m[38;5;124mb[39m[38;5;124m"[39m [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m mode:
-[1;32m   1704[0m         mode [38;5;241m+[39m[38;5;241m=[39m [38;5;124m"[39m[38;5;124mb[39m[38;5;124m"[39m
-[0;32m-> 1705[0m [38;5;28mself[39m[38;5;241m.[39mhandles [38;5;241m=[39m [43mget_handle[49m[43m([49m
-[1;32m   1706[0m [43m    [49m[43mf[49m[43m,[49m
-[1;32m   1707[0m [43m    [49m[43mmode[49m[43m,[49m
-[1;32m   1708[0m [43m    [49m[43mencoding[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mencoding[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mNone[39;49;00m[43m)[49m[43m,[49m
-[1;32m   1709[0m [43m    [49m[43mcompression[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mcompression[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mNone[39;49;00m[43m)[49m[43m,[49m
-[1;32m   1710[0m [43m    [49m[43mmemory_map[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mmemory_map[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mFalse[39;49;00m[43m)[49m[43m,[49m
-[1;32m   1711[0m [43m    [49m[43mis_text[49m[38;5;241;43m=[39;49m[43mis_text[49m[43m,[49m
-[1;32m   1712[0m [43m    [49m[43merrors[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mencoding_errors[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;124;43m"[39;49m[38;5;124;43mstrict[39;49m[38;5;124;43m"[39;49m[43m)[49m[43m,[49m
-[1;32m   1713[0m [43m    [49m[43mstorage_options[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mstorage_options[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mNone[39;49;00m[43m)[49m[43m,[49m
-[1;32m   1714[0m [43m[49m[43m)[49m
-[1;32m   1715[0m [38;5;28;01massert[39;00m [38;5;28mself[39m[38;5;241m.[39mhandles [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m
-[1;32m   1716[0m f [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mhandles[38;5;241m.[39mhandle
+File [0;32m~/micromamba/envs/data_science/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1723[0m, in [0;36mTextFileReader._make_engine[0;34m(self, f, engine)[0m
+[1;32m   1720[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(msg)
+[1;32m   1722[0m [38;5;28;01mtry[39;00m:
+[0;32m-> 1723[0m     [38;5;28;01mreturn[39;00m [43mmapping[49m[43m[[49m[43mengine[49m[43m][49m[43m([49m[43mf[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[43m)[49m
+[1;32m   1724[0m [38;5;28;01mexcept[39;00m [38;5;167;01mException[39;00m:
+[1;32m   1725[0m     [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mhandles [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
 
-File [0;32m~/micromamba/envs/data_science/lib/python3.9/site-packages/pandas/io/common.py:863[0m, in [0;36mget_handle[0;34m(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)[0m
-[1;32m    858[0m [38;5;28;01melif[39;00m [38;5;28misinstance[39m(handle, [38;5;28mstr[39m):
-[1;32m    859[0m     [38;5;66;03m# Check whether the filename is to be opened in binary mode.[39;00m
-[1;32m    860[0m     [38;5;66;03m# Binary mode does not support 'encoding' and 'newline'.[39;00m
-[1;32m    861[0m     [38;5;28;01mif[39;00m ioargs[38;5;241m.[39mencoding [38;5;129;01mand[39;00m [38;5;124m"[39m[38;5;124mb[39m[38;5;124m"[39m [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m ioargs[38;5;241m.[39mmode:
-[1;32m    862[0m         [38;5;66;03m# Encoding[39;00m
-[0;32m--> 863[0m         handle [38;5;241m=[39m [38;5;28;43mopen[39;49m[43m([49m
-[1;32m    864[0m [43m            [49m[43mhandle[49m[43m,[49m
-[1;32m    865[0m [43m            [49m[43mioargs[49m[38;5;241;43m.[39;49m[43mmode[49m[43m,[49m
-[1;32m    866[0m [43m            [49m[43mencoding[49m[38;5;241;43m=[39;49m[43mioargs[49m[38;5;241;43m.[39;49m[43mencoding[49m[43m,[49m
-[1;32m    867[0m [43m            [49m[43merrors[49m[38;5;241;43m=[39;49m[43merrors[49m[43m,[49m
-[1;32m    868[0m [43m            [49m[43mnewline[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43m"[39;49m[43m,[49m
-[1;32m    869[0m [43m        [49m[43m)[49m
-[1;32m    870[0m     [38;5;28;01melse[39;00m:
-[1;32m    871[0m         [38;5;66;03m# Binary mode[39;00m
-[1;32m    872[0m         handle [38;5;241m=[39m [38;5;28mopen[39m(handle, ioargs[38;5;241m.[39mmode)
+File [0;32m~/micromamba/envs/data_science/lib/python3.9/site-packages/pandas/io/parsers/c_parser_wrapper.py:93[0m, in [0;36mCParserWrapper.__init__[0;34m(self, src, **kwds)[0m
+[1;32m     90[0m [38;5;28;01mif[39;00m kwds[[38;5;124m"[39m[38;5;124mdtype_backend[39m[38;5;124m"[39m] [38;5;241m==[39m [38;5;124m"[39m[38;5;124mpyarrow[39m[38;5;124m"[39m:
+[1;32m     91[0m     [38;5;66;03m# Fail here loudly instead of in cython after reading[39;00m
+[1;32m     92[0m     import_optional_dependency([38;5;124m"[39m[38;5;124mpyarrow[39m[38;5;124m"[39m)
+[0;32m---> 93[0m [38;5;28mself[39m[38;5;241m.[39m_reader [38;5;241m=[39m [43mparsers[49m[38;5;241;43m.[39;49m[43mTextReader[49m[43m([49m[43msrc[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwds[49m[43m)[49m
+[1;32m     95[0m [38;5;28mself[39m[38;5;241m.[39munnamed_cols [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_reader[38;5;241m.[39munnamed_cols
+[1;32m     97[0m [38;5;66;03m# error: Cannot determine type of 'names'[39;00m
 
-[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../datasets/tripadvisor_hotel_reviews.csv'
+File [0;32mparsers.pyx:579[0m, in [0;36mpandas._libs.parsers.TextReader.__cinit__[0;34m()[0m
+
+File [0;32mparsers.pyx:668[0m, in [0;36mpandas._libs.parsers.TextReader._get_header[0;34m()[0m
+
+File [0;32mparsers.pyx:879[0m, in [0;36mpandas._libs.parsers.TextReader._tokenize_rows[0;34m()[0m
+
+File [0;32mparsers.pyx:890[0m, in [0;36mpandas._libs.parsers.TextReader._check_tokenize_status[0;34m()[0m
+
+File [0;32mparsers.pyx:2050[0m, in [0;36mpandas._libs.parsers.raise_parser_error[0;34m()[0m
+
+[0;31mUnicodeDecodeError[0m: 'utf-8' codec can't decode byte 0xc7 in position 10968: invalid continuation byte
 

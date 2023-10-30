@@ -195,7 +195,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">12. NLP - basic techniques to analyse text data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">13. Computing with Text: Counting words</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">14. Beyond Counting Individual Words: N-grams</a></li>
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -399,9 +398,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">14. Beyond Counting Individual Words: N-grams</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-grams">14.1. N-grams</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-grams-in-tf-idf-vectors">14.2. N-grams in TF-IDF Vectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-grams-in-tf-idf-vectors">14.2. N-grams in TF-IDF Vectors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-madrid-restaurant-reviews">14.2.1. Dataset - Madrid Restaurant Reviews</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf-with-bigrams-growing-vectors-and-managing-high-dimensionality">14.3. TF-IDF with Bigrams: Growing Vectors and Managing High Dimensionality</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-model">14.3.1. Logistic Regression model</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question">14.3.1.1. Question!</a></li>
@@ -416,20 +417,15 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-one-vector-to-all-other-vectors">14.4.1. Compare one vector to all other vectors</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#word-vectors-word2vec-and-co">15. Word Vectors: Word2Vec and Co</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-short-cuts">15.1. Alternative short-cuts</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-and-extensions">15.1.1. Limitations and Extensions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fasttext">15.1.2. FastText</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#glove">15.1.3. GloVe</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformers-bert-gpt">15.1.4. Transformers: BERT &amp; GPT</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word-vectors-word2vec-and-co">14.5. Word Vectors: Word2Vec and Co</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-short-cuts">14.6. Alternative short-cuts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-and-extensions">14.6.1. Limitations and Extensions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fasttext">14.6.2. FastText</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#glove">14.6.3. GloVe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformers-bert-gpt">14.6.4. Transformers: BERT &amp; GPT</a></li>
 </ul>
 </li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -472,9 +468,66 @@ Bigrams (or 2-grams) would not catch those differences. But they can also be ver
 <section id="n-grams-in-tf-idf-vectors">
 <h2><span class="section-number">14.2. </span>N-grams in TF-IDF Vectors<a class="headerlink" href="#n-grams-in-tf-idf-vectors" title="Permalink to this heading">#</a></h2>
 <p>When creating TF-IDF vectors, we can incorporate the concept of n-grams. The scikit-learn <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer</span></code> provides the <code class="docutils literal notranslate"><span class="pre">ngram_range</span></code> parameter that allows us to specify the range of n-grams to include in the feature vectors.</p>
+<section id="dataset-madrid-restaurant-reviews">
+<h3><span class="section-number">14.2.1. </span>Dataset - Madrid Restaurant Reviews<a class="headerlink" href="#dataset-madrid-restaurant-reviews" title="Permalink to this heading">#</a></h3>
+<p>Here we will use a fairly large text-based dataset containing restaurtant reviews from Madrid (<a class="reference external" href="https://zenodo.org/records/6583422">see dataset on zenodo</a>). It contains more than 176.000 reviews and has a size of 142MB an can be downloaded via the following code block.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;../../../Data/data_teaching/Madrid_reviews.csv&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This code block downloads the data from zenodo and stores it in a local &#39;datasets&#39; folder.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+
+<span class="k">def</span> <span class="nf">download_from_zenodo</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Downloads a file from a given Zenodo link and saves it to the specified path.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - url: The Zenodo link to the file to be downloaded.</span>
+<span class="sd">    - save_path: Path where the file should be saved.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Check if the file already exists</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">save_path</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File </span><span class="si">{</span><span class="n">save_path</span><span class="si">}</span><span class="s2"> already exists. Skipping download.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_path</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">8192</span><span class="p">):</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File downloaded successfully and saved to </span><span class="si">{</span><span class="n">save_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># Zenodo link to the dataset</span>
+<span class="n">zenodo_link</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;https://zenodo.org/records/6583422/files/Madrid_reviews.csv?download=1&quot;</span>
+
+<span class="c1"># Path to save the downloaded dataset (you can modify this as needed)</span>
+<span class="n">output_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;datasets&quot;</span><span class="p">,</span> <span class="s2">&quot;madrid_reviews.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create directory if it doesn&#39;t exist</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">output_path</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Download the dataset</span>
+<span class="n">download_from_zenodo</span><span class="p">(</span><span class="n">zenodo_link</span><span class="p">,</span> <span class="n">output_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File downloaded successfully and saved to ../datasets/madrid_reviews.csv
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;../datasets/madrid_reviews.csv&quot;</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;Unnamed: 0&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -482,73 +535,117 @@ Bigrams (or 2-grams) would not catch those differences. But they can also be ver
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;../../../Data/data_teaching/Madrid_reviews.csv&quot;</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;Unnamed: 0&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/pandas/io/parsers/readers.py:948,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
-<span class="g g-Whitespace">    </span><span class="mi">935</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">936</span>     <span class="n">dialect</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">937</span>     <span class="n">delimiter</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">944</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">945</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">946</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">948</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/pandas/io/parsers/readers.py:611,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">608</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">610</span> <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">611</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">613</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">614</span>     <span class="k">return</span> <span class="n">parser</span>
-
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1448,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1445</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1447</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="ne">-&gt; </span><span class="mi">1448</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1705,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1703</span>     <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1704</span>         <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1705</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1706</span>     <span class="n">f</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1707</span>     <span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1708</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1709</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1710</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1711</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1712</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1713</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1714</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1715</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">1716</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
-
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/pandas/io/common.py:863,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">858</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">859</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
-<span class="g g-Whitespace">    </span><span class="mi">860</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
-<span class="g g-Whitespace">    </span><span class="mi">861</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">862</span>         <span class="c1"># Encoding</span>
-<span class="ne">--&gt; </span><span class="mi">863</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">864</span>             <span class="n">handle</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">865</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">866</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">867</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">868</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">869</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">870</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">871</span>         <span class="c1"># Binary mode</span>
-<span class="g g-Whitespace">    </span><span class="mi">872</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../../../Data/data_teaching/Madrid_reviews.csv&#39;
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>parse_count</th>
+      <th>restaurant_name</th>
+      <th>rating_review</th>
+      <th>sample</th>
+      <th>review_id</th>
+      <th>title_review</th>
+      <th>review_preview</th>
+      <th>review_full</th>
+      <th>date</th>
+      <th>city</th>
+      <th>url_restaurant</th>
+      <th>author_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Sushi_Yakuza</td>
+      <td>4</td>
+      <td>Positive</td>
+      <td>review_731778139</td>
+      <td>Good sushi option</td>
+      <td>The menu of Yakuza is a bit of a lottery, some...</td>
+      <td>The menu of Yakuza is a bit of a lottery, some...</td>
+      <td>December 10, 2019</td>
+      <td>Madrid</td>
+      <td>https://www.tripadvisor.com/Restaurant_Review-...</td>
+      <td>UID_0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>11</td>
+      <td>Azotea_Forus_Barcelo</td>
+      <td>1</td>
+      <td>Negative</td>
+      <td>review_766657436</td>
+      <td>Light up your table at night</td>
+      <td>Check your bill when you cancel just in case y...</td>
+      <td>Check your bill when you cancel just in case y...</td>
+      <td>August 23, 2020</td>
+      <td>Madrid</td>
+      <td>https://www.tripadvisor.com/Restaurant_Review-...</td>
+      <td>UID_1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>12</td>
+      <td>Level_Veggie_Bistro</td>
+      <td>5</td>
+      <td>Positive</td>
+      <td>review_749493592</td>
+      <td>Delicious</td>
+      <td>I had the yuca profiteroles and the veggie bur...</td>
+      <td>I had the yuca profiteroles and the veggie bur...</td>
+      <td>March 6, 2020</td>
+      <td>Madrid</td>
+      <td>https://www.tripadvisor.com/Restaurant_Review-...</td>
+      <td>UID_2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>13</td>
+      <td>Sto_Globo_Sushi_Room</td>
+      <td>5</td>
+      <td>Positive</td>
+      <td>review_772422246</td>
+      <td>Loved this place</td>
+      <td>A friend recommended this place as one of the ...</td>
+      <td>A friend recommended this place as one of the ...</td>
+      <td>September 29, 2020</td>
+      <td>Madrid</td>
+      <td>https://www.tripadvisor.com/Restaurant_Review-...</td>
+      <td>UID_3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>14</td>
+      <td>Azotea_Forus_Barcelo</td>
+      <td>5</td>
+      <td>Positive</td>
+      <td>review_761855600</td>
+      <td>Amazing terrace in madrid</td>
+      <td>Amazing terrace in madrid - great atmosphere a...</td>
+      <td>Amazing terrace in madrid - great atmosphere a...</td>
+      <td>July 27, 2020</td>
+      <td>Madrid</td>
+      <td>https://www.tripadvisor.com/Restaurant_Review-...</td>
+      <td>UID_4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -586,7 +683,51 @@ Bigrams (or 2-grams) would not catch those differences. But they can also be ver
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(176848, 1496963)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># considers both unigrams and bigrams</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>  
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">tfidf_vectors</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">review_full</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">tfidf_vectors</span><span class="o">.</span><span class="n">shape</span>
+
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/sklearn/feature_extraction/text.py:2143,</span> in <span class="ni">TfidfVectorizer.fit_transform</span><span class="nt">(self, raw_documents, y)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2140</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tfidf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2141</span> <span class="c1"># X is already a transformed view of raw_documents so</span>
+<span class="g g-Whitespace">   </span><span class="mi">2142</span> <span class="c1"># we set copy to False</span>
+<span class="ne">-&gt; </span><span class="mi">2143</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tfidf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/sklearn/feature_extraction/text.py:1727,</span> in <span class="ni">TfidfTransformer.transform</span><span class="nt">(self, X, copy)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1724</span>     <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;idf_&quot;</span><span class="p">],</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;idf vector is not fitted&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1726</span>     <span class="c1"># *= doesn&#39;t work</span>
+<span class="ne">-&gt; </span><span class="mi">1727</span>     <span class="n">X</span> <span class="o">=</span> <span class="n">X</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_idf_diag</span>
+<span class="g g-Whitespace">   </span><span class="mi">1729</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1730</span>     <span class="n">X</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">norm</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/scipy/sparse/_matrix.py:48,</span> in <span class="ni">spmatrix.__mul__</span><span class="nt">(self, other)</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span> <span class="k">def</span> <span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">48</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mul_dispatch</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/scipy/sparse/_base.py:535,</span> in <span class="ni">_spbase._mul_dispatch</span><span class="nt">(self, other)</span>
+<span class="g g-Whitespace">    </span><span class="mi">533</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+<span class="g g-Whitespace">    </span><span class="mi">534</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;dimension mismatch&#39;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">535</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mul_sparse_matrix</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">537</span> <span class="c1"># If it&#39;s a list or whatever, treat it like an array</span>
+<span class="g g-Whitespace">    </span><span class="mi">538</span> <span class="n">other_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asanyarray</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
+
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/scipy/sparse/_compressed.py:532,</span> in <span class="ni">_cs_matrix._mul_sparse_matrix</span><span class="nt">(self, other)</span>
+<span class="g g-Whitespace">    </span><span class="mi">529</span> <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">nnz</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">upcast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">dtype</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">531</span> <span class="n">fn</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">_sparsetools</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">+</span> <span class="s1">&#39;_matmat&#39;</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">532</span> <span class="n">fn</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indptr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">idx_dtype</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">533</span>    <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indices</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">idx_dtype</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">534</span>    <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">535</span>    <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">indptr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">idx_dtype</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">536</span>    <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">indices</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">idx_dtype</span><span class="p">),</span>
+<span class="g g-Whitespace">    </span><span class="mi">537</span>    <span class="n">other</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">538</span>    <span class="n">indptr</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">540</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">((</span><span class="n">data</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">indptr</span><span class="p">),</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -594,6 +735,7 @@ Bigrams (or 2-grams) would not catch those differences. But they can also be ver
 <p>This way, we are not just considering the frequency of individual words, but also the frequency of sequences of words, which often capture more meaning than the individual words alone.</p>
 <p><strong>But:</strong> this creates even bigger tfidf vectors!<br />
 Now we end up with vectors of about 1 million entries (even though most will be zero most of the time).</p>
+</section>
 </section>
 <section id="tf-idf-with-bigrams-growing-vectors-and-managing-high-dimensionality">
 <h2><span class="section-number">14.3. </span>TF-IDF with Bigrams: Growing Vectors and Managing High Dimensionality<a class="headerlink" href="#tf-idf-with-bigrams-growing-vectors-and-managing-high-dimensionality" title="Permalink to this heading">#</a></h2>
@@ -1596,9 +1738,8 @@ Perfect dinner spot in La Latina, a little ways away from the hustle and bustle 
 </div>
 </section>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="word-vectors-word2vec-and-co">
-<h1><span class="section-number">15. </span>Word Vectors: Word2Vec and Co<a class="headerlink" href="#word-vectors-word2vec-and-co" title="Permalink to this heading">#</a></h1>
+<section id="word-vectors-word2vec-and-co">
+<h2><span class="section-number">14.5. </span>Word Vectors: Word2Vec and Co<a class="headerlink" href="#word-vectors-word2vec-and-co" title="Permalink to this heading">#</a></h2>
 <p><strong>Tfidf vectors</strong> are a rather basic, but still often used, technique. Arguably, this is because they are based on relatively simple statistics and easy to compute. They typically do a good job in weighing words according to their importance in a larger corpus and allow us to ignore words with low <em>distriminative power</em> (for instance so-called <em>stopwords</em> such as “a”, “the”, “that”, …).</p>
 <p>With <strong>n-grams</strong> we can even go one step further and also count sentence pieces longer than one word, which allows to also take some grammar or negations into account. The price, however, is that we have to restrict the number of n-grams to avoid exploding vector sizes.</p>
 <p>While TF-IDF vectors and n-grams serve as powerful techniques to represent and manipulate text data, they have limitations. These methods essentially treat words as individual, isolated units, devoid of any context or relation to other words. In other words, they lack the ability to capture the semantic meanings of words and the linguistic context in which they are used.</p>
@@ -1871,8 +2012,9 @@ Perfect dinner spot in La Latina, a little ways away from the hustle and bustle 
 </div>
 </div>
 </div>
+</section>
 <section id="alternative-short-cuts">
-<h2><span class="section-number">15.1. </span>Alternative short-cuts<a class="headerlink" href="#alternative-short-cuts" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">14.6. </span>Alternative short-cuts<a class="headerlink" href="#alternative-short-cuts" title="Permalink to this heading">#</a></h2>
 <p>Training your own Word2Vec model is fun and sometimes also really helpful. Here it is quite OK for instance, because we have a relatively big text corpus (&gt; 140,000 documents) with a clear general topic focus on restaurants and food.</p>
 <p>Often, however, you simply may want to use a model that covers a language more broadly. Instead of training your own model on a much much bigger corpus, we can simply use a model that was trained already, see for instance here <a class="reference external" href="https://radimrehurek.com/gensim/models/word2vec.html#usage-examples">on the Gensim website</a>.</p>
 <p>Another way is to use <strong>SpaCy</strong>. Its larger language models already contain word embeddings!</p>
@@ -2046,19 +2188,19 @@ afskfsd False 0.0 True
 </div>
 </div>
 <section id="limitations-and-extensions">
-<h3><span class="section-number">15.1.1. </span>Limitations and Extensions<a class="headerlink" href="#limitations-and-extensions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">14.6.1. </span>Limitations and Extensions<a class="headerlink" href="#limitations-and-extensions" title="Permalink to this heading">#</a></h3>
 <p>While Word2Vec is a powerful tool, it’s not without limitations. The main issue with Word2Vec (and similar models that derive their semantics based on the local usage context) is that they assign one vector per word. This becomes a problem for words with multiple meanings based on their context (homonyms and polysemes). To tackle such limitations, extensions like FastText and advanced methods such as GloVe (Global Vectors for Word Representation) and transformers like BERT (Bidirectional Encoder Representations from Transformers) have been proposed.</p>
 </section>
 <section id="fasttext">
-<h3><span class="section-number">15.1.2. </span>FastText<a class="headerlink" href="#fasttext" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">14.6.2. </span>FastText<a class="headerlink" href="#fasttext" title="Permalink to this heading">#</a></h3>
 <p>FastText, also developed by Facebook, extends Word2Vec by treating each word as composed of character n-grams. So the vector for a word is made of the sum of these character n-grams. This allows the embeddings to capture the meaning of shorter words and suffixes/prefixes and understand new words once the character n-grams are learned.</p>
 </section>
 <section id="glove">
-<h3><span class="section-number">15.1.3. </span>GloVe<a class="headerlink" href="#glove" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">14.6.3. </span>GloVe<a class="headerlink" href="#glove" title="Permalink to this heading">#</a></h3>
 <p>GloVe, developed by Stanford, is another method to create word embeddings. While Word2Vec is a predictive model — a model that predicts context given a word, GloVe is a count-based model. It leverages matrix factorization techniques on the word-word co-occurrence matrix.</p>
 </section>
 <section id="transformers-bert-gpt">
-<h3><span class="section-number">15.1.4. </span>Transformers: BERT &amp; GPT<a class="headerlink" href="#transformers-bert-gpt" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">14.6.4. </span>Transformers: BERT &amp; GPT<a class="headerlink" href="#transformers-bert-gpt" title="Permalink to this heading">#</a></h3>
 <p>BERT (Bidirectional Encoder Representations from Transformers) and GPT (Generative Pretrained Transformer) models ushered in the era of transformers that not only consider local context but also take the entire sentence context into account to create word embeddings.</p>
 <p>In conclusion, while TF-IDF and n-grams offer a solid start, word embeddings and transformers take the representation of words to the next level. By considering context and semantic meaning, they offer a more complete and robust method to work with text</p>
 </section>
@@ -2128,9 +2270,11 @@ afskfsd False 0.0 True
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">14. Beyond Counting Individual Words: N-grams</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-grams">14.1. N-grams</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-grams-in-tf-idf-vectors">14.2. N-grams in TF-IDF Vectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-grams-in-tf-idf-vectors">14.2. N-grams in TF-IDF Vectors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-madrid-restaurant-reviews">14.2.1. Dataset - Madrid Restaurant Reviews</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf-with-bigrams-growing-vectors-and-managing-high-dimensionality">14.3. TF-IDF with Bigrams: Growing Vectors and Managing High Dimensionality</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-model">14.3.1. Logistic Regression model</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question">14.3.1.1. Question!</a></li>
@@ -2145,20 +2289,15 @@ afskfsd False 0.0 True
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-one-vector-to-all-other-vectors">14.4.1. Compare one vector to all other vectors</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#word-vectors-word2vec-and-co">15. Word Vectors: Word2Vec and Co</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-short-cuts">15.1. Alternative short-cuts</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-and-extensions">15.1.1. Limitations and Extensions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fasttext">15.1.2. FastText</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#glove">15.1.3. GloVe</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformers-bert-gpt">15.1.4. Transformers: BERT &amp; GPT</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word-vectors-word2vec-and-co">14.5. Word Vectors: Word2Vec and Co</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-short-cuts">14.6. Alternative short-cuts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-and-extensions">14.6.1. Limitations and Extensions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fasttext">14.6.2. FastText</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#glove">14.6.3. GloVe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformers-bert-gpt">14.6.4. Transformers: BERT &amp; GPT</a></li>
 </ul>
 </li>
 </ul>
-
   </nav></div>
 
 </div></div>
