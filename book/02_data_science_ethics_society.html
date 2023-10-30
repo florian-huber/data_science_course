@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -76,6 +77,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -136,13 +146,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Data Science for (not yet) scientists - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Data Science for (not yet) scientists - Home"/>`);</script>
   
   
 </a></div>
@@ -173,6 +184,18 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="07_data_acquisition_and_preparation.html">8. Data Acquisition &amp; Preparation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_04_distributions_statistical_measures.html">9. First Data Exploration</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth Data Exploration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_05_correlation_analysis.html">10. Correlation Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_10_working_with_text_data.html">11. Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_11_NLP_2_tokenization.html">12. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_11_NLP_3_tfifd_and_machine_learning.html">13. Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_12_NLP_4_ngrams_word_vectors.html">14. Beyond Counting Individual Words: N-grams</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -338,10 +361,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -349,7 +372,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -450,7 +473,9 @@ Consider a study using AdFisher, an automated tool designed to scrutinize the in
 <p>It is crucial to understand that, from an ethical standpoint, <strong>data is not neutral</strong> <span id="id7">[<a class="reference internal" href="bibliography.html#id25" title="Catherine D'Ignazio and Lauren F. Klein. Data feminism. &lt;Strong&gt; ideas series. The MIT Press, Cambridge, Massachusetts ; London, England, 2020. ISBN 978-0-262-04400-4.">D'Ignazio and Klein, 2020</a>]</span>, and likewise, <strong>algorithms are not neutral</strong> <span id="id8">[<a class="reference internal" href="bibliography.html#id13" title="Kirsten Martin. Ethical Implications and Accountability of Algorithms. Journal of Business Ethics, 160(4):835–850, December 2019. URL: https://doi.org/10.1007/s10551-018-3921-3 (visited on 2023-06-09), doi:10.1007/s10551-018-3921-3.">Martin, 2019</a>]</span><span id="id9">[<a class="reference internal" href="bibliography.html#id26" title="C. Stinson. Algorithms are not neutral. AI Ethics, 2:763–770, 2022. doi:10.1007/s43681-022-00136-w.">Stinson, 2022</a>]</span><span id="id10">[<a class="reference internal" href="bibliography.html#id8" title="Sina Fazelpour and David Danks. Algorithmic bias: Senses, sources, solutions. Philosophy Compass, 16(8):e12760, 2021. _eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1111/phc3.12760. URL: https://onlinelibrary.wiley.com/doi/abs/10.1111/phc3.12760 (visited on 2023-06-09), doi:10.1111/phc3.12760.">Fazelpour and Danks, 2021</a>]</span>. As (future) data scientists, we must exercise the utmost care when  working with data and algorithms. The examples provided should  illustrate the importance of critically reflecting on the intentions  behind our actions as data scientists. This reflection should encompass  various perspectives to comprehend the “bigger picture”. For instance,  Shoshana Zuboff’s “The Age of Surveillance Capitalism” <span id="id11">[<a class="reference internal" href="bibliography.html#id27" title="Shoshana Zuboff. The Age of Surveillance Capitalism: The Fight for a Human Future at the New Frontier of Power. Profile Books, 1st edition, 2019. ISBN 9781781256848.">Zuboff, 2019</a>]</span> delves into how corporations like Google leverage users’ personal data, or “behavioral surplus”, to customize advertisements, essentially  transforming users into products. Zuboff criticizes this practice,  asserting that it undermines individuals’ autonomy and capacity to  influence their future. She proposes regulations and corporate  accountability to ensure that technology benefits users rather than  merely serving large corporations. Hence, the fact that we, as data  scientists, <em>can</em> potentially extract maximum information or yield the “best” predictions from data does not mean we <em>should</em> do so.</p>
 <p>A very important aspect in this context is the question of accountability, so who is in the end responsible for decisions taken by (or based on) an algorithm, see for instance <span id="id12">[<a class="reference internal" href="bibliography.html#id13" title="Kirsten Martin. Ethical Implications and Accountability of Algorithms. Journal of Business Ethics, 160(4):835–850, December 2019. URL: https://doi.org/10.1007/s10551-018-3921-3 (visited on 2023-06-09), doi:10.1007/s10551-018-3921-3.">Martin, 2019</a>]</span>. Most data scientists are no trained ethicists and lawyers, and they also don’t have to be. But I hope that the ethical aspects we briefly touch upon in this chapter make clear, that our role as data scientist is not finished when we have working code and a pretty looking plot in the end. It is not finished if we trained a machine-learning model that predicts with 99.9% accuracy (what does that mean anyway…). It is not finished when we successfully published our results or got a clap on our shoulder from the upper management. Our core job <strong>includes</strong> the ethical component, we have the duty to reflect on the potential consequences of our work. And this means, that we should not only learn how to apply the so many different data science methods, but we need to also learn enough about those method to judge why we use a certain method and what common pitfalls are that we need to test and take care of. Luckily, making this extra efforts will also technically make us better data scientists.</p>
 <p>How do you feel now? Sounds like a heavy burden? Sure. But remember the wisdom of Spider-Man:</p>
-<p><em>With great power comes great responsibility</em>!</p>
+<blockquote>
+<div><p><strong>With great power comes great responsibility!</strong></p>
+</div></blockquote>
 <hr class="footnotes docutils" />
 <aside class="footnote brackets" id="target-story" role="note">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
@@ -484,11 +509,10 @@ Consider a study using AdFisher, an automated tool designed to scrutinize the in
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="01_intro_data_science.html"
@@ -508,10 +532,7 @@ Consider a study using AdFisher, an automated tool designed to scrutinize the in
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -578,8 +599,8 @@ By Florian Huber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
 
   <footer class="bd-footer">
   </footer>

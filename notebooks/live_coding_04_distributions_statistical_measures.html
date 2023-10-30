@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -66,7 +67,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/live_coding_04_distributions_statistical_measures';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Acknowledgements" href="../book/acknowledgements.html" />
+    <link rel="next" title="10. Correlation Analysis" href="live_coding_05_correlation_analysis.html" />
     <link rel="prev" title="8. Data Acquisition &amp; Preparation" href="../book/07_data_acquisition_and_preparation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -78,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -138,13 +148,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/logo.png" class="logo__image only-light" alt="Data Science for (not yet) scientists - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Data Science for (not yet) scientists - Home"/>`);</script>
   
   
 </a></div>
@@ -175,6 +186,18 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../book/07_data_acquisition_and_preparation.html">8. Data Acquisition &amp; Preparation</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">9. First Data Exploration</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth Data Exploration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="live_coding_05_correlation_analysis.html">10. Correlation Analysis</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">11. Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">12. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">13. Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">14. Beyond Counting Individual Words: N-grams</a></li>
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -340,10 +363,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -351,7 +374,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -592,7 +615,7 @@ In the previous sections we already saw that the collection and technical handli
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d89632d976c245e8f74e78343b38458308a319185d8d68dc44574d74ebc709c6.png" src="../_images/d89632d976c245e8f74e78343b38458308a319185d8d68dc44574d74ebc709c6.png" />
+<img alt="../_images/a2cf1dcec6836718cd07e78b21bc1766dba2dee1eddb49c221e1bf78fdc121c3.png" src="../_images/a2cf1dcec6836718cd07e78b21bc1766dba2dee1eddb49c221e1bf78fdc121c3.png" />
 </div>
 </div>
 </section>
@@ -607,7 +630,7 @@ In the previous sections we already saw that the collection and technical handli
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/45e785c2dbef81984dff3b0418eb8563b23a7078eb010fd6c556a7514778927b.png" src="../_images/45e785c2dbef81984dff3b0418eb8563b23a7078eb010fd6c556a7514778927b.png" />
+<img alt="../_images/4eb5fbec904d40e8659628131d5ef757574aab5aa5da7cfdf814f836c12bcf6f.png" src="../_images/4eb5fbec904d40e8659628131d5ef757574aab5aa5da7cfdf814f836c12bcf6f.png" />
 </div>
 </div>
 </section>
@@ -624,7 +647,7 @@ In the previous sections we already saw that the collection and technical handli
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7209ae2ce6f7a61c6e0ac67ebc54b28a1b3e21bcee6ced4325cb9bc84841ae3a.png" src="../_images/7209ae2ce6f7a61c6e0ac67ebc54b28a1b3e21bcee6ced4325cb9bc84841ae3a.png" />
+<img alt="../_images/7a8582f540fad4b43f307afbae3cbc546be1f99787676e85464c7f0ac5aaba4b.png" src="../_images/7a8582f540fad4b43f307afbae3cbc546be1f99787676e85464c7f0ac5aaba4b.png" />
 </div>
 </div>
 <p>If you look at the distribution plot with the median and the mean: Which of the two measures is better in this case (and why)?</p>
@@ -644,7 +667,7 @@ In the previous sections we already saw that the collection and technical handli
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a44a4352a0d152e078be4000b62222ba103bd676f3b66f30a067ca2beef36755.png" src="../_images/a44a4352a0d152e078be4000b62222ba103bd676f3b66f30a067ca2beef36755.png" />
+<img alt="../_images/d7bdb48761ceb172a6b25263faf750fc24707bdc8afc473138d3fbe58983f7ec.png" src="../_images/d7bdb48761ceb172a6b25263faf750fc24707bdc8afc473138d3fbe58983f7ec.png" />
 </div>
 </div>
 <p>Here again: If you look at the distribution plot with the median and the mean, which of the two measures is better in this case (and why)?</p>
@@ -694,7 +717,7 @@ In the previous sections we already saw that the collection and technical handli
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(52.0, 148.0)
 </pre></div>
 </div>
-<img alt="../_images/6512e49d58d22356a522c67fda4cf6717d9b491596260deece46812bc76c6499.png" src="../_images/6512e49d58d22356a522c67fda4cf6717d9b491596260deece46812bc76c6499.png" />
+<img alt="../_images/5845a88498f27e78ecb2ebb2f81c0d48e73dd5473593d423643bfe544cc8b894.png" src="../_images/5845a88498f27e78ecb2ebb2f81c0d48e73dd5473593d423643bfe544cc8b894.png" />
 </div>
 </div>
 <p>The plot above showcases a normal distribution with a mean of 100 and a standard deviation of 15. The data points are spread relatively far from the mean, resulting in a wider bell shape.</p>
@@ -713,7 +736,7 @@ In the previous sections we already saw that the collection and technical handli
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(52.0, 148.0)
 </pre></div>
 </div>
-<img alt="../_images/e307ff4ee5f1a15e5f04bc6ffedde240eb34c51b32032506a4f87ee6b628f8fd.png" src="../_images/e307ff4ee5f1a15e5f04bc6ffedde240eb34c51b32032506a4f87ee6b628f8fd.png" />
+<img alt="../_images/49ef35ac1ca7ccff691d6c746947c151696c0862f1dafb6f0293056ee48f9ddf.png" src="../_images/49ef35ac1ca7ccff691d6c746947c151696c0862f1dafb6f0293056ee48f9ddf.png" />
 </div>
 </div>
 <p>In contrast, the second plot demonstrates a distribution with the same mean of 100 but with a much smaller standard deviation of 1.5. This causes the data to be tightly clustered around the mean, making the bell shape much narrower.</p>
@@ -1113,62 +1136,19 @@ Try, for instance, to run the following:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
-  if pd.api.types.is_categorical_dtype(vector):
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
-  if pd.api.types.is_categorical_dtype(vector):
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
-  if pd.api.types.is_categorical_dtype(vector):
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
-  if pd.api.types.is_categorical_dtype(vector):
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
-  if pd.api.types.is_categorical_dtype(vector):
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
-  if pd.api.types.is_categorical_dtype(vector):
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
-  if pd.api.types.is_categorical_dtype(vector):
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
-  if pd.api.types.is_categorical_dtype(vector):
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
-  if pd.api.types.is_categorical_dtype(vector):
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
-  if pd.api.types.is_categorical_dtype(vector):
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
-  if pd.api.types.is_categorical_dtype(vector):
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
-  if pd.api.types.is_categorical_dtype(vector):
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
-  if pd.api.types.is_categorical_dtype(vector):
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
-  if pd.api.types.is_categorical_dtype(vector):
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
-  if pd.api.types.is_categorical_dtype(vector):
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
-  if pd.api.types.is_categorical_dtype(vector):
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
-  if pd.api.types.is_categorical_dtype(vector):
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_oldcore.py:1119: FutureWarning: use_inf_as_na option is deprecated and will be removed in a future version. Convert inf values to NaN before operating instead.
-  with pd.option_context(&#39;mode.use_inf_as_na&#39;, True):
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
-  if pd.api.types.is_categorical_dtype(vector):
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
-  if pd.api.types.is_categorical_dtype(vector):
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
-  if pd.api.types.is_categorical_dtype(vector):
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2555/2967438999.py:12: FutureWarning: 
+
+The `bw` parameter is deprecated in favor of `bw_method`/`bw_adjust`.
+Setting `bw_method=0.15`, but please see docs for the new parameters
+and update your code. This will become an error in seaborn v0.15.0.
+
+  sb.violinplot(x=&quot;variable&quot;, y=&quot;value&quot;, data=pd.melt(datasets_test),
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Different ways to include distribution properties&#39;)
 </pre></div>
 </div>
-<img alt="../_images/cf01b0a83af8bddca94fb8db9dc52e156ac3efb03ce5eae19dd27880445158b7.png" src="../_images/cf01b0a83af8bddca94fb8db9dc52e156ac3efb03ce5eae19dd27880445158b7.png" />
+<img alt="../_images/6ebdc17b85be824da3bc277fe84157a996a95a9efac2a184e21189b5de968bdf.png" src="../_images/6ebdc17b85be824da3bc277fe84157a996a95a9efac2a184e21189b5de968bdf.png" />
 </div>
 </div>
 <p>By utilizing these visualization techniques, we can get a comprehensive understanding of our datasets’ distributions and make more informed decisions during analysis.</p>
@@ -1217,7 +1197,7 @@ Try, for instance, to run the following:</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Net Household Income per Month in €&#39;)
 </pre></div>
 </div>
-<img alt="../_images/176ebac6268fb35bb081da3d5179e35131ac6379be3237d72125135e2183c5c8.png" src="../_images/176ebac6268fb35bb081da3d5179e35131ac6379be3237d72125135e2183c5c8.png" />
+<img alt="../_images/d278cf60a8eb2b483b540673bf2777a23fa5de381f853c4d78e42b76e09f5bdf.png" src="../_images/d278cf60a8eb2b483b540673bf2777a23fa5de381f853c4d78e42b76e09f5bdf.png" />
 </div>
 </div>
 <p>This data shows us the distribution of monthly household incomes, but we can dig deeper.</p>
@@ -1378,13 +1358,13 @@ Try, for instance, to run the following:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2569/4219283847.py:4: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2555/4219283847.py:4: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   ax.bar(x=np.arange(10), height=income_data.groupby(&quot;decile&quot;).median()[&quot;income&quot;])
-/tmp/ipykernel_2569/4219283847.py:5: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+/tmp/ipykernel_2555/4219283847.py:5: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   for i, v in enumerate(income_data.groupby(&quot;decile&quot;).median()[&quot;income&quot;]):
 </pre></div>
 </div>
-<img alt="../_images/2f346d21f56a8d7a4c2d396107ad68f29dc4e6ce993248e2c871c90d14bddc7f.png" src="../_images/2f346d21f56a8d7a4c2d396107ad68f29dc4e6ce993248e2c871c90d14bddc7f.png" />
+<img alt="../_images/7b3fe956ada5197a05b1bada6bf8628648e0d0ec8eb1c844b79a1d372875a58f.png" src="../_images/7b3fe956ada5197a05b1bada6bf8628648e0d0ec8eb1c844b79a1d372875a58f.png" />
 </div>
 </div>
 <p>Such a breakdown offers more insights into the income disparities.</p>
@@ -1398,7 +1378,7 @@ Try, for instance, to run the following:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2569/2203491340.py:2: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2555/2203491340.py:2: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   income_sum = income_data.groupby(&quot;decile&quot;).sum()
 </pre></div>
 </div>
@@ -1491,7 +1471,7 @@ Try, for instance, to run the following:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8fcd76a3887b6911c2209ea2017b36175e55e291b2c9d4919d9dda90e4f05fed.png" src="../_images/8fcd76a3887b6911c2209ea2017b36175e55e291b2c9d4919d9dda90e4f05fed.png" />
+<img alt="../_images/e6a243e7c3a67f7188ab92fceaa1ed1ae904d781d8238d3fd48e26d4e9571658.png" src="../_images/e6a243e7c3a67f7188ab92fceaa1ed1ae904d781d8238d3fd48e26d4e9571658.png" />
 </div>
 </div>
 <section id="wealth">
@@ -1603,11 +1583,11 @@ Try, for instance, to run the following:</p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7f7eaa1b3190&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f7eaa1b3160&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f7eaa1a2b80&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f7eaa203f40&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f7eac9e2e50&gt;],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7f332ea3e820&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f332ea3e7f0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f332ea91c40&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f332e941340&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f332e941be0&gt;],
  [Text(0.0, 0, &#39;0 €&#39;),
   Text(500000.0, 0, &#39;500 k€&#39;),
   Text(1000000.0, 0, &#39;1M €&#39;),
@@ -1615,7 +1595,7 @@ Try, for instance, to run the following:</p>
   Text(2000000.0, 0, &#39;2M €&#39;)])
 </pre></div>
 </div>
-<img alt="../_images/eeeadab9b2925aa31e1b57579444de494c4a6128d4f845701e6e6264bce5479d.png" src="../_images/eeeadab9b2925aa31e1b57579444de494c4a6128d4f845701e6e6264bce5479d.png" />
+<img alt="../_images/e574d9e68b49c73a5df9088186375d8d1deaeddd0255ec771be2dcd393f0ebfe.png" src="../_images/e574d9e68b49c73a5df9088186375d8d1deaeddd0255ec771be2dcd393f0ebfe.png" />
 </div>
 </div>
 <p>This plot is technically OK. But is has a number of disadvantages. It is visually very centered on the left side due to the strong asymmetry in the wealth distribution. This also leads to the fact, that the <em>long tail</em>, that is all the fortunes above &gt; 500k€ are practically impossible to read in this plot. We can try different plot types.</p>
@@ -1638,11 +1618,11 @@ Try, for instance, to run the following:</p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7f7eaa2e3ee0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f7eaa2e3f70&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f7eaa2d6c40&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f7ead4643d0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f7ead48da90&gt;],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7f3331a8da60&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f3331a8d460&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f3331a44af0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f332eb0fc10&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f332eb93e80&gt;],
  [Text(0.0, 0, &#39;0 €&#39;),
   Text(500000.0, 0, &#39;500 k€&#39;),
   Text(1000000.0, 0, &#39;1000 k€&#39;),
@@ -1650,7 +1630,7 @@ Try, for instance, to run the following:</p>
   Text(2000000.0, 0, &#39;2000 k€&#39;)])
 </pre></div>
 </div>
-<img alt="../_images/f8e53e4acaea7a61f275ffc1408047ff0959de478ad98e44069d629f47b87244.png" src="../_images/f8e53e4acaea7a61f275ffc1408047ff0959de478ad98e44069d629f47b87244.png" />
+<img alt="../_images/8d905f7a5aecd7f67da5f47f74e7a61358f6750d190349e072b31c8493d63593.png" src="../_images/8d905f7a5aecd7f67da5f47f74e7a61358f6750d190349e072b31c8493d63593.png" />
 </div>
 </div>
 <p>A <strong>violin plot</strong> is not as ugly as the boxplot in this case, but it also doesn’t solve our problem.</p>
@@ -1674,11 +1654,11 @@ Try, for instance, to run the following:</p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7f7ead4a15b0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f7ead4a1460&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f7ead4d3d90&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f7ead4dc520&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f7ead579880&gt;],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7f332eafde80&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f332eafdb50&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f332ebd9be0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f332eb6dcd0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f332eb7ca90&gt;],
  [Text(0.0, 0, &#39;0 €&#39;),
   Text(500000.0, 0, &#39;500 k€&#39;),
   Text(1000000.0, 0, &#39;1000 k€&#39;),
@@ -1686,7 +1666,7 @@ Try, for instance, to run the following:</p>
   Text(2000000.0, 0, &#39;2000 k€&#39;)])
 </pre></div>
 </div>
-<img alt="../_images/26528aff3dc4fb11f7184abdf5fcd1364efd9d34150d45bacd9b6e631cb4f621.png" src="../_images/26528aff3dc4fb11f7184abdf5fcd1364efd9d34150d45bacd9b6e631cb4f621.png" />
+<img alt="../_images/afe3a442df6fd680eb061d7563bb254b9b41952751c7e94c9ebcfcc99c442bf6.png" src="../_images/afe3a442df6fd680eb061d7563bb254b9b41952751c7e94c9ebcfcc99c442bf6.png" />
 </div>
 </div>
 <p>Sometimes it helps to switch from a linear to a logarithmic scale. Not in this case though:</p>
@@ -1711,7 +1691,7 @@ Try, for instance, to run the following:</p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/da62926d35e6aa13aaf98abdab8ed93667f2529302b3831266e0b498444d06e9.png" src="../_images/da62926d35e6aa13aaf98abdab8ed93667f2529302b3831266e0b498444d06e9.png" />
+<img alt="../_images/1b4e4474f0ba05c4f31d201a2c791d60b142f443adac8c714f31ffb65bc4fdc8.png" src="../_images/1b4e4474f0ba05c4f31d201a2c791d60b142f443adac8c714f31ffb65bc4fdc8.png" />
 </div>
 </div>
 </section>
@@ -1745,13 +1725,13 @@ Try, for instance, to run the following:</p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2569/996220485.py:5: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2555/996220485.py:5: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   ax.bar(x=np.arange(10), height=wealth_data.groupby(&quot;decile&quot;).median()[&quot;wealth&quot;])
-/tmp/ipykernel_2569/996220485.py:8: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+/tmp/ipykernel_2555/996220485.py:8: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   for i, v in enumerate(wealth_data.groupby(&quot;decile&quot;).median()[&quot;wealth&quot;]):
 </pre></div>
 </div>
-<img alt="../_images/70c013baac1d2bb03f43c5fbfa6abf1b5e8885c71b915dc0d6aeb5be57d10f0b.png" src="../_images/70c013baac1d2bb03f43c5fbfa6abf1b5e8885c71b915dc0d6aeb5be57d10f0b.png" />
+<img alt="../_images/7ad0aa5e498b6c2885c22b64f2192aff43541e71b11e453f1cd72b4fc446804b.png" src="../_images/7ad0aa5e498b6c2885c22b64f2192aff43541e71b11e453f1cd72b4fc446804b.png" />
 </div>
 </div>
 <p>But if we wish to amplify the impact of these insights visually, we can take a more graphical approach.</p>
@@ -1771,7 +1751,7 @@ Try, for instance, to run the following:</p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2569/2253224710.py:1: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2555/2253224710.py:1: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   wealth_sum = wealth_data.groupby(&quot;decile&quot;).sum()
 </pre></div>
 </div>
@@ -1875,7 +1855,7 @@ Try, for instance, to run the following:</p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/46ec2298d272ea403731fb9a74844ae86aefa01023231080901156275df92b02.png" src="../_images/46ec2298d272ea403731fb9a74844ae86aefa01023231080901156275df92b02.png" />
+<img alt="../_images/5e8716cb593f8a9e43b8e3027379ed4543e04b6b122b196680933c3c1134d7c5.png" src="../_images/5e8716cb593f8a9e43b8e3027379ed4543e04b6b122b196680933c3c1134d7c5.png" />
 </div>
 </div>
 <p>This visualization provides an illustrative look at how wealth is dispersed across different segments of society. Through such visual aids, abstract numbers transform into tangible insights. And I bet they help a lot in sparking discussions on the distribution of wealth…</p>
@@ -1908,11 +1888,10 @@ Try, for instance, to run the following:</p>
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../book/07_data_acquisition_and_preparation.html"
@@ -1924,18 +1903,15 @@ Try, for instance, to run the following:</p>
       </div>
     </a>
     <a class="right-next"
-       href="../book/acknowledgements.html"
+       href="live_coding_05_correlation_analysis.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Acknowledgements</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Correlation Analysis</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -2022,8 +1998,8 @@ By Florian Huber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
 
   <footer class="bd-footer">
   </footer>

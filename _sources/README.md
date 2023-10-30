@@ -21,6 +21,7 @@ conda env create -f environment.yml
 ```
 This should create a Python 3.9 environment with the packages listed in the yaml-file.
 
+**The classical conda environmental solver can be slow!** So it might make sense to switch to faster alternatives, either within Conda (see https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community) or mamba.
 
 ## Build book using *Jupter Book*
 
