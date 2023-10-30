@@ -13,6 +13,7 @@ dependencies:
   - tqdm
   - pytest
   - pip:
+    - gensim
     - jupyter
     - matplotlib
     - networkx
