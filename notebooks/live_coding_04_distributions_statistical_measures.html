@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -190,13 +190,14 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth Data Exploration</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_05_correlation_analysis.html">10. Correlation Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_06_clustering.html">11. Clustering</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">11. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">12. NLP - basic techniques to analyse text data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">13. Computing with Text: Counting words</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">14. Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">12. Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">13. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">14. Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">15. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -614,7 +615,7 @@ In the previous sections we already saw that the collection and technical handli
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a2cf1dcec6836718cd07e78b21bc1766dba2dee1eddb49c221e1bf78fdc121c3.png" src="../_images/a2cf1dcec6836718cd07e78b21bc1766dba2dee1eddb49c221e1bf78fdc121c3.png" />
+<img alt="../_images/9dfb3eb9eb1ecd104cdb068e7750c6137654d3b0574e0fc34400fa4381412cb1.png" src="../_images/9dfb3eb9eb1ecd104cdb068e7750c6137654d3b0574e0fc34400fa4381412cb1.png" />
 </div>
 </div>
 </section>
@@ -629,7 +630,7 @@ In the previous sections we already saw that the collection and technical handli
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4eb5fbec904d40e8659628131d5ef757574aab5aa5da7cfdf814f836c12bcf6f.png" src="../_images/4eb5fbec904d40e8659628131d5ef757574aab5aa5da7cfdf814f836c12bcf6f.png" />
+<img alt="../_images/668e81dfd4aa1c6c7c304dab0624b81a17979d06ed38462afb7cfefc5a6d969f.png" src="../_images/668e81dfd4aa1c6c7c304dab0624b81a17979d06ed38462afb7cfefc5a6d969f.png" />
 </div>
 </div>
 </section>
@@ -646,7 +647,7 @@ In the previous sections we already saw that the collection and technical handli
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7a8582f540fad4b43f307afbae3cbc546be1f99787676e85464c7f0ac5aaba4b.png" src="../_images/7a8582f540fad4b43f307afbae3cbc546be1f99787676e85464c7f0ac5aaba4b.png" />
+<img alt="../_images/acda582795476f6ae466fbe8c41c1843f96b4070fc6f52a8ead66c5ba3de91b3.png" src="../_images/acda582795476f6ae466fbe8c41c1843f96b4070fc6f52a8ead66c5ba3de91b3.png" />
 </div>
 </div>
 <p>If you look at the distribution plot with the median and the mean: Which of the two measures is better in this case (and why)?</p>
@@ -666,7 +667,7 @@ In the previous sections we already saw that the collection and technical handli
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d7bdb48761ceb172a6b25263faf750fc24707bdc8afc473138d3fbe58983f7ec.png" src="../_images/d7bdb48761ceb172a6b25263faf750fc24707bdc8afc473138d3fbe58983f7ec.png" />
+<img alt="../_images/d9a99472054b680a0a70559660c10cb05762692ff042d8d4128665646abc5327.png" src="../_images/d9a99472054b680a0a70559660c10cb05762692ff042d8d4128665646abc5327.png" />
 </div>
 </div>
 <p>Here again: If you look at the distribution plot with the median and the mean, which of the two measures is better in this case (and why)?</p>
@@ -716,7 +717,7 @@ In the previous sections we already saw that the collection and technical handli
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(52.0, 148.0)
 </pre></div>
 </div>
-<img alt="../_images/5845a88498f27e78ecb2ebb2f81c0d48e73dd5473593d423643bfe544cc8b894.png" src="../_images/5845a88498f27e78ecb2ebb2f81c0d48e73dd5473593d423643bfe544cc8b894.png" />
+<img alt="../_images/30683dc9f483664a4d19345eb6b50a10a37e241f3b96104283f23530b2dff8b2.png" src="../_images/30683dc9f483664a4d19345eb6b50a10a37e241f3b96104283f23530b2dff8b2.png" />
 </div>
 </div>
 <p>The plot above showcases a normal distribution with a mean of 100 and a standard deviation of 15. The data points are spread relatively far from the mean, resulting in a wider bell shape.</p>
@@ -735,7 +736,7 @@ In the previous sections we already saw that the collection and technical handli
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(52.0, 148.0)
 </pre></div>
 </div>
-<img alt="../_images/49ef35ac1ca7ccff691d6c746947c151696c0862f1dafb6f0293056ee48f9ddf.png" src="../_images/49ef35ac1ca7ccff691d6c746947c151696c0862f1dafb6f0293056ee48f9ddf.png" />
+<img alt="../_images/642461e6f00da3bb68d54e29484fd310980577066fd7e34a4b0bc458e464633e.png" src="../_images/642461e6f00da3bb68d54e29484fd310980577066fd7e34a4b0bc458e464633e.png" />
 </div>
 </div>
 <p>In contrast, the second plot demonstrates a distribution with the same mean of 100 but with a much smaller standard deviation of 1.5. This causes the data to be tightly clustered around the mean, making the bell shape much narrower.</p>
@@ -1135,7 +1136,7 @@ Try, for instance, to run the following:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2623/2967438999.py:12: FutureWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2620/2967438999.py:12: FutureWarning: 
 
 The `bw` parameter is deprecated in favor of `bw_method`/`bw_adjust`.
 Setting `bw_method=0.15`, but please see docs for the new parameters
@@ -1147,7 +1148,7 @@ and update your code. This will become an error in seaborn v0.15.0.
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Different ways to include distribution properties&#39;)
 </pre></div>
 </div>
-<img alt="../_images/b6cbc4eb22ac1cab5000534f9aa7ae1cccaf04e50fde8016a23b00a9e7a050ce.png" src="../_images/b6cbc4eb22ac1cab5000534f9aa7ae1cccaf04e50fde8016a23b00a9e7a050ce.png" />
+<img alt="../_images/cc0c49b79a6b2a8c55aeeba8e6bc048608d4bfed657b98827e61871b1d897211.png" src="../_images/cc0c49b79a6b2a8c55aeeba8e6bc048608d4bfed657b98827e61871b1d897211.png" />
 </div>
 </div>
 <p>By utilizing these visualization techniques, we can get a comprehensive understanding of our datasets’ distributions and make more informed decisions during analysis.</p>
@@ -1196,7 +1197,7 @@ and update your code. This will become an error in seaborn v0.15.0.
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Net Household Income per Month in €&#39;)
 </pre></div>
 </div>
-<img alt="../_images/d278cf60a8eb2b483b540673bf2777a23fa5de381f853c4d78e42b76e09f5bdf.png" src="../_images/d278cf60a8eb2b483b540673bf2777a23fa5de381f853c4d78e42b76e09f5bdf.png" />
+<img alt="../_images/50ee1783c517edeba901b423b390f3682bf3ab19e4ac3b7c499cb01e5d0e6200.png" src="../_images/50ee1783c517edeba901b423b390f3682bf3ab19e4ac3b7c499cb01e5d0e6200.png" />
 </div>
 </div>
 <p>This data shows us the distribution of monthly household incomes, but we can dig deeper.</p>
@@ -1357,13 +1358,13 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2623/4219283847.py:4: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2620/4219283847.py:4: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   ax.bar(x=np.arange(10), height=income_data.groupby(&quot;decile&quot;).median()[&quot;income&quot;])
-/tmp/ipykernel_2623/4219283847.py:5: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+/tmp/ipykernel_2620/4219283847.py:5: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   for i, v in enumerate(income_data.groupby(&quot;decile&quot;).median()[&quot;income&quot;]):
 </pre></div>
 </div>
-<img alt="../_images/7b3fe956ada5197a05b1bada6bf8628648e0d0ec8eb1c844b79a1d372875a58f.png" src="../_images/7b3fe956ada5197a05b1bada6bf8628648e0d0ec8eb1c844b79a1d372875a58f.png" />
+<img alt="../_images/5352818cd1f07882a0c6ef716c2c20bcb4cb3b5af059f275c43309aa976c23b6.png" src="../_images/5352818cd1f07882a0c6ef716c2c20bcb4cb3b5af059f275c43309aa976c23b6.png" />
 </div>
 </div>
 <p>Such a breakdown offers more insights into the income disparities.</p>
@@ -1377,7 +1378,7 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2623/2203491340.py:2: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2620/2203491340.py:2: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   income_sum = income_data.groupby(&quot;decile&quot;).sum()
 </pre></div>
 </div>
@@ -1470,7 +1471,7 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e6a243e7c3a67f7188ab92fceaa1ed1ae904d781d8238d3fd48e26d4e9571658.png" src="../_images/e6a243e7c3a67f7188ab92fceaa1ed1ae904d781d8238d3fd48e26d4e9571658.png" />
+<img alt="../_images/1cf739e0d9ed8562851e5445f3032f888fb049c94485bbff4836a2a49f96da1c.png" src="../_images/1cf739e0d9ed8562851e5445f3032f888fb049c94485bbff4836a2a49f96da1c.png" />
 </div>
 </div>
 <section id="wealth">
@@ -1582,11 +1583,11 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7f3468c2fe80&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f3468c2fe50&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f3468c2fb80&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f3468abcbe0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f3468ac34c0&gt;],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7f2563d6e5e0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f2563d6e5b0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f2563d4ad60&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f2563c68d90&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f2563bf2670&gt;],
  [Text(0.0, 0, &#39;0 €&#39;),
   Text(500000.0, 0, &#39;500 k€&#39;),
   Text(1000000.0, 0, &#39;1M €&#39;),
@@ -1594,7 +1595,7 @@ and update your code. This will become an error in seaborn v0.15.0.
   Text(2000000.0, 0, &#39;2M €&#39;)])
 </pre></div>
 </div>
-<img alt="../_images/e574d9e68b49c73a5df9088186375d8d1deaeddd0255ec771be2dcd393f0ebfe.png" src="../_images/e574d9e68b49c73a5df9088186375d8d1deaeddd0255ec771be2dcd393f0ebfe.png" />
+<img alt="../_images/b1d775a824e15c991c4eafe91ed75738e8d143654c1f9c42bdaa9b1e880e4d79.png" src="../_images/b1d775a824e15c991c4eafe91ed75738e8d143654c1f9c42bdaa9b1e880e4d79.png" />
 </div>
 </div>
 <p>This plot is technically OK. But is has a number of disadvantages. It is visually very centered on the left side due to the strong asymmetry in the wealth distribution. This also leads to the fact, that the <em>long tail</em>, that is all the fortunes above &gt; 500k€ are practically impossible to read in this plot. We can try different plot types.</p>
@@ -1617,11 +1618,11 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7f3468c2aca0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f3468c2ab20&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f3468dbac70&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f3468cfafd0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f3468ca0280&gt;],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7f2566d8c940&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f2566d8c580&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f256656e2e0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f2563dbcca0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f2563dc2c10&gt;],
  [Text(0.0, 0, &#39;0 €&#39;),
   Text(500000.0, 0, &#39;500 k€&#39;),
   Text(1000000.0, 0, &#39;1000 k€&#39;),
@@ -1629,7 +1630,7 @@ and update your code. This will become an error in seaborn v0.15.0.
   Text(2000000.0, 0, &#39;2000 k€&#39;)])
 </pre></div>
 </div>
-<img alt="../_images/8d905f7a5aecd7f67da5f47f74e7a61358f6750d190349e072b31c8493d63593.png" src="../_images/8d905f7a5aecd7f67da5f47f74e7a61358f6750d190349e072b31c8493d63593.png" />
+<img alt="../_images/ddf6b3a20c302f5ca5a764f6860af80ba0289efb9b68780498d4d99b3b08748f.png" src="../_images/ddf6b3a20c302f5ca5a764f6860af80ba0289efb9b68780498d4d99b3b08748f.png" />
 </div>
 </div>
 <p>A <strong>violin plot</strong> is not as ugly as the boxplot in this case, but it also doesn’t solve our problem.</p>
@@ -1653,11 +1654,11 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7f3468d22610&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f3468d224f0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f3468d227c0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f346b439a00&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f346bd0f4f0&gt;],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7f2563db79a0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f2563db7a00&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f2563db7ca0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f2563e39ac0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f2563e398e0&gt;],
  [Text(0.0, 0, &#39;0 €&#39;),
   Text(500000.0, 0, &#39;500 k€&#39;),
   Text(1000000.0, 0, &#39;1000 k€&#39;),
@@ -1665,7 +1666,7 @@ and update your code. This will become an error in seaborn v0.15.0.
   Text(2000000.0, 0, &#39;2000 k€&#39;)])
 </pre></div>
 </div>
-<img alt="../_images/afe3a442df6fd680eb061d7563bb254b9b41952751c7e94c9ebcfcc99c442bf6.png" src="../_images/afe3a442df6fd680eb061d7563bb254b9b41952751c7e94c9ebcfcc99c442bf6.png" />
+<img alt="../_images/8289ba6b7beabfa2dda317245e60bd61a225cfa852133a815f6ef3636fc1e42c.png" src="../_images/8289ba6b7beabfa2dda317245e60bd61a225cfa852133a815f6ef3636fc1e42c.png" />
 </div>
 </div>
 <p>Sometimes it helps to switch from a linear to a logarithmic scale. Not in this case though:</p>
@@ -1690,7 +1691,7 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/1b4e4474f0ba05c4f31d201a2c791d60b142f443adac8c714f31ffb65bc4fdc8.png" src="../_images/1b4e4474f0ba05c4f31d201a2c791d60b142f443adac8c714f31ffb65bc4fdc8.png" />
+<img alt="../_images/aca7aa23d70841af52581ce34f665873a7e204efe3dd3abb316105282e8d61a0.png" src="../_images/aca7aa23d70841af52581ce34f665873a7e204efe3dd3abb316105282e8d61a0.png" />
 </div>
 </div>
 </section>
@@ -1724,13 +1725,13 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2623/996220485.py:5: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2620/996220485.py:5: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   ax.bar(x=np.arange(10), height=wealth_data.groupby(&quot;decile&quot;).median()[&quot;wealth&quot;])
-/tmp/ipykernel_2623/996220485.py:8: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+/tmp/ipykernel_2620/996220485.py:8: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   for i, v in enumerate(wealth_data.groupby(&quot;decile&quot;).median()[&quot;wealth&quot;]):
 </pre></div>
 </div>
-<img alt="../_images/7ad0aa5e498b6c2885c22b64f2192aff43541e71b11e453f1cd72b4fc446804b.png" src="../_images/7ad0aa5e498b6c2885c22b64f2192aff43541e71b11e453f1cd72b4fc446804b.png" />
+<img alt="../_images/4c084ba294dd380efc82bcab4cf7ee64d7ea9c372eb826aaed89e2acf9995455.png" src="../_images/4c084ba294dd380efc82bcab4cf7ee64d7ea9c372eb826aaed89e2acf9995455.png" />
 </div>
 </div>
 <p>But if we wish to amplify the impact of these insights visually, we can take a more graphical approach.</p>
@@ -1750,7 +1751,7 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2623/2253224710.py:1: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2620/2253224710.py:1: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   wealth_sum = wealth_data.groupby(&quot;decile&quot;).sum()
 </pre></div>
 </div>
@@ -1854,7 +1855,7 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/5e8716cb593f8a9e43b8e3027379ed4543e04b6b122b196680933c3c1134d7c5.png" src="../_images/5e8716cb593f8a9e43b8e3027379ed4543e04b6b122b196680933c3c1134d7c5.png" />
+<img alt="../_images/93d15ee4957fc60987f388e285ad7b829c91ffd1b4ef82c97847b74f5f972943.png" src="../_images/93d15ee4957fc60987f388e285ad7b829c91ffd1b4ef82c97847b74f5f972943.png" />
 </div>
 </div>
 <p>This visualization provides an illustrative look at how wealth is dispersed across different segments of society. Through such visual aids, abstract numbers transform into tangible insights. And I bet they help a lot in sparking discussions on the distribution of wealth…</p>
@@ -1997,8 +1998,8 @@ By Florian Huber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,0 +1,42 @@
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 173, in wrapped
+    return loop.run_until_complete(inner)
+  File "/home/runner/micromamba/envs/data_science/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+clusters = [(15, 0.5, 0.5, 1.5, -0.7),
+           (21, 0.8, 0.5, -2.1, -1.2),
+           (25, 0.8, 0.7, -2.6, 2.3)]
+
+np.random.seed(42)
+data = np.zeros((0, 2))
+for (n_points, x_scale, y_scale, x_offset, y_offset) in clusters:
+    xpts = np.random.randn(n_points) * x_scale + x_offset
+    ypts = np.random.randn(n_points) * y_scale + y_offset
+    data = np.vstack((data, np.vstack((xpts, ypts)).T))
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[1], line 5[0m
+[1;32m      1[0m clusters [38;5;241m=[39m [([38;5;241m15[39m, [38;5;241m0.5[39m, [38;5;241m0.5[39m, [38;5;241m1.5[39m, [38;5;241m-[39m[38;5;241m0.7[39m),
+[1;32m      2[0m            ([38;5;241m21[39m, [38;5;241m0.8[39m, [38;5;241m0.5[39m, [38;5;241m-[39m[38;5;241m2.1[39m, [38;5;241m-[39m[38;5;241m1.2[39m),
+[1;32m      3[0m            ([38;5;241m25[39m, [38;5;241m0.8[39m, [38;5;241m0.7[39m, [38;5;241m-[39m[38;5;241m2.6[39m, [38;5;241m2.3[39m)]
+[0;32m----> 5[0m [43mnp[49m[38;5;241m.[39mrandom[38;5;241m.[39mseed([38;5;241m42[39m)
+[1;32m      6[0m data [38;5;241m=[39m np[38;5;241m.[39mzeros(([38;5;241m0[39m, [38;5;241m2[39m))
+[1;32m      7[0m [38;5;28;01mfor[39;00m (n_points, x_scale, y_scale, x_offset, y_offset) [38;5;129;01min[39;00m clusters:
+
+[0;31mNameError[0m: name 'np' is not defined
+

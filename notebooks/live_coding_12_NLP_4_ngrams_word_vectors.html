@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>14. Beyond Counting Individual Words: N-grams &#8212; Data Science for (not yet) scientists</title>
+    <title>15. Beyond Counting Individual Words: N-grams &#8212; Data Science for (not yet) scientists</title>
   
   
   
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=c5ced968eda925caa686" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=c5ced968eda925caa686" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=c5ced968eda925caa686"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Acknowledgements" href="../book/acknowledgements.html" />
-    <link rel="prev" title="13. Computing with Text: Counting words" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html" />
+    <link rel="prev" title="14. Computing with Text: Counting words" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -188,13 +188,14 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth Data Exploration</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_05_correlation_analysis.html">10. Correlation Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_06_clustering.html">11. Clustering</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">11. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">12. NLP - basic techniques to analyse text data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">13. Computing with Text: Counting words</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">12. Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">13. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">14. Computing with Text: Counting words</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">15. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -398,31 +399,31 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-grams">14.1. N-grams</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-grams-in-tf-idf-vectors">14.2. N-grams in TF-IDF Vectors</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-madrid-restaurant-reviews">14.2.1. Dataset - Madrid Restaurant Reviews</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-grams">15.1. N-grams</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-grams-in-tf-idf-vectors">15.2. N-grams in TF-IDF Vectors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-madrid-restaurant-reviews">15.2.1. Dataset - Madrid Restaurant Reviews</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf-with-bigrams-growing-vectors-and-managing-high-dimensionality">14.3. TF-IDF with Bigrams: Growing Vectors and Managing High Dimensionality</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-model">14.3.1. Logistic Regression model</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question">14.3.1.1. Question!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf-with-bigrams-growing-vectors-and-managing-high-dimensionality">15.3. TF-IDF with Bigrams: Growing Vectors and Managing High Dimensionality</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-model">15.3.1. Logistic Regression model</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question">15.3.1.1. Question!</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">14.3.2. Logistic Regression model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#did-the-2-grams-and-3-grams-help">14.3.3. Did the 2-grams and 3-grams help?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confusion-matrix">14.3.4. Confusion matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">15.3.2. Logistic Regression model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#did-the-2-grams-and-3-grams-help">15.3.3. Did the 2-grams and 3-grams help?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confusion-matrix">15.3.4. Confusion matrix</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-similar-documents-with-tfidf">14.4. Find similar documents with tfidf</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-one-vector-to-all-other-vectors">14.4.1. Compare one vector to all other vectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-similar-documents-with-tfidf">15.4. Find similar documents with tfidf</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-one-vector-to-all-other-vectors">15.4.1. Compare one vector to all other vectors</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word-vectors-word2vec-and-co">14.5. Word Vectors: Word2Vec and Co</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-short-cuts">14.6. Alternative short-cuts</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-and-extensions">14.6.1. Limitations and Extensions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fasttext">14.6.2. FastText</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#glove">14.6.3. GloVe</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformers-bert-gpt">14.6.4. Transformers: BERT &amp; GPT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word-vectors-word2vec-and-co">15.5. Word Vectors: Word2Vec and Co</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-short-cuts">15.6. Alternative short-cuts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-and-extensions">15.6.1. Limitations and Extensions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fasttext">15.6.2. FastText</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#glove">15.6.3. GloVe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformers-bert-gpt">15.6.4. Transformers: BERT &amp; GPT</a></li>
 </ul>
 </li>
 </ul>
@@ -437,7 +438,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="beyond-counting-individual-words-n-grams">
-<h1><span class="section-number">14. </span>Beyond Counting Individual Words: N-grams<a class="headerlink" href="#beyond-counting-individual-words-n-grams" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">15. </span>Beyond Counting Individual Words: N-grams<a class="headerlink" href="#beyond-counting-individual-words-n-grams" title="Permalink to this heading">#</a></h1>
 <p>So far in our journey through text data processing, we’ve dealt with counting individual words. While this approach, often referred to as a “bag of words” model, can provide a basic level of understanding and can be useful for certain tasks, it often falls short in capturing the true complexity and richness of language. This is mainly because it treats each word independently and ignores the context and order of words, which are fundamental to human language comprehension.</p>
 <p>For example, consider the two phrases<br />
 <em>“The movie is good, but the actor was bad.”</em><br />
@@ -446,7 +447,7 @@ and<br />
 <p>If we simply count individual words, both phrases are identical because they contain the exact same words!
 However, their meanings are diametrically opposed. The order of words and the context in which they are used are important.</p>
 <section id="n-grams">
-<h2><span class="section-number">14.1. </span>N-grams<a class="headerlink" href="#n-grams" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.1. </span>N-grams<a class="headerlink" href="#n-grams" title="Permalink to this heading">#</a></h2>
 <p><strong>N-grams</strong> are continuous sequences of n items in a given sample of text or speech. In the context of text analysis, an item can be a character, a syllable, or a word, although words are the most commonly used items. The integer <em>n</em> in “n-gram” refers to the number of items in the sequence, so a bigram (or 2-gram) is a sequence of two words, a trigram (3-gram) is a sequence of three words, and so on.</p>
 <p>To illustrate, consider the two sentences above.
 With 3-grams we could also get the pieces “movie is good”, “movie is bad”, “actor was bad”, and “actor was good”.
@@ -466,12 +467,17 @@ Bigrams (or 2-grams) would not catch those differences. But they can also be ver
 </div>
 </section>
 <section id="n-grams-in-tf-idf-vectors">
-<h2><span class="section-number">14.2. </span>N-grams in TF-IDF Vectors<a class="headerlink" href="#n-grams-in-tf-idf-vectors" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.2. </span>N-grams in TF-IDF Vectors<a class="headerlink" href="#n-grams-in-tf-idf-vectors" title="Permalink to this heading">#</a></h2>
 <p>When creating TF-IDF vectors, we can incorporate the concept of n-grams. The scikit-learn <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer</span></code> provides the <code class="docutils literal notranslate"><span class="pre">ngram_range</span></code> parameter that allows us to specify the range of n-grams to include in the feature vectors.</p>
 <section id="dataset-madrid-restaurant-reviews">
-<h3><span class="section-number">14.2.1. </span>Dataset - Madrid Restaurant Reviews<a class="headerlink" href="#dataset-madrid-restaurant-reviews" title="Permalink to this heading">#</a></h3>
-<p>Here we will use a fairly large text-based dataset containing restaurtant reviews from Madrid (<a class="reference external" href="https://zenodo.org/records/6583422">see dataset on zenodo</a>). It contains more than 176.000 reviews and has a size of 142MB an can be downloaded via the following code block.</p>
-<div class="cell docutils container">
+<h3><span class="section-number">15.2.1. </span>Dataset - Madrid Restaurant Reviews<a class="headerlink" href="#dataset-madrid-restaurant-reviews" title="Permalink to this heading">#</a></h3>
+<p>We will now use a large, text-based dataset containing more than 176.000 restaurant reviews from Madrid (<a class="reference external" href="https://zenodo.org/records/6583422">see dataset on zenodo</a>). The dataset (about 142MB) can be downloaded via the following code block.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">This code block downloads the data from zenodo and stores it in a local &#39;datasets&#39; folder.</span>
@@ -519,6 +525,7 @@ Bigrams (or 2-grams) would not catch those differences. But they can also be ver
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File downloaded successfully and saved to ../datasets/madrid_reviews.csv
 </pre></div>
@@ -683,51 +690,7 @@ Bigrams (or 2-grams) would not catch those differences. But they can also be ver
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># considers both unigrams and bigrams</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>  
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">tfidf_vectors</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">review_full</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">tfidf_vectors</span><span class="o">.</span><span class="n">shape</span>
-
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/sklearn/feature_extraction/text.py:2143,</span> in <span class="ni">TfidfVectorizer.fit_transform</span><span class="nt">(self, raw_documents, y)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2140</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tfidf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2141</span> <span class="c1"># X is already a transformed view of raw_documents so</span>
-<span class="g g-Whitespace">   </span><span class="mi">2142</span> <span class="c1"># we set copy to False</span>
-<span class="ne">-&gt; </span><span class="mi">2143</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tfidf</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/sklearn/feature_extraction/text.py:1727,</span> in <span class="ni">TfidfTransformer.transform</span><span class="nt">(self, X, copy)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1724</span>     <span class="n">check_is_fitted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;idf_&quot;</span><span class="p">],</span> <span class="n">msg</span><span class="o">=</span><span class="s2">&quot;idf vector is not fitted&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1726</span>     <span class="c1"># *= doesn&#39;t work</span>
-<span class="ne">-&gt; </span><span class="mi">1727</span>     <span class="n">X</span> <span class="o">=</span> <span class="n">X</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">_idf_diag</span>
-<span class="g g-Whitespace">   </span><span class="mi">1729</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1730</span>     <span class="n">X</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">norm</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/scipy/sparse/_matrix.py:48,</span> in <span class="ni">spmatrix.__mul__</span><span class="nt">(self, other)</span>
-<span class="g g-Whitespace">     </span><span class="mi">47</span> <span class="k">def</span> <span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">48</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mul_dispatch</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/scipy/sparse/_base.py:535,</span> in <span class="ni">_spbase._mul_dispatch</span><span class="nt">(self, other)</span>
-<span class="g g-Whitespace">    </span><span class="mi">533</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">other</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">534</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;dimension mismatch&#39;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">535</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mul_sparse_matrix</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">537</span> <span class="c1"># If it&#39;s a list or whatever, treat it like an array</span>
-<span class="g g-Whitespace">    </span><span class="mi">538</span> <span class="n">other_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asanyarray</span><span class="p">(</span><span class="n">other</span><span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/scipy/sparse/_compressed.py:532,</span> in <span class="ni">_cs_matrix._mul_sparse_matrix</span><span class="nt">(self, other)</span>
-<span class="g g-Whitespace">    </span><span class="mi">529</span> <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">nnz</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">upcast</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">dtype</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">531</span> <span class="n">fn</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">_sparsetools</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">+</span> <span class="s1">&#39;_matmat&#39;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">532</span> <span class="n">fn</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indptr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">idx_dtype</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">533</span>    <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indices</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">idx_dtype</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">534</span>    <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">535</span>    <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">indptr</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">idx_dtype</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">536</span>    <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">other</span><span class="o">.</span><span class="n">indices</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">idx_dtype</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">537</span>    <span class="n">other</span><span class="o">.</span><span class="n">data</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">538</span>    <span class="n">indptr</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">540</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">((</span><span class="n">data</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">indptr</span><span class="p">),</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(176848, 1496963)
 </pre></div>
 </div>
 </div>
@@ -738,7 +701,7 @@ Now we end up with vectors of about 1 million entries (even though most will be 
 </section>
 </section>
 <section id="tf-idf-with-bigrams-growing-vectors-and-managing-high-dimensionality">
-<h2><span class="section-number">14.3. </span>TF-IDF with Bigrams: Growing Vectors and Managing High Dimensionality<a class="headerlink" href="#tf-idf-with-bigrams-growing-vectors-and-managing-high-dimensionality" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.3. </span>TF-IDF with Bigrams: Growing Vectors and Managing High Dimensionality<a class="headerlink" href="#tf-idf-with-bigrams-growing-vectors-and-managing-high-dimensionality" title="Permalink to this heading">#</a></h2>
 <p>The power of n-grams comes at a cost. Specifically, as we increase the size of our n-grams, the dimensionality of our feature vectors also increases. In the case of bigrams, for every pair of words that occur together in our text corpus, we add a new dimension to our feature space. This can quickly lead to an explosion of features. For instance, a modest vocabulary of 1,000 words leads to a potential of 1,000,000 (1,000 x 1,000) bigrams.</p>
 <p>This high dimensionality can lead to two issues:</p>
 <ol class="arabic simple">
@@ -763,7 +726,7 @@ Now we end up with vectors of about 1 million entries (even though most will be 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(176848, 119352)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(176848, 119341)
 </pre></div>
 </div>
 </div>
@@ -775,11 +738,6 @@ Now we end up with vectors of about 1 million entries (even though most will be 
                              <span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  
 <span class="n">tfidf_vectors</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">review_full</span><span class="p">)</span>
 <span class="n">tfidf_vectors</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(20491, 84069)
 </pre></div>
 </div>
 </div>
@@ -896,7 +854,7 @@ Test dataset size: (35370,)
 </div>
 <p>This time we will start right away with a classification model:</p>
 <section id="logistic-regression-model">
-<h3><span class="section-number">14.3.1. </span>Logistic Regression model<a class="headerlink" href="#logistic-regression-model" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.3.1. </span>Logistic Regression model<a class="headerlink" href="#logistic-regression-model" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
@@ -1054,7 +1012,7 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </div>
 <section id="question">
-<h4><span class="section-number">14.3.1.1. </span>Question!<a class="headerlink" href="#question" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">15.3.1.1. </span>Question!<a class="headerlink" href="#question" title="Permalink to this heading">#</a></h4>
 <p>Why did we now get a notably smaller tfidf vector length?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1198,7 +1156,7 @@ Please also refer to the documentation for alternative solver options:
 </section>
 </section>
 <section id="id1">
-<h3><span class="section-number">14.3.2. </span>Logistic Regression model<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.3.2. </span>Logistic Regression model<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
@@ -1309,7 +1267,7 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </section>
 <section id="did-the-2-grams-and-3-grams-help">
-<h3><span class="section-number">14.3.3. </span>Did the 2-grams and 3-grams help?<a class="headerlink" href="#did-the-2-grams-and-3-grams-help" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.3.3. </span>Did the 2-grams and 3-grams help?<a class="headerlink" href="#did-the-2-grams-and-3-grams-help" title="Permalink to this heading">#</a></h3>
 <p>Well, the prediction accuracy only got slightly better. So, it seems to have <em>some</em> effect, but nothing spectacular. However, this is not a general finding and might look very differently for other datasets or problems.</p>
 <p>We can now also look at the ngrams that have the largest impact on the model predictions:</p>
 <div class="cell docutils container">
@@ -1572,7 +1530,7 @@ weighted avg       0.68      0.70      0.68     35370
 </div>
 </section>
 <section id="confusion-matrix">
-<h3><span class="section-number">14.3.4. </span>Confusion matrix<a class="headerlink" href="#confusion-matrix" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.3.4. </span>Confusion matrix<a class="headerlink" href="#confusion-matrix" title="Permalink to this heading">#</a></h3>
 <p>The confusion matrix can tell us a lot about where the model works well and where it fails. Often is is more accessible if the matrix is plotted, for instance using seaborns <code class="docutils literal notranslate"><span class="pre">heatmap</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1598,7 +1556,7 @@ weighted avg       0.68      0.70      0.68     35370
 </section>
 </section>
 <section id="find-similar-documents-with-tfidf">
-<h2><span class="section-number">14.4. </span>Find similar documents with tfidf<a class="headerlink" href="#find-similar-documents-with-tfidf" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.4. </span>Find similar documents with tfidf<a class="headerlink" href="#find-similar-documents-with-tfidf" title="Permalink to this heading">#</a></h2>
 <p>So far, we used the tfidf-vectors as feature vectors to train machine learning models. As we just saw, this works very well to predict review rating or to classify documents as positive/negative (=sentiment analysis).</p>
 <p>But there is more we can do with tfidf vectors.
 Why not use the vectors to compute distances or similarities? This way, we can search for the most similar documents in a corpus!</p>
@@ -1643,7 +1601,7 @@ Why not use the vectors to compute distances or similarities? This way, we can s
 </div>
 </div>
 <section id="compare-one-vector-to-all-other-vectors">
-<h3><span class="section-number">14.4.1. </span>Compare one vector to all other vectors<a class="headerlink" href="#compare-one-vector-to-all-other-vectors" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.4.1. </span>Compare one vector to all other vectors<a class="headerlink" href="#compare-one-vector-to-all-other-vectors" title="Permalink to this heading">#</a></h3>
 <p>Even though we here deal with very large vectors, computing similarities or angles between these vectors is compuationally very efficient. This means, we can simply compare a the tfidf vector of a given text to all &gt; 140,000 documents in virtually no time!</p>
 <p>In order for this to work, however, we should not rely on for-loops. Those are inherently slow in Python. We rather use optimized functions for this such as from <code class="docutils literal notranslate"><span class="pre">sklear.metrics.pairwise</span></code>.</p>
 <div class="cell docutils container">
@@ -1739,7 +1697,7 @@ Perfect dinner spot in La Latina, a little ways away from the hustle and bustle 
 </section>
 </section>
 <section id="word-vectors-word2vec-and-co">
-<h2><span class="section-number">14.5. </span>Word Vectors: Word2Vec and Co<a class="headerlink" href="#word-vectors-word2vec-and-co" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.5. </span>Word Vectors: Word2Vec and Co<a class="headerlink" href="#word-vectors-word2vec-and-co" title="Permalink to this heading">#</a></h2>
 <p><strong>Tfidf vectors</strong> are a rather basic, but still often used, technique. Arguably, this is because they are based on relatively simple statistics and easy to compute. They typically do a good job in weighing words according to their importance in a larger corpus and allow us to ignore words with low <em>distriminative power</em> (for instance so-called <em>stopwords</em> such as “a”, “the”, “that”, …).</p>
 <p>With <strong>n-grams</strong> we can even go one step further and also count sentence pieces longer than one word, which allows to also take some grammar or negations into account. The price, however, is that we have to restrict the number of n-grams to avoid exploding vector sizes.</p>
 <p>While TF-IDF vectors and n-grams serve as powerful techniques to represent and manipulate text data, they have limitations. These methods essentially treat words as individual, isolated units, devoid of any context or relation to other words. In other words, they lack the ability to capture the semantic meanings of words and the linguistic context in which they are used.</p>
@@ -2014,7 +1972,7 @@ Perfect dinner spot in La Latina, a little ways away from the hustle and bustle 
 </div>
 </section>
 <section id="alternative-short-cuts">
-<h2><span class="section-number">14.6. </span>Alternative short-cuts<a class="headerlink" href="#alternative-short-cuts" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">15.6. </span>Alternative short-cuts<a class="headerlink" href="#alternative-short-cuts" title="Permalink to this heading">#</a></h2>
 <p>Training your own Word2Vec model is fun and sometimes also really helpful. Here it is quite OK for instance, because we have a relatively big text corpus (&gt; 140,000 documents) with a clear general topic focus on restaurants and food.</p>
 <p>Often, however, you simply may want to use a model that covers a language more broadly. Instead of training your own model on a much much bigger corpus, we can simply use a model that was trained already, see for instance here <a class="reference external" href="https://radimrehurek.com/gensim/models/word2vec.html#usage-examples">on the Gensim website</a>.</p>
 <p>Another way is to use <strong>SpaCy</strong>. Its larger language models already contain word embeddings!</p>
@@ -2188,19 +2146,19 @@ afskfsd False 0.0 True
 </div>
 </div>
 <section id="limitations-and-extensions">
-<h3><span class="section-number">14.6.1. </span>Limitations and Extensions<a class="headerlink" href="#limitations-and-extensions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.6.1. </span>Limitations and Extensions<a class="headerlink" href="#limitations-and-extensions" title="Permalink to this heading">#</a></h3>
 <p>While Word2Vec is a powerful tool, it’s not without limitations. The main issue with Word2Vec (and similar models that derive their semantics based on the local usage context) is that they assign one vector per word. This becomes a problem for words with multiple meanings based on their context (homonyms and polysemes). To tackle such limitations, extensions like FastText and advanced methods such as GloVe (Global Vectors for Word Representation) and transformers like BERT (Bidirectional Encoder Representations from Transformers) have been proposed.</p>
 </section>
 <section id="fasttext">
-<h3><span class="section-number">14.6.2. </span>FastText<a class="headerlink" href="#fasttext" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.6.2. </span>FastText<a class="headerlink" href="#fasttext" title="Permalink to this heading">#</a></h3>
 <p>FastText, also developed by Facebook, extends Word2Vec by treating each word as composed of character n-grams. So the vector for a word is made of the sum of these character n-grams. This allows the embeddings to capture the meaning of shorter words and suffixes/prefixes and understand new words once the character n-grams are learned.</p>
 </section>
 <section id="glove">
-<h3><span class="section-number">14.6.3. </span>GloVe<a class="headerlink" href="#glove" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.6.3. </span>GloVe<a class="headerlink" href="#glove" title="Permalink to this heading">#</a></h3>
 <p>GloVe, developed by Stanford, is another method to create word embeddings. While Word2Vec is a predictive model — a model that predicts context given a word, GloVe is a count-based model. It leverages matrix factorization techniques on the word-word co-occurrence matrix.</p>
 </section>
 <section id="transformers-bert-gpt">
-<h3><span class="section-number">14.6.4. </span>Transformers: BERT &amp; GPT<a class="headerlink" href="#transformers-bert-gpt" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">15.6.4. </span>Transformers: BERT &amp; GPT<a class="headerlink" href="#transformers-bert-gpt" title="Permalink to this heading">#</a></h3>
 <p>BERT (Bidirectional Encoder Representations from Transformers) and GPT (Generative Pretrained Transformer) models ushered in the era of transformers that not only consider local context but also take the entire sentence context into account to create word embeddings.</p>
 <p>In conclusion, while TF-IDF and n-grams offer a solid start, word embeddings and transformers take the representation of words to the next level. By considering context and semantic meaning, they offer a more complete and robust method to work with text</p>
 </section>
@@ -2243,7 +2201,7 @@ afskfsd False 0.0 True
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Computing with Text: Counting words</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Computing with Text: Counting words</p>
       </div>
     </a>
     <a class="right-next"
@@ -2270,31 +2228,31 @@ afskfsd False 0.0 True
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-grams">14.1. N-grams</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-grams-in-tf-idf-vectors">14.2. N-grams in TF-IDF Vectors</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-madrid-restaurant-reviews">14.2.1. Dataset - Madrid Restaurant Reviews</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-grams">15.1. N-grams</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-grams-in-tf-idf-vectors">15.2. N-grams in TF-IDF Vectors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-madrid-restaurant-reviews">15.2.1. Dataset - Madrid Restaurant Reviews</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf-with-bigrams-growing-vectors-and-managing-high-dimensionality">14.3. TF-IDF with Bigrams: Growing Vectors and Managing High Dimensionality</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-model">14.3.1. Logistic Regression model</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question">14.3.1.1. Question!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf-with-bigrams-growing-vectors-and-managing-high-dimensionality">15.3. TF-IDF with Bigrams: Growing Vectors and Managing High Dimensionality</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-model">15.3.1. Logistic Regression model</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#question">15.3.1.1. Question!</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">14.3.2. Logistic Regression model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#did-the-2-grams-and-3-grams-help">14.3.3. Did the 2-grams and 3-grams help?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confusion-matrix">14.3.4. Confusion matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">15.3.2. Logistic Regression model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#did-the-2-grams-and-3-grams-help">15.3.3. Did the 2-grams and 3-grams help?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confusion-matrix">15.3.4. Confusion matrix</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-similar-documents-with-tfidf">14.4. Find similar documents with tfidf</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-one-vector-to-all-other-vectors">14.4.1. Compare one vector to all other vectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-similar-documents-with-tfidf">15.4. Find similar documents with tfidf</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-one-vector-to-all-other-vectors">15.4.1. Compare one vector to all other vectors</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word-vectors-word2vec-and-co">14.5. Word Vectors: Word2Vec and Co</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-short-cuts">14.6. Alternative short-cuts</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-and-extensions">14.6.1. Limitations and Extensions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fasttext">14.6.2. FastText</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#glove">14.6.3. GloVe</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformers-bert-gpt">14.6.4. Transformers: BERT &amp; GPT</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word-vectors-word2vec-and-co">15.5. Word Vectors: Word2Vec and Co</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-short-cuts">15.6. Alternative short-cuts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-and-extensions">15.6.1. Limitations and Extensions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fasttext">15.6.2. FastText</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#glove">15.6.3. GloVe</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformers-bert-gpt">15.6.4. Transformers: BERT &amp; GPT</a></li>
 </ul>
 </li>
 </ul>
@@ -2344,8 +2302,8 @@ By Florian Huber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=c5ced968eda925caa686"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=c5ced968eda925caa686"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>
