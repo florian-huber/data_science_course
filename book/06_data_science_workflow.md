@@ -6,7 +6,7 @@ In data science, it’s paramount to have a blueprint, a sequence of steps, that
 
 While the last chapter hinted that there's no universally accepted data science workflow, several models and frameworks have been proposed over the years {cite}`weihs_2018`{cite}`donoho_2017`. Each of these frameworks is tailored to different needs and contexts, and their structure and emphasis can vary significantly. For instance:
 
-- Circular workflows, most comonly **CRISP-DM** {cite}`wirth_crisp-dm_2000`{cite}`weihs_2018` usually emphasize deployment. They often stem from an industry or software development background, where iterative development and frequent updates are the norms. These workflows recognize that the end of one project cycle can be the beginning of another, especially as new data comes in or as models need refining.
+- Circular workflows, most commonly **CRISP-DM** {cite}`wirth_crisp-dm_2000`{cite}`weihs_2018` usually emphasize deployment. They often stem from an industry or software development background, where iterative development and frequent updates are the norms. These workflows recognize that the end of one project cycle can be the beginning of another, especially as new data comes in or as models need refining.
 - Linear workflows, like **OSEMN** (Obtain, Scrub, Explore, Model, and iNterpret), tend to have a start and end. However, it's essential to understand that even in these linear models, iterations within steps are common {cite}`mason_osemn_2010`.
 - There are also **tree-like workflows**, where after a certain step, the process might branch out into multiple paths, reflecting the multifaceted nature of some data science projects {cite}`guo_data_2022`.
 
