@@ -54,7 +54,7 @@ Consider a study using AdFisher, an automated tool designed to scrutinize the in
 ```{figure} ../images/fig_targeted_advertisement_04.svg
 :name: fig_advertise04
 
-Advertisments can have potentially large impacts... for instance if we talk about job advertisements. 
+Advertisements can have potentially large impacts... for instance if we talk about job advertisements. 
 ```
 
 A similar study examined Facebook's ad delivery process, revealing  another layer of potential algorithmic discrimination {cite}`Ali_2019`. The research indicated that, even when advertisers aim for inclusivity in their targeting parameters, the optimization processes employed by Facebook could inadvertently skew ad delivery along gender and racial lines. This was particularly evident in advertisements for employment and housing opportunities. As such, these findings underline the importance of  scrutinizing not just the algorithms behind data analytics but also the  optimization mechanisms of digital platforms themselves, further emphasizing the role data scientists must play in promoting fairness and preventing discrimination.
