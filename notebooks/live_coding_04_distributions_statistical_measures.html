@@ -192,12 +192,23 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="live_coding_05_correlation_analysis.html">10. Correlation Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_06_clustering.html">11. Clustering</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Modeling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="live_coding_07_dimensionality_reduction.html">12. Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_08_machine_learning.html">13. Machine Learning</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">12. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">13. NLP - basic techniques to analyse text data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">14. Computing with Text: Counting words</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">15. Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">14. Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">15. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">16. Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">17. Beyond Counting Individual Words: N-grams</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the networks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="live_coding_13_graphs.html">18. Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graph_visualization.html">19. Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graphs_part2.html">20. Bottlenecks, Hubs, Communities</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -413,7 +424,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">9.2.5. Statistical Measures</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-dispertion">9.3. Statistical dispertion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-dispersion">9.3. Statistical dispersion</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-can-statistical-measures-do-and-what-not">9.4. What can statistical measures do (and what not)?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-data-exploration-using-basic-statistics">9.4.1. First Data Exploration (using basic statistics)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise-what-do-you-think">9.4.2. Mini-Exercise: What do you think?</a></li>
@@ -697,8 +708,8 @@ In the previous sections we already saw that the collection and technical handli
 </div>
 </section>
 </section>
-<section id="statistical-dispertion">
-<h2><span class="section-number">9.3. </span>Statistical dispertion<a class="headerlink" href="#statistical-dispertion" title="Permalink to this heading">#</a></h2>
+<section id="statistical-dispersion">
+<h2><span class="section-number">9.3. </span>Statistical dispersion<a class="headerlink" href="#statistical-dispersion" title="Permalink to this heading">#</a></h2>
 <p>Statistical dispersion refers to the spread or variability of a dataset. It helps to understand the extent to which individual data points deviate from the mean. While two distributions might have similar centers (mean or median), their characteristics could differ considerably in terms of spread. For instance, one might be tightly clustered around the mean, whereas the other might be more spread out.</p>
 <p>Dispersion can be illustrated with two distributions that have the same center (mean) but different standard deviations. In the following examples, both distributions are centered at 100, but they have standard deviations of 15 and 1.5, respectively. The standard deviation (often referred to as “STD”) is a measure that tells us how spread out the numbers in a distribution are.</p>
 <p>A higher standard deviation indicates that the data points tend to be farther from the mean, while a smaller standard deviation suggests that they are clustered closely around the mean.</p>
@@ -1136,7 +1147,7 @@ Try, for instance, to run the following:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2620/2967438999.py:12: FutureWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2643/2967438999.py:12: FutureWarning: 
 
 The `bw` parameter is deprecated in favor of `bw_method`/`bw_adjust`.
 Setting `bw_method=0.15`, but please see docs for the new parameters
@@ -1155,12 +1166,12 @@ and update your code. This will become an error in seaborn v0.15.0.
 </section>
 <section id="let-s-talk-money">
 <h2><span class="section-number">9.6. </span>Let’s talk money<a class="headerlink" href="#let-s-talk-money" title="Permalink to this heading">#</a></h2>
-<p>In real life we will come across distributions of all shapes, often non-symmetric. An even though it is considered polite in many cultures to not talk too much about our own wealth and incomes, we all probably know that income and wealth are unlikely to be narrow, symmetric distributions where most people have more or less the same, and earn more or less the same. I will leave the political debates up to you (but secretely do hope to spark some).</p>
+<p>In real life we will come across distributions of all shapes, often non-symmetric. An even though it is considered polite in many cultures to not talk too much about our own wealth and incomes, we all probably know that income and wealth are unlikely to be narrow, symmetric distributions where most people have more or less the same, and earn more or less the same. I will leave the political debates up to you (but secretly do hope to spark some).</p>
 <p>To me, things like wealth and income are good topics to learn about basic statistics. First, because we all know <em>something</em> about money and to some extend care about money (even if we say otherwise). And second, because it is full of striking example of skewed distributions. In fact, let me quote Thomas Piketty here <span id="id3">[<a class="reference internal" href="../book/bibliography.html#id20" title="Thomas Piketty. Capital in the Twenty-First Century:. Belknap Press, Cambridge, MA, April 2014. ISBN 978-0-674-43000-6.">Piketty, 2014</a>]</span>:</p>
 <blockquote>
 <div><p><strong>Wealth is so concentrated that a large segment of society is virtually unaware of its existence.</strong></p>
 </div></blockquote>
-<p>Real numberson incomes in Germany, albeit already evaluated, can be found <a class="reference external" href="https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Einkommen-Konsum-Lebensbedingungen/Einkommen-Einnahmen-Ausgaben/Publikationen/Downloads-Einkommen/einkommensverteilung-2152606139004.pdf;jsessionid=6E880CBD0BFD0E121C71BCEC21D6971B.live742?__blob=publicationFile">here</a>.</p>
+<p>Real numbers on incomes in Germany, albeit already evaluated, can be found <a class="reference external" href="https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Einkommen-Konsum-Lebensbedingungen/Einkommen-Einnahmen-Ausgaben/Publikationen/Downloads-Einkommen/einkommensverteilung-2152606139004.pdf;jsessionid=6E880CBD0BFD0E121C71BCEC21D6971B.live742?__blob=publicationFile">here</a>.</p>
 <p>For raw data requests, you can visit <a class="reference external" href="https://paneldata.org/">this site</a>.</p>
 <p>Let’s dive into our fictional, but realistic, data:</p>
 <div class="cell tag_hide-input docutils container">
@@ -1358,9 +1369,9 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2620/4219283847.py:4: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2643/4219283847.py:4: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   ax.bar(x=np.arange(10), height=income_data.groupby(&quot;decile&quot;).median()[&quot;income&quot;])
-/tmp/ipykernel_2620/4219283847.py:5: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+/tmp/ipykernel_2643/4219283847.py:5: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   for i, v in enumerate(income_data.groupby(&quot;decile&quot;).median()[&quot;income&quot;]):
 </pre></div>
 </div>
@@ -1378,7 +1389,7 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2620/2203491340.py:2: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2643/2203491340.py:2: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   income_sum = income_data.groupby(&quot;decile&quot;).sum()
 </pre></div>
 </div>
@@ -1583,11 +1594,11 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7f2563d6e5e0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f2563d6e5b0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f2563d4ad60&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f2563c68d90&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f2563bf2670&gt;],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7f969ee58d60&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f969ee58d30&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f96a2e6c4c0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f96a2e30fa0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f96a2e0e1c0&gt;],
  [Text(0.0, 0, &#39;0 €&#39;),
   Text(500000.0, 0, &#39;500 k€&#39;),
   Text(1000000.0, 0, &#39;1M €&#39;),
@@ -1618,11 +1629,11 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7f2566d8c940&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f2566d8c580&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f256656e2e0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f2563dbcca0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f2563dc2c10&gt;],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7f969eeb9ca0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f969eeb9160&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f969eeb90d0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f96b0035400&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f969ef81ca0&gt;],
  [Text(0.0, 0, &#39;0 €&#39;),
   Text(500000.0, 0, &#39;500 k€&#39;),
   Text(1000000.0, 0, &#39;1000 k€&#39;),
@@ -1654,11 +1665,11 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7f2563db79a0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f2563db7a00&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f2563db7ca0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f2563e39ac0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7f2563e398e0&gt;],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7f969ef36be0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f969ef362e0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f96b01e05b0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f96a2f1dcd0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f96b015b670&gt;],
  [Text(0.0, 0, &#39;0 €&#39;),
   Text(500000.0, 0, &#39;500 k€&#39;),
   Text(1000000.0, 0, &#39;1000 k€&#39;),
@@ -1725,9 +1736,9 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2620/996220485.py:5: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2643/996220485.py:5: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   ax.bar(x=np.arange(10), height=wealth_data.groupby(&quot;decile&quot;).median()[&quot;wealth&quot;])
-/tmp/ipykernel_2620/996220485.py:8: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+/tmp/ipykernel_2643/996220485.py:8: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   for i, v in enumerate(wealth_data.groupby(&quot;decile&quot;).median()[&quot;wealth&quot;]):
 </pre></div>
 </div>
@@ -1751,7 +1762,7 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2620/2253224710.py:1: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2643/2253224710.py:1: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   wealth_sum = wealth_data.groupby(&quot;decile&quot;).sum()
 </pre></div>
 </div>
@@ -1938,7 +1949,7 @@ and update your code. This will become an error in seaborn v0.15.0.
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">9.2.5. Statistical Measures</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-dispertion">9.3. Statistical dispertion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistical-dispersion">9.3. Statistical dispersion</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-can-statistical-measures-do-and-what-not">9.4. What can statistical measures do (and what not)?</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-data-exploration-using-basic-statistics">9.4.1. First Data Exploration (using basic statistics)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise-what-do-you-think">9.4.2. Mini-Exercise: What do you think?</a></li>

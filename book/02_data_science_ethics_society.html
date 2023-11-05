@@ -190,12 +190,23 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_05_correlation_analysis.html">10. Correlation Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_06_clustering.html">11. Clustering</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Modeling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_07_dimensionality_reduction.html">12. Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_08_machine_learning.html">13. Machine Learning</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_10_working_with_text_data.html">12. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_11_NLP_2_tokenization.html">13. NLP - basic techniques to analyse text data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_11_NLP_3_tfifd_and_machine_learning.html">14. Computing with Text: Counting words</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_12_NLP_4_ngrams_word_vectors.html">15. Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_10_working_with_text_data.html">14. Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_11_NLP_2_tokenization.html">15. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_11_NLP_3_tfifd_and_machine_learning.html">16. Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_12_NLP_4_ngrams_word_vectors.html">17. Beyond Counting Individual Words: N-grams</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the networks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_13_graphs.html">18. Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_14_graph_visualization.html">19. Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_14_graphs_part2.html">20. Bottlenecks, Hubs, Communities</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -455,7 +466,7 @@ document.write(`
 Consider a study using AdFisher, an automated tool designed to scrutinize the interplay between user behavior, Google ads, and the Ad Settings that Google provides for user control and transparency <span id="id2">[<a class="reference internal" href="bibliography.html#id6" title="Amit Datta, Michael Carl Tschantz, and Anupam Datta. Automated experiments on ad privacy settings: a tale of opacity, choice, and discrimination. 2015. arXiv:1408.6491.">Datta <em>et al.</em>, 2015</a>]</span>. During  the course of the research, it was discovered that modifying the user  profile to ‘female’ resulted in fewer advertisements for high-paying jobs compared to when it was set to ‘male’ (<a class="reference internal" href="#fig-advertise04"><span class="std std-numref">Fig. 3.4</span></a>). This highlighted a potentially discriminatory consequence of algorithmic decision-making, underscoring the need for ethical considerations in data science. Yet, the complexity of the digital ad ecosystem, with its numerous players, rendered it challenging to definitively pin down the origin of this bias, illustrating the multifaceted nature of ethical  issues in our field.</p>
 <figure class="align-default" id="fig-advertise04">
 <img alt="../_images/fig_targeted_advertisement_04.svg" src="../_images/fig_targeted_advertisement_04.svg" /><figcaption>
-<p><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Advertisments can have potentially large impacts… for instance if we talk about job advertisements.</span><a class="headerlink" href="#fig-advertise04" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Advertisements can have potentially large impacts… for instance if we talk about job advertisements.</span><a class="headerlink" href="#fig-advertise04" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>A similar study examined Facebook’s ad delivery process, revealing  another layer of potential algorithmic discrimination <span id="id3">[<a class="reference internal" href="bibliography.html#id2" title="Muhammad Ali, Piotr Sapiezynski, Miranda Bogen, Aleksandra Korolova, Alan Mislove, and Aaron Rieke. Discrimination through optimization. Proceedings of the ACM on Human-Computer Interaction, 3(CSCW):1–30, nov 2019. URL: https://doi.org/10.1145%2F3359301, doi:10.1145/3359301.">Ali <em>et al.</em>, 2019</a>]</span>. The research indicated that, even when advertisers aim for inclusivity in their targeting parameters, the optimization processes employed by Facebook could inadvertently skew ad delivery along gender and racial lines. This was particularly evident in advertisements for employment and housing opportunities. As such, these findings underline the importance of  scrutinizing not just the algorithms behind data analytics but also the  optimization mechanisms of digital platforms themselves, further emphasizing the role data scientists must play in promoting fairness and preventing discrimination.</p>
