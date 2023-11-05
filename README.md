@@ -9,6 +9,7 @@
 # Introduction to data science (for not yet scientists)
 Data Science course developed at the Düsseldorf University of Applied Sciences (HSD) and the Centre for Digitalization and Digitality (ZDD).
 
+For the rendered book use [this link](https://florian-huber.github.io/data_science_course/book/cover.html)!
 
 ## Create new environment for this course (recommended)
 It is recommended to create a new environment for this course with many Python libraries that we will use in the Live Coding sessions. You can simply download the `environment.yml` file in this repository, or clone the repository using:
