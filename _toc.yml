@@ -24,6 +24,11 @@ parts:
     chapters:
     - file: notebooks/live_coding_05_correlation_analysis
     - file: notebooks/live_coding_06_clustering
+  - caption: Data Modeling
+    numbered: true
+    chapters:
+    - file: notebooks/live_coding_07_dimensionality_reduction
+    - file: notebooks/live_coding_08_machine_learning  
   - caption: Working with text data
     numbered: true
     chapters:
