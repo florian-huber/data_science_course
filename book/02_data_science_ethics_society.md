@@ -24,7 +24,7 @@ Even before the digital revolution, targeted advertising was a commonly  used st
 
 
 
-```{figure} ../images/fig_targeted_advertisement_01.svg
+```{figure} ../images/fig_targeted_advertisement_01.png
 :name: fig_advertise01
 
 Targeted advertisement can nowadays use much more data and information on a potential customer (here: Alice) when compared to pre-digital times.
@@ -32,7 +32,7 @@ Targeted advertisement can nowadays use much more data and information on a pote
 
 You may already be feeling a touch of unease. Is it truly beneficial for companies or other organizations to have access to all this data? On the flip side, consider this: isn't it a **win/win situation**? Companies can reach a much more suitable audience, and individuals  receive advertisements tailored to their profiles and interests. Take, for example, Alice ({numref}`fig_advertise02`).  Because of her age (neither too young nor too old),  location (within 2 hours of the festival venue), and interests (many  likes for Hip-Hop bands), she receives an advertisement for a Hip-Hop  festival. This offer is a clear match for her. However, Alice wouldn't  get a mail catalog for a package tour operator catering to a different  customer profile—typically older and, let's say, less concerned about  the carbon emissions of their tours. That's a plus for Alice. And a plus for both companies, isn't it?
 
-```{figure} ../images/fig_targeted_advertisement_02.svg
+```{figure} ../images/fig_targeted_advertisement_02.png
 :name: fig_advertise02
 
 In many cases target advertisement does little harm. It might even seem like a win/win situation at first.
@@ -42,7 +42,7 @@ However, things get a bit more complex when we consider the marketing of more se
 
 For instance, what if the individual hasn't yet told their family or friends about the pregnancy? [^target-story].Or, in a more distressing scenario, what if the pregnancy is unwanted, or complications arise? In such cases, receiving maternity ads could cause emotional distress. And it's not limited to maternity products; this applies to any sensitive product or service.
 
-```{figure} ../images/fig_targeted_advertisement_03.svg
+```{figure} ../images/fig_targeted_advertisement_03.png
 :name: fig_advertise03
 
 But even advertisements can quickly turn into ethically much more complicated matters. 
@@ -51,7 +51,7 @@ But even advertisements can quickly turn into ethically much more complicated ma
 And what if the advertisement is not product in a classical sense, but a high-paying job?
 Consider a study using AdFisher, an automated tool designed to scrutinize the interplay between user behavior, Google ads, and the Ad Settings that Google provides for user control and transparency {cite}`datta2015automated`. During  the course of the research, it was discovered that modifying the user  profile to 'female' resulted in fewer advertisements for high-paying jobs compared to when it was set to 'male' ({numref}`fig_advertise04`). This highlighted a potentially discriminatory consequence of algorithmic decision-making, underscoring the need for ethical considerations in data science. Yet, the complexity of the digital ad ecosystem, with its numerous players, rendered it challenging to definitively pin down the origin of this bias, illustrating the multifaceted nature of ethical  issues in our field.
 
-```{figure} ../images/fig_targeted_advertisement_04.svg
+```{figure} ../images/fig_targeted_advertisement_04.png
 :name: fig_advertise04
 
 Advertisements can have potentially large impacts... for instance if we talk about job advertisements. 
@@ -63,7 +63,7 @@ Algorithms that preferentially select certain groups of people for job or housin
 
 Algorithms are used for even more ethically critical applications. The software COMPAS for instance {cite}`martin_ethical_2019`{cite}`barocas_big_2016` is used to predict the risk for people that stand trial and hence influences if those people get released on bail or not.
 
-```{figure} ../images/fig_algorithm_ethics.svg
+```{figure} ../images/fig_algorithm_ethics.png
 :name: fig_ethics_examples
 
 In several actual cases, algorithms were (and are) used for decisions with very severe personal consequences.

@@ -5,7 +5,7 @@
 Düsseldorf University of Applied Sciences (HSD)  
 & Centre for Digitalization and Digitality (ZDD)
 
-2023-11-05
+**v0.5** 2023-11-05
 
 <img src="../images/logo.png" alt="cover image"/>
 
