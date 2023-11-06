@@ -1147,7 +1147,7 @@ Try, for instance, to run the following:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2701/2967438999.py:12: FutureWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2706/2967438999.py:12: FutureWarning: 
 
 The `bw` parameter is deprecated in favor of `bw_method`/`bw_adjust`.
 Setting `bw_method=0.15`, but please see docs for the new parameters
@@ -1166,7 +1166,7 @@ and update your code. This will become an error in seaborn v0.15.0.
 </section>
 <section id="let-s-talk-money">
 <h2><span class="section-number">9.6. </span>Let’s talk money<a class="headerlink" href="#let-s-talk-money" title="Permalink to this heading">#</a></h2>
-<p>In real life we will come across distributions of all shapes, often non-symmetric. An even though it is considered polite in many cultures to not talk too much about our own wealth and incomes, we all probably know that income and wealth are unlikely to be narrow, symmetric distributions where most people have more or less the same, and earn more or less the same. I will leave the political debates up to you (but secretly do hope to spark some).</p>
+<p>In real life we will come across distributions of all shapes, often non-symmetric. And even though it is considered polite in many cultures to not talk too much about our own wealth and incomes, we all probably know that income and wealth are unlikely to be narrow, symmetric distributions where most people have more or less the same, and earn more or less the same. I will leave the political debates up to you (but secretly do hope to spark some).</p>
 <p>To me, things like wealth and income are good topics to learn about basic statistics. First, because we all know <em>something</em> about money and to some extend care about money (even if we say otherwise). And second, because it is full of striking example of skewed distributions. In fact, let me quote Thomas Piketty here <span id="id3">[<a class="reference internal" href="../book/bibliography.html#id20" title="Thomas Piketty. Capital in the Twenty-First Century:. Belknap Press, Cambridge, MA, April 2014. ISBN 978-0-674-43000-6.">Piketty, 2014</a>]</span>:</p>
 <blockquote>
 <div><p><strong>Wealth is so concentrated that a large segment of society is virtually unaware of its existence.</strong></p>
@@ -1369,9 +1369,9 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2701/4219283847.py:4: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2706/4219283847.py:4: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   ax.bar(x=np.arange(10), height=income_data.groupby(&quot;decile&quot;).median()[&quot;income&quot;])
-/tmp/ipykernel_2701/4219283847.py:5: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+/tmp/ipykernel_2706/4219283847.py:5: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   for i, v in enumerate(income_data.groupby(&quot;decile&quot;).median()[&quot;income&quot;]):
 </pre></div>
 </div>
@@ -1389,7 +1389,7 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2701/2203491340.py:2: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2706/2203491340.py:2: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   income_sum = income_data.groupby(&quot;decile&quot;).sum()
 </pre></div>
 </div>
@@ -1594,11 +1594,11 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7fb93d6f88b0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7fb93d6f8880&gt;,
-  &lt;matplotlib.axis.XTick at 0x7fb93d6e3ca0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7fb93d586610&gt;,
-  &lt;matplotlib.axis.XTick at 0x7fb93d586eb0&gt;],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7fabce58c400&gt;,
+  &lt;matplotlib.axis.XTick at 0x7fabce58c3d0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7fabce5fbbe0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7fabce502ee0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7fabce48e7c0&gt;],
  [Text(0.0, 0, &#39;0 €&#39;),
   Text(500000.0, 0, &#39;500 k€&#39;),
   Text(1000000.0, 0, &#39;1M €&#39;),
@@ -1629,11 +1629,11 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7fb93d586a30&gt;,
-  &lt;matplotlib.axis.XTick at 0x7fb93d586a00&gt;,
-  &lt;matplotlib.axis.XTick at 0x7fb9406c1850&gt;,
-  &lt;matplotlib.axis.XTick at 0x7fb93d7c1220&gt;,
-  &lt;matplotlib.axis.XTick at 0x7fb93d82df40&gt;],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7fabd0e12670&gt;,
+  &lt;matplotlib.axis.XTick at 0x7fabd0e12610&gt;,
+  &lt;matplotlib.axis.XTick at 0x7fabd0e04be0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7fabce65c970&gt;,
+  &lt;matplotlib.axis.XTick at 0x7fabce677430&gt;],
  [Text(0.0, 0, &#39;0 €&#39;),
   Text(500000.0, 0, &#39;500 k€&#39;),
   Text(1000000.0, 0, &#39;1000 k€&#39;),
@@ -1665,11 +1665,11 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7fb93d74ad30&gt;,
-  &lt;matplotlib.axis.XTick at 0x7fb93d74a100&gt;,
-  &lt;matplotlib.axis.XTick at 0x7fb93d74abb0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7fb9407c2190&gt;,
-  &lt;matplotlib.axis.XTick at 0x7fb9409c2580&gt;],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7fabce6beb20&gt;,
+  &lt;matplotlib.axis.XTick at 0x7fabce6be6d0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7fabce6be1f0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7fabce64b400&gt;,
+  &lt;matplotlib.axis.XTick at 0x7fabce64bbb0&gt;],
  [Text(0.0, 0, &#39;0 €&#39;),
   Text(500000.0, 0, &#39;500 k€&#39;),
   Text(1000000.0, 0, &#39;1000 k€&#39;),
@@ -1736,9 +1736,9 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2701/996220485.py:5: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2706/996220485.py:5: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   ax.bar(x=np.arange(10), height=wealth_data.groupby(&quot;decile&quot;).median()[&quot;wealth&quot;])
-/tmp/ipykernel_2701/996220485.py:8: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+/tmp/ipykernel_2706/996220485.py:8: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   for i, v in enumerate(wealth_data.groupby(&quot;decile&quot;).median()[&quot;wealth&quot;]):
 </pre></div>
 </div>
@@ -1762,7 +1762,7 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2701/2253224710.py:1: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2706/2253224710.py:1: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   wealth_sum = wealth_data.groupby(&quot;decile&quot;).sum()
 </pre></div>
 </div>

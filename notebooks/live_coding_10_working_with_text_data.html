@@ -422,7 +422,10 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenize">14.3.3. Tokenize</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#very-common-problem-different-variations-of-a-word">14.3.4. Very common problem: different variations of a word</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#very-common-problem-different-variations-of-a-word">14.3.4. Very common problem: different variations of a word</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-special-words-or-tags">14.3.4.1. Identify special words or tags</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regular-expressions-regex">14.4. Regular Expressions (Regex)</a><ul class="nav section-nav flex-column">
@@ -433,7 +436,10 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cons">14.4.3.2. Cons</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-regular-expressions-in-python">14.4.4. Using Regular Expressions in Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-regular-expressions-in-python">14.4.4. Using Regular Expressions in Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#search-vs-findall">14.4.4.1. Search vs. findall</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#text-numbers-classes">14.4.5. Text, Numbers, Classes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#positions-in-the-string">14.4.6. Positions in the String</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repetitions">14.4.7. Repetitions</a></li>
@@ -720,6 +726,7 @@ d) abx</p>
 </div>
 </div>
 </div>
+<p><strong>Solution 1:</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">variations</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;string-man&quot;</span><span class="p">,</span> <span class="s2">&quot;stringman&quot;</span><span class="p">,</span> <span class="s2">&quot;string man&quot;</span><span class="p">]</span>
@@ -739,11 +746,11 @@ d) abx</p>
 </div>
 </div>
 </div>
+<p><strong>Solution 2 - real bad:</strong></p>
+<p>We might be tempted to again simply use <code class="docutils literal notranslate"><span class="pre">replace()</span></code> here, but that won’t easily cover all the cases we have.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solution 2 - real bad</span>
-
-<span class="nb">print</span><span class="p">([</span><span class="n">w</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">variations</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">([</span><span class="n">w</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">variations</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -753,20 +760,21 @@ d) abx</p>
 </div>
 </div>
 </div>
+<section id="identify-special-words-or-tags">
+<h4><span class="section-number">14.3.4.1. </span>Identify special words or tags<a class="headerlink" href="#identify-special-words-or-tags" title="Permalink to this heading">#</a></h4>
+<p>By only using the above mentioned basic string method, we can achieve many basic tasks when handling text data in Python. For instance, we can divide text into individual words (more or less at least), and identify special terms or tags.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_text2</span> <span class="o">=</span> <span class="s2">&quot;Das Wichtigste steht nicht in meinem Tweet sondern in </span><span class="se">\</span>
-<span class="s2">den Hashtags #openscience #openaccess #research&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_text2</span> <span class="o">=</span> <span class="s2">&quot;The key to success is not in my blog post but in the tags #education #innovation #technology&quot;</span>
 
 <span class="n">words</span> <span class="o">=</span> <span class="n">my_text2</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;.,!? &quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
-<span class="n">words</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;das&#39;, &#39;wichtigste&#39;, &#39;steht&#39;, &#39;nicht&#39;, &#39;in&#39;, &#39;meinem&#39;, &#39;tweet&#39;, &#39;sondern&#39;, &#39;in&#39;, &#39;den&#39;, &#39;hashtags&#39;, &#39;#openscience&#39;, &#39;#openaccess&#39;, &#39;#research&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;the&#39;, &#39;key&#39;, &#39;to&#39;, &#39;success&#39;, &#39;is&#39;, &#39;not&#39;, &#39;in&#39;, &#39;my&#39;, &#39;blog&#39;, &#39;post&#39;, &#39;but&#39;, &#39;in&#39;, &#39;the&#39;, &#39;tags&#39;, &#39;#education&#39;, &#39;#innovation&#39;, &#39;#technology&#39;]
 </pre></div>
 </div>
 </div>
@@ -780,17 +788,19 @@ d) abx</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hashtag: #openscience
-Hashtag: #openaccess
-Hashtag: #research
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hashtag: #education
+Hashtag: #innovation
+Hashtag: #technology
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 </section>
+</section>
 <section id="regular-expressions-regex">
 <h2><span class="section-number">14.4. </span>Regular Expressions (Regex)<a class="headerlink" href="#regular-expressions-regex" title="Permalink to this heading">#</a></h2>
+<p>Using only basic string operations quickly becomes very limiting, or at least the required code will become highly complex once we need to do things far beyond two or three such operations. This is usually the point where people turn to <strong>regular expressions</strong> which are far more versatile then individual <code class="docutils literal notranslate"><span class="pre">replace()</span></code> or <code class="docutils literal notranslate"><span class="pre">split()</span></code> operations.</p>
 <p>Regular Expressions, often shortened to “regex,” are a powerful tool for working with text data. They’re a sequence of characters forming a search pattern, primarily used for pattern matching with strings or string manipulation. In the world of Data Science, regular expressions find widespread use in text processing tasks.</p>
 <section id="what-are-regular-expressions">
 <h3><span class="section-number">14.4.1. </span>What are Regular Expressions?<a class="headerlink" href="#what-are-regular-expressions" title="Permalink to this heading">#</a></h3>
@@ -852,21 +862,20 @@ Hashtag: #research
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">search</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">IndexError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">16</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">search</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="ne">IndexError</span>: no such group
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;stringman&#39;
 </pre></div>
 </div>
 </div>
 </div>
+<section id="search-vs-findall">
+<h4><span class="section-number">14.4.4.1. </span>Search vs. findall<a class="headerlink" href="#search-vs-findall" title="Permalink to this heading">#</a></h4>
+<p>Unlike the name might suggest, <code class="docutils literal notranslate"><span class="pre">re.search</span></code> will only search until finding the first matching pattern.</p>
+<p>If we want to find all instances matching the given regex pattern than we have to use <code class="docutils literal notranslate"><span class="pre">re.findall</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;string[- ]?man&quot;</span><span class="p">,</span> <span class="n">my_text</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
@@ -881,11 +890,18 @@ Hashtag: #research
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;string-man&#39;, &#39;stringman&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;stringman&#39;,
+ &#39;stringman&#39;,
+ &#39;string-man&#39;,
+ &#39;string man&#39;,
+ &#39;string-man&#39;,
+ &#39;stringman&#39;,
+ &#39;string-man&#39;]
 </pre></div>
 </div>
 </div>
 </div>
+<p>In this context it is good to know that in Python we can work with “raw strings” by adding an “r” in front of the string. This essentially just means, that Python will not interpret escape characters (<code class="docutils literal notranslate"><span class="pre">\</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sa">r</span><span class="s2">&quot;\nmno&quot;</span>
@@ -925,6 +941,8 @@ mno
 </div>
 </div>
 </div>
+<p>There are many resources in the internet on how to build and use regular expressions. Here are some of the most common rules:</p>
+</section>
 </section>
 <section id="text-numbers-classes">
 <h3><span class="section-number">14.4.5. </span>Text, Numbers, Classes<a class="headerlink" href="#text-numbers-classes" title="Permalink to this heading">#</a></h3>
@@ -984,9 +1002,9 @@ mno
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Beispiele</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Few more examples</span>
 
-<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\.\w{2,3}&quot;</span><span class="p">,</span> <span class="s2">&quot;dot.com oder dot.de&quot;</span><span class="p">)</span>  <span class="c1">#Achtung: nicht r&quot;.w...&quot;</span>
+<span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\.\w{2,3}&quot;</span><span class="p">,</span> <span class="s2">&quot;dot.com oder dot.de&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -998,7 +1016,7 @@ mno
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\.\w{2,3}$&quot;</span><span class="p">,</span> <span class="s2">&quot;dot.com oder dot.de&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\.\w{2,3}$&quot;</span><span class="p">,</span> <span class="s2">&quot;dot.com or dot.de&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1044,40 +1062,6 @@ mno
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Artikel und Nomen finden</span>
-<span class="c1">#regex = r&quot;(der|die|das)\s([A-Z][a-z]*)&quot;</span>
-<span class="c1">#regex = r&quot;(?:der|die|das)\s[A-Z][a-z]*&quot;</span>
-<span class="n">regex</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(?&lt;=der|die|das)\s([A-Z][a-z]*)&quot;</span>
-
-<span class="n">artikel</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="s2">FRANKFURT/MAIN dpa | Der Frankfurter Oberbürgermeister Peter Feldmann (SPD) muss sich im Zusammenhang mit der Awo-Affäre vor Gericht verantworten. Eine entsprechende Anklage der Frankfurter Staatsanwaltschaft wegen des Verdachts der Vorteilsannahme wurde zugelassen, wie das Landgericht Frankfurt am Montag mitteilte. Termine für den Prozess standen zunächst noch nicht fest.</span>
-
-<span class="s2">Die Ermittlungsbehörde hatte im März Anklage wegen eines hinreichenden Tatverdachts der Vorteilsannahme erhoben. Feldmanns Frau habe als Leiterin einer Awo-Kita „ohne sachlichen Grund“ ein übertarifliches Gehalt bezogen, hieß es.</span>
-
-<span class="s2">Zudem habe die Awo laut Staatsanwaltschaft Feldmann im Wahlkampf 2018 durch Einwerbung von Spenden unterstützt. Im Gegenzug habe er die Interessen der Awo Frankfurt „wohlwollend berücksichtigen“ wollen.</span>
-
-<span class="s2">Feldmann steht auch wegen einiger Ausrutscher unter Druck – unter anderem wegen eines Videos, das zeigt, wie Feldmann auf dem Flug zum Europa-League-Finale von Eintracht Frankfurt nach Sevilla von Flugbegleiterinnen spricht, „die mich hormonell am Anfang erst mal außer Gefecht gesetzt haben“. Feldmann entschuldigte sich dafür, lehnte einen Rücktritt aber ab.</span>
-<span class="s2">&quot;&quot;&quot;</span>
-<span class="n">search</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex</span><span class="p">,</span> <span class="n">artikel</span><span class="p">)</span>
-<span class="n">search</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Awo&#39;,
- &#39;Frankfurter&#39;,
- &#39;Vorteilsannahme&#39;,
- &#39;Landgericht&#39;,
- &#39;Vorteilsannahme&#39;,
- &#39;Awo&#39;,
- &#39;Interessen&#39;,
- &#39;Awo&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 
 <span class="k">def</span> <span class="nf">smallest_chatbot_in_the_world</span><span class="p">():</span>
@@ -1110,10 +1094,32 @@ mno
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hi. What&#39;s up?
-&gt;&gt;&gt; Hi! I have a real problem with my data science course!
-Come on! ... *MIMIMI* ... 
-Stop complaining about your data science course!!
-Let&#39;s try something better next time... gotta go.
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">smallest_chatbot_in_the_world</span><span class="p">()</span>
+
+<span class="nn">Cell In[27], line 5,</span> in <span class="ni">smallest_chatbot_in_the_world</span><span class="nt">()</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">def</span> <span class="nf">smallest_chatbot_in_the_world</span><span class="p">():</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hi. What&#39;s up?&quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">5</span>     <span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;&gt;&gt;&gt; &quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="c1"># mini chat-bot</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">regex_problem</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(problem|issue[s]?) with ([a-zA-Z\s]*\b)&quot;</span>
+
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/ipykernel/kernelbase.py:1250,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1248</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1249</span>     <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1250</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1251</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1252</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1253</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
+<span class="g g-Whitespace">   </span><span class="mi">1254</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1255</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1256</span> <span class="p">)</span>
+
+<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
 </pre></div>
 </div>
 </div>
@@ -1136,7 +1142,7 @@ Let&#39;s try something better next time... gotta go.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#user_input = &quot;Hi there. I have a problem with my broken bike.&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_input</span> <span class="o">=</span> <span class="s2">&quot;Hi there. I have a problem with my broken bike.&quot;</span>
 <span class="c1">#user_input = &quot;Hello... I have a real problem!&quot;</span>
 <span class="c1">#user_input = &quot;Hello... I have a real problem with all the violence!&quot;</span>
 
@@ -1155,8 +1161,8 @@ Let&#39;s try something better next time... gotta go.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt;&gt; Hi! I have a real problem with my data science course!
-What exactly is wrong with your data science course?
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt;&gt; Hi there. I have a problem with my broken bike.
+What exactly is wrong with your broken bike?
 </pre></div>
 </div>
 </div>
@@ -1255,7 +1261,7 @@ What exactly is wrong with your data science course?
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&gt;&gt; I am so ashamed of who I was
-How long have you been so ashamed of who you were?
+How do you feel about being so ashamed of who you were?
 &gt;&gt; Its just that I can&#39;t forget about it
 How do you know you can&#39;t forget about it?
 &gt;&gt; How should I go on from here?
@@ -1361,7 +1367,10 @@ Please consider whether you can answer your own question.
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenize">14.3.3. Tokenize</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#very-common-problem-different-variations-of-a-word">14.3.4. Very common problem: different variations of a word</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#very-common-problem-different-variations-of-a-word">14.3.4. Very common problem: different variations of a word</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-special-words-or-tags">14.3.4.1. Identify special words or tags</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regular-expressions-regex">14.4. Regular Expressions (Regex)</a><ul class="nav section-nav flex-column">
@@ -1372,7 +1381,10 @@ Please consider whether you can answer your own question.
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cons">14.4.3.2. Cons</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-regular-expressions-in-python">14.4.4. Using Regular Expressions in Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-regular-expressions-in-python">14.4.4. Using Regular Expressions in Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#search-vs-findall">14.4.4.1. Search vs. findall</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#text-numbers-classes">14.4.5. Text, Numbers, Classes</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#positions-in-the-string">14.4.6. Positions in the String</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repetitions">14.4.7. Repetitions</a></li>

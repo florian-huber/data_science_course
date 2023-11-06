@@ -752,6 +752,71 @@ Now we end up with vectors of about 1 million entries (even though most will be 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">8</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">min_df</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">max_df</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>                              <span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">tfidf_vectors</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">review_full</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">tfidf_vectors</span><span class="o">.</span><span class="n">shape</span>
+
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/sklearn/feature_extraction/text.py:2139,</span> in <span class="ni">TfidfVectorizer.fit_transform</span><span class="nt">(self, raw_documents, y)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2132</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_params</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">2133</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tfidf</span> <span class="o">=</span> <span class="n">TfidfTransformer</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2134</span>     <span class="n">norm</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">norm</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2135</span>     <span class="n">use_idf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_idf</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2136</span>     <span class="n">smooth_idf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">smooth_idf</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2137</span>     <span class="n">sublinear_tf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sublinear_tf</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2138</span> <span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2139</span> <span class="n">X</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">raw_documents</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2140</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tfidf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2141</span> <span class="c1"># X is already a transformed view of raw_documents so</span>
+<span class="g g-Whitespace">   </span><span class="mi">2142</span> <span class="c1"># we set copy to False</span>
+
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/sklearn/base.py:1152,</span> in <span class="ni">_fit_context.&lt;locals&gt;.decorator.&lt;locals&gt;.wrapper</span><span class="nt">(estimator, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1145</span>     <span class="n">estimator</span><span class="o">.</span><span class="n">_validate_params</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1147</span> <span class="k">with</span> <span class="n">config_context</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1148</span>     <span class="n">skip_parameter_validation</span><span class="o">=</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1149</span>         <span class="n">prefer_skip_nested_validation</span> <span class="ow">or</span> <span class="n">global_skip_validation</span>
+<span class="g g-Whitespace">   </span><span class="mi">1150</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1151</span> <span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1152</span>     <span class="k">return</span> <span class="n">fit_method</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/sklearn/feature_extraction/text.py:1389,</span> in <span class="ni">CountVectorizer.fit_transform</span><span class="nt">(self, raw_documents, y)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1381</span>             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1382</span>                 <span class="s2">&quot;Upper case characters found in&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1383</span>                 <span class="s2">&quot; vocabulary while &#39;lowercase&#39;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1384</span>                 <span class="s2">&quot; is True. These entries will not&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1385</span>                 <span class="s2">&quot; be matched with any documents&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1386</span>             <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1387</span>             <span class="k">break</span>
+<span class="ne">-&gt; </span><span class="mi">1389</span> <span class="n">vocabulary</span><span class="p">,</span> <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_count_vocab</span><span class="p">(</span><span class="n">raw_documents</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fixed_vocabulary_</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1391</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">binary</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1392</span>     <span class="n">X</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/sklearn/feature_extraction/text.py:1321,</span> in <span class="ni">CountVectorizer._count_vocab</span><span class="nt">(self, raw_documents, fixed_vocab)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1314</span> <span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">intc</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1316</span> <span class="n">X</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">csr_matrix</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1317</span>     <span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">j_indices</span><span class="p">,</span> <span class="n">indptr</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1318</span>     <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">indptr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">vocabulary</span><span class="p">)),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1319</span>     <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1320</span> <span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1321</span> <span class="n">X</span><span class="o">.</span><span class="n">sort_indices</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1322</span> <span class="k">return</span> <span class="n">vocabulary</span><span class="p">,</span> <span class="n">X</span>
+
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/scipy/sparse/_compressed.py:1163,</span> in <span class="ni">_cs_matrix.sort_indices</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1159</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Sort the indices of this matrix *in place*</span>
+<span class="g g-Whitespace">   </span><span class="mi">1160</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1162</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">has_sorted_indices</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1163</span>     <span class="n">_sparsetools</span><span class="o">.</span><span class="n">csr_sort_indices</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">indptr</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">indptr</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1164</span>                                   <span class="bp">self</span><span class="o">.</span><span class="n">indices</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1165</span>     <span class="bp">self</span><span class="o">.</span><span class="n">has_sorted_indices</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
 </div>
 <p>This looks OK, at least size-wise. The reason why this doesn’t explode in terms of vector size is that the <code class="docutils literal notranslate"><span class="pre">min_df</span></code> parameter also counts for 2-grams, 3-grams etc. This here means that only the 3-grams which occur at least <code class="docutils literal notranslate"><span class="pre">min_df</span></code>-times will be kept.</p>
 <p>Now we should check which ngrams the tfidf model finally included.</p>
