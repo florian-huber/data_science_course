@@ -152,8 +152,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/logo.png" class="logo__image only-light" alt="Data Science for (not yet) scientists - Home"/>
-    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="Data Science for (not yet) scientists - Home"/>`);</script>
+    <img src="../_static/book_cover_graph_231106_transparent.png" class="logo__image only-light" alt="Data Science for (not yet) scientists - Home"/>
+    <script>document.write(`<img src="../_static/book_cover_graph_231106_transparent.png" class="logo__image only-dark" alt="Data Science for (not yet) scientists - Home"/>`);</script>
   
   
 </a></div>
@@ -445,27 +445,31 @@ document.write(`
 <h3><span class="section-number">3.1.1. </span>Targeted Advertisement - good, bad, neutral?<a class="headerlink" href="#targeted-advertisement-good-bad-neutral" title="Permalink to this heading">#</a></h3>
 <p>Even before the digital revolution, targeted advertising was a commonly  used strategy. Businesses would use basic demographic information, such  as age, gender, and location, to tailor their messages to specific  audiences. However, with the advent of the internet and the surge in  digital data, the face of targeted advertising has transformed  completely. Today’s targeted ads are not just influenced by basic  personal features but are significantly shaped by individual online behaviors, including search histories, website visits, and social media interactions <a class="reference internal" href="#fig-advertise01"><span class="std std-numref">Fig. 3.1</span></a>. This evolution has ushered in a new era of personalized  advertising, elevating its precision and relevance to unprecedented  levels.</p>
 <figure class="align-default" id="fig-advertise01">
-<img alt="../_images/fig_targeted_advertisement_01.svg" src="../_images/fig_targeted_advertisement_01.svg" /><figcaption>
+<img alt="../_images/fig_targeted_advertisement_01.png" src="../_images/fig_targeted_advertisement_01.png" />
+<figcaption>
 <p><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Targeted advertisement can nowadays use much more data and information on a potential customer (here: Alice) when compared to pre-digital times.</span><a class="headerlink" href="#fig-advertise01" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>You may already be feeling a touch of unease. Is it truly beneficial for companies or other organizations to have access to all this data? On the flip side, consider this: isn’t it a <strong>win/win situation</strong>? Companies can reach a much more suitable audience, and individuals  receive advertisements tailored to their profiles and interests. Take, for example, Alice (<a class="reference internal" href="#fig-advertise02"><span class="std std-numref">Fig. 3.2</span></a>).  Because of her age (neither too young nor too old),  location (within 2 hours of the festival venue), and interests (many  likes for Hip-Hop bands), she receives an advertisement for a Hip-Hop  festival. This offer is a clear match for her. However, Alice wouldn’t  get a mail catalog for a package tour operator catering to a different  customer profile—typically older and, let’s say, less concerned about  the carbon emissions of their tours. That’s a plus for Alice. And a plus for both companies, isn’t it?</p>
 <figure class="align-default" id="fig-advertise02">
-<img alt="../_images/fig_targeted_advertisement_02.svg" src="../_images/fig_targeted_advertisement_02.svg" /><figcaption>
+<img alt="../_images/fig_targeted_advertisement_02.png" src="../_images/fig_targeted_advertisement_02.png" />
+<figcaption>
 <p><span class="caption-number">Fig. 3.2 </span><span class="caption-text">In many cases target advertisement does little harm. It might even seem like a win/win situation at first.</span><a class="headerlink" href="#fig-advertise02" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>However, things get a bit more complex when we consider the marketing of more sensitive products. Let’s take the example of maternity wear. Suppose a company uses data science to detect early signs of pregnancy, like changes in online shopping behavior. They might then start sending ads for maternity clothes. This could potentially lead to uncomfortable or even harmful situations  (<a class="reference internal" href="#fig-advertise03"><span class="std std-numref">Fig. 3.3</span></a>).</p>
 <p>For instance, what if the individual hasn’t yet told their family or friends about the pregnancy? <a class="footnote-reference brackets" href="#target-story" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.Or, in a more distressing scenario, what if the pregnancy is unwanted, or complications arise? In such cases, receiving maternity ads could cause emotional distress. And it’s not limited to maternity products; this applies to any sensitive product or service.</p>
 <figure class="align-default" id="fig-advertise03">
-<img alt="../_images/fig_targeted_advertisement_03.svg" src="../_images/fig_targeted_advertisement_03.svg" /><figcaption>
+<img alt="../_images/fig_targeted_advertisement_03.png" src="../_images/fig_targeted_advertisement_03.png" />
+<figcaption>
 <p><span class="caption-number">Fig. 3.3 </span><span class="caption-text">But even advertisements can quickly turn into ethically much more complicated matters.</span><a class="headerlink" href="#fig-advertise03" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>And what if the advertisement is not product in a classical sense, but a high-paying job?
 Consider a study using AdFisher, an automated tool designed to scrutinize the interplay between user behavior, Google ads, and the Ad Settings that Google provides for user control and transparency <span id="id2">[<a class="reference internal" href="bibliography.html#id6" title="Amit Datta, Michael Carl Tschantz, and Anupam Datta. Automated experiments on ad privacy settings: a tale of opacity, choice, and discrimination. 2015. arXiv:1408.6491.">Datta <em>et al.</em>, 2015</a>]</span>. During  the course of the research, it was discovered that modifying the user  profile to ‘female’ resulted in fewer advertisements for high-paying jobs compared to when it was set to ‘male’ (<a class="reference internal" href="#fig-advertise04"><span class="std std-numref">Fig. 3.4</span></a>). This highlighted a potentially discriminatory consequence of algorithmic decision-making, underscoring the need for ethical considerations in data science. Yet, the complexity of the digital ad ecosystem, with its numerous players, rendered it challenging to definitively pin down the origin of this bias, illustrating the multifaceted nature of ethical  issues in our field.</p>
 <figure class="align-default" id="fig-advertise04">
-<img alt="../_images/fig_targeted_advertisement_04.svg" src="../_images/fig_targeted_advertisement_04.svg" /><figcaption>
+<img alt="../_images/fig_targeted_advertisement_04.png" src="../_images/fig_targeted_advertisement_04.png" />
+<figcaption>
 <p><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Advertisements can have potentially large impacts… for instance if we talk about job advertisements.</span><a class="headerlink" href="#fig-advertise04" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
@@ -473,7 +477,8 @@ Consider a study using AdFisher, an automated tool designed to scrutinize the in
 <p>Algorithms that preferentially select certain groups of people for job or housing ads, make it it fairly obvious that those applications have a strong the ethical dimension. But we can still go a few steps further to even more drastic examples. For this, let’s move away from targeted advertisements. Data Science algorithms have also been used in the past to help with the actual selection of candidates for job vacancies, for instance Facebook <span id="id4">[<a class="reference internal" href="bibliography.html#id12" title="Reuters. Amazon scraps secret AI recruiting tool that showed bias against women. October 2018. URL: https://www.reuters.com/article/us-amazon-com-jobs-automation-insight-idUSKCN1MK08G (visited on 2023-06-05).">Reuters, 2018</a>]</span>. And it turned out that due to several flaws and biases in the data (most developers are male), this algorithms had learned to also prefer male candidates over female candidates.</p>
 <p>Algorithms are used for even more ethically critical applications. The software COMPAS for instance <span id="id5">[<a class="reference internal" href="bibliography.html#id13" title="Kirsten Martin. Ethical Implications and Accountability of Algorithms. Journal of Business Ethics, 160(4):835–850, December 2019. URL: https://doi.org/10.1007/s10551-018-3921-3 (visited on 2023-06-09), doi:10.1007/s10551-018-3921-3.">Martin, 2019</a>]</span><span id="id6">[<a class="reference internal" href="bibliography.html#id3" title="Solon Barocas and Andrew D. Selbst. Big Data's Disparate Impact. California Law Review, 104(3):671–732, 2016. Publisher: California Law Review, Inc. URL: https://www.jstor.org/stable/24758720 (visited on 2023-06-09).">Barocas and Selbst, 2016</a>]</span> is used to predict the risk for people that stand trial and hence influences if those people get released on bail or not.</p>
 <figure class="align-default" id="fig-ethics-examples">
-<img alt="../_images/fig_algorithm_ethics.svg" src="../_images/fig_algorithm_ethics.svg" /><figcaption>
+<img alt="../_images/fig_algorithm_ethics.png" src="../_images/fig_algorithm_ethics.png" />
+<figcaption>
 <p><span class="caption-number">Fig. 3.5 </span><span class="caption-text">In several actual cases, algorithms were (and are) used for decisions with very severe personal consequences.</span><a class="headerlink" href="#fig-ethics-examples" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
