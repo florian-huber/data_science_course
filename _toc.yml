@@ -42,6 +42,10 @@ parts:
     - file: notebooks/live_coding_13_graphs
     - file: notebooks/live_coding_14_graph_visualization
     - file: notebooks/live_coding_14_graphs_part2
+  - caption: Next steps
+    numbered: true
+    chapters:
+    - file: notebooks/outlook
   - caption: References
     chapters:
     - file: book/acknowledgements
