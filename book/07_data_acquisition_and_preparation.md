@@ -57,7 +57,7 @@ Here a few examples. If you work with audio data, but don't know that decibel is
 
 ### Dealing with Missing Values:
 
-Missing data is a common issue many data scientists face. While the gaps can manifest in varied forms such as NaN, "999", "N/A",  None, and "", a standardized approach often involves representing these  uniformly as `NaN` (hint: Python libraries such as `Pandas` or `numpy` have there own NaN data types!).
+Missing data is a common issue many data scientists face. While the gaps can manifest in varied forms such as NaN, "999", "N/A",  None, and "", a standardized approach often involves representing these  uniformly as `NaN` (hint: Python libraries such as `Pandas` or `numpy` have their own NaN data types!).
 
 ### Typical Challenges:
 
