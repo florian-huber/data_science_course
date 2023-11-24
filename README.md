@@ -41,3 +41,8 @@ The current book project is meant to be generated using [*Jupyter Book*](https:/
 ```
 jupyter-book build . 
 ```
+
+One option for creating a pdf of the entire book is:
+```
+jupyter-book build . --builder pdflatex
+```
