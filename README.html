@@ -431,7 +431,7 @@ document.write(`
 <img alt="GitHub Workflow Status (with event)" src="https://img.shields.io/github/actions/workflow/status/florian-huber/data_science_course/deploy_book.yml?label=Deploy%20book" />
 <img alt="GitHub Workflow Status (with event)" src="https://img.shields.io/github/actions/workflow/status/florian-huber/data_science_course/CI_tests.yml" /></p>
 <p align="center">
-    <img src="https://github.com/florian-huber/data_science_course/blob/main/images/book_cover_graph_231106_transparent.png" width="600" alt="Book cover">
+    <img src="https://github.com/florian-huber/data_science_course/blob/main/images/data_science_cover_illustration.png" width="600" alt="Book cover">
 </p>
 <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-data-science-for-not-yet-scientists">
 <h1>Introduction to data science (for not yet scientists)<a class="headerlink" href="#introduction-to-data-science-for-not-yet-scientists" title="Permalink to this heading">#</a></h1>
@@ -466,6 +466,10 @@ If you use (parts of) this book for your work, please cite the book as:</p>
 <h2>Build book using <em>Jupyter Book</em><a class="headerlink" href="#build-book-using-jupyter-book" title="Permalink to this heading">#</a></h2>
 <p>The current book project is meant to be generated using <a class="reference external" href="https://jupyterbook.org"><em>Jupyter Book</em></a>. Once installed run the following terminal command from the cloned folder:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">build</span> <span class="o">.</span> 
+</pre></div>
+</div>
+<p>One option for creating a pdf of the entire book is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jupyter</span><span class="o">-</span><span class="n">book</span> <span class="n">build</span> <span class="o">.</span> <span class="o">--</span><span class="n">builder</span> <span class="n">pdflatex</span>
 </pre></div>
 </div>
 </section>
