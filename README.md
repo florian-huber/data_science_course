@@ -3,7 +3,7 @@
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/florian-huber/data_science_course/CI_tests.yml)
 
 <p align="center">
-    <img src="https://github.com/florian-huber/data_science_course/blob/main/images/book_cover_graph_231106_transparent.png" width="600" alt="Book cover">
+    <img src="https://github.com/florian-huber/data_science_course/blob/main/images/data_science_cover_illustration.png" width="600" alt="Book cover">
 </p>
 
 # Introduction to data science (for not yet scientists)
