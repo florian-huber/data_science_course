@@ -784,7 +784,7 @@ Test dataset size: (4099,)
 <section id="what-does-sparse-matrix-mean">
 <h4><span class="section-number">16.4.2.1. </span>What does <code class="docutils literal notranslate"><span class="pre">sparse</span> <span class="pre">matrix</span></code> mean?<a class="headerlink" href="#what-does-sparse-matrix-mean" title="Permalink to this heading">#</a></h4>
 <p>We have seen before, that such sentence (or text) vector can quickly become very long. Here each vector as 47073 positions, one for each word. But most of these words do not occur in a particular sentence, so most positions in a tfidf-vector are simply <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
-<p>To save all those numbers would be very vastefull memorywise. So, scikit-learn here uses so called <code class="docutils literal notranslate"><span class="pre">sparse</span> <span class="pre">matrices</span></code> which only store the data for non-zero positions. We can look at the data with the <code class="docutils literal notranslate"><span class="pre">.data</span></code> attribute. Or we can convert it to a dense vector (that includes all zeros) by using <code class="docutils literal notranslate"><span class="pre">.toarray()</span></code>.</p>
+<p>To save all those numbers would be very vastefull memory wise. So, scikit-learn here uses so called <code class="docutils literal notranslate"><span class="pre">sparse</span> <span class="pre">matrices</span></code> which only store the data for non-zero positions. We can look at the data with the <code class="docutils literal notranslate"><span class="pre">.data</span></code> attribute. Or we can convert it to a dense vector (that includes all zeros) by using <code class="docutils literal notranslate"><span class="pre">.toarray()</span></code>.</p>
 </section>
 </section>
 <section id="reduce-tfidf-vector-size">
@@ -1065,7 +1065,7 @@ Test dataset size: (4099,)
 <section id="regression-or-classification">
 <h2><span class="section-number">16.5. </span>Regression or Classification?<a class="headerlink" href="#regression-or-classification" title="Permalink to this heading">#</a></h2>
 <p>When we’re dealing with machine learning tasks involving labels or targets, these tasks usually fall under two main categories: Regression and Classification.</p>
-<p>As we already discussed in the machine learning part of the course, <strong>regression</strong> generally refers to predicting a continuous number while <strong>classification</strong> refers to the prediction of specific, discret values.</p>
+<p>As we already discussed in the machine learning part of the course, <strong>regression</strong> generally refers to predicting a continuous number while <strong>classification</strong> refers to the prediction of specific, discrete values.</p>
 <p>If we want to predict if a mail is spam or not, or if we want to predict if an image displays a dog, a cat, or a parrot, we have a classification task.</p>
 <p>Here we want to predict ratings between 0 (bad) and 5 (very good), so what kind of task is this? What do you think?</p>
 <hr class="docutils" />
@@ -1312,7 +1312,7 @@ Please also refer to the documentation for alternative solver options:
 </section>
 <section id="back-to-regression-vs-classification">
 <h3><span class="section-number">16.5.3. </span>Back to: regression vs. classification<a class="headerlink" href="#back-to-regression-vs-classification" title="Permalink to this heading">#</a></h3>
-<p>For a classification task it usually does not make sense to compute mean absolute errors. But here it does. And it allows us to compare the performance of the linear regression vs. the logistic regression model. And, as spoilert above, the classification task does indeed result in a better predictions!</p>
+<p>For a classification task it usually does not make sense to compute mean absolute errors. But here it does. And it allows us to compare the performance of the linear regression vs. the logistic regression model. And, as spoiled above, the classification task does indeed result in better predictions!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">classification_report</span>

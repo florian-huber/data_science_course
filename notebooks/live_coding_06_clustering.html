@@ -448,7 +448,7 @@ document.write(`
 <figure class="align-default" id="fig-clustering-intro">
 <img alt="../_images/fig_clustering_intro.png" src="../_images/fig_clustering_intro.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 11.1 </span><span class="caption-text">Clustering refers to dividing data points into seperate groups or: clusters.</span><a class="headerlink" href="#fig-clustering-intro" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 11.1 </span><span class="caption-text">Clustering refers to dividing data points into separate groups or: clusters.</span><a class="headerlink" href="#fig-clustering-intro" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Next, we create such a synthetic dataset with three clusters. This dataset consists of three groups of points, each generated from a different Gaussian distribution. Each group of points has its own mean and standard deviation along the x and y axes.</p>
@@ -497,7 +497,7 @@ document.write(`
 </div>
 </div>
 <p>Assigning the three clusters in this case does not exactly feel like rocket science. We could all do this manually with a pen in no time. So, why bother to use - let alone understand or develop - algorithms for this task?</p>
-<p>There are two reasons for why the shown figure makes the task look easy. First, the points are distributed in a way that immediately suggests clear boundarys or center positions. And everyone knows that not all cases will look that simple. More importantly, however, is the fact that in most cases our datapoints will be nothing we can simply “look” at, or draw lines around, because the data won’t be 2-dimensional. Instead datpoints might have any number of features, which is exactly what I mean here with <em>dimensions</em>. And in 4D, 5D, 6D, 10D, 100D, there is no chance to manually assign clusters to datapoints.</p>
+<p>There are two reasons why the shown figure makes the task look easy. First, the points are distributed in a way that immediately suggests clear boundaries or center positions. And everyone knows that not all cases will look that simple. More importantly, however, is the fact that in most cases our datapoints will be nothing we can simply “look” at, or draw lines around, because the data won’t be 2-dimensional. Instead, datapoints might have any number of features, which is exactly what I mean here with <em>dimensions</em>. And in 4D, 5D, 6D, 10D, 100D, there is no chance to manually assign clusters to datapoints.</p>
 <p>In addition, there are even more reasons to rather search for a good algorithm than to assign clusters manually. Algorithms allow to cluster much larger datasets. And, in some cases, they will give consistent, reproducible results, i.e., they will assign each element the same cluster whenever we run the algorithm again. We will later see, that this is not true for all clustering algorithms.</p>
 <section id="why-do-we-want-to-cluster-data">
 <h3><span class="section-number">11.1.1. </span>Why do we want to cluster data?<a class="headerlink" href="#why-do-we-want-to-cluster-data" title="Permalink to this heading">#</a></h3>
@@ -511,7 +511,7 @@ document.write(`
 <figure class="align-default" id="fig-clustering-hard-soft">
 <img alt="../_images/fig_clustering_hard_soft.png" src="../_images/fig_clustering_hard_soft.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 11.2 </span><span class="caption-text">Two conceptually differnt types of clustering are <em>hard clustering</em> in which elements can only be part of one cluster (or none), and <em>soft clustering</em> which allows elements to be in more than one cluster. Unless specified otherwise, clustering usually refers to <em>hard clustering</em>.</span><a class="headerlink" href="#fig-clustering-hard-soft" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 11.2 </span><span class="caption-text">Two conceptually different types of clustering are <em>hard clustering</em> in which elements can only be part of one cluster (or none), and <em>soft clustering</em> which allows elements to be in more than one cluster. Unless specified otherwise, clustering usually refers to <em>hard clustering</em>.</span><a class="headerlink" href="#fig-clustering-hard-soft" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -634,7 +634,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f41270ef580&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f57b93c48e0&gt;
 </pre></div>
 </div>
 <img alt="../_images/9923337c31819913548f9bcc8e72c1d1a884de976af2237c75d6a8068accd6ae.png" src="../_images/9923337c31819913548f9bcc8e72c1d1a884de976af2237c75d6a8068accd6ae.png" />
@@ -700,7 +700,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f4124feff10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f57b72c3fa0&gt;
 </pre></div>
 </div>
 <img alt="../_images/ed86563e89b0aaa300e65d1c4ef015a3e995a030b5c762472f03919730db150a.png" src="../_images/ed86563e89b0aaa300e65d1c4ef015a3e995a030b5c762472f03919730db150a.png" />
@@ -825,7 +825,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f4124f462b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f57b42162b0&gt;
 </pre></div>
 </div>
 <img alt="../_images/3b13bf670dc7c849445573b3ef3c8210a1aac3855faa1f326a1709641a7da58e.png" src="../_images/3b13bf670dc7c849445573b3ef3c8210a1aac3855faa1f326a1709641a7da58e.png" />
@@ -901,7 +901,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f4124fc3eb0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f57b4243940&gt;
 </pre></div>
 </div>
 <img alt="../_images/e924b6f12d69b95ad2c1d3e11d0b57faa51d40b2d4839acc81b1546f10fa8fa7.png" src="../_images/e924b6f12d69b95ad2c1d3e11d0b57faa51d40b2d4839acc81b1546f10fa8fa7.png" />
@@ -918,7 +918,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f4124ec0850&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f57b4192850&gt;
 </pre></div>
 </div>
 <img alt="../_images/bdf333ea89f51be47b610cff589162138925aeeabdffd3afe678fdb934441951.png" src="../_images/bdf333ea89f51be47b610cff589162138925aeeabdffd3afe678fdb934441951.png" />
@@ -1014,7 +1014,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f4124da4400&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f57b4076970&gt;
 </pre></div>
 </div>
 <img alt="../_images/ca514133a46ab91582879ddf670caaf6ef17811319192c14488ea26f27d8eb85.png" src="../_images/ca514133a46ab91582879ddf670caaf6ef17811319192c14488ea26f27d8eb85.png" />
@@ -1042,7 +1042,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f4124d9da30&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f57b406f9a0&gt;
 </pre></div>
 </div>
 <img alt="../_images/2d5468642cb9e0f922b395f0a7708a45fa9364130a512126fc8480b7872caac2.png" src="../_images/2d5468642cb9e0f922b395f0a7708a45fa9364130a512126fc8480b7872caac2.png" />
