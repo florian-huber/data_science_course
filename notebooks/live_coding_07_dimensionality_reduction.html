@@ -622,7 +622,7 @@ In the following part we will look at data from a marketing campaign, or more in
 <h3><span class="section-number">12.4.1. </span>Data import and inspection<a class="headerlink" href="#data-import-and-inspection" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_data</span> <span class="o">=</span> <span class="s2">&quot;../../../Data/data_teaching/&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_data</span> <span class="o">=</span> <span class="s2">&quot;../datasets/&quot;</span>
 <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;superstore_data.csv&quot;</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path_data</span><span class="p">,</span> <span class="n">filename</span><span class="p">))</span>
@@ -632,74 +632,196 @@ In the following part we will look at data from a marketing campaign, or more in
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">path_data</span> <span class="o">=</span> <span class="s2">&quot;../../../Data/data_teaching/&quot;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;superstore_data.csv&quot;</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path_data</span><span class="p">,</span> <span class="n">filename</span><span class="p">))</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">&quot;Id&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/pandas/io/parsers/readers.py:948,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
-<span class="g g-Whitespace">    </span><span class="mi">935</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">936</span>     <span class="n">dialect</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">937</span>     <span class="n">delimiter</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">944</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">945</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">946</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">948</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/pandas/io/parsers/readers.py:611,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">608</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">610</span> <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">611</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">613</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">614</span>     <span class="k">return</span> <span class="n">parser</span>
-
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1448,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1445</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1447</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="ne">-&gt; </span><span class="mi">1448</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1705,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1703</span>     <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1704</span>         <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1705</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1706</span>     <span class="n">f</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1707</span>     <span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1708</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1709</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1710</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1711</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1712</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1713</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1714</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1715</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">1716</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
-
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/pandas/io/common.py:863,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">858</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">859</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
-<span class="g g-Whitespace">    </span><span class="mi">860</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
-<span class="g g-Whitespace">    </span><span class="mi">861</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">862</span>         <span class="c1"># Encoding</span>
-<span class="ne">--&gt; </span><span class="mi">863</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">864</span>             <span class="n">handle</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">865</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">866</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">867</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">868</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">869</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">870</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">871</span>         <span class="c1"># Binary mode</span>
-<span class="g g-Whitespace">    </span><span class="mi">872</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../../../Data/data_teaching/superstore_data.csv&#39;
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year_Birth</th>
+      <th>Education</th>
+      <th>Marital_Status</th>
+      <th>Income</th>
+      <th>Kidhome</th>
+      <th>Teenhome</th>
+      <th>Dt_Customer</th>
+      <th>Recency</th>
+      <th>MntWines</th>
+      <th>MntFruits</th>
+      <th>...</th>
+      <th>MntFishProducts</th>
+      <th>MntSweetProducts</th>
+      <th>MntGoldProds</th>
+      <th>NumDealsPurchases</th>
+      <th>NumWebPurchases</th>
+      <th>NumCatalogPurchases</th>
+      <th>NumStorePurchases</th>
+      <th>NumWebVisitsMonth</th>
+      <th>Response</th>
+      <th>Complain</th>
+    </tr>
+    <tr>
+      <th>Id</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1826</th>
+      <td>1970</td>
+      <td>Graduation</td>
+      <td>Divorced</td>
+      <td>84835.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6/16/2014</td>
+      <td>0</td>
+      <td>189</td>
+      <td>104</td>
+      <td>...</td>
+      <td>111</td>
+      <td>189</td>
+      <td>218</td>
+      <td>1</td>
+      <td>4</td>
+      <td>4</td>
+      <td>6</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1961</td>
+      <td>Graduation</td>
+      <td>Single</td>
+      <td>57091.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>6/15/2014</td>
+      <td>0</td>
+      <td>464</td>
+      <td>5</td>
+      <td>...</td>
+      <td>7</td>
+      <td>0</td>
+      <td>37</td>
+      <td>1</td>
+      <td>7</td>
+      <td>3</td>
+      <td>7</td>
+      <td>5</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>10476</th>
+      <td>1958</td>
+      <td>Graduation</td>
+      <td>Married</td>
+      <td>67267.0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>5/13/2014</td>
+      <td>0</td>
+      <td>134</td>
+      <td>11</td>
+      <td>...</td>
+      <td>15</td>
+      <td>2</td>
+      <td>30</td>
+      <td>1</td>
+      <td>3</td>
+      <td>2</td>
+      <td>5</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1386</th>
+      <td>1967</td>
+      <td>Graduation</td>
+      <td>Together</td>
+      <td>32474.0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>11/5/2014</td>
+      <td>0</td>
+      <td>10</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+      <td>7</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5371</th>
+      <td>1989</td>
+      <td>Graduation</td>
+      <td>Single</td>
+      <td>21474.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>8/4/2014</td>
+      <td>0</td>
+      <td>6</td>
+      <td>16</td>
+      <td>...</td>
+      <td>11</td>
+      <td>0</td>
+      <td>34</td>
+      <td>2</td>
+      <td>3</td>
+      <td>1</td>
+      <td>2</td>
+      <td>7</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 21 columns</p>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -709,7 +831,7 @@ In the following part we will look at data from a marketing campaign, or more in
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b37278343ac4c29f4cf5203a01545815ca84b1b97bb2fb1114d3d5a78073b0fe.png" src="../_images/b37278343ac4c29f4cf5203a01545815ca84b1b97bb2fb1114d3d5a78073b0fe.png" />
+<img alt="../_images/e7f4c27ed143043d1ffd4a5d030b1563f1960183abccd44e2faa828a866a0283.png" src="../_images/e7f4c27ed143043d1ffd4a5d030b1563f1960183abccd44e2faa828a866a0283.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1189,7 +1311,7 @@ The most common pitfall, however, is that <strong>PCA is extremely sensitive to 
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/ee0f28101c5b72edd78d2687302bf0a25bf399d1e44535c91a8a8508052fd901.png" src="../_images/ee0f28101c5b72edd78d2687302bf0a25bf399d1e44535c91a8a8508052fd901.png" />
+<img alt="../_images/468fd795fd4273f109a655de68d4078d94553a387154a1578575ba64d001c4f8.png" src="../_images/468fd795fd4273f109a655de68d4078d94553a387154a1578575ba64d001c4f8.png" />
 </div>
 </div>
 <p>We can, obviously, freely choose which feature we want to use for coloring. It is also possible to add another feature for scaling the size of the dots.</p>
@@ -1212,7 +1334,7 @@ The most common pitfall, however, is that <strong>PCA is extremely sensitive to 
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/4a81eed451b46f0d147117c3a070e9d86e93d6513738dac37280a524e81ff90f.png" src="../_images/4a81eed451b46f0d147117c3a070e9d86e93d6513738dac37280a524e81ff90f.png" />
+<img alt="../_images/a2e9925bab2763e396d607ee9b42ee39e5ec05d8c84bdb5615a4973f76e3991c.png" src="../_images/a2e9925bab2763e396d607ee9b42ee39e5ec05d8c84bdb5615a4973f76e3991c.png" />
 </div>
 </div>
 </section>
@@ -1261,7 +1383,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/d65f056d60556b844058ae7b8f39064cbfc6897ac201b9cece195894b6abd157.png" src="../_images/d65f056d60556b844058ae7b8f39064cbfc6897ac201b9cece195894b6abd157.png" />
+<img alt="../_images/7a5ed18441a9b801bc89e01bcdf0b6c667e5f6feea8043e8c3a88f3fb7517d95.png" src="../_images/7a5ed18441a9b801bc89e01bcdf0b6c667e5f6feea8043e8c3a88f3fb7517d95.png" />
 </div>
 </div>
 <p>First we will apply <strong>PCA</strong> to reduce this data to one dimension.</p>
@@ -1292,7 +1414,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/77deaa710590f66bf4d8a999bda0fc7ddb70f111c49cc12ca77104a3bdc013db.png" src="../_images/77deaa710590f66bf4d8a999bda0fc7ddb70f111c49cc12ca77104a3bdc013db.png" />
+<img alt="../_images/1e6c5d009a9ae818851276a69d76c63039f0ac239a5d0db094cc78d7c6b47eec.png" src="../_images/1e6c5d009a9ae818851276a69d76c63039f0ac239a5d0db094cc78d7c6b47eec.png" />
 </div>
 </div>
 <p>As we see from this plot, <strong>PCA</strong> is not able to separate the two different colors. This means it doesn not find a good lower dimensional representation of this particular dataset.</p>
@@ -1334,7 +1456,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0ed6a0e736f34945ff3a76074a3a447e5e7ca2686d9bd7522df815997143e4f5.png" src="../_images/0ed6a0e736f34945ff3a76074a3a447e5e7ca2686d9bd7522df815997143e4f5.png" />
+<img alt="../_images/b3c2edfb1fb3ce5e5d0735e0cb5330aae4bdfea3198d320f8c8b4721fc5426f9.png" src="../_images/b3c2edfb1fb3ce5e5d0735e0cb5330aae4bdfea3198d320f8c8b4721fc5426f9.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1357,7 +1479,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/416ba022728d1d61f278a54ae4dda3eec826602858bf1ad7e8222906477bc2ad.png" src="../_images/416ba022728d1d61f278a54ae4dda3eec826602858bf1ad7e8222906477bc2ad.png" />
+<img alt="../_images/303fd2a03b57dc991b6be7ca0d23997bfbff35210330ac04e8218e1f3d7d810a.png" src="../_images/303fd2a03b57dc991b6be7ca0d23997bfbff35210330ac04e8218e1f3d7d810a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1375,7 +1497,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/195c100a9cd23f9b0c91a4cd5ccfc5d8ee17116e7177911540682b544aa67b8c.png" src="../_images/195c100a9cd23f9b0c91a4cd5ccfc5d8ee17116e7177911540682b544aa67b8c.png" />
+<img alt="../_images/6957109b5925b4a960cb2f9f904eae350e0348d9449bd01530cb461cddb024ee.png" src="../_images/6957109b5925b4a960cb2f9f904eae350e0348d9449bd01530cb461cddb024ee.png" />
 </div>
 </div>
 <p>Here we see, that kernel-PCA is capable of keeping the two colors separate even after reducing all points to one dimension.</p>
@@ -1414,7 +1536,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03319ae82c69fea964332476f9e98d3655b12c08cd576b8bb08bd24399c408d1.png" src="../_images/03319ae82c69fea964332476f9e98d3655b12c08cd576b8bb08bd24399c408d1.png" />
+<img alt="../_images/fb1c81b3a27774b78ff51033e4521c844e8368a4b839dd3319af183a6edddc59.png" src="../_images/fb1c81b3a27774b78ff51033e4521c844e8368a4b839dd3319af183a6edddc59.png" />
 </div>
 </div>
 </section>
@@ -1475,7 +1597,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/264a8cd1ef2339d8908980ec42585f27a9a30f4ab1f64f1d049019de6be56563.png" src="../_images/264a8cd1ef2339d8908980ec42585f27a9a30f4ab1f64f1d049019de6be56563.png" />
+<img alt="../_images/04a2b5e9aa500d9094e02bada99a8ddf6de5691c8530a675f9e5d5148a901eab.png" src="../_images/04a2b5e9aa500d9094e02bada99a8ddf6de5691c8530a675f9e5d5148a901eab.png" />
 </div>
 </div>
 <p>We can of course, also plot several features in parallel by combining multiple plots.</p>
@@ -1506,7 +1628,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/a9a41fa18d0409026382015181f7ab0cd02d687e480d8e2487374fad50373f18.png" src="../_images/a9a41fa18d0409026382015181f7ab0cd02d687e480d8e2487374fad50373f18.png" />
+<img alt="../_images/1f3d29e2d67dbb1850cae7327eab83b5341770acff2318c8bd14663e1cad8a91.png" src="../_images/1f3d29e2d67dbb1850cae7327eab83b5341770acff2318c8bd14663e1cad8a91.png" />
 </div>
 </div>
 </section>
