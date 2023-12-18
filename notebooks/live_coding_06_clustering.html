@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/live_coding_06_clustering';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="12. Dimensionality Reduction" href="live_coding_07_dimensionality_reduction.html" />
+    <link rel="next" title="12. Outlier Detection" href="live_coding_06b_introduction_outlier_detection.html" />
     <link rel="prev" title="10. Correlation Analysis" href="live_coding_05_correlation_analysis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -190,28 +190,29 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_05_correlation_analysis.html">10. Correlation Analysis</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_06b_introduction_outlier_detection.html">12. Outlier Detection</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Modeling</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="live_coding_07_dimensionality_reduction.html">12. Dimensionality Reduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_08_machine_learning.html">13. Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_07_dimensionality_reduction.html">13. Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_08_machine_learning.html">14. Machine Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">14. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">15. NLP - basic techniques to analyse text data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">16. Computing with Text: Counting words</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">17. Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">15. Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">16. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">17. Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">18. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the networks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="live_coding_13_graphs.html">18. Networks / Graph Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graph_visualization.html">19. Visualizing Graphs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graphs_part2.html">20. Bottlenecks, Hubs, Communities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_13_graphs.html">19. Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graph_visualization.html">20. Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graphs_part2.html">21. Bottlenecks, Hubs, Communities</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Next steps</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="outlook.html">21. What are the next steps?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outlook.html">22. What are the next steps?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -637,7 +638,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fac7f66d6d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f0434a6fb50&gt;
 </pre></div>
 </div>
 <img alt="../_images/9923337c31819913548f9bcc8e72c1d1a884de976af2237c75d6a8068accd6ae.png" src="../_images/9923337c31819913548f9bcc8e72c1d1a884de976af2237c75d6a8068accd6ae.png" />
@@ -703,7 +704,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fac7f5ba430&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f04349ba550&gt;
 </pre></div>
 </div>
 <img alt="../_images/ed86563e89b0aaa300e65d1c4ef015a3e995a030b5c762472f03919730db150a.png" src="../_images/ed86563e89b0aaa300e65d1c4ef015a3e995a030b5c762472f03919730db150a.png" />
@@ -828,7 +829,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fac7c4e9310&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f04348f55e0&gt;
 </pre></div>
 </div>
 <img alt="../_images/3b13bf670dc7c849445573b3ef3c8210a1aac3855faa1f326a1709641a7da58e.png" src="../_images/3b13bf670dc7c849445573b3ef3c8210a1aac3855faa1f326a1709641a7da58e.png" />
@@ -904,7 +905,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fac7c510640&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f0434916bb0&gt;
 </pre></div>
 </div>
 <img alt="../_images/e924b6f12d69b95ad2c1d3e11d0b57faa51d40b2d4839acc81b1546f10fa8fa7.png" src="../_images/e924b6f12d69b95ad2c1d3e11d0b57faa51d40b2d4839acc81b1546f10fa8fa7.png" />
@@ -921,7 +922,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fac7c479ca0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f0434880ca0&gt;
 </pre></div>
 </div>
 <img alt="../_images/bdf333ea89f51be47b610cff589162138925aeeabdffd3afe678fdb934441951.png" src="../_images/bdf333ea89f51be47b610cff589162138925aeeabdffd3afe678fdb934441951.png" />
@@ -1017,7 +1018,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fac7c31f8b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f043471f910&gt;
 </pre></div>
 </div>
 <img alt="../_images/ca514133a46ab91582879ddf670caaf6ef17811319192c14488ea26f27d8eb85.png" src="../_images/ca514133a46ab91582879ddf670caaf6ef17811319192c14488ea26f27d8eb85.png" />
@@ -1045,7 +1046,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fac7c339df0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f04347f0d00&gt;
 </pre></div>
 </div>
 <img alt="../_images/2d5468642cb9e0f922b395f0a7708a45fa9364130a512126fc8480b7872caac2.png" src="../_images/2d5468642cb9e0f922b395f0a7708a45fa9364130a512126fc8480b7872caac2.png" />
@@ -1204,11 +1205,11 @@ This is already one step more “realistic” in the sense that most commonly we
       </div>
     </a>
     <a class="right-next"
-       href="live_coding_07_dimensionality_reduction.html"
+       href="live_coding_06b_introduction_outlier_detection.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">12. </span>Dimensionality Reduction</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Outlier Detection</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

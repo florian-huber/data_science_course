@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>12. Dimensionality Reduction &#8212; Data Science for (not yet) scientists</title>
+    <title>13. Dimensionality Reduction &#8212; Data Science for (not yet) scientists</title>
   
   
   
@@ -67,8 +67,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/live_coding_07_dimensionality_reduction';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="13. Machine Learning" href="live_coding_08_machine_learning.html" />
-    <link rel="prev" title="11. Clustering" href="live_coding_06_clustering.html" />
+    <link rel="next" title="14. Machine Learning" href="live_coding_08_machine_learning.html" />
+    <link rel="prev" title="12. Outlier Detection" href="live_coding_06b_introduction_outlier_detection.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -192,28 +192,29 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_05_correlation_analysis.html">10. Correlation Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_06_clustering.html">11. Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_06b_introduction_outlier_detection.html">12. Outlier Detection</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Modeling</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">12. Dimensionality Reduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_08_machine_learning.html">13. Machine Learning</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_08_machine_learning.html">14. Machine Learning</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">14. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">15. NLP - basic techniques to analyse text data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">16. Computing with Text: Counting words</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">17. Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">15. Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">16. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">17. Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">18. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the networks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="live_coding_13_graphs.html">18. Networks / Graph Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graph_visualization.html">19. Visualizing Graphs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graphs_part2.html">20. Bottlenecks, Hubs, Communities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_13_graphs.html">19. Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graph_visualization.html">20. Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graphs_part2.html">21. Bottlenecks, Hubs, Communities</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Next steps</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="outlook.html">21. What are the next steps?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outlook.html">22. What are the next steps?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -419,32 +420,32 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-selection">12.1. Feature Selection</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-projection">12.2. Feature Projection</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-principal-component-analysis">12.3. PCA (Principal Component Analysis)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept">12.3.1. Concept</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-formulation">12.3.2. Mathematical Formulation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-example-with-python">12.3.3. Practical Example with Python</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-synthetic-data">12.3.4. Generating Synthetic Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-pca">12.3.5. Applying PCA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-selection">13.1. Feature Selection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-projection">13.2. Feature Projection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-principal-component-analysis">13.3. PCA (Principal Component Analysis)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept">13.3.1. Concept</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-formulation">13.3.2. Mathematical Formulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-example-with-python">13.3.3. Practical Example with Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-synthetic-data">13.3.4. Generating Synthetic Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-pca">13.3.5. Applying PCA</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-marketing-analysis-with-pca">12.4. Use Case: Marketing Analysis (with PCA)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-import-and-inspection">12.4.1. Data import and inspection</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">12.4.2. Data cleaning</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing">12.4.3. Data processing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-marketing-analysis-with-pca">13.4. Use Case: Marketing Analysis (with PCA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-import-and-inspection">13.4.1. Data import and inspection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">13.4.2. Data cleaning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing">13.4.3. Data processing</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-dimensionality-reduction-techniques">12.5. Non-linear Dimensionality Reduction Techniques</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-on-generated-2d-test-data">12.5.1. PCA on generated 2D test data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-pca">12.5.2. Kernel-PCA</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-sne">12.5.3. t-SNE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umap-uniform-manifold-approximation-and-projection">12.5.4. UMAP (Uniform Manifold Approximation and Projection)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-and-application">12.5.5. Comparison and Application</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-dimensionality-reduction-techniques">13.5. Non-linear Dimensionality Reduction Techniques</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-on-generated-2d-test-data">13.5.1. PCA on generated 2D test data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-pca">13.5.2. Kernel-PCA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-sne">13.5.3. t-SNE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umap-uniform-manifold-approximation-and-projection">13.5.4. UMAP (Uniform Manifold Approximation and Projection)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-and-application">13.5.5. Comparison and Application</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-marketing-analysis-t-sne">12.6. Use case: Marketing Analysis (t-SNE)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions">12.7. Conclusions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-marketing-analysis-t-sne">13.6. Use case: Marketing Analysis (t-SNE)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions">13.7. Conclusions</a></li>
 </ul>
             </nav>
         </div>
@@ -457,7 +458,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="dimensionality-reduction">
-<h1><span class="section-number">12. </span>Dimensionality Reduction<a class="headerlink" href="#dimensionality-reduction" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">13. </span>Dimensionality Reduction<a class="headerlink" href="#dimensionality-reduction" title="Permalink to this heading">#</a></h1>
 <p>As we have seen in many examples, most of the data we work with are multi-dimensional, meaning data points consist of a series of variables (or features).</p>
 <p>Even in cases where we can still comfortably represent the data in tabular form, certain comparisons cannot be easily made because we have to deal with too many variables. The classic example is plotting data points in a 2D or at most a 3D scatter plot.</p>
 <p>Data that include age, weight, and height can still be represented in 3D. But what if we add working hours, income, wealth, eye color, etc.?</p>
@@ -470,12 +471,12 @@ document.write(`
 <figure class="align-default" id="fig-dimensionality-reduction01">
 <img alt="../_images/fig_curse_of_dimensionality_01.png" src="../_images/fig_curse_of_dimensionality_01.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 12.1 </span><span class="caption-text">In many cases, we will work with data that has more than just 2 or 3 relevant features (or: dimensions). While age, weight, and height might all be of interest when we analyze a dataset on people, it is not very likely that this will be sufficient to reveal very interesting patterns. We can easily plot 2 or 3 features (see (a)). But what do we do if we want to add additional features, maybe even <em>many</em> additional features?
+<p><span class="caption-number">Fig. 13.1 </span><span class="caption-text">In many cases, we will work with data that has more than just 2 or 3 relevant features (or: dimensions). While age, weight, and height might all be of interest when we analyze a dataset on people, it is not very likely that this will be sufficient to reveal very interesting patterns. We can easily plot 2 or 3 features (see (a)). But what do we do if we want to add additional features, maybe even <em>many</em> additional features?
 The <em>curse of dimensionality</em> can be understood by imagining that we have to fully explore a feature space. 2D and 3D are relatively straightforward, but when we have to cover a much higher dimensional space we simply need far too many datapoints to <em>cover</em> this space reasonably well (see (b)).</span><a class="headerlink" href="#fig-dimensionality-reduction01" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="feature-selection">
-<h2><span class="section-number">12.1. </span>Feature Selection<a class="headerlink" href="#feature-selection" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.1. </span>Feature Selection<a class="headerlink" href="#feature-selection" title="Permalink to this heading">#</a></h2>
 <p>A variant of dimensionality reduction is <strong>feature selection</strong>. The goal here is to identify features of the least importance for our specific task and remove them from the data. Common methods include:</p>
 <ul class="simple">
 <li><p>Features that are highly correlated (<em>high correlation filter</em>).</p></li>
@@ -487,14 +488,14 @@ The <em>curse of dimensionality</em> can be understood by imagining that we have
 <p>However, in practice, especially with higher-dimensional data, the disadvantages often outweigh these benefits. For one, such feature selection usually only allows for modest data compression, meaning that even with large datasets, many dimensions remain. Additionally, it’s often challenging to decide what is important and what is not. This step requires extensive knowledge about the individual features and the questions posed.</p>
 </section>
 <section id="feature-projection">
-<h2><span class="section-number">12.2. </span>Feature Projection<a class="headerlink" href="#feature-projection" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.2. </span>Feature Projection<a class="headerlink" href="#feature-projection" title="Permalink to this heading">#</a></h2>
 <p>An entirely different approach from feature selection is pursued with special algorithms for dimensionality reduction. Typically, the number of resulting dimensions can be arbitrarily defined. In summary, this is about <strong>feature projection</strong>, i.e., the transformation of data from a high-dimensional space into a low-dimensional space. These transformations can be linear (e.g., PCA) or non-linear (e.g., Kernel-PCA).</p>
 </section>
 <section id="pca-principal-component-analysis">
-<h2><span class="section-number">12.3. </span>PCA (Principal Component Analysis)<a class="headerlink" href="#pca-principal-component-analysis" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.3. </span>PCA (Principal Component Analysis)<a class="headerlink" href="#pca-principal-component-analysis" title="Permalink to this heading">#</a></h2>
 <p>Principal Component Analysis (PCA) is a fundamental technique in dimensionality reduction. It’s particularly useful for reducing the complexity of data, improving the interpretability of datasets, and in some cases, enhancing the performance of machine learning algorithms. Let’s delve into the details of how PCA works.</p>
 <section id="concept">
-<h3><span class="section-number">12.3.1. </span>Concept<a class="headerlink" href="#concept" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.3.1. </span>Concept<a class="headerlink" href="#concept" title="Permalink to this heading">#</a></h3>
 <p>PCA involves the following key steps:</p>
 <ol class="arabic simple">
 <li><p><strong>Standardization</strong>: PCA is sensitive to the scale of the features, so it’s common to standardize the data before applying PCA.</p></li>
@@ -504,7 +505,7 @@ The <em>curse of dimensionality</em> can be understood by imagining that we have
 </ol>
 </section>
 <section id="mathematical-formulation">
-<h3><span class="section-number">12.3.2. </span>Mathematical Formulation<a class="headerlink" href="#mathematical-formulation" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.3.2. </span>Mathematical Formulation<a class="headerlink" href="#mathematical-formulation" title="Permalink to this heading">#</a></h3>
 <ol class="arabic">
 <li><p><strong>Standardization</strong>: Each feature XiXi is scaled to have a mean of 0 and a standard deviation of 1.</p></li>
 <li><p><strong>Covariance Matrix (<span class="math notranslate nohighlight">\(\Sigma\)</span>) Calculation</strong>:</p>
@@ -521,7 +522,7 @@ The <em>curse of dimensionality</em> can be understood by imagining that we have
 </ol>
 </section>
 <section id="practical-example-with-python">
-<h3><span class="section-number">12.3.3. </span>Practical Example with Python<a class="headerlink" href="#practical-example-with-python" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.3.3. </span>Practical Example with Python<a class="headerlink" href="#practical-example-with-python" title="Permalink to this heading">#</a></h3>
 <p>We’ll create a 2D dataset and apply PCA to reduce it to 1D. First, we’ll generate a synthetic dataset.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -543,7 +544,7 @@ The <em>curse of dimensionality</em> can be understood by imagining that we have
 </div>
 </section>
 <section id="generating-synthetic-data">
-<h3><span class="section-number">12.3.4. </span>Generating Synthetic Data<a class="headerlink" href="#generating-synthetic-data" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.3.4. </span>Generating Synthetic Data<a class="headerlink" href="#generating-synthetic-data" title="Permalink to this heading">#</a></h3>
 <p>Let’s create a dataset of 2 features with a clear linear relationship.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -560,7 +561,7 @@ The <em>curse of dimensionality</em> can be understood by imagining that we have
 </div>
 </section>
 <section id="applying-pca">
-<h3><span class="section-number">12.3.5. </span>Applying PCA<a class="headerlink" href="#applying-pca" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.3.5. </span>Applying PCA<a class="headerlink" href="#applying-pca" title="Permalink to this heading">#</a></h3>
 <p>We will then standardize this data and apply PCA to reduce its dimensionality.
 To inspect the results, we will use a simple scatter plot visualization.</p>
 <div class="cell docutils container">
@@ -615,11 +616,11 @@ To inspect the results, we will use a simple scatter plot visualization.</p>
 </section>
 </section>
 <section id="use-case-marketing-analysis-with-pca">
-<h2><span class="section-number">12.4. </span>Use Case: Marketing Analysis (with PCA)<a class="headerlink" href="#use-case-marketing-analysis-with-pca" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.4. </span>Use Case: Marketing Analysis (with PCA)<a class="headerlink" href="#use-case-marketing-analysis-with-pca" title="Permalink to this heading">#</a></h2>
 <p>Let’s now move to a more realistic use case to show what dimensionality reduction method can be used for.
 In the following part we will look at data from a marketing campaign, or more in general data from an online store (<a class="reference external" href="https://www.kaggle.com/datasets/ahsan81/superstore-marketing-campaign-dataset">link to the dataset</a>). In a first step, we will import and inspect the data. Then, we will clean and process the data a little before we can actually apply <code class="docutils literal notranslate"><span class="pre">PCA</span></code> to reduce the data to two dimensions.</p>
 <section id="data-import-and-inspection">
-<h3><span class="section-number">12.4.1. </span>Data import and inspection<a class="headerlink" href="#data-import-and-inspection" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.4.1. </span>Data import and inspection<a class="headerlink" href="#data-import-and-inspection" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_data</span> <span class="o">=</span> <span class="s2">&quot;../datasets/&quot;</span>
@@ -876,7 +877,7 @@ memory usage: 380.9+ KB
 </div>
 </section>
 <section id="data-cleaning">
-<h3><span class="section-number">12.4.2. </span>Data cleaning<a class="headerlink" href="#data-cleaning" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.4.2. </span>Data cleaning<a class="headerlink" href="#data-cleaning" title="Permalink to this heading">#</a></h3>
 <p>Some values appear weird, for instance in the column <code class="docutils literal notranslate"><span class="pre">Year_Birth</span></code>. In addition, we might want to remove some “outliers”, i.e., rare cases in which we might not be so interested. Here, this could be the few people with enormously high incomes (independent of whether those values are true or not…).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1096,7 +1097,7 @@ memory usage: 380.9+ KB
 </div>
 </section>
 <section id="data-processing">
-<h3><span class="section-number">12.4.3. </span>Data processing<a class="headerlink" href="#data-processing" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.4.3. </span>Data processing<a class="headerlink" href="#data-processing" title="Permalink to this heading">#</a></h3>
 <p>Dimensionality reduction techniques such as PCA require numerical data, which is not very suprising given how the method works (see above).
 The most common pitfall, however, is that <strong>PCA is extremely sensitive to the scaling of the data</strong>. It looks for the features with the largest variance, so imagine that one feature is income which can have values of many 10,000s and another feature is age which will usually stay below 100. Then PCA will virtually ignore the feature “age” in comparison to the much higher values of the feature “income”. To circumvent this undesired effect, the data needs to be <strong>scaled so that all features show comparable ranges</strong>.</p>
 <p>Here, we will use the Scikit-Learn <code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code> for this task.</p>
@@ -1340,7 +1341,7 @@ The most common pitfall, however, is that <strong>PCA is extremely sensitive to 
 </section>
 </section>
 <section id="non-linear-dimensionality-reduction-techniques">
-<h2><span class="section-number">12.5. </span>Non-linear Dimensionality Reduction Techniques<a class="headerlink" href="#non-linear-dimensionality-reduction-techniques" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.5. </span>Non-linear Dimensionality Reduction Techniques<a class="headerlink" href="#non-linear-dimensionality-reduction-techniques" title="Permalink to this heading">#</a></h2>
 <p>The PCA plots above show that the dimensionality reduction worked to quite some extend. How do we know this? Well, first we see that the points are not randomly distributed without any visible correlation to its features. We see that high and low income people are placed in different areas of the plot, and the same is true for other features as well.</p>
 <p>Still, in many cases, PCA might not provide the best possible results. Mostly because of its main limitation: being a linear method. This can be seen particularly well in the plot which uses the income for the dot color. This clearly shows a clear overall direction of low to high incomes.</p>
 <p><strong>Why is this a problem?</strong><br />
@@ -1348,7 +1349,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 <p>In such cases, it is recommended to also try non-linear approaches. In recent years, the most popular go-to choices in data science are <strong>t-SNE</strong> and <strong>UMAP</strong>, but well-established methods also include <strong>kernel-PCA</strong> and many others.</p>
 <p>In the next part, those tools will briefly be introduced before we finally apply t-SNE to our marketing dataset.</p>
 <section id="pca-on-generated-2d-test-data">
-<h3><span class="section-number">12.5.1. </span>PCA on generated 2D test data<a class="headerlink" href="#pca-on-generated-2d-test-data" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.5.1. </span>PCA on generated 2D test data<a class="headerlink" href="#pca-on-generated-2d-test-data" title="Permalink to this heading">#</a></h3>
 <p>We will now test a few methods with strongly non-linear generated 2D data to better understand what the above mentioned limitation means.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1420,7 +1421,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 <p>As we see from this plot, <strong>PCA</strong> is not able to separate the two different colors. This means it doesn not find a good lower dimensional representation of this particular dataset.</p>
 </section>
 <section id="kernel-pca">
-<h3><span class="section-number">12.5.2. </span>Kernel-PCA<a class="headerlink" href="#kernel-pca" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.5.2. </span>Kernel-PCA<a class="headerlink" href="#kernel-pca" title="Permalink to this heading">#</a></h3>
 <p>Kernel-PCA processes data in a higher-dimensional space, a technique often referred to as the “kernel trick.” A commonly used kernel function in this context is the Radial Basis Function (RBF).</p>
 <p>Initially, this approach might seem counterintuitive. The objective of dimensionality reduction is to simplify data, so why first move it into a higher-dimensional space? The purpose of this step is to overcome the limitations of linear transformations, such as the principal axis transformation or rotation found in PCA. By suitably projecting data into a higher-dimensional space, linear techniques can sometimes achieve more effective transformations, offering a more nuanced understanding of complex data sets.</p>
 <p><strong>Advantages:</strong></p>
@@ -1503,8 +1504,8 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 <p>Here we see, that kernel-PCA is capable of keeping the two colors separate even after reducing all points to one dimension.</p>
 </section>
 <section id="t-sne">
-<h3><span class="section-number">12.5.3. </span>t-SNE<a class="headerlink" href="#t-sne" title="Permalink to this heading">#</a></h3>
-<p>t-SNE is another non-linear technique that can manage non-linear data <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id16" title="Laurens Van der Maaten and Geoffrey Hinton. Visualizing data using t-sne. Journal of machine learning research, 2008.">Van der Maaten and Hinton, 2008</a>]</span>. Over the last 10-15 years it quickly became one of the most commonly used dimensionality reduction techniques in data science. It is known for producing high-quality results but is slower than PCA. This slower performance is due to its complexity and the additional parameters that need optimization.</p>
+<h3><span class="section-number">13.5.3. </span>t-SNE<a class="headerlink" href="#t-sne" title="Permalink to this heading">#</a></h3>
+<p>t-SNE is another non-linear technique that can manage non-linear data <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id18" title="Laurens Van der Maaten and Geoffrey Hinton. Visualizing data using t-sne. Journal of machine learning research, 2008.">Van der Maaten and Hinton, 2008</a>]</span>. Over the last 10-15 years it quickly became one of the most commonly used dimensionality reduction techniques in data science. It is known for producing high-quality results but is slower than PCA. This slower performance is due to its complexity and the additional parameters that need optimization.</p>
 <p><strong>Advantages:</strong></p>
 <ul class="simple">
 <li><p>Non-linear, suitable for complex data structures.</p></li>
@@ -1541,8 +1542,8 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 </div>
 </section>
 <section id="umap-uniform-manifold-approximation-and-projection">
-<h3><span class="section-number">12.5.4. </span>UMAP (Uniform Manifold Approximation and Projection)<a class="headerlink" href="#umap-uniform-manifold-approximation-and-projection" title="Permalink to this heading">#</a></h3>
-<p>UMAP is a relatively recent addition to dimensionality reduction techniques <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id17" title="Leland McInnes, John Healy, and James Melville. Umap: uniform manifold approximation and projection for dimension reduction. arXiv preprint arXiv:1802.03426, 2018.">McInnes <em>et al.</em>, 2018</a>]</span>. It is particularly effective for large datasets and is known for preserving more of the global data structure compared to methods like t-SNE.</p>
+<h3><span class="section-number">13.5.4. </span>UMAP (Uniform Manifold Approximation and Projection)<a class="headerlink" href="#umap-uniform-manifold-approximation-and-projection" title="Permalink to this heading">#</a></h3>
+<p>UMAP is a relatively recent addition to dimensionality reduction techniques <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id19" title="Leland McInnes, John Healy, and James Melville. Umap: uniform manifold approximation and projection for dimension reduction. arXiv preprint arXiv:1802.03426, 2018.">McInnes <em>et al.</em>, 2018</a>]</span>. It is particularly effective for large datasets and is known for preserving more of the global data structure compared to methods like t-SNE.</p>
 <p><strong>Advantages:</strong></p>
 <ul class="simple">
 <li><p>Efficient with large datasets.</p></li>
@@ -1556,13 +1557,13 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 </ul>
 </section>
 <section id="comparison-and-application">
-<h3><span class="section-number">12.5.5. </span>Comparison and Application<a class="headerlink" href="#comparison-and-application" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">13.5.5. </span>Comparison and Application<a class="headerlink" href="#comparison-and-application" title="Permalink to this heading">#</a></h3>
 <p>Each of these techniques has unique strengths and weaknesses, making them suitable for different types of data and objectives. Kernel-PCA is a versatile tool for moderately complex data, while t-SNE and UMAP excel in revealing intricate structures in high-dimensional data.</p>
 <p>The choice of technique depends on the specific requirements of the analysis, such as the need for speed (favoring Kernel-PCA), detail (favoring t-SNE), or a balance of structure preservation and speed (favoring UMAP). Understanding the nature of the dataset and the goals of the analysis is key to selecting the most appropriate dimensionality reduction method.</p>
 </section>
 </section>
 <section id="use-case-marketing-analysis-t-sne">
-<h2><span class="section-number">12.6. </span>Use case: Marketing Analysis (t-SNE)<a class="headerlink" href="#use-case-marketing-analysis-t-sne" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.6. </span>Use case: Marketing Analysis (t-SNE)<a class="headerlink" href="#use-case-marketing-analysis-t-sne" title="Permalink to this heading">#</a></h2>
 <p>Let us now continue with our use case of the marketing dataset where PCA worked to some extend, but maybe not as well as we wanted. Here, we now use t-SNE instead to reduce the datapoints to only two dimensions which makes it possible to visualize all data points in a 2D scatter plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1633,7 +1634,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 </div>
 </section>
 <section id="conclusions">
-<h2><span class="section-number">12.7. </span>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">13.7. </span>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this heading">#</a></h2>
 <p>It can be hard to judge whether one particular dimensionality reduction result is better or worse than another. What should have become clear though, is that the non-linear techniques are capable of revealing more complex relationships and patterns. In the case of the marketing data, the t-SNE result reveals a much clearer structure suggesting different customer groups.</p>
 <p><strong>Why not always use t-SNE or UMAP then?</strong><br />
 While both techniques are very popular and generally work quite well, they come with some severe disadvantages. First, all the non-linear methods require additional parameters that need adjusting. This automatically brings a larger workload for us as data scientists, but it also commonly raises questions on how to best select the “right” parameters. Do we choose the pretties plot, or a random one, or should we define quantitative criteria …</p>
@@ -1674,12 +1675,12 @@ If it comes to a fast reduction of large sets of high-dimensional data, PCA ofte
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="live_coding_06_clustering.html"
+       href="live_coding_06b_introduction_outlier_detection.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">11. </span>Clustering</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Outlier Detection</p>
       </div>
     </a>
     <a class="right-next"
@@ -1687,7 +1688,7 @@ If it comes to a fast reduction of large sets of high-dimensional data, PCA ofte
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Machine Learning</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Machine Learning</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1706,32 +1707,32 @@ If it comes to a fast reduction of large sets of high-dimensional data, PCA ofte
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-selection">12.1. Feature Selection</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-projection">12.2. Feature Projection</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-principal-component-analysis">12.3. PCA (Principal Component Analysis)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept">12.3.1. Concept</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-formulation">12.3.2. Mathematical Formulation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-example-with-python">12.3.3. Practical Example with Python</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-synthetic-data">12.3.4. Generating Synthetic Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-pca">12.3.5. Applying PCA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-selection">13.1. Feature Selection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-projection">13.2. Feature Projection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-principal-component-analysis">13.3. PCA (Principal Component Analysis)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept">13.3.1. Concept</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mathematical-formulation">13.3.2. Mathematical Formulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-example-with-python">13.3.3. Practical Example with Python</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-synthetic-data">13.3.4. Generating Synthetic Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-pca">13.3.5. Applying PCA</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-marketing-analysis-with-pca">12.4. Use Case: Marketing Analysis (with PCA)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-import-and-inspection">12.4.1. Data import and inspection</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">12.4.2. Data cleaning</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing">12.4.3. Data processing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-marketing-analysis-with-pca">13.4. Use Case: Marketing Analysis (with PCA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-import-and-inspection">13.4.1. Data import and inspection</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">13.4.2. Data cleaning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing">13.4.3. Data processing</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-dimensionality-reduction-techniques">12.5. Non-linear Dimensionality Reduction Techniques</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-on-generated-2d-test-data">12.5.1. PCA on generated 2D test data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-pca">12.5.2. Kernel-PCA</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-sne">12.5.3. t-SNE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umap-uniform-manifold-approximation-and-projection">12.5.4. UMAP (Uniform Manifold Approximation and Projection)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-and-application">12.5.5. Comparison and Application</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-dimensionality-reduction-techniques">13.5. Non-linear Dimensionality Reduction Techniques</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-on-generated-2d-test-data">13.5.1. PCA on generated 2D test data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-pca">13.5.2. Kernel-PCA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-sne">13.5.3. t-SNE</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umap-uniform-manifold-approximation-and-projection">13.5.4. UMAP (Uniform Manifold Approximation and Projection)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-and-application">13.5.5. Comparison and Application</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-marketing-analysis-t-sne">12.6. Use case: Marketing Analysis (t-SNE)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions">12.7. Conclusions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-marketing-analysis-t-sne">13.6. Use case: Marketing Analysis (t-SNE)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions">13.7. Conclusions</a></li>
 </ul>
   </nav></div>
 
