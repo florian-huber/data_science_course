@@ -24,6 +24,7 @@ parts:
     chapters:
     - file: notebooks/live_coding_05_correlation_analysis
     - file: notebooks/live_coding_06_clustering
+    - file: notebooks/live_coding_06b_introduction_outlier_detection
   - caption: Data Modeling
     numbered: true
     chapters:
