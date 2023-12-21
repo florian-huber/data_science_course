@@ -34,7 +34,7 @@ Another insightful approach is the "Inference to the Best Explanation" method {c
    (in the detectives picture: gather clues)
 2. **Hypothesis Formulation**: Develop potential hypotheses that might explain the observed data.
 3. **Refinement**: Some theories might not fit the facts. So, they're discarded.
-4. **Comparison**: Which of our remaining theories bast explains the data?
+4. **Comparison**: Which of our remaining theories best explains the data?
 5. **Selection**: Choose the hypothesis (or hypotheses) that offers the most plausible and comprehensive explanation in line with other established knowledge.
 
 While both Popper's approach and the inference to the best explanation emphasize rigorous testing and refinement, they underscore the essence of the scientific method – a systematic pursuit of knowledge. In the realm of data science, these principles guide us, ensuring that insights drawn from data are robust, valid, and, ultimately, enlightening.
