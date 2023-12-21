@@ -10,7 +10,7 @@ A characteristic of data is that it must be measured or recorded. Hence, data is
 
 The very essence of data collection goes hand in hand with the birth of writing and symbolic representation. Surprisingly (to me at least), the oldest instances of these systems were not used to create elaborate letters, prose, or captivating stories. Instead, they were wielded for what may seem mundane today: collect and manage taxes and outstanding services. This fits to a saying that is linked to Benjamin Franklin: *"...in this world nothing can be said to be certain, except death and taxes"*.
 
-While data has been collected and used for millennia, the term itself is relatively nascent. Originating from the Latin word *datum*, which means "given", the English adoption of *data* is believed to have been in the 1640s. The evolution of the term  underscores our ever-growing understanding and reliance on the  structured representation of knowledge.
+While data has been collected and used for millennia, the term itself is relatively nascent. Originating from the Latin word *datum*, which means "given", the English adoption of *data* is believed to have been in the 1640s. The evolution of the term underscores our ever-growing understanding and reliance on the structured representation of knowledge.
 
 #### Data Types
 
@@ -40,7 +40,7 @@ While *data* represents the core information we aim to analyze or utilize, *meta
 
 *Data* can often be pigeonholed into categorical or numerical types.
 
-*Categorical data* is data that can be divided into specific categories but doesn't have any inherent order or hierarchy. For instance, the colors of a shirt (blue, red, green) are categorical.
+*Categorical data* is data that can be divided into specific categories, but doesn't have any inherent order or hierarchy. For instance, the colors of a shirt (blue, red, green) are categorical.
 
 *Numerical data*, as the name suggests, relates to numbers and can be further split into discrete (countable) and continuous (measurable) data. Age, height, and weight are all examples of numerical data.
 
@@ -66,7 +66,7 @@ Working in data science there is really no way to avoid dealing with the challen
 
 > **Big Data** ≈ Data that is too large, too complex, or too volatile to be evaluated using manual and traditional data processing methods.
 
-Still, what does this mean? And why is there no sharp definition of which data is "big data" and which is not? Well, in essence, there is no sharp boundary between big and "not big" data. Big makes us first think of  the sheer size of the data, or **volume**, say number of Giga-/Terra-/Peta-bytes. This is, however, far to simple. Astrophysicists collecting super-high-resolution telescope pictures of the sky would probably never consider a dataset that fits on a USB-stick to be *big* (high resolution images take a lot of disk space!). But librarians or historians might have a very different view on what is big and what is not. To get a better intuition for such volumes: 6.5 million English Wikipedia articles require only 20GB but equate to about 3000 encyclopedia volumes. This easily makes this *big data*. And yet, ten high-resolution movies require the same storage but don't form a *big* dataset.
+Still, what does this mean? And why is there no sharp definition of which data is "big data" and which is not? Well, in essence, there is no sharp boundary between big and "not big" data. Big makes us first think of the sheer size of the data, or **volume**, say number of Giga-/Terra-/Peta-bytes. This is, however, far too simple. Astrophysicists collecting super-high-resolution telescope pictures of the sky would probably never consider a dataset that fits on a USB stick to be *big* (high-resolution images take a lot of disk space!). But librarians or historians might have a very different view on what is big and what is not. To get a better intuition for such volumes: 6.5 million English Wikipedia articles require only 20GB but equate to about 3000 encyclopedia volumes. This easily makes this *big data*. And yet, ten high-resolution movies require the same storage but don't form a *big* dataset.
 
 Beyond the volume-related discussions, there are other factors that also contribute to whether or not we consider data as *big data*, which here means: things that further complicate the handling of the data. This can, for instance, be the **variety** of data, but also the **velocity** by which the data needs to be processed or analyzed. Together those terms are called the **"3V's"** (Volume, Variety, Velocity) that contribute to data being considered *big data*. Over the years, people started to add to this list, so that we now also have 4V's or 5V's ... but I will leave this for you to research if you want to know more about these definitions.
 
