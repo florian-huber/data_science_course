@@ -1,10 +1,10 @@
 # How to use this book (... if you ask us)
 
-This textbook has been crafted with attention to detail to facilitate  your journey into data science. However, the essence of its usefulness  lies in how you engage with its content. Here's some advice to optimize  your learning experience:
+This textbook has been crafted with attention to detail to facilitate your journey into data science. However, the essence of its usefulness lies in how you engage with its content. Here's some advice to optimize your learning experience:
 
-- **Progress at Your Own Speed**: Data science is a vast field, and everyone has their own pace. If you find certain concepts daunting, pause and seek additional  resources. The internet is full of tutorials, videos, courses, and forums on practically all aspects that we cover in this book. The key is patience and persistence.
-- **Learning by Doing**: Reading this book alone won't transform you into a data scientist. To truly learn data science, you need to actively engage in coding and working with real data sets. Observing code and nodding along saying,  "yeah, I got it" is usually very away from having mastered it! We can't stress this enough - the most prevalent pitfall many students succumb to is passive learning! The true test of your understanding comes when you can independently apply the skills, starting from scratch, not merely copying, pasting, and executing someone else's code.
-- **Lean on Tech, But Don't Rely on It**: While chatbots can serve as helpful data science assistants, they are not a substitute for your active learning. We firmly believe that the  path to becoming a competent data scientist involves learning how to  solve challenges on your own. Relying on a chatbot for answers is akin to copying solutions from another student or a forum. While this approach may help you complete your exercises in the short run, it won't contribute much to your long-term learning and skill development.
+- **Progress at Your Own Speed**: Data science is a vast field, and everyone has their own pace. If you find certain concepts daunting, pause and seek additional resources. The internet is full of tutorials, videos, courses, and forums on practically all aspects that we cover in this book. The key is patience and persistence.
+- **Learning by Doing**: Reading this book alone won't transform you into a data scientist. To truly learn data science, you need to actively engage in coding and working with real data sets. Observing code and nodding along saying, "yeah, I got it" is usually very away from having mastered it! We can't stress this enough - the most prevalent pitfall many students succumb to is passive learning! The true test of your understanding comes when you can independently apply the skills, starting from scratch, not merely copying, pasting, and executing someone else's code.
+- **Lean on Tech, But Don't Rely on It**: While chatbots can serve as helpful data science assistants, they are not a substitute for your active learning. We firmly believe that the path to becoming a competent data scientist involves learning how to solve challenges on your own. Relying on a chatbot for answers is akin to copying solutions from another student or a forum. While this approach may help you complete your exercises in the short run, it won't contribute much to your long-term learning and skill development.
 
 
 
@@ -19,7 +19,7 @@ This textbook has been crafted with attention to detail to facilitate  your jour
 
 Python, over the years, has emerged as the lingua franca of data science. But why?
 
-1. **Versatile Libraries**: Python boasts an array of libraries such as NumPy, pandas, and scikit-learn, specifically tailored for data science tasks.
+1. **Versatile Libraries**: Python boasts an array of libraries, such as NumPy, pandas, and scikit-learn, specifically tailored for data science tasks.
 2. **Community Support**: The vast Python community ensures regular updates, myriad tutorials, and instant help on forums.
 3. **Intuitive Syntax**: Python's clear and readable syntax makes it perfect for beginners.
 4. **Flexibility**: Python seamlessly integrates with other languages, making it ideal for diverse tasks.

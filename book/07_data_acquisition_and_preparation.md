@@ -1,6 +1,6 @@
 # Data Acquisition & Preparation
 
-The foundational pillar of any data science project lies in the data itself. Sounds obvious, yet in practice many aspiring data scientists will still be surprised by **how much the quality and quantity of data matters for the success of a data science project**. Without pertinent and high-quality data, even the most sophisticated algorithms will fall short of producing meaningful results. This chapter aims at building a first intuition about the process of data acquisition and preparation, elucidating best practices to ensure your data science journey is built on solid ground.
+The foundational pillar of any data science project lies in the data itself. Sounds obvious, yet in practice, many aspiring data scientists will still be surprised by **how much the quality and quantity of data matters for the success of a data science project**. Without pertinent and high-quality data, even the most sophisticated algorithms will fall short of producing meaningful results. This chapter aims at building a first intuition about the process of data acquisition and preparation, elucidating best practices to ensure your data science journey is built on solid ground.
 
 ## Data Acquisition
 
@@ -22,9 +22,9 @@ Before plunging into data collection, it's imperative to ask: What's the problem
 - **Data Upon Request**: Sometimes, just asking can open doors. Organizations might share data if approached correctly and for a worthy cause.
 - **Commercial Datasets**: There are instances when investing in a dataset can prove to be more cost-effective than collecting data from scratch.
 
-In some data science projects we will start with an already prepared dataset, while in other projects the collection of data can be major (and time consuming!) part of the project itself. It can even happen that we need to reconsider some of our initial targets and strategies if we do not manage to collect the data as expected. 
+In some data science projects, we will start with an already prepared dataset, while in other projects, the collection of data can be a major (and time-consuming!) part of the project itself. It can even happen that we need to reconsider some of our initial targets and strategies if we do not manage to collect the data as expected. 
 
-Once we do hold the data in our hands (well, rather on a disk or cloud drive), we further need to make sure that the data is technically, legally, or quality-wise suitable for what we plan to do with the data in the following phases.  
+Once we do hold the data in our hands (well, rather on a disk or cloud drive), we further need to make sure that the data is technically, legally, or quality-wise suitable for what we plan to do with the data in the following phases. 
 
 Once the data is in your hands, several pivotal steps ensure its quality and relevance:
 
@@ -51,13 +51,13 @@ Imagine you are tasked with evaluating the state of digitization in schools in y
 
 ## Data Cleaning
 
-Raw data, more often than not, is messy; it requires refinement to reveal its true value. This refinement process is what we term as "data cleaning". In this section, some of the most common data cleaning steps will be mentioned; steps which are fairly general across many different data types and sources. In actual practice, however, a lot of the more complex data cleaning requires a certain understanding - or *domain knowledge* - of the data. This is either acquired over time, when you work a lot with similar data and tasks; or it is distilled from a close collaboration with domain experts. Whenever you are not sure what the data in front of you actually means, and you hence are not sure what you may or may not do to the data, better invest time to build a deeper understanding for the data and/or ask someone with more experience on this type of data. 
+Raw data, more often than not, is messy; it requires refinement to reveal its true value. This refinement process is what we term as "data cleaning". In this section, some of the most common data cleaning steps will be mentioned; steps which are fairly general across many different data types and sources. In actual practice, however, a lot of the more complex data cleaning requires a certain understanding - or *domain knowledge* - of the data. This is either acquired over time, when you work a lot with similar data and tasks; or it is distilled from a close collaboration with domain experts. Whenever you are not sure what the data in front of you actually means, and you hence are not sure what you may or may not do to the data, better invest time to build a deeper understanding of the data and/or ask someone with more experience on this type of data. 
 
-Here a few examples. If you work with audio data, but don't know that decibel is measured on a logarithmic scale, you might unintentionally run into serious trouble. Or, if you get colorful medical images but don't realize that the color scale is just a color scale applied to monochromatic images, your data handling and later conclusions might not make it look like you know what you are doing... 
+Here are a few examples: If you work with audio data but don't know that decibel is measured on a logarithmic scale, you might unintentionally run into serious trouble. Or, if you get colorful medical images but don't realize that the color scale is just a color scale applied to monochromatic images, your data handling and later conclusions might not make it look like you know what you are doing... 
 
 ### Dealing with Missing Values:
 
-Missing data is a common issue many data scientists face. While the gaps can manifest in varied forms such as NaN, "999", "N/A",  None, and "", a standardized approach often involves representing these  uniformly as `NaN` (hint: Python libraries such as `Pandas` or `numpy` have their own NaN data types!).
+Missing data is a common issue many data scientists face. While the gaps can manifest in varied forms such as NaN, "999", "N/A", None, and "", a standardized approach often involves representing these uniformly as `NaN` (hint: Python libraries such as `Pandas` or `numpy` have their own NaN data types!).
 
 ### Typical Challenges:
 
@@ -72,6 +72,6 @@ Missing data is a common issue many data scientists face. While the gaps can man
 - **Data Standardization**: This can be done via Min-Max scaling (often termed "normalization") or, frequently more effective, by ensuring data has a mean of 0 and a standard deviation of 1.
 - **Non-linear Transformations**: Sometimes, linear thinking won't do. Transformations like logarithms can provide new perspectives on data.
 
-In essence, data acquisition and preparation are the unsung heroes of a successful data science endeavor. By ensuring the foundation is robust  and the raw materials are of top quality, you set the stage for  analytical brilliance.
+In essence, data acquisition and preparation are the unsung heroes of a successful data science endeavor. By ensuring the foundation is robust and the raw materials are of top quality, you set the stage for analytical brilliance.
 
-From my own experience: It is not uncommon that 80% of the work in a data science project go into the data acquisition and cleaning.
+From my own experience: It is not uncommon that 80% of the work in a data science project goes into the data acquisition and cleaning.
