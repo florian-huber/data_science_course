@@ -19,15 +19,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -76,10 +76,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -120,11 +119,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -418,15 +420,15 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="data-science-workflow">
 <h1><span class="section-number">7. </span>Data Science Workflow<a class="headerlink" href="#data-science-workflow" title="Permalink to this heading">#</a></h1>
 <p>Data science can often feel like piecing together a jigsaw puzzle. But like any puzzle, there’s a method to the madness, a sequence that can make the process smoother. That’s where the idea of a data science workflow comes in. In our previous chapter, we used the analogies of detective work and the scientific method to explain data science. Similarly, every detective has a method to their investigation, and every scientist follows a systematic process in their research.</p>
-<p>In data science, it’s paramount to have a blueprint, a sequence of steps, that can guide the project from inception to completion. This blueprint is called a <strong>data science workflow</strong>. It serves as a roadmap that provides clarity on the stages involved in a data science project. Just as a detective might start with gathering evidence, then move to interviewing witnesses, and finally piece together the entire story, a data scientist moves through distinct phases to derive insights from data.</p>
-<p>While the last chapter hinted that there’s no universally accepted data science workflow, several models and frameworks have been proposed over the years <span id="id1">[<a class="reference internal" href="bibliography.html#id27" title="Claus Weihs and Katja Ickstadt. Data Science: the impact of statistics. International Journal of Data Science and Analytics, 6(3):189–194, November 2018. URL: https://doi.org/10.1007/s41060-018-0102-5 (visited on 2023-09-05), doi:10.1007/s41060-018-0102-5.">Weihs and Ickstadt, 2018</a>]</span><span id="id2">[<a class="reference internal" href="bibliography.html#id8" title="David Donoho. 50 Years of Data Science. Journal of Computational and Graphical Statistics, 26(4):745–766, October 2017. Publisher: Taylor &amp; Francis _eprint: https://doi.org/10.1080/10618600.2017.1384734. URL: https://doi.org/10.1080/10618600.2017.1384734 (visited on 2023-09-05), doi:10.1080/10618600.2017.1384734.">Donoho, 2017</a>]</span>. Each of these frameworks is tailored to different needs and contexts, and their structure and emphasis can vary significantly. For instance:</p>
+<p>In data science, it’s paramount to have a blueprint, a sequence of steps, that can guide the project from inception to completion. This blueprint is called a <strong>data science workflow</strong>. It serves as a roadmap that provides clarity on the stages involved in a data science project. Just as a detective might start with gathering evidence, then move on to interviewing witnesses, and finally piece together the entire story, a data scientist moves through distinct phases to derive insights from data.</p>
+<p>While the last chapter hinted that there’s no universally accepted data science workflow, several models and frameworks have been proposed over the years <span id="id1">[<a class="reference internal" href="bibliography.html#id28" title="Claus Weihs and Katja Ickstadt. Data Science: the impact of statistics. International Journal of Data Science and Analytics, 6(3):189–194, November 2018. URL: https://doi.org/10.1007/s41060-018-0102-5 (visited on 2023-09-05), doi:10.1007/s41060-018-0102-5.">Weihs and Ickstadt, 2018</a>]</span><span id="id2">[<a class="reference internal" href="bibliography.html#id8" title="David Donoho. 50 Years of Data Science. Journal of Computational and Graphical Statistics, 26(4):745–766, October 2017. Publisher: Taylor &amp; Francis _eprint: https://doi.org/10.1080/10618600.2017.1384734. URL: https://doi.org/10.1080/10618600.2017.1384734 (visited on 2023-09-05), doi:10.1080/10618600.2017.1384734.">Donoho, 2017</a>]</span>. Each of these frameworks is tailored to different needs and contexts, and their structure and emphasis can vary significantly. For instance:</p>
 <ul class="simple">
-<li><p>Circular workflows, most commonly <strong>CRISP-DM</strong> <span id="id3">[<a class="reference internal" href="bibliography.html#id28" title="Rüdiger Wirth and Jochen Hipp. Crisp-dm: towards a standard process model for data mining. In Proceedings of the 4th international conference on the practical applications of knowledge discovery and data mining, volume 1, 29–39. Manchester, 2000.">Wirth and Hipp, 2000</a>]</span><span id="id4">[<a class="reference internal" href="bibliography.html#id27" title="Claus Weihs and Katja Ickstadt. Data Science: the impact of statistics. International Journal of Data Science and Analytics, 6(3):189–194, November 2018. URL: https://doi.org/10.1007/s41060-018-0102-5 (visited on 2023-09-05), doi:10.1007/s41060-018-0102-5.">Weihs and Ickstadt, 2018</a>]</span> usually emphasize deployment. They often stem from an industry or software development background, where iterative development and frequent updates are the norms. These workflows recognize that the end of one project cycle can be the beginning of another, especially as new data comes in or as models need refining.</p></li>
+<li><p>Circular workflows, most commonly <strong>CRISP-DM</strong> <span id="id3">[<a class="reference internal" href="bibliography.html#id29" title="Rüdiger Wirth and Jochen Hipp. Crisp-dm: towards a standard process model for data mining. In Proceedings of the 4th international conference on the practical applications of knowledge discovery and data mining, volume 1, 29–39. Manchester, 2000.">Wirth and Hipp, 2000</a>]</span><span id="id4">[<a class="reference internal" href="bibliography.html#id28" title="Claus Weihs and Katja Ickstadt. Data Science: the impact of statistics. International Journal of Data Science and Analytics, 6(3):189–194, November 2018. URL: https://doi.org/10.1007/s41060-018-0102-5 (visited on 2023-09-05), doi:10.1007/s41060-018-0102-5.">Weihs and Ickstadt, 2018</a>]</span> usually emphasize deployment. They often stem from an industry or software development background where iterative development and frequent updates are the norm. These workflows recognize that the end of one project cycle can be the beginning of another, especially as new data comes in or as models need refining.</p></li>
 <li><p>Linear workflows, like <strong>OSEMN</strong> (Obtain, Scrub, Explore, Model, and iNterpret), tend to have a start and end. However, it’s essential to understand that even in these linear models, iterations within steps are common <span id="id5">[<a class="reference internal" href="bibliography.html#id16" title="Hilary Mason and Chris Wiggins. Dataists » A Taxonomy of Data Science. 2010. URL: http://www.dataists.com/2010/09/a-taxonomy-of-data-science/ (visited on 2023-09-05).">Mason and Wiggins, 2010</a>]</span>.</p></li>
 <li><p>There are also <strong>tree-like workflows</strong>, where after a certain step, the process might branch out into multiple paths, reflecting the multifaceted nature of some data science projects <span id="id6">[<a class="reference internal" href="bibliography.html#id11" title="Philip Guo. Data Science Workflow: Overview and Challenges. 2022. URL: https://cacm.acm.org/blogs/blog-cacm/169199-data-science-workflow-overview-and-challenges/fulltext (visited on 2023-09-05).">Guo, 2022</a>]</span>.</p></li>
 </ul>
@@ -445,23 +447,23 @@ document.write(`
 <p><span class="caption-number">Fig. 7.1 </span><span class="caption-text">Simplified sketch of an ASEMIC data science workflow.</span><a class="headerlink" href="#fig-asemic-sketch" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>It’s crucial to note that real-world data science is rarely a linear progression from one step to the next. It’s an iterative process, filled with cycles (<a class="reference internal" href="#fig-asemic-details"><span class="std std-numref">Fig. 7.2</span></a>).  After modeling, you might find that you need to go back to the data scrubbing phase, or after interpreting results, you might need to revisit the exploration phase. This non-linear, cyclical nature of data science is what makes it both challenging and fascinating.</p>
+<p>It’s crucial to note that real-world data science is rarely a linear progression from one step to the next. It’s an iterative process, filled with cycles (<a class="reference internal" href="#fig-asemic-details"><span class="std std-numref">Fig. 7.2</span></a>). After modeling, you might find that you need to go back to the data scrubbing phase, or after interpreting results, you might need to revisit the exploration phase. This non-linear, cyclical nature of data science is what makes it both challenging and fascinating.</p>
 <figure class="align-default" id="fig-asemic-details">
 <a class="reference internal image-reference" href="../_images/fig_asemic_data_science_workflow_detailed.png"><img alt="../_images/fig_asemic_data_science_workflow_detailed.png" src="../_images/fig_asemic_data_science_workflow_detailed.png" style="width: 50%;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 7.2 </span><span class="caption-text">More detailed sketch of the ASEMIC data science workflow, highlighting the interconnected nature of the different steps or phases.</span><a class="headerlink" href="#fig-asemic-details" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Drawing parallels with the detective analogy: imagine a detective, after gathering all evidence (Acquire), ensures they’re all pertinent and discards the irrelevant ones (Scrub). They then analyze the evidence, looking for patterns or connections (Explore), formulate a theory about the crime (Model), assess how well this theory fits with the facts (Interpret), and finally present their findings to their team or in court (Communicate). Just as a detective might revisit a crime scene or re-interview a witness based on new findings, a data scientist might loop back to earlier steps based on new insights or challenges.</p>
-<p>In practice, each data science workflow is different an having a sketch (such as ASEMIC) in mind is mostly meant for the general orientation across the many different phases of such a project. But what can already be seen from such descriptions is that a data science process consists of a wide variety of different phases or steps, which ultimately also leads to the wide variety of techniques and tools that need to be used throughout such a process. The present book will aim to give a broad, general overview, but obviously cannot go into full depth for most of the introduced topics. Throughout the following sections you will hopefully gain a better understanding of what the different phases comprise, and what skills and expertise those require.</p>
-<p>Speaking of expertise, let’s rephrase something from <a class="reference internal" href="01_intro_data_science.html#facets-of-data-science"><span class="std std-numref">Section 2.2</span></a> . It is very common in data science projects that they <strong>cannot be carried out by one person alone!</strong> If you were hoping to work all day on your own in front of a computer… better reconsider the idea of becoming a data scientist. In most cases you will need to team up with people that bring in other skills and expertise, and communicate the targets and results with people from very different backgrounds.  In <a class="reference internal" href="#fig-asemic-example"><span class="std std-numref">Fig. 7.3</span></a> I tried to illustrate that this often leads to very dynamic processes with strongly varying requirements for different phases or time points.</p>
+<p>Drawing parallels with the detective analogy: imagine a detective who, after gathering all evidence (Acquire), ensures they’re all pertinent and discards the irrelevant ones (Scrub). They then analyze the evidence, looking for patterns or connections (Explore), formulate a theory about the crime (Model), assess how well this theory fits with the facts (Interpret), and finally present their findings to their team or in court (Communicate). Just as a detective might revisit a crime scene or re-interview a witness based on new findings, a data scientist might loop back to earlier steps based on new insights or challenges.</p>
+<p>In practice, each data science workflow is different an having a sketch (such as ASEMIC) in mind is mostly meant for general orientation across the many different phases of such a project. But what can already be seen from such descriptions is that a data science process consists of a wide variety of different phases or steps, which ultimately also leads to the wide variety of techniques and tools that need to be used throughout such a process. The present book will aim to give a broad, general overview but obviously cannot go into full depth on most of the introduced topics. Throughout the following sections, you will hopefully gain a better understanding of what the different phases comprise and what skills and expertise they require.</p>
+<p>Speaking of expertise, let’s rephrase something from <a class="reference internal" href="01_intro_data_science.html#facets-of-data-science"><span class="std std-numref">Section 2.2</span></a> . It is very common in data science projects that they <strong>cannot be carried out by one person alone!</strong> If you were hoping to work all day on your own in front of a computer… better reconsider the idea of becoming a data scientist. In most cases, you will need to team up with people who bring in other skills and expertise and communicate the targets and results with people from very different backgrounds. In <a class="reference internal" href="#fig-asemic-example"><span class="std std-numref">Fig. 7.3</span></a> I tried to illustrate that this often leads to very dynamic processes with strongly varying requirements for different phases or time points.</p>
 <figure class="align-default" id="fig-asemic-example">
 <a class="reference internal image-reference" href="../_images/fig_asemic_workflow_example.png"><img alt="../_images/fig_asemic_workflow_example.png" src="../_images/fig_asemic_workflow_example.png" style="width: 75%;" /></a>
 <figcaption>
 <p><span class="caption-number">Fig. 7.3 </span><span class="caption-text">Sketch of an example data science process to illustrate that different skills and expertise is required for different phases of a typical data science project.</span><a class="headerlink" href="#fig-asemic-example" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>In the following sections, we’ll use the ASEMIC workflow to navigate through a large variety of data science techniques from data handling to analysis, interpretation, and visualization.</p>
+<p>In the following sections, we’ll use the ASEMIC workflow to navigate through a large variety of data science techniques, from data handling to analysis, interpretation, and visualization.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -519,6 +521,8 @@ document.write(`
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -562,8 +566,8 @@ By Florian Huber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -19,15 +19,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -78,10 +78,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -122,11 +121,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -455,7 +457,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="dimensionality-reduction">
 <h1><span class="section-number">13. </span>Dimensionality Reduction<a class="headerlink" href="#dimensionality-reduction" title="Permalink to this heading">#</a></h1>
@@ -471,8 +473,8 @@ document.write(`
 <figure class="align-default" id="fig-dimensionality-reduction01">
 <img alt="../_images/fig_curse_of_dimensionality_01.png" src="../_images/fig_curse_of_dimensionality_01.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 13.1 </span><span class="caption-text">In many cases, we will work with data that has more than just 2 or 3 relevant features (or: dimensions). While age, weight, and height might all be of interest when we analyze a dataset on people, it is not very likely that this will be sufficient to reveal very interesting patterns. We can easily plot 2 or 3 features (see (a)). But what do we do if we want to add additional features, maybe even <em>many</em> additional features?
-The <em>curse of dimensionality</em> can be understood by imagining that we have to fully explore a feature space. 2D and 3D are relatively straightforward, but when we have to cover a much higher dimensional space we simply need far too many datapoints to <em>cover</em> this space reasonably well (see (b)).</span><a class="headerlink" href="#fig-dimensionality-reduction01" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 13.1 </span><span class="caption-text">In many cases, we will work with data that has more than just 2 or 3 relevant features (or: dimensions). While age, weight, and height might all be of interest when we analyze a dataset of people, it is not very likely that this will be sufficient to reveal very interesting patterns. We can easily plot 2 or 3 features (see (a)). But what do we do if we want to add additional features, maybe even <em>many</em> additional features?
+The <em>curse of dimensionality</em> can be understood by imagining that we have to fully explore a feature space. 2D and 3D are relatively straightforward, but when we have to cover a much higher dimensional space, we simply need far too many datapoints to <em>cover</em> this space reasonably well (see (b)).</span><a class="headerlink" href="#fig-dimensionality-reduction01" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="feature-selection">
@@ -489,11 +491,11 @@ The <em>curse of dimensionality</em> can be understood by imagining that we have
 </section>
 <section id="feature-projection">
 <h2><span class="section-number">13.2. </span>Feature Projection<a class="headerlink" href="#feature-projection" title="Permalink to this heading">#</a></h2>
-<p>An entirely different approach from feature selection is pursued with special algorithms for dimensionality reduction. Typically, the number of resulting dimensions can be arbitrarily defined. In summary, this is about <strong>feature projection</strong>, i.e., the transformation of data from a high-dimensional space into a low-dimensional space. These transformations can be linear (e.g., PCA) or non-linear (e.g., Kernel-PCA).</p>
+<p>An entirely different approach to feature selection is pursued with special algorithms for dimensionality reduction. Typically, the number of resulting dimensions can be arbitrarily defined. In summary, this is about <strong>feature projection</strong>, i.e., the transformation of data from a high-dimensional space into a low-dimensional space. These transformations can be linear (e.g., PCA) or non-linear (e.g., Kernel-PCA).</p>
 </section>
 <section id="pca-principal-component-analysis">
 <h2><span class="section-number">13.3. </span>PCA (Principal Component Analysis)<a class="headerlink" href="#pca-principal-component-analysis" title="Permalink to this heading">#</a></h2>
-<p>Principal Component Analysis (PCA) is a fundamental technique in dimensionality reduction. It’s particularly useful for reducing the complexity of data, improving the interpretability of datasets, and in some cases, enhancing the performance of machine learning algorithms. Let’s delve into the details of how PCA works.</p>
+<p>Principal Component Analysis (PCA) is a fundamental technique in dimensionality reduction. It’s particularly useful for reducing the complexity of data, improving the interpretability of datasets, and, in some cases, enhancing the performance of machine learning algorithms. Let’s delve into the details of how PCA works.</p>
 <section id="concept">
 <h3><span class="section-number">13.3.1. </span>Concept<a class="headerlink" href="#concept" title="Permalink to this heading">#</a></h3>
 <p>PCA involves the following key steps:</p>
@@ -541,6 +543,18 @@ The <em>curse of dimensionality</em> can be understood by imagining that we have
 </div>
 </div>
 </details>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2811/1460878775.py:3: DeprecationWarning: 
+Pyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),
+(to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
+but was not found to be installed on your system.
+If this would cause problems for you,
+please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
+        
+  import pandas as pd
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="generating-synthetic-data">
@@ -617,8 +631,8 @@ To inspect the results, we will use a simple scatter plot visualization.</p>
 </section>
 <section id="use-case-marketing-analysis-with-pca">
 <h2><span class="section-number">13.4. </span>Use Case: Marketing Analysis (with PCA)<a class="headerlink" href="#use-case-marketing-analysis-with-pca" title="Permalink to this heading">#</a></h2>
-<p>Let’s now move to a more realistic use case to show what dimensionality reduction method can be used for.
-In the following part we will look at data from a marketing campaign, or more in general data from an online store (<a class="reference external" href="https://www.kaggle.com/datasets/ahsan81/superstore-marketing-campaign-dataset">link to the dataset</a>). In a first step, we will import and inspect the data. Then, we will clean and process the data a little before we can actually apply <code class="docutils literal notranslate"><span class="pre">PCA</span></code> to reduce the data to two dimensions.</p>
+<p>Let’s now move to a more realistic use case to show what the dimensionality reduction method can be used for.
+In the following part, we will look at data from a marketing campaign, or more generally, data from an online store (<a class="reference external" href="https://www.kaggle.com/datasets/ahsan81/superstore-marketing-campaign-dataset">link to the dataset</a>). In the first step, we will import and inspect the data. Then, we will clean and process the data a little before we can actually apply <code class="docutils literal notranslate"><span class="pre">PCA</span></code> to reduce the data to two dimensions.</p>
 <section id="data-import-and-inspection">
 <h3><span class="section-number">13.4.1. </span>Data import and inspection<a class="headerlink" href="#data-import-and-inspection" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -1098,8 +1112,8 @@ memory usage: 380.9+ KB
 </section>
 <section id="data-processing">
 <h3><span class="section-number">13.4.3. </span>Data processing<a class="headerlink" href="#data-processing" title="Permalink to this heading">#</a></h3>
-<p>Dimensionality reduction techniques such as PCA require numerical data, which is not very suprising given how the method works (see above).
-The most common pitfall, however, is that <strong>PCA is extremely sensitive to the scaling of the data</strong>. It looks for the features with the largest variance, so imagine that one feature is income which can have values of many 10,000s and another feature is age which will usually stay below 100. Then PCA will virtually ignore the feature “age” in comparison to the much higher values of the feature “income”. To circumvent this undesired effect, the data needs to be <strong>scaled so that all features show comparable ranges</strong>.</p>
+<p>Dimensionality reduction techniques such as PCA require numerical data, which is not very surprising given how the method works (see above).
+The most common pitfall, however, is that <strong>PCA is extremely sensitive to the scaling of the data</strong>. It looks for the features with the largest variance, so imagine that one feature is income, which can have values of many 10,000s and another feature is age, which will usually stay below 100. Then PCA will virtually ignore the feature “age” in comparison to the much higher values of the feature “income”. To circumvent this undesirable effect, the data needs to be <strong>scaled so that all features show comparable ranges</strong>.</p>
 <p>Here, we will use the Scikit-Learn <code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code> for this task.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1342,12 +1356,12 @@ The most common pitfall, however, is that <strong>PCA is extremely sensitive to 
 </section>
 <section id="non-linear-dimensionality-reduction-techniques">
 <h2><span class="section-number">13.5. </span>Non-linear Dimensionality Reduction Techniques<a class="headerlink" href="#non-linear-dimensionality-reduction-techniques" title="Permalink to this heading">#</a></h2>
-<p>The PCA plots above show that the dimensionality reduction worked to quite some extend. How do we know this? Well, first we see that the points are not randomly distributed without any visible correlation to its features. We see that high and low income people are placed in different areas of the plot, and the same is true for other features as well.</p>
-<p>Still, in many cases, PCA might not provide the best possible results. Mostly because of its main limitation: being a linear method. This can be seen particularly well in the plot which uses the income for the dot color. This clearly shows a clear overall direction of low to high incomes.</p>
+<p>The PCA plots above show that the dimensionality reduction worked to quite some extent. How do we know this? Well, first we see that the points are not randomly distributed without any visible correlation to their features. We see that high- and low-income people are placed in different areas of the plot, and the same is true for other features as well.</p>
+<p>Still, in many cases, PCA might not provide the best possible results. Mostly because of its main limitation: being a linear method. This can be seen particularly well in the plot, which uses the income for the dot color. This clearly shows a clear overall direction from low to high incomes.</p>
 <p><strong>Why is this a problem?</strong><br />
 A lot of data we care about is highly non-linear. And linear methods are then often not able to map the data onto fewer dimensions in an appropriate or sufficiently delicate &amp; complex manner. In the present case, we might get the impression that the plot -while it looks nice- may not tell us a lot of new things about our data.</p>
-<p>In such cases, it is recommended to also try non-linear approaches. In recent years, the most popular go-to choices in data science are <strong>t-SNE</strong> and <strong>UMAP</strong>, but well-established methods also include <strong>kernel-PCA</strong> and many others.</p>
-<p>In the next part, those tools will briefly be introduced before we finally apply t-SNE to our marketing dataset.</p>
+<p>In such cases, it is recommended to also try non-linear approaches. In recent years, the most popular go-to choices in data science have been <strong>t-SNE</strong> and <strong>UMAP</strong>, but well-established methods also include <strong>kernel-PCA</strong> and many others.</p>
+<p>In the next part, those tools will be briefly introduced before we finally apply t-SNE to our marketing dataset.</p>
 <section id="pca-on-generated-2d-test-data">
 <h3><span class="section-number">13.5.1. </span>PCA on generated 2D test data<a class="headerlink" href="#pca-on-generated-2d-test-data" title="Permalink to this heading">#</a></h3>
 <p>We will now test a few methods with strongly non-linear generated 2D data to better understand what the above mentioned limitation means.</p>
@@ -1423,7 +1437,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 <section id="kernel-pca">
 <h3><span class="section-number">13.5.2. </span>Kernel-PCA<a class="headerlink" href="#kernel-pca" title="Permalink to this heading">#</a></h3>
 <p>Kernel-PCA processes data in a higher-dimensional space, a technique often referred to as the “kernel trick.” A commonly used kernel function in this context is the Radial Basis Function (RBF).</p>
-<p>Initially, this approach might seem counterintuitive. The objective of dimensionality reduction is to simplify data, so why first move it into a higher-dimensional space? The purpose of this step is to overcome the limitations of linear transformations, such as the principal axis transformation or rotation found in PCA. By suitably projecting data into a higher-dimensional space, linear techniques can sometimes achieve more effective transformations, offering a more nuanced understanding of complex data sets.</p>
+<p>Initially, this approach might seem counterintuitive. The objective of dimensionality reduction is to simplify data, so why first move it into a higher-dimensional space? The purpose of this step is to overcome the limitations of linear transformations, such as the principal axis transformation or rotation, found in PCA. By suitably projecting data into a higher-dimensional space, linear techniques can sometimes achieve more effective transformations, offering a more nuanced understanding of complex data sets.</p>
 <p><strong>Advantages:</strong></p>
 <ul class="simple">
 <li><p>A non-linear technique, capable of handling non-linear data.</p></li>
@@ -1505,7 +1519,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 </section>
 <section id="t-sne">
 <h3><span class="section-number">13.5.3. </span>t-SNE<a class="headerlink" href="#t-sne" title="Permalink to this heading">#</a></h3>
-<p>t-SNE is another non-linear technique that can manage non-linear data <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id18" title="Laurens Van der Maaten and Geoffrey Hinton. Visualizing data using t-sne. Journal of machine learning research, 2008.">Van der Maaten and Hinton, 2008</a>]</span>. Over the last 10-15 years it quickly became one of the most commonly used dimensionality reduction techniques in data science. It is known for producing high-quality results but is slower than PCA. This slower performance is due to its complexity and the additional parameters that need optimization.</p>
+<p>t-SNE is another non-linear technique that can manage non-linear data <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id18" title="Laurens Van der Maaten and Geoffrey Hinton. Visualizing data using t-sne. Journal of machine learning research, 2008.">Van der Maaten and Hinton, 2008</a>]</span>. Over the last 10-15 years, it has quickly become one of the most commonly used dimensionality reduction techniques in data science. It is known for producing high-quality results, but is slower than PCA. This slower performance is due to its complexity and the additional parameters that need optimization.</p>
 <p><strong>Advantages:</strong></p>
 <ul class="simple">
 <li><p>Non-linear, suitable for complex data structures.</p></li>
@@ -1558,7 +1572,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 </section>
 <section id="comparison-and-application">
 <h3><span class="section-number">13.5.5. </span>Comparison and Application<a class="headerlink" href="#comparison-and-application" title="Permalink to this heading">#</a></h3>
-<p>Each of these techniques has unique strengths and weaknesses, making them suitable for different types of data and objectives. Kernel-PCA is a versatile tool for moderately complex data, while t-SNE and UMAP excel in revealing intricate structures in high-dimensional data.</p>
+<p>Each of these techniques has unique strengths and weaknesses, making them suitable for different types of data and objectives. Kernel-PCA is a versatile tool for moderately complex data, while t-SNE and UMAP excel at revealing intricate structures in high-dimensional data.</p>
 <p>The choice of technique depends on the specific requirements of the analysis, such as the need for speed (favoring Kernel-PCA), detail (favoring t-SNE), or a balance of structure preservation and speed (favoring UMAP). Understanding the nature of the dataset and the goals of the analysis is key to selecting the most appropriate dimensionality reduction method.</p>
 </section>
 </section>
@@ -1619,7 +1633,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
                    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tsne2&quot;</span><span class="p">,</span>
                    <span class="n">hue</span><span class="o">=</span><span class="n">features</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
                    <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span>
-                   <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+                   <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
     
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="p">[])</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="p">[])</span>
@@ -1629,18 +1643,18 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/1f3d29e2d67dbb1850cae7327eab83b5341770acff2318c8bd14663e1cad8a91.png" src="../_images/1f3d29e2d67dbb1850cae7327eab83b5341770acff2318c8bd14663e1cad8a91.png" />
+<img alt="../_images/f1fb97ae7c3958d2316b93d931fb5f6b6eba2400ee8c4219dcc85e31748e4910.png" src="../_images/f1fb97ae7c3958d2316b93d931fb5f6b6eba2400ee8c4219dcc85e31748e4910.png" />
 </div>
 </div>
 </section>
 <section id="conclusions">
 <h2><span class="section-number">13.7. </span>Conclusions<a class="headerlink" href="#conclusions" title="Permalink to this heading">#</a></h2>
-<p>It can be hard to judge whether one particular dimensionality reduction result is better or worse than another. What should have become clear though, is that the non-linear techniques are capable of revealing more complex relationships and patterns. In the case of the marketing data, the t-SNE result reveals a much clearer structure suggesting different customer groups.</p>
+<p>It can be hard to judge whether one particular dimensionality reduction result is better or worse than another. What should have become clear, though, is that the non-linear techniques are capable of revealing more complex relationships and patterns. In the case of the marketing data, the t-SNE result reveals a much clearer structure, suggesting different customer groups.</p>
 <p><strong>Why not always use t-SNE or UMAP then?</strong><br />
-While both techniques are very popular and generally work quite well, they come with some severe disadvantages. First, all the non-linear methods require additional parameters that need adjusting. This automatically brings a larger workload for us as data scientists, but it also commonly raises questions on how to best select the “right” parameters. Do we choose the pretties plot, or a random one, or should we define quantitative criteria …</p>
+While both techniques are very popular and generally work quite well, they come with some severe disadvantages. First, all the non-linear methods require additional parameters that need adjusting. This automatically brings a larger workload for us as data scientists, but it also commonly raises questions on how to best select the “right” parameters. Do we choose the prettiest plot or a random one, or should we define quantitative criteria …</p>
 <p>In practice, people will often simply play around with the key parameters and pick the result that fits their story best. While there is a lot of research on how to optimize and evaluate such results, this remains a complex -and often inconclusive- matter.</p>
 <p>Finally, performance is also a key factor!<br />
-If it comes to a fast reduction of large sets of high-dimensional data, PCA often still is the go-to technique. Implementations of slower tools such as t-NSE are hence often combined with PCA or similar methods.</p>
+If it comes to a fast reduction of large sets of high-dimensional data, PCA is often still the go-to technique. Implementations of slower tools such as t-NSE are hence often combined with PCA or similar methods.</p>
 </section>
 </section>
 
@@ -1700,6 +1714,7 @@ If it comes to a fast reduction of large sets of high-dimensional data, PCA ofte
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1781,8 +1796,8 @@ By Florian Huber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

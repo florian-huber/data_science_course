@@ -19,15 +19,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -76,10 +76,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -120,11 +119,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -440,11 +442,11 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="data-acquisition-preparation">
 <h1><span class="section-number">8. </span>Data Acquisition &amp; Preparation<a class="headerlink" href="#data-acquisition-preparation" title="Permalink to this heading">#</a></h1>
-<p>The foundational pillar of any data science project lies in the data itself. Sounds obvious, yet in practice many aspiring data scientists will still be surprised by <strong>how much the quality and quantity of data matters for the success of a data science project</strong>. Without pertinent and high-quality data, even the most sophisticated algorithms will fall short of producing meaningful results. This chapter aims at building a first intuition about the process of data acquisition and preparation, elucidating best practices to ensure your data science journey is built on solid ground.</p>
+<p>The foundational pillar of any data science project lies in the data itself. Sounds obvious, yet in practice, many aspiring data scientists will still be surprised by <strong>how much the quality and quantity of data matters for the success of a data science project</strong>. Without pertinent and high-quality data, even the most sophisticated algorithms will fall short of producing meaningful results. This chapter aims at building a first intuition about the process of data acquisition and preparation, elucidating best practices to ensure your data science journey is built on solid ground.</p>
 <section id="data-acquisition">
 <h2><span class="section-number">8.1. </span>Data Acquisition<a class="headerlink" href="#data-acquisition" title="Permalink to this heading">#</a></h2>
 <p>Before plunging into data collection, it’s imperative to ask: What’s the problem at hand? What kind of data do we need to address it?</p>
@@ -467,7 +469,7 @@ document.write(`
 <li><p><strong>Data Upon Request</strong>: Sometimes, just asking can open doors. Organizations might share data if approached correctly and for a worthy cause.</p></li>
 <li><p><strong>Commercial Datasets</strong>: There are instances when investing in a dataset can prove to be more cost-effective than collecting data from scratch.</p></li>
 </ul>
-<p>In some data science projects we will start with an already prepared dataset, while in other projects the collection of data can be major (and time consuming!) part of the project itself. It can even happen that we need to reconsider some of our initial targets and strategies if we do not manage to collect the data as expected.</p>
+<p>In some data science projects, we will start with an already prepared dataset, while in other projects, the collection of data can be a major (and time-consuming!) part of the project itself. It can even happen that we need to reconsider some of our initial targets and strategies if we do not manage to collect the data as expected.</p>
 <p>Once we do hold the data in our hands (well, rather on a disk or cloud drive), we further need to make sure that the data is technically, legally, or quality-wise suitable for what we plan to do with the data in the following phases.</p>
 <p>Once the data is in your hands, several pivotal steps ensure its quality and relevance:</p>
 <ul class="simple">
@@ -495,11 +497,11 @@ document.write(`
 </section>
 <section id="data-cleaning">
 <h2><span class="section-number">8.2. </span>Data Cleaning<a class="headerlink" href="#data-cleaning" title="Permalink to this heading">#</a></h2>
-<p>Raw data, more often than not, is messy; it requires refinement to reveal its true value. This refinement process is what we term as “data cleaning”. In this section, some of the most common data cleaning steps will be mentioned; steps which are fairly general across many different data types and sources. In actual practice, however, a lot of the more complex data cleaning requires a certain understanding - or <em>domain knowledge</em> - of the data. This is either acquired over time, when you work a lot with similar data and tasks; or it is distilled from a close collaboration with domain experts. Whenever you are not sure what the data in front of you actually means, and you hence are not sure what you may or may not do to the data, better invest time to build a deeper understanding for the data and/or ask someone with more experience on this type of data.</p>
-<p>Here a few examples. If you work with audio data, but don’t know that decibel is measured on a logarithmic scale, you might unintentionally run into serious trouble. Or, if you get colorful medical images but don’t realize that the color scale is just a color scale applied to monochromatic images, your data handling and later conclusions might not make it look like you know what you are doing…</p>
+<p>Raw data, more often than not, is messy; it requires refinement to reveal its true value. This refinement process is what we term as “data cleaning”. In this section, some of the most common data cleaning steps will be mentioned; steps which are fairly general across many different data types and sources. In actual practice, however, a lot of the more complex data cleaning requires a certain understanding - or <em>domain knowledge</em> - of the data. This is either acquired over time, when you work a lot with similar data and tasks; or it is distilled from a close collaboration with domain experts. Whenever you are not sure what the data in front of you actually means, and you hence are not sure what you may or may not do to the data, better invest time to build a deeper understanding of the data and/or ask someone with more experience on this type of data.</p>
+<p>Here are a few examples: If you work with audio data but don’t know that decibel is measured on a logarithmic scale, you might unintentionally run into serious trouble. Or, if you get colorful medical images but don’t realize that the color scale is just a color scale applied to monochromatic images, your data handling and later conclusions might not make it look like you know what you are doing…</p>
 <section id="dealing-with-missing-values">
 <h3><span class="section-number">8.2.1. </span>Dealing with Missing Values:<a class="headerlink" href="#dealing-with-missing-values" title="Permalink to this heading">#</a></h3>
-<p>Missing data is a common issue many data scientists face. While the gaps can manifest in varied forms such as NaN, “999”, “N/A”,  None, and “”, a standardized approach often involves representing these  uniformly as <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (hint: Python libraries such as <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy</span></code> have their own NaN data types!).</p>
+<p>Missing data is a common issue many data scientists face. While the gaps can manifest in varied forms such as NaN, “999”, “N/A”, None, and “”, a standardized approach often involves representing these uniformly as <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (hint: Python libraries such as <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy</span></code> have their own NaN data types!).</p>
 </section>
 <section id="typical-challenges">
 <h3><span class="section-number">8.2.2. </span>Typical Challenges:<a class="headerlink" href="#typical-challenges" title="Permalink to this heading">#</a></h3>
@@ -517,8 +519,8 @@ document.write(`
 <li><p><strong>Data Standardization</strong>: This can be done via Min-Max scaling (often termed “normalization”) or, frequently more effective, by ensuring data has a mean of 0 and a standard deviation of 1.</p></li>
 <li><p><strong>Non-linear Transformations</strong>: Sometimes, linear thinking won’t do. Transformations like logarithms can provide new perspectives on data.</p></li>
 </ul>
-<p>In essence, data acquisition and preparation are the unsung heroes of a successful data science endeavor. By ensuring the foundation is robust  and the raw materials are of top quality, you set the stage for  analytical brilliance.</p>
-<p>From my own experience: It is not uncommon that 80% of the work in a data science project go into the data acquisition and cleaning.</p>
+<p>In essence, data acquisition and preparation are the unsung heroes of a successful data science endeavor. By ensuring the foundation is robust and the raw materials are of top quality, you set the stage for analytical brilliance.</p>
+<p>From my own experience: It is not uncommon that 80% of the work in a data science project goes into the data acquisition and cleaning.</p>
 </section>
 </section>
 </section>
@@ -579,6 +581,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -647,8 +650,8 @@ By Florian Huber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

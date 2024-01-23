@@ -19,15 +19,15 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -78,10 +78,9 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -122,11 +121,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -425,12 +427,14 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-randomness">20.2.1. Visual Randomness</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-tools">20.3. Visualization Tools</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cytoscape-https-cytoscape-org">20.3.1. Cytoscape (https://cytoscape.org/)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gephi-https-gephi-org">20.3.2. Gephi (https://gephi.org/)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graphia-https-graphia-app">20.3.3. Graphia (https://graphia.app/)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-plots">20.3. Interactive Plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-tools">20.4. Visualization Tools</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cytoscape-https-cytoscape-org">20.4.1. Cytoscape (https://cytoscape.org/)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gephi-https-gephi-org">20.4.2. Gephi (https://gephi.org/)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graphia-https-graphia-app">20.4.3. Graphia (https://graphia.app/)</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps-additional-resources">20.5. Next steps &amp; additional resources</a></li>
 </ul>
             </nav>
         </div>
@@ -440,7 +444,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="visualizing-graphs">
 <h1><span class="section-number">20. </span>Visualizing Graphs<a class="headerlink" href="#visualizing-graphs" title="Permalink to this heading">#</a></h1>
@@ -469,6 +473,18 @@ document.write(`
 </div>
 </div>
 </details>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3014/3153534145.py:2: DeprecationWarning: 
+Pyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),
+(to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
+but was not found to be installed on your system.
+If this would cause problems for you,
+please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
+        
+  import pandas as pd
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -527,7 +543,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/62f4674114c72a12ccdadc5bacf682c88a2de521e8fded2347dcc672f84e9c50.png" src="../_images/62f4674114c72a12ccdadc5bacf682c88a2de521e8fded2347dcc672f84e9c50.png" />
+<img alt="../_images/896fb7b3c6a21d810fc5cd6a78ce0f7de57b0faad596ac3294dfd4841e5dd1ec.png" src="../_images/896fb7b3c6a21d810fc5cd6a78ce0f7de57b0faad596ac3294dfd4841e5dd1ec.png" />
 </div>
 </div>
 <section id="add-more-dimensions-to-the-visualization">
@@ -567,7 +583,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/b20751c15bbdd3866d87f6b3b64d165ebf08956a1e652c823c949fd044050411.png" src="../_images/b20751c15bbdd3866d87f6b3b64d165ebf08956a1e652c823c949fd044050411.png" />
+<img alt="../_images/33633bbb450b3e7492d4569cfb378200053c4bd88056bdd881c152a8e8f91858.png" src="../_images/33633bbb450b3e7492d4569cfb378200053c4bd88056bdd881c152a8e8f91858.png" />
 </div>
 </div>
 <p>Different layouts have different strengths and weaknesses. A circular arrangement (<strong>circular layout</strong>) can, for instance, be useful for quickly identifying which nodes have the most connections (and where these lead). Layouts such as random layout or other fixed forms like spirals etc. (as seen above: <strong>spiral layout</strong>) are much less commonly used in practice.</p>
@@ -602,7 +618,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/e99d6baffee8c9ec35cc7f3025b3815c43304fcd9acbcaa4e9d242c78539b9a2.png" src="../_images/e99d6baffee8c9ec35cc7f3025b3815c43304fcd9acbcaa4e9d242c78539b9a2.png" />
+<img alt="../_images/2463c52766b11db0be15adc9d6780c281a7024644119a22dcb313e6324b69522.png" src="../_images/2463c52766b11db0be15adc9d6780c281a7024644119a22dcb313e6324b69522.png" />
 </div>
 </div>
 <section id="visual-randomness">
@@ -638,11 +654,53 @@ document.write(`
 </div>
 </section>
 </section>
+<section id="interactive-plots">
+<h2><span class="section-number">20.3. </span>Interactive Plots<a class="headerlink" href="#interactive-plots" title="Permalink to this heading">#</a></h2>
+<p>As just shown in the figure above, the position of nodes is usually nothing static or fixed. Exceptions are graphs that have a corresponding, physical counterpart, such as locations on a geographic map.</p>
+<p>When working with network data, we often quickly reach a point where static visualizations (such as all graphs plotted in this section so far) are no longer good enough.</p>
+<p>In Python, there are a few ways to visualize the networks dynamically using special plotting libraries. One of them is <a class="reference external" href="https://pyvis.readthedocs.io/en/latest/index.html"><code class="docutils literal notranslate"><span class="pre">pyvis</span></code></a>. Here an example of how to plot the karate network using pyvis:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyvis.network</span> <span class="kn">import</span> <span class="n">Network</span>
+
+<span class="c1"># Create a pyvis Network object</span>
+<span class="n">net</span> <span class="o">=</span> <span class="n">Network</span><span class="p">(</span><span class="n">height</span> <span class="o">=</span> <span class="s2">&quot;700px&quot;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="s2">&quot;700px&quot;</span><span class="p">,</span> <span class="n">notebook</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">cdn_resources</span><span class="o">=</span><span class="s1">&#39;remote&#39;</span><span class="p">)</span>
+
+<span class="n">node_sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="n">G</span><span class="o">.</span><span class="n">degree</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()]</span>
+            
+<span class="c1"># Set node sizes and colors</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">):</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s1">&#39;size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">node_sizes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">[</span><span class="n">name</span><span class="p">][</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;lightblue&quot;</span> <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">name</span> <span class="o">==</span> <span class="mi">33</span> <span class="k">else</span> <span class="s2">&quot;crimson&quot;</span>
+
+<span class="c1"># Set edge color</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">:</span>
+    <span class="n">G</span><span class="o">.</span><span class="n">edges</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;grey&quot;</span>
+
+<span class="n">net</span><span class="o">.</span><span class="n">from_nx</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+<span class="n">net</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="s1">&#39;out1.html&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">pyvis.network</span> <span class="kn">import</span> <span class="n">Network</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="c1"># Create a pyvis Network object</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">net</span> <span class="o">=</span> <span class="n">Network</span><span class="p">(</span><span class="n">height</span> <span class="o">=</span> <span class="s2">&quot;700px&quot;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="s2">&quot;700px&quot;</span><span class="p">,</span> <span class="n">notebook</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">cdn_resources</span><span class="o">=</span><span class="s1">&#39;remote&#39;</span><span class="p">)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pyvis&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <section id="visualization-tools">
-<h2><span class="section-number">20.3. </span>Visualization Tools<a class="headerlink" href="#visualization-tools" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">20.4. </span>Visualization Tools<a class="headerlink" href="#visualization-tools" title="Permalink to this heading">#</a></h2>
 <p>While Python, along with <code class="docutils literal notranslate"><span class="pre">networkx</span></code>, can be used for graph visualization, it’s typically used only for initial exploration or for very small graphs or subgraphs. For more elaborate visualizations, there are several quite useful and freely available tools:</p>
 <section id="cytoscape-https-cytoscape-org">
-<h3><span class="section-number">20.3.1. </span>Cytoscape (https://cytoscape.org/)<a class="headerlink" href="#cytoscape-https-cytoscape-org" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">20.4.1. </span>Cytoscape (https://cytoscape.org/)<a class="headerlink" href="#cytoscape-https-cytoscape-org" title="Permalink to this heading">#</a></h3>
 <p>Cytoscape provides a wide range of settings for layout and graphical features, making it a flexible tool for graph visualization.</p>
 <p><strong>Pros:</strong></p>
 <ul class="simple">
@@ -657,7 +715,7 @@ document.write(`
 </ul>
 </section>
 <section id="gephi-https-gephi-org">
-<h3><span class="section-number">20.3.2. </span>Gephi (https://gephi.org/)<a class="headerlink" href="#gephi-https-gephi-org" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">20.4.2. </span>Gephi (https://gephi.org/)<a class="headerlink" href="#gephi-https-gephi-org" title="Permalink to this heading">#</a></h3>
 <p>Gephi is recognized for its live rendering and ability to handle relatively large graphs. It also offers numerous statistical tools for in-depth graph analysis:</p>
 <p><strong>Pros:</strong></p>
 <ul class="simple">
@@ -671,7 +729,7 @@ document.write(`
 </ul>
 </section>
 <section id="graphia-https-graphia-app">
-<h3><span class="section-number">20.3.3. </span>Graphia (https://graphia.app/)<a class="headerlink" href="#graphia-https-graphia-app" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">20.4.3. </span>Graphia (https://graphia.app/)<a class="headerlink" href="#graphia-https-graphia-app" title="Permalink to this heading">#</a></h3>
 <p>Graphia is a quick tool that provides a 3D option for graph visualization. However, it’s not as flexible as the other tools in terms of layout and graphical settings:</p>
 <p><strong>Pros:</strong></p>
 <ul class="simple">
@@ -684,6 +742,11 @@ document.write(`
 <li><p>Image export is not very flexible.</p></li>
 </ul>
 </section>
+</section>
+<section id="next-steps-additional-resources">
+<h2><span class="section-number">20.5. </span>Next steps &amp; additional resources<a class="headerlink" href="#next-steps-additional-resources" title="Permalink to this heading">#</a></h2>
+<p>Obviously there is <em>much</em> more to learn and explore about working with networks!</p>
+<p>A good textbook as well as online book resource to have a deeper look is <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id20" title="Keith McNulty. Welcome \textbar  Handbook of Graphs and Networks in People Analytics: With Examples in R and Python. Routledge &amp; CRC Press, 2022. ISBN 978-1-03-220497-0. URL: https://ona-book.org (visited on 2024-01-23).">McNulty, 2022</a>]</span> (see <a class="reference external" href="https://ona-book.org/index.html">online version</a>, too).</p>
 </section>
 </section>
 
@@ -744,6 +807,7 @@ document.write(`
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
@@ -755,12 +819,14 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-randomness">20.2.1. Visual Randomness</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-tools">20.3. Visualization Tools</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cytoscape-https-cytoscape-org">20.3.1. Cytoscape (https://cytoscape.org/)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gephi-https-gephi-org">20.3.2. Gephi (https://gephi.org/)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graphia-https-graphia-app">20.3.3. Graphia (https://graphia.app/)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-plots">20.3. Interactive Plots</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-tools">20.4. Visualization Tools</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cytoscape-https-cytoscape-org">20.4.1. Cytoscape (https://cytoscape.org/)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gephi-https-gephi-org">20.4.2. Gephi (https://gephi.org/)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graphia-https-graphia-app">20.4.3. Graphia (https://graphia.app/)</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps-additional-resources">20.5. Next steps &amp; additional resources</a></li>
 </ul>
   </nav></div>
 
@@ -809,8 +875,8 @@ By Florian Huber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
