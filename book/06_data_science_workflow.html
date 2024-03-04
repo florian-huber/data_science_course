@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>7. Data Science Workflow &#8212; Data Science for (not yet) scientists</title>
   
@@ -29,39 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/06_data_science_workflow';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -160,7 +155,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -423,7 +429,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="data-science-workflow">
-<h1><span class="section-number">7. </span>Data Science Workflow<a class="headerlink" href="#data-science-workflow" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">7. </span>Data Science Workflow<a class="headerlink" href="#data-science-workflow" title="Link to this heading">#</a></h1>
 <p>Data science can often feel like piecing together a jigsaw puzzle. But like any puzzle, there’s a method to the madness, a sequence that can make the process smoother. That’s where the idea of a data science workflow comes in. In our previous chapter, we used the analogies of detective work and the scientific method to explain data science. Similarly, every detective has a method to their investigation, and every scientist follows a systematic process in their research.</p>
 <p>In data science, it’s paramount to have a blueprint, a sequence of steps, that can guide the project from inception to completion. This blueprint is called a <strong>data science workflow</strong>. It serves as a roadmap that provides clarity on the stages involved in a data science project. Just as a detective might start with gathering evidence, then move on to interviewing witnesses, and finally piece together the entire story, a data scientist moves through distinct phases to derive insights from data.</p>
 <p>While the last chapter hinted that there’s no universally accepted data science workflow, several models and frameworks have been proposed over the years <span id="id1">[<a class="reference internal" href="bibliography.html#id28" title="Claus Weihs and Katja Ickstadt. Data Science: the impact of statistics. International Journal of Data Science and Analytics, 6(3):189–194, November 2018. URL: https://doi.org/10.1007/s41060-018-0102-5 (visited on 2023-09-05), doi:10.1007/s41060-018-0102-5.">Weihs and Ickstadt, 2018</a>]</span><span id="id2">[<a class="reference internal" href="bibliography.html#id8" title="David Donoho. 50 Years of Data Science. Journal of Computational and Graphical Statistics, 26(4):745–766, October 2017. Publisher: Taylor &amp; Francis _eprint: https://doi.org/10.1080/10618600.2017.1384734. URL: https://doi.org/10.1080/10618600.2017.1384734 (visited on 2023-09-05), doi:10.1080/10618600.2017.1384734.">Donoho, 2017</a>]</span>. Each of these frameworks is tailored to different needs and contexts, and their structure and emphasis can vary significantly. For instance:</p>
@@ -444,14 +450,14 @@ document.write(`
 <figure class="align-default" id="fig-asemic-sketch">
 <a class="reference internal image-reference" href="../_images/fig_asemic_data_science_workflow.png"><img alt="../_images/fig_asemic_data_science_workflow.png" src="../_images/fig_asemic_data_science_workflow.png" style="width: 75%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 7.1 </span><span class="caption-text">Simplified sketch of an ASEMIC data science workflow.</span><a class="headerlink" href="#fig-asemic-sketch" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 7.1 </span><span class="caption-text">Simplified sketch of an ASEMIC data science workflow.</span><a class="headerlink" href="#fig-asemic-sketch" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>It’s crucial to note that real-world data science is rarely a linear progression from one step to the next. It’s an iterative process, filled with cycles (<a class="reference internal" href="#fig-asemic-details"><span class="std std-numref">Fig. 7.2</span></a>). After modeling, you might find that you need to go back to the data scrubbing phase, or after interpreting results, you might need to revisit the exploration phase. This non-linear, cyclical nature of data science is what makes it both challenging and fascinating.</p>
 <figure class="align-default" id="fig-asemic-details">
 <a class="reference internal image-reference" href="../_images/fig_asemic_data_science_workflow_detailed.png"><img alt="../_images/fig_asemic_data_science_workflow_detailed.png" src="../_images/fig_asemic_data_science_workflow_detailed.png" style="width: 50%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 7.2 </span><span class="caption-text">More detailed sketch of the ASEMIC data science workflow, highlighting the interconnected nature of the different steps or phases.</span><a class="headerlink" href="#fig-asemic-details" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 7.2 </span><span class="caption-text">More detailed sketch of the ASEMIC data science workflow, highlighting the interconnected nature of the different steps or phases.</span><a class="headerlink" href="#fig-asemic-details" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Drawing parallels with the detective analogy: imagine a detective who, after gathering all evidence (Acquire), ensures they’re all pertinent and discards the irrelevant ones (Scrub). They then analyze the evidence, looking for patterns or connections (Explore), formulate a theory about the crime (Model), assess how well this theory fits with the facts (Interpret), and finally present their findings to their team or in court (Communicate). Just as a detective might revisit a crime scene or re-interview a witness based on new findings, a data scientist might loop back to earlier steps based on new insights or challenges.</p>
@@ -460,7 +466,7 @@ document.write(`
 <figure class="align-default" id="fig-asemic-example">
 <a class="reference internal image-reference" href="../_images/fig_asemic_workflow_example.png"><img alt="../_images/fig_asemic_workflow_example.png" src="../_images/fig_asemic_workflow_example.png" style="width: 75%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 7.3 </span><span class="caption-text">Sketch of an example data science process to illustrate that different skills and expertise is required for different phases of a typical data science project.</span><a class="headerlink" href="#fig-asemic-example" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 7.3 </span><span class="caption-text">Sketch of an example data science process to illustrate that different skills and expertise is required for different phases of a typical data science project.</span><a class="headerlink" href="#fig-asemic-example" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In the following sections, we’ll use the ASEMIC workflow to navigate through a large variety of data science techniques, from data handling to analysis, interpretation, and visualization.</p>
@@ -542,7 +548,7 @@ By Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

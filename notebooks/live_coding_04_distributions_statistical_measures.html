@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>9. First Data Exploration &#8212; Data Science for (not yet) scientists</title>
   
@@ -29,39 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/live_coding_04_distributions_statistical_measures';</script>
@@ -162,7 +157,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -459,11 +465,11 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="first-data-exploration">
-<h1><span class="section-number">9. </span>First Data Exploration<a class="headerlink" href="#first-data-exploration" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">9. </span>First Data Exploration<a class="headerlink" href="#first-data-exploration" title="Link to this heading">#</a></h1>
 <p>Different from what a linear sketch of a data science workflow might sometimes suggest, it is generally not at a single moment that we inspect our data. Instead, we inspect our data frequently, with varying focus and depths.
 In the previous sections we already saw that the collection and technical handling (e.g., importing) of the data already includes a certain degree of data inspections. Then, during data cleaning we had to have a closer look at that is in the data and what might be missing. Now, we want to take a next step, which often done by doing basic statistics and other quick data explorations. A good data exploration phase is like getting a quick snapshot of the data’s characteristics, anomalies, patterns, and relationships. This foundational step often happens immediately after or even during the data acquisition and cleaning phases.</p>
 <section id="statistical-measures">
-<h2><span class="section-number">9.1. </span>Statistical Measures<a class="headerlink" href="#statistical-measures" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.1. </span>Statistical Measures<a class="headerlink" href="#statistical-measures" title="Link to this heading">#</a></h2>
 <p>A comprehensive understanding of the data often starts with basic statistical measures. These measures provide concise summaries, allowing data scientists to grasp the main tendencies and dispersions in the dataset. Many of you will probably (or hopefully?) know many of the measures that are listed in this chapter and the core focus here will be to give a quick refresher. For those of you that feel lost when it comes to basic statistics it would make sense to invest time to gain a more solid foundation into those basics. There are many books, tutorials and courses on this matter, for instance  also the <a class="reference external" href="https://www.w3schools.com/statistics/index.php">w3schools website</a>.</p>
 <ol class="arabic">
 <li><p><strong>Measures of Central Tendency</strong>: These are quintessential in understanding where the ‘center’ of our data lies.</p>
@@ -496,7 +502,7 @@ In the previous sections we already saw that the collection and technical handli
 </li>
 </ol>
 <section id="exercise-understanding-statistics-in-a-practical-scenario">
-<h3><span class="section-number">9.1.1. </span>Exercise: Understanding Statistics in a Practical Scenario<a class="headerlink" href="#exercise-understanding-statistics-in-a-practical-scenario" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.1.1. </span>Exercise: Understanding Statistics in a Practical Scenario<a class="headerlink" href="#exercise-understanding-statistics-in-a-practical-scenario" title="Link to this heading">#</a></h3>
 <p>Consider the 3rd semester of Media Informatics: The average age (mean) of the students = 22.7 years Standard Deviation (STD) = 2.1 years</p>
 <p>Questions:</p>
 <ol class="arabic simple">
@@ -578,7 +584,7 @@ In the previous sections we already saw that the collection and technical handli
 </section>
 </section>
 <section id="statistical-measures-and-distributions">
-<h2><span class="section-number">9.2. </span>Statistical Measures and Distributions<a class="headerlink" href="#statistical-measures-and-distributions" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.2. </span>Statistical Measures and Distributions<a class="headerlink" href="#statistical-measures-and-distributions" title="Link to this heading">#</a></h2>
 <p>Let us look at some distributions and their statistical measures. In the following Python code cells we will import the required libraries and define a simple plotting function for the task.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -598,18 +604,6 @@ In the previous sections we already saw that the collection and technical handli
 </div>
 </div>
 </details>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2620/1670986867.py:5: DeprecationWarning: 
-Pyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),
-(to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
-but was not found to be installed on your system.
-If this would cause problems for you,
-please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
-        
-  import pandas as pd
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -637,7 +631,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </details>
 </div>
 <section id="symmetric-distribution">
-<h3><span class="section-number">9.2.1. </span>Symmetric Distribution<a class="headerlink" href="#symmetric-distribution" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.2.1. </span>Symmetric Distribution<a class="headerlink" href="#symmetric-distribution" title="Link to this heading">#</a></h3>
 <p>Symmetric distributions are those where values are distributed in a way that the shape on one side of the centerline mirrors the shape on the other. In other words, the left half of the distribution is a mirror image of the right half. One of the key properties of a symmetric distribution is that the mean and median will be the same, or very close.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -648,12 +642,12 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e7dc1c22f16f3c21b80f85980834915e308fcc68cbe0d2f978b3dacac9be727a.png" src="../_images/e7dc1c22f16f3c21b80f85980834915e308fcc68cbe0d2f978b3dacac9be727a.png" />
+<img alt="../_images/b039717eaf7d40309338bac093b8bde3e8f68136f4847e2e945ea214c9d543d7.png" src="../_images/b039717eaf7d40309338bac093b8bde3e8f68136f4847e2e945ea214c9d543d7.png" />
 </div>
 </div>
 </section>
 <section id="non-symmetric-distributions">
-<h3><span class="section-number">9.2.2. </span>Non-symmetric Distributions<a class="headerlink" href="#non-symmetric-distributions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.2.2. </span>Non-symmetric Distributions<a class="headerlink" href="#non-symmetric-distributions" title="Link to this heading">#</a></h3>
 <p>In reality, most of the data we encounter tends to be non-symmetric. These distributions don’t exhibit mirror-like symmetry around their center. It is important to note here, especially for non-symmetric distributions, the mean might not necessarily represent the “center” of the data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -663,12 +657,12 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bca2eef85e3c2ac8d03aeebb767b71125c820329a44a7a6a38e01e4af89d3a7d.png" src="../_images/bca2eef85e3c2ac8d03aeebb767b71125c820329a44a7a6a38e01e4af89d3a7d.png" />
+<img alt="../_images/4c91f388cc5a87836988a4c4e0a79a0205a5dcc87797788730e06673db7da7db.png" src="../_images/4c91f388cc5a87836988a4c4e0a79a0205a5dcc87797788730e06673db7da7db.png" />
 </div>
 </div>
 </section>
 <section id="distributions-with-outliers">
-<h3><span class="section-number">9.2.3. </span>Distributions with Outliers<a class="headerlink" href="#distributions-with-outliers" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.2.3. </span>Distributions with Outliers<a class="headerlink" href="#distributions-with-outliers" title="Link to this heading">#</a></h3>
 <p>Outliers are values that stand apart from the bulk of the data. Their presence can distort our perceptions about the data and can notably skew our mean. It’s essential to identify and manage outliers for better statistical interpretations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -680,13 +674,13 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/fbd5cc82822244dd03469b80fd40562576d960af099be9c8b927cc3fa9cbbbb0.png" src="../_images/fbd5cc82822244dd03469b80fd40562576d960af099be9c8b927cc3fa9cbbbb0.png" />
+<img alt="../_images/38c1290cbdab194ff99ae353738e34a4361898c0ae8f4eb132e61f15af75fbd3.png" src="../_images/38c1290cbdab194ff99ae353738e34a4361898c0ae8f4eb132e61f15af75fbd3.png" />
 </div>
 </div>
 <p>If you look at the distribution plot with the median and the mean: Which of the two measures is better in this case (and why)?</p>
 </section>
 <section id="mixed-distributions">
-<h3><span class="section-number">9.2.4. </span>Mixed Distributions<a class="headerlink" href="#mixed-distributions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.2.4. </span>Mixed Distributions<a class="headerlink" href="#mixed-distributions" title="Link to this heading">#</a></h3>
 <p>At times, our dataset may not belong to a single type of distribution. Instead, it may be the result of a mix of two or more underlying distributions. This phenomenon is observed in mixed distributions. Recognizing and understanding the different underlying distributions can be crucial for analysis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -700,13 +694,13 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b23ec4beea1c67b11e1fc1ff2293f6cf68e348060595c284dd86cf3b59723a17.png" src="../_images/b23ec4beea1c67b11e1fc1ff2293f6cf68e348060595c284dd86cf3b59723a17.png" />
+<img alt="../_images/90c52796856bd9e34259532442584bb99a03690390a97810afb6faa3eff0ca28.png" src="../_images/90c52796856bd9e34259532442584bb99a03690390a97810afb6faa3eff0ca28.png" />
 </div>
 </div>
 <p>Here again: If you look at the distribution plot with the median and the mean, which of the two measures is better in this case (and why)?</p>
 </section>
 <section id="id1">
-<h3><span class="section-number">9.2.5. </span>Statistical Measures<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.2.5. </span>Statistical Measures<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>After observing the distributions, let’s also calculate key statistical measures and see what insights they provide regarding the distribution’s characteristics.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -731,7 +725,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </section>
 </section>
 <section id="statistical-dispersion">
-<h2><span class="section-number">9.3. </span>Statistical dispersion<a class="headerlink" href="#statistical-dispersion" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.3. </span>Statistical dispersion<a class="headerlink" href="#statistical-dispersion" title="Link to this heading">#</a></h2>
 <p>Statistical dispersion refers to the spread or variability of a dataset. It helps to understand the extent to which individual data points deviate from the mean. While two distributions might have similar centers (mean or median), their characteristics could differ considerably in terms of spread. For instance, one might be tightly clustered around the mean, whereas the other might be more spread out.</p>
 <p>Dispersion can be illustrated with two distributions that have the same center (mean) but different standard deviations. In the following examples, both distributions are centered at 100, but they have standard deviations of 15 and 1.5, respectively. The standard deviation (often referred to as “STD”) is a measure that tells us how spread out the numbers in a distribution are.</p>
 <p>A higher standard deviation indicates that the data points tend to be farther from the mean, while a smaller standard deviation suggests that they are clustered closely around the mean.</p>
@@ -750,7 +744,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(52.0, 148.0)
 </pre></div>
 </div>
-<img alt="../_images/c5366402611ea8be13aa0225dc9791969a27b834043ce6c9149b16c556092a93.png" src="../_images/c5366402611ea8be13aa0225dc9791969a27b834043ce6c9149b16c556092a93.png" />
+<img alt="../_images/19875d50f27611247b41a7a926f951b7a06f906eb7ee28bb425fd0a9afeba74d.png" src="../_images/19875d50f27611247b41a7a926f951b7a06f906eb7ee28bb425fd0a9afeba74d.png" />
 </div>
 </div>
 <p>The plot above showcases a normal distribution with a mean of 100 and a standard deviation of 15. The data points are spread relatively far from the mean, resulting in a wider bell shape.</p>
@@ -769,14 +763,14 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(52.0, 148.0)
 </pre></div>
 </div>
-<img alt="../_images/26f3fc77bf369ce43811d941d7a59c9d7e4290d5ba1e3102ea4596171fa26205.png" src="../_images/26f3fc77bf369ce43811d941d7a59c9d7e4290d5ba1e3102ea4596171fa26205.png" />
+<img alt="../_images/ce852915ccbe69b06e73cfc0aae41cab1bb4d9e6e3387c60448eda4a1cf4d15b.png" src="../_images/ce852915ccbe69b06e73cfc0aae41cab1bb4d9e6e3387c60448eda4a1cf4d15b.png" />
 </div>
 </div>
 <p>In contrast, the second plot demonstrates a distribution with the same mean of 100 but with a much smaller standard deviation of 1.5. This causes the data to be tightly clustered around the mean, making the bell shape much narrower.</p>
 <p>By comparing the two plots, we observe the significance of the standard deviation in understanding the distribution’s spread. While both distributions share the same center, their spreads are vastly different, and recognizing this difference is crucial in many statistical analyses and applications.</p>
 </section>
 <section id="what-can-statistical-measures-do-and-what-not">
-<h2><span class="section-number">9.4. </span>What can statistical measures do (and what not)?<a class="headerlink" href="#what-can-statistical-measures-do-and-what-not" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.4. </span>What can statistical measures do (and what not)?<a class="headerlink" href="#what-can-statistical-measures-do-and-what-not" title="Link to this heading">#</a></h2>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -805,7 +799,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </details>
 </div>
 <section id="first-data-exploration-using-basic-statistics">
-<h3><span class="section-number">9.4.1. </span>First Data Exploration (using basic statistics)<a class="headerlink" href="#first-data-exploration-using-basic-statistics" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.4.1. </span>First Data Exploration (using basic statistics)<a class="headerlink" href="#first-data-exploration-using-basic-statistics" title="Link to this heading">#</a></h3>
 <p>In the code cell above we imported a dataset that consists of 14 different subsets (“A” to “P”). Each datapoint belongs into only one of those subsets and otherwise consists of only two numerical features: <strong>x</strong> and <strong>y</strong> which can think of as a 2D position.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1038,11 +1032,11 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </section>
 <section id="mini-exercise-what-do-you-think">
-<h3><span class="section-number">9.4.2. </span>Mini-Exercise: What do you think?<a class="headerlink" href="#mini-exercise-what-do-you-think" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.4.2. </span>Mini-Exercise: What do you think?<a class="headerlink" href="#mini-exercise-what-do-you-think" title="Link to this heading">#</a></h3>
 <p>If you compare the mean and standard deviation (std) values for all 14 datasets (A to P), what do you expect them to look like? There is 142 datapoints in each subset. Will the datapoints of each subset be distributed similarly or not?</p>
 </section>
 <section id="solution">
-<h3><span class="section-number">9.4.3. </span>Solution<a class="headerlink" href="#solution" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.4.3. </span>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h3>
 <p>There is only one good way to find out and that is to inspect the data!
 Try, for instance, to run the following:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sb</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;dataset&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -1052,7 +1046,7 @@ Try, for instance, to run the following:</p>
 </section>
 </section>
 <section id="comparing-distributions-visually">
-<h2><span class="section-number">9.5. </span>Comparing Distributions Visually<a class="headerlink" href="#comparing-distributions-visually" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.5. </span>Comparing Distributions Visually<a class="headerlink" href="#comparing-distributions-visually" title="Link to this heading">#</a></h2>
 <p>When we’re analyzing data, one of the most fundamental tasks is to understand the underlying distribution. Especially when dealing with multiple datasets, understanding and comparing their distributions can reveal patterns, outliers, and other crucial insights. As we just saw in the above exercise, visualization tools play an invaluable role in this exploration because they can tell us much more than a few statistical measures such as mean, median, or standard deviation alone. Here’s a deeper look at some popular techniques for visual data representation:</p>
 <ol class="arabic simple">
 <li><p><strong>Box Plot</strong>:</p>
@@ -1169,41 +1163,25 @@ Try, for instance, to run the following:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/categorical.py:640: FutureWarning: SeriesGroupBy.grouper is deprecated and will be removed in a future version of pandas.
-  positions = grouped.grouper.result_index.to_numpy(dtype=float)
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_base.py:949: FutureWarning: When grouping with a length-1 list-like, you will need to pass a length-1 tuple to get_group in a future version of pandas. Pass `(name,)` instead of `name` to silence this warning.
-  data_subset = grouped_data.get_group(pd_key)
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_base.py:949: FutureWarning: When grouping with a length-1 list-like, you will need to pass a length-1 tuple to get_group in a future version of pandas. Pass `(name,)` instead of `name` to silence this warning.
-  data_subset = grouped_data.get_group(pd_key)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2620/2967438999.py:12: FutureWarning: 
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2726/2967438999.py:12: FutureWarning: 
 
 The `bw` parameter is deprecated in favor of `bw_method`/`bw_adjust`.
 Setting `bw_method=0.15`, but please see docs for the new parameters
 and update your code. This will become an error in seaborn v0.15.0.
 
   sb.violinplot(x=&quot;variable&quot;, y=&quot;value&quot;, data=pd.melt(datasets_test),
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_base.py:949: FutureWarning: When grouping with a length-1 list-like, you will need to pass a length-1 tuple to get_group in a future version of pandas. Pass `(name,)` instead of `name` to silence this warning.
-  data_subset = grouped_data.get_group(pd_key)
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_base.py:949: FutureWarning: When grouping with a length-1 list-like, you will need to pass a length-1 tuple to get_group in a future version of pandas. Pass `(name,)` instead of `name` to silence this warning.
-  data_subset = grouped_data.get_group(pd_key)
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_base.py:949: FutureWarning: When grouping with a length-1 list-like, you will need to pass a length-1 tuple to get_group in a future version of pandas. Pass `(name,)` instead of `name` to silence this warning.
-  data_subset = grouped_data.get_group(pd_key)
-/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/seaborn/_base.py:949: FutureWarning: When grouping with a length-1 list-like, you will need to pass a length-1 tuple to get_group in a future version of pandas. Pass `(name,)` instead of `name` to silence this warning.
-  data_subset = grouped_data.get_group(pd_key)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Different ways to include distribution properties&#39;)
 </pre></div>
 </div>
-<img alt="../_images/aa70ace4eb6b5a1a47a24a8e3aca0a1be5ce43e63d92fd22b6901d61b0e74c5f.png" src="../_images/aa70ace4eb6b5a1a47a24a8e3aca0a1be5ce43e63d92fd22b6901d61b0e74c5f.png" />
+<img alt="../_images/9db7418d1ef111286837c5f5c53a061138554e44057d4b5b348853c1344e771d.png" src="../_images/9db7418d1ef111286837c5f5c53a061138554e44057d4b5b348853c1344e771d.png" />
 </div>
 </div>
 <p>By utilizing these visualization techniques, we can get a comprehensive understanding of our datasets’ distributions and make more informed decisions during analysis.</p>
 </section>
 <section id="let-s-talk-money">
-<h2><span class="section-number">9.6. </span>Let’s talk money<a class="headerlink" href="#let-s-talk-money" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">9.6. </span>Let’s talk money<a class="headerlink" href="#let-s-talk-money" title="Link to this heading">#</a></h2>
 <p>In real life we will come across distributions of all shapes, often non-symmetric. And even though it is considered polite in many cultures to not talk too much about our own wealth and incomes, we all probably know that income and wealth are unlikely to be narrow, symmetric distributions where most people have more or less the same, and earn more or less the same. I will leave the political debates up to you (but secretly do hope to spark some).</p>
 <p>To me, things like wealth and income are good topics to learn about basic statistics. First, because we all know <em>something</em> about money and to some extend care about money (even if we say otherwise). And second, because it is full of striking example of skewed distributions. In fact, let me quote Thomas Piketty here <span id="id3">[<a class="reference internal" href="../book/bibliography.html#id25" title="Thomas Piketty. Capital in the Twenty-First Century:. Belknap Press, Cambridge, MA, April 2014. ISBN 978-0-674-43000-6.">Piketty, 2014</a>]</span>:</p>
 <blockquote>
@@ -1246,7 +1224,7 @@ and update your code. This will become an error in seaborn v0.15.0.
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Net Household Income per Month in €&#39;)
 </pre></div>
 </div>
-<img alt="../_images/46f65289230d3acd645541130af8f152a71a6e7ad32c445db4ae8aa2b243275a.png" src="../_images/46f65289230d3acd645541130af8f152a71a6e7ad32c445db4ae8aa2b243275a.png" />
+<img alt="../_images/ea279ac2885579e9ef1d5bfde29f849cba40f8f59cad9fada123c12181ae4217.png" src="../_images/ea279ac2885579e9ef1d5bfde29f849cba40f8f59cad9fada123c12181ae4217.png" />
 </div>
 </div>
 <p>This data shows us the distribution of monthly household incomes, but we can dig deeper.</p>
@@ -1407,13 +1385,13 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2620/4219283847.py:4: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2726/4219283847.py:4: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   ax.bar(x=np.arange(10), height=income_data.groupby(&quot;decile&quot;).median()[&quot;income&quot;])
-/tmp/ipykernel_2620/4219283847.py:5: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+/tmp/ipykernel_2726/4219283847.py:5: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   for i, v in enumerate(income_data.groupby(&quot;decile&quot;).median()[&quot;income&quot;]):
 </pre></div>
 </div>
-<img alt="../_images/23669f981e123a98a32b43942a06f6bfa4b4365149196fdb9361944793dc1f12.png" src="../_images/23669f981e123a98a32b43942a06f6bfa4b4365149196fdb9361944793dc1f12.png" />
+<img alt="../_images/95930bc7df6ee8d258f065437fd181025cd94bdf93180c9aba21d2cab09432cf.png" src="../_images/95930bc7df6ee8d258f065437fd181025cd94bdf93180c9aba21d2cab09432cf.png" />
 </div>
 </div>
 <p>Such a breakdown offers more insights into the income disparities.</p>
@@ -1427,7 +1405,7 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2620/2203491340.py:2: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2726/2203491340.py:2: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   income_sum = income_data.groupby(&quot;decile&quot;).sum()
 </pre></div>
 </div>
@@ -1520,11 +1498,11 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b13ba3d62c22569e563d85187dbc88a307285da93ccd5d8a121cf0b63d712703.png" src="../_images/b13ba3d62c22569e563d85187dbc88a307285da93ccd5d8a121cf0b63d712703.png" />
+<img alt="../_images/4d2941065ba1f5e660f79d5fdef5490947400bc9cb34b3f984c7a688ff1f5ac6.png" src="../_images/4d2941065ba1f5e660f79d5fdef5490947400bc9cb34b3f984c7a688ff1f5ac6.png" />
 </div>
 </div>
 <section id="wealth">
-<h3><span class="section-number">9.6.1. </span>Wealth<a class="headerlink" href="#wealth" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.6.1. </span>Wealth<a class="headerlink" href="#wealth" title="Link to this heading">#</a></h3>
 <p>Typically, as the Piketty quote earlier on also said, wealth has a much more skewed distribution than income!</p>
 <p>Here, we will again work with generated, but realistic, data.</p>
 <div class="cell tag_hide-input docutils container">
@@ -1632,11 +1610,11 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7fc006ac0e50&gt;,
-  &lt;matplotlib.axis.XTick at 0x7fc006ac0e20&gt;,
-  &lt;matplotlib.axis.XTick at 0x7fc006ac07c0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7fc0132bac70&gt;,
-  &lt;matplotlib.axis.XTick at 0x7fc013b5fb20&gt;],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7f7b9979ff70&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f7b9979ff40&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f7b9979f790&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f7ba69b39d0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f7ba5f9bdf0&gt;],
  [Text(0.0, 0, &#39;0 €&#39;),
   Text(500000.0, 0, &#39;500 k€&#39;),
   Text(1000000.0, 0, &#39;1M €&#39;),
@@ -1644,7 +1622,7 @@ and update your code. This will become an error in seaborn v0.15.0.
   Text(2000000.0, 0, &#39;2M €&#39;)])
 </pre></div>
 </div>
-<img alt="../_images/76d0d980db1e63a9432430d94fed588782ca56114149eb06271dc5c96e000401.png" src="../_images/76d0d980db1e63a9432430d94fed588782ca56114149eb06271dc5c96e000401.png" />
+<img alt="../_images/9dcd5f3aeb89c26dc503e4186b7401cdd5d1bea300c0a37d99516a834143993a.png" src="../_images/9dcd5f3aeb89c26dc503e4186b7401cdd5d1bea300c0a37d99516a834143993a.png" />
 </div>
 </div>
 <p>This plot is technically OK. But is has a number of disadvantages. It is visually very centered on the left side due to the strong asymmetry in the wealth distribution. This also leads to the fact, that the <em>long tail</em>, that is all the fortunes above &gt; 500k€ are practically impossible to read in this plot. We can try different plot types.</p>
@@ -1667,11 +1645,11 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7fc006b1d100&gt;,
-  &lt;matplotlib.axis.XTick at 0x7fc006b1dbb0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7fc006bf5700&gt;,
-  &lt;matplotlib.axis.XTick at 0x7fc006b17790&gt;,
-  &lt;matplotlib.axis.XTick at 0x7fc006b85a90&gt;],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7f7b99847f40&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f7b99847190&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f7b99855250&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f7b998ddee0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f7b99862c10&gt;],
  [Text(0.0, 0, &#39;0 €&#39;),
   Text(500000.0, 0, &#39;500 k€&#39;),
   Text(1000000.0, 0, &#39;1000 k€&#39;),
@@ -1679,7 +1657,7 @@ and update your code. This will become an error in seaborn v0.15.0.
   Text(2000000.0, 0, &#39;2000 k€&#39;)])
 </pre></div>
 </div>
-<img alt="../_images/7ee60286afb03e0017471069dc775b5b79c6da940ca00b8595587fcaa08e2145.png" src="../_images/7ee60286afb03e0017471069dc775b5b79c6da940ca00b8595587fcaa08e2145.png" />
+<img alt="../_images/42adc98bf1653f9028335fdea597205ec67449a34a3b17da113726b4f06682c6.png" src="../_images/42adc98bf1653f9028335fdea597205ec67449a34a3b17da113726b4f06682c6.png" />
 </div>
 </div>
 <p>A <strong>violin plot</strong> is not as ugly as the boxplot in this case, but it also doesn’t solve our problem.</p>
@@ -1703,11 +1681,11 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7fc006b9c5e0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7fc006b9c4c0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7fc006b9cd00&gt;,
-  &lt;matplotlib.axis.XTick at 0x7fc013c1d3a0&gt;,
-  &lt;matplotlib.axis.XTick at 0x7fc013dfa880&gt;],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&lt;matplotlib.axis.XTick at 0x7f7ba69cdc10&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f7ba69cd910&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f7b9cf8f5e0&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f7ba6a64610&gt;,
+  &lt;matplotlib.axis.XTick at 0x7f7ba6a7fc40&gt;],
  [Text(0.0, 0, &#39;0 €&#39;),
   Text(500000.0, 0, &#39;500 k€&#39;),
   Text(1000000.0, 0, &#39;1000 k€&#39;),
@@ -1715,7 +1693,7 @@ and update your code. This will become an error in seaborn v0.15.0.
   Text(2000000.0, 0, &#39;2000 k€&#39;)])
 </pre></div>
 </div>
-<img alt="../_images/b877dc099e75cac771a267d8a6f825d4f47bc79ee7de4703a9c672d3166d0e39.png" src="../_images/b877dc099e75cac771a267d8a6f825d4f47bc79ee7de4703a9c672d3166d0e39.png" />
+<img alt="../_images/f8cc72806f48187691b0dc69c34d4506126ef249d7beabbbcd584e0dd16574af.png" src="../_images/f8cc72806f48187691b0dc69c34d4506126ef249d7beabbbcd584e0dd16574af.png" />
 </div>
 </div>
 <p>Sometimes it helps to switch from a linear to a logarithmic scale. Not in this case though:</p>
@@ -1740,12 +1718,12 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/289b4d1e8b074c4a2d428efab72f41c0c07cb7f76c926fe9682185ebeb974cb1.png" src="../_images/289b4d1e8b074c4a2d428efab72f41c0c07cb7f76c926fe9682185ebeb974cb1.png" />
+<img alt="../_images/2bf4f170a74282f6426c78f91ec2c992c257b949f55ab44b19b62d4432b5ab52.png" src="../_images/2bf4f170a74282f6426c78f91ec2c992c257b949f55ab44b19b62d4432b5ab52.png" />
 </div>
 </div>
 </section>
 <section id="exploring-wealth-distribution-a-different-approach">
-<h3><span class="section-number">9.6.2. </span>Exploring Wealth Distribution: A Different Approach<a class="headerlink" href="#exploring-wealth-distribution-a-different-approach" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">9.6.2. </span>Exploring Wealth Distribution: A Different Approach<a class="headerlink" href="#exploring-wealth-distribution-a-different-approach" title="Link to this heading">#</a></h3>
 <p>Analyzing wealth distribution can be quite abstract due to the vast range of values we might encounter. Even switching to non-linear scales is not overly satisfying here. Partly also, because capital can also be &lt;= 0 (which, unfortunately, it often is).</p>
 <p>One effective way to dissect this vastness is by segmenting it into more digestible chunks – like deciles.</p>
 <div class="cell tag_hide-input docutils container">
@@ -1774,13 +1752,13 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2620/996220485.py:5: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2726/996220485.py:5: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   ax.bar(x=np.arange(10), height=wealth_data.groupby(&quot;decile&quot;).median()[&quot;wealth&quot;])
-/tmp/ipykernel_2620/996220485.py:8: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+/tmp/ipykernel_2726/996220485.py:8: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   for i, v in enumerate(wealth_data.groupby(&quot;decile&quot;).median()[&quot;wealth&quot;]):
 </pre></div>
 </div>
-<img alt="../_images/d5353d49f55ba330089a24c8740c72d02f81d6447953e4964052851f059e0dbb.png" src="../_images/d5353d49f55ba330089a24c8740c72d02f81d6447953e4964052851f059e0dbb.png" />
+<img alt="../_images/694d023ab743e457cbfbb0b86d88b9884a22511976b7f4abec3c05f1f98d83e7.png" src="../_images/694d023ab743e457cbfbb0b86d88b9884a22511976b7f4abec3c05f1f98d83e7.png" />
 </div>
 </div>
 <p>But if we wish to amplify the impact of these insights visually, we can take a more graphical approach.</p>
@@ -1800,7 +1778,7 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2620/2253224710.py:1: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2726/2253224710.py:1: FutureWarning: The default of observed=False is deprecated and will be changed to True in a future version of pandas. Pass observed=False to retain current behavior or observed=True to adopt the future default and silence this warning.
   wealth_sum = wealth_data.groupby(&quot;decile&quot;).sum()
 </pre></div>
 </div>
@@ -1904,7 +1882,7 @@ and update your code. This will become an error in seaborn v0.15.0.
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/d962a57d62ac25cdee888b1f3ed935235c40d8e8a1b6fd5e57163719b223bb58.png" src="../_images/d962a57d62ac25cdee888b1f3ed935235c40d8e8a1b6fd5e57163719b223bb58.png" />
+<img alt="../_images/6907f5a43608201538c05a39d4da2199df81ae374c05227d68ea3c3937b8b964.png" src="../_images/6907f5a43608201538c05a39d4da2199df81ae374c05227d68ea3c3937b8b964.png" />
 </div>
 </div>
 <p>This visualization provides an illustrative look at how wealth is dispersed across different segments of society. Through such visual aids, abstract numbers transform into tangible insights. And I bet they help a lot in sparking discussions on the distribution of wealth…</p>
@@ -2025,7 +2003,7 @@ By Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

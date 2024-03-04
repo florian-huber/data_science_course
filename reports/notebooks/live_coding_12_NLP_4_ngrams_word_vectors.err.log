@@ -1,5 +1,5 @@
 Traceback (most recent call last):
-  File "/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/nbclient/client.py", line 778, in _async_poll_for_reply
+  File "/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/nbclient/client.py", line 782, in _async_poll_for_reply
     msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
   File "/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 198, in ensure_async
     result = await obj
@@ -12,27 +12,28 @@ During handling of the above exception, another exception occurred:
 Traceback (most recent call last):
   File "/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/nbclient/client.py", line 1305, in execute
+  File "/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/nbclient/client.py", line 1314, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
   File "/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
   File "/home/runner/micromamba/envs/data_science/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
     return future.result()
-  File "/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/nbclient/client.py", line 705, in async_execute
+  File "/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/nbclient/client.py", line 1001, in async_execute_cell
+  File "/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/nbclient/client.py", line 1005, in async_execute_cell
     exec_reply = await self.task_poll_for_reply
-  File "/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/nbclient/client.py", line 802, in _async_poll_for_reply
+  File "/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/nbclient/client.py", line 806, in _async_poll_for_reply
     error_on_timeout_execute_reply = await self._async_handle_timeout(timeout, cell)
-  File "/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/nbclient/client.py", line 852, in _async_handle_timeout
+  File "/home/runner/micromamba/envs/data_science/lib/python3.9/site-packages/nbclient/client.py", line 856, in _async_handle_timeout
     raise CellTimeoutError.error_from_timeout_and_cell(
 nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-vectorizer = TfidfVectorizer(min_df=5, max_df=0.25,
+vectorizer = TfidfVectorizer(min_df=10, max_df=0.2,
+                             max_features=10000,
                              ngram_range=(1, 3))  
-tfidf_vectors = vectorizer.fit_transform(data.review_full)
+tfidf_vectors = vectorizer.fit_transform(X_train)
 tfidf_vectors.shape
 -------------------
 

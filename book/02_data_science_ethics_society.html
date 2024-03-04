@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>3. Data Science, Ethics, and Society &#8212; Data Science for (not yet) scientists</title>
   
@@ -29,39 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/02_data_science_ethics_society';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -160,7 +155,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -437,7 +443,7 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="data-science-ethics-and-society">
-<h1><span class="section-number">3. </span>Data Science, Ethics, and Society<a class="headerlink" href="#data-science-ethics-and-society" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">3. </span>Data Science, Ethics, and Society<a class="headerlink" href="#data-science-ethics-and-society" title="Link to this heading">#</a></h1>
 <p>In a world that is increasingly data-driven, the role of data science extends beyond pure analysis and prediction. The use of data and algorithms is intimately entwined with ethical considerations and societal implications. The power of data science to influence and shape our world is vast, and, as the Spider-Man quote goes: <em>“with great power comes great responsibility”</em> (<a class="reference external" href="https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility">see wikipedia</a>).</p>
 <p>Analyzing online user behavior, studying internal corporate processes, evaluating political campaigns, developing algorithms in sectors such as medicine and research, and communicating scientific content — all of these tasks can be performed using data science. However, each of these also brings its own ethical questions and societal implications.</p>
 <p>Let’s delve into each of these aspects in a bit more detail:</p>
@@ -450,21 +456,21 @@ document.write(`
 </ul>
 <p>Therefore, the reach of data science is not limited to technology or business; it has immediate societal implications. But let’s have a closer look at some specific examples to get a better idea of what this actually means.</p>
 <section id="let-s-look-at-some-examples">
-<h2><span class="section-number">3.1. </span>Let’s look at some examples!<a class="headerlink" href="#let-s-look-at-some-examples" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.1. </span>Let’s look at some examples!<a class="headerlink" href="#let-s-look-at-some-examples" title="Link to this heading">#</a></h2>
 <section id="targeted-advertisement-good-bad-neutral">
-<h3><span class="section-number">3.1.1. </span>Targeted Advertisement - good, bad, neutral?<a class="headerlink" href="#targeted-advertisement-good-bad-neutral" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">3.1.1. </span>Targeted Advertisement - good, bad, neutral?<a class="headerlink" href="#targeted-advertisement-good-bad-neutral" title="Link to this heading">#</a></h3>
 <p>Even before the digital revolution, targeted advertising was a commonly used strategy. Businesses would use basic demographic information, such as age, gender, and location, to tailor their messages to specific audiences. However, with the advent of the internet and the surge in digital data, the face of targeted advertising has transformed completely. Today’s targeted ads are not just influenced by basic personal features but are significantly shaped by individual online behaviors, including search histories, website visits, and social media interactions <a class="reference internal" href="#fig-advertise01"><span class="std std-numref">Fig. 3.1</span></a>. This evolution has ushered in a new era of personalized advertising, elevating its precision and relevance to unprecedented levels.</p>
 <figure class="align-default" id="fig-advertise01">
 <img alt="../_images/fig_targeted_advertisement_01.png" src="../_images/fig_targeted_advertisement_01.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Targeted advertisement can nowadays use much more data and information on a potential customer (here: Alice) when compared to pre-digital times.</span><a class="headerlink" href="#fig-advertise01" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Targeted advertisement can nowadays use much more data and information on a potential customer (here: Alice) when compared to pre-digital times.</span><a class="headerlink" href="#fig-advertise01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>You may already be feeling a touch of unease. Is it truly beneficial for companies or other organizations to have access to all this data? On the flip side, consider this: isn’t it a <strong>win/win situation</strong>? Companies can reach a much more suitable audience, and individuals receive advertisements tailored to their profiles and interests. Take, for example, Alice (<a class="reference internal" href="#fig-advertise02"><span class="std std-numref">Fig. 3.2</span></a>). Because of her age (neither too young nor too old), location (within 2 hours of the festival venue), and interests (many likes for Hip-Hop bands), she receives an advertisement for a Hip-Hop festival. This offer is a clear match for her. However, Alice wouldn’t get a mail catalog for a package tour operator catering to a different customer profile—typically older and, let’s say, less concerned about the carbon emissions of their tours. That’s a plus for Alice. And a plus for both companies, isn’t it?</p>
 <figure class="align-default" id="fig-advertise02">
 <img alt="../_images/fig_targeted_advertisement_02.png" src="../_images/fig_targeted_advertisement_02.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 3.2 </span><span class="caption-text">In many cases target advertisement does little harm. It might even seem like a win/win situation at first.</span><a class="headerlink" href="#fig-advertise02" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.2 </span><span class="caption-text">In many cases target advertisement does little harm. It might even seem like a win/win situation at first.</span><a class="headerlink" href="#fig-advertise02" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>However, things get a bit more complex when we consider the marketing of more sensitive products. Let’s take the example of maternity wear. Suppose a company uses data science to detect early signs of pregnancy, like changes in online shopping behavior. They might then start sending ads for maternity clothes. This could potentially lead to uncomfortable or even harmful situations (<a class="reference internal" href="#fig-advertise03"><span class="std std-numref">Fig. 3.3</span></a>).</p>
@@ -472,7 +478,7 @@ document.write(`
 <figure class="align-default" id="fig-advertise03">
 <img alt="../_images/fig_targeted_advertisement_03.png" src="../_images/fig_targeted_advertisement_03.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 3.3 </span><span class="caption-text">But even advertisements can quickly turn into ethically much more complicated matters.</span><a class="headerlink" href="#fig-advertise03" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.3 </span><span class="caption-text">But even advertisements can quickly turn into ethically much more complicated matters.</span><a class="headerlink" href="#fig-advertise03" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>And what if the advertisement is not product in a classical sense, but a high-paying job?
@@ -480,7 +486,7 @@ Consider a study using AdFisher, an automated tool designed to scrutinize the in
 <figure class="align-default" id="fig-advertise04">
 <img alt="../_images/fig_targeted_advertisement_04.png" src="../_images/fig_targeted_advertisement_04.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Advertisements can have potentially large impacts… for instance if we talk about job advertisements.</span><a class="headerlink" href="#fig-advertise04" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Advertisements can have potentially large impacts… for instance if we talk about job advertisements.</span><a class="headerlink" href="#fig-advertise04" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>A similar study examined Facebook’s ad delivery process, revealing another layer of potential algorithmic discrimination <span id="id3">[<a class="reference internal" href="bibliography.html#id2" title="Muhammad Ali, Piotr Sapiezynski, Miranda Bogen, Aleksandra Korolova, Alan Mislove, and Aaron Rieke. Discrimination through optimization. Proceedings of the ACM on Human-Computer Interaction, 3(CSCW):1–30, nov 2019. URL: https://doi.org/10.1145%2F3359301, doi:10.1145/3359301.">Ali <em>et al.</em>, 2019</a>]</span>. The research indicated that, even when advertisers aim for inclusivity in their targeting parameters, the optimization processes employed by Facebook could inadvertently skew ad delivery along gender and racial lines. This was particularly evident in advertisements for employment and housing opportunities. As such, these findings underline the importance of scrutinizing not just the algorithms behind data analytics but also the optimization mechanisms of digital platforms themselves, further emphasizing the role data scientists must play in promoting fairness and preventing discrimination.</p>
@@ -489,13 +495,13 @@ Consider a study using AdFisher, an automated tool designed to scrutinize the in
 <figure class="align-default" id="fig-ethics-examples">
 <img alt="../_images/fig_algorithm_ethics.png" src="../_images/fig_algorithm_ethics.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 3.5 </span><span class="caption-text">In several actual cases, algorithms were (and are) used for decisions with very severe personal consequences.</span><a class="headerlink" href="#fig-ethics-examples" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.5 </span><span class="caption-text">In several actual cases, algorithms were (and are) used for decisions with very severe personal consequences.</span><a class="headerlink" href="#fig-ethics-examples" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 </section>
 <section id="data-science-comes-with-ethical-considerations">
-<h2><span class="section-number">3.2. </span>Data Science comes with ethical considerations<a class="headerlink" href="#data-science-comes-with-ethical-considerations" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">3.2. </span>Data Science comes with ethical considerations<a class="headerlink" href="#data-science-comes-with-ethical-considerations" title="Link to this heading">#</a></h2>
 <p>It is crucial to understand that, from an ethical standpoint, <strong>data is not neutral</strong> <span id="id7">[<a class="reference internal" href="bibliography.html#id30" title="Catherine D'Ignazio and Lauren F. Klein. Data feminism. &lt;Strong&gt; ideas series. The MIT Press, Cambridge, Massachusetts ; London, England, 2020. ISBN 978-0-262-04400-4.">D'Ignazio and Klein, 2020</a>]</span>, and likewise, <strong>algorithms are not neutral</strong> <span id="id8">[<a class="reference internal" href="bibliography.html#id15" title="Kirsten Martin. Ethical Implications and Accountability of Algorithms. Journal of Business Ethics, 160(4):835–850, December 2019. URL: https://doi.org/10.1007/s10551-018-3921-3 (visited on 2023-06-09), doi:10.1007/s10551-018-3921-3.">Martin, 2019</a>]</span><span id="id9">[<a class="reference internal" href="bibliography.html#id31" title="C. Stinson. Algorithms are not neutral. AI Ethics, 2:763–770, 2022. doi:10.1007/s43681-022-00136-w.">Stinson, 2022</a>]</span><span id="id10">[<a class="reference internal" href="bibliography.html#id9" title="Sina Fazelpour and David Danks. Algorithmic bias: Senses, sources, solutions. Philosophy Compass, 16(8):e12760, 2021. _eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1111/phc3.12760. URL: https://onlinelibrary.wiley.com/doi/abs/10.1111/phc3.12760 (visited on 2023-06-09), doi:10.1111/phc3.12760.">Fazelpour and Danks, 2021</a>]</span>. As (future) data scientists, we must exercise the utmost care when working with data and algorithms. The examples provided should illustrate the importance of critically reflecting on the intentions behind our actions as data scientists. This reflection should encompass various perspectives to comprehend the “bigger picture”. For instance, Shoshana Zuboff’s “The Age of Surveillance Capitalism” <span id="id11">[<a class="reference internal" href="bibliography.html#id32" title="Shoshana Zuboff. The Age of Surveillance Capitalism: The Fight for a Human Future at the New Frontier of Power. Profile Books, 1st edition, 2019. ISBN 9781781256848.">Zuboff, 2019</a>]</span> delves into how corporations like Google leverage users’ personal data, or “behavioral surplus”, to customize advertisements, essentially transforming users into products. Zuboff criticizes this practice, asserting that it undermines individuals’ autonomy and capacity to influence their future. She proposes regulations and corporate accountability to ensure that technology benefits users rather than merely serving large corporations. Hence, the fact that we, as data scientists, <em>can</em> potentially extract maximum information or yield the “best” predictions from data does not mean we <em>should</em> do so.</p>
 <p>A very important aspect in this context is the question of accountability, so who is in the end responsible for decisions taken by (or based on) an algorithm, see for instance <span id="id12">[<a class="reference internal" href="bibliography.html#id15" title="Kirsten Martin. Ethical Implications and Accountability of Algorithms. Journal of Business Ethics, 160(4):835–850, December 2019. URL: https://doi.org/10.1007/s10551-018-3921-3 (visited on 2023-06-09), doi:10.1007/s10551-018-3921-3.">Martin, 2019</a>]</span>. Most data scientists are no trained ethicists and lawyers, and they also don’t have to be. But I hope that the ethical aspects we briefly touch upon in this chapter make clear, that our role as data scientist is not finished when we have working code and a pretty looking plot in the end. It is not finished if we trained a machine-learning model that predicts with 99.9% accuracy (what does that mean anyway…). It is not finished when we successfully published our results or got a clap on our shoulder from the upper management. Our core job <strong>includes</strong> the ethical component, we have the duty to reflect on the potential consequences of our work. And this means, that we should not only learn how to apply the so many different data science methods, but also we need to learn enough about those methods to judge why we use a certain method and what common pitfalls are that we need to test and take care of. Luckily, making this extra efforts will also technically make us better data scientists.</p>
 <p>How do you feel now? Sounds like a heavy burden? Sure. But remember the wisdom of Spider-Man:</p>
@@ -503,9 +509,11 @@ Consider a study using AdFisher, an automated tool designed to scrutinize the in
 <div><p><strong>With great power comes great responsibility!</strong></p>
 </div></blockquote>
 <hr class="footnotes docutils" />
-<aside class="footnote brackets" id="target-story" role="note">
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="target-story" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
 <p>Such a case around a company called “target” <a class="reference external" href="https://www.nytimes.com/2012/02/19/magazine/shopping-habits.htmlmention">appeared in 2012 in the New York Times</a> and was often refereed to in debates around the power of “big data” in such a context. Worth noting maybe, that not everyone fully believed the story itself, e.g. this <a class="reference external" href="https://medium.com/&#64;colin.fraser/target-didnt-figure-out-a-teen-girl-was-pregnant-before-her-father-did-a6be13b973a5">blog post</a>.</p>
+</aside>
 </aside>
 </section>
 </section>
@@ -603,7 +611,7 @@ By Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

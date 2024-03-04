@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>11. Clustering &#8212; Data Science for (not yet) scientists</title>
   
@@ -29,39 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/live_coding_06_clustering';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -160,7 +155,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -446,15 +452,15 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="clustering">
-<h1><span class="section-number">11. </span>Clustering<a class="headerlink" href="#clustering" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">11. </span>Clustering<a class="headerlink" href="#clustering" title="Link to this heading">#</a></h1>
 <p>Clustering is a technique that groups together data points based on their similarities. In light of the data science workflow discussed before <code class="xref std std-numref docutils literal notranslate"><span class="pre">ch_workflow</span></code> clustering can be used as a data exploration tool as well as to model our data. In this section, we will explore different clustering algorithms, including KMeans and DBSCAN, and apply them to synthetic datasets. We will discuss how clustering algorithms work and what their different advantages and limitations are.</p>
 <section id="what-is-clustering">
-<h2><span class="section-number">11.1. </span>What is clustering?<a class="headerlink" href="#what-is-clustering" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.1. </span>What is clustering?<a class="headerlink" href="#what-is-clustering" title="Link to this heading">#</a></h2>
 <p>Clustering refers to the process of searching for a “natural” or useful divide of data points into a number of groups or: clusters. There is a commonly shared intuition that a “good” cluster is one where all datapoints have high similarity or share some important properties. In same cases, this can indeed be simple in the sense that most people would intuitively agree on a suitable division into clusters, such as illustrated in <a class="reference internal" href="#fig-clustering-intro"><span class="std std-numref">Fig. 11.1</span></a>. At least, I haven’t yet had a student that gave an answer that was different from “three” when asked for the number of groups in this dataset. In practice, however, those question will not be answered by any of my students, nor by me. We will use a range of different <strong>clustering algorithms</strong> to do the clustering for us.</p>
 <figure class="align-default" id="fig-clustering-intro">
 <img alt="../_images/fig_clustering_intro.png" src="../_images/fig_clustering_intro.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 11.1 </span><span class="caption-text">Clustering refers to dividing data points into separate groups or: clusters.</span><a class="headerlink" href="#fig-clustering-intro" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 11.1 </span><span class="caption-text">Clustering refers to dividing data points into separate groups or: clusters.</span><a class="headerlink" href="#fig-clustering-intro" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Next, we create such a synthetic dataset with three clusters. This dataset consists of three groups of points, each generated from a different Gaussian distribution. Each group of points has its own mean and standard deviation along the x and y axes.</p>
@@ -467,18 +473,6 @@ document.write(`
 <span class="c1"># optional, only to avoid KMeans warning on Windows (too few chunks compared to threads)</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;OMP_NUM_THREADS&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;2&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2675/1060257011.py:2: DeprecationWarning: 
-Pyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),
-(to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
-but was not found to be installed on your system.
-If this would cause problems for you,
-please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
-        
-  import pandas as pd
 </pre></div>
 </div>
 </div>
@@ -511,14 +505,14 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9ee68f424f85f3ff5f7361bf0a3fce48357fdbb45b3b6aaf0b8f975bba7586b6.png" src="../_images/9ee68f424f85f3ff5f7361bf0a3fce48357fdbb45b3b6aaf0b8f975bba7586b6.png" />
+<img alt="../_images/9a1b2d9cf43fe4f40da5f66efcc08474478f2181dcc384771da40aecfee81164.png" src="../_images/9a1b2d9cf43fe4f40da5f66efcc08474478f2181dcc384771da40aecfee81164.png" />
 </div>
 </div>
 <p>Assigning the three clusters in this case does not exactly feel like rocket science. We could all do this manually with a pen in no time. So, why bother to use - let alone understand or develop - algorithms for this task?</p>
 <p>There are two reasons why the shown figure makes the task look easy. First, the points are distributed in a way that immediately suggests clear boundaries or center positions. And everyone knows that not all cases will look that simple. More importantly, however, is the fact that in most cases our datapoints will be nothing we can simply “look” at, or draw lines around, because the data won’t be 2-dimensional. Instead, datapoints might have any number of features, which is exactly what I mean here with <em>dimensions</em>. And in 4D, 5D, 6D, 10D, 100D, there is no chance to manually assign clusters to datapoints.</p>
 <p>In addition, there are even more reasons to rather search for a good algorithm than to assign clusters manually. Algorithms allow to cluster much larger datasets. And, in some cases, they will give consistent, reproducible results, i.e., they will assign each element the same cluster whenever we run the algorithm again. We will later see, that this is not true for all clustering algorithms.</p>
 <section id="why-do-we-want-to-cluster-data">
-<h3><span class="section-number">11.1.1. </span>Why do we want to cluster data?<a class="headerlink" href="#why-do-we-want-to-cluster-data" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">11.1.1. </span>Why do we want to cluster data?<a class="headerlink" href="#why-do-we-want-to-cluster-data" title="Link to this heading">#</a></h3>
 <p>Clustering data serves as a fundamental technique in the data scientist’s toolkit for a myriad of reasons beyond the mere convenience of handling multidimensional data. One significant motive is the discovery of intrinsic patterns and structures within the data that are not apparent through simple observation, especially when dealing with high-dimensional datasets. These hidden patterns can unveil relationships, categories, and subclasses within the data that can lead to valuable insights and, ultimately, inform decision-making processes.</p>
 <p>Moreover, clustering enables us to summarize a vast amount of data through the formation of representative groups or clusters. This is not only efficient for data compression but also crucial for simplifying complex data for further analysis, visualization, and reporting. When we group similar data points together, we can study these groups’ characteristics to understand the underlying population better. For instance, in customer segmentation, clustering helps in identifying groups with common behaviors, leading to targeted marketing strategies.</p>
 <p>Another compelling reason to employ clustering is anomaly detection. By understanding what is ‘normal’ for a given cluster, it becomes easier to spot outliers or anomalies that may signify errors, fraud, or new, previously undocumented phenomena. This is particularly relevant in fields such as cybersecurity, where clustering can help in identifying unusual patterns that may indicate security breaches.</p>
@@ -529,22 +523,22 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 <figure class="align-default" id="fig-clustering-hard-soft">
 <img alt="../_images/fig_clustering_hard_soft.png" src="../_images/fig_clustering_hard_soft.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 11.2 </span><span class="caption-text">Two conceptually different types of clustering are <em>hard clustering</em> in which elements can only be part of one cluster (or none), and <em>soft clustering</em> which allows elements to be in more than one cluster. Unless specified otherwise, clustering usually refers to <em>hard clustering</em>.</span><a class="headerlink" href="#fig-clustering-hard-soft" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 11.2 </span><span class="caption-text">Two conceptually different types of clustering are <em>hard clustering</em> in which elements can only be part of one cluster (or none), and <em>soft clustering</em> which allows elements to be in more than one cluster. Unless specified otherwise, clustering usually refers to <em>hard clustering</em>.</span><a class="headerlink" href="#fig-clustering-hard-soft" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="mini-exercise">
-<h3><span class="section-number">11.1.2. </span>Mini-exercise<a class="headerlink" href="#mini-exercise" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">11.1.2. </span>Mini-exercise<a class="headerlink" href="#mini-exercise" title="Link to this heading">#</a></h3>
 <p>Team up with your neighbor (if in a class), or try on your own. Looking at the data displayed in <a class="reference internal" href="#fig-clustering-intro"><span class="std std-numref">Fig. 11.1</span></a>, how would you write an algorithm to automatically assign each datapoint a cluster it belongs to?</p>
 </section>
 <hr class="docutils" />
 <section id="what-did-you-come-up-with">
-<h3><span class="section-number">11.1.3. </span>What did you come up with?<a class="headerlink" href="#what-did-you-come-up-with" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">11.1.3. </span>What did you come up with?<a class="headerlink" href="#what-did-you-come-up-with" title="Link to this heading">#</a></h3>
 <p>When I ask this to students, I typically get many different answers. Including many suggestions that are very likely to work for the displayed example. One way to go is to look at distances between points and somehow define how far points are allowed to be before they no longer fall into the same cluster. Other approaches might include fitting lines, borders, shapes into the scatter datapoints. But there are many more options one could come up with. It is therefore no big surprise, that many different clustering algorithms exist.</p>
 </section>
 </section>
 <section id="kmeans-clustering">
-<h2><span class="section-number">11.2. </span>KMeans Clustering<a class="headerlink" href="#kmeans-clustering" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.2. </span>KMeans Clustering<a class="headerlink" href="#kmeans-clustering" title="Link to this heading">#</a></h2>
 <p>The K-means algorithm is often likened to the task of organizing similar items into buckets. To understand how it works in an accessible way, let’s envision we are sorting fruit based on sweetness and size. Each fruit will be a data point with sweetness and size as its two features.</p>
 <p>Here’s the step-by-step process:</p>
 <ol class="arabic simple">
@@ -560,7 +554,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 <figure class="align-default" id="fig-kmeans">
 <img alt="../_images/fig_kmeans_sketch.png" src="../_images/fig_kmeans_sketch.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 11.3 </span><span class="caption-text">Sketch of k-means algorithm…</span><a class="headerlink" href="#fig-kmeans" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 11.3 </span><span class="caption-text">Sketch of k-means algorithm…</span><a class="headerlink" href="#fig-kmeans" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Pros:</strong></p>
@@ -599,11 +593,11 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6603187ce5838e4683076c84405286ae08a3ae0cca6ec8a328c54b3e2fb0aa8a.png" src="../_images/6603187ce5838e4683076c84405286ae08a3ae0cca6ec8a328c54b3e2fb0aa8a.png" />
+<img alt="../_images/2150fca987e6e133cd40e0c6fa1b9a5cde3023a38338e53aadd5510e6d49e875.png" src="../_images/2150fca987e6e133cd40e0c6fa1b9a5cde3023a38338e53aadd5510e6d49e875.png" />
 </div>
 </div>
 <section id="very-often-clusters-are-not-that-easily-distinguishable">
-<h3><span class="section-number">11.2.1. </span>Very often, clusters are not that easily distinguishable!<a class="headerlink" href="#very-often-clusters-are-not-that-easily-distinguishable" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">11.2.1. </span>Very often, clusters are not that easily distinguishable!<a class="headerlink" href="#very-often-clusters-are-not-that-easily-distinguishable" title="Link to this heading">#</a></h3>
 <p>In the following code blocks we create a new synthetic dataset with five clusters, and visualize it.
 This is already one step more “realistic” in the sense that most commonly we do not deal with ideally distinctive clusters an shown in the examples above. Very often is is not so clear where a cluster begins and where one ends, nor how many clusters we actually have.</p>
 <div class="cell docutils container">
@@ -646,10 +640,10 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fbcb12e18b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f83c1872640&gt;
 </pre></div>
 </div>
-<img alt="../_images/9923337c31819913548f9bcc8e72c1d1a884de976af2237c75d6a8068accd6ae.png" src="../_images/9923337c31819913548f9bcc8e72c1d1a884de976af2237c75d6a8068accd6ae.png" />
+<img alt="../_images/139af31f6450a7d21cc3a313deb5dd07b37b7d6cc0661d6a0c67c19f19082235.png" src="../_images/139af31f6450a7d21cc3a313deb5dd07b37b7d6cc0661d6a0c67c19f19082235.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -708,10 +702,10 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fbcaf1b0df0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f83bf839850&gt;
 </pre></div>
 </div>
-<img alt="../_images/1fc71b893becb88c628960907aa2dba8cc886261cde2148e96a086b88adfcfb4.png" src="../_images/1fc71b893becb88c628960907aa2dba8cc886261cde2148e96a086b88adfcfb4.png" />
+<img alt="../_images/97dfe96b5268ad1a802e6603d09fd3ceaf1da9476658e86f02d30a8958c3c53c.png" src="../_images/97dfe96b5268ad1a802e6603d09fd3ceaf1da9476658e86f02d30a8958c3c53c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -745,7 +739,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </section>
 </section>
 <section id="dbscan-density-based-spatial-clustering-of-applications-with-noise">
-<h2><span class="section-number">11.3. </span>DBSCAN (Density-Based Spatial Clustering of Applications with Noise)<a class="headerlink" href="#dbscan-density-based-spatial-clustering-of-applications-with-noise" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.3. </span>DBSCAN (Density-Based Spatial Clustering of Applications with Noise)<a class="headerlink" href="#dbscan-density-based-spatial-clustering-of-applications-with-noise" title="Link to this heading">#</a></h2>
 <p>DBSCAN stands for Density-Based Spatial Clustering of Applications with Noise. It’s like an adventurous hike where we group together hikers based on how closely they walk together and how often they stop to rest. To explain DBSCAN in an accessible way, let’s consider our hikers as data points in a park (our dataset).</p>
 <p>Here’s how DBSCAN works:</p>
 <ol class="arabic simple">
@@ -817,7 +811,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e7be688b40063cdf93ec7c033ae7ec870d225d90ac165f84bcfa8edb34aeb6bf.png" src="../_images/e7be688b40063cdf93ec7c033ae7ec870d225d90ac165f84bcfa8edb34aeb6bf.png" />
+<img alt="../_images/5c12be56e68f74d032d9ea5829405085dc38f8d8b6c97cc14b41e68d60b45a5c.png" src="../_images/5c12be56e68f74d032d9ea5829405085dc38f8d8b6c97cc14b41e68d60b45a5c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -833,15 +827,15 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fbcac08b430&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f83bc6ee7f0&gt;
 </pre></div>
 </div>
-<img alt="../_images/3b13bf670dc7c849445573b3ef3c8210a1aac3855faa1f326a1709641a7da58e.png" src="../_images/3b13bf670dc7c849445573b3ef3c8210a1aac3855faa1f326a1709641a7da58e.png" />
+<img alt="../_images/e975836c9987b9d8ca0cf695bb0814a3fb5baa2a740fa537346bf7d5eb813aab.png" src="../_images/e975836c9987b9d8ca0cf695bb0814a3fb5baa2a740fa537346bf7d5eb813aab.png" />
 </div>
 </div>
 </section>
 <section id="gaussian-mixture-models">
-<h2><span class="section-number">11.4. </span>Gaussian mixture models<a class="headerlink" href="#gaussian-mixture-models" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.4. </span>Gaussian mixture models<a class="headerlink" href="#gaussian-mixture-models" title="Link to this heading">#</a></h2>
 <p>Gaussian Mixture Models (GMM) can be thought of as a sophisticated extension of the K-means clustering technique, with added flexibility. If we were to visualize data clustering as a process of sorting different types of coins based on their size and weight, K-means would sort them into predefined buckets, while GMM would be like having scales and calipers that tell us not just which bucket a coin most likely belongs to, but also provide a measure of our certainty about it.</p>
 <p>Here’s a breakdown of how GMM works:</p>
 <ol class="arabic simple">
@@ -909,10 +903,10 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fbc9ffc5c40&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f83bc6771c0&gt;
 </pre></div>
 </div>
-<img alt="../_images/e924b6f12d69b95ad2c1d3e11d0b57faa51d40b2d4839acc81b1546f10fa8fa7.png" src="../_images/e924b6f12d69b95ad2c1d3e11d0b57faa51d40b2d4839acc81b1546f10fa8fa7.png" />
+<img alt="../_images/72c0f4dc8bccc1457b515ed6dac071e12cbc685f826d622712152b60887bc2fd.png" src="../_images/72c0f4dc8bccc1457b515ed6dac071e12cbc685f826d622712152b60887bc2fd.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -926,10 +920,10 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fbcac0b43d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f83bc5f4fa0&gt;
 </pre></div>
 </div>
-<img alt="../_images/bdf333ea89f51be47b610cff589162138925aeeabdffd3afe678fdb934441951.png" src="../_images/bdf333ea89f51be47b610cff589162138925aeeabdffd3afe678fdb934441951.png" />
+<img alt="../_images/c615ea8bc1bc7db8cbcb4d5f9b44812e529340b0f5eb8382ca55949c6bc12f1a.png" src="../_images/c615ea8bc1bc7db8cbcb4d5f9b44812e529340b0f5eb8382ca55949c6bc12f1a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -974,12 +968,12 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/64c848eeddd4a819d7a12fa2f2a62b8eb0166ebb326f5a8310cef53ad546fbbe.png" src="../_images/64c848eeddd4a819d7a12fa2f2a62b8eb0166ebb326f5a8310cef53ad546fbbe.png" />
+<img alt="../_images/e86e6b1699384178bd1c0c71c3cfddd484499210af2244dfd66a18a052374dae.png" src="../_images/e86e6b1699384178bd1c0c71c3cfddd484499210af2244dfd66a18a052374dae.png" />
 </div>
 </div>
 </section>
 <section id="hierarchical-clustering-ward">
-<h2><span class="section-number">11.5. </span>Hierarchical clustering (Ward)<a class="headerlink" href="#hierarchical-clustering-ward" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.5. </span>Hierarchical clustering (Ward)<a class="headerlink" href="#hierarchical-clustering-ward" title="Link to this heading">#</a></h2>
 <p>Hierarchical clustering, particularly the Ward method, operates much like a family tree of data points, showing the relationships between different clusters from the ground up. To visualize hierarchical clustering in an everyday context, imagine a scenario where we’re trying to organize a large collection of books on a set of shelves.</p>
 <p>Here’s the process outlined in a more accessible manner:</p>
 <ol class="arabic simple">
@@ -1022,10 +1016,10 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fbc9fe705b0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f83bc50a460&gt;
 </pre></div>
 </div>
-<img alt="../_images/ca514133a46ab91582879ddf670caaf6ef17811319192c14488ea26f27d8eb85.png" src="../_images/ca514133a46ab91582879ddf670caaf6ef17811319192c14488ea26f27d8eb85.png" />
+<img alt="../_images/ba98f3368a56f56c16262959d46112ff34be642e2b00e97289a84dbf1de3b0b9.png" src="../_images/ba98f3368a56f56c16262959d46112ff34be642e2b00e97289a84dbf1de3b0b9.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1050,15 +1044,15 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fbc9fd827c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f84041efc10&gt;
 </pre></div>
 </div>
-<img alt="../_images/2d5468642cb9e0f922b395f0a7708a45fa9364130a512126fc8480b7872caac2.png" src="../_images/2d5468642cb9e0f922b395f0a7708a45fa9364130a512126fc8480b7872caac2.png" />
+<img alt="../_images/10c3f09b5d73d587f9ed1a0c5f8ab866c0ce6ef4669c85592132d301b80c6cda.png" src="../_images/10c3f09b5d73d587f9ed1a0c5f8ab866c0ce6ef4669c85592132d301b80c6cda.png" />
 </div>
 </div>
 </section>
 <section id="comparison-and-conclusion">
-<h2><span class="section-number">11.6. </span>Comparison and Conclusion<a class="headerlink" href="#comparison-and-conclusion" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">11.6. </span>Comparison and Conclusion<a class="headerlink" href="#comparison-and-conclusion" title="Link to this heading">#</a></h2>
 <p>In this section, we have explored four different clustering algorithms: K-means, DBSCAN, Gaussian Mixture Model (GMM) and hierarchical clustering. Each of these algorithms has its own advantages and disadvantages.</p>
 <p><strong>K-means</strong> is a simple and easy-to-understand algorithm that works well with isotropic clusters. However, it requires the user to specify the number of clusters beforehand and assumes equal-sized clusters. K-means is also sensitive to initial conditions and may converge to a local minimum.</p>
 <p><strong>DBSCAN</strong> does not require the user to specify the number of clusters and can identify clusters with arbitrary shapes. It is also robust to noise. However, DBSCAN may struggle with clusters of varying densities, and the choice of hyperparameters (epsilon and min_samples) can significantly affect the results.</p>
@@ -1108,7 +1102,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2801060d4d6b891fc71efd61cd99df01c3265c73b92a546e030d8cff2c7a367b.png" src="../_images/2801060d4d6b891fc71efd61cd99df01c3265c73b92a546e030d8cff2c7a367b.png" />
+<img alt="../_images/5d5896d0efb0d4554d60c7b505778f650eb1c6e821c152910dd95a6b5a5d91dd.png" src="../_images/5d5896d0efb0d4554d60c7b505778f650eb1c6e821c152910dd95a6b5a5d91dd.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1163,7 +1157,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4b22eacf893487fc4e1a1a4ace7d727cd989d2872246a654454877e919019770.png" src="../_images/4b22eacf893487fc4e1a1a4ace7d727cd989d2872246a654454877e919019770.png" />
+<img alt="../_images/a0babd9d6ab9bbc8da03cb65af1a5544624aaed9410725e5d31d2e2a0b4abe83.png" src="../_images/a0babd9d6ab9bbc8da03cb65af1a5544624aaed9410725e5d31d2e2a0b4abe83.png" />
 </div>
 </div>
 </section>
@@ -1271,7 +1265,7 @@ By Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

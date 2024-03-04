@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>14. Machine Learning &#8212; Data Science for (not yet) scientists</title>
   
@@ -29,39 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/live_coding_08_machine_learning';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -160,7 +155,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -420,7 +426,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#want-to-read-more-on-this">14.1. Want to read more on this?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-algorithms">14.1. Common algorithms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#want-to-read-more-on-this">14.1.1. Want to read more on this?</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -433,7 +442,56 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="machine-learning">
-<h1><span class="section-number">14. </span>Machine Learning<a class="headerlink" href="#machine-learning" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">14. </span>Machine Learning<a class="headerlink" href="#machine-learning" title="Link to this heading">#</a></h1>
+<p>There is still a lot of confusion about terms like <strong>artificial intelligence</strong> (or: <strong>A.I.</strong>), <strong>machine learning</strong>, and <strong>deep learning</strong>.
+The aim of this course is not to give a full in-depth introduction to all those topics, because this clearly demands one (or usually: multiple) courses on its own.</p>
+<p>However, what this section should show is, that the underlying idea of machine learning is often quite approachable. And the some of the respective techniques can be used with relative ease, at least from the code perspective. If you haven’t learnt the basics of machine learning before, it is unlikely that this section will make you feel like you have mastered the art. But, again, this is not the main goal.</p>
+<p>Machine learning is a subfield of <em>artificial intelligence</em> (see <a class="reference internal" href="live_coding_07_dimensionality_reduction.html#fig-dimensionality-reduction01"><span class="std std-numref">Fig. 13.1</span></a>), which often makes this sound very intimidating at first. In its full complexity, this is indeed hard to master. But it is important to note at this point, that machine learning itself can also be seen as <em>just another tool</em> that we have as data scientists. In fact, many of its techniques are no more complicated or complex than methods in dimensionality reduction or clustering that we have seen in the last chapters (some even consider those as part of machine learning, but I will skip this discussion for now).</p>
+<figure class="align-default" id="fig-ai-vs-ml-vs-dl">
+<img alt="../_images/fig_ai_vs_ml_vs_deep_learning.png" src="../_images/fig_ai_vs_ml_vs_deep_learning.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.1 </span><span class="caption-text">Machine Learning is a field of techniques that belongs to <em>artificial intelligence</em>. Currently, machine learning is even the main representation of artificial intelligence with <em>deep learning</em> being the most prominent subset. Here, however, we will focus on more classical machine learning techniques (no worries, those remain equally important in real-life practice!).</span><a class="headerlink" href="#fig-ai-vs-ml-vs-dl" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The key idea behind machine learning is that we use algorithms that <em>“learn from data”</em>. Learning here is nothing magic and typically means something very different from our everyday use of the word “learning” in a human context. Learning here simply means that the rules by which a program decides on its outcome or behavior are no longer <em>hard-coded</em> by a person, but they are automatically searched and optimized.</p>
+<p>To give you an idea of how simple this “learning” can be: Imagine we have two highly correlated features, for instance the shoe size and the height of of many people. We could than automatically find a good linear fit function and then use this to make predictions for new data entries. Say, you find footprints of size 47 after a robery, then your new “machine learning model” (yes, that’s simply the linear fit!) can predict the height of that person (<a class="reference internal" href="#fig-predictions-already-done"><span class="std std-numref">Fig. 14.2</span></a><strong>A</strong>). The prediction is probably not perfect, but we have good reasons to believe that it most likely won’t be too far off either.</p>
+<p>Or, think of several chat messages that we clustered into “spam”, “negative”, and “positive” and which is nicely reflected by their position in a 2D plot after dimensionality reduction (<a class="reference internal" href="#fig-predictions-already-done"><span class="std std-numref">Fig. 14.2</span></a><strong>B</strong>). If we now receive a new message which ends up clearly within the “positive” cluster, then we can obviously risk the first best guess of saying that this might be a positive message as well. Again, we could be wrong, but based on the data we have, this simply seems to be the best guess we can do.</p>
+<p>So, when is this going to be called <em>machine learning</em>?
+When we have an algorithm that does this guessing based on the data for us it is machine learning. If we do the guessing, it is not machine learning.</p>
+<figure class="align-default" id="fig-predictions-already-done">
+<img alt="../_images/fig_predictions_already_done.png" src="../_images/fig_predictions_already_done.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.2 </span><span class="caption-text">Even before coming to this chapter, we have already worked with techniques that would actually allow to make predictions on the basis of known data points. <strong>A</strong>, when we looked at (high) correlations this already implied that there is a more or less reliable link between different features. <strong>B</strong>, when we think of clustering and dimensionality reduction it seems rather obvious that we could make predictions for new datapoints based on their lower dimensional position!</span><a class="headerlink" href="#fig-predictions-already-done" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Before we have a look at some actual machine learning techniques, we should look at one key distinction to make. In machine learning we distinguish two types of tasks that a model can do. <strong>Classification</strong> means that models will predict the class of unknown datapoints based on what they “learned” from <strong>labeled data</strong>. Labeled data means that this is data for which we <em>know</em> the true labels (also called: targets or ground truth).</p>
+<p><strong>Regression</strong> means that models will predict one (or multiple) numerical values for unknown datapoints, see <a class="reference internal" href="#fig-classification-regression"><span class="std std-numref">Fig. 14.3</span></a>.</p>
+<figure class="align-default" id="fig-classification-regression">
+<img alt="../_images/fig_classification_regression.png" src="../_images/fig_classification_regression.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.3 </span><span class="caption-text">In <em>machine learning</em> we distinguish <strong>classification</strong> and <strong>regression</strong> tasks. The key difference is that classification models will predict one out of several possible categories while regression models output numerical values (floats).</span><a class="headerlink" href="#fig-classification-regression" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<section id="common-algorithms">
+<h2><span class="section-number">14.1. </span>Common algorithms<a class="headerlink" href="#common-algorithms" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>k-nearest neighbors</p></li>
+<li><p>linear regression</p></li>
+<li><p>logistic regression</p></li>
+<li><p>decision trees</p></li>
+<li><p>random forests</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Material yet to be cleaned and prepared...</span>
@@ -442,11 +500,12 @@ document.write(`
 </div>
 </div>
 <section id="want-to-read-more-on-this">
-<h2><span class="section-number">14.1. </span>Want to read more on this?<a class="headerlink" href="#want-to-read-more-on-this" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">14.1.1. </span>Want to read more on this?<a class="headerlink" href="#want-to-read-more-on-this" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>https://github.com/GeostatsGuy/PythonNumericalDemos/tree/master</p></li>
 <li><p>https://inferentialthinking.com/chapters/intro.html#</p></li>
 </ul>
+</section>
 </section>
 </section>
 
@@ -514,7 +573,10 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#want-to-read-more-on-this">14.1. Want to read more on this?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-algorithms">14.1. Common algorithms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#want-to-read-more-on-this">14.1.1. Want to read more on this?</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
@@ -539,7 +601,7 @@ By Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

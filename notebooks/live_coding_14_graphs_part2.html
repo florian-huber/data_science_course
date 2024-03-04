@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>21. Bottlenecks, Hubs, Communities &#8212; Data Science for (not yet) scientists</title>
   
@@ -29,39 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/live_coding_14_graphs_part2';</script>
@@ -162,7 +157,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -442,9 +448,9 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="bottlenecks-hubs-communities">
-<h1><span class="section-number">21. </span>Bottlenecks, Hubs, Communities<a class="headerlink" href="#bottlenecks-hubs-communities" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">21. </span>Bottlenecks, Hubs, Communities<a class="headerlink" href="#bottlenecks-hubs-communities" title="Link to this heading">#</a></h1>
 <section id="measuring-the-structure-of-a-graph">
-<h2><span class="section-number">21.1. </span>Measuring the Structure of a Graph<a class="headerlink" href="#measuring-the-structure-of-a-graph" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">21.1. </span>Measuring the Structure of a Graph<a class="headerlink" href="#measuring-the-structure-of-a-graph" title="Link to this heading">#</a></h2>
 <p>Graphs come in a multitude of different forms or structures. There are graphs with few connections per node (low average degree, e.g., high-school dating dataset) and those with many connections per node (e.g., social networks).</p>
 <p>Moreover, there is a whole range of metrics that can tell us something about the nature of a graph. For instance, the average path length is an indicator of how far apart elements typically are. Networks with many cross-connections and hubs/centers usually have a small average path length (often referred to as “Small World” in some contexts).</p>
 <p>The <em>Clustering Coefficient</em> indicates how well nodes are interconnected, i.e., how often neighbor nodes are also neighbors of each other (“A friend of a friend is a friend…”).</p>
@@ -465,11 +471,11 @@ C= \frac{\sum_{i:k&gt;1}C(i)}{N_{k&gt;1   }}
 \]</div>
 </section>
 <section id="how-important-is-a-node">
-<h2><span class="section-number">21.2. </span>How important is a Node?<a class="headerlink" href="#how-important-is-a-node" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">21.2. </span>How important is a Node?<a class="headerlink" href="#how-important-is-a-node" title="Link to this heading">#</a></h2>
 <p>Often, we are interested in the importance of individual nodes. Which elements are essential for the network? What are potential bottlenecks? Who / What is best connected?</p>
 <p>For this, there are a number of measuring methods, two of the most well-known are <em>closeness centrality</em> and <em>betweenness centrality</em>. The naming of these two terms is not ideal, at least we saw that if often is confusing to students at first. But let’s try to understand both measures to learn what we can use them for.</p>
 <section id="closeness-centrality">
-<h3><span class="section-number">21.2.1. </span>Closeness Centrality<a class="headerlink" href="#closeness-centrality" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">21.2.1. </span>Closeness Centrality<a class="headerlink" href="#closeness-centrality" title="Link to this heading">#</a></h3>
 <p>The <em>closeness centrality</em> measures the average distance from a node to all other nodes. High closeness centrality means a small average distance (since the reciprocal is used in the formula), i.e., the nodes with the highest values are the “central” points of the network. It’s fastest to get anywhere from here.</p>
 <p><strong>Closeness centrality (for nodes)</strong>:</p>
 <div class="math notranslate nohighlight">
@@ -480,7 +486,7 @@ g_i =\frac{N - 1}{\sum  _{i\neq j}\ell_{ij}}
 <p>It is important to note, that the closeness centrality does not necessarily reflect what we intuitively mean by the “importance” of a node for the rest of the network. If you live in a tiny village that happens to be close to a major traffic hub, such as an international airport, this node (your village) would get a high closeness centrality because many other nodes are within short reach. The really important node, however, is the trafic hub itself an not your village (hope this doesn’t hurt any feelings…).</p>
 </section>
 <section id="betweenness-centrality">
-<h3><span class="section-number">21.2.2. </span>Betweenness Centrality<a class="headerlink" href="#betweenness-centrality" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">21.2.2. </span>Betweenness Centrality<a class="headerlink" href="#betweenness-centrality" title="Link to this heading">#</a></h3>
 <p><em>Betweenness centrality</em> considers how many of all shortest paths pass through a certain node. Or in other words, how many shortest paths would be eliminated if a certain node were removed. Bottlenecks in the network, for instance, are characterized by high <em>betweenness centrality</em>. But also central hubs that facilitate many paths in the network will rank high.</p>
 <p><strong>Betweenness centrality (for nodes)</strong></p>
 <div class="math notranslate nohighlight">
@@ -505,18 +511,6 @@ b_i = \sum  _{h \neq j \neq i}\frac{\sigma(j, h |i)}{\sigma(j, h)}
 </div>
 </div>
 </details>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3091/3799176754.py:2: DeprecationWarning: 
-Pyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),
-(to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
-but was not found to be installed on your system.
-If this would cause problems for you,
-please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
-        
-  import pandas as pd
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -540,13 +534,13 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3e1b59439f100391c7c09660921f53dc19e663eb345564a2b55b03458a1a3f79.png" src="../_images/3e1b59439f100391c7c09660921f53dc19e663eb345564a2b55b03458a1a3f79.png" />
+<img alt="../_images/6f264297b2be090135aa327edcac4ea639ddc753841ccbd6dc3a8caa6b653263.png" src="../_images/6f264297b2be090135aa327edcac4ea639ddc753841ccbd6dc3a8caa6b653263.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="what-are-the-most-important-nodes">
-<h2><span class="section-number">21.3. </span>What are the “most important” nodes?<a class="headerlink" href="#what-are-the-most-important-nodes" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">21.3. </span>What are the “most important” nodes?<a class="headerlink" href="#what-are-the-most-important-nodes" title="Link to this heading">#</a></h2>
 <p>Graphs often represent complex data containing a lot of information about relationships, flows, routes, etc.
 …</p>
 <p>We are often interested in measuring the “importance” of nodes. And importance can mean a lot of different things, depending on what my data is and what my precise question and interest is.</p>
@@ -606,12 +600,12 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/946993cad0a8c3d2725477c2445d210cbc72c3eff9c41b5d03bace06e347227b.png" src="../_images/946993cad0a8c3d2725477c2445d210cbc72c3eff9c41b5d03bace06e347227b.png" />
+<img alt="../_images/79cfc0b893cb301e0c36e1721bf29cdd7dca960789e5ed435347c6ee9f46c553.png" src="../_images/79cfc0b893cb301e0c36e1721bf29cdd7dca960789e5ed435347c6ee9f46c553.png" />
 </div>
 </div>
 </section>
 <section id="how-important-is-an-edge">
-<h2><span class="section-number">21.4. </span>How important is an edge?<a class="headerlink" href="#how-important-is-an-edge" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">21.4. </span>How important is an edge?<a class="headerlink" href="#how-important-is-an-edge" title="Link to this heading">#</a></h2>
 <p><em>Betweenness centrality</em> can be calculated not only for nodes but also for edges. Analog to the case for nodes you can think of this as a question to how often a certain link is used when traversing the graph between two nodes.</p>
 <p><strong>Betweenness centrality (for edges)</strong></p>
 <div class="math notranslate nohighlight">
@@ -718,7 +712,7 @@ By Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

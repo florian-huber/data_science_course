@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>17. Computing with Text: Counting words &#8212; Data Science for (not yet) scientists</title>
   
@@ -29,39 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/live_coding_11_NLP_3_tfifd_and_machine_learning';</script>
@@ -162,7 +157,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -462,17 +468,17 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="computing-with-text-counting-words">
-<h1><span class="section-number">17. </span>Computing with Text: Counting words<a class="headerlink" href="#computing-with-text-counting-words" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">17. </span>Computing with Text: Counting words<a class="headerlink" href="#computing-with-text-counting-words" title="Link to this heading">#</a></h1>
 <section id="turning-text-into-vectors">
-<h2><span class="section-number">17.1. </span>Turning Text into Vectors<a class="headerlink" href="#turning-text-into-vectors" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.1. </span>Turning Text into Vectors<a class="headerlink" href="#turning-text-into-vectors" title="Link to this heading">#</a></h2>
 <p>As we progress in the world of Data Science, we often find ourselves needing to transform our data into a format that’s more suitable for computation and analysis. When dealing with textual data, this means converting our words into numeric representations, often in the form of vectors. But why vectors, you may ask? Machine Learning algorithms, at their core, work with numerical data. They’re able to identify patterns, trends and relationships within numeric data much more effectively. Numerical vectors are a very suitable input for machine learning models. In addition, such vectors allow to directly use methods from algebra, for instance to computed distances or similarities between data points.</p>
 <section id="distance-similarity-measures">
-<h3><span class="section-number">17.1.1. </span>Distance/similarity measures<a class="headerlink" href="#distance-similarity-measures" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">17.1.1. </span>Distance/similarity measures<a class="headerlink" href="#distance-similarity-measures" title="Link to this heading">#</a></h3>
 <p>Depending on the type of numerical vector there are many suitable methods to compute vector-vector similarities (or inverse: distances). For real-numbered (float) vectors we can for instance simply use the <strong>Euclidean distance</strong> which you will know from Pythagoras. Or a <strong>Cosine similarity</strong> based on the angle between two vectors. For binary vectors there are other measures such as the <strong>Jaccard similarity</strong>.</p>
 </section>
 </section>
 <section id="one-hot-encoding">
-<h2><span class="section-number">17.2. </span>One-Hot Encoding<a class="headerlink" href="#one-hot-encoding" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.2. </span>One-Hot Encoding<a class="headerlink" href="#one-hot-encoding" title="Link to this heading">#</a></h2>
 <p>The first step towards this transformation is to use a method known as <strong>One-Hot Encoding</strong>. In this process, each word in the sentence is represented as a vector in an N-dimensional space where N is the number of unique words in the sentence. Each word is represented as a vector of length N, with all elements being 0, except for one element which is 1, indicating the presence of the word.</p>
 <p>For instance, consider the sentences: “I like cats” and “I like dogs”. In a one-hot encoding scheme, these sentences would be represented by the vectors:</p>
 <ul class="simple">
@@ -496,18 +502,6 @@ The distance between “happiness” and “die” is the same as between “Tha
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
 <span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2973/4271865306.py:3: DeprecationWarning: 
-Pyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),
-(to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
-but was not found to be installed on your system.
-If this would cause problems for you,
-please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
-        
-  import pandas as pd
 </pre></div>
 </div>
 </div>
@@ -539,7 +533,7 @@ Distance between vector1 and vector3: 4.243.
 </div>
 </section>
 <section id="term-frequency-inverse-document-frequency-tf-idf">
-<h2><span class="section-number">17.3. </span>Term Frequency-Inverse Document Frequency (TF-IDF)<a class="headerlink" href="#term-frequency-inverse-document-frequency-tf-idf" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.3. </span>Term Frequency-Inverse Document Frequency (TF-IDF)<a class="headerlink" href="#term-frequency-inverse-document-frequency-tf-idf" title="Link to this heading">#</a></h2>
 <p>To resolve these issues, we use a more sophisticated method called <strong>Term Frequency-Inverse Document Frequency (TF-IDF)</strong>. This measure helps us to evaluate how important a word is to a document within a corpus. The importance increases proportionally to the number of times a word appears in the document but is offset by the frequency of the word in the corpus.</p>
 <p>The TF-IDF weight is composed of two terms:</p>
 <ul class="simple">
@@ -563,11 +557,11 @@ Distance between vector1 and vector3: 4.243.
 <p>Finally, we can use these TF-IDF vectors to train Machine Learning models. For example, we can train a logistic regression model for sentiment analysis. By turning our words into vectors, we’ve opened up a new world of possibilities for analysis and model training, pushing the boundaries of what we can achieve with Natural Language Processing.</p>
 </section>
 <section id="hands-on-hotel-reviews">
-<h2><span class="section-number">17.4. </span>Hands-on: Hotel Reviews<a class="headerlink" href="#hands-on-hotel-reviews" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.4. </span>Hands-on: Hotel Reviews<a class="headerlink" href="#hands-on-hotel-reviews" title="Link to this heading">#</a></h2>
 <p>Let’s work with some actual data!</p>
 <p>We here will work with a dataset of about 20,000 hotel reviews from tripadvisor <a class="reference external" href="https://zenodo.org/records/1219899">see original dataset on zenodo</a> or <a class="reference external" href="https://www.kaggle.com/datasets/andrewmvd/trip-advisor-hotel-reviews">see dataset on kaggle</a>. The goal will be to train a machine learning model to predict rating based on a review text.</p>
 <section id="data-import-and-exploration">
-<h3><span class="section-number">17.4.1. </span>Data import and exploration<a class="headerlink" href="#data-import-and-exploration" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">17.4.1. </span>Data import and exploration<a class="headerlink" href="#data-import-and-exploration" title="Link to this heading">#</a></h3>
 <p>We will import the data using <code class="docutils literal notranslate"><span class="pre">Pandas</span></code>. We will then explore the data a bit. But since this dataset was already prepared to work for machine learning tasks, there is complicated data processing steps that we have to do at this point.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -645,34 +639,34 @@ Distance between vector1 and vector3: 4.243.
 <span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1024,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1011</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1012</span>     <span class="n">dialect</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1013</span>     <span class="n">delimiter</span><span class="p">,</span>
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1026,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1013</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1014</span>     <span class="n">dialect</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1015</span>     <span class="n">delimiter</span><span class="p">,</span>
    <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1020</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1021</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1022</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1024</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1022</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1023</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1024</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1026</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
 
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/pandas/io/parsers/readers.py:618,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">615</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">617</span> <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">618</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">620</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">621</span>     <span class="k">return</span> <span class="n">parser</span>
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/pandas/io/parsers/readers.py:620,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
+<span class="g g-Whitespace">    </span><span class="mi">617</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">619</span> <span class="c1"># Create the parser.</span>
+<span class="ne">--&gt; </span><span class="mi">620</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">622</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">623</span>     <span class="k">return</span> <span class="n">parser</span>
 
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1618,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1615</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1617</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="ne">-&gt; </span><span class="mi">1618</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1620,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1617</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1619</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">1620</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
 
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1896,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1893</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1895</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1896</span>     <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1897</span> <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1898</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1898,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1895</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1897</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1898</span>     <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1899</span> <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1900</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 
 <span class="nn">File ~/micromamba/envs/data_science/lib/python3.9/site-packages/pandas/io/parsers/c_parser_wrapper.py:93,</span> in <span class="ni">CParserWrapper.__init__</span><span class="nt">(self, src, **kwds)</span>
 <span class="g g-Whitespace">     </span><span class="mi">90</span> <span class="k">if</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;dtype_backend&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;pyarrow&quot;</span><span class="p">:</span>
@@ -736,7 +730,7 @@ memory usage: 320.3+ KB
 <p>Here we see a first potential issue, a <strong>bias of the ratings</strong>. The dataset contains far more positive reviews (&gt;= 4) than neutral or negative ones. This is a common problem in machine learning and there are strategies to deal with this (e.g. <em>oversampling</em> or using <em>class weights</em>), but for now we will simply ignore it.</p>
 </section>
 <section id="train-test-split">
-<h3><span class="section-number">17.4.2. </span>Train/Test Split<a class="headerlink" href="#train-test-split" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">17.4.2. </span>Train/Test Split<a class="headerlink" href="#train-test-split" title="Link to this heading">#</a></h3>
 <p>Let us first split the data into a training and test set (see chapters on machine learning!).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -800,13 +794,13 @@ Test dataset size: (4099,)
 </div>
 </div>
 <section id="what-does-sparse-matrix-mean">
-<h4><span class="section-number">17.4.2.1. </span>What does <code class="docutils literal notranslate"><span class="pre">sparse</span> <span class="pre">matrix</span></code> mean?<a class="headerlink" href="#what-does-sparse-matrix-mean" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">17.4.2.1. </span>What does <code class="docutils literal notranslate"><span class="pre">sparse</span> <span class="pre">matrix</span></code> mean?<a class="headerlink" href="#what-does-sparse-matrix-mean" title="Link to this heading">#</a></h4>
 <p>We have seen before, that such sentence (or text) vector can quickly become very long. Here each vector as 47073 positions, one for each word. But most of these words do not occur in a particular sentence, so most positions in a tfidf-vector are simply <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
 <p>To save all those numbers would be very vastefull memory wise. So, scikit-learn here uses so called <code class="docutils literal notranslate"><span class="pre">sparse</span> <span class="pre">matrices</span></code> which only store the data for non-zero positions. We can look at the data with the <code class="docutils literal notranslate"><span class="pre">.data</span></code> attribute. Or we can convert it to a dense vector (that includes all zeros) by using <code class="docutils literal notranslate"><span class="pre">.toarray()</span></code>.</p>
 </section>
 </section>
 <section id="reduce-tfidf-vector-size">
-<h3><span class="section-number">17.4.3. </span>Reduce tfidf vector size<a class="headerlink" href="#reduce-tfidf-vector-size" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">17.4.3. </span>Reduce tfidf vector size<a class="headerlink" href="#reduce-tfidf-vector-size" title="Link to this heading">#</a></h3>
 <p>So far we simply used the <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer</span></code> without setting any parameters, which means that it will simply use default values. In our case, however, we end up with rather large tfidf vectors. In particular given the relatively small dataset (small for NLP standards) and the rather short reviews.</p>
 <p>In many cases, and here as well, we also deal with text data of strongly varying quality. This can lead to many words in the <code class="docutils literal notranslate"><span class="pre">tfidf</span> <span class="pre">model</span></code> which are not meaningfull enough. We can have a look at the words which were included:</p>
 <div class="cell docutils container">
@@ -1081,7 +1075,7 @@ Test dataset size: (4099,)
 </section>
 </section>
 <section id="regression-or-classification">
-<h2><span class="section-number">17.5. </span>Regression or Classification?<a class="headerlink" href="#regression-or-classification" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">17.5. </span>Regression or Classification?<a class="headerlink" href="#regression-or-classification" title="Link to this heading">#</a></h2>
 <p>When we’re dealing with machine learning tasks involving labels or targets, these tasks usually fall under two main categories: Regression and Classification.</p>
 <p>As we already discussed in the machine learning part of the course, <strong>regression</strong> generally refers to predicting a continuous number while <strong>classification</strong> refers to the prediction of specific, discrete values.</p>
 <p>If we want to predict if a mail is spam or not, or if we want to predict if an image displays a dog, a cat, or a parrot, we have a classification task.</p>
@@ -1109,7 +1103,7 @@ Name: Rating, dtype: int64
 </div>
 </div>
 <section id="linear-regression-model">
-<h3><span class="section-number">17.5.1. </span>Linear Regression model<a class="headerlink" href="#linear-regression-model" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">17.5.1. </span>Linear Regression model<a class="headerlink" href="#linear-regression-model" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>This model is fast to train an can handle the size of this data fairly well.</p></li>
 <li><p>It will output floats instead of the actual labels 1 to 5.</p></li>
@@ -1127,7 +1121,7 @@ Name: Rating, dtype: int64
 <div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">LinearRegression</label><div class="sk-toggleable__content"><pre>LinearRegression()</pre></div></div></div></div></div></div></div>
 </div>
 <section id="evaluate-the-model">
-<h4><span class="section-number">17.5.1.1. </span>Evaluate the model<a class="headerlink" href="#evaluate-the-model" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">17.5.1.1. </span>Evaluate the model<a class="headerlink" href="#evaluate-the-model" title="Link to this heading">#</a></h4>
 <p>For this we will first convert the test data using the exact same tfidf model as for the train data. This is very important, if you compute a new tfidf model using fit or fit_transform, this approach won’t work!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1206,7 +1200,7 @@ Name: Rating, dtype: int64
 </div>
 </section>
 <section id="prediction-of-impossible-values">
-<h4><span class="section-number">17.5.1.2. </span>Prediction of impossible values<a class="headerlink" href="#prediction-of-impossible-values" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">17.5.1.2. </span>Prediction of impossible values<a class="headerlink" href="#prediction-of-impossible-values" title="Link to this heading">#</a></h4>
 <p>The linear regression model has no bounds and could in principle output any float value. Here we got impossible negative values and ratings &gt; 5. This could of course be fixed by simply adding an additional line of code that sets all values &lt; 1 to 1 and all values &gt; 5 to 5.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1240,7 +1234,7 @@ Name: Rating, dtype: int64
 </section>
 </section>
 <section id="logistic-regression-model">
-<h3><span class="section-number">17.5.2. </span>Logistic Regression model<a class="headerlink" href="#logistic-regression-model" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">17.5.2. </span>Logistic Regression model<a class="headerlink" href="#logistic-regression-model" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>hint: in this case don’t worry if you get warnings about reaching the iterations limit</p></li>
 </ul>
@@ -1329,7 +1323,7 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </section>
 <section id="back-to-regression-vs-classification">
-<h3><span class="section-number">17.5.3. </span>Back to: regression vs. classification<a class="headerlink" href="#back-to-regression-vs-classification" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">17.5.3. </span>Back to: regression vs. classification<a class="headerlink" href="#back-to-regression-vs-classification" title="Link to this heading">#</a></h3>
 <p>For a classification task it usually does not make sense to compute mean absolute errors. But here it does. And it allows us to compare the performance of the linear regression vs. the logistic regression model. And, as spoiled above, the classification task does indeed result in better predictions!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1363,7 +1357,7 @@ weighted avg       0.58      0.60      0.58      4099
 </div>
 </section>
 <section id="confusion-matrix">
-<h3><span class="section-number">17.5.4. </span>Confusion matrix<a class="headerlink" href="#confusion-matrix" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">17.5.4. </span>Confusion matrix<a class="headerlink" href="#confusion-matrix" title="Link to this heading">#</a></h3>
 <p>The confusion matrix can tell us a lot about where the model works well and where it fails. Often is is more accessible if the matrix is plotted, for instance using seaborns <code class="docutils literal notranslate"><span class="pre">heatmap</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1388,7 +1382,7 @@ weighted avg       0.58      0.60      0.58      4099
 </div>
 </section>
 <section id="convert-your-prediction-tasks">
-<h3><span class="section-number">17.5.5. </span>Convert your prediction tasks<a class="headerlink" href="#convert-your-prediction-tasks" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">17.5.5. </span>Convert your prediction tasks<a class="headerlink" href="#convert-your-prediction-tasks" title="Link to this heading">#</a></h3>
 <p>Sometimes it can help to change the actual prediction task to make it clearer, and thereby simpler, for a machine learning model to learn. In the present case we could for instance say that we convert that ratings 1 to 5 into only three categories: bad (1 or 2), neutral (3), or good (4 or 5).</p>
 <p>This is of course less nuanced, but it can make it an easier classification task.</p>
 <div class="cell docutils container">
@@ -1608,7 +1602,7 @@ weighted avg       0.83      0.86      0.83      4099
 </div>
 </section>
 <section id="question-to-you">
-<h3><span class="section-number">17.5.6. </span>Question to you:<a class="headerlink" href="#question-to-you" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">17.5.6. </span>Question to you:<a class="headerlink" href="#question-to-you" title="Link to this heading">#</a></h3>
 <p>Judge yourself. Is this a good result? Could this be done better (and if so, how?) ?</p>
 </section>
 </section>
@@ -1730,7 +1724,7 @@ By Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>4. How to use this book (… if you ask us) &#8212; Data Science for (not yet) scientists</title>
   
@@ -29,39 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/03_use_of_this_book';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -160,7 +155,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -420,16 +426,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skills-you-should-have-to-work-with-this-book">4.1. Skills you should have to work with this book</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-python">4.2. Why Python?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-source-libraries">4.3. Open source libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-environment">4.4. Setting Up Your Environment</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">4.4.1. Prerequisites</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-clone-the-repository">4.4.2. Step 1: Clone the Repository</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-navigate-to-the-repository">4.4.3. Step 2: Navigate to the Repository</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-create-a-new-environment">4.4.4. Step 3: Create a New Environment</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-activate-the-new-environment">4.4.5. Step 4: Activate the New Environment</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-updating-the-environment">4.4.6. Step 5: Updating the Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-is-the-easy-part">4.1. Code is the easy part</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skills-you-should-have-to-work-with-this-book">4.2. Skills you should have to work with this book</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-python">4.3. Why Python?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-source-libraries">4.4. Open source libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-environment">4.5. Setting Up Your Environment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">4.5.1. Prerequisites</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-clone-the-repository">4.5.2. Step 1: Clone the Repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-navigate-to-the-repository">4.5.3. Step 2: Navigate to the Repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-create-a-new-environment">4.5.4. Step 3: Create a New Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-activate-the-new-environment">4.5.5. Step 4: Activate the New Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-updating-the-environment">4.5.6. Step 5: Updating the Environment</a></li>
 </ul>
 </li>
 </ul>
@@ -444,22 +451,27 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="how-to-use-this-book-if-you-ask-us">
-<h1><span class="section-number">4. </span>How to use this book (… if you ask us)<a class="headerlink" href="#how-to-use-this-book-if-you-ask-us" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">4. </span>How to use this book (… if you ask us)<a class="headerlink" href="#how-to-use-this-book-if-you-ask-us" title="Link to this heading">#</a></h1>
 <p>This textbook has been crafted with attention to detail to facilitate your journey into data science. However, the essence of its usefulness lies in how you engage with its content. Here’s some advice to optimize your learning experience:</p>
 <ul class="simple">
 <li><p><strong>Progress at Your Own Speed</strong>: Data science is a vast field, and everyone has their own pace. If you find certain concepts daunting, pause and seek additional resources. The internet is full of tutorials, videos, courses, and forums on practically all aspects that we cover in this book. The key is patience and persistence.</p></li>
 <li><p><strong>Learning by Doing</strong>: Reading this book alone won’t transform you into a data scientist. To truly learn data science, you need to actively engage in coding and working with real data sets. Observing code and nodding along saying, “yeah, I got it” is usually very away from having mastered it! We can’t stress this enough - the most prevalent pitfall many students succumb to is passive learning! The true test of your understanding comes when you can independently apply the skills, starting from scratch, not merely copying, pasting, and executing someone else’s code.</p></li>
 <li><p><strong>Lean on Tech, But Don’t Rely on It</strong>: While chatbots can serve as helpful data science assistants, they are not a substitute for your active learning. We firmly believe that the path to becoming a competent data scientist involves learning how to solve challenges on your own. Relying on a chatbot for answers is akin to copying solutions from another student or a forum. While this approach may help you complete your exercises in the short run, it won’t contribute much to your long-term learning and skill development.</p></li>
 </ul>
+<section id="code-is-the-easy-part">
+<h2><span class="section-number">4.1. </span>Code is the easy part<a class="headerlink" href="#code-is-the-easy-part" title="Link to this heading">#</a></h2>
+<p>The next paragraphs will be on code and programming. And for many students, in particular students without a strong computer science background, the coding parts often seems to be the main challenge in the beginning. So, just as a small warning before we talk Python: A very good data scientist for sure knows how to work with code. But that would not nearly be enough. You will later see, that many data science techniques -including very fancy ones- can often we executed with just a few lines of code. The real skill therefore will not be to be able to run all available techniques on any dataset you’ll get. It is the ability to know <em>how to use</em> those methods, but also to know <em>when to use</em> them! When you analyze data it will often come down to <strong>asking the right questions, and knowing which tools can help you answer them</strong>.</p>
+<p>But we will come to this many times again. For now, let’s get started with the very technical parts.</p>
+</section>
 <section id="skills-you-should-have-to-work-with-this-book">
-<h2><span class="section-number">4.1. </span>Skills you should have to work with this book<a class="headerlink" href="#skills-you-should-have-to-work-with-this-book" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.2. </span>Skills you should have to work with this book<a class="headerlink" href="#skills-you-should-have-to-work-with-this-book" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Python Programming Basics</strong>: Understanding of variables, fundamental data types, loops, functions, and module imports are essential. If you’re new to Python or need a refresher, consider resources like <a class="reference external" href="https://docs.python.org/3/tutorial/index.html">Python.org’s Beginner’s Guide</a>, <a class="reference external" href="https://realpython.com/">RealPython</a>, or <a class="reference external" href="https://www.geeksforgeeks.org/python-programming-language/">GeeksforGeeks Python Programming Language</a>.</p></li>
 <li><p>At least <strong>High School Math Skills</strong>: Basic knowledge of statistics and algebra will serve you well, for instance to better understand the methods and their caveats.</p></li>
 </ul>
 </section>
 <section id="why-python">
-<h2><span class="section-number">4.2. </span>Why Python?<a class="headerlink" href="#why-python" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.3. </span>Why Python?<a class="headerlink" href="#why-python" title="Link to this heading">#</a></h2>
 <p>Python, over the years, has emerged as the lingua franca of data science. But why?</p>
 <ol class="arabic simple">
 <li><p><strong>Versatile Libraries</strong>: Python boasts an array of libraries, such as NumPy, pandas, and scikit-learn, specifically tailored for data science tasks.</p></li>
@@ -471,7 +483,7 @@ document.write(`
 <p>While languages like R and tools like KNIME have their strengths, Python’s holistic ecosystem and adaptability make it the preferred choice for many. All code examples in this book will be written in Python.</p>
 </section>
 <section id="open-source-libraries">
-<h2><span class="section-number">4.3. </span>Open source libraries<a class="headerlink" href="#open-source-libraries" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.4. </span>Open source libraries<a class="headerlink" href="#open-source-libraries" title="Link to this heading">#</a></h2>
 <p>Python’s prowess in data science can be attributed to its incredible libraries. These libraries, backed by a robust open-source community, are the backbone of various data operations:</p>
 <ul class="simple">
 <li><p><strong>NumPy</strong>: Fundamental package for numerical computations in Python. <a class="reference external" href="https://numpy.org/doc/">NumPy Documentation</a></p></li>
@@ -481,13 +493,13 @@ document.write(`
 </ul>
 </section>
 <section id="setting-up-your-environment">
-<h2><span class="section-number">4.4. </span>Setting Up Your Environment<a class="headerlink" href="#setting-up-your-environment" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">4.5. </span>Setting Up Your Environment<a class="headerlink" href="#setting-up-your-environment" title="Link to this heading">#</a></h2>
 <section id="prerequisites">
-<h3><span class="section-number">4.4.1. </span>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.5.1. </span>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h3>
 <p>Before we begin, please ensure you have Anaconda or Miniconda installed on your machine. If you haven’t already done so, you can download and install Anaconda from <a class="reference external" href="https://www.anaconda.com/products/distribution">here</a>. Anaconda is a free and open-source distribution of Python for scientific computing. It comes with conda, a package, dependency, and environment manager. Miniconda is a smaller, “minimal” version of Anaconda that includes only conda and Python.</p>
 </section>
 <section id="step-1-clone-the-repository">
-<h3><span class="section-number">4.4.2. </span>Step 1: Clone the Repository<a class="headerlink" href="#step-1-clone-the-repository" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.5.2. </span>Step 1: Clone the Repository<a class="headerlink" href="#step-1-clone-the-repository" title="Link to this heading">#</a></h3>
 <p>The first step is to clone the repository for this course. This can be done by using the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/florian-huber/data_science_course.git
 </pre></div>
@@ -495,7 +507,7 @@ document.write(`
 <p>This command will create a new directory named <code class="docutils literal notranslate"><span class="pre">data_science_course</span></code> in your current directory, and download the entire repository into that directory.</p>
 </section>
 <section id="step-2-navigate-to-the-repository">
-<h3><span class="section-number">4.4.3. </span>Step 2: Navigate to the Repository<a class="headerlink" href="#step-2-navigate-to-the-repository" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.5.3. </span>Step 2: Navigate to the Repository<a class="headerlink" href="#step-2-navigate-to-the-repository" title="Link to this heading">#</a></h3>
 <p>Next, navigate into the new <code class="docutils literal notranslate"><span class="pre">data_science_course</span></code> directory:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>data_science_course
 </pre></div>
@@ -503,7 +515,7 @@ document.write(`
 <p>The <code class="docutils literal notranslate"><span class="pre">cd</span></code> command (which stands for “change directory”) will move you into the directory that you specify after it.</p>
 </section>
 <section id="step-3-create-a-new-environment">
-<h3><span class="section-number">4.4.4. </span>Step 3: Create a New Environment<a class="headerlink" href="#step-3-create-a-new-environment" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.5.4. </span>Step 3: Create a New Environment<a class="headerlink" href="#step-3-create-a-new-environment" title="Link to this heading">#</a></h3>
 <p>Once you’re in the <code class="docutils literal notranslate"><span class="pre">data_science_course</span></code> directory, you can create a new conda environment for this course. This can be done using the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span></code> command, along with the <code class="docutils literal notranslate"><span class="pre">-f</span></code> flag to specify the file defining the environment:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml
 </pre></div>
@@ -511,7 +523,7 @@ document.write(`
 <p>This command will create a new conda environment named <code class="docutils literal notranslate"><span class="pre">data_science_course</span></code>, based on the specifications in the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file. The environment will include Python 3.9, along with a number of other Python packages that are used in this course.</p>
 </section>
 <section id="step-4-activate-the-new-environment">
-<h3><span class="section-number">4.4.5. </span>Step 4: Activate the New Environment<a class="headerlink" href="#step-4-activate-the-new-environment" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.5.5. </span>Step 4: Activate the New Environment<a class="headerlink" href="#step-4-activate-the-new-environment" title="Link to this heading">#</a></h3>
 <p>After the new environment has been created, you can activate it using the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code> command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>data_science_course
 </pre></div>
@@ -519,7 +531,7 @@ document.write(`
 <p>Once the environment is activated, you can start working on the course materials. Remember, every time you want to work on the course, you should first activate the environment.</p>
 </section>
 <section id="step-5-updating-the-environment">
-<h3><span class="section-number">4.4.6. </span>Step 5: Updating the Environment<a class="headerlink" href="#step-5-updating-the-environment" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">4.5.6. </span>Step 5: Updating the Environment<a class="headerlink" href="#step-5-updating-the-environment" title="Link to this heading">#</a></h3>
 <p>In case of updates to the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file, you can update your conda environment using the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">update</span></code> command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>update<span class="w"> </span>-f<span class="w"> </span>environment.yml<span class="w"> </span>--prune
 </pre></div>
@@ -594,16 +606,17 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skills-you-should-have-to-work-with-this-book">4.1. Skills you should have to work with this book</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-python">4.2. Why Python?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-source-libraries">4.3. Open source libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-environment">4.4. Setting Up Your Environment</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">4.4.1. Prerequisites</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-clone-the-repository">4.4.2. Step 1: Clone the Repository</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-navigate-to-the-repository">4.4.3. Step 2: Navigate to the Repository</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-create-a-new-environment">4.4.4. Step 3: Create a New Environment</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-activate-the-new-environment">4.4.5. Step 4: Activate the New Environment</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-updating-the-environment">4.4.6. Step 5: Updating the Environment</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-is-the-easy-part">4.1. Code is the easy part</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skills-you-should-have-to-work-with-this-book">4.2. Skills you should have to work with this book</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-python">4.3. Why Python?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-source-libraries">4.4. Open source libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-environment">4.5. Setting Up Your Environment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">4.5.1. Prerequisites</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-clone-the-repository">4.5.2. Step 1: Clone the Repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-navigate-to-the-repository">4.5.3. Step 2: Navigate to the Repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-create-a-new-environment">4.5.4. Step 3: Create a New Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-activate-the-new-environment">4.5.5. Step 4: Activate the New Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-updating-the-environment">4.5.6. Step 5: Updating the Environment</a></li>
 </ul>
 </li>
 </ul>
@@ -630,7 +643,7 @@ By Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

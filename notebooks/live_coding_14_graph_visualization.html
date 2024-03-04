@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>20. Visualizing Graphs &#8212; Data Science for (not yet) scientists</title>
   
@@ -29,39 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/live_coding_14_graph_visualization';</script>
@@ -162,7 +157,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -447,13 +453,13 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="visualizing-graphs">
-<h1><span class="section-number">20. </span>Visualizing Graphs<a class="headerlink" href="#visualizing-graphs" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">20. </span>Visualizing Graphs<a class="headerlink" href="#visualizing-graphs" title="Link to this heading">#</a></h1>
 <p>As previously described, graphs essentially consist of only two components, nodes and edges. Both nodes and edges may further possess additional attributes. However, these attributes usually do not include specific position or location data, except for geographical data.</p>
 <p>This means that a graph is defined by the nodes and their connections. The exact position of the nodes, both absolutely in space and relative to each other, is not defined! That’s why the following four depictions can all be considered equivalent, as the network structure (topology) is identical in all four cases.</p>
 <figure class="align-default" id="fig-graph-layouts01">
 <img alt="../_images/fig_graph_layout_intro.png" src="../_images/fig_graph_layout_intro.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 20.1 </span><span class="caption-text">Graphs are based on nodes and their connections (links/edges). But in nearly all cases, this does not fully determine the position of the nodes.</span><a class="headerlink" href="#fig-graph-layouts01" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 20.1 </span><span class="caption-text">Graphs are based on nodes and their connections (links/edges). But in nearly all cases, this does not fully determine the position of the nodes.</span><a class="headerlink" href="#fig-graph-layouts01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>When we need to visualize a graph, we (or an algorithm) must decide how to arrange the nodes. There are numerous possibilities for this, and the following images show six such network layouts that are included in networkx.</p>
@@ -473,18 +479,6 @@ document.write(`
 </div>
 </div>
 </details>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3065/3153534145.py:2: DeprecationWarning: 
-Pyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),
-(to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
-but was not found to be installed on your system.
-If this would cause problems for you,
-please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
-        
-  import pandas as pd
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -543,11 +537,11 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/94e58584eff62bddc5435cf0e4fd2a04998473de69b14fd9c9ffe6276ab3ac18.png" src="../_images/94e58584eff62bddc5435cf0e4fd2a04998473de69b14fd9c9ffe6276ab3ac18.png" />
+<img alt="../_images/4fb83706f39a1b4eacf3a0e7979ef5e763d0bd9552f56b54e94c4c0c0cb54a1a.png" src="../_images/4fb83706f39a1b4eacf3a0e7979ef5e763d0bd9552f56b54e94c4c0c0cb54a1a.png" />
 </div>
 </div>
 <section id="add-more-dimensions-to-the-visualization">
-<h2><span class="section-number">20.1. </span>Add more dimensions to the visualization<a class="headerlink" href="#add-more-dimensions-to-the-visualization" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">20.1. </span>Add more dimensions to the visualization<a class="headerlink" href="#add-more-dimensions-to-the-visualization" title="Link to this heading">#</a></h2>
 <p>Inspecting graphs visually is often a great way to get an intuition of the data. Besides node and edge positions, we can add additional information (or attributes) through node labels, node color, but also node size and shape.</p>
 <p>In the following we will color each node by its degree, i.e., the number of connections each node has.</p>
 <div class="cell tag_hide-input docutils container">
@@ -583,14 +577,14 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/a165bbcfd07954af743cdff953062131379088732f33cbda4c203d3a64e761d8.png" src="../_images/a165bbcfd07954af743cdff953062131379088732f33cbda4c203d3a64e761d8.png" />
+<img alt="../_images/611d652019e60976af85d55de7f653147cb9aae88502b21cdd4cfc1ff6653d29.png" src="../_images/611d652019e60976af85d55de7f653147cb9aae88502b21cdd4cfc1ff6653d29.png" />
 </div>
 </div>
 <p>Different layouts have different strengths and weaknesses. A circular arrangement (<strong>circular layout</strong>) can, for instance, be useful for quickly identifying which nodes have the most connections (and where these lead). Layouts such as random layout or other fixed forms like spirals etc. (as seen above: <strong>spiral layout</strong>) are much less commonly used in practice.</p>
 <p>The most commonly used layout is a so-called “force-directed” layout (in networkx the <strong>spring-layout</strong>, but also the <strong>kamada-kawai-layout</strong> fall in this category).</p>
 </section>
 <section id="force-directed-spring-layout">
-<h2><span class="section-number">20.2. </span>Force-directed / spring layout<a class="headerlink" href="#force-directed-spring-layout" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">20.2. </span>Force-directed / spring layout<a class="headerlink" href="#force-directed-spring-layout" title="Link to this heading">#</a></h2>
 <p>In the so-called force-directed layout, links are interpreted as mechanical springs. In a sort of physics simulation, the nodes (connected by the mechanical springs) are then gradually moved depending on the prevailing forces (springs and attractive forces).</p>
 <p>Depending on the tool, various parameters can be set. Central here is the “strength” and/or “length” of the springs, often expressed as the physical spring constant <span class="math notranslate nohighlight">\(k\)</span>. This can lead to very different results:</p>
 <div class="cell tag_hide-input docutils container">
@@ -618,11 +612,11 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/d3d37a40122615bd7525e9d929721b98f638c0b14f7485949f6b5f667d44b494.png" src="../_images/d3d37a40122615bd7525e9d929721b98f638c0b14f7485949f6b5f667d44b494.png" />
+<img alt="../_images/4fd697b401dacb1cd16c6ccc6cec747caf2611bb183a05b7984a281ddfdb7655.png" src="../_images/4fd697b401dacb1cd16c6ccc6cec747caf2611bb183a05b7984a281ddfdb7655.png" />
 </div>
 </div>
 <section id="visual-randomness">
-<h3><span class="section-number">20.2.1. </span>Visual Randomness<a class="headerlink" href="#visual-randomness" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">20.2.1. </span>Visual Randomness<a class="headerlink" href="#visual-randomness" title="Link to this heading">#</a></h3>
 <p>Moreover, even with a set layout type and parameters, there are significant visual variations that result from random starting positions of the nodes. If we apply the same layout to the same graph multiple times, the results all look different (unless the seed is fixed).</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -649,13 +643,13 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/96af885a8b1e147d09b146429a95b6c37821f17da5a323018a736b4494b7bfe5.png" src="../_images/96af885a8b1e147d09b146429a95b6c37821f17da5a323018a736b4494b7bfe5.png" />
+<img alt="../_images/f84e09adaaeba8ea9cca57f43ebdfc938b90b0bb5fa38f6fc39f9cb671838487.png" src="../_images/f84e09adaaeba8ea9cca57f43ebdfc938b90b0bb5fa38f6fc39f9cb671838487.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="interactive-plots">
-<h2><span class="section-number">20.3. </span>Interactive Plots<a class="headerlink" href="#interactive-plots" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">20.3. </span>Interactive Plots<a class="headerlink" href="#interactive-plots" title="Link to this heading">#</a></h2>
 <p>As just shown in the figure above, the position of nodes is usually nothing static or fixed. Exceptions are graphs that have a corresponding, physical counterpart, such as locations on a geographic map.</p>
 <p>When working with network data, we often quickly reach a point where static visualizations (such as all graphs plotted in this section so far) are no longer good enough.</p>
 <p>In Python, there are a few ways to visualize the networks dynamically using special plotting libraries. One of them is <a class="reference external" href="https://pyvis.readthedocs.io/en/latest/index.html"><code class="docutils literal notranslate"><span class="pre">pyvis</span></code></a>. Here an example of how to plot the karate network using pyvis:</p>
@@ -696,10 +690,10 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </section>
 <section id="visualization-tools">
-<h2><span class="section-number">20.4. </span>Visualization Tools<a class="headerlink" href="#visualization-tools" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">20.4. </span>Visualization Tools<a class="headerlink" href="#visualization-tools" title="Link to this heading">#</a></h2>
 <p>While Python, along with <code class="docutils literal notranslate"><span class="pre">networkx</span></code>, can be used for graph visualization, it’s typically used only for initial exploration or for very small graphs or subgraphs. For more elaborate visualizations, there are several quite useful and freely available tools:</p>
 <section id="cytoscape-https-cytoscape-org">
-<h3><span class="section-number">20.4.1. </span>Cytoscape (https://cytoscape.org/)<a class="headerlink" href="#cytoscape-https-cytoscape-org" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">20.4.1. </span>Cytoscape (https://cytoscape.org/)<a class="headerlink" href="#cytoscape-https-cytoscape-org" title="Link to this heading">#</a></h3>
 <p>Cytoscape provides a wide range of settings for layout and graphical features, making it a flexible tool for graph visualization.</p>
 <p><strong>Pros:</strong></p>
 <ul class="simple">
@@ -714,7 +708,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </ul>
 </section>
 <section id="gephi-https-gephi-org">
-<h3><span class="section-number">20.4.2. </span>Gephi (https://gephi.org/)<a class="headerlink" href="#gephi-https-gephi-org" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">20.4.2. </span>Gephi (https://gephi.org/)<a class="headerlink" href="#gephi-https-gephi-org" title="Link to this heading">#</a></h3>
 <p>Gephi is recognized for its live rendering and ability to handle relatively large graphs. It also offers numerous statistical tools for in-depth graph analysis:</p>
 <p><strong>Pros:</strong></p>
 <ul class="simple">
@@ -728,7 +722,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </ul>
 </section>
 <section id="graphia-https-graphia-app">
-<h3><span class="section-number">20.4.3. </span>Graphia (https://graphia.app/)<a class="headerlink" href="#graphia-https-graphia-app" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">20.4.3. </span>Graphia (https://graphia.app/)<a class="headerlink" href="#graphia-https-graphia-app" title="Link to this heading">#</a></h3>
 <p>Graphia is a quick tool that provides a 3D option for graph visualization. However, it’s not as flexible as the other tools in terms of layout and graphical settings:</p>
 <p><strong>Pros:</strong></p>
 <ul class="simple">
@@ -743,7 +737,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </section>
 </section>
 <section id="next-steps-additional-resources">
-<h2><span class="section-number">20.5. </span>Next steps &amp; additional resources<a class="headerlink" href="#next-steps-additional-resources" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">20.5. </span>Next steps &amp; additional resources<a class="headerlink" href="#next-steps-additional-resources" title="Link to this heading">#</a></h2>
 <p>Obviously there is <em>much</em> more to learn and explore about working with networks!</p>
 <p>A good textbook as well as online book resource to have a deeper look is <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id20" title="Keith McNulty. Welcome \textbar  Handbook of Graphs and Networks in People Analytics: With Examples in R and Python. Routledge &amp; CRC Press, 2022. ISBN 978-1-03-220497-0. URL: https://ona-book.org (visited on 2024-01-23).">McNulty, 2022</a>]</span> (see <a class="reference external" href="https://ona-book.org/index.html">online version</a>, too).</p>
 </section>
@@ -850,7 +844,7 @@ By Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>

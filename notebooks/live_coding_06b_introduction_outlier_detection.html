@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>12. Outlier Detection &#8212; Data Science for (not yet) scientists</title>
   
@@ -29,39 +28,35 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/live_coding_06b_introduction_outlier_detection';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -160,7 +155,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -456,18 +462,18 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="outlier-detection">
-<h1><span class="section-number">12. </span>Outlier Detection<a class="headerlink" href="#outlier-detection" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">12. </span>Outlier Detection<a class="headerlink" href="#outlier-detection" title="Link to this heading">#</a></h1>
 <section id="introduction">
-<h2><span class="section-number">12.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">12.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <section id="what-is-an-outlier-and-why-detect-them">
-<h3><span class="section-number">12.1.1. </span>What is an Outlier and Why Detect Them?<a class="headerlink" href="#what-is-an-outlier-and-why-detect-them" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.1.1. </span>What is an Outlier and Why Detect Them?<a class="headerlink" href="#what-is-an-outlier-and-why-detect-them" title="Link to this heading">#</a></h3>
 <p><strong>Definition</strong>: An outlier is a data point that differs significantly from other observations in a dataset. These anomalies can arise due to variability in the measurement or experimental errors. Outliers are important to identify because they can lead to misleading analysis results and can indicate interesting phenomena.</p>
 <p><strong>Why should be care?</strong><br />
 In the context of data science, outliers can skew the results of data analysis, such as mean and standard deviation calculations. They can also affect the performance of machine learning models, leading to less accurate predictions. In all those cases outliers are data points that we often would like to <strong>either exclude or at least treat differently</strong>. Think of a large dataset from a questionaire where many thousands of people gave us answers. If we want to train a model on how to predict certain properties, we might want to exclude outliers which could occur from people that did not fill in the questionaire correctly, or from a few people that are very different in their answers to the rest.</p>
 <p>In data science workflows, however, the opposite can happen as well. This are cases where the <strong>outiers are our target data points</strong>. An example for this are cases where we look for unintentional or unwanted behavior such as fraud in financial transactions or hacker attacks.</p>
 </section>
 <section id="challenges-in-outlier-detection">
-<h3><span class="section-number">12.1.2. </span>Challenges in Outlier Detection<a class="headerlink" href="#challenges-in-outlier-detection" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.1.2. </span>Challenges in Outlier Detection<a class="headerlink" href="#challenges-in-outlier-detection" title="Link to this heading">#</a></h3>
 <p><strong>Difficulty</strong>: Detecting outliers is not trivial because it often depends on the context and the nature of the data. The challenge lies in distinguishing between a genuine outlier and a natural variation in the data.</p>
 <p><strong>Approach</strong>: To effectively detect outliers, data scientists must understand the underlying data distribution and choose appropriate methods for outlier identification.</p>
 <div class="cell docutils container">
@@ -479,18 +485,6 @@ In the context of data science, outliers can skew the results of data analysis, 
 <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">IsolationForest</span>
 <span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">LocalOutlierFactor</span>
 <span class="c1"># from sklearn.preprocessing import StandardScaler</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2706/3034186671.py:2: DeprecationWarning: 
-Pyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),
-(to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)
-but was not found to be installed on your system.
-If this would cause problems for you,
-please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
-        
-  import pandas as pd
 </pre></div>
 </div>
 </div>
@@ -514,27 +508,27 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/19d965f017949e394612f6a8b9d1255762029560705e7b4659998c7e336a5eb0.png" src="../_images/19d965f017949e394612f6a8b9d1255762029560705e7b4659998c7e336a5eb0.png" />
+<img alt="../_images/68dc6def057860379b9841f056faa2880ead5ffea32708d9c53d123f3b0682a2.png" src="../_images/68dc6def057860379b9841f056faa2880ead5ffea32708d9c53d123f3b0682a2.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="method-isolation-forest">
-<h2><span class="section-number">12.2. </span>Method: Isolation Forest<a class="headerlink" href="#method-isolation-forest" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">12.2. </span>Method: Isolation Forest<a class="headerlink" href="#method-isolation-forest" title="Link to this heading">#</a></h2>
 <section id="concept-and-theory">
-<h3><span class="section-number">12.2.1. </span>Concept and Theory<a class="headerlink" href="#concept-and-theory" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.2.1. </span>Concept and Theory<a class="headerlink" href="#concept-and-theory" title="Link to this heading">#</a></h3>
 <p><strong>Isolation Forest</strong> (iForest) is an unsupervised learning algorithm for anomaly detection that works on the principle of isolating anomalies, instead of profiling normal data points. Developed 2008 <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id14" title="Fei Tony Liu, Kai Ming Ting, and Zhi-Hua Zhou. Isolation forest. In 2008 eighth ieee international conference on data mining, 413–422. IEEE, 2008.">Liu <em>et al.</em>, 2008</a>]</span>, it’s particularly effective in datasets with a high dimensionality.</p>
 <p><strong>Isolating Anomalies</strong>: The core idea behind Isolation Forest is that anomalies are few and different, which makes them easier to isolate. In a dataset, anomalies are susceptible to being isolated with fewer random partitions compared to normal points.</p>
 <p><strong>Tree Structure</strong>: The algorithm builds an ensemble of isolation trees (iTrees) for the dataset. Each iTree is constructed by randomly selecting a feature and then randomly selecting a split value between the maximum and minimum values of the selected feature. This process is repeated recursively until the data points are isolated or the tree reaches a certain height.</p>
 </section>
 <section id="algorithm">
-<h3><span class="section-number">12.2.2. </span>Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.2.2. </span>Algorithm<a class="headerlink" href="#algorithm" title="Link to this heading">#</a></h3>
 <p><strong>Construction of iTrees</strong>: In an iTree, each node represents a test (split), and the path from the root to a leaf node is a set of conditions isolating a data point. The length of this path is a measure of normality: shorter paths indicate anomalies.</p>
 <p><strong>Scoring Anomalies</strong>: Once the iTrees are built, the algorithm assigns an anomaly score to each data point. The score is calculated based on the average path length across the trees in the forest. Shorter paths are indicative of anomalies.</p>
 <p><strong>Ensemble Approach</strong>: The use of multiple trees reduces the risk of overfitting and increases the robustness of the model.</p>
 </section>
 <section id="implementation-in-scikit-learn">
-<h3><span class="section-number">12.2.3. </span>Implementation in Scikit-Learn<a class="headerlink" href="#implementation-in-scikit-learn" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.2.3. </span>Implementation in Scikit-Learn<a class="headerlink" href="#implementation-in-scikit-learn" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">IsolationForest</span>
@@ -566,7 +560,7 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </ul>
 </section>
 <section id="plot-outlier-classification">
-<h3><span class="section-number">12.2.4. </span>Plot outlier classification<a class="headerlink" href="#plot-outlier-classification" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.2.4. </span>Plot outlier classification<a class="headerlink" href="#plot-outlier-classification" title="Link to this heading">#</a></h3>
 <p>We can use the isolation forest to predict for each data point if it is an outlier or not. This is binary classification problem, so all data points will be assigned as outliers or inliers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -593,12 +587,12 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0c2893f1a2acf2f5a93b11ef5a6a88b777ca4dfd2e256e56a526dbe267dce105.png" src="../_images/0c2893f1a2acf2f5a93b11ef5a6a88b777ca4dfd2e256e56a526dbe267dce105.png" />
+<img alt="../_images/e6b5bf497470f557d9d78da11fe31959e082ab8b8512a658370aaef6422d90e2.png" src="../_images/e6b5bf497470f557d9d78da11fe31959e082ab8b8512a658370aaef6422d90e2.png" />
 </div>
 </div>
 </section>
 <section id="plot-data-point-anomaly">
-<h3><span class="section-number">12.2.5. </span>Plot data point “anomaly”<a class="headerlink" href="#plot-data-point-anomaly" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.2.5. </span>Plot data point “anomaly”<a class="headerlink" href="#plot-data-point-anomaly" title="Link to this heading">#</a></h3>
 <p>If a binary classification is not what we want, we can also try to use the models decision function to get a somewhat quantitative measure of the “anomaly” of each datapoint.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -625,12 +619,12 @@ please provide us feedback at https://github.com/pandas-dev/pandas/issues/54466
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0998c4fa97f94a6fed3e85f66640ba1695e0eaa1376f100c57801275d15b5922.png" src="../_images/0998c4fa97f94a6fed3e85f66640ba1695e0eaa1376f100c57801275d15b5922.png" />
+<img alt="../_images/309a7d8c90e628372b775350b288a2ae32c7282744347944f37166c090a61985.png" src="../_images/309a7d8c90e628372b775350b288a2ae32c7282744347944f37166c090a61985.png" />
 </div>
 </div>
 </section>
 <section id="chose-how-sensitive-the-outlier-detection-should-be">
-<h3><span class="section-number">12.2.6. </span>Chose how sensitive the outlier detection should be<a class="headerlink" href="#chose-how-sensitive-the-outlier-detection-should-be" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.2.6. </span>Chose how sensitive the outlier detection should be<a class="headerlink" href="#chose-how-sensitive-the-outlier-detection-should-be" title="Link to this heading">#</a></h3>
 <p>The parameter <code class="docutils literal notranslate"><span class="pre">contamination</span></code> is used as a threshold for the binary decision into outlier/non-outlier.
 The actual underlying anomaly degree is not affected, as the plot below shows.</p>
 <div class="cell docutils container">
@@ -683,12 +677,12 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/45c4de1c3a5ce0e9d5d5401e2a6d48499ee7ae7bedb5f3cfba39f6ed24bcb919.png" src="../_images/45c4de1c3a5ce0e9d5d5401e2a6d48499ee7ae7bedb5f3cfba39f6ed24bcb919.png" />
+<img alt="../_images/63263a028a55326d178cde12b2323265bf35bc8faff3072aafe444f030238eb7.png" src="../_images/63263a028a55326d178cde12b2323265bf35bc8faff3072aafe444f030238eb7.png" />
 </div>
 </div>
 </section>
 <section id="advantages">
-<h3><span class="section-number">12.2.7. </span>Advantages<a class="headerlink" href="#advantages" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.2.7. </span>Advantages<a class="headerlink" href="#advantages" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p><strong>Effectiveness in High-Dimensional Spaces</strong>: Performs well in high-dimensional datasets where traditional distance-based methods might falter.</p></li>
 <li><p><strong>Scalability</strong>: Due to its tree structure, it scales well with large datasets.</p></li>
@@ -699,14 +693,14 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 </section>
 </section>
 <section id="method-local-outlier-factor-lof">
-<h2><span class="section-number">12.3. </span>Method: Local Outlier Factor (LOF)<a class="headerlink" href="#method-local-outlier-factor-lof" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">12.3. </span>Method: Local Outlier Factor (LOF)<a class="headerlink" href="#method-local-outlier-factor-lof" title="Link to this heading">#</a></h2>
 <section id="concept-and-background">
-<h3><span class="section-number">12.3.1. </span>Concept and Background<a class="headerlink" href="#concept-and-background" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.3.1. </span>Concept and Background<a class="headerlink" href="#concept-and-background" title="Link to this heading">#</a></h3>
 <p><strong>Local Outlier Factor (LOF)</strong> is an algorithm designed for detecting local outliers, introduced in 2000 <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id5" title="Markus M Breunig, Hans-Peter Kriegel, Raymond T Ng, and Jörg Sander. Lof: identifying density-based local outliers. In Proceedings of the 2000 ACM SIGMOD international conference on Management of data, 93–104. 2000.">Breunig <em>et al.</em>, 2000</a>]</span>. It’s particularly effective in identifying outliers in datasets where the density varies across different regions.</p>
 <p><strong>Local Density Estimation</strong>: LOF relies on the concept of local density, where locality is given by the k-nearest neighbors of a point. It compares the local density of a point to the densities of its neighbors. An outlier will have a substantially lower density than its neighbors.</p>
 </section>
 <section id="id3">
-<h3><span class="section-number">12.3.2. </span>Algorithm<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.3.2. </span>Algorithm<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p><strong>Defining Local Reachability Density (LRD)</strong>: The LRD of a point measures how reachable the point is based on the distances to its neighbors. A lower LRD indicates an outlier.</p>
 <p><strong>Calculating LOF Score</strong>: The LOF score of a point is the ratio of the average LRD of its neighbors to its own LRD. Points with an LOF significantly greater than 1 are considered outliers.</p>
 <p><strong>Key Steps</strong>:</p>
@@ -742,7 +736,7 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 </ul>
 </section>
 <section id="id4">
-<h3><span class="section-number">12.3.3. </span>Advantages<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.3.3. </span>Advantages<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p><strong>Effectiveness in Varying Density</strong>: Excellent for datasets where the density is not uniform.</p></li>
 <li><p><strong>Flexibility</strong>: Can work with different distance metrics, making it adaptable to various types of data.</p></li>
@@ -752,7 +746,7 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 <p>Local Outlier Factor is a powerful tool for detecting anomalies, especially in datasets with non-uniform densities. Its ability to focus on local neighborhoods makes it unique compared to more global methods. The implementation in Python’s scikit-learn makes it accessible and practical for a wide range of applications in anomaly detection.</p>
 </section>
 <section id="id5">
-<h3><span class="section-number">12.3.4. </span>Plot outlier classification<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.3.4. </span>Plot outlier classification<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>Just as with the isolation forest, we can use LOF to predict for each data point if it is an outlier or not.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -794,12 +788,12 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/038b464db81bf3a31b877a74ff1fbaf6d233119dde0d80bd225dc4192653435d.png" src="../_images/038b464db81bf3a31b877a74ff1fbaf6d233119dde0d80bd225dc4192653435d.png" />
+<img alt="../_images/f5192972401510d16a34a5d8c0e77960aaae0df2aa443e985d2fe0060a8c723d.png" src="../_images/f5192972401510d16a34a5d8c0e77960aaae0df2aa443e985d2fe0060a8c723d.png" />
 </div>
 </div>
 </section>
 <section id="id6">
-<h3><span class="section-number">12.3.5. </span>Plot data point “anomaly”<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.3.5. </span>Plot data point “anomaly”<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>If a binary classification is not what we want, we can also try to use the models decision function to get a somewhat quantitative measure of the “anomaly” of each datapoint.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -834,12 +828,12 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c6dfcf271b30327db56ba77d813f378ec124b47cbb7f266b1a69604143f53f7e.png" src="../_images/c6dfcf271b30327db56ba77d813f378ec124b47cbb7f266b1a69604143f53f7e.png" />
+<img alt="../_images/7da4b3d4a8c479890e8ec603e10f5655623c7a1b62c976671a8492304c72b770.png" src="../_images/7da4b3d4a8c479890e8ec603e10f5655623c7a1b62c976671a8492304c72b770.png" />
 </div>
 </div>
 </section>
 <section id="id7">
-<h3><span class="section-number">12.3.6. </span>Chose how sensitive the outlier detection should be<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">12.3.6. </span>Chose how sensitive the outlier detection should be<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>Here again, we can use the parameter <code class="docutils literal notranslate"><span class="pre">contamination</span></code> to set the threshold for the binary decision into outlier/non-outlier.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -881,7 +875,7 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/cf3f408871844d4498c58d0d0dfaa6200965b40f676f507be0e7f766b787cef5.png" src="../_images/cf3f408871844d4498c58d0d0dfaa6200965b40f676f507be0e7f766b787cef5.png" />
+<img alt="../_images/2a0d2f50d6b1b213aaef030a17aa99c9e83241b2b9e7b7e4982c7286a0c82556.png" src="../_images/2a0d2f50d6b1b213aaef030a17aa99c9e83241b2b9e7b7e4982c7286a0c82556.png" />
 </div>
 </div>
 </section>
@@ -1000,7 +994,7 @@ By Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
