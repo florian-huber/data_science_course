@@ -481,7 +481,11 @@ document.write(`
 <p>Conceptually, the k-nearest neighbors algorithm is rather simple and intuitive. However, there are a few important aspects to consider when applying this algorithm.</p>
 <p>First of all, k-nearest kneighbors is a distance-based algorithm. This means that we have to ensure that closer really means “more similar” which is not as simple as it maybe sounds. We have to decide on a <em>distance metric</em> that is the measure (or function) by which we calculate the distance between data points. We can use common metrics like the Euclidean distance, but there are many different options to choose from.
 Even more critical is the proper <em>scaling</em> of our features. Just think of an example. We want to predict the shoe size of a person from the person’s height (measured in <span class="math notranslate nohighlight">\(m\)</span>) and weight (measured in <span class="math notranslate nohighlight">\(kg\)</span>). This means that we have two features here, height and weight. For a prediction on a new person we simply need his/her height and weight. Then k-NN will compare those values to all known (“learned”) data points in our model and find the closest <span class="math notranslate nohighlight">\(k\)</span> other people. If we now use the Euclidean distance, the distance <span class="math notranslate nohighlight">\(d\)</span> will simply be</p>
-<p>$<span class="math notranslate nohighlight">\( d = \sqrt{(w_1 - w_2) ^ 2 + (h_1 - h_2) ^ 2} \)</span><span class="math notranslate nohighlight">\(, where \)</span>w<span class="math notranslate nohighlight">\( and \)</span>h$ are the weights and heights of person 1 and 2.</p>
+<div class="math notranslate nohighlight">
+\[
+ d = \sqrt{(w_1 - w_2) ^ 2 + (h_1 - h_2) ^ 2}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(w\)</span> and <span class="math notranslate nohighlight">\(h\)</span> are the weights and heights of person 1 and 2.</p>
 <p>Try to answer the following question: What is the problem here?</p>
 <p>…?</p>
 <p>Ok. The issue here is, that the weights are in kilograms (<span class="math notranslate nohighlight">\(kg\)</span>), so we are talking about values like 50, 60, 80, 100. The height, however, is measured in meters (<span class="math notranslate nohighlight">\(m\)</span>) such that values are many times smaller. As a result, having two people differ one meter in height (which is a lot) will count no more than one kilogram difference (which is close to nothing). Clearly not what we intuitively mean by “nearest neighbors”!</p>
@@ -630,13 +634,6 @@ This means that the species information will later be our <em>label</em>.</p>
   </tbody>
 </table>
 </div></div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#data = data.drop(&quot;sex&quot;, axis=1)</span>
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -873,7 +870,7 @@ Unfortunately, however, this plot does not help to better understand how we coul
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f3c33e87850&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f9d3bfc78b0&gt;
 </pre></div>
 </div>
 <img alt="../_images/de59fba766f0dd23562d31235452ecbaadbc52ceb77839b632d0ee79e8839a82.png" src="../_images/de59fba766f0dd23562d31235452ecbaadbc52ceb77839b632d0ee79e8839a82.png" />
@@ -1705,7 +1702,7 @@ This matrix will compare all predictions to all true values and make a summary.<
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
     <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">inria</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">scikit</span><span class="o">-</span><span class="n">learn</span><span class="o">-</span><span class="n">mooc</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span>
           <span class="o">^</span>
 <span class="ne">SyntaxError</span>: invalid syntax
