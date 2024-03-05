@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>17. Computing with Text: Counting words &#8212; Data Science for (not yet) scientists</title>
+    <title>18. Computing with Text: Counting words &#8212; Data Science for (not yet) scientists</title>
   
   
   
@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/live_coding_11_NLP_3_tfifd_and_machine_learning';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="18. Beyond Counting Individual Words: N-grams" href="live_coding_12_NLP_4_ngrams_word_vectors.html" />
-    <link rel="prev" title="16. NLP - basic techniques to analyse text data" href="live_coding_11_NLP_2_tokenization.html" />
+    <link rel="next" title="19. Beyond Counting Individual Words: N-grams" href="live_coding_12_NLP_4_ngrams_word_vectors.html" />
+    <link rel="prev" title="17. NLP - basic techniques to analyse text data" href="live_coding_11_NLP_2_tokenization.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -205,24 +205,25 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Modeling</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_07_dimensionality_reduction.html">13. Dimensionality Reduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_08_machine_learning.html">14. Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_08_machine_learning.html">14. Machine Learning - Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_09_machine_learning_algorithms.html">15. Machine Learning - Common Algorithms</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">15. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">16. NLP - basic techniques to analyse text data</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Computing with Text: Counting words</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">18. Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">16. Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">17. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">18. Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">19. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the networks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="live_coding_13_graphs.html">19. Networks / Graph Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graph_visualization.html">20. Visualizing Graphs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graphs_part2.html">21. Bottlenecks, Hubs, Communities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_13_graphs.html">20. Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graph_visualization.html">21. Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graphs_part2.html">22. Bottlenecks, Hubs, Communities</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Next steps</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="outlook.html">22. What are the next steps?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outlook.html">23. What are the next steps?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -428,32 +429,32 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turning-text-into-vectors">17.1. Turning Text into Vectors</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distance-similarity-measures">17.1.1. Distance/similarity measures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turning-text-into-vectors">18.1. Turning Text into Vectors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distance-similarity-measures">18.1.1. Distance/similarity measures</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding">17.2. One-Hot Encoding</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-frequency-inverse-document-frequency-tf-idf">17.3. Term Frequency-Inverse Document Frequency (TF-IDF)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-hotel-reviews">17.4. Hands-on: Hotel Reviews</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-import-and-exploration">17.4.1. Data import and exploration</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">17.4.2. Train/Test Split</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-sparse-matrix-mean">17.4.2.1. What does <code class="docutils literal notranslate"><span class="pre">sparse</span> <span class="pre">matrix</span></code> mean?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding">18.2. One-Hot Encoding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-frequency-inverse-document-frequency-tf-idf">18.3. Term Frequency-Inverse Document Frequency (TF-IDF)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-hotel-reviews">18.4. Hands-on: Hotel Reviews</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-import-and-exploration">18.4.1. Data import and exploration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">18.4.2. Train/Test Split</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-sparse-matrix-mean">18.4.2.1. What does <code class="docutils literal notranslate"><span class="pre">sparse</span> <span class="pre">matrix</span></code> mean?</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reduce-tfidf-vector-size">17.4.3. Reduce tfidf vector size</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reduce-tfidf-vector-size">18.4.3. Reduce tfidf vector size</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-or-classification">17.5. Regression or Classification?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression-model">17.5.1. Linear Regression model</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-the-model">17.5.1.1. Evaluate the model</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#prediction-of-impossible-values">17.5.1.2. Prediction of impossible values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-or-classification">18.5. Regression or Classification?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression-model">18.5.1. Linear Regression model</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-the-model">18.5.1.1. Evaluate the model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#prediction-of-impossible-values">18.5.1.2. Prediction of impossible values</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-model">17.5.2. Logistic Regression model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#back-to-regression-vs-classification">17.5.3. Back to: regression vs. classification</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confusion-matrix">17.5.4. Confusion matrix</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-your-prediction-tasks">17.5.5. Convert your prediction tasks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-to-you">17.5.6. Question to you:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-model">18.5.2. Logistic Regression model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#back-to-regression-vs-classification">18.5.3. Back to: regression vs. classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confusion-matrix">18.5.4. Confusion matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-your-prediction-tasks">18.5.5. Convert your prediction tasks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-to-you">18.5.6. Question to you:</a></li>
 </ul>
 </li>
 </ul>
@@ -468,17 +469,17 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="computing-with-text-counting-words">
-<h1><span class="section-number">17. </span>Computing with Text: Counting words<a class="headerlink" href="#computing-with-text-counting-words" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">18. </span>Computing with Text: Counting words<a class="headerlink" href="#computing-with-text-counting-words" title="Link to this heading">#</a></h1>
 <section id="turning-text-into-vectors">
-<h2><span class="section-number">17.1. </span>Turning Text into Vectors<a class="headerlink" href="#turning-text-into-vectors" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.1. </span>Turning Text into Vectors<a class="headerlink" href="#turning-text-into-vectors" title="Link to this heading">#</a></h2>
 <p>As we progress in the world of Data Science, we often find ourselves needing to transform our data into a format that’s more suitable for computation and analysis. When dealing with textual data, this means converting our words into numeric representations, often in the form of vectors. But why vectors, you may ask? Machine Learning algorithms, at their core, work with numerical data. They’re able to identify patterns, trends and relationships within numeric data much more effectively. Numerical vectors are a very suitable input for machine learning models. In addition, such vectors allow to directly use methods from algebra, for instance to computed distances or similarities between data points.</p>
 <section id="distance-similarity-measures">
-<h3><span class="section-number">17.1.1. </span>Distance/similarity measures<a class="headerlink" href="#distance-similarity-measures" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.1.1. </span>Distance/similarity measures<a class="headerlink" href="#distance-similarity-measures" title="Link to this heading">#</a></h3>
 <p>Depending on the type of numerical vector there are many suitable methods to compute vector-vector similarities (or inverse: distances). For real-numbered (float) vectors we can for instance simply use the <strong>Euclidean distance</strong> which you will know from Pythagoras. Or a <strong>Cosine similarity</strong> based on the angle between two vectors. For binary vectors there are other measures such as the <strong>Jaccard similarity</strong>.</p>
 </section>
 </section>
 <section id="one-hot-encoding">
-<h2><span class="section-number">17.2. </span>One-Hot Encoding<a class="headerlink" href="#one-hot-encoding" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.2. </span>One-Hot Encoding<a class="headerlink" href="#one-hot-encoding" title="Link to this heading">#</a></h2>
 <p>The first step towards this transformation is to use a method known as <strong>One-Hot Encoding</strong>. In this process, each word in the sentence is represented as a vector in an N-dimensional space where N is the number of unique words in the sentence. Each word is represented as a vector of length N, with all elements being 0, except for one element which is 1, indicating the presence of the word.</p>
 <p>For instance, consider the sentences: “I like cats” and “I like dogs”. In a one-hot encoding scheme, these sentences would be represented by the vectors:</p>
 <ul class="simple">
@@ -533,7 +534,7 @@ Distance between vector1 and vector3: 4.243.
 </div>
 </section>
 <section id="term-frequency-inverse-document-frequency-tf-idf">
-<h2><span class="section-number">17.3. </span>Term Frequency-Inverse Document Frequency (TF-IDF)<a class="headerlink" href="#term-frequency-inverse-document-frequency-tf-idf" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.3. </span>Term Frequency-Inverse Document Frequency (TF-IDF)<a class="headerlink" href="#term-frequency-inverse-document-frequency-tf-idf" title="Link to this heading">#</a></h2>
 <p>To resolve these issues, we use a more sophisticated method called <strong>Term Frequency-Inverse Document Frequency (TF-IDF)</strong>. This measure helps us to evaluate how important a word is to a document within a corpus. The importance increases proportionally to the number of times a word appears in the document but is offset by the frequency of the word in the corpus.</p>
 <p>The TF-IDF weight is composed of two terms:</p>
 <ul class="simple">
@@ -557,11 +558,11 @@ Distance between vector1 and vector3: 4.243.
 <p>Finally, we can use these TF-IDF vectors to train Machine Learning models. For example, we can train a logistic regression model for sentiment analysis. By turning our words into vectors, we’ve opened up a new world of possibilities for analysis and model training, pushing the boundaries of what we can achieve with Natural Language Processing.</p>
 </section>
 <section id="hands-on-hotel-reviews">
-<h2><span class="section-number">17.4. </span>Hands-on: Hotel Reviews<a class="headerlink" href="#hands-on-hotel-reviews" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.4. </span>Hands-on: Hotel Reviews<a class="headerlink" href="#hands-on-hotel-reviews" title="Link to this heading">#</a></h2>
 <p>Let’s work with some actual data!</p>
 <p>We here will work with a dataset of about 20,000 hotel reviews from tripadvisor <a class="reference external" href="https://zenodo.org/records/1219899">see original dataset on zenodo</a> or <a class="reference external" href="https://www.kaggle.com/datasets/andrewmvd/trip-advisor-hotel-reviews">see dataset on kaggle</a>. The goal will be to train a machine learning model to predict rating based on a review text.</p>
 <section id="data-import-and-exploration">
-<h3><span class="section-number">17.4.1. </span>Data import and exploration<a class="headerlink" href="#data-import-and-exploration" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.4.1. </span>Data import and exploration<a class="headerlink" href="#data-import-and-exploration" title="Link to this heading">#</a></h3>
 <p>We will import the data using <code class="docutils literal notranslate"><span class="pre">Pandas</span></code>. We will then explore the data a bit. But since this dataset was already prepared to work for machine learning tasks, there is complicated data processing steps that we have to do at this point.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -730,7 +731,7 @@ memory usage: 320.3+ KB
 <p>Here we see a first potential issue, a <strong>bias of the ratings</strong>. The dataset contains far more positive reviews (&gt;= 4) than neutral or negative ones. This is a common problem in machine learning and there are strategies to deal with this (e.g. <em>oversampling</em> or using <em>class weights</em>), but for now we will simply ignore it.</p>
 </section>
 <section id="train-test-split">
-<h3><span class="section-number">17.4.2. </span>Train/Test Split<a class="headerlink" href="#train-test-split" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.4.2. </span>Train/Test Split<a class="headerlink" href="#train-test-split" title="Link to this heading">#</a></h3>
 <p>Let us first split the data into a training and test set (see chapters on machine learning!).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -794,13 +795,13 @@ Test dataset size: (4099,)
 </div>
 </div>
 <section id="what-does-sparse-matrix-mean">
-<h4><span class="section-number">17.4.2.1. </span>What does <code class="docutils literal notranslate"><span class="pre">sparse</span> <span class="pre">matrix</span></code> mean?<a class="headerlink" href="#what-does-sparse-matrix-mean" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">18.4.2.1. </span>What does <code class="docutils literal notranslate"><span class="pre">sparse</span> <span class="pre">matrix</span></code> mean?<a class="headerlink" href="#what-does-sparse-matrix-mean" title="Link to this heading">#</a></h4>
 <p>We have seen before, that such sentence (or text) vector can quickly become very long. Here each vector as 47073 positions, one for each word. But most of these words do not occur in a particular sentence, so most positions in a tfidf-vector are simply <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
 <p>To save all those numbers would be very vastefull memory wise. So, scikit-learn here uses so called <code class="docutils literal notranslate"><span class="pre">sparse</span> <span class="pre">matrices</span></code> which only store the data for non-zero positions. We can look at the data with the <code class="docutils literal notranslate"><span class="pre">.data</span></code> attribute. Or we can convert it to a dense vector (that includes all zeros) by using <code class="docutils literal notranslate"><span class="pre">.toarray()</span></code>.</p>
 </section>
 </section>
 <section id="reduce-tfidf-vector-size">
-<h3><span class="section-number">17.4.3. </span>Reduce tfidf vector size<a class="headerlink" href="#reduce-tfidf-vector-size" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.4.3. </span>Reduce tfidf vector size<a class="headerlink" href="#reduce-tfidf-vector-size" title="Link to this heading">#</a></h3>
 <p>So far we simply used the <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer</span></code> without setting any parameters, which means that it will simply use default values. In our case, however, we end up with rather large tfidf vectors. In particular given the relatively small dataset (small for NLP standards) and the rather short reviews.</p>
 <p>In many cases, and here as well, we also deal with text data of strongly varying quality. This can lead to many words in the <code class="docutils literal notranslate"><span class="pre">tfidf</span> <span class="pre">model</span></code> which are not meaningfull enough. We can have a look at the words which were included:</p>
 <div class="cell docutils container">
@@ -1075,7 +1076,7 @@ Test dataset size: (4099,)
 </section>
 </section>
 <section id="regression-or-classification">
-<h2><span class="section-number">17.5. </span>Regression or Classification?<a class="headerlink" href="#regression-or-classification" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.5. </span>Regression or Classification?<a class="headerlink" href="#regression-or-classification" title="Link to this heading">#</a></h2>
 <p>When we’re dealing with machine learning tasks involving labels or targets, these tasks usually fall under two main categories: Regression and Classification.</p>
 <p>As we already discussed in the machine learning part of the course, <strong>regression</strong> generally refers to predicting a continuous number while <strong>classification</strong> refers to the prediction of specific, discrete values.</p>
 <p>If we want to predict if a mail is spam or not, or if we want to predict if an image displays a dog, a cat, or a parrot, we have a classification task.</p>
@@ -1103,7 +1104,7 @@ Name: Rating, dtype: int64
 </div>
 </div>
 <section id="linear-regression-model">
-<h3><span class="section-number">17.5.1. </span>Linear Regression model<a class="headerlink" href="#linear-regression-model" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.5.1. </span>Linear Regression model<a class="headerlink" href="#linear-regression-model" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>This model is fast to train an can handle the size of this data fairly well.</p></li>
 <li><p>It will output floats instead of the actual labels 1 to 5.</p></li>
@@ -1121,7 +1122,7 @@ Name: Rating, dtype: int64
 <div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">LinearRegression</label><div class="sk-toggleable__content"><pre>LinearRegression()</pre></div></div></div></div></div></div></div>
 </div>
 <section id="evaluate-the-model">
-<h4><span class="section-number">17.5.1.1. </span>Evaluate the model<a class="headerlink" href="#evaluate-the-model" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">18.5.1.1. </span>Evaluate the model<a class="headerlink" href="#evaluate-the-model" title="Link to this heading">#</a></h4>
 <p>For this we will first convert the test data using the exact same tfidf model as for the train data. This is very important, if you compute a new tfidf model using fit or fit_transform, this approach won’t work!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1200,7 +1201,7 @@ Name: Rating, dtype: int64
 </div>
 </section>
 <section id="prediction-of-impossible-values">
-<h4><span class="section-number">17.5.1.2. </span>Prediction of impossible values<a class="headerlink" href="#prediction-of-impossible-values" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">18.5.1.2. </span>Prediction of impossible values<a class="headerlink" href="#prediction-of-impossible-values" title="Link to this heading">#</a></h4>
 <p>The linear regression model has no bounds and could in principle output any float value. Here we got impossible negative values and ratings &gt; 5. This could of course be fixed by simply adding an additional line of code that sets all values &lt; 1 to 1 and all values &gt; 5 to 5.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1234,7 +1235,7 @@ Name: Rating, dtype: int64
 </section>
 </section>
 <section id="logistic-regression-model">
-<h3><span class="section-number">17.5.2. </span>Logistic Regression model<a class="headerlink" href="#logistic-regression-model" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.5.2. </span>Logistic Regression model<a class="headerlink" href="#logistic-regression-model" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>hint: in this case don’t worry if you get warnings about reaching the iterations limit</p></li>
 </ul>
@@ -1323,7 +1324,7 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </section>
 <section id="back-to-regression-vs-classification">
-<h3><span class="section-number">17.5.3. </span>Back to: regression vs. classification<a class="headerlink" href="#back-to-regression-vs-classification" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.5.3. </span>Back to: regression vs. classification<a class="headerlink" href="#back-to-regression-vs-classification" title="Link to this heading">#</a></h3>
 <p>For a classification task it usually does not make sense to compute mean absolute errors. But here it does. And it allows us to compare the performance of the linear regression vs. the logistic regression model. And, as spoiled above, the classification task does indeed result in better predictions!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1357,7 +1358,7 @@ weighted avg       0.58      0.60      0.58      4099
 </div>
 </section>
 <section id="confusion-matrix">
-<h3><span class="section-number">17.5.4. </span>Confusion matrix<a class="headerlink" href="#confusion-matrix" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.5.4. </span>Confusion matrix<a class="headerlink" href="#confusion-matrix" title="Link to this heading">#</a></h3>
 <p>The confusion matrix can tell us a lot about where the model works well and where it fails. Often is is more accessible if the matrix is plotted, for instance using seaborns <code class="docutils literal notranslate"><span class="pre">heatmap</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1382,7 +1383,7 @@ weighted avg       0.58      0.60      0.58      4099
 </div>
 </section>
 <section id="convert-your-prediction-tasks">
-<h3><span class="section-number">17.5.5. </span>Convert your prediction tasks<a class="headerlink" href="#convert-your-prediction-tasks" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.5.5. </span>Convert your prediction tasks<a class="headerlink" href="#convert-your-prediction-tasks" title="Link to this heading">#</a></h3>
 <p>Sometimes it can help to change the actual prediction task to make it clearer, and thereby simpler, for a machine learning model to learn. In the present case we could for instance say that we convert that ratings 1 to 5 into only three categories: bad (1 or 2), neutral (3), or good (4 or 5).</p>
 <p>This is of course less nuanced, but it can make it an easier classification task.</p>
 <div class="cell docutils container">
@@ -1602,7 +1603,7 @@ weighted avg       0.83      0.86      0.83      4099
 </div>
 </section>
 <section id="question-to-you">
-<h3><span class="section-number">17.5.6. </span>Question to you:<a class="headerlink" href="#question-to-you" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.5.6. </span>Question to you:<a class="headerlink" href="#question-to-you" title="Link to this heading">#</a></h3>
 <p>Judge yourself. Is this a good result? Could this be done better (and if so, how?) ?</p>
 </section>
 </section>
@@ -1644,7 +1645,7 @@ weighted avg       0.83      0.86      0.83      4099
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">16. </span>NLP - basic techniques to analyse text data</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>NLP - basic techniques to analyse text data</p>
       </div>
     </a>
     <a class="right-next"
@@ -1652,7 +1653,7 @@ weighted avg       0.83      0.86      0.83      4099
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">18. </span>Beyond Counting Individual Words: N-grams</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Beyond Counting Individual Words: N-grams</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1672,32 +1673,32 @@ weighted avg       0.83      0.86      0.83      4099
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turning-text-into-vectors">17.1. Turning Text into Vectors</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distance-similarity-measures">17.1.1. Distance/similarity measures</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#turning-text-into-vectors">18.1. Turning Text into Vectors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distance-similarity-measures">18.1.1. Distance/similarity measures</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding">17.2. One-Hot Encoding</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-frequency-inverse-document-frequency-tf-idf">17.3. Term Frequency-Inverse Document Frequency (TF-IDF)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-hotel-reviews">17.4. Hands-on: Hotel Reviews</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-import-and-exploration">17.4.1. Data import and exploration</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">17.4.2. Train/Test Split</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-sparse-matrix-mean">17.4.2.1. What does <code class="docutils literal notranslate"><span class="pre">sparse</span> <span class="pre">matrix</span></code> mean?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding">18.2. One-Hot Encoding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-frequency-inverse-document-frequency-tf-idf">18.3. Term Frequency-Inverse Document Frequency (TF-IDF)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-hotel-reviews">18.4. Hands-on: Hotel Reviews</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-import-and-exploration">18.4.1. Data import and exploration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">18.4.2. Train/Test Split</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-sparse-matrix-mean">18.4.2.1. What does <code class="docutils literal notranslate"><span class="pre">sparse</span> <span class="pre">matrix</span></code> mean?</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reduce-tfidf-vector-size">17.4.3. Reduce tfidf vector size</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reduce-tfidf-vector-size">18.4.3. Reduce tfidf vector size</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-or-classification">17.5. Regression or Classification?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression-model">17.5.1. Linear Regression model</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-the-model">17.5.1.1. Evaluate the model</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#prediction-of-impossible-values">17.5.1.2. Prediction of impossible values</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#regression-or-classification">18.5. Regression or Classification?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression-model">18.5.1. Linear Regression model</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluate-the-model">18.5.1.1. Evaluate the model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#prediction-of-impossible-values">18.5.1.2. Prediction of impossible values</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-model">17.5.2. Logistic Regression model</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#back-to-regression-vs-classification">17.5.3. Back to: regression vs. classification</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confusion-matrix">17.5.4. Confusion matrix</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-your-prediction-tasks">17.5.5. Convert your prediction tasks</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-to-you">17.5.6. Question to you:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#logistic-regression-model">18.5.2. Logistic Regression model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#back-to-regression-vs-classification">18.5.3. Back to: regression vs. classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confusion-matrix">18.5.4. Confusion matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-your-prediction-tasks">18.5.5. Convert your prediction tasks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-to-you">18.5.6. Question to you:</a></li>
 </ul>
 </li>
 </ul>

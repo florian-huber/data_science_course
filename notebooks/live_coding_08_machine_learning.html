@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>14. Machine Learning &#8212; Data Science for (not yet) scientists</title>
+    <title>14. Machine Learning - Introduction &#8212; Data Science for (not yet) scientists</title>
   
   
   
@@ -57,10 +57,12 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/live_coding_08_machine_learning';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="15. Introduction to Working with Text Data" href="live_coding_10_working_with_text_data.html" />
+    <link rel="next" title="15. Machine Learning - Common Algorithms" href="live_coding_09_machine_learning_algorithms.html" />
     <link rel="prev" title="13. Dimensionality Reduction" href="live_coding_07_dimensionality_reduction.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -203,24 +205,25 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Modeling</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_07_dimensionality_reduction.html">13. Dimensionality Reduction</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. Machine Learning</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. Machine Learning - Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_09_machine_learning_algorithms.html">15. Machine Learning - Common Algorithms</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">15. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">16. NLP - basic techniques to analyse text data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">17. Computing with Text: Counting words</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">18. Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">16. Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">17. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">18. Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">19. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the networks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="live_coding_13_graphs.html">19. Networks / Graph Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graph_visualization.html">20. Visualizing Graphs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graphs_part2.html">21. Bottlenecks, Hubs, Communities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_13_graphs.html">20. Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graph_visualization.html">21. Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graphs_part2.html">22. Bottlenecks, Hubs, Communities</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Next steps</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="outlook.html">22. What are the next steps?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outlook.html">23. What are the next steps?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -416,7 +419,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Machine Learning</h1>
+    <h1>Machine Learning - Introduction</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -426,8 +429,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-algorithms">14.1. Common algorithms</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#want-to-read-more-on-this">14.1.1. Want to read more on this?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-machine-learning">14.1. What is Machine Learning?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-testing">14.2. Training &amp; Testing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-we-know-how-good-our-model-is">14.2.1. How do we know how <em>good</em> our model is?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">14.2.2. Train/Test split</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-algorithms">14.3. Common algorithms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nearest-neighbors-k-nn">14.3.1. k-nearest neighbors (k-NN)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pros-cons-caveats">14.3.1.1. Pros, Cons, Caveats</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">14.4. </a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#want-to-read-more-on-this">14.4.1. Want to read more on this?</a></li>
 </ul>
 </li>
 </ul>
@@ -441,8 +457,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="machine-learning">
-<h1><span class="section-number">14. </span>Machine Learning<a class="headerlink" href="#machine-learning" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="machine-learning-introduction">
+<h1><span class="section-number">14. </span>Machine Learning - Introduction<a class="headerlink" href="#machine-learning-introduction" title="Link to this heading">#</a></h1>
+<section id="what-is-machine-learning">
+<h2><span class="section-number">14.1. </span>What is Machine Learning?<a class="headerlink" href="#what-is-machine-learning" title="Link to this heading">#</a></h2>
 <p>There is still a lot of confusion about terms like <strong>artificial intelligence</strong> (or: <strong>A.I.</strong>), <strong>machine learning</strong>, and <strong>deep learning</strong>.
 The aim of this course is not to give a full in-depth introduction to all those topics, because this clearly demands one (or usually: multiple) courses on its own.</p>
 <p>However, what this section should show is, that the underlying idea of machine learning is often quite approachable. And the some of the respective techniques can be used with relative ease, at least from the code perspective. If you haven’t learnt the basics of machine learning before, it is unlikely that this section will make you feel like you have mastered the art. But, again, this is not the main goal.</p>
@@ -472,8 +490,94 @@ When we have an algorithm that does this guessing based on the data for us it is
 <p><span class="caption-number">Fig. 14.3 </span><span class="caption-text">In <em>machine learning</em> we distinguish <strong>classification</strong> and <strong>regression</strong> tasks. The key difference is that classification models will predict one out of several possible categories while regression models output numerical values (floats).</span><a class="headerlink" href="#fig-classification-regression" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
+</section>
+<section id="training-testing">
+<h2><span class="section-number">14.2. </span>Training &amp; Testing<a class="headerlink" href="#training-testing" title="Link to this heading">#</a></h2>
+<p>Before we start, let’s quickly repeat a few key terms:</p>
+<ul class="simple">
+<li><p><strong>model</strong>: you can think of a machine learning model as a program function. It takes a certain, well-defined input (the <strong>data</strong>, often lazyly written as <span class="math notranslate nohighlight">\(X\)</span>) and generates predictions or <strong>labels</strong> (lazyly written: <span class="math notranslate nohighlight">\(y\)</span>).</p></li>
+<li><p>A model is <em>trained</em> on data with known labels. This is called <em>supervised learning</em>, because the process is guided by these target values (the labels). There is also something called <em>unsupervised learning</em>, but we will ignore this for now.</p></li>
+<li><p>The prediction of labels is called <em>prediction</em> or <em>inference</em>. Obviously, this should happen after the model training.</p></li>
+</ul>
+<section id="how-do-we-know-how-good-our-model-is">
+<h3><span class="section-number">14.2.1. </span>How do we know how <em>good</em> our model is?<a class="headerlink" href="#how-do-we-know-how-good-our-model-is" title="Link to this heading">#</a></h3>
+<p>The tricky part about applying supervised machine learning models is that we <em>train</em> the model using (more or less-) well-understood data and later want to use its predictions on <em>unknown</em> data. This means on data where we either don’t know the labels ourselves (say, predicting tomorrow’s weather). Or, we could know the labels, but simply do not want or cannot manually create those for all cases (for instance classify all incoming mail as spam or no-spam). But can we trust the model’s predictions?</p>
+<p>As the name says, everything the model outputs are <em>predictions</em>. For all models we will consider here, this means that every single model output is uncertain and could be wrong. With the tools we have at hand in this section, we cannot even estimate the chance of failing. But, we can measure how reliable our model is <em>on average</em>!</p>
+<p>For this, we need to do the single most important action in all of machine learning, the <strong>train/test split</strong>.</p>
+</section>
+<section id="train-test-split">
+<h3><span class="section-number">14.2.2. </span>Train/Test split<a class="headerlink" href="#train-test-split" title="Link to this heading">#</a></h3>
+<p>For supervised machine learning we need data (<span class="math notranslate nohighlight">\(X\)</span>) and corresponding labels (<span class="math notranslate nohighlight">\(y\)</span>). To avoid blindly applying our model to truly unseen and unknown data, we virtually <strong>always</strong> split our data into training and test data. As the name suggests, the training data can be used to train our machine learning model. The test data is kept and will <strong>never</strong> be used in training, but only to assess the quality of predictions of our model. Typically, we want as much data as possible for the training since more data usually correlates with better models. However, we also have to reserve enough data for the test set to later guarantee a meaningful assessment of our model.</p>
+<p>We will later see that this can easily be done by using the <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> function from <code class="docutils literal notranslate"><span class="pre">Scikit-Learn</span></code>.</p>
+</section>
+</section>
 <section id="common-algorithms">
-<h2><span class="section-number">14.1. </span>Common algorithms<a class="headerlink" href="#common-algorithms" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">14.3. </span>Common algorithms<a class="headerlink" href="#common-algorithms" title="Link to this heading">#</a></h2>
+<p>Instead of going much deeper into the theory of what machine learning is, we will simply have a look at a few very common algorithms every well-trained data scientist should know about. Some of them remain standard items in our everyday toolbox and you will most likely apply them every now and then. Others are important because they reflect key concepts in machine learning algorithms and help you gain a more fundamental understanding of what is actually happening under the hood.</p>
+<section id="k-nearest-neighbors-k-nn">
+<h3><span class="section-number">14.3.1. </span>k-nearest neighbors (k-NN)<a class="headerlink" href="#k-nearest-neighbors-k-nn" title="Link to this heading">#</a></h3>
+<p><strong><span class="math notranslate nohighlight">\(k\)</span>-nearest neighbors</strong> is for very good reasons one of the most commonly known machine learning algorithms. It is relatively intuitive and simple, yet still powerful enough to find plenty of use cases even today (despite havine much fancier techniques on the market).</p>
+<p>The algorithm works as follows (<a class="reference internal" href="live_coding_09_machine_learning_algorithms.html#fig-knn-algorithm"><span class="std std-numref">Fig. 15.1</span></a>). For any given data point <span class="math notranslate nohighlight">\(x\)</span>, do the following:</p>
+<ul class="simple">
+<li><p>Search for the <span class="math notranslate nohighlight">\(k\)</span> nearest neighbors within the known data.</p></li>
+<li><p>For classification: take the most common label of those <span class="math notranslate nohighlight">\(k\)</span> data points.</p></li>
+<li><p>For regression: take the mean (or median) of those <span class="math notranslate nohighlight">\(k\)</span> data points.</p></li>
+</ul>
+<p>That’s essentially it, which means it is no more complicated than what was sketched in <a class="reference internal" href="#fig-predictions-already-done"><span class="std std-numref">Fig. 14.2</span></a>B. One could ask if the terms “training” or “learning” are very good in this context. But one could essentially just argue that the data provided for reference is available and hence “learned”. The algorithm is clearly a machine learning algorithm because we only define the process. The respective outcomes will be fully dependent on the provided reference data.</p>
+<figure class="align-default" id="fig-knn-algorithm">
+<img alt="../_images/fig_knn_algorithm.png" src="../_images/fig_knn_algorithm.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.4 </span><span class="caption-text">k-nearest neighbors is a rather intuitive algorithm. It is fully distance based and relies on finding the <span class="math notranslate nohighlight">\(k\)</span> nearest neighbors within the reference data. Out of those data points the final prediction is generated, either by majority vote (classification) or by averaging (regression).</span><a class="headerlink" href="#fig-knn-algorithm" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<section id="pros-cons-caveats">
+<h4><span class="section-number">14.3.1.1. </span>Pros, Cons, Caveats<a class="headerlink" href="#pros-cons-caveats" title="Link to this heading">#</a></h4>
+<p>Conceptually, the k-nearest neighbors algorithm is rather simple and intuitive. However, there are a few important aspects to consider when applying this algorithm.</p>
+<p>First of all, k-nearest kneighbors is a distance-based algorithm. This means that we have to ensure that closer really means “more similar” which is not as simple as it maybe sounds. We have to decide on a <em>distance metric</em> that is the measure (or function) by which we calculate the distance between data points. We can use common metrics like the Euclidean distance, but there are many different options to choose from.
+Even more critical is the proper <em>scaling</em> of our features. Just think of an example. We want to predict the shoe size of a person from the person’s height (measured in <span class="math notranslate nohighlight">\(m\)</span>) and weight (measured in <span class="math notranslate nohighlight">\(kg\)</span>). This means that we have two features here, height and weight. For a prediction on a new person we simply need his/her height and weight. Then k-NN will compare those values to all known (“learned”) data points in our model and find the closest <span class="math notranslate nohighlight">\(k\)</span> other people. If we now use the Euclidean distance, the distance <span class="math notranslate nohighlight">\(d\)</span> will simply be</p>
+<p>$<span class="math notranslate nohighlight">\( d = \sqrt{(w_1 - w_2) ^ 2 + (h_1 - h_2) ^ 2} \)</span><span class="math notranslate nohighlight">\(, where \)</span>w<span class="math notranslate nohighlight">\( and \)</span>h$ are the weights and heights of person 1 and 2.</p>
+<p>Try to answer the following question: What is the problem here?</p>
+<p>…?</p>
+<p>Ok. The issue here is, that the weights are in kilograms (<span class="math notranslate nohighlight">\(kg\)</span>), so we are talking about values like 50, 60, 80, 100. The height, however, is measured in meters (<span class="math notranslate nohighlight">\(m\)</span>) such that values are many times smaller. As a result, having two people differ one meter in height (which is a lot) will count no more than one kilogram difference (which is close to nothing). Clearly not what we intuitively mean by “nearest neighbors”!</p>
+<p>The solution to this is a proper <strong>scaling</strong> of our data. Often, we will simply apply one of the following two scaling methods:</p>
+<ol class="arabic simple">
+<li><p>MinMax Scaling - this means we linearly rescale our data such that the lowest occuring value becomes 0 and the highest value becomes 1.</p></li>
+<li><p>Standard Scaling - here we rescale our data such that the mean value will be 0 and the standard deviation will be 1.</p></li>
+</ol>
+<p>Both methods might give you values that look awkward at first. Standard scaling, for instance, gives both positive and negative values so that our height values in the example could be -1.04 or +0.27. But don’t worry, the scaling is really only meant to be used for the machine learning algorithm itself.</p>
+<p>Once we scaled our data, and maybe also picked the right distance metric (or used a good default, which will do for a start), we are technically good to apply k-NN.</p>
+<p>But there are still some questions we need to consider.</p>
+<p>The obvious one is: What should we use as <span class="math notranslate nohighlight">\(k\)</span>?<br />
+This is the model’s main parameter and we are free to choose any value we like. And there is no simple best choice that always work. In practice the choice of <span class="math notranslate nohighlight">\(k\)</span> will depend on the number of data points we have, but also the distribution of data and the number of classes or parameter ranges. We usually want to pick odd values here to avoid draws as much as possible (imagine two nearest neighbors are “spam” and two are “no-spam”). But whether 3, 5, 7, or 13 is the best choice will depend on our specific task at hand.</p>
+<p>In machine learning we call such a thing a <strong>fitting parameter</strong>. This means that we are free to change its value and it might have a considerable impact on the quality of our predictions, or our “model performance”. Ideally we would compare several different models with different parameters and pick the one that performs best.</p>
+<p>Let’s consider a situation as in <a class="reference internal" href="live_coding_09_machine_learning_algorithms.html#fig-knn-caveats"><span class="std std-numref">Fig. 15.2</span></a>A. Here we see that a change in <span class="math notranslate nohighlight">\(k\)</span> can lead to entirely different predictions for certain data points. In general, kNN predictions can be highly unstable close to border regions, and they also tend to be highly sensitive to the local density of data points. The later can be a problem if we have far more points of one category than for another.</p>
+<figure class="align-default" id="fig-knn-caveats">
+<img alt="../_images/fig_knn_caveats.png" src="../_images/fig_knn_caveats.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 14.5 </span><span class="caption-text">k-nearest neighbors has a few important caveats. <strong>A</strong> its predictions can change with changing <span class="math notranslate nohighlight">\(k\)</span>, and generally are very density sensitive. <strong>B</strong> it suffers (as many machine learning models) from overconfidence, which simply means that it will confidently output predictions even for data points that are entirely different from the training data (or even physically impossible).</span><a class="headerlink" href="#fig-knn-caveats" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Finally, another common problem with kNN -but also many other models- is called <strong>over-confidence</strong> (<a class="reference internal" href="live_coding_09_machine_learning_algorithms.html#fig-knn-caveats"><span class="std std-numref">Fig. 15.2</span></a>B). The algorithm described here creates its predictions on the <span class="math notranslate nohighlight">\(k\)</span> closest neighbors. But for very unusual inputs or even entirely impossible inputs, the algorithm will still find <span class="math notranslate nohighlight">\(k\)</span> closest neighbors and make a prediction. So if you ask for the shoe size of a person of 6.20m and 840 kg your model might confidently answer your question and say: 48 (if nothing bigger occurred in the data). So much for the “intelligent” in <em>artificial intelligence</em> …</p>
+<p>In summary, k-NN has a number of Pros and Cons:</p>
+<p><strong>Pros</strong></p>
+<ul class="simple">
+<li><p>Can be used for classification and regression</p></li>
+<li><p>Very intuitive, which also means that the predictions are easy to explain!</p></li>
+<li><p>No overfitting (we will soon see what this is)</p></li>
+<li><p>Does not make impossible predictions (because it only takes values from the training data)</p></li>
+</ul>
+<p><strong>Cons</strong></p>
+<ul class="simple">
+<li><p>Predictions are sensitive to local density of data points and the choice of <span class="math notranslate nohighlight">\(k\)</span></p></li>
+<li><p>Can suffer from over-confidence.</p></li>
+<li><p>Does not scale well for very large datasets (computing all distances can take very long)</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="id1">
+<h2><span class="section-number">14.4. </span><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>k-nearest neighbors</p></li>
 <li><p>linear regression</p></li>
@@ -500,7 +604,7 @@ When we have an algorithm that does this guessing based on the data for us it is
 </div>
 </div>
 <section id="want-to-read-more-on-this">
-<h3><span class="section-number">14.1.1. </span>Want to read more on this?<a class="headerlink" href="#want-to-read-more-on-this" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">14.4.1. </span>Want to read more on this?<a class="headerlink" href="#want-to-read-more-on-this" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>https://github.com/GeostatsGuy/PythonNumericalDemos/tree/master</p></li>
 <li><p>https://inferentialthinking.com/chapters/intro.html#</p></li>
@@ -549,11 +653,11 @@ When we have an algorithm that does this guessing based on the data for us it is
       </div>
     </a>
     <a class="right-next"
-       href="live_coding_10_working_with_text_data.html"
+       href="live_coding_09_machine_learning_algorithms.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">15. </span>Introduction to Working with Text Data</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Machine Learning - Common Algorithms</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -573,8 +677,21 @@ When we have an algorithm that does this guessing based on the data for us it is
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-algorithms">14.1. Common algorithms</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#want-to-read-more-on-this">14.1.1. Want to read more on this?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-machine-learning">14.1. What is Machine Learning?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-testing">14.2. Training &amp; Testing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-we-know-how-good-our-model-is">14.2.1. How do we know how <em>good</em> our model is?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">14.2.2. Train/Test split</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-algorithms">14.3. Common algorithms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nearest-neighbors-k-nn">14.3.1. k-nearest neighbors (k-NN)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pros-cons-caveats">14.3.1.1. Pros, Cons, Caveats</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">14.4. </a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#want-to-read-more-on-this">14.4.1. Want to read more on this?</a></li>
 </ul>
 </li>
 </ul>
