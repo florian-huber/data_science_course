@@ -6,4 +6,4 @@ The full material to produce this book via [Jupyter Book](https://jupyterbook.or
 
 ## Contribute
 
-We welcome feedback, comments and contributions to this book. For mistakes, issues etc. please on an `issues` on GitHub, or comment to an existing one. Thanks!
+We welcome feedback, comments and contributions to this book. For mistakes, issues etc. please open an `issue` on GitHub, or comment to an existing one. Thanks!
