@@ -8,9 +8,9 @@ There are many different definitions for the term **data** [add refs]. Here's on
 
 A characteristic of data is that it must be measured or recorded. Hence, data is as old as the oldest human systems for recording data. One of the earliest remnants of such an endeavor is the Ishango bone, estimated to be around 20,000 years old {cite}`pletser_ishango_1999`. This artifact, displaying systematic notches grouped in blocks, resembles an ancient tally stick, hinting at our ancestral drive to count or record.
 
-The very essence of data collection goes hand in hand with the birth of writing and symbolic representation. Surprisingly (to me at least), the oldest instances of these systems were not used to create elaborate letters, prose, or captivating stories. Instead, they were wielded for what may seem mundane today: collect and manage taxes and outstanding services. This fits to a saying that is linked to Benjamin Franklin: *"...in this world nothing can be said to be certain, except death and taxes"*.
+The very essence of data collection goes hand in hand with the birth of writing and symbolic representation. Interestingly, the oldest instances of these systems were not used to create elaborate letters, prose, or captivating stories. Instead, they were wielded for what may seem mundane today: collect and manage taxes and outstanding services. This fits to a saying that is usually linked to Benjamin Franklin: *"...in this world nothing can be said to be certain, except death and taxes"*.
 
-While data has been collected and used for millennia, the term itself is relatively nascent. Originating from the Latin word *datum*, which means "given", the English adoption of *data* is believed to have been in the 1640s. The evolution of the term underscores our ever-growing understanding and reliance on the structured representation of knowledge.
+While data has been collected and used for millennia, the term *"data"* itself is relatively nascent. Originating from the Latin word *datum*, which means "given", the English adoption of *data* is believed to have been in the 1640s. The evolution of the term underscores our ever-growing understanding and reliance on the structured representation of knowledge.
 
 #### Data Types
 
@@ -20,13 +20,13 @@ Before we dive deeper into how to acquire and process data, we first need to kno
 
 At the crux of data storage and management lie two primary categories: structured and unstructured data.
 
-*Structured data* is organized into a defined schema or format. It's easy to search, manipulate, and analyze because of its systematic arrangement, often in rows and columns. Examples include relational databases and CSV files, but you can also just think of this as any data that you could meaningfully display in Microsoft Excel. 
+*Structured data* is organized into a defined schema or format. It's easy to search, manipulate, and analyze because of its systematic arrangement, often in rows and columns. Examples include relational databases and CSV files, but you can also just think of this as any data that you could meaningfully display in a table. 
 
-Conversely, *unstructured data* doesn't simply fit into a table. Or, we would say that this data has no specific form or model. As an important consequence, such data is typically harder to classify and analyze using traditional methods. Text documents, videos, and social media posts are common examples of unstructured data.
+Conversely, *unstructured data* doesn't simply fit into a table. Or, we could say that this data has no specific form or model. As an important consequence, such data is typically harder to classify and analyze using traditional methods. Text documents, videos, and social media posts are common examples of unstructured data.
 
 **Feature vs. Data Points and the Dimensionality of Data**
 
-When we speak of data, especially in tables, we refer to *features* (or variables or attributes... this all depends on the domain or discipline people come from) and *data points*. Features are the distinct attributes or properties of the data set. In tabular data, these often appear as columns. For instance, in a table cataloging books, features might include "Title", "Author", and "Publication Year".
+When we speak of data, especially in tables, we refer to *features* (but sometimes also *variables* or *attributes*... this all depends on the domain or discipline people come from) and *data points*. Features are the distinct attributes or properties of the data set. In tabular data, these often appear as columns. For instance, in a table cataloging books, features might include "Title", "Author", and "Publication Year".
 
 On the other hand, *data points* are individual pieces of information, often represented as rows in tabular data. For example, each book listed in the aforementioned table would be a data point.
 
