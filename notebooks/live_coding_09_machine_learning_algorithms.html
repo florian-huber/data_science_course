@@ -462,7 +462,7 @@ document.write(`
 <p>Instead of going much deeper into the theory of what machine learning is, we will simply have a look at a few very common algorithms every well-trained data scientist should know about. Some of them remain standard items in our everyday toolbox and you will most likely apply them every now and then. Others are important because they reflect key concepts in machine learning algorithms and help you gain a more fundamental understanding of what is actually happening under the hood.</p>
 <section id="k-nearest-neighbors-k-nn">
 <h2><span class="section-number">15.1. </span>k-nearest neighbors (k-NN)<a class="headerlink" href="#k-nearest-neighbors-k-nn" title="Link to this heading">#</a></h2>
-<p><strong><span class="math notranslate nohighlight">\(k\)</span>-nearest neighbors</strong> is for very good reasons one of the most commonly known machine learning algorithms. It is relatively intuitive and simple, yet still powerful enough to find plenty of use cases even today (despite havine much fancier techniques on the market).</p>
+<p><strong><span class="math notranslate nohighlight">\(k\)</span>-nearest neighbors</strong> is, for very good reasons, one of the most commonly known machine learning algorithms. It is relatively intuitive and simple, yet still powerful enough to find plenty of use cases even today (despite having much fancier techniques on the market).</p>
 <p>The algorithm works as follows (<a class="reference internal" href="#fig-knn-algorithm"><span class="std std-numref">Fig. 15.1</span></a>). For any given data point <span class="math notranslate nohighlight">\(x\)</span>, do the following:</p>
 <ul class="simple">
 <li><p>Search for the <span class="math notranslate nohighlight">\(k\)</span> nearest neighbors within the known data.</p></li>
@@ -480,8 +480,8 @@ document.write(`
 <section id="pros-cons-caveats">
 <h3><span class="section-number">15.1.1. </span>Pros, Cons, Caveats<a class="headerlink" href="#pros-cons-caveats" title="Link to this heading">#</a></h3>
 <p>Conceptually, the k-nearest neighbors algorithm is rather simple and intuitive. However, there are a few important aspects to consider when applying this algorithm.</p>
-<p>First of all, k-nearest kneighbors is a distance-based algorithm. This means that we have to ensure that closer really means “more similar” which is not as simple as it maybe sounds. We have to decide on a <em>distance metric</em> that is the measure (or function) by which we calculate the distance between data points. We can use common metrics like the Euclidean distance, but there are many different options to choose from.
-Even more critical is the proper <em>scaling</em> of our features. Just think of an example. We want to predict the shoe size of a person from the person’s height (measured in <span class="math notranslate nohighlight">\(m\)</span>) and weight (measured in <span class="math notranslate nohighlight">\(kg\)</span>). This means that we have two features here, height and weight. For a prediction on a new person we simply need his/her height and weight. Then k-NN will compare those values to all known (“learned”) data points in our model and find the closest <span class="math notranslate nohighlight">\(k\)</span> other people. If we now use the Euclidean distance, the distance <span class="math notranslate nohighlight">\(d\)</span> will simply be</p>
+<p>First of all, k-nearest kneighbors is a distance-based algorithm. This means that we have to ensure that closer really means “more similar” which is not as simple as it may sound. We have to decide on a <em>distance metric</em>, that is the measure (or function) by which we calculate the distance between data points. We can use common metrics like the Euclidean distance, but there are many different options to choose from.
+Even more critical is the proper <em>scaling</em> of our features. Just think of an example. We want to predict the shoe size of a person based on the person’s height (measured in <span class="math notranslate nohighlight">\(m\)</span>) and weight (measured in <span class="math notranslate nohighlight">\(kg\)</span>). This means that we have two features here: height and weight. For a prediction on a new person, we simply need his/her height and weight. Then k-NN will compare those values to all known (“learned”) data points in our model and find the closest <span class="math notranslate nohighlight">\(k\)</span> other people. If we now use the Euclidean distance, the distance <span class="math notranslate nohighlight">\(d\)</span> will simply be</p>
 <div class="math notranslate nohighlight">
 \[
  d = \sqrt{(w_1 - w_2) ^ 2 + (h_1 - h_2) ^ 2}
@@ -492,23 +492,23 @@ Even more critical is the proper <em>scaling</em> of our features. Just think of
 <p>Ok. The issue here is, that the weights are in kilograms (<span class="math notranslate nohighlight">\(kg\)</span>), so we are talking about values like 50, 60, 80, 100. The height, however, is measured in meters (<span class="math notranslate nohighlight">\(m\)</span>) such that values are many times smaller. As a result, having two people differ one meter in height (which is a lot) will count no more than one kilogram difference (which is close to nothing). Clearly not what we intuitively mean by “nearest neighbors”!</p>
 <p>The solution to this is a proper <strong>scaling</strong> of our data. Often, we will simply apply one of the following two scaling methods:</p>
 <ol class="arabic simple">
-<li><p>MinMax Scaling - this means we linearly rescale our data such that the lowest occuring value becomes 0 and the highest value becomes 1.</p></li>
+<li><p>MinMax Scaling - this means we linearly rescale our data such that the lowest occurring value becomes 0 and the highest value becomes 1.</p></li>
 <li><p>Standard Scaling - here we rescale our data such that the mean value will be 0 and the standard deviation will be 1.</p></li>
 </ol>
 <p>Both methods might give you values that look awkward at first. Standard scaling, for instance, gives both positive and negative values so that our height values in the example could be -1.04 or +0.27. But don’t worry, the scaling is really only meant to be used for the machine learning algorithm itself.</p>
 <p>Once we scaled our data, and maybe also picked the right distance metric (or used a good default, which will do for a start), we are technically good to apply k-NN.</p>
 <p>But there are still some questions we need to consider.</p>
 <p>The obvious one is: What should we use as <span class="math notranslate nohighlight">\(k\)</span>?<br />
-This is the model’s main parameter and we are free to choose any value we like. And there is no simple best choice that always work. In practice the choice of <span class="math notranslate nohighlight">\(k\)</span> will depend on the number of data points we have, but also the distribution of data and the number of classes or parameter ranges. We usually want to pick odd values here to avoid draws as much as possible (imagine two nearest neighbors are “spam” and two are “no-spam”). But whether 3, 5, 7, or 13 is the best choice will depend on our specific task at hand.</p>
-<p>In machine learning we call such a thing a <strong>fitting parameter</strong>. This means that we are free to change its value and it might have a considerable impact on the quality of our predictions, or our “model performance”. Ideally we would compare several different models with different parameters and pick the one that performs best.</p>
-<p>Let’s consider a situation as in <a class="reference internal" href="#fig-knn-caveats"><span class="std std-numref">Fig. 15.2</span></a>A. Here we see that a change in <span class="math notranslate nohighlight">\(k\)</span> can lead to entirely different predictions for certain data points. In general, kNN predictions can be highly unstable close to border regions, and they also tend to be highly sensitive to the local density of data points. The later can be a problem if we have far more points of one category than for another.</p>
+This is the model’s main parameter and we are free to choose any value we like. And there is no simple best choice that always works. In practice, the choice of <span class="math notranslate nohighlight">\(k\)</span> will depend on the number of data points we have, but also on the distribution of data and the number of classes or parameter ranges. We usually want to pick odd values here to avoid draws as much as possible (imagine two nearest neighbors are “spam” and two are “no-spam”). But whether 3, 5, 7, or 13 is the best choice will depend on our specific task at hand.</p>
+<p>In machine learning, we call such a thing a <strong>fitting parameter</strong>. This means that we are free to change its value, and it might have a considerable impact on the quality of our predictions, or our “model performance”. Ideally, we would compare several different models with different parameters and pick the one that performed best.</p>
+<p>Let’s consider a situation as in <a class="reference internal" href="#fig-knn-caveats"><span class="std std-numref">Fig. 15.2</span></a>A. Here we see that a change in <span class="math notranslate nohighlight">\(k\)</span> can lead to entirely different predictions for certain data points. In general, kNN predictions can be highly unstable close to border regions, and they also tend to be highly sensitive to the local density of data points. The later can be a problem if we have far more points in one category than in another.</p>
 <figure class="align-default" id="fig-knn-caveats">
 <img alt="../_images/fig_knn_caveats.png" src="../_images/fig_knn_caveats.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 15.2 </span><span class="caption-text">k-nearest neighbors has a few important caveats. <strong>A</strong> its predictions can change with changing <span class="math notranslate nohighlight">\(k\)</span>, and generally are very density sensitive. <strong>B</strong> it suffers (as many machine learning models) from overconfidence, which simply means that it will confidently output predictions even for data points that are entirely different from the training data (or even physically impossible).</span><a class="headerlink" href="#fig-knn-caveats" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Finally, another common problem with kNN -but also many other models- is called <strong>over-confidence</strong> (<a class="reference internal" href="#fig-knn-caveats"><span class="std std-numref">Fig. 15.2</span></a>B). The algorithm described here creates its predictions on the <span class="math notranslate nohighlight">\(k\)</span> closest neighbors. But for very unusual inputs or even entirely impossible inputs, the algorithm will still find <span class="math notranslate nohighlight">\(k\)</span> closest neighbors and make a prediction. So if you ask for the shoe size of a person of 6.20m and 840 kg your model might confidently answer your question and say: 48 (if nothing bigger occurred in the data). So much for the “intelligent” in <em>artificial intelligence</em> …</p>
+<p>Finally, another common problem with kNN -but also many other models- is called <strong>over-confidence</strong> (<a class="reference internal" href="#fig-knn-caveats"><span class="std std-numref">Fig. 15.2</span></a>B). The algorithm described here creates its predictions on the <span class="math notranslate nohighlight">\(k\)</span> closest neighbors. But for very unusual inputs or even entirely impossible inputs, the algorithm will still find <span class="math notranslate nohighlight">\(k\)</span> closest neighbors and make a prediction. So if you ask for the shoe size of a person of 6.20m and 840 kg, your model might confidently answer your question and say: 48 (if nothing bigger occurred in the data). So much for the “intelligent” in <em>artificial intelligence</em> …</p>
 <p>In summary, k-NN has a number of Pros and Cons:</p>
 <p><strong>Pros</strong></p>
 <ul class="simple">
@@ -519,7 +519,7 @@ This is the model’s main parameter and we are free to choose any value we like
 </ul>
 <p><strong>Cons</strong></p>
 <ul class="simple">
-<li><p>Predictions are sensitive to local density of data points and the choice of <span class="math notranslate nohighlight">\(k\)</span></p></li>
+<li><p>Predictions are sensitive to the local density of data points and the choice of <span class="math notranslate nohighlight">\(k\)</span></p></li>
 <li><p>Can suffer from over-confidence.</p></li>
 <li><p>Does not scale well for very large datasets (computing all distances can take very long)</p></li>
 </ul>
@@ -529,7 +529,7 @@ This is the model’s main parameter and we are free to choose any value we like
 <h2><span class="section-number">15.2. </span>A first Hands-on Example<a class="headerlink" href="#a-first-hands-on-example" title="Link to this heading">#</a></h2>
 <p>To get a better sense of how machine learning is done in practice with Python, let us work on a simple example.
 For this, we will use the <a class="reference external" href="https://allisonhorst.github.io/palmerpenguins/"><code class="docutils literal notranslate"><span class="pre">Penguin</span> <span class="pre">Dataset</span></code></a> <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id25" title="Allison Marie Horst, Alison Presmanes Hill, and Kristen B Gorman. palmerpenguins: Palmer Archipelago (Antarctica) penguin data. 2020. R package version 0.1.0. URL: https://allisonhorst.github.io/palmerpenguins/, doi:10.5281/zenodo.3960218.">Horst <em>et al.</em>, 2020</a>]</span> that consists of data from three different penguin species.</p>
-<p>The machine learning goal in this section will be to create models that can predict the species from the penguins body features.
+<p>The machine learning goal in this section will be to create models that can predict species based on penguin body features.
 This means that the species information will later be our <em>label</em>.</p>
 <p>We start by importing and inspecting the dataset:</p>
 <div class="cell docutils container">
@@ -842,7 +842,7 @@ memory usage: 20.9+ KB
 <section id="data-exploration">
 <h3><span class="section-number">15.2.2. </span>Data Exploration<a class="headerlink" href="#data-exploration" title="Link to this heading">#</a></h3>
 <p>We have already seen multiple ways to explore the data and the relationship between the different features in more detail.
-Here, we will focus on the correlations and the actual plots between two features to get a better intuition.</p>
+Here, we will focus on the correlations and the actual plots between two features to get better intuition.</p>
 <p>First, we use <code class="docutils literal notranslate"><span class="pre">.corr(numeric_only=True)</span></code> to compute the correlation coefficients between all numeric features.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -873,20 +873,20 @@ Unfortunately, however, this plot does not help to better understand how we coul
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f8d599f87c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f0ab6ab2640&gt;
 </pre></div>
 </div>
 <img alt="../_images/de59fba766f0dd23562d31235452ecbaadbc52ceb77839b632d0ee79e8839a82.png" src="../_images/de59fba766f0dd23562d31235452ecbaadbc52ceb77839b632d0ee79e8839a82.png" />
 </div>
 </div>
 <p>Look at this plot and ask yourself the question: Can we predict the species based on the shown body features?</p>
-<p>The answer here must be a clear “yes”, because several plot panels show a clear visual distinction between the penguin species. If this is the case, we can ususally expect that this task is rather simple to learn for a machine learning model.</p>
+<p>The answer here must be a clear “yes,” because several plot panels show a clear visual distinction between the penguin species. If this is the case, we can usually expect that this task is rather simple to learn for a machine learning model.</p>
 </section>
 <section id="prepare-data-for-training">
 <h3><span class="section-number">15.2.3. </span>Prepare Data for Training<a class="headerlink" href="#prepare-data-for-training" title="Link to this heading">#</a></h3>
-<p>We have inspected, cleaned, explored the data. But it is not yet ready to be used for training a machine learning model.
-The precise process will depend on our goal (here: predicting species), the data, but also the choice of our model.</p>
-<p>First, we will split the labels from the data. But we should also remove features which rather belong to the labels than to the data. In the present case this would be the column <code class="docutils literal notranslate"><span class="pre">island</span></code> which happens to correlate perfectly with the <code class="docutils literal notranslate"><span class="pre">species</span></code>.</p>
+<p>We have inspected, cleaned and explored the data. But it is not yet ready to be used for training a machine learning model.
+The precise process will depend on our goal (here: predicting species), the data, and also the choice of our model.</p>
+<p>First, we will split the labels from the data. But we should also remove features that belong more to the labels than to the data. In the present case, this would be the column <code class="docutils literal notranslate"><span class="pre">island</span></code> which happens to correlate perfectly with the <code class="docutils literal notranslate"><span class="pre">species</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;species&quot;</span><span class="p">]</span>
@@ -976,7 +976,7 @@ The precise process will depend on our goal (here: predicting species), the data
 <section id="convert-to-numerical-values">
 <h3><span class="section-number">15.2.4. </span>Convert to Numerical Values<a class="headerlink" href="#convert-to-numerical-values" title="Link to this heading">#</a></h3>
 <p>Many machine learning models, including k-NN, require numerical inputs. In the case of k-NN this is needed to compute the distances between data points. In our present data, however, we have the column <code class="docutils literal notranslate"><span class="pre">sex</span></code> that contains strings.</p>
-<p>We now can choose to either remove the column, or to convert it to numerical values. The later is not always possible, but if entries belong to a limited number of catogeries we can use <code class="docutils literal notranslate"><span class="pre">one-hot-encoding</span></code>. This is the conversion of categorical features to binary features.</p>
+<p>We can now choose to either remove the column or convert it to numerical values. The latter is not always possible, but if entries belong to a limited number of categories we can use <code class="docutils literal notranslate"><span class="pre">one-hot-encoding</span></code>. This is the conversion of categorical features to binary features.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">])[</span><span class="s2">&quot;FEMALE&quot;</span><span class="p">]</span>
@@ -1060,8 +1060,8 @@ The precise process will depend on our goal (here: predicting species), the data
 <section id="train-test-split">
 <h3><span class="section-number">15.2.5. </span>Train/Test split<a class="headerlink" href="#train-test-split" title="Link to this heading">#</a></h3>
 <p>As mentioned before, this split is crucial for all supervised machine learning processes. It will later allow us to evaluate the model.
-Two things are important for this split. We should shuffle the data since it might be ordered (for instance alphabetically or chronologically). But we should make 100% sure that we shuffle both our labels and our data in extactly the same way. If not, the order of our labely <span class="math notranslate nohighlight">\(y\)</span> will not match the order of our data <span class="math notranslate nohighlight">\(X\)</span> anymore, which is a disaster and a common cause for failing machine learning processes.</p>
-<p>This would be relatively easy to implement ourselves. But why reinventing the wheel? From this point on we can luckily rely on a very extensive machine learning library for Python: <a class="reference external" href="https://scikit-learn.org/stable/"><code class="docutils literal notranslate"><span class="pre">Scikit-Learn</span></code></a>.</p>
+Two things are important for this split. We should shuffle the data, since it might be ordered (for instance, alphabetically or chronologically). But we should make 100% sure that we shuffle both our labels and our data in exactly the same way. If not, the order of our labels <span class="math notranslate nohighlight">\(y\)</span> will not match the order of our data <span class="math notranslate nohighlight">\(X\)</span> anymore, which is a disaster and a common cause of failing machine learning processes.</p>
+<p>This would be relatively easy to implement ourselves. But why reinventing the wheel? From this point on, we can luckily rely on a very extensive machine learning library for Python: <a class="reference external" href="https://scikit-learn.org/stable/"><code class="docutils literal notranslate"><span class="pre">Scikit-Learn</span></code></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
@@ -1088,9 +1088,9 @@ Two things are important for this split. We should shuffle the data since it mig
 </section>
 <section id="data-scaling">
 <h3><span class="section-number">15.2.6. </span>Data Scaling<a class="headerlink" href="#data-scaling" title="Link to this heading">#</a></h3>
-<p>As discussed above, we need scaled data when we use k-NN models to make sure that each feature is considered equally.<br />
+<p>As discussed above, we need scaled data when we use k-NN models to make sure that each feature is considered equally.  
 This, again, is already implemented in Scikit-Learn.</p>
-<p>One important note here: The scaling is adjusted <strong>only</strong> based on the training data, but not on the test data. This is the only way that we can mimick a real-life situation of having known data (X_train) and unknown data (X_test).</p>
+<p>One important note here: The scaling is adjusted <strong>only</strong> based on the training data, but not on the test data. This is the only way that we can mimic a real-life situation of having known data (X_train) and unknown data (X_test).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
@@ -1185,7 +1185,7 @@ This, again, is already implemented in Scikit-Learn.</p>
 </section>
 <section id="train-a-model-and-make-predictions">
 <h3><span class="section-number">15.2.7. </span>Train a model (and make predictions)<a class="headerlink" href="#train-a-model-and-make-predictions" title="Link to this heading">#</a></h3>
-<p>Now we finally get to use a k-nearest neighbors model! As most of the commonly used machine learning models, this is implemented in Scikit-Learn which makes this fairly easy to use for us, see also <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html?highlight=kneighborsclassifier#sklearn.neighbors.KNeighborsClassifier">KNeighborsClassifier</a>.</p>
+<p>Now we finally get to use a k-nearest neighbors model! As with most of the commonly used machine learning models, this is implemented in Scikit-Learn which makes it fairly easy to use for us; see also <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html?highlight=kneighborsclassifier#sklearn.neighbors.KNeighborsClassifier">KNeighborsClassifier</a>.</p>
 <p>The key parameter (<span class="math notranslate nohighlight">\(k\)</span>) is here called <code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1646,7 +1646,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <section id="model-evaluation">
 <h3><span class="section-number">15.2.8. </span>Model evaluation<a class="headerlink" href="#model-evaluation" title="Link to this heading">#</a></h3>
 <p>We could of course manually compare the predictions we just generated with the actual true values (<code class="docutils literal notranslate"><span class="pre">y_test</span></code>), but I guess it is obvious that this is not the best way to do things. In particular, because we usually work with much larger datasets.</p>
-<p>One of the most common and best ways to assess if a classification model performes well is to compute a <strong>confusion matrix</strong>.<br />
+<p>One of the most common and best ways to assess if a classification model performs well is to compute a <strong>confusion matrix</strong>.<br />
 This matrix will compare all predictions to all true values and make a summary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1683,7 +1683,7 @@ This matrix will compare all predictions to all true values and make a summary.<
 <img alt="../_images/305f611d8371a6a41e93d58fcd65fe38c9a694b7996247c2559b8036ed952ee5.png" src="../_images/305f611d8371a6a41e93d58fcd65fe38c9a694b7996247c2559b8036ed952ee5.png" />
 </div>
 </div>
-<p>What you should see is a confusion matrix that represents perfect (or near perfect) predictions. In many real world examples our confusion matrix will not look like this, but also show all types of misclassifications.</p>
+<p>What you should see is a confusion matrix that represents perfect (or near-perfect) predictions. In many real-world examples, our confusion matrix will not look like this, but also show all types of misclassifications.</p>
 <p>Still to come:</p>
 <ul class="simple">
 <li><p>linear regression</p></li>
