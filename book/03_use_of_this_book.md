@@ -8,6 +8,12 @@ This textbook has been crafted with attention to detail to facilitate your journ
 
 
 
+## Code is the easy part
+
+The next paragraphs will be on code and programming. And for many students, in particular students without a strong computer science background, the coding parts often seems to be the main challenge in the beginning. So, just as a small warning before we talk Python: A very good data scientist for sure knows how to work with code. But that would not nearly be enough. You will later see, that many data science techniques -including very fancy ones- can often we executed with just a few lines of code. The real skill therefore will not be to be able to run all available techniques on any dataset you'll get. It is the ability to know *how to use* those methods, but also to know *when to use* them! When you analyze data it will often come down to **asking the right questions, and knowing which tools can help you answer them**.
+
+But we will come to this many times again. For now, let's get started with the very technical parts.
+
 ## Skills you should have to work with this book
 
 - **Python Programming Basics**: Understanding of variables, fundamental data types, loops, functions, and module imports are essential. If you're new to Python or need a refresher, consider resources like [Python.org's Beginner's Guide](https://docs.python.org/3/tutorial/index.html), [RealPython](https://realpython.com/), or [GeeksforGeeks Python Programming Language](https://www.geeksforgeeks.org/python-programming-language/).
