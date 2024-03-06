@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>20. Networks / Graph Theory &#8212; Data Science for (not yet) scientists</title>
+    <title>21. Networks / Graph Theory &#8212; Data Science for (not yet) scientists</title>
   
   
   
@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/live_coding_13_graphs';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="21. Visualizing Graphs" href="live_coding_14_graph_visualization.html" />
-    <link rel="prev" title="19. Beyond Counting Individual Words: N-grams" href="live_coding_12_NLP_4_ngrams_word_vectors.html" />
+    <link rel="next" title="22. Visualizing Graphs" href="live_coding_14_graph_visualization.html" />
+    <link rel="prev" title="20. Beyond Counting Individual Words: N-grams" href="live_coding_12_NLP_4_ngrams_word_vectors.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -207,23 +207,24 @@
 <li class="toctree-l1"><a class="reference internal" href="live_coding_07_dimensionality_reduction.html">13. Dimensionality Reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_08_machine_learning.html">14. Machine Learning - Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09_machine_learning_algorithms.html">15. Machine Learning - Common Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_09b_machine_learning_algorithms_2.html">16. Machine Learning - Common Algorithms II (Linear Models)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">16. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">17. NLP - basic techniques to analyse text data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">18. Computing with Text: Counting words</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">19. Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">17. Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">18. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">19. Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">20. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the networks</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">20. Networks / Graph Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graph_visualization.html">21. Visualizing Graphs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graphs_part2.html">22. Bottlenecks, Hubs, Communities</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">21. Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graph_visualization.html">22. Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graphs_part2.html">23. Bottlenecks, Hubs, Communities</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Next steps</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="outlook.html">23. What are the next steps?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outlook.html">24. What are the next steps?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -429,30 +430,30 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-need-graphs-for-data-science">20.1. Why Do We Need Graphs for Data Science?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-graph-what-is-a-network">20.2. What is a Graph, What is a Network?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphs-in-python-with-networkx">20.3. Graphs in Python with <code class="docutils literal notranslate"><span class="pre">NetworkX</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">20.3.1. Installation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-graph-object">20.3.2. Create a graph object</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-nodes-and-edges">20.3.3. Add nodes and edges</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-graph-with-networkx">20.3.4. Visualize the graph with NetworkX</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-metrics-edge-count-density-and-average-degree">20.3.5. Graph Metrics: Edge Count, Density, and Average Degree</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-possible-number-of-edges">20.3.5.1. Maximum Possible Number of Edges</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#density">20.3.5.2. Density</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#average-degree-and-density">20.3.5.3. Average Degree and Density</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-need-graphs-for-data-science">21.1. Why Do We Need Graphs for Data Science?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-graph-what-is-a-network">21.2. What is a Graph, What is a Network?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphs-in-python-with-networkx">21.3. Graphs in Python with <code class="docutils literal notranslate"><span class="pre">NetworkX</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">21.3.1. Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-graph-object">21.3.2. Create a graph object</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-nodes-and-edges">21.3.3. Add nodes and edges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-graph-with-networkx">21.3.4. Visualize the graph with NetworkX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-metrics-edge-count-density-and-average-degree">21.3.5. Graph Metrics: Edge Count, Density, and Average Degree</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-possible-number-of-edges">21.3.5.1. Maximum Possible Number of Edges</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#density">21.3.5.2. Density</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#average-degree-and-density">21.3.5.3. Average Degree and Density</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-all-graphs-are-connected">20.4. Not all graphs are connected</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directed-graphs">20.5. Directed graphs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-network-data">20.6. Import network data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">20.6.1. EXERCISE 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">20.6.2. EXERCISE 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">20.6.3. EXERCISE 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-all-graphs-are-connected">21.4. Not all graphs are connected</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directed-graphs">21.5. Directed graphs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-network-data">21.6. Import network data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">21.6.1. EXERCISE 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">21.6.2. EXERCISE 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">21.6.3. EXERCISE 3</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-importance">20.7. Node importance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-importance">21.7. Node importance</a></li>
 </ul>
             </nav>
         </div>
@@ -465,10 +466,10 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="networks-graph-theory">
-<h1><span class="section-number">20. </span>Networks / Graph Theory<a class="headerlink" href="#networks-graph-theory" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">21. </span>Networks / Graph Theory<a class="headerlink" href="#networks-graph-theory" title="Link to this heading">#</a></h1>
 <p>Graph theory, or network analysis, is a crucial part of the data science toolkit. It offers a perspective that significantly deviates from the classic tabular or relational data models, enabling us to model, understand, and navigate complex systems of interaction and connection.</p>
 <section id="why-do-we-need-graphs-for-data-science">
-<h2><span class="section-number">20.1. </span>Why Do We Need Graphs for Data Science?<a class="headerlink" href="#why-do-we-need-graphs-for-data-science" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">21.1. </span>Why Do We Need Graphs for Data Science?<a class="headerlink" href="#why-do-we-need-graphs-for-data-science" title="Link to this heading">#</a></h2>
 <p>Consider the variety of real-world systems that can be understood as networks or graphs:</p>
 <ul class="simple">
 <li><p><strong>Information Technology Networks:</strong> These include the internet (a vast network of computers and servers), telephone networks, and local computer networks. Each node represents a device or server, and each edge is a communication link.</p></li>
@@ -479,7 +480,7 @@ document.write(`
 <p>The beauty of graph theory is its generalizability. The same mathematical principles and techniques can be used to explore, analyze, and draw conclusions from all these diverse networks.</p>
 </section>
 <section id="what-is-a-graph-what-is-a-network">
-<h2><span class="section-number">20.2. </span>What is a Graph, What is a Network?<a class="headerlink" href="#what-is-a-graph-what-is-a-network" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">21.2. </span>What is a Graph, What is a Network?<a class="headerlink" href="#what-is-a-graph-what-is-a-network" title="Link to this heading">#</a></h2>
 <p>To delve deeper, we need to understand some key terms and components. Networks or graphs consist of two different types of elements: nodes and edges.</p>
 <ul class="simple">
 <li><p><strong>Nodes (or vertices):</strong> These represent the entities within our system or dataset. Depending on the context, a node could represent a person, a computer, a protein, an intersection, or any other entity.</p></li>
@@ -489,7 +490,7 @@ document.write(`
 <figure class="align-default" id="fig-graphs01">
 <img alt="../_images/fig_graphs_types_weighted_directed.png" src="../_images/fig_graphs_types_weighted_directed.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 20.1 </span><span class="caption-text">Graphs come in different types or flavors. Key distinctions to make are whether or not links are directed or undirected. And whether or not link are weighted.</span><a class="headerlink" href="#fig-graphs01" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 21.1 </span><span class="caption-text">Graphs come in different types or flavors. Key distinctions to make are whether or not links are directed or undirected. And whether or not link are weighted.</span><a class="headerlink" href="#fig-graphs01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In the simplest form of a graph, we have unweighted and undirected edges, but real-world graphs often feature directed and/or weighted edges.</p>
@@ -497,18 +498,18 @@ document.write(`
 <figure class="align-default" id="fig-graphs02">
 <img alt="../_images/fig_graphs_types_weighted_directed_degree.png" src="../_images/fig_graphs_types_weighted_directed_degree.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 20.2 </span><span class="caption-text">The degree describes the number of links of a particular node. For directed graphs we distinguish in-degree and out-degree.</span><a class="headerlink" href="#fig-graphs02" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 21.2 </span><span class="caption-text">The degree describes the number of links of a particular node. For directed graphs we distinguish in-degree and out-degree.</span><a class="headerlink" href="#fig-graphs02" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The standard library in Python for working with graphs is <code class="docutils literal notranslate"><span class="pre">networkx</span></code>. Comprehensive documentation is available at this link: https://networkx.org/documentation/latest/_downloads/networkx_reference.pdf.</p>
 </section>
 <section id="graphs-in-python-with-networkx">
-<h2><span class="section-number">20.3. </span>Graphs in Python with <code class="docutils literal notranslate"><span class="pre">NetworkX</span></code><a class="headerlink" href="#graphs-in-python-with-networkx" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">21.3. </span>Graphs in Python with <code class="docutils literal notranslate"><span class="pre">NetworkX</span></code><a class="headerlink" href="#graphs-in-python-with-networkx" title="Link to this heading">#</a></h2>
 <p>If if comes to working with networks/graphs, the goto Python library is <code class="docutils literal notranslate"><span class="pre">NetworkX</span></code>, which also comes with an <a class="reference external" href="https://networkx.org/documentation/stable/reference/index.html">extensive documentation</a>.
 In addition, <code class="docutils literal notranslate"><span class="pre">NetworkX</span></code> also provides own <a class="reference external" href="https://networkx.org/documentation/stable/tutorial.html">tutorial material</a>.</p>
 <p>Here, we will do a quick introduction to NetworkX which we will then use for all graph-related parts in this course.</p>
 <section id="installation">
-<h3><span class="section-number">20.3.1. </span>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">21.3.1. </span>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h3>
 <p>NetworkX can simply be installed using <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">networkx</span></code>, or from a Jupyter notebook, use  <code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">networkx</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -530,7 +531,7 @@ In addition, <code class="docutils literal notranslate"><span class="pre">Networ
 </div>
 </section>
 <section id="create-a-graph-object">
-<h3><span class="section-number">20.3.2. </span>Create a graph object<a class="headerlink" href="#create-a-graph-object" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">21.3.2. </span>Create a graph object<a class="headerlink" href="#create-a-graph-object" title="Link to this heading">#</a></h3>
 <p>We start by creating a graph object for an undirected graph using <code class="docutils literal notranslate"><span class="pre">nx.Graph()</span></code>.
 To initiate a directed graph we can use <code class="docutils literal notranslate"><span class="pre">nx.DiGraph()</span></code>… but that will come a bit later.</p>
 <div class="cell docutils container">
@@ -554,7 +555,7 @@ To initiate a directed graph we can use <code class="docutils literal notranslat
 </div>
 </section>
 <section id="add-nodes-and-edges">
-<h3><span class="section-number">20.3.3. </span>Add nodes and edges<a class="headerlink" href="#add-nodes-and-edges" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">21.3.3. </span>Add nodes and edges<a class="headerlink" href="#add-nodes-and-edges" title="Link to this heading">#</a></h3>
 <p>What we initialized above is an empty graph. We can now add nodes and edges to the graph.</p>
 <p><strong>Nodes</strong> can be added:</p>
 <ul class="simple">
@@ -621,7 +622,7 @@ To initiate a directed graph we can use <code class="docutils literal notranslat
 </div>
 </section>
 <section id="visualize-the-graph-with-networkx">
-<h3><span class="section-number">20.3.4. </span>Visualize the graph with NetworkX<a class="headerlink" href="#visualize-the-graph-with-networkx" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">21.3.4. </span>Visualize the graph with NetworkX<a class="headerlink" href="#visualize-the-graph-with-networkx" title="Link to this heading">#</a></h3>
 <p>To make it clear from the start, NetworkX is great for a lot of things. And it also allows you to quickly visualize a graph. But this is mostly to get a quick impression of the data and not so much to produce high-quality visuals. In particular to display larger networks, we can better use specialized software for network visualizations which we will cover in the next chapter.</p>
 <p>For now, however, having a quick look at our graph is always better than simply reading lists of strings (or tuples of strings). So, let’s see what we just created!</p>
 <div class="cell docutils container">
@@ -631,7 +632,7 @@ To initiate a directed graph we can use <code class="docutils literal notranslat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/59a8241542503838cf8444ddeda5b5a6f754abafc802e010d6905f56d9abb979.png" src="../_images/59a8241542503838cf8444ddeda5b5a6f754abafc802e010d6905f56d9abb979.png" />
+<img alt="../_images/757e41303f28bcd95172c56d945677d2a6a0ddc2461a348e90cc4af486d2e361.png" src="../_images/757e41303f28bcd95172c56d945677d2a6a0ddc2461a348e90cc4af486d2e361.png" />
 </div>
 </div>
 <p>We see that some nodes have more connections (up to three in this example), while others have fewer connections, such as the node “Alice” with only one edge to another node (“Peter”).
@@ -651,7 +652,7 @@ The number of edges (or links/connections/relationships) of an individual node i
 </div>
 </section>
 <section id="graph-metrics-edge-count-density-and-average-degree">
-<h3><span class="section-number">20.3.5. </span>Graph Metrics: Edge Count, Density, and Average Degree<a class="headerlink" href="#graph-metrics-edge-count-density-and-average-degree" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">21.3.5. </span>Graph Metrics: Edge Count, Density, and Average Degree<a class="headerlink" href="#graph-metrics-edge-count-density-and-average-degree" title="Link to this heading">#</a></h3>
 <p>To analyze networks, it’s crucial to understand a few fundamental properties or metrics. These metrics can offer us insights into the structure and characteristics of the network, helping us interpret its overall behavior.</p>
 <p>Some typical questions we might want to ask is:</p>
 <ul class="simple">
@@ -659,14 +660,14 @@ The number of edges (or links/connections/relationships) of an individual node i
 <li><p>How many links do our nodes have (on average)?</p></li>
 </ul>
 <section id="maximum-possible-number-of-edges">
-<h4><span class="section-number">20.3.5.1. </span>Maximum Possible Number of Edges<a class="headerlink" href="#maximum-possible-number-of-edges" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">21.3.5.1. </span>Maximum Possible Number of Edges<a class="headerlink" href="#maximum-possible-number-of-edges" title="Link to this heading">#</a></h4>
 <p>One way to better judge if our graph has few or many edges is to first compute how many edges it <em>could have</em>. The <strong>maximum possible number of edges</strong>, denoted as <span class="math notranslate nohighlight">\(L_{max}\)</span>, in a network is given when every node is connected to every other node. In an undirected graph, this results in a complete graph where every pair of distinct vertices is connected by a unique edge. For a network with <span class="math notranslate nohighlight">\(N\)</span> nodes, the maximum possible number of edges is:</p>
 <div class="math notranslate nohighlight">
 \[ Lmax=\frac{N(N−1)}{2} \]</div>
 <p>The division by 2 ensures that we are not double-counting edges since in an undirected graph, an edge between nodes A and B is the same as the edge between nodes B and A.</p>
 </section>
 <section id="density">
-<h4><span class="section-number">20.3.5.2. </span>Density<a class="headerlink" href="#density" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">21.3.5.2. </span>Density<a class="headerlink" href="#density" title="Link to this heading">#</a></h4>
 <p>The density <span class="math notranslate nohighlight">\(d\)</span> of a graph provides a measure of how many edges the graph has in relation to the maximum possible number of edges (<span class="math notranslate nohighlight">\(L_{max}\)</span>). It is defined as the ratio of the actual number of edges <span class="math notranslate nohighlight">\(L\)</span> to <span class="math notranslate nohighlight">\(L_{max}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -675,7 +676,7 @@ d = L/L_{max} = \frac{2L}{N(N-1)}
 <p>The density can range between 0 and 1. A density close to 1 indicates that the graph is dense and most of the nodes are connected to each other, whereas a density close to 0 indicates that the graph is sparse with few edges.</p>
 </section>
 <section id="average-degree-and-density">
-<h4><span class="section-number">20.3.5.3. </span>Average Degree and Density<a class="headerlink" href="#average-degree-and-density" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">21.3.5.3. </span>Average Degree and Density<a class="headerlink" href="#average-degree-and-density" title="Link to this heading">#</a></h4>
 <p>The average degree <span class="math notranslate nohighlight">\(\langle k \rangle\)</span> of a graph is the mean number of edges per node. It’s calculated by summing all node degrees and dividing by the total number of nodes <span class="math notranslate nohighlight">\(N\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -789,7 +790,7 @@ Density = 0.6
 </section>
 </section>
 <section id="not-all-graphs-are-connected">
-<h2><span class="section-number">20.4. </span>Not all graphs are connected<a class="headerlink" href="#not-all-graphs-are-connected" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">21.4. </span>Not all graphs are connected<a class="headerlink" href="#not-all-graphs-are-connected" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
@@ -802,13 +803,13 @@ Density = 0.6
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/06f418d182b2582fa199f8f791b6b63ffbf0e6025dc857d065317213666c7d33.png" src="../_images/06f418d182b2582fa199f8f791b6b63ffbf0e6025dc857d065317213666c7d33.png" />
+<img alt="../_images/28f6e15aeaf88b1b65a3b15f8569df60469d576d07edf4a69670aa363b50a186.png" src="../_images/28f6e15aeaf88b1b65a3b15f8569df60469d576d07edf4a69670aa363b50a186.png" />
 </div>
 </div>
 </section>
 <hr class="docutils" />
 <section id="directed-graphs">
-<h2><span class="section-number">20.5. </span>Directed graphs<a class="headerlink" href="#directed-graphs" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">21.5. </span>Directed graphs<a class="headerlink" href="#directed-graphs" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
@@ -824,7 +825,7 @@ Density = 0.6
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9a0af7c1b9cc56bf36ec11c1be29bf1c630ad4836cc61ae836d5c771d83e1241.png" src="../_images/9a0af7c1b9cc56bf36ec11c1be29bf1c630ad4836cc61ae836d5c771d83e1241.png" />
+<img alt="../_images/9be166e5ce1847a794a04366310c18100a16e0e0a4b0f7147e91f6b7cfeedfc8.png" src="../_images/9be166e5ce1847a794a04366310c18100a16e0e0a4b0f7147e91f6b7cfeedfc8.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -838,29 +839,29 @@ Density = 0.6
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b85cf73629a9ac2b09bd24a9e5f4272ce5b2768bee356e771a32f53062dbcf71.png" src="../_images/b85cf73629a9ac2b09bd24a9e5f4272ce5b2768bee356e771a32f53062dbcf71.png" />
+<img alt="../_images/db2abd8b0ca72a4736545f4df5aa2325e5656b454d5ae319e1d83006c8bf97b8.png" src="../_images/db2abd8b0ca72a4736545f4df5aa2325e5656b454d5ae319e1d83006c8bf97b8.png" />
 </div>
 </div>
 </section>
 <section id="import-network-data">
-<h2><span class="section-number">20.6. </span>Import network data<a class="headerlink" href="#import-network-data" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">21.6. </span>Import network data<a class="headerlink" href="#import-network-data" title="Link to this heading">#</a></h2>
 <p>Hier schauen wir uns Flugverbindungen in den USA an <code class="docutils literal notranslate"><span class="pre">openflights_usa.graphml</span></code></p>
 <section id="exercise-1">
-<h3><span class="section-number">20.6.1. </span>EXERCISE 1<a class="headerlink" href="#exercise-1" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">21.6.1. </span>EXERCISE 1<a class="headerlink" href="#exercise-1" title="Link to this heading">#</a></h3>
 <p>Is there a direct flight between Indianapolis and Fairbanks, Alaska (FAI)? A direct flight is one with no intermediate stops.</p>
 </section>
 <section id="exercise-2">
-<h3><span class="section-number">20.6.2. </span>EXERCISE 2<a class="headerlink" href="#exercise-2" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">21.6.2. </span>EXERCISE 2<a class="headerlink" href="#exercise-2" title="Link to this heading">#</a></h3>
 <p>If I wanted to fly from Indianapolis to Fairbanks, Alaska what would be an itinerary with the fewest number of flights?</p>
 </section>
 <section id="exercise-3">
-<h3><span class="section-number">20.6.3. </span>EXERCISE 3<a class="headerlink" href="#exercise-3" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">21.6.3. </span>EXERCISE 3<a class="headerlink" href="#exercise-3" title="Link to this heading">#</a></h3>
 <p>Is it possible to travel from any airport in the US to any other airport in the US, possibly using connecting flights? In other words, does there exist a path in the network between every possible pair of airports?</p>
 </section>
 </section>
 <hr class="docutils" />
 <section id="node-importance">
-<h2><span class="section-number">20.7. </span>Node importance<a class="headerlink" href="#node-importance" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">21.7. </span>Node importance<a class="headerlink" href="#node-importance" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -900,7 +901,7 @@ Density = 0.6
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">19. </span>Beyond Counting Individual Words: N-grams</p>
+        <p class="prev-next-title"><span class="section-number">20. </span>Beyond Counting Individual Words: N-grams</p>
       </div>
     </a>
     <a class="right-next"
@@ -908,7 +909,7 @@ Density = 0.6
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">21. </span>Visualizing Graphs</p>
+        <p class="prev-next-title"><span class="section-number">22. </span>Visualizing Graphs</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -928,30 +929,30 @@ Density = 0.6
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-need-graphs-for-data-science">20.1. Why Do We Need Graphs for Data Science?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-graph-what-is-a-network">20.2. What is a Graph, What is a Network?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphs-in-python-with-networkx">20.3. Graphs in Python with <code class="docutils literal notranslate"><span class="pre">NetworkX</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">20.3.1. Installation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-graph-object">20.3.2. Create a graph object</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-nodes-and-edges">20.3.3. Add nodes and edges</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-graph-with-networkx">20.3.4. Visualize the graph with NetworkX</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-metrics-edge-count-density-and-average-degree">20.3.5. Graph Metrics: Edge Count, Density, and Average Degree</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-possible-number-of-edges">20.3.5.1. Maximum Possible Number of Edges</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#density">20.3.5.2. Density</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#average-degree-and-density">20.3.5.3. Average Degree and Density</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-need-graphs-for-data-science">21.1. Why Do We Need Graphs for Data Science?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-graph-what-is-a-network">21.2. What is a Graph, What is a Network?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphs-in-python-with-networkx">21.3. Graphs in Python with <code class="docutils literal notranslate"><span class="pre">NetworkX</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">21.3.1. Installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-graph-object">21.3.2. Create a graph object</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-nodes-and-edges">21.3.3. Add nodes and edges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-the-graph-with-networkx">21.3.4. Visualize the graph with NetworkX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-metrics-edge-count-density-and-average-degree">21.3.5. Graph Metrics: Edge Count, Density, and Average Degree</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-possible-number-of-edges">21.3.5.1. Maximum Possible Number of Edges</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#density">21.3.5.2. Density</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#average-degree-and-density">21.3.5.3. Average Degree and Density</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-all-graphs-are-connected">20.4. Not all graphs are connected</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directed-graphs">20.5. Directed graphs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-network-data">20.6. Import network data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">20.6.1. EXERCISE 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">20.6.2. EXERCISE 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">20.6.3. EXERCISE 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-all-graphs-are-connected">21.4. Not all graphs are connected</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directed-graphs">21.5. Directed graphs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-network-data">21.6. Import network data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">21.6.1. EXERCISE 1</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">21.6.2. EXERCISE 2</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">21.6.3. EXERCISE 3</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-importance">20.7. Node importance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-importance">21.7. Node importance</a></li>
 </ul>
   </nav></div>
 

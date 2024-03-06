@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>17. NLP - basic techniques to analyse text data &#8212; Data Science for (not yet) scientists</title>
+    <title>18. NLP - basic techniques to analyse text data &#8212; Data Science for (not yet) scientists</title>
   
   
   
@@ -60,8 +60,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/live_coding_11_NLP_2_tokenization';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="18. Computing with Text: Counting words" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html" />
-    <link rel="prev" title="16. Introduction to Working with Text Data" href="live_coding_10_working_with_text_data.html" />
+    <link rel="next" title="19. Computing with Text: Counting words" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html" />
+    <link rel="prev" title="17. Introduction to Working with Text Data" href="live_coding_10_working_with_text_data.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -205,23 +205,24 @@
 <li class="toctree-l1"><a class="reference internal" href="live_coding_07_dimensionality_reduction.html">13. Dimensionality Reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_08_machine_learning.html">14. Machine Learning - Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09_machine_learning_algorithms.html">15. Machine Learning - Common Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_09b_machine_learning_algorithms_2.html">16. Machine Learning - Common Algorithms II (Linear Models)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">16. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. NLP - basic techniques to analyse text data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">18. Computing with Text: Counting words</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">19. Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">17. Introduction to Working with Text Data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">18. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">19. Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">20. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the networks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="live_coding_13_graphs.html">20. Networks / Graph Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graph_visualization.html">21. Visualizing Graphs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graphs_part2.html">22. Bottlenecks, Hubs, Communities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_13_graphs.html">21. Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graph_visualization.html">22. Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graphs_part2.html">23. Bottlenecks, Hubs, Communities</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Next steps</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="outlook.html">23. What are the next steps?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outlook.html">24. What are the next steps?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -427,27 +428,27 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-areas-for-the-use-of-nlp-techniques">17.1. Example areas for the use of NLP techniques</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-nlp-libraries">17.2. Python NLP libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization-stemming-lemmatization">17.3. Tokenization, Stemming, Lemmatization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nltk">17.4. NLTK</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization">17.4.1. Tokenization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming">17.4.2. Stemming</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lemmatization">17.4.3. Lemmatization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-areas-for-the-use-of-nlp-techniques">18.1. Example areas for the use of NLP techniques</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-nlp-libraries">18.2. Python NLP libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization-stemming-lemmatization">18.3. Tokenization, Stemming, Lemmatization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nltk">18.4. NLTK</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization">18.4.1. Tokenization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming">18.4.2. Stemming</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lemmatization">18.4.3. Lemmatization</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nlp-for-languages-other-than-english">17.5. NLP for languages other than English</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-try-some-german">17.5.1. Let’s try some German</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nlp-for-languages-other-than-english">18.5. NLP for languages other than English</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-try-some-german">18.5.1. Let’s try some German</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-spacy-models-for-lemmatization">17.6. Applying SpaCy Models for Lemmatization</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">17.6.1. Tokenization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">17.6.2. Lemmatization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-spacy-models-for-lemmatization">18.6. Applying SpaCy Models for Lemmatization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">18.6.1. Tokenization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">18.6.2. Lemmatization</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-tokenization-and-lemmatization">17.7. Apply tokenization and lemmatization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">17.8. Mini-Exercise!</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-summary-and-outlook">17.9. Chapter Summary and Outlook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-tokenization-and-lemmatization">18.7. Apply tokenization and lemmatization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">18.8. Mini-Exercise!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-summary-and-outlook">18.9. Chapter Summary and Outlook</a></li>
 </ul>
             </nav>
         </div>
@@ -460,12 +461,12 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="nlp-basic-techniques-to-analyse-text-data">
-<h1><span class="section-number">17. </span>NLP - basic techniques to analyse text data<a class="headerlink" href="#nlp-basic-techniques-to-analyse-text-data" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">18. </span>NLP - basic techniques to analyse text data<a class="headerlink" href="#nlp-basic-techniques-to-analyse-text-data" title="Link to this heading">#</a></h1>
 <p>Natural Language Processing (NLP) is a branch of artificial intelligence that deals with the interaction between computers and humans using natural language. It allows computers to read, understand, interpret, and derive meaning from human languages in a valuable and structured manner. NLP stands at the intersection of computer science, artificial intelligence, and computational linguistics, aiming to build computational models of human language understanding for the development of various practical applications.</p>
 <p>The importance of NLP in data science cannot be overstated. As we generate vast amounts of data in textual form each day, from social media posts and product reviews to emails and support tickets, NLP provides the tools and techniques necessary to make sense of this data. By transforming unstructured text into structured data, NLP allows us to analyze and extract insights from human language, providing valuable context to support decision-making processes.</p>
 <p>NLP is a very large and active field. Here we will only cover a few basics to make the first steps towards applying modern NLP techniques in data science workflows.</p>
 <section id="example-areas-for-the-use-of-nlp-techniques">
-<h2><span class="section-number">17.1. </span>Example areas for the use of NLP techniques<a class="headerlink" href="#example-areas-for-the-use-of-nlp-techniques" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.1. </span>Example areas for the use of NLP techniques<a class="headerlink" href="#example-areas-for-the-use-of-nlp-techniques" title="Link to this heading">#</a></h2>
 <p>Just to get an idea of how broad as well as how relevant NLP is, here some of the most common applications:</p>
 <ol class="arabic simple">
 <li><p><strong>Text Classification</strong>: This NLP application is tasked with assigning predefined categories or tags to text. With its automatic text analysis capabilities, it streamlines the process of organizing and categorizing text, proving essential for tasks such as spam detection, content filtering, and topic labeling.</p></li>
@@ -477,7 +478,7 @@ document.write(`
 </ol>
 </section>
 <section id="python-nlp-libraries">
-<h2><span class="section-number">17.2. </span>Python NLP libraries<a class="headerlink" href="#python-nlp-libraries" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.2. </span>Python NLP libraries<a class="headerlink" href="#python-nlp-libraries" title="Link to this heading">#</a></h2>
 <p>There are several Python libraries that are popularly used for modern Natural Language Processing (NLP) tasks. Here are a few of the most commonly used ones:</p>
 <ol class="arabic simple">
 <li><p><strong>NLTK (Natural Language Toolkit)</strong>: This is a widely used library for symbolic and statistical NLP. It provides easy-to-use interfaces to over 50 corpora and lexical resources, such as WordNet. NLTK also includes text processing libraries for classification, tokenization, stemming, tagging, parsing, and semantic reasoning. It’s excellent for teaching and working with the basics of NLP.</p></li>
@@ -509,7 +510,7 @@ document.write(`
 </div>
 </section>
 <section id="tokenization-stemming-lemmatization">
-<h2><span class="section-number">17.3. </span>Tokenization, Stemming, Lemmatization<a class="headerlink" href="#tokenization-stemming-lemmatization" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.3. </span>Tokenization, Stemming, Lemmatization<a class="headerlink" href="#tokenization-stemming-lemmatization" title="Link to this heading">#</a></h2>
 <p>Before we dive into any complex operations with text data, we must first prepare it by dividing it into smaller, more manageable units. Similar to how we break down a paragraph into sentences and sentences into words when reading, we apply the same concept in Natural Language Processing (NLP) - but in a slightly different manner. This process is called tokenization.</p>
 <ol class="arabic simple">
 <li><p><strong>Tokenization</strong>: This is the first step in many NLP  pipelines. Tokenization is the process of breaking up the original raw  text into smaller pieces, known as tokens. These tokens help us  understand the context in which they’re used and draw meaning from them. Tokens are often words, but they can also be phrases, sentences, or  other units, depending on the level of detail needed. For example, the  sentence “This is an example sentence” would be tokenized into [‘This’,  ‘is’, ‘an’, ‘example’, ‘sentence’].</p></li>
@@ -535,10 +536,10 @@ document.write(`
 </div>
 </section>
 <section id="nltk">
-<h2><span class="section-number">17.4. </span>NLTK<a class="headerlink" href="#nltk" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.4. </span>NLTK<a class="headerlink" href="#nltk" title="Link to this heading">#</a></h2>
 <p>Here, we demonstrate the NLTK processes of tokenization, stemming, and lemmatization.</p>
 <section id="tokenization">
-<h3><span class="section-number">17.4.1. </span>Tokenization<a class="headerlink" href="#tokenization" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.4.1. </span>Tokenization<a class="headerlink" href="#tokenization" title="Link to this heading">#</a></h3>
 <p>Tokenization is the process of splitting a large paragraph or text into sentences or words. These sentences or words are known as tokens. This is a crucial step in NLP as we often deal with words in text data.</p>
 <p>In this block of code, we import NLTK and define a string of text. The text contains a list of words with different grammatical forms. Using NLTK’s <code class="docutils literal notranslate"><span class="pre">TreebankWordTokenizer</span></code>, we break down the text into individual words, or “tokens”. The output is a list of these tokens.</p>
 <div class="cell docutils container">
@@ -559,7 +560,7 @@ document.write(`
 </div>
 </section>
 <section id="stemming">
-<h3><span class="section-number">17.4.2. </span>Stemming<a class="headerlink" href="#stemming" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.4.2. </span>Stemming<a class="headerlink" href="#stemming" title="Link to this heading">#</a></h3>
 <p>Stemming is a process of reducing inflected (or sometimes derived) words to their word stem or root form—generally a written word form. The stem need not be identical to the morphological root of the word.</p>
 <p>Here, we create a <code class="docutils literal notranslate"><span class="pre">PorterStemmer</span></code> object and use it to find the root stem of each word in our list of tokens. The result is a list of these stems. You’ll notice that the stems aren’t always valid words (like ‘wolv’ for ‘wolves’), as stemming operates on a rule-based approach without understanding the context.</p>
 <div class="cell docutils container">
@@ -577,7 +578,7 @@ document.write(`
 </div>
 </section>
 <section id="lemmatization">
-<h3><span class="section-number">17.4.3. </span>Lemmatization<a class="headerlink" href="#lemmatization" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.4.3. </span>Lemmatization<a class="headerlink" href="#lemmatization" title="Link to this heading">#</a></h3>
 <p>Lemmatization is the process of reducing inflected words to their word base or dictionary form. It’s similar to stemming but is more accurate as it takes the context and meaning of the word into consideration.</p>
 <p>Instead of the <code class="docutils literal notranslate"><span class="pre">PorterStemmer</span></code>, we use NLTK’s <code class="docutils literal notranslate"><span class="pre">WordNetLemmatizer</span></code> to find the dictionary base form (or lemma) of each word. This results in a list of lemmas. As you can see, lemmatization provides a more accurate root form (‘wolf’ for ‘wolves’) as compared to stemming.</p>
 <div class="cell docutils container">
@@ -701,11 +702,11 @@ document.write(`
 </section>
 </section>
 <section id="nlp-for-languages-other-than-english">
-<h2><span class="section-number">17.5. </span>NLP for languages other than English<a class="headerlink" href="#nlp-for-languages-other-than-english" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.5. </span>NLP for languages other than English<a class="headerlink" href="#nlp-for-languages-other-than-english" title="Link to this heading">#</a></h2>
 <p>Natural Language Processing (NLP) is a truly global discipline, extending its reach to languages far beyond just English.</p>
 <p>However, it’s worth noting that the effectiveness and ease of applying NLP techniques may vary across languages. For instance, languages with complex morphology like Finnish or Turkish, or those with little word delimitation like Chinese, can present unique challenges. Furthermore, resources and pre-trained models, especially those for machine learning, are more readily available for some languages, particularly English, than for others.</p>
 <section id="let-s-try-some-german">
-<h3><span class="section-number">17.5.1. </span>Let’s try some German<a class="headerlink" href="#let-s-try-some-german" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.5.1. </span>Let’s try some German<a class="headerlink" href="#let-s-try-some-german" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Füsse Katzen Wölfe sprechen gesprochen?&quot;</span>  <span class="c1"># Not an actual German sentence. Only some words for illustrative purposes.</span>
@@ -728,7 +729,7 @@ document.write(`
 </section>
 </section>
 <section id="applying-spacy-models-for-lemmatization">
-<h2><span class="section-number">17.6. </span>Applying SpaCy Models for Lemmatization<a class="headerlink" href="#applying-spacy-models-for-lemmatization" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.6. </span>Applying SpaCy Models for Lemmatization<a class="headerlink" href="#applying-spacy-models-for-lemmatization" title="Link to this heading">#</a></h2>
 <p><strong>SpaCy</strong> is a highly versatile and efficient Python library for Natural Language Processing (NLP). It offers comprehensive and advanced functionalities, outperforming NLTK in terms of efficiency and speed. You can find extensive details in <a class="reference external" href="https://spacy.io/usage/spacy-101">SpaCy’s official documentation</a>.</p>
 <p>Having familiarized ourselves with the concept of lemmatization, let’s now explore its practical application using SpaCy.</p>
 <p>Initially, you need to ensure that SpaCy and the relevant language models are installed in your environment. In the case of English, <code class="docutils literal notranslate"><span class="pre">en_core_web_sm</span></code> is a suitable model, whereas for German, <code class="docutils literal notranslate"><span class="pre">de_core_news_sm</span></code> can be utilized. SpaCy offers a variety of models for different languages which you can explore on the <a class="reference external" href="https://spacy.io/usage/models/">SpaCy models page</a>.</p>
@@ -779,7 +780,7 @@ python<span class="w"> </span>-m<span class="w"> </span>spacy<span class="w"> </
 </div>
 </div>
 <section id="id1">
-<h3><span class="section-number">17.6.1. </span>Tokenization<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.6.1. </span>Tokenization<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>By passing the text through the loaded NLP model, SpaCy already performs tokenization and a host of other operations under the hood:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -795,7 +796,7 @@ python<span class="w"> </span>-m<span class="w"> </span>spacy<span class="w"> </
 </div>
 </section>
 <section id="id2">
-<h3><span class="section-number">17.6.2. </span>Lemmatization<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.6.2. </span>Lemmatization<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>Unlike <strong>NLTK</strong>, SpaCy has not option for <strong>stemming</strong>. But it provides many different language models (for many different languages) that allow for good <strong>lemmatization</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -813,7 +814,7 @@ python<span class="w"> </span>-m<span class="w"> </span>spacy<span class="w"> </
 </section>
 </section>
 <section id="apply-tokenization-and-lemmatization">
-<h2><span class="section-number">17.7. </span>Apply tokenization and lemmatization<a class="headerlink" href="#apply-tokenization-and-lemmatization" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.7. </span>Apply tokenization and lemmatization<a class="headerlink" href="#apply-tokenization-and-lemmatization" title="Link to this heading">#</a></h2>
 <p>“War of the worlds” von H.G. Wells</p>
 <p>Im Folgenden arbeiten wir mit dem Text des Buches “War of the Worlds” von H.G. Wells (frei verfügbar über das Gutenberg Projekt, die Datei steht auf Moodle).</p>
 <div class="cell docutils container">
@@ -951,12 +952,12 @@ Unique lemmas: 5589
 <p>In the following steps, we could now investigate which words are the most common ones, we could identify named entities (such as people or places) or use this text data to train a machine learning model (like a text classifier or a sentiment analysis model).</p>
 </section>
 <section id="mini-exercise">
-<h2><span class="section-number">17.8. </span>Mini-Exercise!<a class="headerlink" href="#mini-exercise" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.8. </span>Mini-Exercise!<a class="headerlink" href="#mini-exercise" title="Link to this heading">#</a></h2>
 <p>Why do we get more tokens than lemmas?
 Have a look at both and find the answer!</p>
 </section>
 <section id="chapter-summary-and-outlook">
-<h2><span class="section-number">17.9. </span>Chapter Summary and Outlook<a class="headerlink" href="#chapter-summary-and-outlook" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">18.9. </span>Chapter Summary and Outlook<a class="headerlink" href="#chapter-summary-and-outlook" title="Link to this heading">#</a></h2>
 <p>Throughout this chapter, we delved into the world of Natural Language Processing (NLP), exploring several key techniques for handling and processing text data effectively:</p>
 <ul class="simple">
 <li><p><strong>Cleaning:</strong> This is often the first step in processing text data, involving tasks like removing URLs, Emojis, and special characters, or replacing unwanted line breaks (<code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code>).</p></li>
@@ -1005,7 +1006,7 @@ Have a look at both and find the answer!</p>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">16. </span>Introduction to Working with Text Data</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Introduction to Working with Text Data</p>
       </div>
     </a>
     <a class="right-next"
@@ -1013,7 +1014,7 @@ Have a look at both and find the answer!</p>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">18. </span>Computing with Text: Counting words</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Computing with Text: Counting words</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1033,27 +1034,27 @@ Have a look at both and find the answer!</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-areas-for-the-use-of-nlp-techniques">17.1. Example areas for the use of NLP techniques</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-nlp-libraries">17.2. Python NLP libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization-stemming-lemmatization">17.3. Tokenization, Stemming, Lemmatization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nltk">17.4. NLTK</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization">17.4.1. Tokenization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming">17.4.2. Stemming</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lemmatization">17.4.3. Lemmatization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-areas-for-the-use-of-nlp-techniques">18.1. Example areas for the use of NLP techniques</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-nlp-libraries">18.2. Python NLP libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization-stemming-lemmatization">18.3. Tokenization, Stemming, Lemmatization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nltk">18.4. NLTK</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization">18.4.1. Tokenization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming">18.4.2. Stemming</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lemmatization">18.4.3. Lemmatization</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nlp-for-languages-other-than-english">17.5. NLP for languages other than English</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-try-some-german">17.5.1. Let’s try some German</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nlp-for-languages-other-than-english">18.5. NLP for languages other than English</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-try-some-german">18.5.1. Let’s try some German</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-spacy-models-for-lemmatization">17.6. Applying SpaCy Models for Lemmatization</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">17.6.1. Tokenization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">17.6.2. Lemmatization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-spacy-models-for-lemmatization">18.6. Applying SpaCy Models for Lemmatization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">18.6.1. Tokenization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">18.6.2. Lemmatization</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-tokenization-and-lemmatization">17.7. Apply tokenization and lemmatization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">17.8. Mini-Exercise!</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-summary-and-outlook">17.9. Chapter Summary and Outlook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-tokenization-and-lemmatization">18.7. Apply tokenization and lemmatization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">18.8. Mini-Exercise!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-summary-and-outlook">18.9. Chapter Summary and Outlook</a></li>
 </ul>
   </nav></div>
 

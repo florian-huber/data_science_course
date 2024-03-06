@@ -205,23 +205,24 @@
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_07_dimensionality_reduction.html">13. Dimensionality Reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_08_machine_learning.html">14. Machine Learning - Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_09_machine_learning_algorithms.html">15. Machine Learning - Common Algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_09b_machine_learning_algorithms_2.html">16. Machine Learning - Common Algorithms II (Linear Models)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_10_working_with_text_data.html">16. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_11_NLP_2_tokenization.html">17. NLP - basic techniques to analyse text data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_11_NLP_3_tfifd_and_machine_learning.html">18. Computing with Text: Counting words</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_12_NLP_4_ngrams_word_vectors.html">19. Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_10_working_with_text_data.html">17. Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_11_NLP_2_tokenization.html">18. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_11_NLP_3_tfifd_and_machine_learning.html">19. Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_12_NLP_4_ngrams_word_vectors.html">20. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the networks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_13_graphs.html">20. Networks / Graph Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_14_graph_visualization.html">21. Visualizing Graphs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_14_graphs_part2.html">22. Bottlenecks, Hubs, Communities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_13_graphs.html">21. Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_14_graph_visualization.html">22. Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_14_graphs_part2.html">23. Bottlenecks, Hubs, Communities</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Next steps</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/outlook.html">23. What are the next steps?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/outlook.html">24. What are the next steps?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -450,18 +451,18 @@ document.write(`
 <section id="history-of-data">
 <h2><span class="section-number">5.1. </span>History of Data<a class="headerlink" href="#history-of-data" title="Link to this heading">#</a></h2>
 <p>A characteristic of data is that it must be measured or recorded. Hence, data is as old as the oldest human systems for recording data. One of the earliest remnants of such an endeavor is the Ishango bone, estimated to be around 20,000 years old <span id="id1">[<a class="reference internal" href="bibliography.html#id27" title="Vladimir Pletser and Dirk Huylebrouck. The Ishango Artefact: the Missing Base 12 Link. Forma, 1999.">Pletser and Huylebrouck, 1999</a>]</span>. This artifact, displaying systematic notches grouped in blocks, resembles an ancient tally stick, hinting at our ancestral drive to count or record.</p>
-<p>The very essence of data collection goes hand in hand with the birth of writing and symbolic representation. Surprisingly (to me at least), the oldest instances of these systems were not used to create elaborate letters, prose, or captivating stories. Instead, they were wielded for what may seem mundane today: collect and manage taxes and outstanding services. This fits to a saying that is linked to Benjamin Franklin: <em>“…in this world nothing can be said to be certain, except death and taxes”</em>.</p>
-<p>While data has been collected and used for millennia, the term itself is relatively nascent. Originating from the Latin word <em>datum</em>, which means “given”, the English adoption of <em>data</em> is believed to have been in the 1640s. The evolution of the term underscores our ever-growing understanding and reliance on the structured representation of knowledge.</p>
+<p>The very essence of data collection goes hand in hand with the birth of writing and symbolic representation. Interestingly, the oldest instances of these systems were not used to create elaborate letters, prose, or captivating stories. Instead, they were wielded for what may seem mundane today: collect and manage taxes and outstanding services. This fits to a saying that is usually linked to Benjamin Franklin: <em>“…in this world nothing can be said to be certain, except death and taxes”</em>.</p>
+<p>While data has been collected and used for millennia, the term <em>“data”</em> itself is relatively nascent. Originating from the Latin word <em>datum</em>, which means “given”, the English adoption of <em>data</em> is believed to have been in the 1640s. The evolution of the term underscores our ever-growing understanding and reliance on the structured representation of knowledge.</p>
 </section>
 <section id="data-types">
 <h2><span class="section-number">5.2. </span>Data Types<a class="headerlink" href="#data-types" title="Link to this heading">#</a></h2>
 <p>Before we dive deeper into how to acquire and process data, we first need to know some fundamental terms and their distinctions.</p>
 <p><strong>Structured vs. Unstructured Data</strong></p>
 <p>At the crux of data storage and management lie two primary categories: structured and unstructured data.</p>
-<p><em>Structured data</em> is organized into a defined schema or format. It’s easy to search, manipulate, and analyze because of its systematic arrangement, often in rows and columns. Examples include relational databases and CSV files, but you can also just think of this as any data that you could meaningfully display in Microsoft Excel.</p>
-<p>Conversely, <em>unstructured data</em> doesn’t simply fit into a table. Or, we would say that this data has no specific form or model. As an important consequence, such data is typically harder to classify and analyze using traditional methods. Text documents, videos, and social media posts are common examples of unstructured data.</p>
+<p><em>Structured data</em> is organized into a defined schema or format. It’s easy to search, manipulate, and analyze because of its systematic arrangement, often in rows and columns. Examples include relational databases and CSV files, but you can also just think of this as any data that you could meaningfully display in a table.</p>
+<p>Conversely, <em>unstructured data</em> doesn’t simply fit into a table. Or, we could say that this data has no specific form or model. As an important consequence, such data is typically harder to classify and analyze using traditional methods. Text documents, videos, and social media posts are common examples of unstructured data.</p>
 <p><strong>Feature vs. Data Points and the Dimensionality of Data</strong></p>
-<p>When we speak of data, especially in tables, we refer to <em>features</em> (or variables or attributes… this all depends on the domain or discipline people come from) and <em>data points</em>. Features are the distinct attributes or properties of the data set. In tabular data, these often appear as columns. For instance, in a table cataloging books, features might include “Title”, “Author”, and “Publication Year”.</p>
+<p>When we speak of data, especially in tables, we refer to <em>features</em> (but sometimes also <em>variables</em> or <em>attributes</em>… this all depends on the domain or discipline people come from) and <em>data points</em>. Features are the distinct attributes or properties of the data set. In tabular data, these often appear as columns. For instance, in a table cataloging books, features might include “Title”, “Author”, and “Publication Year”.</p>
 <p>On the other hand, <em>data points</em> are individual pieces of information, often represented as rows in tabular data. For example, each book listed in the aforementioned table would be a data point.</p>
 <p>The concept of dimensionality arises from the number of features. A table with three features is 3-dimensional, while one with 15 features is 15-dimensional. Understanding dimensionality is crucial, especially in domains like machine learning, where high-dimensionality can lead to challenges such as the “curse of dimensionality”.</p>
 <p><strong>Data vs. Metadata</strong></p>
