@@ -31,6 +31,7 @@ parts:
     - file: notebooks/live_coding_07_dimensionality_reduction
     - file: notebooks/live_coding_08_machine_learning
     - file: notebooks/live_coding_09_machine_learning_algorithms
+    - file: notebooks/live_coding_09b_machine_learning_algorithms_2
   - caption: Working with text data
     numbered: true
     chapters:
