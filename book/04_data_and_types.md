@@ -26,11 +26,11 @@ Conversely, *unstructured data* doesn't simply fit into a table. Or, we could sa
 
 **Feature vs. Data Points and the Dimensionality of Data**
 
-When we speak of data, especially in tables, we refer to *features* (but sometimes also *variables* or *attributes*... this all depends on the domain or discipline people come from) and *data points*. Features are the distinct attributes or properties of the data set. In tabular data, these often appear as columns. For instance, in a table cataloging books, features might include "Title", "Author", and "Publication Year".
+When we speak of data, especially in tables, we refer to *features*, which are - depending on the field and context also called *variables* or *attributes*, and *data points*. Features are the distinct attributes or properties of the data set. In tabular data, these often appear as columns. For instance, in a table cataloging books, features might include "Title", "Author", and "Publication Year".
 
 On the other hand, *data points* are individual pieces of information, often represented as rows in tabular data. For example, each book listed in the aforementioned table would be a data point.
 
-The concept of dimensionality arises from the number of features. A table with three features is 3-dimensional, while one with 15 features is 15-dimensional. Understanding dimensionality is crucial, especially in domains like machine learning, where high-dimensionality can lead to challenges such as the "curse of dimensionality".
+The concept of dimensionality arises from the number of features. A table with three features is 3-dimensional, while a table with 15 features is 15-dimensional. Understanding dimensionality is crucial, especially in domains like machine learning, where high-dimensionality can lead to challenges such as the "curse of dimensionality".
 
 **Data vs. Metadata**
 
@@ -53,10 +53,8 @@ A deeper exploration into data reveals various scales on which it can be measure
 - **Interval Scale**: This scale applies to numerical data that has equal intervals between values but no true zero point, making ratios meaningless. Temperature measured in Celsius is a classic example, where the difference between 10°C and 20°C is the same as between 20°C and 30°C, but 0°C does not denote an absence of temperature. As a consequence, 5°C is **not** five times as warm as 1°C.
 - **Ratio Scale**: Ratio scales are similar to interval scales in that they feature equal spacing between values but also include a true zero point, allowing for meaningful ratios. Examples include measurements of length, weight, and age.
 
-### 
-
-| Scale Type | Characteristics                               | Data Type   | Operations                                      | Examples                          |
-| ---------- | --------------------------------------------- | ----------- | ----------------------------------------------- | --------------------------------- |
+| Scale Type | Characteristics | Data Type | Operations | Examples |
+| ------------ | ------------------------------------------- | ----------- | --------------------------------------------- | ------------------------------- |
 | Nominal    | Categories without order                      | Categorical | Classification, Mode                            | Colors, Gender                    |
 | Ordinal    | Ordered categories, unequal intervals         | Categorical | Sorting, Median, Percentiles                    | Ratings (poor, fair, good)        |
 | Interval   | Equal intervals, no true zero                 | Numerical   | Addition, Subtraction, Mean, Standard Deviation | Temperature (Celsius, Fahrenheit) |
