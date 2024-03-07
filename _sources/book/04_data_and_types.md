@@ -38,27 +38,29 @@ While *data* represents the core information we aim to analyze or utilize, *meta
 
 **Categorical vs. Numerical Data**
 
-*Data* can often be pigeonholed into categorical or numerical types.
+*Data* in the realm of analysis can be classified into two main types: categorical and numerical.
 
-*Categorical data* is data that can be divided into specific categories, but doesn't have any inherent order or hierarchy. For instance, the colors of a shirt (blue, red, green) are categorical.
+*Categorical data* refers to data that falls into distinct groups or categories without any natural order or ranking among them. These categories are defined by  qualitative characteristics that describe or identify traits or  attributes. For example, the color of a shirt—whether it is blue, red,  or green—represents categorical data.
 
-*Numerical data*, as the name suggests, relates to numbers and can be further split into discrete (countable) and continuous (measurable) data. Age, height, and weight are all examples of numerical data.
+*Numerical data*, as the name suggests, encompasses data represented by numbers, which can be further  categorized into two subtypes: discrete and continuous. Discrete data  are countable quantities like the number of books on a shelf, while  continuous data involve measurements and can represent any value within a range, such as the height of a person or the weight of an object.
 
-**Scale Types: An Overview**
+**Understanding Data Scales**
 
-Delving deeper into data characterization, we encounter different scales that data can adhere to:
+A deeper exploration into data reveals various scales on which it can be measured:
 
-- *Nominal scale*: This is the most basic level, used for labeling variables without any quantitative value. It's the realm of categorical data, like gender or ethnicity.
-- *Ordinal scale*: It denotes categories with a set order or rank. Though there's a hierarchy, the intervals between the ranks aren't uniformly defined. Examples include rating scales of "low", "medium", and "high".
-- *Interval scale*: This is numerical data where the intervals between numbers are consistently uniform, but there isn't a true zero. Temperature, for example, is on an interval scale as 0°C doesn't signify a lack of temperature.
-- *Ratio scale*: This scale boasts all the properties of the interval scale, but with a clear definition of zero. Length, weight, and age are examples of data on a ratio scale.
+- **Nominal Scale**: This scale is used for categorizing data without implying any order. It's applicable to categorical data where the emphasis is on distinguishing between items based on names or labels, such as gender, ethnicity, or eye color.
+- **Ordinal Scale**: Here, data is still categorical but with an inherent order or ranking among the categories. However, the differences between these ranks are not equal or standardized. A common example would be a rating system (e.g., poor, fair, good, excellent) where the scale implies order but not the magnitude of difference between adjacent rankings.
+- **Interval Scale**: This scale applies to numerical data that has equal intervals between values but no true zero point, making ratios meaningless. Temperature measured in Celsius is a classic example, where the difference between 10°C and 20°C is the same as between 20°C and 30°C, but 0°C does not denote an absence of temperature. As a consequence, 5°C is **not** five times as warm as 1°C.
+- **Ratio Scale**: Ratio scales are similar to interval scales in that they feature equal spacing between values but also include a true zero point, allowing for meaningful ratios. Examples include measurements of length, weight, and age.
 
-| Scale       | Level    | Possible Operations                                          | Typical Data Type | Example                                                      |
-| ----------- | -------- | ------------------------------------------------------------ | ----------------- | ------------------------------------------------------------ |
-| Categorical | Nominal  | Frequencies                                                  | string            | [red, yellow, blue]                                          |
-| Categorical | Ordinal  | Median, Quantiles                                            | string            | [good, average, bad]                                         |
-| Numerical   | Interval | Means, Variances, Addition, Subtraction                      | int, float        | Temperature in Celsius (5°C is **not** five times as warm as 1°C) |
-| Numerical   | Ratio    | Means, Variances, Addition, Subtraction, Multiplication, Division | int, float        | Lengths, Sizes, Weights, Monetary amounts ...                |
+### 
+
+| Scale Type | Characteristics                               | Data Type   | Operations                                      | Examples                          |
+| ---------- | --------------------------------------------- | ----------- | ----------------------------------------------- | --------------------------------- |
+| Nominal    | Categories without order                      | Categorical | Classification, Mode                            | Colors, Gender                    |
+| Ordinal    | Ordered categories, unequal intervals         | Categorical | Sorting, Median, Percentiles                    | Ratings (poor, fair, good)        |
+| Interval   | Equal intervals, no true zero                 | Numerical   | Addition, Subtraction, Mean, Standard Deviation | Temperature (Celsius, Fahrenheit) |
+| Ratio      | Equal intervals, true zero, meaningful ratios | Numerical   | All arithmetic operations                       | Height, Weight, Age, Income       |
 
 #### Big Data
 

@@ -430,7 +430,10 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#history-of-data">5.1. History of Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">5.2. Data Types</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-data">5.3. Big Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.3. </a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#big-data">5.3.1. Big Data</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -468,56 +471,58 @@ document.write(`
 <p><strong>Data vs. Metadata</strong></p>
 <p>While <em>data</em> represents the core information we aim to analyze or utilize, <em>metadata</em> is the information about this data. It describes the data’s context, quality, condition, origin, and other characteristics. If data is a book, metadata is the blurb on the back, providing insights about its content, author, and publication details.</p>
 <p><strong>Categorical vs. Numerical Data</strong></p>
-<p><em>Data</em> can often be pigeonholed into categorical or numerical types.</p>
-<p><em>Categorical data</em> is data that can be divided into specific categories, but doesn’t have any inherent order or hierarchy. For instance, the colors of a shirt (blue, red, green) are categorical.</p>
-<p><em>Numerical data</em>, as the name suggests, relates to numbers and can be further split into discrete (countable) and continuous (measurable) data. Age, height, and weight are all examples of numerical data.</p>
-<p><strong>Scale Types: An Overview</strong></p>
-<p>Delving deeper into data characterization, we encounter different scales that data can adhere to:</p>
+<p><em>Data</em> in the realm of analysis can be classified into two main types: categorical and numerical.</p>
+<p><em>Categorical data</em> refers to data that falls into distinct groups or categories without any natural order or ranking among them. These categories are defined by  qualitative characteristics that describe or identify traits or  attributes. For example, the color of a shirt—whether it is blue, red,  or green—represents categorical data.</p>
+<p><em>Numerical data</em>, as the name suggests, encompasses data represented by numbers, which can be further  categorized into two subtypes: discrete and continuous. Discrete data  are countable quantities like the number of books on a shelf, while  continuous data involve measurements and can represent any value within a range, such as the height of a person or the weight of an object.</p>
+<p><strong>Understanding Data Scales</strong></p>
+<p>A deeper exploration into data reveals various scales on which it can be measured:</p>
 <ul class="simple">
-<li><p><em>Nominal scale</em>: This is the most basic level, used for labeling variables without any quantitative value. It’s the realm of categorical data, like gender or ethnicity.</p></li>
-<li><p><em>Ordinal scale</em>: It denotes categories with a set order or rank. Though there’s a hierarchy, the intervals between the ranks aren’t uniformly defined. Examples include rating scales of “low”, “medium”, and “high”.</p></li>
-<li><p><em>Interval scale</em>: This is numerical data where the intervals between numbers are consistently uniform, but there isn’t a true zero. Temperature, for example, is on an interval scale as 0°C doesn’t signify a lack of temperature.</p></li>
-<li><p><em>Ratio scale</em>: This scale boasts all the properties of the interval scale, but with a clear definition of zero. Length, weight, and age are examples of data on a ratio scale.</p></li>
+<li><p><strong>Nominal Scale</strong>: This scale is used for categorizing data without implying any order. It’s applicable to categorical data where the emphasis is on distinguishing between items based on names or labels, such as gender, ethnicity, or eye color.</p></li>
+<li><p><strong>Ordinal Scale</strong>: Here, data is still categorical but with an inherent order or ranking among the categories. However, the differences between these ranks are not equal or standardized. A common example would be a rating system (e.g., poor, fair, good, excellent) where the scale implies order but not the magnitude of difference between adjacent rankings.</p></li>
+<li><p><strong>Interval Scale</strong>: This scale applies to numerical data that has equal intervals between values but no true zero point, making ratios meaningless. Temperature measured in Celsius is a classic example, where the difference between 10°C and 20°C is the same as between 20°C and 30°C, but 0°C does not denote an absence of temperature. As a consequence, 5°C is <strong>not</strong> five times as warm as 1°C.</p></li>
+<li><p><strong>Ratio Scale</strong>: Ratio scales are similar to interval scales in that they feature equal spacing between values but also include a true zero point, allowing for meaningful ratios. Examples include measurements of length, weight, and age.</p></li>
 </ul>
+</section>
+<section id="id2">
+<h2><span class="section-number">5.3. </span><a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Scale</p></th>
-<th class="head"><p>Level</p></th>
-<th class="head"><p>Possible Operations</p></th>
-<th class="head"><p>Typical Data Type</p></th>
-<th class="head"><p>Example</p></th>
+<tr class="row-odd"><th class="head"><p>Scale Type</p></th>
+<th class="head"><p>Characteristics</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Operations</p></th>
+<th class="head"><p>Examples</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Categorical</p></td>
-<td><p>Nominal</p></td>
-<td><p>Frequencies</p></td>
-<td><p>string</p></td>
-<td><p>[red, yellow, blue]</p></td>
+<tr class="row-even"><td><p>Nominal</p></td>
+<td><p>Categories without order</p></td>
+<td><p>Categorical</p></td>
+<td><p>Classification, Mode</p></td>
+<td><p>Colors, Gender</p></td>
 </tr>
-<tr class="row-odd"><td><p>Categorical</p></td>
-<td><p>Ordinal</p></td>
-<td><p>Median, Quantiles</p></td>
-<td><p>string</p></td>
-<td><p>[good, average, bad]</p></td>
+<tr class="row-odd"><td><p>Ordinal</p></td>
+<td><p>Ordered categories, unequal intervals</p></td>
+<td><p>Categorical</p></td>
+<td><p>Sorting, Median, Percentiles</p></td>
+<td><p>Ratings (poor, fair, good)</p></td>
 </tr>
-<tr class="row-even"><td><p>Numerical</p></td>
-<td><p>Interval</p></td>
-<td><p>Means, Variances, Addition, Subtraction</p></td>
-<td><p>int, float</p></td>
-<td><p>Temperature in Celsius (5°C is <strong>not</strong> five times as warm as 1°C)</p></td>
+<tr class="row-even"><td><p>Interval</p></td>
+<td><p>Equal intervals, no true zero</p></td>
+<td><p>Numerical</p></td>
+<td><p>Addition, Subtraction, Mean, Standard Deviation</p></td>
+<td><p>Temperature (Celsius, Fahrenheit)</p></td>
 </tr>
-<tr class="row-odd"><td><p>Numerical</p></td>
-<td><p>Ratio</p></td>
-<td><p>Means, Variances, Addition, Subtraction, Multiplication, Division</p></td>
-<td><p>int, float</p></td>
-<td><p>Lengths, Sizes, Weights, Monetary amounts …</p></td>
+<tr class="row-odd"><td><p>Ratio</p></td>
+<td><p>Equal intervals, true zero, meaningful ratios</p></td>
+<td><p>Numerical</p></td>
+<td><p>All arithmetic operations</p></td>
+<td><p>Height, Weight, Age, Income</p></td>
 </tr>
 </tbody>
 </table>
-</section>
 <section id="big-data">
-<h2><span class="section-number">5.3. </span>Big Data<a class="headerlink" href="#big-data" title="Link to this heading">#</a></h2>
+<h3><span class="section-number">5.3.1. </span>Big Data<a class="headerlink" href="#big-data" title="Link to this heading">#</a></h3>
 <p>Working in data science there is really no way to avoid dealing with the challenges, the promises, or even the (many) definitions of <strong>Big Data</strong>. Since this is not our core concern in this book, I will simply stick to the very simple definition of saying</p>
 <blockquote>
 <div><p><strong>Big Data</strong> ≈ Data that is too large, too complex, or too volatile to be evaluated using manual and traditional data processing methods.</p>
@@ -528,6 +533,7 @@ document.write(`
 <blockquote>
 <div><p>Anything that can be done with basic Excel methods <strong>is not Big Data</strong>.</p>
 </div></blockquote>
+</section>
 </section>
 </section>
 
@@ -597,7 +603,10 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#history-of-data">5.1. History of Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">5.2. Data Types</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-data">5.3. Big Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.3. </a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#big-data">5.3.1. Big Data</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
