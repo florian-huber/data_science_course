@@ -1085,7 +1085,7 @@ Test dataset size: (4099,)
 <hr class="docutils" />
 <p>Actually, this case is a bit of a gray zone.</p>
 <p>The ratings are discrete numbers: 1, 2, 3, 4, or 5. But the ratings are also <strong>ordered</strong>, so that predicting a 2 where the true label is a 1 is not that bad! When we train a model on a classification task, then it usually doesn’t matter which wrong class was predicted, so predicting a 2 where it’s actually 1 is as bad as predicting a 4 [^loss-functions]. So, that makes <em>regression</em> to appear as the natural choice…</p>
-<p>However, in practice, training a model on a classification task typically works notably better in such situations where we only have very few possible ordered values (see also <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id10" title="Narendra Kumar Gupta, Giuseppe Di Fabbrizio, and Patrick Haffner. Capturing the stars: predicting ratings for service and product reviews. In HLT-NAACL 2010. 2010.">Gupta <em>et al.</em>, 2010</a>]</span>).</p>
+<p>However, in practice, training a model on a classification task typically works notably better in such situations where we only have very few possible ordered values (see also <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id11" title="Narendra Kumar Gupta, Giuseppe Di Fabbrizio, and Patrick Haffner. Capturing the stars: predicting ratings for service and product reviews. In HLT-NAACL 2010. 2010.">Gupta <em>et al.</em>, 2010</a>]</span>).</p>
 <p>Nevertheless, we will start with a <strong>linear regression</strong> model and than compare it to a <strong>logistic regression</strong> model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

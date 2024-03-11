@@ -430,10 +430,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#history-of-data">5.1. History of Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">5.2. Data Types</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.3. </a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#big-data">5.3.1. Big Data</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-data">5.3. Big Data</a></li>
 </ul>
             </nav>
         </div>
@@ -453,7 +450,7 @@ document.write(`
 </div></blockquote>
 <section id="history-of-data">
 <h2><span class="section-number">5.1. </span>History of Data<a class="headerlink" href="#history-of-data" title="Link to this heading">#</a></h2>
-<p>A characteristic of data is that it must be measured or recorded. Hence, data is as old as the oldest human systems for recording data. One of the earliest remnants of such an endeavor is the Ishango bone, estimated to be around 20,000 years old <span id="id1">[<a class="reference internal" href="bibliography.html#id27" title="Vladimir Pletser and Dirk Huylebrouck. The Ishango Artefact: the Missing Base 12 Link. Forma, 1999.">Pletser and Huylebrouck, 1999</a>]</span>. This artifact, displaying systematic notches grouped in blocks, resembles an ancient tally stick, hinting at our ancestral drive to count or record.</p>
+<p>A characteristic of data is that it must be measured or recorded. Hence, data is as old as the oldest human systems for recording data. One of the earliest remnants of such an endeavor is the Ishango bone, estimated to be around 20,000 years old <span id="id1">[<a class="reference internal" href="bibliography.html#id30" title="Vladimir Pletser and Dirk Huylebrouck. The Ishango Artefact: the Missing Base 12 Link. Forma, 1999.">Pletser and Huylebrouck, 1999</a>]</span>. This artifact, displaying systematic notches grouped in blocks, resembles an ancient tally stick, hinting at our ancestral drive to count or record.</p>
 <p>The very essence of data collection goes hand in hand with the birth of writing and symbolic representation. Interestingly, the oldest instances of these systems were not used to create elaborate letters, prose, or captivating stories. Instead, they were wielded for what may seem mundane today: collect and manage taxes and outstanding services. This fits to a saying that is usually linked to Benjamin Franklin: <em>“…in this world nothing can be said to be certain, except death and taxes”</em>.</p>
 <p>While data has been collected and used for millennia, the term <em>“data”</em> itself is relatively nascent. Originating from the Latin word <em>datum</em>, which means “given”, the English adoption of <em>data</em> is believed to have been in the 1640s. The evolution of the term underscores our ever-growing understanding and reliance on the structured representation of knowledge.</p>
 </section>
@@ -465,9 +462,9 @@ document.write(`
 <p><em>Structured data</em> is organized into a defined schema or format. It’s easy to search, manipulate, and analyze because of its systematic arrangement, often in rows and columns. Examples include relational databases and CSV files, but you can also just think of this as any data that you could meaningfully display in a table.</p>
 <p>Conversely, <em>unstructured data</em> doesn’t simply fit into a table. Or, we could say that this data has no specific form or model. As an important consequence, such data is typically harder to classify and analyze using traditional methods. Text documents, videos, and social media posts are common examples of unstructured data.</p>
 <p><strong>Feature vs. Data Points and the Dimensionality of Data</strong></p>
-<p>When we speak of data, especially in tables, we refer to <em>features</em> (but sometimes also <em>variables</em> or <em>attributes</em>… this all depends on the domain or discipline people come from) and <em>data points</em>. Features are the distinct attributes or properties of the data set. In tabular data, these often appear as columns. For instance, in a table cataloging books, features might include “Title”, “Author”, and “Publication Year”.</p>
+<p>When we speak of data, especially in tables, we refer to <em>features</em>, which are - depending on the field and context also called <em>variables</em> or <em>attributes</em>, and <em>data points</em>. Features are the distinct attributes or properties of the data set. In tabular data, these often appear as columns. For instance, in a table cataloging books, features might include “Title”, “Author”, and “Publication Year”.</p>
 <p>On the other hand, <em>data points</em> are individual pieces of information, often represented as rows in tabular data. For example, each book listed in the aforementioned table would be a data point.</p>
-<p>The concept of dimensionality arises from the number of features. A table with three features is 3-dimensional, while one with 15 features is 15-dimensional. Understanding dimensionality is crucial, especially in domains like machine learning, where high-dimensionality can lead to challenges such as the “curse of dimensionality”.</p>
+<p>The concept of dimensionality arises from the number of features. A table with three features is 3-dimensional, while a table with 15 features is 15-dimensional. Understanding dimensionality is crucial, especially in domains like machine learning, where high-dimensionality can lead to challenges such as the “curse of dimensionality”.</p>
 <p><strong>Data vs. Metadata</strong></p>
 <p>While <em>data</em> represents the core information we aim to analyze or utilize, <em>metadata</em> is the information about this data. It describes the data’s context, quality, condition, origin, and other characteristics. If data is a book, metadata is the blurb on the back, providing insights about its content, author, and publication details.</p>
 <p><strong>Categorical vs. Numerical Data</strong></p>
@@ -482,9 +479,6 @@ document.write(`
 <li><p><strong>Interval Scale</strong>: This scale applies to numerical data that has equal intervals between values but no true zero point, making ratios meaningless. Temperature measured in Celsius is a classic example, where the difference between 10°C and 20°C is the same as between 20°C and 30°C, but 0°C does not denote an absence of temperature. As a consequence, 5°C is <strong>not</strong> five times as warm as 1°C.</p></li>
 <li><p><strong>Ratio Scale</strong>: Ratio scales are similar to interval scales in that they feature equal spacing between values but also include a true zero point, allowing for meaningful ratios. Examples include measurements of length, weight, and age.</p></li>
 </ul>
-</section>
-<section id="id2">
-<h2><span class="section-number">5.3. </span><a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Scale Type</p></th>
@@ -521,8 +515,9 @@ document.write(`
 </tr>
 </tbody>
 </table>
+</section>
 <section id="big-data">
-<h3><span class="section-number">5.3.1. </span>Big Data<a class="headerlink" href="#big-data" title="Link to this heading">#</a></h3>
+<h2><span class="section-number">5.3. </span>Big Data<a class="headerlink" href="#big-data" title="Link to this heading">#</a></h2>
 <p>Working in data science there is really no way to avoid dealing with the challenges, the promises, or even the (many) definitions of <strong>Big Data</strong>. Since this is not our core concern in this book, I will simply stick to the very simple definition of saying</p>
 <blockquote>
 <div><p><strong>Big Data</strong> ≈ Data that is too large, too complex, or too volatile to be evaluated using manual and traditional data processing methods.</p>
@@ -533,7 +528,6 @@ document.write(`
 <blockquote>
 <div><p>Anything that can be done with basic Excel methods <strong>is not Big Data</strong>.</p>
 </div></blockquote>
-</section>
 </section>
 </section>
 
@@ -603,10 +597,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#history-of-data">5.1. History of Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-types">5.2. Data Types</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">5.3. </a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#big-data">5.3.1. Big Data</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#big-data">5.3. Big Data</a></li>
 </ul>
   </nav></div>
 
