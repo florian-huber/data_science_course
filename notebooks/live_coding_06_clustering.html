@@ -455,7 +455,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="clustering">
 <h1><span class="section-number">11. </span>Clustering<a class="headerlink" href="#clustering" title="Link to this heading">#</a></h1>
-<p>Clustering is a technique that groups together data points based on their similarities. In light of the data science workflow discussed before <code class="xref std std-numref docutils literal notranslate"><span class="pre">ch_workflow</span></code> clustering can be used as a data exploration tool as well as to model our data. In this section, we will explore different clustering algorithms, including KMeans and DBSCAN, and apply them to synthetic datasets. We will discuss how clustering algorithms work and what their different advantages and limitations are.</p>
+<p>Clustering is a technique that groups together data points based on their similarities. In light of the data science workflow discussed before in <a class="reference internal" href="../book/06_data_science_workflow.html#ch-workflow"><span class="std std-numref">Section 7</span></a> clustering can be used as a data exploration tool as well as to model our data. In this section, we will explore different clustering algorithms, including KMeans and DBSCAN, and apply them to synthetic datasets. We will discuss how clustering algorithms work and what their different advantages and limitations are.</p>
 <section id="what-is-clustering">
 <h2><span class="section-number">11.1. </span>What is clustering?<a class="headerlink" href="#what-is-clustering" title="Link to this heading">#</a></h2>
 <p>Clustering refers to the process of searching for a “natural” or useful divide of data points into a number of groups or: clusters. There is a commonly shared intuition that a “good” cluster is one where all datapoints have high similarity or share some important properties. In same cases, this can indeed be simple in the sense that most people would intuitively agree on a suitable division into clusters, such as illustrated in <a class="reference internal" href="#fig-clustering-intro"><span class="std std-numref">Fig. 11.1</span></a>. At least, I haven’t yet had a student that gave an answer that was different from “three” when asked for the number of groups in this dataset. In practice, however, those question will not be answered by any of my students, nor by me. We will use a range of different <strong>clustering algorithms</strong> to do the clustering for us.</p>
@@ -642,7 +642,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f75cff92d60&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f2f85f83be0&gt;
 </pre></div>
 </div>
 <img alt="../_images/139af31f6450a7d21cc3a313deb5dd07b37b7d6cc0661d6a0c67c19f19082235.png" src="../_images/139af31f6450a7d21cc3a313deb5dd07b37b7d6cc0661d6a0c67c19f19082235.png" />
@@ -704,7 +704,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f75cfece6a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f2f85ec96a0&gt;
 </pre></div>
 </div>
 <img alt="../_images/97dfe96b5268ad1a802e6603d09fd3ceaf1da9476658e86f02d30a8958c3c53c.png" src="../_images/97dfe96b5268ad1a802e6603d09fd3ceaf1da9476658e86f02d30a8958c3c53c.png" />
@@ -829,7 +829,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f75cfe040a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f2f85e014c0&gt;
 </pre></div>
 </div>
 <img alt="../_images/e975836c9987b9d8ca0cf695bb0814a3fb5baa2a740fa537346bf7d5eb813aab.png" src="../_images/e975836c9987b9d8ca0cf695bb0814a3fb5baa2a740fa537346bf7d5eb813aab.png" />
@@ -905,7 +905,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f75cfe420d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f2f85e41250&gt;
 </pre></div>
 </div>
 <img alt="../_images/72c0f4dc8bccc1457b515ed6dac071e12cbc685f826d622712152b60887bc2fd.png" src="../_images/72c0f4dc8bccc1457b515ed6dac071e12cbc685f826d622712152b60887bc2fd.png" />
@@ -922,7 +922,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f75cfd95be0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f2f85da6e50&gt;
 </pre></div>
 </div>
 <img alt="../_images/c615ea8bc1bc7db8cbcb4d5f9b44812e529340b0f5eb8382ca55949c6bc12f1a.png" src="../_images/c615ea8bc1bc7db8cbcb4d5f9b44812e529340b0f5eb8382ca55949c6bc12f1a.png" />
@@ -1018,7 +1018,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f75cfcbf400&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f2f85cd5280&gt;
 </pre></div>
 </div>
 <img alt="../_images/ba98f3368a56f56c16262959d46112ff34be642e2b00e97289a84dbf1de3b0b9.png" src="../_images/ba98f3368a56f56c16262959d46112ff34be642e2b00e97289a84dbf1de3b0b9.png" />
@@ -1046,7 +1046,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f75cfba5d30&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f2f85ceed90&gt;
 </pre></div>
 </div>
 <img alt="../_images/10c3f09b5d73d587f9ed1a0c5f8ab866c0ce6ef4669c85592132d301b80c6cda.png" src="../_images/10c3f09b5d73d587f9ed1a0c5f8ab866c0ce6ef4669c85592132d301b80c6cda.png" />

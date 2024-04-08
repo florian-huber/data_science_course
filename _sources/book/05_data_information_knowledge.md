@@ -1,6 +1,6 @@
 # Data - Information - Knowledge
 
-So far in our exploration of data science, we've been mostly circling around *data*. However, as briefly touched upon in {doc}`./book/01_intro_data_science.md` and contrary to what the term *data science* might suggest, data science isn't fundamentally about data. Think of it this way: if data is the raw material, then the ultimate product a data scientist crafts is *knowledge*. We sift through the vast sands of data to uncover gems of insight.
+So far in our exploration of data science, we've been mostly circling around *data*. However, as briefly touched upon in {ref}`ch_data_science_intro` and contrary to what the term *data science* might suggest, data science isn't fundamentally about data. Think of it this way: if data is the raw material, then the ultimate product a data scientist crafts is *knowledge*. We sift through the vast sands of data to uncover gems of insight.
 
 The "DIKW Pyramid" (Data - Information - Knowledge - Wisdom) beautifully visualizes the hierarchy that exists from raw data to profound knowledge ({numref}`fig_DIKW_pyramid`). While numerous interpretations of each tier exist, for our current exploration, let's break it down as:
 

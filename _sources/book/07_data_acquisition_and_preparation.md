@@ -78,7 +78,7 @@ At first, this seems to a be a rather simple operations. In practice, however, t
 There are different type of merging data. Which one to use is best decided based on the data we have at hand and the types of operations we plan to run with the resulting data. Here are three of the most common types of merges: inner, left, and outer merges.
 ```
 
-Figure ({numref}`fig_data_merging03`) shows some common merging types. More information on different ways to combine data using pandas can be found in the [pandas documentation on merging](https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html). 
+Figure ({numref}`fig_data_merging01`) shows some common merging types. More information on different ways to combine data using pandas can be found in the [pandas documentation on merging](https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html). 
 
 
 
