@@ -66,7 +66,19 @@ Missing data is a common issue many data scientists face. While the gaps can man
 - **Data Types**: Ensuring that numeric values aren't masquerading as strings can prevent potential analytical blunders (e.g., "12.5" instead of 12.5).
 - **Decimal Delimiters**: Confusion between comma and dot can change data meaning, e.g., 12,010 becoming 12.01.
 
-### Further Cleaning Steps:
+## Data merging
+
+Unlike in most tutorial or course situations, in data science reality we rarely start by simply importing a single data file. Often, we will receive multiple files with different features and/or datapoints. In such cases, we usually want to combine the required parts of the data. This is a common operation in data science which is usually termed `merging`.
+
+At first, this seems to a be a rather simple operations. In practice, however, this is often surprisingly complicated and critical. If merging is not done correctly, we might either lose data or create incorrect entries.
+
+```{figure} ../images/fig_data_merging_types.png
+:name: fig_data_merging01
+
+There are different type of merging data. Which one to use is best decided based on the data we have at hand and the types of operations we plan to run with the resulting data. Here are three of the most common types of merges: inner, left, and outer merges.
+```
+
+## Further Cleaning Steps:
 
 - **Unit Conversion**: Ensuring data is in consistent units.
 - **Data Standardization**: This can be done via Min-Max scaling (often termed "normalization") or, frequently more effective, by ensuring data has a mean of 0 and a standard deviation of 1.
