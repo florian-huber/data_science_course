@@ -62,7 +62,7 @@ A deeper exploration into data reveals various scales on which it can be measure
 
 #### Big Data
 
-Working in data science there is really no way to avoid dealing with the challenges, the promises, or even the (many) definitions of **Big Data**. Since this is not our core concern in this book, I will simply stick to the very simple definition of saying 
+Working in data science there is really no way to avoid dealing with the challenges, the promises, or even the (many) definitions of **Big Data**. Since this is not our core concern in this book, I will simply stick to the very simple definition, roughly following {cite}`russom2011big`, and say:
 
 > **Big Data** ≈ Data that is too large, too complex, or too volatile to be evaluated using manual and traditional data processing methods.
 
