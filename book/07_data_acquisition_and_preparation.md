@@ -66,9 +66,9 @@ Missing data is a common issue many data scientists face. While the gaps can man
 - **Data Types**: Ensuring that numeric values aren't masquerading as strings can prevent potential analytical blunders (e.g., "12.5" instead of 12.5).
 - **Decimal Delimiters**: Confusion between comma and dot can change data meaning, e.g., 12,010 becoming 12.01.
 
-## Data merging
+## Combining datasets
 
-Unlike in most tutorial or course situations, in data science reality we rarely start by simply importing a single data file. Often, we will receive multiple files with different features and/or datapoints. In such cases, we usually want to combine the required parts of the data. This is a common operation in data science which is usually termed `merging`.
+Unlike in most tutorial or course situations, in data science reality we rarely start by simply importing a single data file. Often, we will receive multiple files with different features and/or datapoints. In such cases, we usually want to combine the required parts of the data. This is a common operation in data science which is sometimes refered to as `merging` in aggreement with respective SQL operations.
 
 At first, this seems to a be a rather simple operations. In practice, however, this is often surprisingly complicated and critical. If merging is not done correctly, we might either lose data or create incorrect entries.
 
@@ -77,6 +77,10 @@ At first, this seems to a be a rather simple operations. In practice, however, t
 
 There are different type of merging data. Which one to use is best decided based on the data we have at hand and the types of operations we plan to run with the resulting data. Here are three of the most common types of merges: inner, left, and outer merges.
 ```
+
+Figure ({numref}`fig_data_merging03`) shows some common merging types. More information on different ways to combine data using pandas can be found in the [pandas documentation on merging](https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html). 
+
+
 
 ## Further Cleaning Steps:
 
