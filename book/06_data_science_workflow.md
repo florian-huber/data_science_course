@@ -1,3 +1,4 @@
+(ch_workflow)=
 # Data Science Workflow 
 
 Data science can often feel like piecing together a jigsaw puzzle. But like any puzzle, there's a method to the madness, a sequence that can make the process smoother. That's where the idea of a data science workflow comes in. In our previous chapter, we used the analogies of detective work and the scientific method to explain data science. Similarly, every detective has a method to their investigation, and every scientist follows a systematic process in their research.
