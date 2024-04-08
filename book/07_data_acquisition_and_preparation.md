@@ -15,10 +15,10 @@ Before plunging into data collection, it's imperative to ask: What's the problem
 
 ### Common Data Sources:
 
-- **The Internet I**: A vast ocean of data. Public datasets are easily accessible and can be sourced from governmental agencies, NGOs, or platforms like Kaggle, Zenodo, and UCI.
+- **The Internet I**: A vast ocean of data. Public datasets are easily accessible and can be sourced from governmental agencies, NGOs, or platforms like [Kaggle](https://www.kaggle.com/), [Zenodo](https://zenodo.org/), and [UCI](https://archive.ics.uci.edu/).
 - **The Internet II**: Web scraping is akin to a treasure hunt, extracting valuable data directly from web pages, given that you respect the legal and ethical boundaries.
 - **Internal Corporate Data**: Picture a gold mine that a company sits upon; these are years' worth of data that can unearth invaluable insights if analyzed correctly.
-- **Academic Data**: Scientifically collected and often meticulously maintained, these datasets can be found accompanying research papers.
+- **Academic Data**: Scientifically collected and often meticulously maintained, these datasets can be found accompanying research papers. In many scientific disciplines it is becoming more and more common for authors to now only present and discuss their findings, but also to provide the data and/or the code used to extract those findings from the data (often termed: Open Science).
 - **Data Upon Request**: Sometimes, just asking can open doors. Organizations might share data if approached correctly and for a worthy cause.
 - **Commercial Datasets**: There are instances when investing in a dataset can prove to be more cost-effective than collecting data from scratch.
 
