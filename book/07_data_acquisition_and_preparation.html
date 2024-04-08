@@ -438,9 +438,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">8.2. Data Cleaning</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dealing-with-missing-values">8.2.1. Dealing with Missing Values:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-challenges">8.2.2. Typical Challenges:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-cleaning-steps">8.2.3. Further Cleaning Steps:</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-datasets">8.3. Combining datasets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-cleaning-steps">8.4. Further Cleaning Steps:</a></li>
 </ul>
             </nav>
         </div>
@@ -470,10 +471,10 @@ document.write(`
 <section id="common-data-sources">
 <h3><span class="section-number">8.1.2. </span>Common Data Sources:<a class="headerlink" href="#common-data-sources" title="Link to this heading">#</a></h3>
 <ul class="simple">
-<li><p><strong>The Internet I</strong>: A vast ocean of data. Public datasets are easily accessible and can be sourced from governmental agencies, NGOs, or platforms like Kaggle, Zenodo, and UCI.</p></li>
+<li><p><strong>The Internet I</strong>: A vast ocean of data. Public datasets are easily accessible and can be sourced from governmental agencies, NGOs, or platforms like <a class="reference external" href="https://www.kaggle.com/">Kaggle</a>, <a class="reference external" href="https://zenodo.org/">Zenodo</a>, and <a class="reference external" href="https://archive.ics.uci.edu/">UCI</a>.</p></li>
 <li><p><strong>The Internet II</strong>: Web scraping is akin to a treasure hunt, extracting valuable data directly from web pages, given that you respect the legal and ethical boundaries.</p></li>
 <li><p><strong>Internal Corporate Data</strong>: Picture a gold mine that a company sits upon; these are years’ worth of data that can unearth invaluable insights if analyzed correctly.</p></li>
-<li><p><strong>Academic Data</strong>: Scientifically collected and often meticulously maintained, these datasets can be found accompanying research papers.</p></li>
+<li><p><strong>Academic Data</strong>: Scientifically collected and often meticulously maintained, these datasets can be found accompanying research papers. In many scientific disciplines it is becoming more and more common for authors to now only present and discuss their findings, but also to provide the data and/or the code used to extract those findings from the data (often termed: Open Science).</p></li>
 <li><p><strong>Data Upon Request</strong>: Sometimes, just asking can open doors. Organizations might share data if approached correctly and for a worthy cause.</p></li>
 <li><p><strong>Commercial Datasets</strong>: There are instances when investing in a dataset can prove to be more cost-effective than collecting data from scratch.</p></li>
 </ul>
@@ -520,8 +521,21 @@ document.write(`
 <li><p><strong>Decimal Delimiters</strong>: Confusion between comma and dot can change data meaning, e.g., 12,010 becoming 12.01.</p></li>
 </ul>
 </section>
+</section>
+<section id="combining-datasets">
+<h2><span class="section-number">8.3. </span>Combining datasets<a class="headerlink" href="#combining-datasets" title="Link to this heading">#</a></h2>
+<p>Unlike in most tutorial or course situations, in data science reality we rarely start by simply importing a single data file. Often, we will receive multiple files with different features and/or datapoints. In such cases, we usually want to combine the required parts of the data. This is a common operation in data science which is sometimes refered to as <code class="docutils literal notranslate"><span class="pre">merging</span></code> in aggreement with respective SQL operations.</p>
+<p>At first, this seems to a be a rather simple operations. In practice, however, this is often surprisingly complicated and critical. If merging is not done correctly, we might either lose data or create incorrect entries.</p>
+<figure class="align-default" id="fig-data-merging01">
+<img alt="../_images/fig_data_merging_types.png" src="../_images/fig_data_merging_types.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 8.1 </span><span class="caption-text">There are different type of merging data. Which one to use is best decided based on the data we have at hand and the types of operations we plan to run with the resulting data. Here are three of the most common types of merges: inner, left, and outer merges.</span><a class="headerlink" href="#fig-data-merging01" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Figure (<code class="xref std std-numref docutils literal notranslate"><span class="pre">fig_data_merging03</span></code>) shows some common merging types. More information on different ways to combine data using pandas can be found in the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html">pandas documentation on merging</a>.</p>
+</section>
 <section id="further-cleaning-steps">
-<h3><span class="section-number">8.2.3. </span>Further Cleaning Steps:<a class="headerlink" href="#further-cleaning-steps" title="Link to this heading">#</a></h3>
+<h2><span class="section-number">8.4. </span>Further Cleaning Steps:<a class="headerlink" href="#further-cleaning-steps" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><strong>Unit Conversion</strong>: Ensuring data is in consistent units.</p></li>
 <li><p><strong>Data Standardization</strong>: This can be done via Min-Max scaling (often termed “normalization”) or, frequently more effective, by ensuring data has a mean of 0 and a standard deviation of 1.</p></li>
@@ -529,7 +543,6 @@ document.write(`
 </ul>
 <p>In essence, data acquisition and preparation are the unsung heroes of a successful data science endeavor. By ensuring the foundation is robust and the raw materials are of top quality, you set the stage for analytical brilliance.</p>
 <p>From my own experience: It is not uncommon that 80% of the work in a data science project goes into the data acquisition and cleaning.</p>
-</section>
 </section>
 </section>
 
@@ -607,9 +620,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">8.2. Data Cleaning</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dealing-with-missing-values">8.2.1. Dealing with Missing Values:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-challenges">8.2.2. Typical Challenges:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#further-cleaning-steps">8.2.3. Further Cleaning Steps:</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-datasets">8.3. Combining datasets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-cleaning-steps">8.4. Further Cleaning Steps:</a></li>
 </ul>
   </nav></div>
 

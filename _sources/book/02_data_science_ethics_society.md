@@ -87,15 +87,15 @@ How do you feel now? Sounds like a heavy burden? Sure. But remember the wisdom o
 
 There are many great resources to dig deeper into the topic of ethics and data science. Here are just a few suggestions.
 
-- **"Fairness and Machine Learning: Limitations and Opportunities" by Solon Barocas, Moritz Hardt, and Arvind Narayanan**
+- **"Fairness and Machine Learning: Limitations and Opportunities" by Solon Barocas, Moritz Hardt, and Arvind Narayanan**  
   This accessible online resource (freely available book, but also videos and materials, see [here](https://fairmlbook.org/)) provides an in-depth look at the challenges and opportunities for ensuring fairness in machine learning systems. It's an excellent primer for data scientists interested in developing algorithms that avoid perpetuating biases.
   {cite}`barocas-hardt-narayanan`
 
-- **"Weapons of Math Destruction" by Cathy O'Neil** 
+- **"Weapons of Math Destruction" by Cathy O'Neil**   
   This book provides a critical look at how big data algorithms can increase inequality and threaten democracy. O'Neil explores a variety of case studies where algorithms have had profound negative effects on people's lives, making it an essential read for understanding the societal impacts of data science.
   {cite}`oneil2017weapons`
 
-- **Ethics and Data Science (Mike Loukides, Hilary Mason, and DJ Patil on O'Reilly Media)**
+- **Ethics and Data Science (Mike Loukides, Hilary Mason, and DJ Patil on O'Reilly Media)**  
   A concise, practical handbook that offers a framework for ethical decision making in data science projects. It includes case studies, guidelines, and exercises to help practitioners incorporate ethical considerations into their workflows.
   {cite}`loukides_ethics_2018`
 

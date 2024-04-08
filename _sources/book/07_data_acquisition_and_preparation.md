@@ -15,10 +15,10 @@ Before plunging into data collection, it's imperative to ask: What's the problem
 
 ### Common Data Sources:
 
-- **The Internet I**: A vast ocean of data. Public datasets are easily accessible and can be sourced from governmental agencies, NGOs, or platforms like Kaggle, Zenodo, and UCI.
+- **The Internet I**: A vast ocean of data. Public datasets are easily accessible and can be sourced from governmental agencies, NGOs, or platforms like [Kaggle](https://www.kaggle.com/), [Zenodo](https://zenodo.org/), and [UCI](https://archive.ics.uci.edu/).
 - **The Internet II**: Web scraping is akin to a treasure hunt, extracting valuable data directly from web pages, given that you respect the legal and ethical boundaries.
 - **Internal Corporate Data**: Picture a gold mine that a company sits upon; these are years' worth of data that can unearth invaluable insights if analyzed correctly.
-- **Academic Data**: Scientifically collected and often meticulously maintained, these datasets can be found accompanying research papers.
+- **Academic Data**: Scientifically collected and often meticulously maintained, these datasets can be found accompanying research papers. In many scientific disciplines it is becoming more and more common for authors to now only present and discuss their findings, but also to provide the data and/or the code used to extract those findings from the data (often termed: Open Science).
 - **Data Upon Request**: Sometimes, just asking can open doors. Organizations might share data if approached correctly and for a worthy cause.
 - **Commercial Datasets**: There are instances when investing in a dataset can prove to be more cost-effective than collecting data from scratch.
 
@@ -66,7 +66,23 @@ Missing data is a common issue many data scientists face. While the gaps can man
 - **Data Types**: Ensuring that numeric values aren't masquerading as strings can prevent potential analytical blunders (e.g., "12.5" instead of 12.5).
 - **Decimal Delimiters**: Confusion between comma and dot can change data meaning, e.g., 12,010 becoming 12.01.
 
-### Further Cleaning Steps:
+## Combining datasets
+
+Unlike in most tutorial or course situations, in data science reality we rarely start by simply importing a single data file. Often, we will receive multiple files with different features and/or datapoints. In such cases, we usually want to combine the required parts of the data. This is a common operation in data science which is sometimes refered to as `merging` in aggreement with respective SQL operations.
+
+At first, this seems to a be a rather simple operations. In practice, however, this is often surprisingly complicated and critical. If merging is not done correctly, we might either lose data or create incorrect entries.
+
+```{figure} ../images/fig_data_merging_types.png
+:name: fig_data_merging01
+
+There are different type of merging data. Which one to use is best decided based on the data we have at hand and the types of operations we plan to run with the resulting data. Here are three of the most common types of merges: inner, left, and outer merges.
+```
+
+Figure ({numref}`fig_data_merging03`) shows some common merging types. More information on different ways to combine data using pandas can be found in the [pandas documentation on merging](https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html). 
+
+
+
+## Further Cleaning Steps:
 
 - **Unit Conversion**: Ensuring data is in consistent units.
 - **Data Standardization**: This can be done via Min-Max scaling (often termed "normalization") or, frequently more effective, by ensuring data has a mean of 0 and a standard deviation of 1.
