@@ -442,6 +442,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-datasets">8.3. Combining datasets</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-cleaning-steps">8.4. Further Cleaning Steps:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions">8.5. Conclusions</a></li>
 </ul>
             </nav>
         </div>
@@ -455,30 +456,33 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="data-acquisition-preparation">
 <h1><span class="section-number">8. </span>Data Acquisition &amp; Preparation<a class="headerlink" href="#data-acquisition-preparation" title="Link to this heading">#</a></h1>
-<p>The foundational pillar of any data science project lies in the data itself. Sounds obvious, yet in practice, many aspiring data scientists will still be surprised by <strong>how much the quality and quantity of data matters for the success of a data science project</strong>. Without pertinent and high-quality data, even the most sophisticated algorithms will fall short of producing meaningful results. This chapter aims at building a first intuition about the process of data acquisition and preparation, elucidating best practices to ensure your data science journey is built on solid ground.</p>
+<p>The foundational pillar of any data science project lies in the data itself. Sounds obvious, yet in practice, many aspiring data scientists will still be surprised by <strong>how much the quality and quantity of data matters for the success of a data science project</strong>. Without pertinent and high-quality data, even the most sophisticated algorithms will fall short of producing meaningful results. This chapter aims at building a first intuition about the process of data acquisition and preparation, elucidating best practices to ensure your data science journey is built on solid ground. I am fairly certain that many of the parts of the data science pipeline that we will see in the following chapters will appear much fancier and more exciting. But ultimately, it is often times the data acquisition, preparation, and processing part that makes the largest impact.</p>
 <section id="data-acquisition">
 <h2><span class="section-number">8.1. </span>Data Acquisition<a class="headerlink" href="#data-acquisition" title="Link to this heading">#</a></h2>
-<p>Before plunging into data collection, it’s imperative to ask: What’s the problem at hand? What kind of data do we need to address it?</p>
+<p>Before plunging into data collection, it’s imperative to ask: What’s the problem at hand? What questions to we want to answer? And, what kind of data do we need for this?</p>
 <section id="key-considerations">
 <h3><span class="section-number">8.1.1. </span>Key Considerations:<a class="headerlink" href="#key-considerations" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p><strong>Type of Data Needed</strong>: What kind of information will help address the problem? Is it quantitative, qualitative, temporal, or spatial?</p></li>
 <li><p><strong>Data Quality and Quantity</strong>: Do the data offer enough breadth and depth to draw meaningful conclusions? Are there gaps or inconsistencies that might pose challenges?</p></li>
-<li><p><strong>Data Sources</strong>: Is the data readily available? If not, where can one procure it?</p></li>
-<li><p><strong>Usage Restrictions</strong>: Are there any commercial or privacy restrictions tied to the data?</p></li>
+<li><p><strong>Data Sources</strong>: Is the data readily available? Is it accessible? And can we trust the source?</p></li>
+<li><p><strong>Usage Restrictions</strong>: Are there any commercial, legal, or privacy restrictions tied to the data? This determines if we can work with the data at all and if so, under what conditions.</p></li>
 </ol>
 </section>
 <section id="common-data-sources">
 <h3><span class="section-number">8.1.2. </span>Common Data Sources:<a class="headerlink" href="#common-data-sources" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>The Internet I</strong>: A vast ocean of data. Public datasets are easily accessible and can be sourced from governmental agencies, NGOs, or platforms like <a class="reference external" href="https://www.kaggle.com/">Kaggle</a>, <a class="reference external" href="https://zenodo.org/">Zenodo</a>, and <a class="reference external" href="https://archive.ics.uci.edu/">UCI</a>.</p></li>
-<li><p><strong>The Internet II</strong>: Web scraping is akin to a treasure hunt, extracting valuable data directly from web pages, given that you respect the legal and ethical boundaries.</p></li>
-<li><p><strong>Internal Corporate Data</strong>: Picture a gold mine that a company sits upon; these are years’ worth of data that can unearth invaluable insights if analyzed correctly.</p></li>
+<li><p><strong>The Internet II</strong>: <em>Web scraping</em> is akin to a treasure hunt, extracting valuable data directly from web pages, given that you respect the legal and ethical boundaries.
+Web scraping means the automated extraction of data from the internet. While Python generally works fine for doing web scraping, the process itself is inherently <strong>messy</strong>! Whenever you write a script to extract data from a certain website, you can be nearly sure that the same script won’t work a year from now. Or, if you are unlucky, it might not even work tomorrow.
+But if you are lucky, someone else has gone through most of the pain for you and provides you with a proper <em>API</em>, maybe even a Python library (for instance the <a class="reference external" href="https://github.com/martin-majlis/Wikipedia-API">Wikipedia API</a>).</p></li>
+<li><p><strong>Internal Corporate Data</strong>: Picture a gold mine that a company sits upon; these are years’ worth of data that can unearth invaluable insights if analyzed correctly. Though if it is that promising, you probably will need a few lucky coincidences to get your hands on this piece of data …</p></li>
 <li><p><strong>Academic Data</strong>: Scientifically collected and often meticulously maintained, these datasets can be found accompanying research papers. In many scientific disciplines it is becoming more and more common for authors to now only present and discuss their findings, but also to provide the data and/or the code used to extract those findings from the data (often termed: Open Science).</p></li>
 <li><p><strong>Data Upon Request</strong>: Sometimes, just asking can open doors. Organizations might share data if approached correctly and for a worthy cause.</p></li>
 <li><p><strong>Commercial Datasets</strong>: There are instances when investing in a dataset can prove to be more cost-effective than collecting data from scratch.</p></li>
 </ul>
-<p>In some data science projects, we will start with an already prepared dataset, while in other projects, the collection of data can be a major (and time-consuming!) part of the project itself. It can even happen that we need to reconsider some of our initial targets and strategies if we do not manage to collect the data as expected.</p>
+<p>Don’t let the typical course or tutorial situation trick you. In reality, you will rarely be in the comfortable position of receiving a large, high-quality dataset in an easy-to-import and easy-to-understand format. The most exciting data science projects usually do not come with a clean, ready-to-be-used csv file and well-documented metadata.</p>
+<p>Often, the collection of data can be a major (and time-consuming!) part of the project itself. It can even happen that we need to reconsider some of our initial targets and strategies if we do not manage to collect the data as expected.</p>
 <p>Once we do hold the data in our hands (well, rather on a disk or cloud drive), we further need to make sure that the data is technically, legally, or quality-wise suitable for what we plan to do with the data in the following phases.</p>
 <p>Once the data is in your hands, several pivotal steps ensure its quality and relevance:</p>
 <ul class="simple">
@@ -490,7 +494,8 @@ document.write(`
 </section>
 <section id="remember-crap-in-crap-out">
 <h3><span class="section-number">8.1.3. </span>Remember: Crap in, Crap out!<a class="headerlink" href="#remember-crap-in-crap-out" title="Link to this heading">#</a></h3>
-<p>Data is the bedrock of all subsequent data science operations. The notion that advanced algorithms can compensate for shoddy data is a common misconception. It’s pivotal to invest ample time in sourcing and assessing data. The quality of data often becomes the deciding factor between the success and failure of a data science project.</p>
+<p>Just to be save let’s state this again: Data is the bedrock of all subsequent data science operations. The notion that advanced algorithms can compensate for low quality data is a common misconception. It’s pivotal to invest ample time in sourcing and assessing data. The quality of data often becomes the deciding factor between the success and failure of an entire data science project.
+In data science, and more commonly in the field of machine-learning, a very common saying is: <strong>crap in, crap out</strong>. Good data processing can maybe clean up some rough edges, but better don’t expect it to give stellar performance on poor data.</p>
 </section>
 <section id="mini-exercise-hypothetical-scenario">
 <h3><span class="section-number">8.1.4. </span><strong>Mini-Exercise: Hypothetical Scenario</strong><a class="headerlink" href="#mini-exercise-hypothetical-scenario" title="Link to this heading">#</a></h3>
@@ -524,7 +529,7 @@ document.write(`
 </section>
 <section id="combining-datasets">
 <h2><span class="section-number">8.3. </span>Combining datasets<a class="headerlink" href="#combining-datasets" title="Link to this heading">#</a></h2>
-<p>Unlike in most tutorial or course situations, in data science reality we rarely start by simply importing a single data file. Often, we will receive multiple files with different features and/or datapoints. In such cases, we usually want to combine the required parts of the data. This is a common operation in data science which is sometimes refered to as <code class="docutils literal notranslate"><span class="pre">merging</span></code> in aggreement with respective SQL operations.</p>
+<p>Unlike in most tutorial or course situations, in data science reality we rarely start by simply importing a single data file. Often, we will receive multiple files with different features and/or datapoints. In such cases, we usually want to combine the required parts of the data. This is a common operation in data science which is sometimes refered to as <code class="docutils literal notranslate"><span class="pre">merging</span></code> in agreement with respective SQL operations.</p>
 <p>At first, this seems to a be a rather simple operations. In practice, however, this is often surprisingly complicated and critical. If merging is not done correctly, we might either lose data or create incorrect entries.</p>
 <figure class="align-default" id="fig-data-merging01">
 <img alt="../_images/fig_data_merging_types.png" src="../_images/fig_data_merging_types.png" />
@@ -541,6 +546,9 @@ document.write(`
 <li><p><strong>Data Standardization</strong>: This can be done via Min-Max scaling (often termed “normalization”) or, frequently more effective, by ensuring data has a mean of 0 and a standard deviation of 1.</p></li>
 <li><p><strong>Non-linear Transformations</strong>: Sometimes, linear thinking won’t do. Transformations like logarithms can provide new perspectives on data.</p></li>
 </ul>
+</section>
+<section id="conclusions">
+<h2><span class="section-number">8.5. </span>Conclusions<a class="headerlink" href="#conclusions" title="Link to this heading">#</a></h2>
 <p>In essence, data acquisition and preparation are the unsung heroes of a successful data science endeavor. By ensuring the foundation is robust and the raw materials are of top quality, you set the stage for analytical brilliance.</p>
 <p>From my own experience: It is not uncommon that 80% of the work in a data science project goes into the data acquisition and cleaning.</p>
 </section>
@@ -624,6 +632,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-datasets">8.3. Combining datasets</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-cleaning-steps">8.4. Further Cleaning Steps:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions">8.5. Conclusions</a></li>
 </ul>
   </nav></div>
 
