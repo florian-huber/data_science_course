@@ -18,6 +18,7 @@ parts:
     numbered: true
     chapters:
     - file: book/07_data_acquisition_and_preparation
+    - file: notebooks/live_coding_03_data_processing
     - file: notebooks/live_coding_04_distributions_statistical_measures
   - caption: In-depth Data Exploration
     numbered: true

@@ -37,11 +37,6 @@ Once the data is in your hands, several pivotal steps ensure its quality and rel
 - **Data Processing Knowledge**: A thorough understanding of how the data has been previously processed can save you from potential pitfalls. Valuable insights can often be gleaned from data processing logs or accompanying documentation.
 - **Legal issues:** Having data is not the same as *being allowed to use it*. Things like copyrights or privacy issues might render the data unfit for our goals.
 
-### Remember: Crap in, Crap out!
-
-Just to be save let's state this again: Data is the bedrock of all subsequent data science operations. The notion that advanced algorithms can compensate for low quality data is a common misconception. It's pivotal to invest ample time in sourcing and assessing data. The quality of data often becomes the deciding factor between the success and failure of an entire data science project.
-In data science, and more commonly in the field of machine-learning, a very common saying is: **crap in, crap out**. Good data processing can maybe clean up some rough edges, but better don't expect it to give stellar performance on poor data.
-
 ### **Mini-Exercise: Hypothetical Scenario**
 
 Imagine you are tasked with evaluating the state of digitization in schools in your region.
@@ -53,48 +48,3 @@ Imagine you are tasked with evaluating the state of digitization in schools in y
 1. What kind of data might you need?
 2. Where could you potentially source this data?
 3. Are there potential roadblocks or challenges in procuring or using this data?
-
-## Data Cleaning
-
-Raw data, more often than not, is messy; it requires refinement to reveal its true value. This refinement process is what we term as "data cleaning". In this section, some of the most common data cleaning steps will be mentioned; steps which are fairly general across many different data types and sources. In actual practice, however, a lot of the more complex data cleaning requires a certain understanding - or *domain knowledge* - of the data. This is either acquired over time, when you work a lot with similar data and tasks; or it is distilled from a close collaboration with domain experts. Whenever you are not sure what the data in front of you actually means, and you hence are not sure what you may or may not do to the data, better invest time to build a deeper understanding of the data and/or ask someone with more experience on this type of data. 
-
-Here are a few examples: If you work with audio data but don't know that decibel is measured on a logarithmic scale, you might unintentionally run into serious trouble. Or, if you get colorful medical images but don't realize that the color scale is just a color scale applied to monochromatic images, your data handling and later conclusions might not make it look like you know what you are doing... 
-
-### Dealing with Missing Values:
-
-Missing data is a common issue many data scientists face. While the gaps can manifest in varied forms such as NaN, "999", "N/A", None, and "", a standardized approach often involves representing these uniformly as `NaN` (hint: Python libraries such as `Pandas` or `numpy` have their own NaN data types!).
-
-### Typical Challenges:
-
-- **Duplicates**: Data can have repeated or conflicting entries.
-- **Inconsistent Nomenclature**: Consistency in naming conventions can save hours of data wrangling later on. A classic example being different formats of names. "First Name Last Name" versus "Last Name, First Name".
-- **Data Types**: Ensuring that numeric values aren't masquerading as strings can prevent potential analytical blunders (e.g., "12.5" instead of 12.5).
-- **Decimal Delimiters**: Confusion between comma and dot can change data meaning, e.g., 12,010 becoming 12.01.
-
-## Combining datasets
-
-Unlike in most tutorial or course situations, in data science reality we rarely start by simply importing a single data file. Often, we will receive multiple files with different features and/or datapoints. In such cases, we usually want to combine the required parts of the data. This is a common operation in data science which is sometimes refered to as `merging` in agreement with respective SQL operations.
-
-At first, this seems to a be a rather simple operations. In practice, however, this is often surprisingly complicated and critical. If merging is not done correctly, we might either lose data or create incorrect entries.
-
-```{figure} ../images/fig_data_merging_types.png
-:name: fig_data_merging01
-
-There are different type of merging data. Which one to use is best decided based on the data we have at hand and the types of operations we plan to run with the resulting data. Here are three of the most common types of merges: inner, left, and outer merges.
-```
-
-Figure ({numref}`fig_data_merging01`) shows some common merging types. More information on different ways to combine data using pandas can be found in the [pandas documentation on merging](https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html). 
-
-
-
-## Further Cleaning Steps:
-
-- **Unit Conversion**: Ensuring data is in consistent units.
-- **Data Standardization**: This can be done via Min-Max scaling (often termed "normalization") or, frequently more effective, by ensuring data has a mean of 0 and a standard deviation of 1.
-- **Non-linear Transformations**: Sometimes, linear thinking won't do. Transformations like logarithms can provide new perspectives on data.
-
-## Conclusions
-
-In essence, data acquisition and preparation are the unsung heroes of a successful data science endeavor. By ensuring the foundation is robust and the raw materials are of top quality, you set the stage for analytical brilliance.
-
-From my own experience: It is not uncommon that 80% of the work in a data science project goes into the data acquisition and cleaning.
