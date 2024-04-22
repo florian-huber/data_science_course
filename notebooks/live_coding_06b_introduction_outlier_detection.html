@@ -470,10 +470,10 @@ document.write(`
 <h2><span class="section-number">13.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <section id="what-is-an-outlier-and-why-detect-them">
 <h3><span class="section-number">13.1.1. </span>What is an Outlier and Why Detect Them?<a class="headerlink" href="#what-is-an-outlier-and-why-detect-them" title="Link to this heading">#</a></h3>
-<p><strong>Definition</strong>: An outlier is a data point that differs significantly from other observations in a dataset. These anomalies can arise due to variability in the measurement or experimental errors. Outliers are important to identify because they can lead to misleading analysis results and can indicate interesting phenomena.</p>
+<p><strong>Definition</strong>: An outlier is a data point that differs significantly from other observations in a dataset. These anomalies can arise due to variability in the measurement or experimental errors. Outliers are important to identify because they can lead to misleading analysis results or can indicate interesting phenomena.</p>
 <p><strong>Why should be care?</strong><br />
-In the context of data science, outliers can skew the results of data analysis, such as mean and standard deviation calculations. They can also affect the performance of machine learning models, leading to less accurate predictions. In all those cases outliers are data points that we often would like to <strong>either exclude or at least treat differently</strong>. Think of a large dataset from a questionaire where many thousands of people gave us answers. If we want to train a model on how to predict certain properties, we might want to exclude outliers which could occur from people that did not fill in the questionaire correctly, or from a few people that are very different in their answers to the rest.</p>
-<p>In data science workflows, however, the opposite can happen as well. This are cases where the <strong>outiers are our target data points</strong>. An example for this are cases where we look for unintentional or unwanted behavior such as fraud in financial transactions or hacker attacks.</p>
+In the context of data science, outliers can skew the results of data analysis, such as mean and standard deviation calculations. They can also affect the performance of machine learning models, leading to less accurate predictions. In all those cases outliers are data points that we often would like to <strong>either exclude</strong>, or at least treat <strong>differently</strong>. Think of a large dataset from a questionnaire where many thousands of people gave us answers. When we want to train a model to predict certain properties, we often might want to exclude outliers which could occur from people who did not fill in the questionnaire correctly. Or, we might consider not to “confuse” a model with rare data of a few people who are very different in their answers to the rest of our dataset.</p>
+<p>In data science workflows, however, the opposite can happen as well. These are cases where the <strong>outliers are our target data points</strong>. An example of this is cases where we look for unintentional or unwanted behavior such as fraud in financial transactions or hacker attacks.</p>
 </section>
 <section id="challenges-in-outlier-detection">
 <h3><span class="section-number">13.1.2. </span>Challenges in Outlier Detection<a class="headerlink" href="#challenges-in-outlier-detection" title="Link to this heading">#</a></h3>
@@ -487,7 +487,6 @@ In the context of data science, outliers can skew the results of data analysis, 
 <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
 <span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">IsolationForest</span>
 <span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">LocalOutlierFactor</span>
-<span class="c1"># from sklearn.preprocessing import StandardScaler</span>
 </pre></div>
 </div>
 </div>

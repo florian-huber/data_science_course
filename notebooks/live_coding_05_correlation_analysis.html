@@ -1043,7 +1043,7 @@ A low correlation doesn’t mean there isn’t a significant relationship!</p>
     <span class="c1"># Generate x values</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">pattern</span> <span class="o">==</span> <span class="s1">&#39;wave&#39;</span><span class="p">:</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">pattern</span> <span class="o">==</span> <span class="s1">&#39;square&#39;</span><span class="p">:</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
         <span class="n">x</span> <span class="o">*=</span> <span class="mi">2</span><span class="o">/</span><span class="mi">3</span>
@@ -1092,7 +1092,7 @@ A low correlation doesn’t mean there isn’t a significant relationship!</p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/5f1e3f8142ba5152c5d99c7d7392bceb023015dd7e06d4c5d8e400fb216163ce.png" src="../_images/5f1e3f8142ba5152c5d99c7d7392bceb023015dd7e06d4c5d8e400fb216163ce.png" />
+<img alt="../_images/9813ee96d8c4f5ca1683dea1354c606a0cbbab86c1472ecd441e96377973926f.png" src="../_images/9813ee96d8c4f5ca1683dea1354c606a0cbbab86c1472ecd441e96377973926f.png" />
 </div>
 </div>
 <p>Another prominent example to illustrate how little the Pearson correlation coefficient sometimes tells us is the <code class="docutils literal notranslate"><span class="pre">datasaurus</span></code> dataset from the last chapter. Here, too, the data is distributed very differently, but the correlation coefficient remains the same.</p>
