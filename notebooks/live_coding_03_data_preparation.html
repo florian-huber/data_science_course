@@ -42,7 +42,7 @@
   <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -515,7 +515,7 @@ This phrase underscores a crucial truth about data science: the quality of the o
 <h2><span class="section-number">9.2. </span>Dealing with Missing Values<a class="headerlink" href="#dealing-with-missing-values" title="Link to this heading">#</a></h2>
 <section id="understanding-missing-values">
 <h3><span class="section-number">9.2.1. </span>Understanding Missing Values<a class="headerlink" href="#understanding-missing-values" title="Link to this heading">#</a></h3>
-<p>Missing data is a prevalent issue in most data gathering processes. It can occur for a variety of reasons including errors in data entry, failures in data collection processes, or during data transmission. The presence of missing values can significantly impact the performance of data analysis models, as most algorithms are designed to handle complete datasets.</p>
+<p>Missing data is a prevalent issue in most data-gathering processes. It can occur for a variety of reasons including errors in data entry, failures in data collection processes, or during data transmission. The presence of missing values can significantly impact the performance of data analysis models, as most algorithms are designed to handle complete datasets.</p>
 <p>Handling missing data is therefore a crucial step; if not addressed properly, it can lead to biased or invalid results. Different strategies can be employed depending on the nature of the data and the intended analysis.</p>
 </section>
 <section id="techniques-to-handle-missing-values">
@@ -530,8 +530,8 @@ This phrase underscores a crucial truth about data science: the quality of the o
 <section id="imputation">
 <h4><span class="section-number">9.2.2.2. </span>2. Imputation<a class="headerlink" href="#imputation" title="Link to this heading">#</a></h4>
 <p>Imputation means that we try to make good guesses of what the missing data <em>could have been</em>. It therefore is about much more than just spending a bit more time compared to a simple deletion step. Whether or not it is appropriate to use imputation depends on how well we understand the data and how sensitive the following data science tasks are.
-If we, or the experts we collaborate with, do not have a very solid understanding of the data, its meaning, its measurement process etc., we should usually not include imputation since there is a very high risk that we create artifacts in the data that we are now aware of.</p>
-<p>The same is true if the following analysis is very sensible and thus requires properly measures values.</p>
+Suppose we, or the experts we collaborate with, do not have a very solid understanding of the data, its meaning, its measurement process etc.. In that case, we should usually not include imputation because it comes with a very high risk of introducing artifacts that we are not aware of.</p>
+<p>The same is true if the following analysis is very sensible and thus requires properly measured values.</p>
 <p>In other cases, however, imputation can indeed improve later results because it might allow us to work with a larger part of the available data. Common imputation types are:</p>
 <ul class="simple">
 <li><p><strong>Mean/Median/Mode Imputation</strong>: This is one of the simplest methods where missing values are replaced with the mean, median, or mode of the respective column. It’s quick and easy but can introduce bias if the data is not normally distributed.</p></li>
