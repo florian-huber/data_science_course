@@ -2,7 +2,7 @@
 
 So far in our exploration of data science, we've been mostly circling around *data*. However, as briefly touched upon in {ref}`ch_data_science_intro` and contrary to what the term *data science* might suggest, data science isn't fundamentally about data. Think of it this way: if data is the raw material, then the ultimate product a data scientist crafts is *knowledge*. We sift through the vast sands of data to uncover gems of insight.
 
-The "DIKW Pyramid" (Data - Information - Knowledge - Wisdom) beautifully visualizes the hierarchy that exists from raw data to profound knowledge ({numref}`fig_DIKW_pyramid`). While numerous interpretations of each tier exist, for our current exploration, let's break it down as:
+The "DIKW Pyramid" (Data - Information - Knowledge - Wisdom) is a commonly depicted visualizations that displays an easy-to-understand hierarchy from raw data to profound knowledge and ultimately: wisdom ({numref}`fig_DIKW_pyramid`). In practice, however, this model is often considered to be too simple, not precise enough, or even wrong (see for instance {cite}`fricke_knowledge_2009`). In addition, for the purpose of a data science introduction, the concept of *wisdom* is less relevant at this point. But it is essential to distinguish between the terms *data* , *information*, and *knowldege*, which I will in the following chapters mostly understand as follows:
 
 - **Data**: The raw values or findings obtained through various means such as observations, measurements, surveys, etc. It represents the unprocessed reality, and -at least at this stage- it can be entirely incomprehensible or meaningless. Imagine a streaming camera in a forest meant to detect rare events of spotting certain wild animals. Most of the data recorded will show no such animals and will thus be entirely insignificant for our later analysis.
 - **Information**: This is data in context. It has been processed, categorized, and given structure, making it more comprehensible. One way to put it is: "Information is data with potential significance for a user" {cite}`otte_2020`. It's data with added value, transformed into a format that allows for a clearer interpretation.
@@ -40,3 +40,14 @@ Another insightful approach is the "Inference to the Best Explanation" method {c
 While both Popper's approach and the inference to the best explanation emphasize rigorous testing and refinement, they underscore the essence of the scientific method – a systematic pursuit of knowledge. In the realm of data science, these principles guide us, ensuring that insights drawn from data are robust, valid, and, ultimately, enlightening.
 
 In conclusion, data is the foundation upon which knowledge is constructed. But to elevate data to knowledge, a meticulous process of refinement, analysis, and understanding is imperative. There are many possible pitfalls (for instance: biases!). As data scientists, our mission is to navigate this intricate journey, transforming raw data into profound insights that inform, guide, and enlighten.
+
+
+
+## Further readings
+
+If this subject interests you, there are many exciting philosophical debates and works on the matter of knowledge and the methodologies to derive knowledge.
+
+Here just two more examples:
+
+- Keith Lehrer, "Theory of Knowledge", 2nd edition, 2019 {cite}`lehrer_theory_2019`
+- Max Boisot and Augustí Canals, "Data, information and knowledge: have we got it right?", 2004, Journal of Evolutionary Economics {cite}`boisot_data_2004`
