@@ -557,7 +557,91 @@ Bigrams (or 2-grams) would not catch those differences. But they can also be ver
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File downloaded successfully and saved to ../datasets/madrid_reviews.csv
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">43</span>
+<span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">output_path</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="c1"># Download the dataset</span>
+<span class="ne">---&gt; </span><span class="mi">43</span> <span class="n">download_from_zenodo</span><span class="p">(</span><span class="n">zenodo_link</span><span class="p">,</span> <span class="n">output_path</span><span class="p">)</span>
+
+<span class="nn">Cell In[2], line 27,</span> in <span class="ni">download_from_zenodo</span><span class="nt">(url, save_path)</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_path</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">27</span>     <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">8192</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">28</span>         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File downloaded successfully and saved to </span><span class="si">{</span><span class="n">save_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/site-packages/requests/models.py:816,</span> in <span class="ni">Response.iter_content.&lt;locals&gt;.generate</span><span class="nt">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">814</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="p">,</span> <span class="s2">&quot;stream&quot;</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">815</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">816</span>         <span class="k">yield from</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">chunk_size</span><span class="p">,</span> <span class="n">decode_content</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">817</span>     <span class="k">except</span> <span class="n">ProtocolError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">818</span>         <span class="k">raise</span> <span class="n">ChunkedEncodingError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/site-packages/urllib3/response.py:1040,</span> in <span class="ni">HTTPResponse.stream</span><span class="nt">(self, amt, decode_content)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1024</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1025</span><span class="sd"> A generator wrapper for the read() method. A call will block until</span>
+<span class="g g-Whitespace">   </span><span class="mi">1026</span><span class="sd"> ``amt`` bytes have been read from the connection or until the</span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1037</span><span class="sd">     &#39;content-encoding&#39; header.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1038</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1039</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunked</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">supports_chunked_reads</span><span class="p">():</span>
+<span class="ne">-&gt; </span><span class="mi">1040</span>     <span class="k">yield from</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_chunked</span><span class="p">(</span><span class="n">amt</span><span class="p">,</span> <span class="n">decode_content</span><span class="o">=</span><span class="n">decode_content</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1041</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1042</span>     <span class="k">while</span> <span class="ow">not</span> <span class="n">is_fp_closed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_fp</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_decoded_buffer</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/site-packages/urllib3/response.py:1187,</span> in <span class="ni">HTTPResponse.read_chunked</span><span class="nt">(self, amt, decode_content)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1185</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_left</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1186</span>     <span class="k">break</span>
+<span class="ne">-&gt; </span><span class="mi">1187</span> <span class="n">chunk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle_chunk</span><span class="p">(</span><span class="n">amt</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1188</span> <span class="n">decoded</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decode</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1189</span>     <span class="n">chunk</span><span class="p">,</span> <span class="n">decode_content</span><span class="o">=</span><span class="n">decode_content</span><span class="p">,</span> <span class="n">flush_decoder</span><span class="o">=</span><span class="kc">False</span>
+<span class="g g-Whitespace">   </span><span class="mi">1190</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1191</span> <span class="k">if</span> <span class="n">decoded</span><span class="p">:</span>
+
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/site-packages/urllib3/response.py:1129,</span> in <span class="ni">HTTPResponse._handle_chunk</span><span class="nt">(self, amt)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1127</span>     <span class="bp">self</span><span class="o">.</span><span class="n">chunk_left</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1128</span> <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_left</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">amt</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_left</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1129</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fp</span><span class="o">.</span><span class="n">_safe_read</span><span class="p">(</span><span class="n">amt</span><span class="p">)</span>  <span class="c1"># type: ignore[union-attr]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1130</span>     <span class="bp">self</span><span class="o">.</span><span class="n">chunk_left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_left</span> <span class="o">-</span> <span class="n">amt</span>
+<span class="g g-Whitespace">   </span><span class="mi">1131</span>     <span class="n">returned_chunk</span> <span class="o">=</span> <span class="n">value</span>
+
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/http/client.py:631,</span> in <span class="ni">HTTPResponse._safe_read</span><span class="nt">(self, amt)</span>
+<span class="g g-Whitespace">    </span><span class="mi">624</span> <span class="k">def</span> <span class="nf">_safe_read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amt</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">625</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Read the number of bytes requested.</span>
+<span class="g g-Whitespace">    </span><span class="mi">626</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">627</span><span class="sd">     This function should be used when &lt;amt&gt; bytes &quot;should&quot; be present for</span>
+<span class="g g-Whitespace">    </span><span class="mi">628</span><span class="sd">     reading. If the bytes are truly not available (due to EOF), then the</span>
+<span class="g g-Whitespace">    </span><span class="mi">629</span><span class="sd">     IncompleteRead exception can be used to detect the problem.</span>
+<span class="g g-Whitespace">    </span><span class="mi">630</span><span class="sd">     &quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">631</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">amt</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">632</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">amt</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">633</span>         <span class="k">raise</span> <span class="n">IncompleteRead</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">amt</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/socket.py:705,</span> in <span class="ni">SocketIO.readinto</span><span class="nt">(self, b)</span>
+<span class="g g-Whitespace">    </span><span class="mi">703</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">705</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sock</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span>     <span class="k">except</span> <span class="n">timeout</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">707</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_timeout_occurred</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/ssl.py:1307,</span> in <span class="ni">SSLSocket.recv_into</span><span class="nt">(self, buffer, nbytes, flags)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1303</span>     <span class="k">if</span> <span class="n">flags</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1304</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1305</span>           <span class="s2">&quot;non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
+<span class="g g-Whitespace">   </span><span class="mi">1306</span>           <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1307</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">nbytes</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1308</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1309</span>     <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">nbytes</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/ssl.py:1163,</span> in <span class="ni">SSLSocket.read</span><span class="nt">(self, len, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1161</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1162</span>     <span class="k">if</span> <span class="n">buffer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1163</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1164</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1165</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -756,7 +840,7 @@ Now we end up with vectors of about 1 million entries (even though most will be 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(176848, 119341)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(176848, 119352)
 </pre></div>
 </div>
 </div>
@@ -772,7 +856,7 @@ Now we end up with vectors of about 1 million entries (even though most will be 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(176848, 481562)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(20491, 84069)
 </pre></div>
 </div>
 </div>
@@ -786,21 +870,24 @@ Now we end up with vectors of about 1 million entries (even though most will be 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;zone of the&#39;, &#39;zone so&#39;, &#39;zones&#39;, &#39;zoo&#39;, &#39;zoo and&#39;, &#39;zoomed&#39;,
-       &#39;zucca&#39;, &#39;zucchini&#39;, &#39;zucchini and&#39;, &#39;zucchini carpaccio&#39;,
-       &#39;zucchini flowers&#39;, &#39;zucchini ravioli&#39;, &#39;zucchini salad&#39;,
-       &#39;zucchini salad and&#39;, &#39;zucchini soup&#39;, &#39;zucchini which&#39;,
-       &#39;zucchini with&#39;, &#39;zuchini&#39;, &#39;zuma&#39;, &#39;zumo&#39;, &#39;zumo de&#39;,
-       &#39;zumo de naranja&#39;, &#39;zurbano&#39;, &#39;ángel&#39;, &#39;área&#39;, &#39;ástor&#39;, &#39;ático&#39;,
-       &#39;él&#39;, &#39;époque&#39;, &#39;ñeru&#39;, &#39;ôven&#39;, &#39;último&#39;, &#39;único&#39;, &#39;über&#39;, &#39;очень&#39;,
-       &#39;אוכל&#39;, &#39;מאוד&#39;, &#39;מומלץ&#39;, &#39;جدا&#39;, &#39;가격도&#39;, &#39;같아요&#39;, &#39;같이&#39;, &#39;굉장히&#39;, &#39;그리고&#39;,
-       &#39;너무&#39;, &#39;다른&#39;, &#39;다시&#39;, &#39;덕분에&#39;, &#39;마드리드&#39;, &#39;마드리드에&#39;, &#39;마드리드에서&#39;, &#39;많이&#39;, &#39;맛있게&#39;,
-       &#39;맛있고&#39;, &#39;맛있습니다&#39;, &#39;맛있어요&#39;, &#39;맛있었습니다&#39;, &#39;맛있었어요&#39;, &#39;매우&#39;, &#39;먹고&#39;, &#39;먹었는데&#39;,
-       &#39;먹었습니다&#39;, &#39;먹을&#39;, &#39;메뉴&#39;, &#39;모두&#39;, &#39;바로&#39;, &#39;보다&#39;, &#39;빠에야&#39;, &#39;상그리아&#39;, &#39;스페인&#39;,
-       &#39;시켰는데&#39;, &#39;식당&#39;, &#39;여기&#39;, &#39;여행&#39;, &#39;원래&#39;, &#39;음식&#39;, &#39;음식도&#39;, &#39;음식이&#39;, &#39;입맛에&#39;, &#39;있는&#39;,
-       &#39;있어서&#39;, &#39;저희&#39;, &#39;정말&#39;, &#39;조금&#39;, &#39;좋아요&#39;, &#39;좋았어요&#39;, &#39;좋은&#39;, &#39;직원들도&#39;, &#39;직원분이&#39;, &#39;진짜&#39;,
-       &#39;추천&#39;, &#39;추천합니다&#39;, &#39;친절하게&#39;, &#39;친절하고&#39;, &#39;친절합니다&#39;, &#39;특히&#39;, &#39;한국인&#39;, &#39;한국인 입맛에&#39;,
-       &#39;함께&#39;, &#39;해서&#39;], dtype=object)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;yr old&#39;, &#39;yrs&#39;, &#39;yrs old&#39;, &#39;yuca&#39;, &#39;yucca&#39;, &#39;yuck&#39;, &#39;yuk&#39;, &#39;yum&#39;,
+       &#39;yum and&#39;, &#39;yum great&#39;, &#39;yum soup&#39;, &#39;yum the&#39;, &#39;yum we&#39;, &#39;yum yum&#39;,
+       &#39;yumm&#39;, &#39;yummi&#39;, &#39;yummie&#39;, &#39;yummiest&#39;, &#39;yumminess&#39;, &#39;yummm&#39;,
+       &#39;yummmm&#39;, &#39;yummy&#39;, &#39;yummy all&#39;, &#39;yummy and&#39;, &#39;yummy as&#39;,
+       &#39;yummy but&#39;, &#39;yummy dishes&#39;, &#39;yummy food&#39;, &#39;yummy good&#39;,
+       &#39;yummy great&#39;, &#39;yummy if&#39;, &#39;yummy it&#39;, &#39;yummy my&#39;, &#39;yummy pizza&#39;,
+       &#39;yummy sangria&#39;, &#39;yummy tapas&#39;, &#39;yummy the&#39;, &#39;yummy they&#39;,
+       &#39;yummy too&#39;, &#39;yummy very&#39;, &#39;yummy we&#39;, &#39;yummy will&#39;, &#39;yummy would&#39;,
+       &#39;yummy yummy&#39;, &#39;yup&#39;, &#39;yuzu&#39;, &#39;zalacain&#39;, &#39;zalacain is&#39;,
+       &#39;zamburinas&#39;, &#39;zamburiñas&#39;, &#39;zara&#39;, &#39;zaragoza&#39;, &#39;zarzuela&#39;,
+       &#39;zealand&#39;, &#39;zen&#39;, &#39;zen market&#39;, &#39;zenith&#39;, &#39;zenith eggs&#39;, &#39;zerain&#39;,
+       &#39;zero&#39;, &#39;zero stars&#39;, &#39;zest&#39;, &#39;zesty&#39;, &#39;zing&#39;, &#39;zingy&#39;, &#39;zombie&#39;,
+       &#39;zone&#39;, &#39;zone of&#39;, &#39;zones&#39;, &#39;zoo&#39;, &#39;zucca&#39;, &#39;zucchini&#39;,
+       &#39;zucchini and&#39;, &#39;zucchini flowers&#39;, &#39;zucchini salad&#39;,
+       &#39;zucchini with&#39;, &#39;zumo&#39;, &#39;zumo de&#39;, &#39;zurbano&#39;, &#39;área&#39;, &#39;ôven&#39;,
+       &#39;único&#39;, &#39;그리고&#39;, &#39;너무&#39;, &#39;마드리드&#39;, &#39;많이&#39;, &#39;맛있고&#39;, &#39;맛있어요&#39;, &#39;맛있었어요&#39;, &#39;매우&#39;,
+       &#39;먹었는데&#39;, &#39;스페인&#39;, &#39;여기&#39;, &#39;음식도&#39;, &#39;있어서&#39;, &#39;정말&#39;, &#39;좋은&#39;, &#39;진짜&#39;, &#39;친절하고&#39;, &#39;특히&#39;],
+      dtype=object)
 </pre></div>
 </div>
 </div>
@@ -812,7 +899,7 @@ Now we end up with vectors of about 1 million entries (even though most will be 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;해서&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;특히&#39;
 </pre></div>
 </div>
 </div>
@@ -853,7 +940,7 @@ Test dataset size: (35370,)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(141478, 10000)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(141478, 13241)
 </pre></div>
 </div>
 </div>
@@ -865,21 +952,21 @@ Test dataset size: (35370,)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;worried&#39;, &#39;worries&#39;, &#39;worry&#39;, &#39;worse&#39;, &#39;worst&#39;, &#39;worth&#39;, &#39;worths&#39;,
-       &#39;worthwhile&#39;, &#39;worthy&#39;, &#39;woth&#39;, &#39;would&#39;, &#39;wouldn&#39;, &#39;wouldnt&#39;,
-       &#39;wound&#39;, &#39;wow&#39;, &#39;wowed&#39;, &#39;wrap&#39;, &#39;wrapped&#39;, &#39;wrapping&#39;, &#39;wraps&#39;,
-       &#39;write&#39;, &#39;writer&#39;, &#39;writers&#39;, &#39;writing&#39;, &#39;written&#39;, &#39;wrong&#39;,
-       &#39;wrongly&#39;, &#39;wrote&#39;, &#39;wrought&#39;, &#39;wth&#39;, &#39;www&#39;, &#39;x2&#39;, &#39;ximenez&#39;,
-       &#39;xmas&#39;, &#39;xo&#39;, &#39;xx&#39;, &#39;ya&#39;, &#39;yaki&#39;, &#39;yakisoba&#39;, &#39;yakitori&#39;,
-       &#39;yakitoro&#39;, &#39;yam&#39;, &#39;yamil&#39;, &#39;yang&#39;, &#39;yards&#39;, &#39;yeah&#39;, &#39;year&#39;,
-       &#39;years&#39;, &#39;yell&#39;, &#39;yelled&#39;, &#39;yelling&#39;, &#39;yellow&#39;, &#39;yelp&#39;, &#39;yep&#39;,
-       &#39;yerbabuena&#39;, &#39;yes&#39;, &#39;yesterday&#39;, &#39;yet&#39;, &#39;yo&#39;, &#39;yoghurt&#39;, &#39;yogurt&#39;,
-       &#39;yolk&#39;, &#39;york&#39;, &#39;young&#39;, &#39;younger&#39;, &#39;youngest&#39;, &#39;youngsters&#39;,
-       &#39;your&#39;, &#39;youre&#39;, &#39;yours&#39;, &#39;yourself&#39;, &#39;yourselves&#39;, &#39;youthful&#39;,
-       &#39;youtube&#39;, &#39;yr&#39;, &#39;yrs&#39;, &#39;yuca&#39;, &#39;yucca&#39;, &#39;yuck&#39;, &#39;yum&#39;, &#39;yumm&#39;,
-       &#39;yummie&#39;, &#39;yummy&#39;, &#39;yuzu&#39;, &#39;zalacain&#39;, &#39;zamburinas&#39;, &#39;zamburiñas&#39;,
-       &#39;zara&#39;, &#39;zen&#39;, &#39;zenith&#39;, &#39;zerain&#39;, &#39;zero&#39;, &#39;zone&#39;, &#39;zones&#39;, &#39;zoo&#39;,
-       &#39;zucchini&#39;, &#39;zumo&#39;, &#39;너무&#39;, &#39;맛있었어요&#39;, &#39;정말&#39;], dtype=object)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;yakisoba&#39;, &#39;yakitori&#39;, &#39;yakitoro&#39;, &#39;yam&#39;, &#39;yamil&#39;, &#39;yang&#39;, &#39;yard&#39;,
+       &#39;yards&#39;, &#39;yate&#39;, &#39;yay&#39;, &#39;yeah&#39;, &#39;year&#39;, &#39;yearly&#39;, &#39;years&#39;, &#39;yell&#39;,
+       &#39;yelled&#39;, &#39;yelling&#39;, &#39;yellow&#39;, &#39;yelp&#39;, &#39;yep&#39;, &#39;yerbabuena&#39;, &#39;yes&#39;,
+       &#39;yesterday&#39;, &#39;yet&#39;, &#39;yo&#39;, &#39;yoghurt&#39;, &#39;yogurt&#39;, &#39;yogurts&#39;, &#39;yolk&#39;,
+       &#39;yolks&#39;, &#39;york&#39;, &#39;yorker&#39;, &#39;young&#39;, &#39;younger&#39;, &#39;youngest&#39;,
+       &#39;youngish&#39;, &#39;youngsters&#39;, &#39;your&#39;, &#39;youre&#39;, &#39;yours&#39;, &#39;yourself&#39;,
+       &#39;yourselves&#39;, &#39;youth&#39;, &#39;youthful&#39;, &#39;youtube&#39;, &#39;yoy&#39;, &#39;yr&#39;, &#39;yrs&#39;,
+       &#39;yuca&#39;, &#39;yucca&#39;, &#39;yuck&#39;, &#39;yuk&#39;, &#39;yum&#39;, &#39;yumm&#39;, &#39;yummie&#39;,
+       &#39;yummiest&#39;, &#39;yumminess&#39;, &#39;yummm&#39;, &#39;yummmm&#39;, &#39;yummy&#39;, &#39;yup&#39;, &#39;yuzu&#39;,
+       &#39;zalacain&#39;, &#39;zamburinas&#39;, &#39;zamburiñas&#39;, &#39;zara&#39;, &#39;zaragoza&#39;,
+       &#39;zarzuela&#39;, &#39;zealand&#39;, &#39;zen&#39;, &#39;zenith&#39;, &#39;zerain&#39;, &#39;zero&#39;, &#39;zest&#39;,
+       &#39;zesty&#39;, &#39;zing&#39;, &#39;zingy&#39;, &#39;zombie&#39;, &#39;zone&#39;, &#39;zones&#39;, &#39;zoo&#39;,
+       &#39;zucca&#39;, &#39;zucchini&#39;, &#39;zumo&#39;, &#39;área&#39;, &#39;único&#39;, &#39;그리고&#39;, &#39;너무&#39;, &#39;마드리드&#39;,
+       &#39;맛있고&#39;, &#39;맛있어요&#39;, &#39;맛있었어요&#39;, &#39;매우&#39;, &#39;먹었는데&#39;, &#39;음식도&#39;, &#39;정말&#39;, &#39;좋은&#39;, &#39;진짜&#39;,
+       &#39;친절하고&#39;, &#39;특히&#39;], dtype=object)
 </pre></div>
 </div>
 </div>
@@ -897,411 +984,17 @@ Test dataset size: (35370,)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>#sk-container-id-1 {
-  /* Definition of color scheme common for light and dark mode */
-  --sklearn-color-text: black;
-  --sklearn-color-line: gray;
-  /* Definition of color scheme for unfitted estimators */
-  --sklearn-color-unfitted-level-0: #fff5e6;
-  --sklearn-color-unfitted-level-1: #f6e4d2;
-  --sklearn-color-unfitted-level-2: #ffe0b3;
-  --sklearn-color-unfitted-level-3: chocolate;
-  /* Definition of color scheme for fitted estimators */
-  --sklearn-color-fitted-level-0: #f0f8ff;
-  --sklearn-color-fitted-level-1: #d4ebff;
-  --sklearn-color-fitted-level-2: #b3dbfd;
-  --sklearn-color-fitted-level-3: cornflowerblue;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\flori\anaconda3\envs\ai_smart_health\lib\site-packages\sklearn\linear_model\_logistic.py:458: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
 
-  /* Specific color for light theme */
-  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
-  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
-  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
-  --sklearn-color-icon: #696969;
-
-  @media (prefers-color-scheme: dark) {
-    /* Redefinition of color scheme for dark theme */
-    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
-    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
-    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
-    --sklearn-color-icon: #878787;
-  }
-}
-
-#sk-container-id-1 {
-  color: var(--sklearn-color-text);
-}
-
-#sk-container-id-1 pre {
-  padding: 0;
-}
-
-#sk-container-id-1 input.sk-hidden--visually {
-  border: 0;
-  clip: rect(1px 1px 1px 1px);
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-#sk-container-id-1 div.sk-dashed-wrapped {
-  border: 1px dashed var(--sklearn-color-line);
-  margin: 0 0.4em 0.5em 0.4em;
-  box-sizing: border-box;
-  padding-bottom: 0.4em;
-  background-color: var(--sklearn-color-background);
-}
-
-#sk-container-id-1 div.sk-container {
-  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
-     but bootstrap.min.css set `[hidden] { display: none !important; }`
-     so we also need the `!important` here to be able to override the
-     default hidden behavior on the sphinx rendered scikit-learn.org.
-     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
-  display: inline-block !important;
-  position: relative;
-}
-
-#sk-container-id-1 div.sk-text-repr-fallback {
-  display: none;
-}
-
-div.sk-parallel-item,
-div.sk-serial,
-div.sk-item {
-  /* draw centered vertical line to link estimators */
-  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
-  background-size: 2px 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-/* Parallel-specific style estimator block */
-
-#sk-container-id-1 div.sk-parallel-item::after {
-  content: "";
-  width: 100%;
-  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
-  flex-grow: 1;
-}
-
-#sk-container-id-1 div.sk-parallel {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  background-color: var(--sklearn-color-background);
-  position: relative;
-}
-
-#sk-container-id-1 div.sk-parallel-item {
-  display: flex;
-  flex-direction: column;
-}
-
-#sk-container-id-1 div.sk-parallel-item:first-child::after {
-  align-self: flex-end;
-  width: 50%;
-}
-
-#sk-container-id-1 div.sk-parallel-item:last-child::after {
-  align-self: flex-start;
-  width: 50%;
-}
-
-#sk-container-id-1 div.sk-parallel-item:only-child::after {
-  width: 0;
-}
-
-/* Serial-specific style estimator block */
-
-#sk-container-id-1 div.sk-serial {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: var(--sklearn-color-background);
-  padding-right: 1em;
-  padding-left: 1em;
-}
-
-
-/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
-clickable and can be expanded/collapsed.
-- Pipeline and ColumnTransformer use this feature and define the default style
-- Estimators will overwrite some part of the style using the `sk-estimator` class
-*/
-
-/* Pipeline and ColumnTransformer style (default) */
-
-#sk-container-id-1 div.sk-toggleable {
-  /* Default theme specific background. It is overwritten whether we have a
-  specific estimator or a Pipeline/ColumnTransformer */
-  background-color: var(--sklearn-color-background);
-}
-
-/* Toggleable label */
-#sk-container-id-1 label.sk-toggleable__label {
-  cursor: pointer;
-  display: block;
-  width: 100%;
-  margin-bottom: 0;
-  padding: 0.5em;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-#sk-container-id-1 label.sk-toggleable__label-arrow:before {
-  /* Arrow on the left of the label */
-  content: "▸";
-  float: left;
-  margin-right: 0.25em;
-  color: var(--sklearn-color-icon);
-}
-
-#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {
-  color: var(--sklearn-color-text);
-}
-
-/* Toggleable content - dropdown */
-
-#sk-container-id-1 div.sk-toggleable__content {
-  max-height: 0;
-  max-width: 0;
-  overflow: hidden;
-  text-align: left;
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-0);
-}
-
-#sk-container-id-1 div.sk-toggleable__content.fitted {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-0);
-}
-
-#sk-container-id-1 div.sk-toggleable__content pre {
-  margin: 0.2em;
-  border-radius: 0.25em;
-  color: var(--sklearn-color-text);
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-0);
-}
-
-#sk-container-id-1 div.sk-toggleable__content.fitted pre {
-  /* unfitted */
-  background-color: var(--sklearn-color-fitted-level-0);
-}
-
-#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
-  /* Expand drop-down */
-  max-height: 200px;
-  max-width: 100%;
-  overflow: auto;
-}
-
-#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
-  content: "▾";
-}
-
-/* Pipeline/ColumnTransformer-specific style */
-
-#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
-  color: var(--sklearn-color-text);
-  background-color: var(--sklearn-color-unfitted-level-2);
-}
-
-#sk-container-id-1 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
-  background-color: var(--sklearn-color-fitted-level-2);
-}
-
-/* Estimator-specific style */
-
-/* Colorize estimator box */
-#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-2);
-}
-
-#sk-container-id-1 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-2);
-}
-
-#sk-container-id-1 div.sk-label label.sk-toggleable__label,
-#sk-container-id-1 div.sk-label label {
-  /* The background is the default theme color */
-  color: var(--sklearn-color-text-on-default-background);
-}
-
-/* On hover, darken the color of the background */
-#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {
-  color: var(--sklearn-color-text);
-  background-color: var(--sklearn-color-unfitted-level-2);
-}
-
-/* Label box, darken color on hover, fitted */
-#sk-container-id-1 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
-  color: var(--sklearn-color-text);
-  background-color: var(--sklearn-color-fitted-level-2);
-}
-
-/* Estimator label */
-
-#sk-container-id-1 div.sk-label label {
-  font-family: monospace;
-  font-weight: bold;
-  display: inline-block;
-  line-height: 1.2em;
-}
-
-#sk-container-id-1 div.sk-label-container {
-  text-align: center;
-}
-
-/* Estimator-specific */
-#sk-container-id-1 div.sk-estimator {
-  font-family: monospace;
-  border: 1px dotted var(--sklearn-color-border-box);
-  border-radius: 0.25em;
-  box-sizing: border-box;
-  margin-bottom: 0.5em;
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-0);
-}
-
-#sk-container-id-1 div.sk-estimator.fitted {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-0);
-}
-
-/* on hover */
-#sk-container-id-1 div.sk-estimator:hover {
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-2);
-}
-
-#sk-container-id-1 div.sk-estimator.fitted:hover {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-2);
-}
-
-/* Specification for estimator info (e.g. "i" and "?") */
-
-/* Common style for "i" and "?" */
-
-.sk-estimator-doc-link,
-a:link.sk-estimator-doc-link,
-a:visited.sk-estimator-doc-link {
-  float: right;
-  font-size: smaller;
-  line-height: 1em;
-  font-family: monospace;
-  background-color: var(--sklearn-color-background);
-  border-radius: 1em;
-  height: 1em;
-  width: 1em;
-  text-decoration: none !important;
-  margin-left: 1ex;
-  /* unfitted */
-  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
-  color: var(--sklearn-color-unfitted-level-1);
-}
-
-.sk-estimator-doc-link.fitted,
-a:link.sk-estimator-doc-link.fitted,
-a:visited.sk-estimator-doc-link.fitted {
-  /* fitted */
-  border: var(--sklearn-color-fitted-level-1) 1pt solid;
-  color: var(--sklearn-color-fitted-level-1);
-}
-
-/* On hover */
-div.sk-estimator:hover .sk-estimator-doc-link:hover,
-.sk-estimator-doc-link:hover,
-div.sk-label-container:hover .sk-estimator-doc-link:hover,
-.sk-estimator-doc-link:hover {
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-3);
-  color: var(--sklearn-color-background);
-  text-decoration: none;
-}
-
-div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
-.sk-estimator-doc-link.fitted:hover,
-div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
-.sk-estimator-doc-link.fitted:hover {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-3);
-  color: var(--sklearn-color-background);
-  text-decoration: none;
-}
-
-/* Span, style for the box shown on hovering the info icon */
-.sk-estimator-doc-link span {
-  display: none;
-  z-index: 9999;
-  position: relative;
-  font-weight: normal;
-  right: .2ex;
-  padding: .5ex;
-  margin: .5ex;
-  width: min-content;
-  min-width: 20ex;
-  max-width: 50ex;
-  color: var(--sklearn-color-text);
-  box-shadow: 2pt 2pt 4pt #999;
-  /* unfitted */
-  background: var(--sklearn-color-unfitted-level-0);
-  border: .5pt solid var(--sklearn-color-unfitted-level-3);
-}
-
-.sk-estimator-doc-link.fitted span {
-  /* fitted */
-  background: var(--sklearn-color-fitted-level-0);
-  border: var(--sklearn-color-fitted-level-3);
-}
-
-.sk-estimator-doc-link:hover span {
-  display: block;
-}
-
-/* "?"-specific style due to the `<a>` HTML tag */
-
-#sk-container-id-1 a.estimator_doc_link {
-  float: right;
-  font-size: 1rem;
-  line-height: 1em;
-  font-family: monospace;
-  background-color: var(--sklearn-color-background);
-  border-radius: 1rem;
-  height: 1rem;
-  width: 1rem;
-  text-decoration: none;
-  /* unfitted */
-  color: var(--sklearn-color-unfitted-level-1);
-  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
-}
-
-#sk-container-id-1 a.estimator_doc_link.fitted {
-  /* fitted */
-  border: var(--sklearn-color-fitted-level-1) 1pt solid;
-  color: var(--sklearn-color-fitted-level-1);
-}
-
-/* On hover */
-#sk-container-id-1 a.estimator_doc_link:hover {
-  /* unfitted */
-  background-color: var(--sklearn-color-unfitted-level-3);
-  color: var(--sklearn-color-background);
-  text-decoration: none;
-}
-
-#sk-container-id-1 a.estimator_doc_link.fitted:hover {
-  /* fitted */
-  background-color: var(--sklearn-color-fitted-level-3);
-}
-</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(max_iter=300)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;LogisticRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression(max_iter=300)</pre></div> </div></div></div></div></div></div>
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+</pre></div>
+</div>
+<div class="output text_html"><style>#sk-container-id-2 {color: black;background-color: white;}#sk-container-id-2 pre{padding: 0;}#sk-container-id-2 div.sk-toggleable {background-color: white;}#sk-container-id-2 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-2 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-2 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-2 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-2 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-2 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-2 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-2 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-2 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-2 div.sk-item {position: relative;z-index: 1;}#sk-container-id-2 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-2 div.sk-item::before, #sk-container-id-2 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-2 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-2 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-2 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-2 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-2 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-2 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-2 div.sk-label-container {text-align: center;}#sk-container-id-2 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-2 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(max_iter=300)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked><label for="sk-estimator-id-2" class="sk-toggleable__label sk-toggleable__label-arrow">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression(max_iter=300)</pre></div></div></div></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1318,7 +1011,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4, 5, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 4, 5, 5])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4, 5, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 4, 5, 5],
+      dtype=int64)
 </pre></div>
 </div>
 </div>
@@ -1330,7 +1024,8 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5, 5, 4, 5, 3, 5, 5, 5, 5, 4, 5, 5, 4, 5, 5, 3, 5, 5, 5, 5])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5, 5, 4, 5, 3, 5, 5, 5, 5, 4, 5, 5, 4, 5, 5, 3, 5, 5, 5, 5],
+      dtype=int64)
 </pre></div>
 </div>
 </div>
@@ -1343,10 +1038,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;prediction error&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;rating_review&#39;, ylabel=&#39;Count&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/3a16e1e2fa6c94c42550f6e05b3b2185218d4c089754deef572aeb2a033f33b8.png" src="../_images/3a16e1e2fa6c94c42550f6e05b3b2185218d4c089754deef572aeb2a033f33b8.png" />
+<img alt="../_images/b48b14d68eed6ee78969c0dfd9a1898166b4542a0b9469c027109eb3e982f1c6.png" src="../_images/b48b14d68eed6ee78969c0dfd9a1898166b4542a0b9469c027109eb3e982f1c6.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1357,7 +1052,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3780039581566299
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3786542267458298
 </pre></div>
 </div>
 </div>
@@ -1384,7 +1079,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1c61a5ed8a1fd925ef4b6137df335a4680929a19ba3907efa5609f3d86ce92f4.png" src="../_images/1c61a5ed8a1fd925ef4b6137df335a4680929a19ba3907efa5609f3d86ce92f4.png" />
+<img alt="../_images/640db3ccb20ca9302a9a1d45756a1b790d4fd2e743ae8e488377a2a28741ec80.png" src="../_images/640db3ccb20ca9302a9a1d45756a1b790d4fd2e743ae8e488377a2a28741ec80.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1398,54 +1093,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">min_df</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">max_df</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>                              <span class="n">max_features</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>                              <span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">tfidf_vectors</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">tfidf_vectors</span><span class="o">.</span><span class="n">shape</span>
-
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/site-packages/sklearn/feature_extraction/text.py:2138,</span> in <span class="ni">TfidfVectorizer.fit_transform</span><span class="nt">(self, raw_documents, y)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2131</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_params</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">2132</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tfidf</span> <span class="o">=</span> <span class="n">TfidfTransformer</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">2133</span>     <span class="n">norm</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">norm</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2134</span>     <span class="n">use_idf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_idf</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2135</span>     <span class="n">smooth_idf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">smooth_idf</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2136</span>     <span class="n">sublinear_tf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sublinear_tf</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">2137</span> <span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2138</span> <span class="n">X</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">raw_documents</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2139</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tfidf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2140</span> <span class="c1"># X is already a transformed view of raw_documents so</span>
-<span class="g g-Whitespace">   </span><span class="mi">2141</span> <span class="c1"># we set copy to False</span>
-
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/site-packages/sklearn/base.py:1474,</span> in <span class="ni">_fit_context.&lt;locals&gt;.decorator.&lt;locals&gt;.wrapper</span><span class="nt">(estimator, *args, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1467</span>     <span class="n">estimator</span><span class="o">.</span><span class="n">_validate_params</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1469</span> <span class="k">with</span> <span class="n">config_context</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1470</span>     <span class="n">skip_parameter_validation</span><span class="o">=</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1471</span>         <span class="n">prefer_skip_nested_validation</span> <span class="ow">or</span> <span class="n">global_skip_validation</span>
-<span class="g g-Whitespace">   </span><span class="mi">1472</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1473</span> <span class="p">):</span>
-<span class="ne">-&gt; </span><span class="mi">1474</span>     <span class="k">return</span> <span class="n">fit_method</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/site-packages/sklearn/feature_extraction/text.py:1401,</span> in <span class="ni">CountVectorizer.fit_transform</span><span class="nt">(self, raw_documents, y)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1399</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;max_df corresponds to &lt; documents than min_df&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1400</span> <span class="k">if</span> <span class="n">max_features</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1401</span>     <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sort_features</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">vocabulary</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1402</span> <span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stop_words_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_limit_features</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1403</span>     <span class="n">X</span><span class="p">,</span> <span class="n">vocabulary</span><span class="p">,</span> <span class="n">max_doc_count</span><span class="p">,</span> <span class="n">min_doc_count</span><span class="p">,</span> <span class="n">max_features</span>
-<span class="g g-Whitespace">   </span><span class="mi">1404</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1405</span> <span class="k">if</span> <span class="n">max_features</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/site-packages/sklearn/feature_extraction/text.py:1213,</span> in <span class="ni">CountVectorizer._sort_features</span><span class="nt">(self, X, vocabulary)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1211</span> <span class="k">for</span> <span class="n">new_val</span><span class="p">,</span> <span class="p">(</span><span class="n">term</span><span class="p">,</span> <span class="n">old_val</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sorted_features</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1212</span>     <span class="n">vocabulary</span><span class="p">[</span><span class="n">term</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_val</span>
-<span class="ne">-&gt; </span><span class="mi">1213</span>     <span class="n">map_index</span><span class="p">[</span><span class="n">old_val</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_val</span>
-<span class="g g-Whitespace">   </span><span class="mi">1215</span> <span class="n">X</span><span class="o">.</span><span class="n">indices</span> <span class="o">=</span> <span class="n">map_index</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">indices</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;clip&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1216</span> <span class="k">return</span> <span class="n">X</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(141478, 10000)
 </pre></div>
 </div>
 </div>
@@ -2177,7 +1825,7 @@ Perfect dinner spot in La Latina, a little ways away from the hustle and bustle 
 (2) <em>The client loves to have a cookie and a coffee.</em></p>
 <p>We will immediately identify that both sentences speak of very similar things. But if you look at the words in both sentences you will realize that only <em>“The”</em> and <em>“a”</em> are found in both. And, as we have seen in the tfidf-part, such words tell very little about the sentence content. All other words, however, only occur in one or the other sentence. Tfidf-vectors would compute a zero similarity here.</p>
 <p>This is where we come to <strong>word vectors</strong>. Word vectors, also known as <strong>word embeddings</strong>, are mathematical representations of words in a high-dimensional space where the semantic similarity between words corresponds to the geometric distance in the embedding space. Simply put, similar words are close together, and dissimilar words are farther apart. If done well, this should show that <em>“cookie”</em> and <em>“cake”</em> are not the same word, but mean something very related.</p>
-<p>The most prominent example of such a technique is Word2Vec <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id27" title="Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, and Jeffrey Dean. Distributed Representations of Words and Phrases and their Compositionality. October 2013. arXiv:1310.4546 [cs, stat]. URL: http://arxiv.org/abs/1310.4546 (visited on 2023-06-12), doi:10.48550/arXiv.1310.4546.">Mikolov <em>et al.</em>, 2013</a>]</span><span id="id3">[<a class="reference internal" href="../book/bibliography.html#id28" title="Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. Efficient Estimation of Word Representations in Vector Space. September 2013. arXiv:1301.3781 [cs]. URL: http://arxiv.org/abs/1301.3781 (visited on 2023-06-12), doi:10.48550/arXiv.1301.3781.">Mikolov <em>et al.</em>, 2013</a>]</span>.</p>
+<p>The most prominent example of such a technique is Word2Vec <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id29" title="Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, and Jeffrey Dean. Distributed Representations of Words and Phrases and their Compositionality. October 2013. arXiv:1310.4546 [cs, stat]. URL: http://arxiv.org/abs/1310.4546 (visited on 2023-06-12), doi:10.48550/arXiv.1310.4546.">Mikolov <em>et al.</em>, 2013</a>]</span><span id="id3">[<a class="reference internal" href="../book/bibliography.html#id30" title="Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. Efficient Estimation of Word Representations in Vector Space. September 2013. arXiv:1301.3781 [cs]. URL: http://arxiv.org/abs/1301.3781 (visited on 2023-06-12), doi:10.48550/arXiv.1301.3781.">Mikolov <em>et al.</em>, 2013</a>]</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install gensim</span>

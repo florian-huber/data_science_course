@@ -457,6 +457,21 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-wealth-distribution-a-different-approach">10.6.3. Exploring Wealth Distribution: A Different Approach</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#significance-and-distributions-in-statistics">10.7. Significance and Distributions in Statistics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-and-visualizing-hypothetical-data">10.7.1. Generating and Visualizing Hypothetical Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis-testing-comparing-means">10.7.2. Hypothesis Testing: Comparing Means</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#student-t-test">10.7.2.1. Student-t-test</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-t-test-results">10.7.2.2. Interpreting the T-Test Results</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#permutation-testing">10.7.3. Permutation Testing</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-of-the-permutation-test-results">10.7.3.1. Discussion of the Permutation Test Results</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">10.7.4. Conclusion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-basic-statistics-for-data-science">10.8. More on Basic Statistics for Data Science</a></li>
 </ul>
             </nav>
         </div>
@@ -1077,7 +1092,7 @@ Try, for instance, to run the following:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">sb</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s2">&quot;dataset&quot;</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>I won’t spoil it here right away, but what this dataset should illustrate once and for all is that basic statistical measures are a good starting point. But they often don’t tell us enough about our data! By the way, this dataset is called the <strong>datasaurus</strong> <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id23" title="Justin Matejka and George Fitzmaurice. Same Stats, Different Graphs: Generating Datasets with Varied Appearance and Identical Statistics through Simulated Annealing. In Proceedings of the 2017 CHI Conference on Human Factors in Computing Systems, CHI '17, 1290–1294. New York, NY, USA, May 2017. Association for Computing Machinery. URL: https://doi.org/10.1145/3025453.3025912 (visited on 2023-09-07), doi:10.1145/3025453.3025912.">Matejka and Fitzmaurice, 2017</a>]</span>.</p>
+<p>I won’t spoil it here right away, but what this dataset should illustrate once and for all is that basic statistical measures are a good starting point. But they often don’t tell us enough about our data! By the way, this dataset is called the <strong>datasaurus</strong> <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id25" title="Justin Matejka and George Fitzmaurice. Same Stats, Different Graphs: Generating Datasets with Varied Appearance and Identical Statistics through Simulated Annealing. In Proceedings of the 2017 CHI Conference on Human Factors in Computing Systems, CHI '17, 1290–1294. New York, NY, USA, May 2017. Association for Computing Machinery. URL: https://doi.org/10.1145/3025453.3025912 (visited on 2023-09-07), doi:10.1145/3025453.3025912.">Matejka and Fitzmaurice, 2017</a>]</span>.</p>
 </section>
 </section>
 <section id="comparing-distributions-visually">
@@ -1209,7 +1224,7 @@ Try, for instance, to run the following:</p>
 <section id="let-s-talk-money">
 <h2><span class="section-number">10.6. </span>Let’s talk money<a class="headerlink" href="#let-s-talk-money" title="Link to this heading">#</a></h2>
 <p>In real life we will come across distributions of all shapes, often non-symmetric. And even though it is considered polite in many cultures to not talk too much about our own wealth and incomes, we all probably know that income and wealth are unlikely to be narrow, symmetric distributions where most people have more or less the same, and earn more or less the same. I will leave the political debates up to you (but secretly do hope to spark some).</p>
-<p>To me, things like wealth and income are good topics to learn about basic statistics. First, because we all know <em>something</em> about money and to some extend care about money (even if we say otherwise). And second, because it is full of striking example of skewed distributions. In fact, let me quote Thomas Piketty here <span id="id3">[<a class="reference internal" href="../book/bibliography.html#id33" title="Thomas Piketty. Capital in the Twenty-First Century:. Belknap Press, Cambridge, MA, April 2014. ISBN 978-0-674-43000-6.">Piketty, 2014</a>]</span>:</p>
+<p>To me, things like wealth and income are good topics to learn about basic statistics. First, because we all know <em>something</em> about money and to some extend care about money (even if we say otherwise). And second, because it is full of striking example of skewed distributions. In fact, let me quote Thomas Piketty here <span id="id3">[<a class="reference internal" href="../book/bibliography.html#id35" title="Thomas Piketty. Capital in the Twenty-First Century:. Belknap Press, Cambridge, MA, April 2014. ISBN 978-0-674-43000-6.">Piketty, 2014</a>]</span>:</p>
 <blockquote>
 <div><p><strong>Wealth is so concentrated that a large segment of society is virtually unaware of its existence.</strong></p>
 </div></blockquote>
@@ -2062,9 +2077,9 @@ But to avoid using the simulated data, we can use actual data at this point.</p>
         });
         }
         </script>
-        </div><div class="output text_html"><div>                            <div id="f31fe697-c770-4e09-957c-205fa2de9e2a" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("f31fe697-c770-4e09-957c-205fa2de9e2a")) {                    Plotly.newPlot(                        "f31fe697-c770-4e09-957c-205fa2de9e2a",                        [{"branchvalues":"total","customdata":[[1.8],[3.8000000000000003],[7.2],[12.0],[19.5],[56.1]],"domain":{"x":[0.0,1.0],"y":[0.0,1.0]},"hovertemplate":"labels=%{label}\u003cbr\u003eTotal Wealth_sum=%{value}\u003cbr\u003eparent=%{parent}\u003cbr\u003eid=%{id}\u003cbr\u003eTotal Wealth=%{color}\u003cextra\u003e\u003c\u002fextra\u003e","ids":["0-50%","50-60%","60-70%","70-80%","80-90%","90-100%"],"labels":["0-50%","50-60%","60-70%","70-80%","80-90%","90-100%"],"marker":{"coloraxis":"coloraxis","colors":[1.8,3.8000000000000003,7.2,12.0,19.5,56.1]},"name":"","parents":["","","","","",""],"values":[1.8,3.8,7.2,12.0,19.5,56.1],"type":"treemap"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"coloraxis":{"colorbar":{"title":{"text":"Total Wealth"}},"colorscale":[[0.0,"rgb(3, 35, 51)"],[0.09090909090909091,"rgb(13, 48, 100)"],[0.18181818181818182,"rgb(53, 50, 155)"],[0.2727272727272727,"rgb(93, 62, 153)"],[0.36363636363636365,"rgb(126, 77, 143)"],[0.45454545454545453,"rgb(158, 89, 135)"],[0.5454545454545454,"rgb(193, 100, 121)"],[0.6363636363636364,"rgb(225, 113, 97)"],[0.7272727272727273,"rgb(246, 139, 69)"],[0.8181818181818182,"rgb(251, 173, 60)"],[0.9090909090909091,"rgb(246, 211, 70)"],[1.0,"rgb(231, 250, 90)"]]},"legend":{"tracegroupgap":0},"title":{"text":"Total Wealth for Each Population Percentile"},"margin":{"t":50,"l":25,"r":25,"b":25}},                        {"responsive": true}                    ).then(function(){
+        </div><div class="output text_html"><div>                            <div id="d9b821d1-fd62-4f02-8ff1-93e30a7c1f04" class="plotly-graph-div" style="height:525px; width:100%;"></div>            <script type="text/javascript">                require(["plotly"], function(Plotly) {                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("d9b821d1-fd62-4f02-8ff1-93e30a7c1f04")) {                    Plotly.newPlot(                        "d9b821d1-fd62-4f02-8ff1-93e30a7c1f04",                        [{"branchvalues":"total","customdata":[[1.8],[3.8000000000000003],[7.2],[12.0],[19.5],[56.1]],"domain":{"x":[0.0,1.0],"y":[0.0,1.0]},"hovertemplate":"labels=%{label}\u003cbr\u003eTotal Wealth_sum=%{value}\u003cbr\u003eparent=%{parent}\u003cbr\u003eid=%{id}\u003cbr\u003eTotal Wealth=%{color}\u003cextra\u003e\u003c\u002fextra\u003e","ids":["0-50%","50-60%","60-70%","70-80%","80-90%","90-100%"],"labels":["0-50%","50-60%","60-70%","70-80%","80-90%","90-100%"],"marker":{"coloraxis":"coloraxis","colors":[1.8,3.8000000000000003,7.2,12.0,19.5,56.1]},"name":"","parents":["","","","","",""],"values":[1.8,3.8,7.2,12.0,19.5,56.1],"type":"treemap"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"coloraxis":{"colorbar":{"title":{"text":"Total Wealth"}},"colorscale":[[0.0,"rgb(3, 35, 51)"],[0.09090909090909091,"rgb(13, 48, 100)"],[0.18181818181818182,"rgb(53, 50, 155)"],[0.2727272727272727,"rgb(93, 62, 153)"],[0.36363636363636365,"rgb(126, 77, 143)"],[0.45454545454545453,"rgb(158, 89, 135)"],[0.5454545454545454,"rgb(193, 100, 121)"],[0.6363636363636364,"rgb(225, 113, 97)"],[0.7272727272727273,"rgb(246, 139, 69)"],[0.8181818181818182,"rgb(251, 173, 60)"],[0.9090909090909091,"rgb(246, 211, 70)"],[1.0,"rgb(231, 250, 90)"]]},"legend":{"tracegroupgap":0},"title":{"text":"Total Wealth for Each Population Percentile"},"margin":{"t":50,"l":25,"r":25,"b":25}},                        {"responsive": true}                    ).then(function(){
                             
-var gd = document.getElementById('f31fe697-c770-4e09-957c-205fa2de9e2a');
+var gd = document.getElementById('d9b821d1-fd62-4f02-8ff1-93e30a7c1f04');
 var x = new MutationObserver(function (mutations, observer) {{
         var display = window.getComputedStyle(gd).display;
         if (!display || display === 'none') {{
@@ -2090,6 +2105,181 @@ if (outputEl) {{
 </div>
 <p>This visualization provides an illustrative look at how wealth is dispersed across different segments of society. Through such visual aids, abstract numbers transform into tangible insights. And I bet they help a lot in sparking discussions on the distribution of wealth…</p>
 </section>
+</section>
+<section id="significance-and-distributions-in-statistics">
+<h2><span class="section-number">10.7. </span>Significance and Distributions in Statistics<a class="headerlink" href="#significance-and-distributions-in-statistics" title="Link to this heading">#</a></h2>
+<p>Statistical significance and probability distributions are foundational concepts in statistics, particularly in the context of understanding and analyzing data sets. This section introduces these concepts using practical examples and Python code to illustrate how data distributions can be visualized and analyzed to draw meaningful conclusions.</p>
+<section id="generating-and-visualizing-hypothetical-data">
+<h3><span class="section-number">10.7.1. </span>Generating and Visualizing Hypothetical Data<a class="headerlink" href="#generating-and-visualizing-hypothetical-data" title="Link to this heading">#</a></h3>
+<p>To explore these concepts, we start by generating hypothetical data representing IQ scores. These data sets will help us understand how data distributions work and how statistical measures can be applied.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creating a random number generator with a fixed seed for reproducibility</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Generating a large dataset of IQ scores centered around the mean of 100 with a standard deviation of 15</span>
+<span class="n">data_iq_large</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">100000</span><span class="p">)</span>
+
+<span class="c1"># Generating a smaller dataset for a specific group from Düsseldorf</span>
+<span class="n">data_iq_duesseldorf</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">110</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data_iq_large</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="n">rwidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;IQs&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;IQ&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number (of a total of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data_iq_large</span><span class="p">)</span><span class="si">}</span><span class="s2"> people)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Measured IQ data (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data_iq_large</span><span class="p">)</span><span class="si">}</span><span class="s2"> people)&quot;</span><span class="p">)</span>
+
+<span class="c1">#plt.savefig(&quot;example_statistics_iq_distribution.png&quot;, dpi=300)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b2f9edabcb38496989ae47faf7941a269f5a012f4faa191ffbcca26578585c55.png" src="../_images/b2f9edabcb38496989ae47faf7941a269f5a012f4faa191ffbcca26578585c55.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data_iq_duesseldorf</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="n">rwidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;IQs&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;IQ&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Number (of a total of </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data_iq_duesseldorf</span><span class="p">)</span><span class="si">}</span><span class="s2"> people)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Measured IQ data (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data_iq_duesseldorf</span><span class="p">)</span><span class="si">}</span><span class="s2"> people from Düsseldorf)&quot;</span><span class="p">)</span>
+
+<span class="c1">#plt.savefig(&quot;example_statistics_iq_distribution.png&quot;, dpi=300)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b6ff7716804be2239caafa834a1a4afec9948a1cc0face0bff8404f41611f359.png" src="../_images/b6ff7716804be2239caafa834a1a4afec9948a1cc0face0bff8404f41611f359.png" />
+</div>
+</div>
+<p><strong>Analyzing the Data</strong><br />
+After visualizing, the next step is to analyze the statistical measures:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean IQ (large dataset): </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data_iq_large</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean IQ (Düsseldorf): </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data_iq_duesseldorf</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean IQ (large dataset): 99.9863762384032
+Mean IQ (Düsseldorf): 108.9020908464346
+</pre></div>
+</div>
+</div>
+</div>
+<p>These calculations provide the mean IQ for both datasets, which can then be compared to draw preliminary conclusions about the differences between the general population and the subgroup from Düsseldorf.</p>
+</section>
+<section id="hypothesis-testing-comparing-means">
+<h3><span class="section-number">10.7.2. </span>Hypothesis Testing: Comparing Means<a class="headerlink" href="#hypothesis-testing-comparing-means" title="Link to this heading">#</a></h3>
+<p>To formally address whether the observed difference in mean IQs between the general population and the Düsseldorf subgroup is statistically significant, we can employ hypothesis testing. A question we could answer with this is:</p>
+<p><strong>Are people in Düsseldorf smarter than the overall average or is this just coincidence? (given the data shown above)</strong></p>
+<section id="student-t-test">
+<h4><span class="section-number">10.7.2.1. </span>Student-t-test<a class="headerlink" href="#student-t-test" title="Link to this heading">#</a></h4>
+<p>One way to answer this question is to perform a statistical test such as a <strong>t-test</strong> to compare the means of the two distributions. We here assume that you have heard of the <em>student t-test</em>, if not, you will easily find plenty of introduction material elsewhere (e.g., <a class="reference external" href="https://en.wikipedia.org/wiki/Student%27s_t-test">on Wikipedia</a>). The null hypothesis (H0) would state that there is no difference in IQ between the general population and those from Düsseldorf, whereas the alternative hypothesis (H1) would suggest that there is a significant difference.</p>
+<p>By conducting this test, we can determine whether the observed difference in means is likely due to random variation or if it’s statistically significant, thereby suggesting that individuals from Düsseldorf might indeed have a higher average IQ compared to the general population.</p>
+<p>For our hypothesis testing, we’ll use the two-sample t-test because we are comparing the means from two independent samples. This test will help us understand if the differences in the means are significant or just due to random chance.</p>
+<p>Here is the Python code that implements the t-test using the SciPy library, which provides the <code class="docutils literal notranslate"><span class="pre">ttest_ind</span></code> function specifically for this purpose:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Importing the necessary function from scipy.stats</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">ttest_ind</span>
+
+<span class="c1"># Conducting the t-test between the large dataset and the Düsseldorf dataset</span>
+<span class="n">t_stat</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">ttest_ind</span><span class="p">(</span><span class="n">data_iq_large</span><span class="p">,</span> <span class="n">data_iq_duesseldorf</span><span class="p">)</span>
+
+<span class="c1"># Output the results of the t-test</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;T-Statistic: </span><span class="si">{</span><span class="n">t_stat</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;P-Value: </span><span class="si">{</span><span class="n">p_value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T-Statistic: -4.201608996012756
+P-Value: 2.6525398189088037e-05
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="interpreting-the-t-test-results">
+<h4><span class="section-number">10.7.2.2. </span>Interpreting the T-Test Results<a class="headerlink" href="#interpreting-the-t-test-results" title="Link to this heading">#</a></h4>
+<p>The output of this test gives us two key pieces of information:</p>
+<ul class="simple">
+<li><p><strong>T-Statistic</strong>: This value indicates the relative difference between the means in terms of the combined standard deviation of the two samples.</p></li>
+<li><p><strong>P-Value</strong>: This value is the probability of obtaining results that are a least as extreme as the result actually observed, under the assumption that the null hypothesis is indeed correct. The lower this number is, the less likely it becomes to obtain such a result <em>by chance</em>.</p></li>
+</ul>
+<p>In the present scenario we observe a <strong>very low p-value</strong> which here would mean that we probably have to reject the null hypothesis. Or, in other words, it is extremely unlikely to observe such a big IQ discrepency merely by chance.</p>
+<p>An alternative approach would be a <strong>permutation test</strong>.</p>
+</section>
+</section>
+<section id="permutation-testing">
+<h3><span class="section-number">10.7.3. </span>Permutation Testing<a class="headerlink" href="#permutation-testing" title="Link to this heading">#</a></h3>
+<p>Permutation tests are a type of non-parametric statistical test that do not rely on assumptions about the distribution of the data. They are used to determine whether the observed differences between two groups could be due to chance. In this section, we’ll apply a permutation test to the IQ data to provide another perspective on the question of whether there is a significant difference in IQ scores between the general population and the Düsseldorf subgroup.
+Implementing the Permutation Test</p>
+<p>The following Python code defines a function to perform permutation testing by randomly sampling the data, and then it carries out the test multiple times to create a distribution of the differences in means:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">permutation_distance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the difference in means between the original data and a random subset.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+
+<span class="c1"># Generating permutation experiments</span>
+<span class="n">permutation_experiments</span> <span class="o">=</span> <span class="p">[</span><span class="n">permutation_distance</span><span class="p">(</span><span class="n">data_iq_large</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting the results of the permutation experiments</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">permutation_experiments</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">rwidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Permutation test&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Difference of IQ mean values&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Number (of 10,000 experiments)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/22004f709f5fb8133887896d6becae9ac0319cbc8ec40478ddbe424d797e677a.png" src="../_images/22004f709f5fb8133887896d6becae9ac0319cbc8ec40478ddbe424d797e677a.png" />
+</div>
+</div>
+<section id="discussion-of-the-permutation-test-results">
+<h4><span class="section-number">10.7.3.1. </span>Discussion of the Permutation Test Results<a class="headerlink" href="#discussion-of-the-permutation-test-results" title="Link to this heading">#</a></h4>
+<p>The histogram created by this code represents the distribution of the differences in means from 10,000 permutation tests, where the mean difference is calculated between the full dataset’s mean and the means of random samples of size 50 (the size of the Düsseldorf sample).</p>
+<p>In the data shown above, we observed an differnce of the IQ mean values of about 10 points. In this statistical experiment we see how unlikely such a result would be if we would simply draw 50 people randomly from a normal IQ distribution with a mean of 100. It is not entirely impossible, but <strong>extremely unlikely</strong> to happen. Usually this means that we will refuse the hypothesis that said that both datasets come from the same distribution.</p>
+</section>
+</section>
+<section id="conclusion">
+<h3><span class="section-number">10.7.4. </span>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h3>
+<p>Given the data we see here, we will have to conclude that the measured subset of 50 people from Düsseldorf indeed has a <strong>significantly higher IQ</strong> than the overall distribution with a mean value of 100!</p>
+<p>Disclaimer:
+As much as people living in Düsseldorf might want to belive this result, all data used in this notebook is just toy data ;)</p>
+</section>
+</section>
+<section id="more-on-basic-statistics-for-data-science">
+<h2><span class="section-number">10.8. </span>More on Basic Statistics for Data Science<a class="headerlink" href="#more-on-basic-statistics-for-data-science" title="Link to this heading">#</a></h2>
+<p>Here we really only covered a few of the ultimate basics. There is a lot more to learn and discover in the field of statistics when it comes to working in data science. And, just so you know: I have never met a data scientist that complained that he/she had spend too much time on learning about statistics (a complained the other way around is fairly common though…).</p>
+<p>So, here two (out of <em>many</em>) suitable textbooks on this matter:</p>
+<ul class="simple">
+<li><p>David Lane, “Introduction to Statistics”, <span id="id4">[<a class="reference internal" href="../book/bibliography.html#id19">Lane, 2003</a>]</span>, https://open.umn.edu/opentextbooks/textbooks/459</p></li>
+<li><p>Peter Bruce and Andrew Bruce, “Practical Statistics for Data Scientists”, 2017, <span id="id5">[<a class="reference internal" href="../book/bibliography.html#id8" title="Peter Bruce and Andrew Bruce. Practical Statistics for Data Scientists. O′Reilly, Beijing Boston Farnham Sebastopol Tokyo, 1 edition, June 2017. ISBN 978-1-4919-5296-2.">Bruce and Bruce, 2017</a>]</span></p></li>
+</ul>
 </section>
 </section>
 
@@ -2183,6 +2373,21 @@ if (outputEl) {{
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploring-wealth-distribution-a-different-approach">10.6.3. Exploring Wealth Distribution: A Different Approach</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#significance-and-distributions-in-statistics">10.7. Significance and Distributions in Statistics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-and-visualizing-hypothetical-data">10.7.1. Generating and Visualizing Hypothetical Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hypothesis-testing-comparing-means">10.7.2. Hypothesis Testing: Comparing Means</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#student-t-test">10.7.2.1. Student-t-test</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-the-t-test-results">10.7.2.2. Interpreting the T-Test Results</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#permutation-testing">10.7.3. Permutation Testing</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion-of-the-permutation-test-results">10.7.3.1. Discussion of the Permutation Test Results</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">10.7.4. Conclusion</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-basic-statistics-for-data-science">10.8. More on Basic Statistics for Data Science</a></li>
 </ul>
   </nav></div>
 

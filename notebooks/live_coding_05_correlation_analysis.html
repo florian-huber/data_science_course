@@ -448,23 +448,28 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="correlation-analysis">
 <h1><span class="section-number">11. </span>Correlation Analysis<a class="headerlink" href="#correlation-analysis" title="Link to this heading">#</a></h1>
-<p>In general terms, <strong>correlation</strong> refers to the relationship between two or more attributes, conditions, or functions (derived from the Latin <em>correlation</em> = mutual relationship).</p>
-<p>In statistics, this concept is utilized more specifically as a “measure of association” that describes the strength and possibly the direction of dependence between two statistical variables.</p>
-<p>Thus, we are looking for a metric that can numerically describe whether a correlation exists and, if so, how pronounced it is.</p>
+<p>Correlation analysis is a fundamental statistical tool used to study the relationship between two or more variables. The term “correlation” originates from the Latin correlatio, meaning a mutual relationship. In the realm of statistics, correlation is specifically employed as a “measure of association,” which quantifies the strength and direction of a relationship between two variables.</p>
+<p>Understanding correlation is essential in data science as it helps in predicting one variable based on the presence of another, determining the association between variables, and in feature selection during the modeling phase. Correlations are also often used as a starting point for a deeper understanding for a deeper, <em>causal</em> understanding of a certain system (we will later see that correlation and causation are very clearly <strong>not</strong> the same!). However, before delving into complex models, it’s crucial to grasp the basics of measuring relationships through correlation.</p>
+<p>In everyday life, we say that something <em>correlates</em> when different events or measurements align very well. Or we refer to things such as co-incidence. In the following, however, we are looking for a metric that can numerically describe whether a correlation exists and, if so, how pronounced it is.</p>
 <section id="covariance-pearson-correlation-coefficient">
 <h2><span class="section-number">11.1. </span>Covariance, (Pearson) Correlation Coefficient<a class="headerlink" href="#covariance-pearson-correlation-coefficient" title="Link to this heading">#</a></h2>
-<p>A first step towards measuring correlation is through variance. This measures the spread of data points. Instead of variance, we first look at <strong>covariance</strong> (<span class="math notranslate nohighlight">\(Cov\)</span>), which is the average product of deviation.</p>
+<p><strong>Covariance</strong><br />
+A first step towards measuring correlation is through variance, which measures the spread of individual data points around the mean. Expanding from variance, we encounter <strong>covariance</strong>, a measure that extends the idea to two variables. Covariance quantifies how much two variables change together, but its value is scale-dependent, making it difficult to interpret directly.</p>
+<p>The formula for covariance between two variables X and Y is given by:</p>
 <div class="math notranslate nohighlight">
 \[
 Cov(X, Y) = \frac{1}{n}\sum_{i=1}^{n}(x_i - \bar{x_i})(y_i - \bar{y_i})
 \]</div>
-<p>The covariance already gives a good indication of what we understand by correlation. A significant disadvantage, however, is that the covariance is not normalized. Depending on the range of values, the covariance can become arbitrarily large (or small).</p>
-<p>The most famous normalized correlation coefficient is the <strong>Pearson Correlation Coefficient</strong> (or often just: Correlation Coefficient). This is nothing more than the covariance divided by the product of the square roots of the respective variances (<span class="math notranslate nohighlight">\(Var\)</span>)</p>
+<p>where <span class="math notranslate nohighlight">\(\bar{x_i}\)</span> and <span class="math notranslate nohighlight">\(\bar{y_i}\)</span>​ are the means of <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>, respectively.</p>
+<p><strong>Pearson Correlation Coefficient</strong><br />
+To address the limitations of covariance, the <strong>Pearson Correlation Coefficient</strong> offers a normalized measure of correlation. This coefficient, often simply referred to as the correlation coefficient, is a dimensionless number between -1 and 1. It not only shows the strength but also the direction of the linear relationship between two variables.</p>
+<p>The Pearson Correlation Coefficient is calculated as:</p>
 <div class="math notranslate nohighlight">
 \[
 Corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
 \]</div>
-<p>Now let’s have a look at how correlations look like and how they can be quantified.</p>
+<p>This formula normalizes the covariance by the product of the standard deviations of the variables, thus providing a clearer, scale-independent measure of their relationship.</p>
+<p>Now let’s have a hands-on look at what correlations look like, and how they can be quantified.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -478,6 +483,9 @@ Corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
 
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
+
+<span class="c1"># Set the ggplot style (optional)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;ggplot&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -573,6 +581,7 @@ Corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+
 <span class="n">corr_data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
 <span class="n">corr_data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
 <span class="n">corr_data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax3</span><span class="p">)</span>
@@ -582,12 +591,12 @@ Corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/17033a2b95317e25b234a50edaab8db1301700fa8f1ed23195a4c0c5eee3938c.png" src="../_images/17033a2b95317e25b234a50edaab8db1301700fa8f1ed23195a4c0c5eee3938c.png" />
+<img alt="../_images/29779ce6b43bcd2cabde4aa70193a3e9be31f2d1cd1d1efee63b4921877b5349.png" src="../_images/29779ce6b43bcd2cabde4aa70193a3e9be31f2d1cd1d1efee63b4921877b5349.png" />
 </div>
 </div>
 <p>What would you say, which features are correlated, and which are not?</p>
-<p>Here, different variables are plotted against each other, a-b, a-c, and a-d. I guess most will agree that the first and second plot show a certain degree of correlation. First, between a and b, and in the second panel between a and c. The third panel shows two features which apparently are entirely unrelated in their behavior. Another thing we can see in those examples is that we should be able to measure different degrees or strengths of a correlation.</p>
-<p>We can clearly see the correlation in a&lt;-&gt;b. The Pearson Correlation Coefficient measures this type of correlation very well. For this example, the values are <span class="math notranslate nohighlight">\(Corr(a, b) = 0.90\)</span> , <span class="math notranslate nohighlight">\(Corr(a, c) = 0.68\)</span> , and <span class="math notranslate nohighlight">\(Corr(a, d) = 0.02\)</span>. We would thus see a strong correlation between a and b and a moderate correlation between a and c. However, there is no noticeable correlation between a and d.</p>
+<p>Here, different variables are plotted against each other, a-b, a-c, and a-d. I guess most will agree that the first and second plots show a certain degree of correlation. First, between a and b, and in the second panel between a and c. The third panel shows two features that apparently are entirely unrelated in their behavior. Another thing we can see in those examples is that we should be able to measure different degrees or strengths of a correlation.</p>
+<p>We can see the correlation in a&lt;-&gt;b. The Pearson Correlation Coefficient measures this type of correlation very well. For this example, the values are <span class="math notranslate nohighlight">\(Corr(a, b) = 0.90\)</span> , <span class="math notranslate nohighlight">\(Corr(a, c) = 0.68\)</span> , and <span class="math notranslate nohighlight">\(Corr(a, d) = 0.02\)</span>. We would thus see a strong correlation between a and b and a moderate correlation between a and c. However, there is no noticeable correlation between a and d.</p>
 <p>The correlation coefficient allows us to quickly identify significant correlations in the data. For datasets with many variables (or features), we can easily determine the correlations for all combinations of the variables, resulting in what is called a correlation matrix.</p>
 </section>
 <section id="correlation-matrix">
@@ -927,6 +936,7 @@ Corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+
 <span class="n">sb</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span>
     <span class="n">data</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>  <span class="c1"># this is required for pandas &gt;= 2.0, but also generally a good idea.</span>
     <span class="n">vmin</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
@@ -934,14 +944,12 @@ Corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
     <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;RdBu&quot;</span><span class="p">,</span>
     <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
 <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
-</pre></div>
-</div>
-<img alt="../_images/e6bbd0a769f57b8ee09dc4d3a6f0e606a685d32221aac65b89f6eda53bd8c5bd.png" src="../_images/e6bbd0a769f57b8ee09dc4d3a6f0e606a685d32221aac65b89f6eda53bd8c5bd.png" />
+<img alt="../_images/1381badf631f4d358812e537c70403d0e10f4b079e176597fc70b11a5715b777.png" src="../_images/1381badf631f4d358812e537c70403d0e10f4b079e176597fc70b11a5715b777.png" />
 </div>
 </div>
 <p>While high (and low) correlation coefficients often indicate actual correlations in the data, there are also a number of issues/limitations with this approach:</p>
@@ -953,14 +961,12 @@ Corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sb</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f06971ab280&gt;
-</pre></div>
-</div>
-<img alt="../_images/43c39821be8e502164fedcd07f0655519d6212cbb735a5e45c433a18f37c683a.png" src="../_images/43c39821be8e502164fedcd07f0655519d6212cbb735a5e45c433a18f37c683a.png" />
+<img alt="../_images/5cf12f4befd6a446d19a30cf4addbb6ea97bb9cd9ef3b9a0849eee279c4a914e.png" src="../_images/5cf12f4befd6a446d19a30cf4addbb6ea97bb9cd9ef3b9a0849eee279c4a914e.png" />
 </div>
 </div>
 <p>It is of course also easily possible to plot only the parts we are most interested in, for instance:</p>
@@ -983,7 +989,7 @@ Corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;shoe_size&#39;, ylabel=&#39;height&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/0e12f25a8e95000eac568b2f8c738b87d43e8f1b9a0f83b00d61c66377f02660.png" src="../_images/0e12f25a8e95000eac568b2f8c738b87d43e8f1b9a0f83b00d61c66377f02660.png" />
+<img alt="../_images/f2dbfb54abc7a89b81bf975fcd17da4457d759258b1b979206dd6bb5e039c323.png" src="../_images/f2dbfb54abc7a89b81bf975fcd17da4457d759258b1b979206dd6bb5e039c323.png" />
 </div>
 </div>
 </section>
