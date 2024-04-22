@@ -15,63 +15,24 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-NUM_POINTS = 250
-
-# Seed for reproducibility
-np.random.seed(0)
-
-def scatter_plot(ax, x, y):
-    # Create scatter plot
-    ax.scatter(x, y, alpha=0.4)
-
-    # Set aspect to equal for better comparison
-    ax.set_aspect('equal')
-    ax.set_xlim([-3, 3])
-    ax.set_ylim([-3, 3])
-
-def scatter_corr(ax, corr_coef, num_points=NUM_POINTS):
-    """ A function to create scatter plots with different correlation coefficients."""
-    x = np.random.normal(0, 1, num_points)
-    y = x * corr_coef + np.random.normal(0, np.sqrt(1 - corr_coef**2), num_points)
-
-    scatter_plot(ax, x, y)
-    ax.set_title(f"Corr= {corr_coef:.1f}", fontsize=12)
-
-def scatter_linear(ax, slope, num_points=NUM_POINTS):
-    """ A function to create scatter plots with different correlation coefficients."""
-    x = np.random.normal(0, 1, num_points)
-    y = x * slope
-    scatter_plot(ax, x, y)
-    corr_coef = np.corrcoef(x, y)[1, 0]
-    ax.set_title(f"Corr= {corr_coef:.1f}", fontsize=12)
-
-
-# Create subplots
-fig, axes = plt.subplots(2, len(correlation_coefficients), figsize=(15, 6))
-
-# Loop through the correlation coefficients, creating two scatter plots for each
-correlation_coefficients = [1, 0.8, 0.4, 0, -0.4, -0.8, -1]
-for i, coef in enumerate(correlation_coefficients):
-    scatter_corr(axes[0, i], coef)
-
-slopes = [1, 2/3, 1/3, 0, -1/3, -2/3, -1]
-for i, slope in enumerate(slopes):
-    scatter_linear(axes[1, i], slope)
-
-# Tight layout to minimize the overlap
-fig.tight_layout()
+sb.pairplot(data, height=4)
 plt.show()
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn[11], line 33[0m
-[1;32m     29[0m     ax[38;5;241m.[39mset_title([38;5;124mf[39m[38;5;124m"[39m[38;5;124mCorr= [39m[38;5;132;01m{[39;00mcorr_coef[38;5;132;01m:[39;00m[38;5;124m.1f[39m[38;5;132;01m}[39;00m[38;5;124m"[39m, fontsize[38;5;241m=[39m[38;5;241m12[39m)
-[1;32m     32[0m [38;5;66;03m# Create subplots[39;00m
-[0;32m---> 33[0m fig, axes [38;5;241m=[39m plt[38;5;241m.[39msubplots([38;5;241m2[39m, [38;5;28mlen[39m([43mcorrelation_coefficients[49m), figsize[38;5;241m=[39m([38;5;241m15[39m, [38;5;241m6[39m))
-[1;32m     35[0m [38;5;66;03m# Loop through the correlation coefficients, creating two scatter plots for each[39;00m
-[1;32m     36[0m correlation_coefficients [38;5;241m=[39m [[38;5;241m1[39m, [38;5;241m0.8[39m, [38;5;241m0.4[39m, [38;5;241m0[39m, [38;5;241m-[39m[38;5;241m0.4[39m, [38;5;241m-[39m[38;5;241m0.8[39m, [38;5;241m-[39m[38;5;241m1[39m]
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[14], line 1[0m
+[0;32m----> 1[0m [43msb[49m[38;5;241;43m.[39;49m[43mpairplot[49m[43m([49m[43mdata[49m[43m,[49m[43m [49m[43mheight[49m[38;5;241;43m=[39;49m[38;5;241;43m4[39;49m[43m)[49m
+[1;32m      2[0m plt[38;5;241m.[39mshow()
 
-[0;31mNameError[0m: name 'correlation_coefficients' is not defined
+File [0;32m~/micromamba/envs/data_science/lib/python3.10/site-packages/seaborn/axisgrid.py:2103[0m, in [0;36mpairplot[0;34m(data, hue, hue_order, palette, vars, x_vars, y_vars, kind, diag_kind, markers, height, aspect, corner, dropna, plot_kws, diag_kws, grid_kws, size)[0m
+[1;32m   2100[0m     warnings[38;5;241m.[39mwarn(msg, [38;5;167;01mUserWarning[39;00m)
+[1;32m   2102[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28misinstance[39m(data, pd[38;5;241m.[39mDataFrame):
+[0;32m-> 2103[0m     [38;5;28;01mraise[39;00m [38;5;167;01mTypeError[39;00m(
+[1;32m   2104[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124m'[39m[38;5;124mdata[39m[38;5;124m'[39m[38;5;124m must be pandas DataFrame object, not: [39m[38;5;132;01m{[39;00m[38;5;28mtype[39m(data)[38;5;132;01m}[39;00m[38;5;124m"[39m)
+[1;32m   2106[0m plot_kws [38;5;241m=[39m {} [38;5;28;01mif[39;00m plot_kws [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m [38;5;28;01melse[39;00m plot_kws[38;5;241m.[39mcopy()
+[1;32m   2107[0m diag_kws [38;5;241m=[39m {} [38;5;28;01mif[39;00m diag_kws [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m [38;5;28;01melse[39;00m diag_kws[38;5;241m.[39mcopy()
+
+[0;31mTypeError[0m: 'data' must be pandas DataFrame object, not: <class 'dict'>
 

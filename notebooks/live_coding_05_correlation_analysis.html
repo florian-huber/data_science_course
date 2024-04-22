@@ -998,15 +998,13 @@ The strength of a correlation is not dependent on the slope of a relation betwee
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Corr= </span><span class="si">{</span><span class="n">corr_coef</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 
 
-<span class="c1"># Create subplots</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">correlation_coefficients</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-
 <span class="c1"># Loop through the correlation coefficients, creating two scatter plots for each</span>
 <span class="n">correlation_coefficients</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">slopes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">correlation_coefficients</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">coef</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">correlation_coefficients</span><span class="p">):</span>
     <span class="n">scatter_corr</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">],</span> <span class="n">coef</span><span class="p">)</span>
-
-<span class="n">slopes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">slope</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">slopes</span><span class="p">):</span>
     <span class="n">scatter_linear</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">],</span> <span class="n">slope</span><span class="p">)</span>
 
@@ -1018,18 +1016,13 @@ The strength of a correlation is not dependent on the slope of a relation betwee
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">33</span>
-<span class="g g-Whitespace">     </span><span class="mi">29</span>     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Corr= </span><span class="si">{</span><span class="n">corr_coef</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">32</span> <span class="c1"># Create subplots</span>
-<span class="ne">---&gt; </span><span class="mi">33</span> <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">correlation_coefficients</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="c1"># Loop through the correlation coefficients, creating two scatter plots for each</span>
-<span class="g g-Whitespace">     </span><span class="mi">36</span> <span class="n">correlation_coefficients</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;correlation_coefficients&#39; is not defined
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/data_science/lib/python3.10/site-packages/numpy/lib/function_base.py:2897: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[:, None]
+/home/runner/micromamba/envs/data_science/lib/python3.10/site-packages/numpy/lib/function_base.py:2898: RuntimeWarning: invalid value encountered in divide
+  c /= stddev[None, :]
 </pre></div>
 </div>
+<img alt="../_images/b06d6ffe85f0ff27a16ca602a606e275509ad1b0f41f8e5fa0bd8072783a87cd.png" src="../_images/b06d6ffe85f0ff27a16ca602a606e275509ad1b0f41f8e5fa0bd8072783a87cd.png" />
 </div>
 </div>
 <p><strong>Only detects linear relationships</strong><br />
@@ -1099,7 +1092,7 @@ A low correlation doesn’t mean there isn’t a significant relationship!</p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/eb831a2faaef4645e825c0239da1e1afddf9295b002c974ba9c2b1821dd9d649.png" src="../_images/eb831a2faaef4645e825c0239da1e1afddf9295b002c974ba9c2b1821dd9d649.png" />
+<img alt="../_images/5f1e3f8142ba5152c5d99c7d7392bceb023015dd7e06d4c5d8e400fb216163ce.png" src="../_images/5f1e3f8142ba5152c5d99c7d7392bceb023015dd7e06d4c5d8e400fb216163ce.png" />
 </div>
 </div>
 <p>Another prominent example to illustrate how little the Pearson correlation coefficient sometimes tells us is the <code class="docutils literal notranslate"><span class="pre">datasaurus</span></code> dataset from the last chapter. Here, too, the data is distributed very differently, but the correlation coefficient remains the same.</p>
@@ -1159,7 +1152,7 @@ A low correlation doesn’t mean there isn’t a significant relationship!</p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/3713b5b8afa6df0f6c5b8c849dbeda87353f922253dd008dd5a3494b7b81710a.png" src="../_images/3713b5b8afa6df0f6c5b8c849dbeda87353f922253dd008dd5a3494b7b81710a.png" />
+<img alt="../_images/f3f6dbb3ff8afcac7a692e7b9704f66f6abfcb2d0d15c01b3a071fc5aac0974b.png" src="../_images/f3f6dbb3ff8afcac7a692e7b9704f66f6abfcb2d0d15c01b3a071fc5aac0974b.png" />
 </div>
 </div>
 <p><strong>In many cases (such as the ones above), Pearson correlation is not enough!</strong></p>
@@ -1172,7 +1165,23 @@ A low correlation doesn’t mean there isn’t a significant relationship!</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/75f9d937c2288c37a1c810053f952aecfc326c167b258cc78685a2211c3a2b02.png" src="../_images/75f9d937c2288c37a1c810053f952aecfc326c167b258cc78685a2211c3a2b02.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sb</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/site-packages/seaborn/axisgrid.py:2103,</span> in <span class="ni">pairplot</span><span class="nt">(data, hue, hue_order, palette, vars, x_vars, y_vars, kind, diag_kind, markers, height, aspect, corner, dropna, plot_kws, diag_kws, grid_kws, size)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2100</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2102</span> <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">2103</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2104</span>         <span class="sa">f</span><span class="s2">&quot;&#39;data&#39; must be pandas DataFrame object, not: </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2106</span> <span class="n">plot_kws</span> <span class="o">=</span> <span class="p">{}</span> <span class="k">if</span> <span class="n">plot_kws</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">plot_kws</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">2107</span> <span class="n">diag_kws</span> <span class="o">=</span> <span class="p">{}</span> <span class="k">if</span> <span class="n">diag_kws</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">diag_kws</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="ne">TypeError</span>: &#39;data&#39; must be pandas DataFrame object, not: &lt;class &#39;dict&#39;&gt;
+</pre></div>
+</div>
 </div>
 </div>
 <p>It is of course also easily possible to plot only the parts we are most interested in, for instance:</p>

@@ -30,8 +30,10 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['"""', "This code block downloads the data from zenodo and stores it in a local 'datasets' folder.", '"""', '', 'import requests']
-...
-["# Create directory if it doesn't exist", 'os.makedirs(os.path.dirname(output_path), exist_ok=True)', '', '# Download the dataset', 'download_from_zenodo(zenodo_link, output_path)']
+vectorizer = TfidfVectorizer(min_df=10, max_df=0.2,
+                             max_features=10000,
+                             ngram_range=(1, 3))  
+tfidf_vectors = vectorizer.fit_transform(X_train)
+tfidf_vectors.shape
 -------------------
 
