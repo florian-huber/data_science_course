@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Data Science for (not yet) scientists
+title: Introduction to Data Science (for not-yet-scientists)
 author: Florian Huber
 logo: images/data_science_cover_illustration_logo.png
 
