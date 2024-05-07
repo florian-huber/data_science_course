@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>12. Clustering &#8212; Data Science for (not yet) scientists</title>
+    <title>12. Clustering &#8212; Introduction to Data Science (for not-yet-scientists)</title>
   
   
   
@@ -150,8 +150,8 @@
       
     
     
-    <img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-light" alt="Data Science for (not yet) scientists - Home"/>
-    <script>document.write(`<img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-dark" alt="Data Science for (not yet) scientists - Home"/>`);</script>
+    <img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-light" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>
+    <script>document.write(`<img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-dark" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>`);</script>
   
   
 </a></div>
@@ -429,19 +429,39 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-clustering">12.1. What is clustering?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-want-to-cluster-data">12.1.1. Why do we want to cluster data?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">12.1.2. Mini-exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-did-you-come-up-with">12.1.3. What did you come up with?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">12.1. Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-clustering">12.1.1. What is clustering?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-want-to-cluster-data">12.1.2. Why do we want to cluster data?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hard-and-soft-clustering">12.1.3. Hard and Soft Clustering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">12.1.4. Mini-exercise</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kmeans-clustering">12.2. KMeans Clustering</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#very-often-clusters-are-not-that-easily-distinguishable">12.2.1. Very often, clusters are not that easily distinguishable!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-kmeans">12.2.2. Advantages of KMeans:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages-of-kmeans">12.2.3. Disadvantages of KMeans:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dbscan-density-based-spatial-clustering-of-applications-with-noise">12.3. DBSCAN (Density-Based Spatial Clustering of Applications with Noise)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-mixture-models">12.4. Gaussian mixture models</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchical-clustering-ward">12.5. Hierarchical clustering (Ward)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dbscan-density-based-spatial-clustering-of-applications-with-noise">12.3. DBSCAN (Density-Based Spatial Clustering of Applications with Noise)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-variation">12.3.1. Parameter variation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-dbscan">12.3.2. Advantages of DBSCAN:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages-of-dbscan">12.3.3. Disadvantages of DBSCAN:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-mixture-models">12.4. Gaussian mixture models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-gmm">12.4.1. Advantages of GMM:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages-of-gmm">12.4.2. Disadvantages of GMM:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchical-clustering-ward">12.5. Hierarchical clustering (Ward)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-hierarchical-clustering-works">12.5.1. How Hierarchical Clustering Works:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">12.5.1.1. Parameter variation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-hierarchical-clustering">12.5.2. Advantages of Hierarchical Clustering:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages-of-hierarchical-clustering">12.5.3. Disadvantages of Hierarchical Clustering:</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-and-conclusion">12.6. Comparison and Conclusion</a></li>
 </ul>
             </nav>
@@ -455,11 +475,15 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="clustering">
-<h1><span class="section-number">12. </span>Clustering<a class="headerlink" href="#clustering" title="Link to this heading">#</a></h1>
-<p>Clustering is a technique that groups together data points based on their similarities. In light of the data science workflow discussed before in <a class="reference internal" href="../book/06_data_science_workflow.html#ch-workflow"><span class="std std-numref">Section 7</span></a> clustering can be used as a data exploration tool as well as to model our data. In this section, we will explore different clustering algorithms, including KMeans and DBSCAN, and apply them to synthetic datasets. We will discuss how clustering algorithms work and what their different advantages and limitations are.</p>
+<span id="ch-clustering"></span><h1><span class="section-number">12. </span>Clustering<a class="headerlink" href="#clustering" title="Link to this heading">#</a></h1>
+<p><strong>Clustering</strong> (or <em>cluster analysis</em>) is the process of organizing a collection of data points into groups, referred to as <strong>clusters</strong>, based on their similarities. This method plays a crucial role within the data science workflow (see <a class="reference internal" href="../book/06_data_science_workflow.html#ch-workflow"><span class="std std-numref">Section 7</span></a>), serving multiple purposes across different stages of a project. Primarily, clustering aids in data exploration, allowing us to uncover underlying patterns, group similar data points, and generate insights that are not immediately apparent. Furthermore, clustering can be employed as a technique to model data, facilitate anomaly detection, and reduce dimensionality.</p>
+<section id="introduction">
+<h2><span class="section-number">12.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <section id="what-is-clustering">
-<h2><span class="section-number">12.1. </span>What is clustering?<a class="headerlink" href="#what-is-clustering" title="Link to this heading">#</a></h2>
-<p>Clustering refers to the process of searching for a “natural” or useful divide of data points into a number of groups or: clusters. There is a commonly shared intuition that a “good” cluster is one where all datapoints have high similarity or share some important properties. In same cases, this can indeed be simple in the sense that most people would intuitively agree on a suitable division into clusters, such as illustrated in <a class="reference internal" href="#fig-clustering-intro"><span class="std std-numref">Fig. 12.1</span></a>. At least, I haven’t yet had a student that gave an answer that was different from “three” when asked for the number of groups in this dataset. In practice, however, those question will not be answered by any of my students, nor by me. We will use a range of different <strong>clustering algorithms</strong> to do the clustering for us.</p>
+<h3><span class="section-number">12.1.1. </span>What is clustering?<a class="headerlink" href="#what-is-clustering" title="Link to this heading">#</a></h3>
+<p>Clustering aims to identify a natural or meaningful division of data points into a number of groups, or clusters.
+There is a commonly shared intuition that a “good” cluster is one where all datapoints have high similarity or share some important properties. In some cases, this can indeed be simple in the sense that most people would intuitively agree on a suitable division into clusters, such as illustrated in <a class="reference internal" href="#fig-clustering-intro"><span class="std std-numref">Fig. 12.1</span></a>. At least, I haven’t yet had a student who gave an answer that was different from “three” when asked for the number of groups in this dataset. In practice, however, those question will not be answered by any of my students, nor by me. We will use a range of different <strong>clustering algorithms</strong> to do the clustering for us.</p>
+<p>In this section, we will explain and apply some of the most common clustering algorithms, including KMeans and DBSCAN. We will discuss their operational mechanisms, evaluate their distinct advantages, and address their limitations. The application of these algorithms will be demonstrated on synthetic datasets to illustrate their practical implementation and the interpretation of results.</p>
 <figure class="align-default" id="fig-clustering-intro">
 <img alt="../_images/fig_clustering_intro.png" src="../_images/fig_clustering_intro.png" />
 <figcaption>
@@ -475,7 +499,10 @@ document.write(`
 
 <span class="c1"># optional, only to avoid KMeans warning on Windows (too few chunks compared to threads)</span>
 <span class="kn">import</span> <span class="nn">os</span>
-<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;OMP_NUM_THREADS&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;2&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;OMP_NUM_THREADS&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+
+<span class="c1"># Set the ggplot style (optional)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;ggplot&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -501,78 +528,82 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;teal&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/521a39ff3aaafab52ad8298e06a5107dba10afad8264f51c471d0f877487fc21.png" src="../_images/521a39ff3aaafab52ad8298e06a5107dba10afad8264f51c471d0f877487fc21.png" />
+<img alt="../_images/ca64842d411a8fb3bd1f996b47f3d8d10529ec71a267044f9c5aa5b69a8ab634.png" src="../_images/ca64842d411a8fb3bd1f996b47f3d8d10529ec71a267044f9c5aa5b69a8ab634.png" />
 </div>
 </div>
 <p>Assigning the three clusters in this case does not exactly feel like rocket science. We could all do this manually with a pen in no time. So, why bother to use - let alone understand or develop - algorithms for this task?</p>
-<p>There are two reasons why the shown figure makes the task look easy. First, the points are distributed in a way that immediately suggests clear boundaries or center positions. And everyone knows that not all cases will look that simple. More importantly, however, is the fact that in most cases our datapoints will be nothing we can simply “look” at, or draw lines around, because the data won’t be 2-dimensional. Instead, datapoints might have any number of features, which is exactly what I mean here with <em>dimensions</em>. And in 4D, 5D, 6D, 10D, 100D, there is no chance to manually assign clusters to datapoints.</p>
-<p>In addition, there are even more reasons to rather search for a good algorithm than to assign clusters manually. Algorithms allow to cluster much larger datasets. And, in some cases, they will give consistent, reproducible results, i.e., they will assign each element the same cluster whenever we run the algorithm again. We will later see, that this is not true for all clustering algorithms.</p>
+<p>There are two reasons why the shown figure makes the task look easy. First, the points are distributed in a way that immediately suggests clear boundaries or center positions. Obviously, not all cases will look that simple. More importantly, however, is that in most cases our datapoints will be nothing we can simply “look” at, or draw lines around because the data won’t be two-dimensional. The number of features (or, in a table: columns) is what sets the number of dimensions of our data. And this will rarely ever be just two. But for datapoints which are 4D, 5D, 6D, 10D, or 100D, manually assigning clusters is not an option.</p>
+<p>There are more reasons to rather search for a good algorithm than to assign clusters manually. Algorithms allow to cluster much larger datasets. And, in some cases, they will give consistent, reproducible results, i.e., they will assign each element the same cluster whenever we run the algorithm again. We will later see, that this is not true for all clustering algorithms.</p>
+</section>
 <section id="why-do-we-want-to-cluster-data">
-<h3><span class="section-number">12.1.1. </span>Why do we want to cluster data?<a class="headerlink" href="#why-do-we-want-to-cluster-data" title="Link to this heading">#</a></h3>
-<p>Clustering data serves as a fundamental technique in the data scientist’s toolkit for a myriad of reasons beyond the mere convenience of handling multidimensional data. One significant motive is the discovery of intrinsic patterns and structures within the data that are not apparent through simple observation, especially when dealing with high-dimensional datasets. These hidden patterns can unveil relationships, categories, and subclasses within the data that can lead to valuable insights and, ultimately, inform decision-making processes.</p>
-<p>Moreover, clustering enables us to summarize a vast amount of data through the formation of representative groups or clusters. This is not only efficient for data compression but also crucial for simplifying complex data for further analysis, visualization, and reporting. When we group similar data points together, we can study these groups’ characteristics to understand the underlying population better. For instance, in customer segmentation, clustering helps in identifying groups with common behaviors, leading to targeted marketing strategies.</p>
-<p>Another compelling reason to employ clustering is anomaly detection. By understanding what is ‘normal’ for a given cluster, it becomes easier to spot outliers or anomalies that may signify errors, fraud, or new, previously undocumented phenomena. This is particularly relevant in fields such as cybersecurity, where clustering can help in identifying unusual patterns that may indicate security breaches.</p>
-<p>Lastly, clustering can serve as a pre-processing step for other algorithms. By organizing data into clusters, we can run other algorithms more efficiently within each cluster, reducing computational costs and improving algorithm performance. This layered approach can be seen in complex tasks such as image and speech recognition, where initial clustering can significantly streamline subsequent analysis.</p>
-<p>In summary, clustering is not just a convenience but a powerful method for uncovering and leveraging the rich, multi-dimensional structures in data, which in turn can lead to more effective and informed decision-making across diverse domains.</p>
-<p><strong>Hard and Soft Clustering</strong></p>
-<p>In most cases, <strong>clustering</strong> refers to the process of assigning at most <strong>one</strong> cluster to each data point. It is hence a binary decision that needs to be made, either manually, or -and that is what we are interested in here- in an automated way. It is also possible to allow clusters to overlap such that elements can belong to more than one cluster. This is then called <em>soft clustering</em> as displayed in <a class="reference internal" href="#fig-clustering-hard-soft"><span class="std std-numref">Fig. 12.2</span></a>. Most commonly, and in this introductory book as well, the term clustering primarily refers to <em>hard clustering</em>.</p>
+<h3><span class="section-number">12.1.2. </span>Why do we want to cluster data?<a class="headerlink" href="#why-do-we-want-to-cluster-data" title="Link to this heading">#</a></h3>
+<p>Clustering data serves as a fundamental technique in a data scientist’s toolkit beyond simply managing multidimensional data. It facilitates the discovery of intrinsic patterns and structures hidden within data, particularly in high-dimensional datasets. These patterns reveal relationships, categories, and subclasses that may not be evident through direct observation, providing insights that are critical for informed decision-making.</p>
+<p>Additionally, clustering helps to summarize large datasets by forming representative groups or clusters, making it more efficient for data compression and simplification. This simplification is essential for further analysis, visualization, and reporting. For example, in customer segmentation, clustering identifies groups of consumers with similar behaviors, enabling more targeted and effective marketing strategies.</p>
+<p>Another crucial application of clustering is anomaly detection. By defining what constitutes ‘normal’ behavior within a cluster, it becomes easier to identify outliers or anomalies. These anomalies could indicate errors, fraud, or emergent phenomena, particularly relevant in areas like cybersecurity, where detecting unusual patterns can help preempt security breaches. We will see more on this in <a class="reference internal" href="live_coding_06b_introduction_outlier_detection.html#ch-outliers"><span class="std std-numref">Section 13</span></a>.</p>
+<p>Clustering also acts as a preprocessing step for other analytical procedures. By organizing data into clusters, subsequent algorithms can operate more efficiently and with reduced computational costs within each cluster. This method enhances performance in complex processes such as image and speech recognition, where initial clustering helps streamline the analysis.</p>
+<p>In summary, clustering is not merely a methodological convenience but a robust tool for extracting and leveraging the complex, multidimensional structures in data, which in turn enhances decision-making across various domains.</p>
+</section>
+<section id="hard-and-soft-clustering">
+<h3><span class="section-number">12.1.3. </span>Hard and Soft Clustering<a class="headerlink" href="#hard-and-soft-clustering" title="Link to this heading">#</a></h3>
+<p>Clustering usually involves assigning each data point to exactly one cluster, making it a binary, either-or decision. This type of clustering is known as hard clustering. However, there are scenarios where allowing data points to belong to multiple clusters is advantageous, known as soft clustering. An example of soft clustering is shown in {numref}fig_clustering_hard_soft. In this introductory text, unless specified otherwise, we will primarily discuss hard clustering, where each element belongs to one, and only one, cluster.</p>
 <figure class="align-default" id="fig-clustering-hard-soft">
 <img alt="../_images/fig_clustering_hard_soft.png" src="../_images/fig_clustering_hard_soft.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 12.2 </span><span class="caption-text">Two conceptually different types of clustering are <em>hard clustering</em> in which elements can only be part of one cluster (or none), and <em>soft clustering</em> which allows elements to be in more than one cluster. Unless specified otherwise, clustering usually refers to <em>hard clustering</em>.</span><a class="headerlink" href="#fig-clustering-hard-soft" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 12.2 </span><span class="caption-text">Two distinct approaches are defined in clustering: <strong>hard clustering</strong>, where an element is exclusively part of one cluster, and <strong>soft clustering</strong>, which allows elements to overlap among multiple clusters. This book generally focuses on hard clustering unless otherwise noted.</span><a class="headerlink" href="#fig-clustering-hard-soft" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="mini-exercise">
-<h3><span class="section-number">12.1.2. </span>Mini-exercise<a class="headerlink" href="#mini-exercise" title="Link to this heading">#</a></h3>
-<p>Team up with your neighbor (if in a class), or try on your own. Looking at the data displayed in <a class="reference internal" href="#fig-clustering-intro"><span class="std std-numref">Fig. 12.1</span></a>, how would you write an algorithm to automatically assign each datapoint a cluster it belongs to?</p>
-</section>
+<h3><span class="section-number">12.1.4. </span>Mini-exercise<a class="headerlink" href="#mini-exercise" title="Link to this heading">#</a></h3>
+<p><strong>Team up with your neighbor (if in a class), or try on your own:</strong><br />
+Examine at the data displayed in <a class="reference internal" href="#fig-clustering-intro"><span class="std std-numref">Fig. 12.1</span></a>. How would you design an algorithm to automatically assign each data point to a cluster it belongs to? Consider the following as you brainstorm:</p>
+<ul class="simple">
+<li><p>How can you determine the closeness of points to suggest they belong to the same cluster?</p></li>
+<li><p>What rules or criteria would you set for forming a cluster?</p></li>
+</ul>
+<p>Make notes of your ideas and try to sketch out a simple algorithm or set of rules that could perform this clustering.</p>
 <hr class="docutils" />
-<section id="what-did-you-come-up-with">
-<h3><span class="section-number">12.1.3. </span>What did you come up with?<a class="headerlink" href="#what-did-you-come-up-with" title="Link to this heading">#</a></h3>
-<p>When I ask this to students, I typically get many different answers. Including many suggestions that are very likely to work for the displayed example. One way to go is to look at distances between points and somehow define how far points are allowed to be before they no longer fall into the same cluster. Other approaches might include fitting lines, borders, shapes into the scatter datapoints. But there are many more options one could come up with. It is therefore no big surprise, that many different clustering algorithms exist.</p>
+<p><strong>What did you come up with?</strong></p>
+<p>When I pose this question to students, I usually receive many different answers, many of which are viable approaches for the example shown.
+Common strategies include:</p>
+<ul class="simple">
+<li><p><strong>Distance-based clustering</strong>: Developing a rule based on the distance between points, where points are clustered together if they are within a certain distance from one another. This might involve calculating distances from every point to every other point or from points to a central location.</p></li>
+<li><p><strong>Geometric clustering</strong>: Some students suggest fitting lines, borders, or shapes among the scatter points to form boundaries between clusters.</p></li>
+<li><p><strong>Density-based clustering</strong>: Others propose methods that identify dense regions of points as individual clusters, possibly ignoring or separately categorizing outliers.</p></li>
+</ul>
+<p>These diverse approaches highlight why numerous clustering algorithms have been developed, each with its own strengths and suitable applications. This exercise should help you appreciate the complexity of designing an algorithm that robustly and effectively identifies clusters in varied datasets</p>
+<hr class="docutils" />
+<p>In the following, we will introduce and apply some very common clustering algorithms.</p>
 </section>
 </section>
 <section id="kmeans-clustering">
 <h2><span class="section-number">12.2. </span>KMeans Clustering<a class="headerlink" href="#kmeans-clustering" title="Link to this heading">#</a></h2>
-<p>The K-means algorithm is often likened to the task of organizing similar items into buckets. To understand how it works in an accessible way, let’s envision we are sorting fruit based on sweetness and size. Each fruit will be a data point with sweetness and size as its two features.</p>
+<p>The K-means algorithm is a popular and intuitive method used for clustering and can be likened to the task of organizing similar items into buckets. To intuitively understand how it works, let’s imagine we are sorting fruit based on sweetness and size. Each fruit will be a data point with sweetness and size as its two features.</p>
 <p>Here’s the step-by-step process:</p>
 <ol class="arabic simple">
-<li><p><strong>Initialization</strong>: First, we decide on the number of buckets (clusters) we want – let’s say three for our fruit example. We randomly pick three fruits and declare each as the ‘representative’ or centroid of a bucket.</p></li>
-<li><p><strong>Assignment</strong>: Each piece of fruit is then assigned to the closest bucket’s representative based on its sweetness and size. ‘Closest’ here means the representative that has the most similar sweetness and size to the fruit we’re trying to sort.</p></li>
-<li><p><strong>Update Centroids</strong>: After all fruits are assigned, each bucket’s representative is updated to be the ‘average’ fruit of that bucket, considering the sweetness and size of all fruits in the bucket. This new ‘average’ fruit becomes the new centroid.</p></li>
+<li><p><strong>Initialization</strong>: First, choose the number of buckets (clusters), say three for this fruit example. Begin by randomly selecting three fruits to act as the initial ‘centroids’ or representatives of these clusters.</p></li>
+<li><p><strong>Assignment</strong>: Assign each piece of fruit to the centroid it most closely resembles in terms of sweetness and size. The measurement of closeness could here be done based on the Euclidean distance between the features (sweetness and size).</p></li>
+<li><p><strong>Update Centroids</strong>: Once all fruits are assigned, recalculate each group’s centroid by finding the average sweetness and size of the fruits in that group. These averages become the new centroids.</p></li>
 <li><p><strong>Repeat Assignment and Update</strong>: Steps 2 and 3 are repeated. Fruits may switch buckets if they’re closer to a different centroid after the update. New centroids are calculated after the reassignments.</p></li>
 <li><p><strong>Convergence</strong>: This process of assignment and updating continues until things settle down – that is, the fruits no longer switch buckets (clusters), and the centroids no longer change. This is called convergence.</p></li>
 <li><p><strong>Result</strong>: At the end, we have our fruits sorted into buckets where each fruit is surrounded by others with similar sweetness and size. Each bucket represents a cluster.</p></li>
 </ol>
 <p>In a more technical context, the ‘sweetness’ and ‘size’ are analogs for the features of the dataset, and the ‘average’ fruit represents the mean of the cluster’s points in feature space.</p>
-<p>The algorithm repeatedly performs two straightforward steps: assigning points to the nearest centroid and then updating those centroids. This simplicity, however, comes with the drawbacks mentioned, such as having to pre-specify the number of clusters and its sensitivity to the initial placement of centroids, among others.</p>
+<p>This iterative approach consists fundamentally of two steps: assigning data points to the nearest centroid and recalculating centroids. Despite its straightforward nature, KMeans has some limitations that need consideration.</p>
 <figure class="align-default" id="fig-kmeans">
 <img alt="../_images/fig_kmeans_sketch.png" src="../_images/fig_kmeans_sketch.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 12.3 </span><span class="caption-text">Sketch of k-means algorithm…</span><a class="headerlink" href="#fig-kmeans" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 12.3 </span><span class="caption-text">Illustrative diagram of the K-means clustering process, showcasing the initialization of centroids, assignment of points to the nearest centroids, updating of centroids based on the assigned points, and the iterative process until convergence.</span><a class="headerlink" href="#fig-kmeans" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p><strong>Pros:</strong></p>
-<ul class="simple">
-<li><p>Simple and easy to understand</p></li>
-<li><p>Efficient in terms of computational complexity</p></li>
-<li><p>Works well with isotropic clusters</p></li>
-</ul>
-<p><strong>Cons:</strong></p>
-<ul class="simple">
-<li><p>Requires the user to specify the number of clusters</p></li>
-<li><p>Assumes equal-sized clusters</p></li>
-<li><p>Sensitive to initial conditions and may converge to a local minimum</p></li>
-<li><p>Does not consider outliers</p></li>
-</ul>
+<p>In the following sections, we will make use of the <code class="docutils literal notranslate"><span class="pre">Scikit-Learn</span></code> implementations of several different clustering algorithms. The workflow will therefore look very similar in all cases, with the most notable difference the various main parameters that each of those algorithms requires. More information on the code implementations can be found on the <a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html">Scikit-Learn documentation</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
@@ -588,15 +619,13 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
-
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
-<span class="c1">#plt.savefig(&quot;example_clustering_00_clusters.png&quot;, dpi=300)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/497207b7364ea0cad60277191fcbb8215cc5fd8b01248e7d24ba6344d308dd08.png" src="../_images/497207b7364ea0cad60277191fcbb8215cc5fd8b01248e7d24ba6344d308dd08.png" />
+<img alt="../_images/51106c643402e8f7c32aa322b4d74dc6ae2e769a88099a5f9e473b8e873e1e15.png" src="../_images/51106c643402e8f7c32aa322b4d74dc6ae2e769a88099a5f9e473b8e873e1e15.png" />
 </div>
 </div>
 <section id="very-often-clusters-are-not-that-easily-distinguishable">
@@ -637,16 +666,16 @@ This is already one step more “realistic” in the sense that most commonly we
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;teal&quot;</span><span class="p">)</span>
 <span class="c1"># plt.savefig(&quot;example_clustering_01.png&quot;, dpi=300, bbox_inches=&quot;tight&quot;)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f203b435c00&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fb5702e87c0&gt;
 </pre></div>
 </div>
-<img alt="../_images/dde6f267d2207279621a233c3cf9dc8b1d163266779f06b94b85b989b89a81dd.png" src="../_images/dde6f267d2207279621a233c3cf9dc8b1d163266779f06b94b85b989b89a81dd.png" />
+<img alt="../_images/bc3a556c83e45d510f41277dc6507dc19e26f32928396464e0740cbd04690074.png" src="../_images/bc3a556c83e45d510f41277dc6507dc19e26f32928396464e0740cbd04690074.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -698,19 +727,17 @@ This is already one step more “realistic” in the sense that most commonly we
 
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
-          <span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;crimson&quot;</span><span class="p">)</span>
-
-<span class="c1">#plt.savefig(&quot;example_clustering_01_kmeans.png&quot;, dpi=300, bbox_inches=&quot;tight&quot;)</span>
+           <span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;crimson&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;K-Means clustering with k=5&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f203b410fa0&gt;
-</pre></div>
-</div>
-<img alt="../_images/6a09b8f48e17b9786e7d92a7cb54b419f75e03396d1298bb21b753e31bca5662.png" src="../_images/6a09b8f48e17b9786e7d92a7cb54b419f75e03396d1298bb21b753e31bca5662.png" />
+<img alt="../_images/4a6fba8958cda9a67924ba05d272bc841214e87ae5ff44a954ec21b7a449c404.png" src="../_images/4a6fba8958cda9a67924ba05d272bc841214e87ae5ff44a954ec21b7a449c404.png" />
 </div>
 </div>
+<p>Once the clusters have been found (using the <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> method as done above), we can also use a k-means model to make predctions on unknown datapoints.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kmeans</span><span class="o">.</span><span class="n">predict</span><span class="p">([[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
@@ -723,6 +750,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 </div>
+<p>We can also check the found cluster center points:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span>
@@ -740,32 +768,39 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 </section>
+<section id="advantages-of-kmeans">
+<h3><span class="section-number">12.2.2. </span>Advantages of KMeans:<a class="headerlink" href="#advantages-of-kmeans" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Simplicity</strong>: The algorithm is easy to understand and implement.</p></li>
+<li><p><strong>Efficiency</strong>: It is computationally efficient, making it suitable for large datasets.</p></li>
+<li><p><strong>Effectiveness</strong>: Performs well with clusters that are relatively isotropic and similar in size.</p></li>
+</ul>
 </section>
+<section id="disadvantages-of-kmeans">
+<h3><span class="section-number">12.2.3. </span>Disadvantages of KMeans:<a class="headerlink" href="#disadvantages-of-kmeans" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Fixed Number of Clusters</strong>: Requires specifying the number of clusters beforehand, which is not always known in advance and can be difficult to estimate.</p></li>
+<li><p><strong>Cluster Assumptions</strong>: Assumes that clusters are spherical and of similar size, which may not hold true for all datasets.</p></li>
+<li><p><strong>Sensitivity to Initial Conditions</strong>: The initial placement of centroids can affect the final outcome, and KMeans can sometimes converge to a local minimum rather than the global best solution.</p></li>
+<li><p><strong>Outlier Sensitivity</strong>: Outliers can skew the centroids, making KMeans less robust to anomalous data points.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
 <section id="dbscan-density-based-spatial-clustering-of-applications-with-noise">
 <h2><span class="section-number">12.3. </span>DBSCAN (Density-Based Spatial Clustering of Applications with Noise)<a class="headerlink" href="#dbscan-density-based-spatial-clustering-of-applications-with-noise" title="Link to this heading">#</a></h2>
 <p>DBSCAN stands for Density-Based Spatial Clustering of Applications with Noise. It’s like an adventurous hike where we group together hikers based on how closely they walk together and how often they stop to rest. To explain DBSCAN in an accessible way, let’s consider our hikers as data points in a park (our dataset).</p>
-<p>Here’s how DBSCAN works:</p>
+<p><strong>How DBSCAN works:</strong></p>
 <ol class="arabic simple">
-<li><p><strong>Starting Point (Core Points)</strong>: We start by picking a hiker and checking around them to see how many other hikers are within a certain distance, which we’ll call ‘epsilon’. If there are enough hikers (meeting a minimum number, <code class="docutils literal notranslate"><span class="pre">min_samples</span></code>) within this distance, we consider this a ‘core’ group, much like a core point in DBSCAN.</p></li>
+<li><p><strong>Starting Point (Core Points)</strong>:  First, select a hiker and check how many others are within a preset distance (<code class="docutils literal notranslate"><span class="pre">epsilon</span></code>). If a sufficient number (defined by <code class="docutils literal notranslate"><span class="pre">min_samples</span></code>) are within this range, this hiker becomes a core of a potential cluster.</p></li>
 <li><p><strong>Forming Groups (Cluster Expansion)</strong>: From our core hiker, we extend the group by asking each new hiker in the epsilon area to invite other hikers within their own epsilon area. If these hikers also have enough companions within their reach, the group grows – this is how DBSCAN expands clusters.</p></li>
 <li><p><strong>Connecting Groups (Density Reachability)</strong>: Sometimes, a hiker might not have enough people within their epsilon distance to form their own core group but is close enough to be part of the existing group. These hikers act as bridges and help in joining different core groups, forming a larger cluster.</p></li>
-<li><p><strong>Identifying Lone Hikers (Noise Detection)</strong>: Not everyone wants to walk in groups. Hikers who don’t have enough nearby companions and aren’t close enough to a group are considered ‘noise’. In data terms, these are outliers.</p></li>
+<li><p><strong>Identifying Lone Hikers (Noise Detection)</strong>: Some hikers prefer solitude and are too far from others to join any group. These are labeled as ‘noise’—similar to outliers in data.</p></li>
 <li><p><strong>Adapting to Terrain (Handling Different Densities)</strong>: Just as groups of hikers might spread out in open fields and bunch up in narrow trails, DBSCAN tries to adapt to areas of different point densities. This can be tricky because the same ‘epsilon’ and <code class="docutils literal notranslate"><span class="pre">min_samples</span></code> might not work for both sparse and dense areas, which is a challenge for DBSCAN.</p></li>
 <li><p><strong>Exploring the Entire Park (Full Dataset)</strong>: The process continues until all hikers are either grouped or labeled as noise. Unlike K-means, we don’t need to know how many groups (clusters) we want to form in advance – the hikers (data points) naturally form groups based on their proximity and the number of companions they have.</p></li>
 </ol>
-<p>The DBSCAN algorithm’s capacity to identify outliers and form clusters  of arbitrary shapes makes it versatile and powerful, particularly for  complex datasets where patterns aren’t obvious. However, choosing the  right epsilon and <code class="docutils literal notranslate"><span class="pre">min_samples</span></code> is crucial, as these parameters will greatly influence the clustering outcome.</p>
-<p><strong>Pros:</strong></p>
-<ul class="simple">
-<li><p>Does not require the user to specify the number of clusters</p></li>
-<li><p>Can identify clusters with arbitrary shapes</p></li>
-<li><p>Robust to noise</p></li>
-<li><p>Can identify outliers (as “noise”)</p></li>
-</ul>
-<p><strong>Cons:</strong></p>
-<ul class="simple">
-<li><p>May struggle with clusters of varying densities</p></li>
-<li><p>The choice of hyperparameters (epsilon and min_samples) can significantly affect the results</p></li>
-</ul>
+<p>DBSCAN is particularly effective for complex datasets with non-linear cluster shapes and varying densities. However, the choice of <code class="docutils literal notranslate"><span class="pre">epsilon</span></code> and <code class="docutils literal notranslate"><span class="pre">min_samples</span></code> is crucial, as it significantly impacts the clustering results.</p>
+<p>Using Scikit-Learn, we can use DBSCAN as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">DBSCAN</span>
@@ -807,16 +842,18 @@ This is already one step more “realistic” in the sense that most commonly we
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">dbscan</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;example_clustering_01_dbscan_eps_05.png&quot;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
-           <span class="n">bbox_inches</span><span class="o">=</span><span class="s2">&quot;tight&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;DBSCAN clustering with epsilon=0.5 and min_samples=2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e89ff8647f117a8ff47fc6249e6a08df836f8b12e73ae3c0efee812d78d9972c.png" src="../_images/e89ff8647f117a8ff47fc6249e6a08df836f8b12e73ae3c0efee812d78d9972c.png" />
+<img alt="../_images/4217f7507bcf5523e192c24e7907ce8c3d187a5e5cc3849c3a61c1800a364ab6.png" src="../_images/4217f7507bcf5523e192c24e7907ce8c3d187a5e5cc3849c3a61c1800a364ab6.png" />
 </div>
 </div>
+<section id="parameter-variation">
+<h3><span class="section-number">12.3.1. </span>Parameter variation<a class="headerlink" href="#parameter-variation" title="Link to this heading">#</a></h3>
+<p>For DBSCAN to work, we usually have to find a good pair of parameters for <code class="docutils literal notranslate"><span class="pre">epsilon</span></code> and <code class="docutils literal notranslate"><span class="pre">min_samples</span></code>. In particular the epsilon value has a huge impact on the results.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dbscan</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -824,23 +861,73 @@ This is already one step more “realistic” in the sense that most commonly we
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">dbscan</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
-
-<span class="c1"># plt.savefig(&quot;example_clustering_01_dbscan_eps_1.png&quot;, dpi=300, bbox_inches=&quot;tight&quot;)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;DBSCAN clustering with epsilon=1 and min_samples=2&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f202af33400&gt;
+<img alt="../_images/0f746df8fa7113208b17a82ee4c4aa953c38c6a9290a64c653fd924d9c6fce90.png" src="../_images/0f746df8fa7113208b17a82ee4c4aa953c38c6a9290a64c653fd924d9c6fce90.png" />
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a subplot grid</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+
+<span class="c1"># Enumerate over desired distance thresholds</span>
+<span class="n">epsilons</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">eps</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">epsilons</span><span class="p">):</span>
+    <span class="n">dbscan</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="c1"># Plot the results</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="n">scatter</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">dbscan</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># Enhancements for clarity</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;DBSCAN with epsilon=</span><span class="si">{</span><span class="n">eps</span><span class="si">}</span><span class="s2"> (and min_samples=2)&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Feature 1&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Feature 2&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">scatter</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Cluster Label&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../_images/8180887e1953c1c60785690f644b0356ac4057786f9643fbd1aba58f8048b605.png" src="../_images/8180887e1953c1c60785690f644b0356ac4057786f9643fbd1aba58f8048b605.png" />
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/45da899c066c9d2a6c2d5a27d1c5c47833dab7a31ac7a04b7b83112da71e3b10.png" src="../_images/45da899c066c9d2a6c2d5a27d1c5c47833dab7a31ac7a04b7b83112da71e3b10.png" />
 </div>
 </div>
 </section>
+<section id="advantages-of-dbscan">
+<h3><span class="section-number">12.3.2. </span>Advantages of DBSCAN:<a class="headerlink" href="#advantages-of-dbscan" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Adaptive Clustering</strong>: Automatically determines the number of clusters based on data density, eliminating the need to predefine this number.</p></li>
+<li><p><strong>Handles Arbitrary Shapes</strong>: Efficiently identifies clusters of various shapes, adapting to the actual distribution of data points.</p></li>
+<li><p><strong>Outlier Detection</strong>: Effectively differentiates between core clusters and noise, enhancing its robustness against outliers.</p></li>
+</ul>
+</section>
+<section id="disadvantages-of-dbscan">
+<h3><span class="section-number">12.3.3. </span>Disadvantages of DBSCAN:<a class="headerlink" href="#disadvantages-of-dbscan" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Sensitivity to Parameters</strong>: Highly dependent on the settings for <code class="docutils literal notranslate"><span class="pre">epsilon</span></code> and <code class="docutils literal notranslate"><span class="pre">min_samples</span></code>, which can significantly impact clustering outcomes.</p></li>
+<li><p><strong>Struggles with Varying Densities</strong>: May fail to accurately define clusters when they vary widely in density, treating sparse clusters as noise.</p></li>
+<li><p><strong>Computational Complexity</strong>: While generally efficient, its performance may degrade with very large datasets or those with high dimensionality due to the complexity of density calculations.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
 <section id="gaussian-mixture-models">
 <h2><span class="section-number">12.4. </span>Gaussian mixture models<a class="headerlink" href="#gaussian-mixture-models" title="Link to this heading">#</a></h2>
 <p>Gaussian Mixture Models (GMM) can be thought of as a sophisticated extension of the K-means clustering technique, with added flexibility. If we were to visualize data clustering as a process of sorting different types of coins based on their size and weight, K-means would sort them into predefined buckets, while GMM would be like having scales and calipers that tell us not just which bucket a coin most likely belongs to, but also provide a measure of our certainty about it.</p>
-<p>Here’s a breakdown of how GMM works:</p>
+<p><strong>How GMM works:</strong></p>
 <ol class="arabic simple">
 <li><p><strong>Assumptions</strong>: GMM starts with the assumption that our data points are generated from a mixture of several Gaussian distributions. Each Gaussian, also known as a normal distribution, represents a cluster. It’s like assuming that coins come from different countries, each with its unique size and weight characteristics.</p></li>
 <li><p><strong>Expectation-Maximization (EM) Steps</strong>:</p>
@@ -850,20 +937,9 @@ This is already one step more “realistic” in the sense that most commonly we
 </ul>
 </li>
 <li><p><strong>Iterative Process</strong>: These two steps are repeated iteratively, with each pass refining the parameters and improving the model’s accuracy in representing the underlying clusters.</p></li>
-<li><p><strong>Soft Clustering</strong>: Unlike K-means, which assigns each point to a single cluster, GMM provides a probability distribution over the clusters for each point, indicating its degree of membership in every cluster. This soft assignment is particularly useful when we’re not sure about the boundaries of clusters, much like a coin that’s in between typical sizes and weights for known designs.</p></li>
+<li><p><strong>Soft Clustering</strong>: Unlike K-means, which assigns each point to a single cluster, GMM provides a probability distribution over the clusters for each point, indicating its degree of membership in every cluster. This soft assignment is particularly useful when we’re not sure about the boundaries of clusters, much like a coin that’s in-between typical sizes and weights for known designs.</p></li>
 <li><p><strong>Final Model</strong>: After several iterations, when the changes in the parameters become negligible, the algorithm has hopefully converged to the best fit for our data, and we have a final model that tells us not only where the clusters are, but also how certain we can be about each data point’s membership.</p></li>
 </ol>
-<p><strong>Pros:</strong></p>
-<ul class="simple">
-<li><p>More flexible than K-means and can model clusters with different shapes, sizes, and orientations</p></li>
-<li><p>Provides a soft clustering, assigning probabilities of each point belonging to each cluster</p></li>
-</ul>
-<p><strong>Cons:</strong></p>
-<ul class="simple">
-<li><p>Requires the user to specify the number of clusters</p></li>
-<li><p>Computationally more expensive than K-means</p></li>
-<li><p>Requires a high enough number of datapoints to fit the gaussians</p></li>
-</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.mixture</span> <span class="kn">import</span> <span class="n">GaussianMixture</span>
@@ -901,15 +977,13 @@ This is already one step more “realistic” in the sense that most commonly we
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
-<span class="c1"># plt.savefig(&quot;example_clustering_01_gaussian_mixture.png&quot;, dpi=300, bbox_inches=&quot;tight&quot;)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Gaussian Mixture model with 5 components&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f202af189d0&gt;
-</pre></div>
-</div>
-<img alt="../_images/66ceb5c8315a1f2d9816e999b5a29a943c799ed93f96c921235c3da6b934fd95.png" src="../_images/66ceb5c8315a1f2d9816e999b5a29a943c799ed93f96c921235c3da6b934fd95.png" />
+<img alt="../_images/e62191cd7bfdc2418a5994a93169146073657e576593c6951d87448cf06c0ee7.png" src="../_images/e62191cd7bfdc2418a5994a93169146073657e576593c6951d87448cf06c0ee7.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -918,86 +992,103 @@ This is already one step more “realistic” in the sense that most commonly we
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">gm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
-<span class="c1"># plt.savefig(&quot;example_clustering_01_gaussian_mixture_c4.png&quot;, dpi=300, bbox_inches=&quot;tight&quot;)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Gaussian Mixture model with 4 components&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f202ae2bb20&gt;
-</pre></div>
-</div>
-<img alt="../_images/3e196ebb0fdac701c1684c4eb1edce1aeeb46885b0c81846b484ca24a71ae275.png" src="../_images/3e196ebb0fdac701c1684c4eb1edce1aeeb46885b0c81846b484ca24a71ae275.png" />
+<img alt="../_images/e5e9f63ab271bd49df1866a802df0cd3dde682c0111ef2737152b0fae2fbdcdc.png" src="../_images/e5e9f63ab271bd49df1866a802df0cd3dde682c0111ef2737152b0fae2fbdcdc.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># https://scikit-learn.org/stable/auto_examples/mixture/plot_gmm.html</span>
-<span class="kn">import</span> <span class="nn">itertools</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Ellipse</span>
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
-<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
 
-<span class="n">color_iter</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">cycle</span><span class="p">([</span><span class="s2">&quot;navy&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;cornflowerblue&quot;</span><span class="p">,</span> <span class="s2">&quot;gold&quot;</span><span class="p">,</span> <span class="s2">&quot;darkorange&quot;</span><span class="p">])</span>
+<span class="c1"># Color iterator for different clusters</span>
+<span class="n">color_iter</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">cycle</span><span class="p">([</span><span class="s1">&#39;teal&#39;</span><span class="p">,</span> <span class="s1">&#39;cornflowerblue&#39;</span><span class="p">,</span> <span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="s1">&#39;crimson&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
 
-<span class="k">def</span> <span class="nf">plot_results</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y_</span><span class="p">,</span> <span class="n">means</span><span class="p">,</span> <span class="n">covariances</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
-    <span class="n">splot</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">index</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">plot_gmm</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y_</span><span class="p">,</span> <span class="n">means</span><span class="p">,</span> <span class="n">covariances</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot the Gaussian Mixture Model with multiple ellipses to show the distribution density.&quot;&quot;&quot;</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covar</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="n">covariances</span><span class="p">,</span> <span class="n">color_iter</span><span class="p">)):</span>
-        <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">covar</span><span class="p">)</span>
-        <span class="n">v</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-        <span class="n">u</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="c1"># as the DP will not use every component it has access to</span>
-        <span class="c1"># unless it needs it, we shouldn&#39;t plot the redundant</span>
-        <span class="c1"># components.</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">Y_</span> <span class="o">==</span> <span class="n">i</span><span class="p">):</span>
             <span class="k">continue</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">Y_</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">Y_</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
 
-        <span class="c1"># Plot an ellipse to show the Gaussian component</span>
-        <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="n">angle</span> <span class="o">=</span> <span class="mf">180.0</span> <span class="o">*</span> <span class="n">angle</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>  <span class="c1"># convert to degrees</span>
-        <span class="n">ell</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">patches</span><span class="o">.</span><span class="n">Ellipse</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-                                  <span class="n">angle</span><span class="o">=</span><span class="mf">180.0</span> <span class="o">+</span> <span class="n">angle</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
-        <span class="n">ell</span><span class="o">.</span><span class="n">set_clip_box</span><span class="p">(</span><span class="n">splot</span><span class="o">.</span><span class="n">bbox</span><span class="p">)</span>
-        <span class="n">ell</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-        <span class="n">splot</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">ell</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">Y_</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">Y_</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Cluster </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
-    <span class="c1">#plt.xlim(-9.0, 5.0)</span>
-    <span class="c1">#plt.ylim(-3.0, 6.0)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+        <span class="c1"># Calculate the eigenvalues and eigenvectors for the covariance matrix</span>
+        <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">covar</span><span class="p">)</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 
-<span class="n">plot_results</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">gm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">),</span>
-             <span class="n">gm</span><span class="o">.</span><span class="n">means_</span><span class="p">,</span> <span class="n">gm</span><span class="o">.</span><span class="n">covariances_</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Gaussian Mixture&quot;</span><span class="p">)</span>
+        <span class="c1"># Calculate the angle of the ellipse</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">angle</span> <span class="o">=</span> <span class="mf">180.</span> <span class="o">*</span> <span class="n">angle</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>  <span class="c1"># Convert to degrees</span>
+
+        <span class="c1"># Plot ellipses at 1 std, 2 std, and 3 std</span>
+        <span class="k">for</span> <span class="n">std_dev</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+            <span class="n">ell</span> <span class="o">=</span> <span class="n">Ellipse</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std_dev</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">std_dev</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">angle</span><span class="o">=</span><span class="mf">180.</span> <span class="o">+</span> <span class="n">angle</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+            <span class="n">ell</span><span class="o">.</span><span class="n">set_clip_box</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">bbox</span><span class="p">)</span>
+            <span class="n">ell</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mf">0.25</span> <span class="o">/</span> <span class="n">std_dev</span><span class="p">)</span>  <span class="c1"># Decrease alpha as std_dev increases</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">ell</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Feature 1&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Feature 2&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">,</span> 
+             <span class="s2">&quot;Gaussian Mixture model using 4 components. The found distributions are indicated by ellipses at 1, 2 and 3 Standard Deviations.&quot;</span><span class="p">,</span> 
+             <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Run plotting function</span>
+<span class="n">plot_gmm</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">gm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">gm</span><span class="o">.</span><span class="n">means_</span><span class="p">,</span> <span class="n">gm</span><span class="o">.</span><span class="n">covariances_</span><span class="p">,</span> <span class="s2">&quot;Detailed Gaussian Mixture&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/7f123b54e0a0aa55fd5bc8fc7074edbdfbdf99f83c0edced82111759ab9ac494.png" src="../_images/7f123b54e0a0aa55fd5bc8fc7074edbdfbdf99f83c0edced82111759ab9ac494.png" />
+<img alt="../_images/2ac9718469af44b20cda0d2aa3b5173c98eef7373e62bd029ef73472773c3e2e.png" src="../_images/2ac9718469af44b20cda0d2aa3b5173c98eef7373e62bd029ef73472773c3e2e.png" />
 </div>
 </div>
+<section id="advantages-of-gmm">
+<h3><span class="section-number">12.4.1. </span>Advantages of GMM:<a class="headerlink" href="#advantages-of-gmm" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Flexibility</strong>: GMM can accommodate clusters of various shapes, sizes, and orientations, making it more versatile than simpler methods like K-means.</p></li>
+<li><p><strong>Soft Clustering</strong>: It provides a probabilistic model of cluster membership, offering a nuanced view of each data point’s placement.</p></li>
+</ul>
 </section>
+<section id="disadvantages-of-gmm">
+<h3><span class="section-number">12.4.2. </span>Disadvantages of GMM:<a class="headerlink" href="#disadvantages-of-gmm" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Number of Clusters</strong>: Like K-means, GMM requires the user to predetermine the number of clusters, which can be challenging without prior knowledge of the dataset.</p></li>
+<li><p><strong>Computational Intensity</strong>: It is generally more computationally demanding than K-means due to the complexity of its calculations.</p></li>
+<li><p><strong>Data Requirements</strong>: GMM necessitates a sufficiently large data set to effectively estimate the parameters of Gaussian distributions.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
 <section id="hierarchical-clustering-ward">
 <h2><span class="section-number">12.5. </span>Hierarchical clustering (Ward)<a class="headerlink" href="#hierarchical-clustering-ward" title="Link to this heading">#</a></h2>
-<p>Hierarchical clustering, particularly the Ward method, operates much like a family tree of data points, showing the relationships between different clusters from the ground up. To visualize hierarchical clustering in an everyday context, imagine a scenario where we’re trying to organize a large collection of books on a set of shelves.</p>
-<p>Here’s the process outlined in a more accessible manner:</p>
+<p>Hierarchical clustering, especially the Ward method, can be visualized as creating a family tree of data points, showing the relationships between clusters from the ground up. Imagine organizing a large collection of books on shelves to understand this concept better.</p>
+<section id="how-hierarchical-clustering-works">
+<h3><span class="section-number">12.5.1. </span>How Hierarchical Clustering Works:<a class="headerlink" href="#how-hierarchical-clustering-works" title="Link to this heading">#</a></h3>
 <ol class="arabic simple">
-<li><p><strong>Starting with Every Book (Initialization)</strong>: Initially, each book is considered its own ‘cluster’. This is the bottom-up approach where every single item starts in its own group.</p></li>
-<li><p><strong>Creating Shelves (Agglomeration)</strong>: We begin to organize the books by placing the most similar ones together on a shelf. In the context of hierarchical clustering, similarity is usually based on the distance between data points. The Ward method specifically looks to minimize the variance within a cluster, which is like trying to put books of similar sizes or genres together to make the shelf look neat (minimize variance).</p></li>
-<li><p><strong>Building Sections (Building the Hierarchy)</strong>: Each time we place a pair of books together, we’re building a small section of our shelf. As we continue this process, we start to see not just individual books or pairs but groups and subgroups forming, each representing a branch in our tree of book categories.</p></li>
-<li><p><strong>Forming a Library (Creating the Dendrogram)</strong>: We don’t just stop once we’ve created a few shelves; we continue until all books are grouped in a way that shows their relationships, from the individual books up to the entire genre sections. In clustering terms, this is akin to building a dendrogram—a tree-like diagram that records the sequences of merges or splits.</p></li>
-<li><p><strong>Deciding on Genres (Determining the Number of Clusters)</strong>: The beauty of hierarchical clustering is that we don’t need to decide how many genres (clusters) we want at the start. Once our dendrogram is complete, we can cut it at the level that makes sense to us, which might be broad genres or more specific sub-genres, depending on our needs.</p></li>
+<li><p><strong>Initialization (Every Book as a Cluster)</strong>: Initially, each book is treated as its own cluster. This bottom-up approach starts with every item in its own group.</p></li>
+<li><p><strong>Agglomeration (Creating Shelves)</strong>: Books are grouped based on similarity, typically measured by the distance between them. The Ward method minimizes within-cluster variance, aiming to place books of similar sizes or genres together for a neater arrangement.</p></li>
+<li><p><strong>Building the Hierarchy (Forming Sections)</strong>: As books are grouped, we begin to see not just individual books or pairs, but larger groups and subgroups, each akin to a branch on a family tree of book categories.</p></li>
+<li><p><strong>Creating the Dendrogram (Forming a Library)</strong>: The process continues until all books are grouped in a way that illustrates their relationships, from individual books to entire genre sections. This is represented by a dendrogram—a tree-like diagram that records the sequences of merges.</p></li>
+<li><p><strong>Determining the Number of Clusters (Deciding on Genres)</strong>: A key advantage of hierarchical clustering is that it does not require a predetermined number of clusters. Once the dendrogram is complete, we can ‘cut’ it at a level that makes sense, choosing either broad genres or specific sub-genres based on our requirements.</p></li>
 </ol>
-<p>The pros of this method are that it doesn’t require us to predefine the number of clusters, and it gives us a visual representation of the data’s hierarchy, which can be incredibly insightful. However, this method can be demanding in terms of computation, especially with large datasets—it’s like trying to organize a library by hand. Furthermore, because it uses an agglomerative approach, decisions made early on cannot be undone without starting over, which can sometimes lead to less optimal clustering. Also, while we don’t need to specify the number of clusters upfront, we still need a criterion to decide where to ‘cut’ the dendrogram to define our clusters.</p>
-<p><strong>Pros:</strong></p>
-<ul class="simple">
-<li><p>Does not require the user to specify the number of clusters beforehand (can be chosen by analyzing the dendrogram)</p></li>
-<li><p>Provides a hierarchical representation of the data, which can be useful for understanding the relationships between clusters</p></li>
-</ul>
-<p><strong>Cons:</strong></p>
-<ul class="simple">
-<li><p>Computationally more expensive than K-means and DBSCAN, especially for large datasets</p></li>
-<li><p>Assumes that the distance between clusters can be represented by the within-cluster variance</p></li>
-<li><p>Requires number of clusters OR distance threshold</p></li>
-</ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">AgglomerativeClustering</span>
@@ -1014,155 +1105,149 @@ This is already one step more “realistic” in the sense that most commonly we
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">ward</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
-<span class="c1"># plt.savefig(&quot;example_clustering_01_hierarchical_ward.png&quot;, dpi=300, bbox_inches=&quot;tight&quot;)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f202ad52f80&gt;
-</pre></div>
-</div>
-<img alt="../_images/37ee31610ce000f9a3d61bbc563898ddfaedeb15f8442b163e1773339686361d.png" src="../_images/37ee31610ce000f9a3d61bbc563898ddfaedeb15f8442b163e1773339686361d.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">AgglomerativeClustering</span>
-
-<span class="n">ward</span> <span class="o">=</span> <span class="n">AgglomerativeClustering</span><span class="p">(</span><span class="n">linkage</span><span class="o">=</span><span class="s2">&quot;ward&quot;</span><span class="p">,</span>
-                              <span class="n">n_clusters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                              <span class="n">distance_threshold</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gm</span> <span class="o">=</span> <span class="n">GaussianMixture</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">ward</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
-<span class="c1">#plt.savefig(&quot;example_clustering_01_hierarchical_ward_dist2.png&quot;, dpi=300, bbox_inches=&quot;tight&quot;)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f202adc6e00&gt;
-</pre></div>
-</div>
-<img alt="../_images/cd891beff7cc45349b9f31a3830e1e703351b9a2bfa4846aa5b413e3f7d77da9.png" src="../_images/cd891beff7cc45349b9f31a3830e1e703351b9a2bfa4846aa5b413e3f7d77da9.png" />
-</div>
-</div>
-</section>
-<section id="comparison-and-conclusion">
-<h2><span class="section-number">12.6. </span>Comparison and Conclusion<a class="headerlink" href="#comparison-and-conclusion" title="Link to this heading">#</a></h2>
-<p>In this section, we have explored four different clustering algorithms: K-means, DBSCAN, Gaussian Mixture Model (GMM) and hierarchical clustering. Each of these algorithms has its own advantages and disadvantages.</p>
-<p><strong>K-means</strong> is a simple and easy-to-understand algorithm that works well with isotropic clusters. However, it requires the user to specify the number of clusters beforehand and assumes equal-sized clusters. K-means is also sensitive to initial conditions and may converge to a local minimum.</p>
-<p><strong>DBSCAN</strong> does not require the user to specify the number of clusters and can identify clusters with arbitrary shapes. It is also robust to noise. However, DBSCAN may struggle with clusters of varying densities, and the choice of hyperparameters (epsilon and min_samples) can significantly affect the results.</p>
-<p>The <strong>Gaussian Mixture Model</strong> (GMM) is a generative probabilistic model that assumes each cluster is generated from a Gaussian distribution. GMM is more flexible than K-means and can model clusters with different shapes, sizes, and orientations. However, GMM requires the user to specify the number of clusters and is computationally more expensive.</p>
-<p><strong>Hierarchical Clustering</strong> builds a hierarchy of clusters, either agglomerative (bottom-up) or divisive (top-down), with the Ward  method being an example that minimizes the within-cluster variance. This method doesn’t require specifying the number of clusters, offering a  visual dendrogram to aid in cluster selection, though it is  computationally expensive for large datasets.</p>
-<p>In conclusion, the choice of clustering algorithm depends on the data, the problem, and the desired characteristics of the clustering solution. It is often helpful to try multiple algorithms and compare their results to select the best method for a particular problem.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.cluster.hierarchy</span> <span class="kn">import</span> <span class="n">dendrogram</span>
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
-<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">AgglomerativeClustering</span>
-
-
-<span class="k">def</span> <span class="nf">plot_dendrogram</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="c1"># Create linkage matrix and then plot the dendrogram</span>
-
-    <span class="c1"># create the counts of samples under each node</span>
-    <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">children_</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">n_samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">merge</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">children_</span><span class="p">):</span>
-        <span class="n">current_count</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">child_idx</span> <span class="ow">in</span> <span class="n">merge</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">child_idx</span> <span class="o">&lt;</span> <span class="n">n_samples</span><span class="p">:</span>
-                <span class="n">current_count</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># leaf node</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">current_count</span> <span class="o">+=</span> <span class="n">counts</span><span class="p">[</span><span class="n">child_idx</span> <span class="o">-</span> <span class="n">n_samples</span><span class="p">]</span>
-        <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_count</span>
-
-    <span class="n">linkage_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">(</span>
-        <span class="p">[</span><span class="n">model</span><span class="o">.</span><span class="n">children_</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">distances_</span><span class="p">,</span> <span class="n">counts</span><span class="p">]</span>
-    <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
-
-    <span class="c1"># Plot the corresponding dendrogram</span>
-    <span class="n">dendrogram</span><span class="p">(</span><span class="n">linkage_matrix</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Hierarchical Clustering Dendrogram&quot;</span><span class="p">)</span>
-<span class="c1"># plot the top three levels of the dendrogram</span>
-<span class="n">plot_dendrogram</span><span class="p">(</span><span class="n">ward</span><span class="p">,</span> <span class="n">truncate_mode</span><span class="o">=</span><span class="s2">&quot;level&quot;</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Number of points in node (or index of point if no parenthesis).&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Agglomerative Clustering with distance_threshold=10&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c596b6640569105326317e2cc64e704e5d8dce6ab0ae52aeed41418c396e879f.png" src="../_images/c596b6640569105326317e2cc64e704e5d8dce6ab0ae52aeed41418c396e879f.png" />
+<img alt="../_images/41fe56893c935135c85930513c06e8d7d9d013f5131ba5b44feed1c6522ef949.png" src="../_images/41fe56893c935135c85930513c06e8d7d9d013f5131ba5b44feed1c6522ef949.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<section id="id1">
+<h4><span class="section-number">12.5.1.1. </span>Parameter variation<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<p>Just as the other clustering techniques, hierarchical clustering also requires defining key parameters. In the present case the <code class="docutils literal notranslate"><span class="pre">distance_threshold</span></code> is one of the most important parameters to explore and choose. As the following figure illustrates, this parameters has a drastic impact on the number of clusters found.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_distance</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">db</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="n">max_distance</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="c1"># Extract a mask of core cluster members</span>
-<span class="n">core_samples_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
-<span class="n">core_samples_mask</span><span class="p">[</span><span class="n">db</span><span class="o">.</span><span class="n">core_sample_indices_</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="c1"># Extract labels (-1 is used for outliers)</span>
-<span class="n">labels</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">labels_</span>
-<span class="n">n_clusters</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">in</span> <span class="n">labels</span> <span class="k">else</span> <span class="mi">0</span><span class="p">)</span>
-<span class="n">unique_labels</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">AgglomerativeClustering</span>
 
-<span class="c1"># Plot up the results!</span>
-<span class="n">min_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
-<span class="n">max_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
-<span class="n">min_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="n">max_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
 
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;ko&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">min_x</span><span class="p">,</span> <span class="n">max_x</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">min_y</span><span class="p">,</span> <span class="n">max_y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Original Data&#39;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+<span class="c1"># Create a subplot grid</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
-<span class="c1"># The following is just a fancy way of plotting core, edge and outliers</span>
-<span class="c1"># Credit to: http://scikit-learn.org/stable/auto_examples/cluster/plot_dbscan.html#sphx-glr-auto-examples-cluster-plot-dbscan-py</span>
-<span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Spectral</span><span class="p">(</span><span class="n">each</span><span class="p">)</span> <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_labels</span><span class="p">))]</span>
-<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">unique_labels</span><span class="p">,</span> <span class="n">colors</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-        <span class="c1"># Black used for noise.</span>
-        <span class="n">col</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="c1"># Enumerate over desired distance thresholds</span>
+<span class="n">distance_thresholds</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">distance_threshold</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">distance_thresholds</span><span class="p">):</span>
+    <span class="c1"># Fit the model</span>
+    <span class="n">ward</span> <span class="o">=</span> <span class="n">AgglomerativeClustering</span><span class="p">(</span><span class="n">linkage</span><span class="o">=</span><span class="s2">&quot;ward&quot;</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">distance_threshold</span><span class="o">=</span><span class="n">distance_threshold</span><span class="p">)</span>
+    <span class="n">ward</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-    <span class="n">class_member_mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">labels</span> <span class="o">==</span> <span class="n">k</span><span class="p">)</span>
+    <span class="c1"># Plot the results</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="n">scatter</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">ward</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    
+    <span class="c1"># Enhancements for clarity</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Agglomerative Clustering with distance_threshold=</span><span class="si">{</span><span class="n">distance_threshold</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Feature 1&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Feature 2&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">scatter</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Cluster Label&#39;</span><span class="p">)</span>
 
-    <span class="n">xy</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">class_member_mask</span> <span class="o">&amp;</span> <span class="n">core_samples_mask</span><span class="p">]</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">xy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">col</span><span class="p">),</span>
-             <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
-
-    <span class="n">xy</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">class_member_mask</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">core_samples_mask</span><span class="p">]</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xy</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">xy</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">col</span><span class="p">),</span>
-             <span class="n">markeredgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">min_x</span><span class="p">,</span> <span class="n">max_x</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">min_y</span><span class="p">,</span> <span class="n">max_y</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;DBSCAN: </span><span class="si">%d</span><span class="s1"> clusters found&#39;</span> <span class="o">%</span> <span class="n">n_clusters</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mf">0.03</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="mf">0.98</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">bottom</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../_images/9cb2171fbcfa0ebf1a194bb8d717bff894ac7f56e21d7618a5f7ab1f899dc5f0.png" src="../_images/9cb2171fbcfa0ebf1a194bb8d717bff894ac7f56e21d7618a5f7ab1f899dc5f0.png" />
+<img alt="../_images/67fe167ebce2363ef3c0c7dc8bd6a12096ceea620fddb9165b0c62a4a65fd75e.png" src="../_images/67fe167ebce2363ef3c0c7dc8bd6a12096ceea620fddb9165b0c62a4a65fd75e.png" />
 </div>
 </div>
+<p>But, what is this <em>distance threshold</em>?<br />
+This threshold here defines where we cut othe dendrogram. The lower the distance the closer this cut is to the individual datapoints and thereby the more clusters we will get. See in the following plot how the dendrogram for our specific case looks like. To increase clarity, we here truncate the dendrogram to not go fully until the individuall datapoints.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.cluster.hierarchy</span> <span class="kn">import</span> <span class="n">dendrogram</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">AgglomerativeClustering</span>
+
+<span class="k">def</span> <span class="nf">plot_dendrogram</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plots a dendrogram based on the linkage matrix derived from an AgglomerativeClustering model.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - model : AgglomerativeClustering</span>
+<span class="sd">        The hierarchical clustering model fitted from sklearn.</span>
+<span class="sd">    - **kwargs : dict</span>
+<span class="sd">        Additional keyword arguments for the scipy dendrogram function.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Number of samples</span>
+    <span class="n">n_samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+
+    <span class="c1"># Create the counts of samples under each node (non-leaf nodes)</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">children_</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">merge</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">children_</span><span class="p">):</span>
+        <span class="n">current_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">child_idx</span> <span class="ow">in</span> <span class="n">merge</span><span class="p">:</span>
+            <span class="c1"># Check if the index is a leaf node or a merged node</span>
+            <span class="k">if</span> <span class="n">child_idx</span> <span class="o">&lt;</span> <span class="n">n_samples</span><span class="p">:</span>
+                <span class="n">current_count</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># It&#39;s a leaf node</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># It&#39;s a merged node, add the count from the counts array</span>
+                <span class="n">current_count</span> <span class="o">+=</span> <span class="n">counts</span><span class="p">[</span><span class="n">child_idx</span> <span class="o">-</span> <span class="n">n_samples</span><span class="p">]</span>
+        <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_count</span>
+
+    <span class="c1"># Create the linkage matrix needed for the dendrogram</span>
+    <span class="n">linkage_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">model</span><span class="o">.</span><span class="n">children_</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">distances_</span><span class="p">,</span> <span class="n">counts</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+    <span class="c1"># Plot the dendrogram using the generated linkage matrix</span>
+    <span class="n">dendrogram</span><span class="p">(</span><span class="n">linkage_matrix</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="c1"># Plot the dendrogram</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>  <span class="c1"># Set the figure size for better visibility</span>
+<span class="n">plot_dendrogram</span><span class="p">(</span><span class="n">ward</span><span class="p">,</span>
+                <span class="n">leaf_rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span>
+                <span class="n">leaf_font_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+                <span class="n">truncate_mode</span><span class="o">=</span><span class="s2">&quot;level&quot;</span><span class="p">,</span>
+                <span class="n">p</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Hierarchical Clustering Dendrogram&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Sample index&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Distance&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/aaffd1261484cdbb58bc422d0e280e6575bc2dcd7133c6214cb2532eec212c03.png" src="../_images/aaffd1261484cdbb58bc422d0e280e6575bc2dcd7133c6214cb2532eec212c03.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="advantages-of-hierarchical-clustering">
+<h3><span class="section-number">12.5.2. </span>Advantages of Hierarchical Clustering:<a class="headerlink" href="#advantages-of-hierarchical-clustering" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Flexibility in Number of Clusters</strong>: Unlike many clustering techniques, hierarchical clustering doesn’t compel us to decide on the number of clusters at the start. This decision can be made by analyzing the dendrogram at different cuts.</p></li>
+<li><p><strong>Visual Insights</strong>: It provides a visual representation of the data hierarchy, which can be incredibly insightful for understanding the relationships between clusters.</p></li>
+</ul>
+</section>
+<section id="disadvantages-of-hierarchical-clustering">
+<h3><span class="section-number">12.5.3. </span>Disadvantages of Hierarchical Clustering:<a class="headerlink" href="#disadvantages-of-hierarchical-clustering" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Computational Intensity</strong>: This method can be computationally demanding, particularly with large datasets. It’s akin to manually organizing an extensive library.</p></li>
+<li><p><strong>Irreversibility of Merges</strong>: Once made, early decisions in the agglomerative process cannot be undone without restarting, which can sometimes lead to suboptimal clustering.</p></li>
+<li><p><strong>Decision on Cluster Cut</strong>: Despite not needing to predefine the number of clusters, a criterion is still required to decide where to cut the dendrogram, which effectively determines the final number of clusters.</p></li>
+</ul>
+</section>
+</section>
+<section id="comparison-and-conclusion">
+<h2><span class="section-number">12.6. </span>Comparison and Conclusion<a class="headerlink" href="#comparison-and-conclusion" title="Link to this heading">#</a></h2>
+<p>In this section, we have explored four different clustering algorithms: K-means, DBSCAN, Gaussian Mixture Model (GMM), and hierarchical clustering.  Each method offers unique advantages and comes with its own set of limitations.</p>
+<p><strong>K-means</strong> is a simple and easy-to-understand algorithm that works well with isotropic clusters. Its limitations include the requirement to predefine the number of clusters, sensitivity to initial conditions, and a tendency to converge to a local minimum rather than the global optimum.</p>
+<p><strong>DBSCAN</strong> stands out for not requiring the number of clusters to be specified and for its ability to identify clusters of arbitrary shapes and robustness to noise. However, DBSCAN may struggle with clusters of varying densities, and the choice of hyperparameters (epsilon and min_samples) can significantly affect the results.</p>
+<p><strong>Gaussian Mixture Models (GMM)</strong> provide a probabilistic framework that assumes each cluster follows a Gaussian distribution, offering greater flexibility than K-means in terms of cluster covariance. While GMM can model clusters of different shapes, sizes, and orientations, it requires specification of the number of clusters and is more computationally intensive.</p>
+<p><strong>Hierarchical Clustering</strong> builds a hierarchy of clusters, either agglomerative (bottom-up) or divisive (top-down), with the Ward method being an example that minimizes the within-cluster variance. This method doesn’t require specifying the number of clusters, offering a visual dendrogram to aid in cluster selection, though it is computationally expensive for large datasets.</p>
+<p>In conclusion, the choice of clustering algorithm depends on the data, the problem, and the desired characteristics of the clustering solution. It is often helpful to try multiple algorithms and compare their results to select the best method for a particular problem.</p>
 </section>
 </section>
 
@@ -1230,19 +1315,39 @@ This is already one step more “realistic” in the sense that most commonly we
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-clustering">12.1. What is clustering?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-want-to-cluster-data">12.1.1. Why do we want to cluster data?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">12.1.2. Mini-exercise</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-did-you-come-up-with">12.1.3. What did you come up with?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">12.1. Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-clustering">12.1.1. What is clustering?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-do-we-want-to-cluster-data">12.1.2. Why do we want to cluster data?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hard-and-soft-clustering">12.1.3. Hard and Soft Clustering</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">12.1.4. Mini-exercise</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kmeans-clustering">12.2. KMeans Clustering</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#very-often-clusters-are-not-that-easily-distinguishable">12.2.1. Very often, clusters are not that easily distinguishable!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-kmeans">12.2.2. Advantages of KMeans:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages-of-kmeans">12.2.3. Disadvantages of KMeans:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dbscan-density-based-spatial-clustering-of-applications-with-noise">12.3. DBSCAN (Density-Based Spatial Clustering of Applications with Noise)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-mixture-models">12.4. Gaussian mixture models</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchical-clustering-ward">12.5. Hierarchical clustering (Ward)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dbscan-density-based-spatial-clustering-of-applications-with-noise">12.3. DBSCAN (Density-Based Spatial Clustering of Applications with Noise)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameter-variation">12.3.1. Parameter variation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-dbscan">12.3.2. Advantages of DBSCAN:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages-of-dbscan">12.3.3. Disadvantages of DBSCAN:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-mixture-models">12.4. Gaussian mixture models</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-gmm">12.4.1. Advantages of GMM:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages-of-gmm">12.4.2. Disadvantages of GMM:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchical-clustering-ward">12.5. Hierarchical clustering (Ward)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-hierarchical-clustering-works">12.5.1. How Hierarchical Clustering Works:</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">12.5.1.1. Parameter variation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-hierarchical-clustering">12.5.2. Advantages of Hierarchical Clustering:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages-of-hierarchical-clustering">12.5.3. Disadvantages of Hierarchical Clustering:</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-and-conclusion">12.6. Comparison and Conclusion</a></li>
 </ul>
   </nav></div>
