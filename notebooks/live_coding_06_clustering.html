@@ -462,7 +462,13 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages-of-hierarchical-clustering">12.5.3. Disadvantages of Hierarchical Clustering:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-and-conclusion">12.6. Comparison and Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-on-actual-data">12.6. Clustering on Actual Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing">12.6.1. Data Preprocessing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-selection">12.6.2. Feature Selection</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-and-conclusion">12.7. Comparison and Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-clustering">12.8. More on Clustering</a></li>
 </ul>
             </nav>
         </div>
@@ -526,7 +532,7 @@ There is a commonly shared intuition that a “good” cluster is one where all 
 <p>We visualize the dataset using pyplot. The dataset contains three visually distinct clusters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;teal&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
@@ -535,7 +541,7 @@ There is a commonly shared intuition that a “good” cluster is one where all 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ca64842d411a8fb3bd1f996b47f3d8d10529ec71a267044f9c5aa5b69a8ab634.png" src="../_images/ca64842d411a8fb3bd1f996b47f3d8d10529ec71a267044f9c5aa5b69a8ab634.png" />
+<img alt="../_images/2a6bbc13acbdc61c6c2d4717b5882cce219a55f3076c79fc6f24e95b22c7c98b.png" src="../_images/2a6bbc13acbdc61c6c2d4717b5882cce219a55f3076c79fc6f24e95b22c7c98b.png" />
 </div>
 </div>
 <p>Assigning the three clusters in this case does not exactly feel like rocket science. We could all do this manually with a pen in no time. So, why bother to use - let alone understand or develop - algorithms for this task?</p>
@@ -616,7 +622,7 @@ Common strategies include:</p>
 <p>We visualize the resulting clustering. Each cluster is shown with a different color.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
@@ -625,7 +631,7 @@ Common strategies include:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/51106c643402e8f7c32aa322b4d74dc6ae2e769a88099a5f9e473b8e873e1e15.png" src="../_images/51106c643402e8f7c32aa322b4d74dc6ae2e769a88099a5f9e473b8e873e1e15.png" />
+<img alt="../_images/bd33dda9f09942d4325c7117de4d07f77bb0b9b95e46f23e9cd50c20062e92a2.png" src="../_images/bd33dda9f09942d4325c7117de4d07f77bb0b9b95e46f23e9cd50c20062e92a2.png" />
 </div>
 </div>
 <section id="very-often-clusters-are-not-that-easily-distinguishable">
@@ -664,7 +670,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;teal&quot;</span><span class="p">)</span>
 <span class="c1"># plt.savefig(&quot;example_clustering_01.png&quot;, dpi=300, bbox_inches=&quot;tight&quot;)</span>
@@ -672,10 +678,10 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fb5702e87c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fedbe10ae00&gt;
 </pre></div>
 </div>
-<img alt="../_images/bc3a556c83e45d510f41277dc6507dc19e26f32928396464e0740cbd04690074.png" src="../_images/bc3a556c83e45d510f41277dc6507dc19e26f32928396464e0740cbd04690074.png" />
+<img alt="../_images/ad9cda5da8ec853634fa6eabeda6c4b1118fb58b12dc4262358efbfbdedd70e7.png" src="../_images/ad9cda5da8ec853634fa6eabeda6c4b1118fb58b12dc4262358efbfbdedd70e7.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -723,7 +729,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
@@ -734,7 +740,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4a6fba8958cda9a67924ba05d272bc841214e87ae5ff44a954ec21b7a449c404.png" src="../_images/4a6fba8958cda9a67924ba05d272bc841214e87ae5ff44a954ec21b7a449c404.png" />
+<img alt="../_images/56b3cbfc31aa006c4254001bc7db881be7ed38749d0896b58760823d60de69aa.png" src="../_images/56b3cbfc31aa006c4254001bc7db881be7ed38749d0896b58760823d60de69aa.png" />
 </div>
 </div>
 <p>Once the clusters have been found (using the <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> method as done above), we can also use a k-means model to make predctions on unknown datapoints.</p>
@@ -839,7 +845,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">dbscan</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;DBSCAN clustering with epsilon=0.5 and min_samples=2&quot;</span><span class="p">)</span>
@@ -848,7 +854,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4217f7507bcf5523e192c24e7907ce8c3d187a5e5cc3849c3a61c1800a364ab6.png" src="../_images/4217f7507bcf5523e192c24e7907ce8c3d187a5e5cc3849c3a61c1800a364ab6.png" />
+<img alt="../_images/20fca0563d148b7318e975b1dc30e823d2eff595d0281e92f17d1bd05b01a1e9.png" src="../_images/20fca0563d148b7318e975b1dc30e823d2eff595d0281e92f17d1bd05b01a1e9.png" />
 </div>
 </div>
 <section id="parameter-variation">
@@ -858,7 +864,7 @@ This is already one step more “realistic” in the sense that most commonly we
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dbscan</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">dbscan</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;DBSCAN clustering with epsilon=1 and min_samples=2&quot;</span><span class="p">)</span>
@@ -867,7 +873,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0f746df8fa7113208b17a82ee4c4aa953c38c6a9290a64c653fd924d9c6fce90.png" src="../_images/0f746df8fa7113208b17a82ee4c4aa953c38c6a9290a64c653fd924d9c6fce90.png" />
+<img alt="../_images/50f529bd7e54d4875c286a57f3bc9c60df8c3c22bcc8904569618527e94adcfc.png" src="../_images/50f529bd7e54d4875c286a57f3bc9c60df8c3c22bcc8904569618527e94adcfc.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -974,7 +980,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Gaussian Mixture model with 5 components&quot;</span><span class="p">)</span>
@@ -983,13 +989,13 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e62191cd7bfdc2418a5994a93169146073657e576593c6951d87448cf06c0ee7.png" src="../_images/e62191cd7bfdc2418a5994a93169146073657e576593c6951d87448cf06c0ee7.png" />
+<img alt="../_images/eda5616dd3e859b63eae0333d987b2364b10532c6654d58fbb1f6968423e0709.png" src="../_images/eda5616dd3e859b63eae0333d987b2364b10532c6654d58fbb1f6968423e0709.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gm</span> <span class="o">=</span> <span class="n">GaussianMixture</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">gm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Gaussian Mixture model with 4 components&quot;</span><span class="p">)</span>
@@ -998,7 +1004,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e5e9f63ab271bd49df1866a802df0cd3dde682c0111ef2737152b0fae2fbdcdc.png" src="../_images/e5e9f63ab271bd49df1866a802df0cd3dde682c0111ef2737152b0fae2fbdcdc.png" />
+<img alt="../_images/006aa3595e363af6b8a196dccf84d3e1a86869b06a84f1e0b9149475e66d0083.png" src="../_images/006aa3595e363af6b8a196dccf84d3e1a86869b06a84f1e0b9149475e66d0083.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1102,7 +1108,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">ward</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Agglomerative Clustering with distance_threshold=10&quot;</span><span class="p">)</span>
@@ -1111,7 +1117,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/41fe56893c935135c85930513c06e8d7d9d013f5131ba5b44feed1c6522ef949.png" src="../_images/41fe56893c935135c85930513c06e8d7d9d013f5131ba5b44feed1c6522ef949.png" />
+<img alt="../_images/cf6d7de964825206c45a53d14cde0d1fc1c6b3eb781ce1c0ce616284d28e2e65.png" src="../_images/cf6d7de964825206c45a53d14cde0d1fc1c6b3eb781ce1c0ce616284d28e2e65.png" />
 </div>
 </div>
 <section id="id1">
@@ -1240,14 +1246,46 @@ This threshold here defines where we cut othe dendrogram. The lower the distance
 </ul>
 </section>
 </section>
+<section id="clustering-on-actual-data">
+<h2><span class="section-number">12.6. </span>Clustering on Actual Data<a class="headerlink" href="#clustering-on-actual-data" title="Link to this heading">#</a></h2>
+<p>So far, the different clustering algorithms have been introduced and applied to simple toy data to facilitate understanding of their mechanics and key characteristics. However, for these clustering algorithms to be effective on more realistic and usually more complex datasets, several additional considerations must be addressed. This includes preprocessing steps, dealing with high dimensionality, and selecting meaningful features.</p>
+<section id="data-preprocessing">
+<h3><span class="section-number">12.6.1. </span>Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Link to this heading">#</a></h3>
+<p><strong>Standardization</strong>: Most clustering algorithms, including K-means and GMM, assume that features have the same scale for them to perform optimally. Standardization (or Z-score normalization) is crucial as it scales the data to have a mean of zero and a standard deviation of one. This ensures that each feature contributes equally to the distance calculations, which is vital for distance-based algorithms.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">data_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Handling Missing Values</strong>: Real-world data often contains missing values, which can significantly affect the performance of clustering algorithms. Depending on the context, you might choose to impute missing values using the median or mode, or exclude data points or features with high rates of missingness.</p>
+<p><strong>Outlier Detection and Treatment</strong>: Outliers can skew the results of clustering algorithms, particularly those like K-means, which rely on mean values. Identifying and addressing outliers through methods such as trimming or capping can be necessary before applying clustering.</p>
+</section>
+<section id="feature-selection">
+<h3><span class="section-number">12.6.2. </span>Feature Selection<a class="headerlink" href="#feature-selection" title="Link to this heading">#</a></h3>
+<p><strong>Dimensionality Reduction</strong>: High-dimensional spaces can be problematic for clustering due to the “curse of dimensionality,” which generally leads to overfitting and poor clustering performance. Techniques such as PCA (Principal Component Analysis) or t-SNE (t-Distributed Stochastic Neighbor Embedding) can reduce the number of dimensions while retaining the essential characteristics of the data.</p>
+<p>We will look at dimensionality reduction in detail in the next section.</p>
+<p><strong>Feature Engineering</strong>: Creating new features that capture essential characteristics of the data can also enhance clustering outcomes. This might involve aggregating features, creating interaction terms, or incorporating domain-specific knowledge into feature design.</p>
+</section>
+</section>
 <section id="comparison-and-conclusion">
-<h2><span class="section-number">12.6. </span>Comparison and Conclusion<a class="headerlink" href="#comparison-and-conclusion" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">12.7. </span>Comparison and Conclusion<a class="headerlink" href="#comparison-and-conclusion" title="Link to this heading">#</a></h2>
 <p>In this section, we have explored four different clustering algorithms: K-means, DBSCAN, Gaussian Mixture Model (GMM), and hierarchical clustering.  Each method offers unique advantages and comes with its own set of limitations.</p>
 <p><strong>K-means</strong> is a simple and easy-to-understand algorithm that works well with isotropic clusters. Its limitations include the requirement to predefine the number of clusters, sensitivity to initial conditions, and a tendency to converge to a local minimum rather than the global optimum.</p>
 <p><strong>DBSCAN</strong> stands out for not requiring the number of clusters to be specified and for its ability to identify clusters of arbitrary shapes and robustness to noise. However, DBSCAN may struggle with clusters of varying densities, and the choice of hyperparameters (epsilon and min_samples) can significantly affect the results.</p>
 <p><strong>Gaussian Mixture Models (GMM)</strong> provide a probabilistic framework that assumes each cluster follows a Gaussian distribution, offering greater flexibility than K-means in terms of cluster covariance. While GMM can model clusters of different shapes, sizes, and orientations, it requires specification of the number of clusters and is more computationally intensive.</p>
 <p><strong>Hierarchical Clustering</strong> builds a hierarchy of clusters, either agglomerative (bottom-up) or divisive (top-down), with the Ward method being an example that minimizes the within-cluster variance. This method doesn’t require specifying the number of clusters, offering a visual dendrogram to aid in cluster selection, though it is computationally expensive for large datasets.</p>
 <p>In conclusion, the choice of clustering algorithm depends on the data, the problem, and the desired characteristics of the clustering solution. It is often helpful to try multiple algorithms and compare their results to select the best method for a particular problem.</p>
+</section>
+<section id="more-on-clustering">
+<h2><span class="section-number">12.8. </span>More on Clustering<a class="headerlink" href="#more-on-clustering" title="Link to this heading">#</a></h2>
+<p>Not surprisingly, there is much more to learn and explore about clustering algorithms and their applications.
+For a start, it makes sense to have a look at some of the other clustering algorithms what can be found within <a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html">Scikit-learn’s clustering module</a>.</p>
+<p>There is also plenty of books, tutorials, articles on various clustering techniques. Here just one more recent scientific review article on different clustering techniques:</p>
+<ul class="simple">
+<li><p>“A review of clustering techniques and developments” by Amit Saxena and Mukesh Prasad and Akshansh Gupta and Neha Bharill and Om Prakash Patel and Aruna Tiwari and Meng Joo Er and Weiping Ding and Chin-Teng Lin, 2017, Neurocomputing, Vol.267, https://doi.org/10.1016/j.neucom.2017.06.053 <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id40" title="Amit Saxena, Mukesh Prasad, Akshansh Gupta, Neha Bharill, Om Prakash Patel, Aruna Tiwari, Meng Joo Er, Weiping Ding, and Chin-Teng Lin. A review of clustering techniques and developments. Neurocomputing, 267:664–681, 2017.">Saxena <em>et al.</em>, 2017</a>]</span></p></li>
+</ul>
 </section>
 </section>
 
@@ -1348,7 +1386,13 @@ This threshold here defines where we cut othe dendrogram. The lower the distance
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages-of-hierarchical-clustering">12.5.3. Disadvantages of Hierarchical Clustering:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-and-conclusion">12.6. Comparison and Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clustering-on-actual-data">12.6. Clustering on Actual Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing">12.6.1. Data Preprocessing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-selection">12.6.2. Feature Selection</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-and-conclusion">12.7. Comparison and Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-clustering">12.8. More on Clustering</a></li>
 </ul>
   </nav></div>
 
