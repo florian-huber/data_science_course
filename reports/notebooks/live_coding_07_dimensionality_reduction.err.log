@@ -1,0 +1,44 @@
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/data_science/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/runner/micromamba/envs/data_science/lib/python3.10/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/runner/micromamba/envs/data_science/lib/python3.10/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "/home/runner/micromamba/envs/data_science/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/home/runner/micromamba/envs/data_science/lib/python3.10/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/runner/micromamba/envs/data_science/lib/python3.10/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/runner/micromamba/envs/data_science/lib/python3.10/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import umap
+
+n_neighbors_values = [2, 5, 10, 50, 100]
+fig, axs = plt.subplots(1, len(n_neighbors_values), figsize=(4 * len(n_neighbors_values), 4))
+
+for i, n_neighbors in enumerate(n_neighbors_values):
+    reducer = umap.UMAP(n_components=2, n_neighbors=n_neighbors, init="random")
+    X_umap = reducer.fit_transform(gen_data.T)
+
+    axs[i].scatter(X_umap[:, 0], X_umap[:, 1], alpha=0.5, c=labels)
+    axs[i].set_title(f"n_neighbors: {n_neighbors}")
+    axs[i].grid(True)
+
+plt.tight_layout()
+plt.show()
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[23], line 1[0m
+[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mumap[39;00m
+[1;32m      3[0m n_neighbors_values [38;5;241m=[39m [[38;5;241m2[39m, [38;5;241m5[39m, [38;5;241m10[39m, [38;5;241m50[39m, [38;5;241m100[39m]
+[1;32m      4[0m fig, axs [38;5;241m=[39m plt[38;5;241m.[39msubplots([38;5;241m1[39m, [38;5;28mlen[39m(n_neighbors_values), figsize[38;5;241m=[39m([38;5;241m4[39m [38;5;241m*[39m [38;5;28mlen[39m(n_neighbors_values), [38;5;241m4[39m))
+
+[0;31mModuleNotFoundError[0m: No module named 'umap'
+
