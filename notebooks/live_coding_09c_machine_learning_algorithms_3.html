@@ -531,23 +531,26 @@ Entropy(S) = −\Sigma_{i=1}^N p_i ln (p_i)
 \[
 Entropy(S)= - (0.5 \cdot ln(0.5) + 0.5 \cdot ln(0.5)) = 1
 \]</div>
-<p>If we then only look at the left group after the split, this becomes for a split at <span class="math notranslate nohighlight">\(x &gt; 3\)</span>:
-$<span class="math notranslate nohighlight">\(
+<p>If we then only look at the left group after the split at <span class="math notranslate nohighlight">\(x &gt; 3\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
 Entropy(S)= - (2/5 \cdot ln(2/5) + 3/5 \cdot ln(3/5)) \approx 0.971
-\)</span>$</p>
-<p>For a split at <span class="math notranslate nohighlight">\(x &gt; 3.5\)</span> the entropy becomes
-$<span class="math notranslate nohighlight">\(
+\]</div>
+<p>For a split at <span class="math notranslate nohighlight">\(x &gt; 3.5\)</span> the entropy becomes</p>
+<div class="math notranslate nohighlight">
+\[
 Entropy(S)= - 2/2 \cdot ln(2/2) = 0
-\)</span>$
-In comparison, it is clear that the second example represents a far greater change of entropy making this split favorable.</p>
+\]</div>
+<p>In comparison, it is clear that the second example represents a far greater change of entropy making this split favorable.</p>
 </section>
 </section>
 <section id="from-entropy-to-information-gain">
 <h3><span class="section-number">18.1.3. </span>From Entropy to Information Gain<a class="headerlink" href="#from-entropy-to-information-gain" title="Link to this heading">#</a></h3>
-<p>In fact, the entropy itself has to be weighted to avoid only looking for splits with clear but very tiny groups at the end. One option to do so is by using the <em>information gain</em>:
-$<span class="math notranslate nohighlight">\(
+<p>In fact, the entropy itself has to be weighted to avoid only looking for splits with clear but very tiny groups at the end. One option to do so is by using the <em>information gain</em>:</p>
+<div class="math notranslate nohighlight">
+\[
 IG = E (parent) - \Sigma w_i E(child_i)
-\)</span>$</p>
+\]</div>
 </section>
 <section id="advantages-and-disadvantages-of-decision-trees">
 <h3><span class="section-number">18.1.4. </span>Advantages and Disadvantages of Decision Trees<a class="headerlink" href="#advantages-and-disadvantages-of-decision-trees" title="Link to this heading">#</a></h3>
