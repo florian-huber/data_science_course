@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>17. Machine Learning - Common Algorithms II (Linear Models) &#8212; Introduction to Data Science (for not-yet-scientists)</title>
+    <title>18. Machine Learning - Common Algorithms III (Decision Trees) &#8212; Introduction to Data Science (for not-yet-scientists)</title>
   
   
   
@@ -59,11 +59,11 @@
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/live_coding_09b_machine_learning_algorithms_2';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/live_coding_09c_machine_learning_algorithms_3';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="18. Machine Learning - Common Algorithms III (Decision Trees)" href="live_coding_09c_machine_learning_algorithms_3.html" />
-    <link rel="prev" title="16. Machine Learning - Common Algorithms" href="live_coding_09_machine_learning_algorithms.html" />
+    <link rel="next" title="19. Introduction to Working with Text Data" href="live_coding_10_working_with_text_data.html" />
+    <link rel="prev" title="17. Machine Learning - Common Algorithms II (Linear Models)" href="live_coding_09b_machine_learning_algorithms_2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -208,8 +208,8 @@
 <li class="toctree-l1"><a class="reference internal" href="live_coding_07_dimensionality_reduction.html">14. Dimensionality Reduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_08_machine_learning.html">15. Machine Learning - Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09_machine_learning_algorithms.html">16. Machine Learning - Common Algorithms</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Machine Learning - Common Algorithms II (Linear Models)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_09c_machine_learning_algorithms_3.html">18. Machine Learning - Common Algorithms III (Decision Trees)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_09b_machine_learning_algorithms_2.html">17. Machine Learning - Common Algorithms II (Linear Models)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">18. Machine Learning - Common Algorithms III (Decision Trees)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="nav bd-sidenav">
@@ -308,7 +308,7 @@
       
       
       
-      <li><a href="https://github.com/florian-huber/data_science_course/issues/new?title=Issue%20on%20page%20%2Fnotebooks/live_coding_09b_machine_learning_algorithms_2.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/florian-huber/data_science_course/issues/new?title=Issue%20on%20page%20%2Fnotebooks/live_coding_09c_machine_learning_algorithms_3.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -338,7 +338,7 @@
       
       
       
-      <li><a href="../_sources/notebooks/live_coding_09b_machine_learning_algorithms_2.ipynb" target="_blank"
+      <li><a href="../_sources/notebooks/live_coding_09c_machine_learning_algorithms_3.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -422,7 +422,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Machine Learning - Common Algorithms II (Linear Models)</h1>
+    <h1>Machine Learning - Common Algorithms III (Decision Trees)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -432,21 +432,26 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-models">17.1. Linear Models</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">17.2. Linear Regression</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pros-cons-caveats">17.2.1. Pros, Cons, Caveats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-decision-tree">18.1. Building a Decision Tree</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automated-decision-tree-construction">18.1.1. Automated Decision Tree Construction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entropy">18.1.2. Entropy</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-entropy">18.1.2.1. What is Entropy?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-entropy-work-in-decision-trees">18.1.2.2. How Does Entropy Work in Decision Trees?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example">18.1.2.3. Example:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-example">17.3. Hands-on Example</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-inspection-cleaning">17.3.1. Data Inspection &amp; Cleaning</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">17.3.2. Train/Test split</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-a-model-and-make-predictions">17.3.3. Train a model (and make predictions)</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-has-the-model-learned">17.3.3.1. What has the model “learned”?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-entropy-to-information-gain">18.1.3. From Entropy to Information Gain</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-and-disadvantages-of-decision-trees">18.1.4. Advantages and Disadvantages of Decision Trees</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">17.3.4. Model evaluation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-example">18.2. Hands-on Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-inspection-cleaning">18.2.1. Data Inspection &amp; Cleaning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">18.2.2. Train/Test split</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-a-model-and-make-predictions">18.2.3. Train a model (and make predictions)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">18.2.4. Model evaluation</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-best-part-about-trees-look-at-them">18.3. The best part about trees: look at them!</a></li>
 </ul>
             </nav>
         </div>
@@ -458,66 +463,117 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="machine-learning-common-algorithms-ii-linear-models">
-<h1><span class="section-number">17. </span>Machine Learning - Common Algorithms II (Linear Models)<a class="headerlink" href="#machine-learning-common-algorithms-ii-linear-models" title="Link to this heading">#</a></h1>
-<p>We first looked at k-nearest neighbors (k-NN) and applied it to a simple dataset by using the Scikit-Learn implementation.
-Scikit-Learn provides many more machine learning models, and all are relatively easy to use from a coding perspective <span id="id1">[]</span>.</p>
-<p>The supervised models (see <a class="reference external" href="https://scikit-learn.org/stable/supervised_learning.html">the Scikit-Learn guide</a>) are usually handled in a very similar way. We first train a model using <code class="docutils literal notranslate"><span class="pre">model.fit(X,</span> <span class="pre">y)</span></code> where <code class="docutils literal notranslate"><span class="pre">X</span></code> is our training data and <code class="docutils literal notranslate"><span class="pre">y</span></code> our targets or labels. Predictions on new data <code class="docutils literal notranslate"><span class="pre">X_new</span></code> are generated using <code class="docutils literal notranslate"><span class="pre">model.predict(X_new)</span></code>.</p>
-<p>In most cases, the main difficulty is not the code part. It is the right choice of an algorithm and the proper preparation of the input data.
-One thing that can lead to quite embarrassing outcomes, but also to drastic failure of a project, is the use of machine learning models without a proper understanding of how they work. A good data scientist will develop an intuition over time for what type of models work well for a certain task and dataset. This is nothing that can be developed within a few days or weeks, but we can set a good starting point here.</p>
-<section id="linear-models">
-<h2><span class="section-number">17.1. </span>Linear Models<a class="headerlink" href="#linear-models" title="Link to this heading">#</a></h2>
-<p>Linear models are a cornerstone of machine learning, offering a simple yet powerful approach for both regression and classification tasks. They are based on the principle of linear combination of input features to predict an output. These models are favored for their interpretability, computational efficiency, and the foundational role they play in understanding complex machine learning concepts.</p>
-</section>
-<section id="linear-regression">
-<h2><span class="section-number">17.2. </span>Linear Regression<a class="headerlink" href="#linear-regression" title="Link to this heading">#</a></h2>
-<p>Linear regression is one of the simplest and most fundamental machine learning algorithms. Whenever you had a calculator or a program to find a linear fit through many datapoints, that was, in principle, already a linear regression model. It is used for predictive modeling, specifically for forecasting a quantitative response based on one or more predictor variables (features). The essence of linear regression lies in fitting a linear equation to the observed data. The equation takes the form:</p>
-<div class="math notranslate nohighlight">
-\[
- y=\beta_0​ + \beta_1 ​x_1 ​+ \beta_2 ​x_2​ + ... + \beta_n ​x_n ​+ \epsilon
-\]</div>
-<p>Here, <span class="math notranslate nohighlight">\(y\)</span> represents the dependent variable we aim to predict, <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span>, … , <span class="math notranslate nohighlight">\(x_n\)</span> are the independent variables (features), <span class="math notranslate nohighlight">\(\beta_0\)</span> is the y-intercept, <span class="math notranslate nohighlight">\(\beta_1\)</span>, <span class="math notranslate nohighlight">\(\beta_2\)</span>,…,<span class="math notranslate nohighlight">\(\beta_n\)</span> are the coefficients that represent the weight of each feature in predicting the target variable, and <span class="math notranslate nohighlight">\(\epsilon\)</span> is the error term, capturing the difference between the observed and predicted values.</p>
-<p>The goal of linear regression is to find the best-fitting line through the data points that minimizes the sum of the squared differences between the observed and predicted values, known as the least squares criterion.</p>
-<p><strong>But how does the algorithm learn from the data?</strong>
-Linear regression “learns” from the data by adjusting the coefficients (<span class="math notranslate nohighlight">\(β\)</span> values) to minimize the cost function, typically the mean squared error (MSE) between the predicted and actual values of the dependent variable. The learning process involves solving for the coefficients that result in the best fit. This can be achieved through various methods, including gradient descent or more direct mathematical approaches like the Ordinary Least Squares (OLS) method. Such a process is an iterative process, as illustrated in <a class="reference internal" href="#fig-linear-regression-fitting"><span class="std std-numref">Fig. 17.1</span></a>.</p>
-<p>The illustrated example used one-dimensional data (<span class="math notranslate nohighlight">\(x_1\)</span>) which is used to model a one-dimensional label (<span class="math notranslate nohighlight">\(y\)</span>). Here, only <span class="math notranslate nohighlight">\(\beta_0\)</span> and <span class="math notranslate nohighlight">\(\beta_1\)</span> would need to be learned. In practice, however, most datasets we use will be of much higher dimensionality and the resulting models will have to learn many coefficients.</p>
-<figure class="align-default" id="fig-linear-regression-fitting">
-<img alt="../_images/fig_linear_regression_fitting.png" src="../_images/fig_linear_regression_fitting.png" />
+  <section class="tex2jax_ignore mathjax_ignore" id="machine-learning-common-algorithms-iii-decision-trees">
+<h1><span class="section-number">18. </span>Machine Learning - Common Algorithms III (Decision Trees)<a class="headerlink" href="#machine-learning-common-algorithms-iii-decision-trees" title="Link to this heading">#</a></h1>
+<p>Decision Trees are intuitive and easily interpretable models that mimic human decision-making processes. They work by partitioning the data into subsets that contain instances with similar values. This is done through a series of questions that segment the data based on feature values, ultimately leading to a decision at each leaf node. A simple example is shown in <a class="reference internal" href="#fig-decision-tree-example"><span class="std std-numref">Fig. 18.1</span></a>.</p>
+<figure class="align-default" id="fig-decision-tree-example">
+<img alt="../_images/fig_decision_tree_example.png" src="../_images/fig_decision_tree_example.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 17.1 </span><span class="caption-text">The coefficients of the linear model are learned by an iterative optimization process. A common procedure for this is the minimization of the mean squared error (errors are indicated by the yellow lines).</span><a class="headerlink" href="#fig-linear-regression-fitting" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 18.1 </span><span class="caption-text">Decision trees are very intuitive to understand, but also to create! They can, in principle, both be designed and used manually. This sketch shows a very basic student classifier supposed to distinguish professors, employees, and students on campus. Admittedly, it will perform rather poorly, but you’ll get the idea.</span><a class="headerlink" href="#fig-decision-tree-example" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<hr class="docutils" />
-<section id="pros-cons-caveats">
-<h3><span class="section-number">17.2.1. </span>Pros, Cons, Caveats<a class="headerlink" href="#pros-cons-caveats" title="Link to this heading">#</a></h3>
-<p>One of the main advantages of Linear Regression models lies in the simplicity of the concept. It is very easy to understand what such a model does, and computationally, it is very efficient.</p>
-<p>Unlike k-NN, linear regression models learn one coefficient per input feature. As a result, such linear models are not sensitive to features of different scales, and rescaling is not required.</p>
-<p>However, linear models come with some important limitations.  
-Their main issue is, that they are often just <em>too</em> simple to describe data well enough because, very often, relationships between features or features and labels are not linear <a class="reference internal" href="#fig-linear-regression-issues"><span class="std std-numref">Fig. 17.2</span></a>. And, in contrast to k-NN, linear models can output predictions that are nonsensical or impossible (e.g. negative heights, prices, physically impossible temperatures etc.). Since they will always output something, they also come at a risk of making overconfident predictions, so predictions for datapoints that are very different from all training samples.</p>
-<figure class="align-default" id="fig-linear-regression-issues">
-<img alt="../_images/fig_linear_regression_issues.png" src="../_images/fig_linear_regression_issues.png" />
+<section id="building-a-decision-tree">
+<h2><span class="section-number">18.1. </span>Building a Decision Tree<a class="headerlink" href="#building-a-decision-tree" title="Link to this heading">#</a></h2>
+<p>How can we build a decision tree, say to distinguish red squares from blue triangles in <a class="reference internal" href="#fig-decision-tree-first-steps"><span class="std std-numref">Fig. 18.2</span></a>?</p>
+<figure class="align-default" id="fig-decision-tree-first-steps">
+<img alt="../_images/fig_decision_tree_first_steps.png" src="../_images/fig_decision_tree_first_steps.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 17.2 </span><span class="caption-text">The coefficients of the linear model are learned by an iterative optimization process. A common procedure for this is the minimization of the mean squared error (errors are indicated by the yellow lines).</span><a class="headerlink" href="#fig-linear-regression-issues" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 18.2 </span><span class="caption-text">To design a decision tree we could search for suitable decision boundaries that separate one species from the others (if the task is classification). After a first step (<strong>A</strong>), we will iteratively continue to <strong>B</strong> and further.</span><a class="headerlink" href="#fig-decision-tree-first-steps" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>That seems to work OK. But how could we automate this? What could be a good algorithm to find good decision boundaries for us?</p>
+<section id="automated-decision-tree-construction">
+<h3><span class="section-number">18.1.1. </span>Automated Decision Tree Construction<a class="headerlink" href="#automated-decision-tree-construction" title="Link to this heading">#</a></h3>
+<p>To automate the construction of a decision tree, we need an algorithm that can systematically find the best features to split the data. Here’s how it typically works:</p>
+<ul class="simple">
+<li><p><strong>Choose the Best Split:</strong> The algorithm evaluates all possible splits for each feature and selects the one that best separates the classes. This is often done using criteria like Gini impurity or entropy. In the following part the entropy will be explained in more detail.</p></li>
+<li><p><strong>Split the Data:</strong> Once the best split is found, the data is divided into two subsets, and the process is repeated recursively for each subset.</p></li>
+<li><p><strong>Stopping Criteria:</strong> The recursion continues until a stopping criterion is met, such as a maximum tree depth or a minimum number of samples per node.</p></li>
+</ul>
+</section>
+<section id="entropy">
+<h3><span class="section-number">18.1.2. </span>Entropy<a class="headerlink" href="#entropy" title="Link to this heading">#</a></h3>
+<p>Entropy is a key concept used in decision trees to measure the impurity or disorder within a set of data. It originates from information theory, where it quantifies the amount of uncertainty or randomness in a system. In the context of decision trees, entropy helps to determine how a dataset should be split to create the most informative and efficient structure.</p>
+<section id="what-is-entropy">
+<h4><span class="section-number">18.1.2.1. </span>What is Entropy?<a class="headerlink" href="#what-is-entropy" title="Link to this heading">#</a></h4>
+<p>Entropy, in the context of decision trees, is defined as:</p>
+<div class="math notranslate nohighlight">
+\[
+Entropy(S) = −\Sigma_{i=1}^N p_i ln (p_i)
+\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(S\)</span> is the set of data.</p></li>
+<li><p><span class="math notranslate nohighlight">\(N\)</span> is the number of classes in the dataset.</p></li>
+<li><p><span class="math notranslate nohighlight">\(p_i\)</span> is the proportion of instances belonging to class <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
+</ul>
+</section>
+<section id="how-does-entropy-work-in-decision-trees">
+<h4><span class="section-number">18.1.2.2. </span>How Does Entropy Work in Decision Trees?<a class="headerlink" href="#how-does-entropy-work-in-decision-trees" title="Link to this heading">#</a></h4>
+<p>When building a decision tree, the goal is to split the data in a way that results in the highest information gain. Information gain is the reduction in entropy from a prior state (before the split) to a post-split state (after the split). Lower entropy means that the subsets are more homogenous (i.e., contain more instances of a single class), which is desirable.</p>
+<ol class="arabic simple">
+<li><p><strong>Initial Entropy</strong>: Calculate the entropy of the entire dataset before any splits.</p></li>
+<li><p><strong>Entropy After Split</strong>: For each possible split, calculate the entropy of the resulting subsets.</p></li>
+<li><p><strong>Information Gain</strong>: Compute the information gain by comparing the initial entropy with the entropy after the split. The split that results in the highest information gain is chosen because it most effectively reduces the disorder.</p></li>
+</ol>
+</section>
+<section id="example">
+<h4><span class="section-number">18.1.2.3. </span>Example:<a class="headerlink" href="#example" title="Link to this heading">#</a></h4>
+<p>Suppose we have a dataset with two classes, squares and triangles. Let’s compare two possible splits in <a class="reference internal" href="#fig-decision-tree-entropy"><span class="std std-numref">Fig. 18.3</span></a>.</p>
+<figure class="align-default" id="fig-decision-tree-entropy">
+<img alt="../_images/fig_decision_tree_entropy.png" src="../_images/fig_decision_tree_entropy.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 18.3 </span><span class="caption-text">We here compare two possible splits (x &gt; 3 or x &gt; 3.5) to decide which one is better based on the entropy.</span><a class="headerlink" href="#fig-decision-tree-entropy" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>If our dataset has an equal number of instances from each class, the entropy will be at its maximum, indicating high disorder. This is exactly what we start with in the beginning where we have 10 squares and 10 triangles. The probability to draw a square (or a triangle) is exactly 0.5.</p>
+<div class="math notranslate nohighlight">
+\[
+Entropy(S)= - (0.5 \cdot ln(0.5) + 0.5 \cdot ln(0.5)) = 1
+\]</div>
+<p>If we then only look at the left group after the split, this becomes for a split at <span class="math notranslate nohighlight">\(x &gt; 3\)</span>:
+$<span class="math notranslate nohighlight">\(
+Entropy(S)= - (2/5 \cdot ln(2/5) + 3/5 \cdot ln(3/5)) \approx 0.971
+\)</span>$</p>
+<p>For a split at <span class="math notranslate nohighlight">\(x &gt; 3.5\)</span> the entropy becomes
+$<span class="math notranslate nohighlight">\(
+Entropy(S)= - 2/2 \cdot ln(2/2) = 0
+\)</span>$
+In comparison, it is clear that the second example represents a far greater change of entropy making this split favorable.</p>
+</section>
+</section>
+<section id="from-entropy-to-information-gain">
+<h3><span class="section-number">18.1.3. </span>From Entropy to Information Gain<a class="headerlink" href="#from-entropy-to-information-gain" title="Link to this heading">#</a></h3>
+<p>In fact, the entropy itself has to be weighted to avoid only looking for splits with clear but very tiny groups at the end. One option to do so is by using the <em>information gain</em>:
+$<span class="math notranslate nohighlight">\(
+IG = E (parent) - \Sigma w_i E(child_i)
+\)</span>$</p>
+</section>
+<section id="advantages-and-disadvantages-of-decision-trees">
+<h3><span class="section-number">18.1.4. </span>Advantages and Disadvantages of Decision Trees<a class="headerlink" href="#advantages-and-disadvantages-of-decision-trees" title="Link to this heading">#</a></h3>
+<figure class="align-default" id="fig-decision-tree-issues">
+<img alt="../_images/fig_decision_tree_issues.png" src="../_images/fig_decision_tree_issues.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 18.4 </span><span class="caption-text">Decision trees come with several possible shortcomings. When their depth is not limited they have a high risk of overfitting on the training data because they can in principle separate each data point and thereby memorize training data.</span><a class="headerlink" href="#fig-decision-tree-issues" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Pros:</strong></p>
 <ul class="simple">
-<li><p><strong>Simplicity and interpretability:</strong> The linear regression model is straightforward to understand and interpret, making it an excellent starting point for predictive modeling.</p></li>
-<li><p><strong>Computational efficiency:</strong> It is computationally inexpensive to train and predict with linear regression, allowing it to handle large datasets effectively.</p></li>
-<li><p><strong>Continuous and categorical data:</strong> It can handle both types of data, with categorical variables often incorporated through dummy coding.</p></li>
+<li><p><strong>Interpretability</strong>: Decision trees are easy to understand and visualize, making them useful for communicating results.</p></li>
+<li><p><strong>Versatility</strong>: They can handle both numerical and categorical data without needing feature scaling.</p></li>
+<li><p><strong>Non-linear Relationships</strong>: Capable of capturing complex decision boundaries.</p></li>
 </ul>
 <p><strong>Cons:</strong></p>
 <ul class="simple">
-<li><p><strong>Assumption of linearity:</strong> The biggest limitation is the assumption that there is a linear relationship between the dependent and independent variables. This assumption does not hold for many real-world scenarios.</p></li>
-<li><p><strong>Outliers sensitivity:</strong> Linear regression is sensitive to outliers in the data, which can significantly affect the regression line and coefficients.</p></li>
-<li><p><strong>Impossible predictions &amp; Overconfidence:</strong> Linear models can easily output values far outsize the desired or possible ranges. This is here linked to over-confidence when data is used with the model that is far away from all training data.</p></li>
+<li><p><strong>Overfitting</strong>: Decision trees can easily become too complex and overfit the training data, especially if they are very deep.</p></li>
+<li><p><strong>Instability</strong>: Small changes in the data can result in completely different trees.</p></li>
+<li><p><strong>Bias</strong>: They can be biased towards dominant classes in imbalanced datasets.</p></li>
 </ul>
 </section>
 </section>
 <section id="hands-on-example">
-<h2><span class="section-number">17.3. </span>Hands-on Example<a class="headerlink" href="#hands-on-example" title="Link to this heading">#</a></h2>
-<p>We here again work with the <a class="reference external" href="https://allisonhorst.github.io/palmerpenguins/"><code class="docutils literal notranslate"><span class="pre">Penguin</span> <span class="pre">Dataset</span></code></a> <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id37" title="Allison Marie Horst, Alison Presmanes Hill, and Kristen B Gorman. palmerpenguins: Palmer Archipelago (Antarctica) penguin data. 2020. R package version 0.1.0. URL: https://allisonhorst.github.io/palmerpenguins/, doi:10.5281/zenodo.3960218.">Horst <em>et al.</em>, 2020</a>]</span>. But instead of predicting the species (which is a categorical value), we will try to predict numerical values.
-This will create a <em>regression</em> task instead of a classification task.</p>
+<h2><span class="section-number">18.2. </span>Hands-on Example<a class="headerlink" href="#hands-on-example" title="Link to this heading">#</a></h2>
+<p>We here again work with the <a class="reference external" href="https://allisonhorst.github.io/palmerpenguins/"><code class="docutils literal notranslate"><span class="pre">Penguin</span> <span class="pre">Dataset</span></code></a> <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id37" title="Allison Marie Horst, Alison Presmanes Hill, and Kristen B Gorman. palmerpenguins: Palmer Archipelago (Antarctica) penguin data. 2020. R package version 0.1.0. URL: https://allisonhorst.github.io/palmerpenguins/, doi:10.5281/zenodo.3960218.">Horst <em>et al.</em>, 2020</a>]</span>, now again to predict the species.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -530,7 +586,7 @@ This will create a <em>regression</em> task instead of a classification task.</p
 </div>
 </div>
 <section id="data-inspection-cleaning">
-<h3><span class="section-number">17.3.1. </span>Data Inspection &amp; Cleaning<a class="headerlink" href="#data-inspection-cleaning" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.2.1. </span>Data Inspection &amp; Cleaning<a class="headerlink" href="#data-inspection-cleaning" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;../datasets/penguins_size.csv&quot;</span>  <span class="c1"># contains some changes with respect to the original dataset!</span>
@@ -543,9 +599,9 @@ This will create a <em>regression</em> task instead of a classification task.</p
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
 
-<span class="n">label_name</span> <span class="o">=</span> <span class="s2">&quot;flipper_length_mm&quot;</span>
+<span class="n">label_name</span> <span class="o">=</span> <span class="s2">&quot;species&quot;</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">label_name</span><span class="p">]</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="s2">&quot;island&quot;</span><span class="p">,</span> <span class="n">label_name</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="s2">&quot;island&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">X</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">])[</span><span class="s2">&quot;FEMALE&quot;</span><span class="p">]</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;sex&quot;</span><span class="p">:</span> <span class="s2">&quot;female&quot;</span><span class="p">})</span>
 <span class="n">X</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -573,6 +629,7 @@ This will create a <em>regression</em> task instead of a classification task.</p
       <th></th>
       <th>culmen_length_mm</th>
       <th>culmen_depth_mm</th>
+      <th>flipper_length_mm</th>
       <th>body_mass_g</th>
       <th>female</th>
     </tr>
@@ -582,6 +639,7 @@ This will create a <em>regression</em> task instead of a classification task.</p
       <th>0</th>
       <td>39.1</td>
       <td>18.7</td>
+      <td>181.0</td>
       <td>3750.0</td>
       <td>0</td>
     </tr>
@@ -589,6 +647,7 @@ This will create a <em>regression</em> task instead of a classification task.</p
       <th>1</th>
       <td>39.5</td>
       <td>17.4</td>
+      <td>186.0</td>
       <td>3800.0</td>
       <td>1</td>
     </tr>
@@ -596,6 +655,7 @@ This will create a <em>regression</em> task instead of a classification task.</p
       <th>2</th>
       <td>40.3</td>
       <td>18.0</td>
+      <td>195.0</td>
       <td>3250.0</td>
       <td>1</td>
     </tr>
@@ -603,6 +663,7 @@ This will create a <em>regression</em> task instead of a classification task.</p
       <th>4</th>
       <td>36.7</td>
       <td>19.3</td>
+      <td>193.0</td>
       <td>3450.0</td>
       <td>1</td>
     </tr>
@@ -610,6 +671,7 @@ This will create a <em>regression</em> task instead of a classification task.</p
       <th>5</th>
       <td>39.3</td>
       <td>20.6</td>
+      <td>190.0</td>
       <td>3650.0</td>
       <td>0</td>
     </tr>
@@ -619,7 +681,7 @@ This will create a <em>regression</em> task instead of a classification task.</p
 </div>
 </section>
 <section id="train-test-split">
-<h3><span class="section-number">17.3.2. </span>Train/Test split<a class="headerlink" href="#train-test-split" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.2.2. </span>Train/Test split<a class="headerlink" href="#train-test-split" title="Link to this heading">#</a></h3>
 <p>As done before, we will simply split the data into a training set and a test set.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -639,20 +701,20 @@ This will create a <em>regression</em> task instead of a classification task.</p
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((250, 4), (84, 4), (250,), (84,))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((250, 5), (84, 5), (250,), (84,))
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="train-a-model-and-make-predictions">
-<h3><span class="section-number">17.3.3. </span>Train a model (and make predictions)<a class="headerlink" href="#train-a-model-and-make-predictions" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.2.3. </span>Train a model (and make predictions)<a class="headerlink" href="#train-a-model-and-make-predictions" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
 
-<span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">tree</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">max_depth</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">tree</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1061,115 +1123,99 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;LinearRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.linear_model.LinearRegression.html">?<span>Documentation for LinearRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>LinearRegression()</pre></div> </div></div></div></div></div></div>
-</div>
-<section id="what-has-the-model-learned">
-<h4><span class="section-number">17.3.3.1. </span>What has the model “learned”?<a class="headerlink" href="#what-has-the-model-learned" title="Link to this heading">#</a></h4>
-<p>Our model takes numerical input, in this case with 4 dimensions (4 features –&gt; see <code class="docutils literal notranslate"><span class="pre">X_train.shape</span></code>).<br />
-Through the training, which here is simply an optimization of the linear fit, our model has then learned one coefficient per input. These are the before-mentioned values for <span class="math notranslate nohighlight">\(\beta_1\)</span> to <span class="math notranslate nohighlight">\(\beta_4\)</span> in this case.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.56942041, -1.5552058 ,  0.01114168, -0.02814116])
-</pre></div>
-</div>
-</div>
-</div>
-<p>The model has also learned the y-intercept <span class="math notranslate nohighlight">\(\beta_0\)</span>:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">intercept_</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>156.04773034515802
-</pre></div>
-</div>
-</div>
+</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>DecisionTreeClassifier(max_depth=5, random_state=0)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;DecisionTreeClassifier<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.tree.DecisionTreeClassifier.html">?<span>Documentation for DecisionTreeClassifier</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>DecisionTreeClassifier(max_depth=5, random_state=0)</pre></div> </div></div></div></div></div></div>
 </div>
 <p><strong>Compute predictions</strong><br />
 Just as before with the k-NN model, we can simply create predictions on any data of the expected size (here: 4 features).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predictions</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 <span class="n">predictions</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([193.36801925, 186.90095107, 186.96514261, 216.78177533,
-       192.5010084 , 218.96978654, 187.11302035, 188.36432361,
-       184.62538673, 223.42560836, 204.29932642, 195.77336369,
-       182.2866393 , 182.74081935, 185.65632772, 185.16122669,
-       190.24214572, 209.81139846, 196.76588675, 191.91914093,
-       190.01785114, 192.53351504, 212.30073619, 219.58809295,
-       226.64536711, 212.19702546, 222.7882205 , 224.88228114,
-       196.79434262, 194.28741805, 191.54089813, 190.14804443,
-       191.95268066, 187.10027097, 221.95745147, 187.2304965 ,
-       195.75156967, 199.25900799, 209.14328103, 189.30897673,
-       195.24710661, 186.65085722, 221.30229292, 207.25208685,
-       195.39348974, 218.42292117, 198.16769688, 222.22600408,
-       189.14585881, 187.70453709, 199.97435282, 191.37207844,
-       208.85914802, 186.89632311, 219.34255409, 191.10136301,
-       193.81986592, 189.7923519 , 193.03099497, 216.95602953,
-       193.49050434, 224.38722562, 187.15019287, 222.91529282,
-       198.19291897, 187.19884951, 188.94023249, 193.65535099,
-       186.75182794, 190.91060338, 194.4856158 , 198.11059563,
-       190.52188012, 202.63218985, 215.41547344, 212.7758582 ,
-       195.47410897, 213.25641471, 193.78951642, 202.3466731 ,
-       187.39539717, 216.12611255, 208.97056695, 197.21031903])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;Chinstrap&#39;, &#39;Adelie&#39;, &#39;Adelie&#39;, &#39;Gentoo&#39;, &#39;Chinstrap&#39;, &#39;Gentoo&#39;,
+       &#39;Chinstrap&#39;, &#39;Adelie&#39;, &#39;Adelie&#39;, &#39;Gentoo&#39;, &#39;Adelie&#39;, &#39;Adelie&#39;,
+       &#39;Adelie&#39;, &#39;Adelie&#39;, &#39;Adelie&#39;, &#39;Adelie&#39;, &#39;Adelie&#39;, &#39;Gentoo&#39;,
+       &#39;Chinstrap&#39;, &#39;Adelie&#39;, &#39;Adelie&#39;, &#39;Adelie&#39;, &#39;Gentoo&#39;, &#39;Gentoo&#39;,
+       &#39;Gentoo&#39;, &#39;Gentoo&#39;, &#39;Gentoo&#39;, &#39;Gentoo&#39;, &#39;Adelie&#39;, &#39;Adelie&#39;,
+       &#39;Chinstrap&#39;, &#39;Adelie&#39;, &#39;Chinstrap&#39;, &#39;Adelie&#39;, &#39;Gentoo&#39;, &#39;Adelie&#39;,
+       &#39;Adelie&#39;, &#39;Adelie&#39;, &#39;Gentoo&#39;, &#39;Adelie&#39;, &#39;Chinstrap&#39;, &#39;Adelie&#39;,
+       &#39;Gentoo&#39;, &#39;Gentoo&#39;, &#39;Chinstrap&#39;, &#39;Gentoo&#39;, &#39;Adelie&#39;, &#39;Gentoo&#39;,
+       &#39;Adelie&#39;, &#39;Adelie&#39;, &#39;Adelie&#39;, &#39;Adelie&#39;, &#39;Gentoo&#39;, &#39;Adelie&#39;,
+       &#39;Gentoo&#39;, &#39;Adelie&#39;, &#39;Adelie&#39;, &#39;Adelie&#39;, &#39;Adelie&#39;, &#39;Gentoo&#39;,
+       &#39;Adelie&#39;, &#39;Gentoo&#39;, &#39;Adelie&#39;, &#39;Gentoo&#39;, &#39;Adelie&#39;, &#39;Adelie&#39;,
+       &#39;Adelie&#39;, &#39;Chinstrap&#39;, &#39;Adelie&#39;, &#39;Adelie&#39;, &#39;Chinstrap&#39;,
+       &#39;Chinstrap&#39;, &#39;Chinstrap&#39;, &#39;Chinstrap&#39;, &#39;Gentoo&#39;, &#39;Gentoo&#39;,
+       &#39;Adelie&#39;, &#39;Gentoo&#39;, &#39;Adelie&#39;, &#39;Chinstrap&#39;, &#39;Adelie&#39;, &#39;Gentoo&#39;,
+       &#39;Gentoo&#39;, &#39;Chinstrap&#39;], dtype=object)
 </pre></div>
 </div>
 </div>
 </div>
-</section>
 </section>
 <section id="model-evaluation">
-<h3><span class="section-number">17.3.4. </span>Model evaluation<a class="headerlink" href="#model-evaluation" title="Link to this heading">#</a></h3>
-<p>Unlike for classification, we don’t have a simpe distinction between right (correct class was predicted) and wrong. In most cases, we will not even expect our model to make perfect predictions, but predictions which in most cases come very close to the true values.</p>
-<p>This can be tested in several ways. Here, we will do two very simple and easy-to-read tests. First, we just plot the predicted values against the true values in a scatter plot:</p>
+<h3><span class="section-number">18.2.4. </span>Model evaluation<a class="headerlink" href="#model-evaluation" title="Link to this heading">#</a></h3>
+<p>Precisely as we did for the kNN model we can now evaluate the model using our test set and by computing the confusion matrix.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;True label&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Predicted label&quot;</span><span class="p">)</span>
+<span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Predicted label&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[42,  0,  0],
+       [ 1, 15,  0],
+       [ 0,  0, 26]])
 </pre></div>
 </div>
-<img alt="../_images/13c943cb745061944e878700456bd59e64e9e940de3d2dcaf2f3e7f16b7d54c7.png" src="../_images/13c943cb745061944e878700456bd59e64e9e940de3d2dcaf2f3e7f16b7d54c7.png" />
 </div>
 </div>
-<p>We can also look at the prediction errors, which simply is <code class="docutils literal notranslate"><span class="pre">y_test</span> <span class="pre">-</span> <span class="pre">predictions</span></code>.<br />
-A histogram can quickly show us by how far our model predictions are off.</p>
+<p>Just as we did for the kNN model we can also plot the confusion matrix.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># or, visually a bit nicer:</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">y_test</span> <span class="o">-</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">rwidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Prediction errors&quot;</span><span class="p">)</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">),</span>
+           <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span> <span class="n">cbar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+           <span class="n">xticklabels</span><span class="o">=</span><span class="n">tree</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span>
+           <span class="n">yticklabels</span><span class="o">=</span><span class="n">tree</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Prediction errors&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="../_images/d86b5a57578ce8837ffe488fe0d780577527b26fd28d203cf7ebca6b2d02dcc6.png" src="../_images/d86b5a57578ce8837ffe488fe0d780577527b26fd28d203cf7ebca6b2d02dcc6.png" />
+<img alt="../_images/dfc43a7a1b3d8ac2395ce0fddcd6ee405f6f19c0151a003ff74dd0d53ce534d8.png" src="../_images/dfc43a7a1b3d8ac2395ce0fddcd6ee405f6f19c0151a003ff74dd0d53ce534d8.png" />
 </div>
 </div>
-<p>In this example we see that most predictions are off by no more than +- 5.</p>
 </section>
+</section>
+<section id="the-best-part-about-trees-look-at-them">
+<h2><span class="section-number">18.3. </span>The best part about trees: look at them!<a class="headerlink" href="#the-best-part-about-trees-look-at-them" title="Link to this heading">#</a></h2>
+<p>The biggest advantage about decision trees is that they are fully interpretable. We can inspect what tree was learned and, at least in theory, could also use this to make predictions manually.</p>
+<p>We can inspect the different layers individually, but we can also plot the entire tree.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">plot_tree</span>
+
+<span class="n">feature_names</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">columns</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">plot_tree</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="n">feature_names</span><span class="p">,</span> <span class="n">filled</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/00807f31fadb041480a84f3194de900d66f9985179b4900a4e1f588dd1e22ea1.png" src="../_images/00807f31fadb041480a84f3194de900d66f9985179b4900a4e1f588dd1e22ea1.png" />
+</div>
+</div>
 </section>
 </section>
 
@@ -1204,20 +1250,20 @@ A histogram can quickly show us by how far our model predictions are off.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="live_coding_09_machine_learning_algorithms.html"
+       href="live_coding_09b_machine_learning_algorithms_2.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">16. </span>Machine Learning - Common Algorithms</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Machine Learning - Common Algorithms II (Linear Models)</p>
       </div>
     </a>
     <a class="right-next"
-       href="live_coding_09c_machine_learning_algorithms_3.html"
+       href="live_coding_10_working_with_text_data.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">18. </span>Machine Learning - Common Algorithms III (Decision Trees)</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Introduction to Working with Text Data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1237,21 +1283,26 @@ A histogram can quickly show us by how far our model predictions are off.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-models">17.1. Linear Models</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-regression">17.2. Linear Regression</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pros-cons-caveats">17.2.1. Pros, Cons, Caveats</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-decision-tree">18.1. Building a Decision Tree</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automated-decision-tree-construction">18.1.1. Automated Decision Tree Construction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entropy">18.1.2. Entropy</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-entropy">18.1.2.1. What is Entropy?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-entropy-work-in-decision-trees">18.1.2.2. How Does Entropy Work in Decision Trees?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example">18.1.2.3. Example:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-example">17.3. Hands-on Example</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-inspection-cleaning">17.3.1. Data Inspection &amp; Cleaning</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">17.3.2. Train/Test split</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-a-model-and-make-predictions">17.3.3. Train a model (and make predictions)</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-has-the-model-learned">17.3.3.1. What has the model “learned”?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-entropy-to-information-gain">18.1.3. From Entropy to Information Gain</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-and-disadvantages-of-decision-trees">18.1.4. Advantages and Disadvantages of Decision Trees</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">17.3.4. Model evaluation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-example">18.2. Hands-on Example</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-inspection-cleaning">18.2.1. Data Inspection &amp; Cleaning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">18.2.2. Train/Test split</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-a-model-and-make-predictions">18.2.3. Train a model (and make predictions)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">18.2.4. Model evaluation</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-best-part-about-trees-look-at-them">18.3. The best part about trees: look at them!</a></li>
 </ul>
   </nav></div>
 

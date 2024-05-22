@@ -209,23 +209,24 @@
 <li class="toctree-l1"><a class="reference internal" href="live_coding_08_machine_learning.html">15. Machine Learning - Introduction</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">16. Machine Learning - Common Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09b_machine_learning_algorithms_2.html">17. Machine Learning - Common Algorithms II (Linear Models)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_09c_machine_learning_algorithms_3.html">18. Machine Learning - Common Algorithms III (Decision Trees)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">18. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">19. NLP - basic techniques to analyse text data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">20. Computing with Text: Counting words</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">21. Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">19. Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">20. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">21. Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">22. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the networks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="live_coding_13_graphs.html">22. Networks / Graph Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graph_visualization.html">23. Visualizing Graphs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graphs_part2.html">24. Bottlenecks, Hubs, Communities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_13_graphs.html">23. Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graph_visualization.html">24. Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graphs_part2.html">25. Bottlenecks, Hubs, Communities</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Next steps</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="outlook.html">25. What are the next steps?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outlook.html">26. What are the next steps?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -432,7 +433,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nearest-neighbors-k-nn">16.1. k-nearest neighbors (k-NN)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pros-cons-caveats">16.1.1. Pros, Cons, Caveats</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pros-cons-caveats">16.1.1. Pros, Cons, Caveats</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#caveats">16.1.1.1. Caveats</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-first-hands-on-example">16.2. A first Hands-on Example</a><ul class="nav section-nav flex-column">
@@ -444,7 +448,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-scaling">16.2.6. Data Scaling</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-a-model-and-make-predictions">16.2.7. Train a model (and make predictions)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">16.2.8. Model evaluation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#want-to-read-more-on-this">16.2.9. Want to read more on this?</a></li>
 </ul>
 </li>
 </ul>
@@ -501,8 +504,10 @@ Even more critical is the proper <em>scaling</em> of our features. Just think of
 <p>But there are still some questions we need to consider.</p>
 <p>The obvious one is: What should we use as <span class="math notranslate nohighlight">\(k\)</span>?<br />
 This is the model’s main parameter and we are free to choose any value we like. And there is no simple best choice that always works. In practice, the choice of <span class="math notranslate nohighlight">\(k\)</span> will depend on the number of data points we have, but also on the distribution of data and the number of classes or parameter ranges. We usually want to pick odd values here to avoid draws as much as possible (imagine two nearest neighbors are “spam” and two are “no-spam”). But whether 3, 5, 7, or 13 is the best choice will depend on our specific task at hand.</p>
-<p>In machine learning, we call such a thing a <strong>fitting parameter</strong>. This means that we are free to change its value, and it might have a considerable impact on the quality of our predictions, or our “model performance”. Ideally, we would compare several different models with different parameters and pick the one that performed best.</p>
-<p>Let’s consider a situation as in <a class="reference internal" href="#fig-knn-caveats"><span class="std std-numref">Fig. 16.2</span></a>A. Here we see that a change in <span class="math notranslate nohighlight">\(k\)</span> can lead to entirely different predictions for certain data points. In general, kNN predictions can be highly unstable close to border regions, and they also tend to be highly sensitive to the local density of data points. The later can be a problem if we have far more points in one category than in another.</p>
+<p>In machine learning, we call such a thing a <strong>hyperparameter</strong> (or: fitting parameter). These are parameters that are not <em>learned</em> by the model, but have to be defined by us. We are free to change its value, and it might have a considerable impact on the quality of our predictions, or our “model performance”. Ideally, we would compare several different models with different parameters and pick the one that performed best. We will later see, that machine learning models often have many hyperparameters. Luckily, not all of them are equally sensitive so they will often already be set to more-or-less ok-ish default values in libraries such as Scikit-Learn.</p>
+<section id="caveats">
+<h4><span class="section-number">16.1.1.1. </span>Caveats<a class="headerlink" href="#caveats" title="Link to this heading">#</a></h4>
+<p>Let’s consider a situation as in <a class="reference internal" href="#fig-knn-caveats"><span class="std std-numref">Fig. 16.2</span></a>A. Here we see that a change in <span class="math notranslate nohighlight">\(k\)</span> can lead to entirely different predictions for certain data points. In general, kNN predictions can be highly unstable close to border regions, and they also tend to be highly sensitive to the local density of data points. The latter can be a problem if we have far more points in one category than in another.</p>
 <figure class="align-default" id="fig-knn-caveats">
 <img alt="../_images/fig_knn_caveats.png" src="../_images/fig_knn_caveats.png" />
 <figcaption>
@@ -526,10 +531,11 @@ This is the model’s main parameter and we are free to choose any value we like
 </ul>
 </section>
 </section>
+</section>
 <section id="a-first-hands-on-example">
 <h2><span class="section-number">16.2. </span>A first Hands-on Example<a class="headerlink" href="#a-first-hands-on-example" title="Link to this heading">#</a></h2>
 <p>To get a better sense of how machine learning is done in practice with Python, let us work on a simple example.
-For this, we will use the <a class="reference external" href="https://allisonhorst.github.io/palmerpenguins/"><code class="docutils literal notranslate"><span class="pre">Penguin</span> <span class="pre">Dataset</span></code></a> <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id36" title="Allison Marie Horst, Alison Presmanes Hill, and Kristen B Gorman. palmerpenguins: Palmer Archipelago (Antarctica) penguin data. 2020. R package version 0.1.0. URL: https://allisonhorst.github.io/palmerpenguins/, doi:10.5281/zenodo.3960218.">Horst <em>et al.</em>, 2020</a>]</span> that consists of data from three different penguin species.</p>
+For this, we will use the <a class="reference external" href="https://allisonhorst.github.io/palmerpenguins/"><code class="docutils literal notranslate"><span class="pre">Penguin</span> <span class="pre">Dataset</span></code></a> <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id37" title="Allison Marie Horst, Alison Presmanes Hill, and Kristen B Gorman. palmerpenguins: Palmer Archipelago (Antarctica) penguin data. 2020. R package version 0.1.0. URL: https://allisonhorst.github.io/palmerpenguins/, doi:10.5281/zenodo.3960218.">Horst <em>et al.</em>, 2020</a>]</span> that consists of data from three different penguin species.</p>
 <p>The machine learning goal in this section will be to create models that can predict species based on penguin body features.
 This means that the species information will later be our <em>label</em>.</p>
 <p>We start by importing and inspecting the dataset:</p>
@@ -874,7 +880,7 @@ Unfortunately, however, this plot does not help to better understand how we coul
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f05378e6a40&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7fa6b6a16b00&gt;
 </pre></div>
 </div>
 <img alt="../_images/34e19f07ece9caa04a7a9380bbbeaca3011928009a894785c242d7c21c7ecdbc.png" src="../_images/34e19f07ece9caa04a7a9380bbbeaca3011928009a894785c242d7c21c7ecdbc.png" />
@@ -1602,7 +1608,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>KNeighborsClassifier(n_neighbors=3)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;KNeighborsClassifier<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.4/modules/generated/sklearn.neighbors.KNeighborsClassifier.html">?<span>Documentation for KNeighborsClassifier</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>KNeighborsClassifier(n_neighbors=3)</pre></div> </div></div></div></div></div></div>
+</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>KNeighborsClassifier(n_neighbors=3)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;KNeighborsClassifier<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.neighbors.KNeighborsClassifier.html">?<span>Documentation for KNeighborsClassifier</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>KNeighborsClassifier(n_neighbors=3)</pre></div> </div></div></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1685,21 +1691,6 @@ This matrix will compare all predictions to all true values and make a summary.<
 </div>
 </div>
 <p>What you should see is a confusion matrix that represents perfect (or near-perfect) predictions. In many real-world examples, our confusion matrix will not look like this, but also show all types of misclassifications.</p>
-<p>Still to come:</p>
-<ul class="simple">
-<li><p>linear regression</p></li>
-<li><p>logistic regression</p></li>
-<li><p>decision trees</p></li>
-<li><p>random forests</p></li>
-</ul>
-</section>
-<section id="want-to-read-more-on-this">
-<h3><span class="section-number">16.2.9. </span>Want to read more on this?<a class="headerlink" href="#want-to-read-more-on-this" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>https://github.com/GeostatsGuy/PythonNumericalDemos/tree/master</p></li>
-<li><p>https://inferentialthinking.com/chapters/intro.html#</p></li>
-<li><p>https://inria.github.io/scikit-learn-mooc/index.html</p></li>
-</ul>
 </section>
 </section>
 </section>
@@ -1769,7 +1760,10 @@ This matrix will compare all predictions to all true values and make a summary.<
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nearest-neighbors-k-nn">16.1. k-nearest neighbors (k-NN)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pros-cons-caveats">16.1.1. Pros, Cons, Caveats</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pros-cons-caveats">16.1.1. Pros, Cons, Caveats</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#caveats">16.1.1.1. Caveats</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-first-hands-on-example">16.2. A first Hands-on Example</a><ul class="nav section-nav flex-column">
@@ -1781,7 +1775,6 @@ This matrix will compare all predictions to all true values and make a summary.<
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-scaling">16.2.6. Data Scaling</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-a-model-and-make-predictions">16.2.7. Train a model (and make predictions)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#model-evaluation">16.2.8. Model evaluation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#want-to-read-more-on-this">16.2.9. Want to read more on this?</a></li>
 </ul>
 </li>
 </ul>

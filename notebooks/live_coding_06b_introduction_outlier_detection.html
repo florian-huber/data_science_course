@@ -207,23 +207,24 @@
 <li class="toctree-l1"><a class="reference internal" href="live_coding_08_machine_learning.html">15. Machine Learning - Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09_machine_learning_algorithms.html">16. Machine Learning - Common Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09b_machine_learning_algorithms_2.html">17. Machine Learning - Common Algorithms II (Linear Models)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_09c_machine_learning_algorithms_3.html">18. Machine Learning - Common Algorithms III (Decision Trees)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">18. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">19. NLP - basic techniques to analyse text data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">20. Computing with Text: Counting words</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">21. Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">19. Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">20. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">21. Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">22. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the networks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="live_coding_13_graphs.html">22. Networks / Graph Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graph_visualization.html">23. Visualizing Graphs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graphs_part2.html">24. Bottlenecks, Hubs, Communities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_13_graphs.html">23. Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graph_visualization.html">24. Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graphs_part2.html">25. Bottlenecks, Hubs, Communities</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Next steps</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="outlook.html">25. What are the next steps?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outlook.html">26. What are the next steps?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -453,6 +454,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">13.3.6. Chose how sensitive the outlier detection should be</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-outlier-detection">13.4. More on Outlier Detection</a></li>
 </ul>
             </nav>
         </div>
@@ -519,7 +521,7 @@ In the context of data science, outliers can skew the results of data analysis, 
 <h2><span class="section-number">13.2. </span>Method: Isolation Forest<a class="headerlink" href="#method-isolation-forest" title="Link to this heading">#</a></h2>
 <section id="concept-and-theory">
 <h3><span class="section-number">13.2.1. </span>Concept and Theory<a class="headerlink" href="#concept-and-theory" title="Link to this heading">#</a></h3>
-<p><strong>Isolation Forest</strong> (iForest) is an unsupervised learning algorithm for anomaly detection that works on the principle of isolating anomalies, instead of profiling normal data points. Developed 2008 <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id23" title="Fei Tony Liu, Kai Ming Ting, and Zhi-Hua Zhou. Isolation forest. In 2008 eighth ieee international conference on data mining, 413–422. IEEE, 2008.">Liu <em>et al.</em>, 2008</a>]</span>, it’s particularly effective in datasets with a high dimensionality.</p>
+<p><strong>Isolation Forest</strong> (iForest) is an unsupervised learning algorithm for anomaly detection that works on the principle of isolating anomalies, instead of profiling normal data points. Developed 2008 <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id24" title="Fei Tony Liu, Kai Ming Ting, and Zhi-Hua Zhou. Isolation forest. In 2008 eighth ieee international conference on data mining, 413–422. IEEE, 2008.">Liu <em>et al.</em>, 2008</a>]</span>, it’s particularly effective in datasets with a high dimensionality.</p>
 <p><strong>Isolating Anomalies</strong>: The core idea behind Isolation Forest is that anomalies are few and different, which makes them easier to isolate. In a dataset, anomalies are susceptible to being isolated with fewer random partitions compared to normal points.</p>
 <p><strong>Tree Structure</strong>: The algorithm builds an ensemble of isolation trees (iTrees) for the dataset. Each iTree is constructed by randomly selecting a feature and then randomly selecting a split value between the maximum and minimum values of the selected feature. This process is repeated recursively until the data points are isolated or the tree reaches a certain height.</p>
 </section>
@@ -698,7 +700,7 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 <h2><span class="section-number">13.3. </span>Method: Local Outlier Factor (LOF)<a class="headerlink" href="#method-local-outlier-factor-lof" title="Link to this heading">#</a></h2>
 <section id="concept-and-background">
 <h3><span class="section-number">13.3.1. </span>Concept and Background<a class="headerlink" href="#concept-and-background" title="Link to this heading">#</a></h3>
-<p><strong>Local Outlier Factor (LOF)</strong> is an algorithm designed for detecting local outliers, introduced in 2000 <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id9" title="Markus M Breunig, Hans-Peter Kriegel, Raymond T Ng, and Jörg Sander. Lof: identifying density-based local outliers. In Proceedings of the 2000 ACM SIGMOD international conference on Management of data, 93–104. 2000.">Breunig <em>et al.</em>, 2000</a>]</span>. It’s particularly effective in identifying outliers in datasets where the density varies across different regions.</p>
+<p><strong>Local Outlier Factor (LOF)</strong> is an algorithm designed for detecting local outliers, introduced in 2000 <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id10" title="Markus M Breunig, Hans-Peter Kriegel, Raymond T Ng, and Jörg Sander. Lof: identifying density-based local outliers. In Proceedings of the 2000 ACM SIGMOD international conference on Management of data, 93–104. 2000.">Breunig <em>et al.</em>, 2000</a>]</span>. It’s particularly effective in identifying outliers in datasets where the density varies across different regions.</p>
 <p><strong>Local Density Estimation</strong>: LOF relies on the concept of local density, where locality is given by the k-nearest neighbors of a point. It compares the local density of a point to the densities of its neighbors. An outlier will have a substantially lower density than its neighbors.</p>
 </section>
 <section id="id3">
@@ -882,6 +884,12 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 </div>
 </section>
 </section>
+<section id="more-on-outlier-detection">
+<h2><span class="section-number">13.4. </span>More on Outlier Detection<a class="headerlink" href="#more-on-outlier-detection" title="Link to this heading">#</a></h2>
+<p>Outlier detection, or anomaly detection, are often crucial steps in data analysis processes. As a consequence, there are many more techniques for detecting such outliers with varying advantages and disadvantages.</p>
+<p>To get a better impression of the rich realm of outlier detection methods, see for instance the following two review articles:
+<span id="id8">[<a class="reference internal" href="../book/bibliography.html#id9" title="Azzedine Boukerche, Lining Zheng, and Omar Alfandi. Outlier detection: methods, models, and classification. ACM Computing Surveys (CSUR), 53(3):1–37, 2020.">Boukerche <em>et al.</em>, 2020</a>]</span>, and <span id="id9">[<a class="reference internal" href="../book/bibliography.html#id43" title="Abir Smiti. A critical overview of outlier detection methods. Computer Science Review, 38:100306, 2020.">Smiti, 2020</a>]</span>.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -972,6 +980,7 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">13.3.6. Chose how sensitive the outlier detection should be</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-outlier-detection">13.4. More on Outlier Detection</a></li>
 </ul>
   </nav></div>
 
