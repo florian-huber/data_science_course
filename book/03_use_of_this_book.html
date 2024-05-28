@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -52,7 +52,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -208,23 +208,24 @@
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_09_machine_learning_algorithms.html">16. Machine Learning - Common Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_09b_machine_learning_algorithms_2.html">17. Machine Learning - Common Algorithms II (Linear Models)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_09c_machine_learning_algorithms_3.html">18. Machine Learning - Common Algorithms III (Decision Trees)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_09d_machine_learning_techniques.html">19. Machine Learning - Key Techniques</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_10_working_with_text_data.html">19. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_11_NLP_2_tokenization.html">20. NLP - basic techniques to analyse text data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_11_NLP_3_tfifd_and_machine_learning.html">21. Computing with Text: Counting words</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_12_NLP_4_ngrams_word_vectors.html">22. Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_10_working_with_text_data.html">20. Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_11_NLP_2_tokenization.html">21. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_11_NLP_3_tfifd_and_machine_learning.html">22. Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_12_NLP_4_ngrams_word_vectors.html">23. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the networks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_13_graphs.html">23. Networks / Graph Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_14_graph_visualization.html">24. Visualizing Graphs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_14_graphs_part2.html">25. Bottlenecks, Hubs, Communities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_13_graphs.html">24. Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_14_graph_visualization.html">25. Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_14_graphs_part2.html">26. Bottlenecks, Hubs, Communities</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Next steps</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/outlook.html">26. What are the next steps?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/outlook.html">27. What are the next steps?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -434,7 +435,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skills-you-should-have-to-work-with-this-book">4.2. Skills you should have to work with this book</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-python">4.3. Why Python?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-source-libraries">4.4. Open source libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-environment">4.5. Setting Up Your Environment</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-book-is-full-of-code-and-you-should-run-it-yourself">4.5. This Book is full of Code, and you Should Run It Yourself!</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">4.5.1. Prerequisites</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-clone-the-repository">4.5.2. Step 1: Clone the Repository</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-navigate-to-the-repository">4.5.3. Step 2: Navigate to the Repository</a></li>
@@ -458,9 +459,13 @@ document.write(`
 <h1><span class="section-number">4. </span>How to use this book (… if you ask us)<a class="headerlink" href="#how-to-use-this-book-if-you-ask-us" title="Link to this heading">#</a></h1>
 <p>This textbook has been crafted with attention to detail to facilitate your journey into data science. However, the essence of its usefulness lies in how you engage with its content. Here’s some advice to optimize your learning experience:</p>
 <ul class="simple">
-<li><p><strong>Progress at Your Own Speed</strong>: Data science is a vast field, and everyone has their own pace. If you find certain concepts daunting, pause and seek additional resources. The internet is full of tutorials, videos, courses, and forums on practically all aspects that we cover in this book. The key is patience and persistence.</p></li>
-<li><p><strong>Learning by Doing</strong>: Reading this book alone won’t transform you into a data scientist. To truly learn data science, you need to actively engage in coding and working with real data sets. Observing code and nodding along saying, “yeah, I got it” is usually very away from having mastered it! We can’t stress this enough - the most prevalent pitfall many students succumb to is passive learning! The true test of your understanding comes when you can independently apply the skills, starting from scratch, not merely copying, pasting, and executing someone else’s code.</p></li>
-<li><p><strong>Lean on Tech, But Don’t Rely on It</strong>: While chatbots can serve as helpful data science assistants, they are not a substitute for your active learning. We firmly believe that the path to becoming a competent data scientist involves learning how to solve challenges on your own. Relying on a chatbot for answers is akin to copying solutions from another student or a forum. While this approach may help you complete your exercises in the short run, it won’t contribute much to your long-term learning and skill development.</p></li>
+<li><p><strong>Progress at Your Own Speed</strong>:
+Data science is a vast field, and everyone has their own pace. If you find certain concepts daunting, pause and seek additional resources. The internet is full of tutorials, videos, courses, and forums on practically all aspects that we cover in this book. The key is patience and persistence.</p></li>
+<li><p><strong>Learning by Doing</strong>:
+Reading this book alone won’t transform you into a data scientist. To truly learn data science, you need to actively engage in coding and working with real data sets. Observing code and nodding along saying, <em>“yeah, I got it”</em> is often one of the biggest mistakes that students can make. The quick <em>impression you understood something</em> is usually far away from <em>knowing how to do it yourself</em>!<br />
+We can’t stress this enough - <strong>the most prevalent pitfall many students succumb to is passive learning!</strong> The true test of your understanding comes when you can independently apply the skills, starting from scratch, not merely copying, pasting, and executing someone else’s code.</p></li>
+<li><p><strong>Lean on Tech, But Don’t Rely on It</strong>:
+While chatbots can serve as helpful data science assistants, they are not a substitute for your active learning. We firmly believe that the path to becoming a competent data scientist involves learning how to solve challenges on your own. Relying on a chatbot for answers is akin to copying solutions from another student or a forum. While this approach may help you complete your exercises in the short run, it won’t contribute much to your long-term learning and skill development.</p></li>
 </ul>
 <section id="code-is-the-easy-part">
 <h2><span class="section-number">4.1. </span>Code is the easy part<a class="headerlink" href="#code-is-the-easy-part" title="Link to this heading">#</a></h2>
@@ -496,8 +501,11 @@ document.write(`
 <li><p><strong>scikit-learn</strong>: Simple and efficient tools for data mining and data analysis. <a class="reference external" href="https://scikit-learn.org/stable/documentation.html">scikit-learn Documentation</a></p></li>
 </ul>
 </section>
-<section id="setting-up-your-environment">
-<h2><span class="section-number">4.5. </span>Setting Up Your Environment<a class="headerlink" href="#setting-up-your-environment" title="Link to this heading">#</a></h2>
+<section id="this-book-is-full-of-code-and-you-should-run-it-yourself">
+<h2><span class="section-number">4.5. </span>This Book is full of Code, and you Should Run It Yourself!<a class="headerlink" href="#this-book-is-full-of-code-and-you-should-run-it-yourself" title="Link to this heading">#</a></h2>
+<p>This book is created using <a class="reference external" href="https://jupyterbook.org/en/stable/intro.html">Jupyter Book</a>  <span id="id1">[<a class="reference internal" href="bibliography.html#id20" title="Executable Books Community. Jupyter Book. February 2020. URL: https://zenodo.org/record/4539666 (visited on 2023-06-06), doi:10.5281/zenodo.4539666.">Community, 2020</a>]</span> and the entire code to produce this book is freely available <a class="reference external" href="https://github.com/florian-huber/data_science_course">on GitHub</a>.</p>
+<p>Every section of this book that contains code can be found as a <em>Jupyter Notebook</em>, so that you can go ahead and re-run the code, play with it, adapt it, expand it. To do so, we suggest two possible routes. You can <strong>(1)</strong> run the individual notebooks directly in your browser by clicking on the small rocket button on top which will open the provided notebook either in <a class="reference external" href="https://colab.research.google.com/">Google Colab</a>, or using <a class="reference external" href="https://jupyter.org/binder">Binder</a>.</p>
+<p>Or, if you want to have full control and either know how to set up an environment or want to learn how to do this, you can choose open <strong>(2)</strong> to run all code locally on you own machine. For this we recommend setting up a new environment by following the steps below:</p>
 <section id="prerequisites">
 <h3><span class="section-number">4.5.1. </span>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h3>
 <p>Before we begin, please ensure you have Anaconda or Miniconda installed on your machine. If you haven’t already done so, you can download and install Anaconda from <a class="reference external" href="https://www.anaconda.com/products/distribution">here</a>. Anaconda is a free and open-source distribution of Python for scientific computing. It comes with conda, a package, dependency, and environment manager. Miniconda is a smaller, “minimal” version of Anaconda that includes only conda and Python.</p>
@@ -541,7 +549,8 @@ document.write(`
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">--prune</span></code> option causes conda to remove any dependencies that are no longer required from the environment.</p>
-<p>With these steps, you should have everything set up and ready to start diving into the material for this data science course. Happy data science coding!</p>
+<p>With these steps, you should have everything set up and ready to start diving into the material for this data science course.</p>
+<p><strong>Happy data science coding!</strong></p>
 </section>
 </section>
 </section>
@@ -614,7 +623,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skills-you-should-have-to-work-with-this-book">4.2. Skills you should have to work with this book</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-python">4.3. Why Python?</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-source-libraries">4.4. Open source libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-your-environment">4.5. Setting Up Your Environment</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-book-is-full-of-code-and-you-should-run-it-yourself">4.5. This Book is full of Code, and you Should Run It Yourself!</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">4.5.1. Prerequisites</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-clone-the-repository">4.5.2. Step 1: Clone the Repository</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-navigate-to-the-repository">4.5.3. Step 2: Navigate to the Repository</a></li>

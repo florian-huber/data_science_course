@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -52,7 +52,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -208,23 +208,24 @@
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_09_machine_learning_algorithms.html">16. Machine Learning - Common Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_09b_machine_learning_algorithms_2.html">17. Machine Learning - Common Algorithms II (Linear Models)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_09c_machine_learning_algorithms_3.html">18. Machine Learning - Common Algorithms III (Decision Trees)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_09d_machine_learning_techniques.html">19. Machine Learning - Key Techniques</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_10_working_with_text_data.html">19. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_11_NLP_2_tokenization.html">20. NLP - basic techniques to analyse text data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_11_NLP_3_tfifd_and_machine_learning.html">21. Computing with Text: Counting words</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_12_NLP_4_ngrams_word_vectors.html">22. Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_10_working_with_text_data.html">20. Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_11_NLP_2_tokenization.html">21. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_11_NLP_3_tfifd_and_machine_learning.html">22. Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_12_NLP_4_ngrams_word_vectors.html">23. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the networks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_13_graphs.html">23. Networks / Graph Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_14_graph_visualization.html">24. Visualizing Graphs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_14_graphs_part2.html">25. Bottlenecks, Hubs, Communities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_13_graphs.html">24. Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_14_graph_visualization.html">25. Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_14_graphs_part2.html">26. Bottlenecks, Hubs, Communities</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Next steps</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/outlook.html">26. What are the next steps?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/outlook.html">27. What are the next steps?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -463,7 +464,7 @@ document.write(`
 <p>Now, think of data science as detective work. A detective starts with clues (our data). These clues, in isolation, may seem random or unimportant. But as the detective starts piecing them together, a story unfolds (information). Finally, using their understanding of the world, the detective makes an informed guess about what actually happened (knowledge).</p>
 <p>This hopefully gives you a bit of an intuition of what we are after as data scientists.
 But it should also be noted that there is no simple recipe of how to get from data to knowledge. In fact, this is what many scientists and philosophers were, and are, after: understanding how we can derive knowledge from data. There is no simple answer to this, and comparing many of the possible answers in details is far beyond the scope of this book. For the interested reader, I would still like to briefly introduce a few concepts.</p>
-<p>A classical, and often modified and extended, theory of how scientific knowledge progress works was proposed by Karl Popper <span id="id3">[<a class="reference internal" href="bibliography.html#id40" title="Karl Popper. Karl Popper: Logik der Forschung. Akademie Verlag, July 2013. ISBN 978-3-05-006378-2. URL: https://www.degruyter.com/document/doi/10.1524/9783050063782/html (visited on 2023-09-04), doi:10.1524/9783050063782.">Popper, 2013</a>]</span>. He suggested that scientists propose hypotheses based on initial observations (data). These hypotheses are then rigorously tested, and if proven wrong, are modified or replaced by newer, more refined hypotheses. This iterative cycle continues, constantly refining our body of knowledge.</p>
+<p>A classical, and often modified and extended, theory of how scientific knowledge progress works was proposed by Karl Popper <span id="id3">[<a class="reference internal" href="bibliography.html#id42" title="Karl Popper. Karl Popper: Logik der Forschung. Akademie Verlag, July 2013. ISBN 978-3-05-006378-2. URL: https://www.degruyter.com/document/doi/10.1524/9783050063782/html (visited on 2023-09-04), doi:10.1524/9783050063782.">Popper, 2013</a>]</span>. He suggested that scientists propose hypotheses based on initial observations (data). These hypotheses are then rigorously tested, and if proven wrong, are modified or replaced by newer, more refined hypotheses. This iterative cycle continues, constantly refining our body of knowledge.</p>
 <p>Another insightful approach is the “Inference to the Best Explanation” method <span id="id4">[<a class="reference internal" href="bibliography.html#id7" title="Thomas Bartelborth. Die erkenntnistheoretischen Grundlagen induktiven Schließens. Universität Leipzig, 2017. URL: https://nbn-resolving.org/urn:nbn:de:bsz:15-qucosa-220168.">Bartelborth, 2017</a>]</span>. Here’s how it works:</p>
 <ol class="arabic simple">
 <li><p><strong>Observation</strong>: Start by observing phenomena. This is your raw data.

@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -52,7 +52,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -210,23 +210,24 @@
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09_machine_learning_algorithms.html">16. Machine Learning - Common Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09b_machine_learning_algorithms_2.html">17. Machine Learning - Common Algorithms II (Linear Models)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09c_machine_learning_algorithms_3.html">18. Machine Learning - Common Algorithms III (Decision Trees)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_09d_machine_learning_techniques.html">19. Machine Learning - Key Techniques</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">19. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">20. NLP - basic techniques to analyse text data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">21. Computing with Text: Counting words</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">22. Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">20. Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">21. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">22. Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">23. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the networks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="live_coding_13_graphs.html">23. Networks / Graph Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graph_visualization.html">24. Visualizing Graphs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graphs_part2.html">25. Bottlenecks, Hubs, Communities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_13_graphs.html">24. Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graph_visualization.html">25. Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graphs_part2.html">26. Bottlenecks, Hubs, Communities</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Next steps</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="outlook.html">26. What are the next steps?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outlook.html">27. What are the next steps?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -278,6 +279,55 @@
         <div class="header-article-item">
 
 <div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/florian-huber/data_science_course/main?urlpath=tree/notebooks/live_coding_08_machine_learning.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/florian-huber/data_science_course/blob/main/notebooks/live_coding_08_machine_learning.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
 
 
 
@@ -502,7 +552,7 @@ When we have an algorithm that does this guessing based on the data for us it is
 <section id="train-test-split">
 <h3><span class="section-number">15.2.2. </span>Train/Test split<a class="headerlink" href="#train-test-split" title="Link to this heading">#</a></h3>
 <p>For supervised machine learning, we need data (<span class="math notranslate nohighlight">\(X\)</span>) and corresponding labels (<span class="math notranslate nohighlight">\(y\)</span>). To avoid blindly applying our model to truly unseen and unknown data, we virtually <strong>always</strong> split our data into training and test data. As the name suggests, the training data can be used to train our machine learning model. The test data is kept and will <strong>never</strong> be used in training, but only to assess the quality of predictions of our model. Typically, we want as much data as possible for the training since more data usually correlates with better models. However, we also have to reserve enough data for the test set to later guarantee a meaningful assessment of our model.</p>
-<p>We will later see that this can easily be done by using the <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> function from <code class="docutils literal notranslate"><span class="pre">Scikit-Learn</span></code>. Scikit-Learn is the main Python library for machine learning methods that are not deep learning <span id="id1">[]</span> and we will use this throughout the following chapters.</p>
+<p>We will later see that this can easily be done by using the <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> function from <code class="docutils literal notranslate"><span class="pre">Scikit-Learn</span></code>. Scikit-Learn is the main Python library for machine learning methods that are not deep learning <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id46" title="F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay. Scikit-learn: machine learning in Python. Journal of Machine Learning Research, 12:2825–2830, 2011.">Pedregosa <em>et al.</em>, 2011</a>]</span> and we will use this throughout the following chapters.</p>
 </section>
 </section>
 <section id="more-on-machine-learning">
@@ -514,8 +564,8 @@ When we have an algorithm that does this guessing based on the data for us it is
 There are many, in fact probably too many, courses and tutorials out there. One of them that is clearly a long time recommendation is Andrew Ng’s open online courses such as the <a class="reference external" href="https://www.coursera.org/specializations/machine-learning-introduction">Machine Learning Introduction on coursera</a>.</p>
 <p><strong>Books on Machine Learning and Deep Learning:</strong></p>
 <ul class="simple">
-<li><p>“Machine Learning with PyTorch and Scikit-Learn: Develop machine learning and deep learning models with Python” <span id="id2">[]</span></p></li>
-<li><p>“Understanding Deep Learning” by Simon Prince, MIT Press, 2023 <span id="id3">[]</span></p></li>
+<li><p>“Machine Learning with PyTorch and Scikit-Learn: Develop machine learning and deep learning models with Python” <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id43" title="Sebastian Raschka, Yuxi Hayden Liu, Vahid Mirjalili, and Dmytro Dzhulgakov. Machine Learning with PyTorch and Scikit-Learn: Develop machine learning and deep learning models with Python. Packt Publishing Ltd, 2022.">Raschka <em>et al.</em>, 2022</a>]</span></p></li>
+<li><p>“Understanding Deep Learning” by Simon Prince, MIT Press, 2023 <span id="id3">[<a class="reference internal" href="../book/bibliography.html#id41" title="Simon JD Prince. Understanding Deep Learning. MIT press, 2023.">Prince, 2023</a>]</span></p></li>
 </ul>
 </section>
 </section>

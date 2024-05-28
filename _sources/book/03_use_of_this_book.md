@@ -2,9 +2,13 @@
 
 This textbook has been crafted with attention to detail to facilitate your journey into data science. However, the essence of its usefulness lies in how you engage with its content. Here's some advice to optimize your learning experience:
 
-- **Progress at Your Own Speed**: Data science is a vast field, and everyone has their own pace. If you find certain concepts daunting, pause and seek additional resources. The internet is full of tutorials, videos, courses, and forums on practically all aspects that we cover in this book. The key is patience and persistence.
-- **Learning by Doing**: Reading this book alone won't transform you into a data scientist. To truly learn data science, you need to actively engage in coding and working with real data sets. Observing code and nodding along saying, "yeah, I got it" is usually very away from having mastered it! We can't stress this enough - the most prevalent pitfall many students succumb to is passive learning! The true test of your understanding comes when you can independently apply the skills, starting from scratch, not merely copying, pasting, and executing someone else's code.
-- **Lean on Tech, But Don't Rely on It**: While chatbots can serve as helpful data science assistants, they are not a substitute for your active learning. We firmly believe that the path to becoming a competent data scientist involves learning how to solve challenges on your own. Relying on a chatbot for answers is akin to copying solutions from another student or a forum. While this approach may help you complete your exercises in the short run, it won't contribute much to your long-term learning and skill development.
+- **Progress at Your Own Speed**: 
+  Data science is a vast field, and everyone has their own pace. If you find certain concepts daunting, pause and seek additional resources. The internet is full of tutorials, videos, courses, and forums on practically all aspects that we cover in this book. The key is patience and persistence.
+- **Learning by Doing**: 
+  Reading this book alone won't transform you into a data scientist. To truly learn data science, you need to actively engage in coding and working with real data sets. Observing code and nodding along saying, *"yeah, I got it"* is often one of the biggest mistakes that students can make. The quick *impression you understood something* is usually far away from *knowing how to do it yourself*!  
+  We can't stress this enough - **the most prevalent pitfall many students succumb to is passive learning!** The true test of your understanding comes when you can independently apply the skills, starting from scratch, not merely copying, pasting, and executing someone else's code.
+- **Lean on Tech, But Don't Rely on It**: 
+  While chatbots can serve as helpful data science assistants, they are not a substitute for your active learning. We firmly believe that the path to becoming a competent data scientist involves learning how to solve challenges on your own. Relying on a chatbot for answers is akin to copying solutions from another student or a forum. While this approach may help you complete your exercises in the short run, it won't contribute much to your long-term learning and skill development.
 
 
 
@@ -44,7 +48,13 @@ Python's prowess in data science can be attributed to its incredible libraries. 
 
 
 
-## Setting Up Your Environment
+## This Book is full of Code, and you Should Run It Yourself! 
+
+This book is created using [Jupyter Book](https://jupyterbook.org/en/stable/intro.html)  {cite}`community_jupyter_2020` and the entire code to produce this book is freely available [on GitHub](https://github.com/florian-huber/data_science_course).
+
+Every section of this book that contains code can be found as a *Jupyter Notebook*, so that you can go ahead and re-run the code, play with it, adapt it, expand it. To do so, we suggest two possible routes. You can **(1)** run the individual notebooks directly in your browser by clicking on the small rocket button on top which will open the provided notebook either in [Google Colab](https://colab.research.google.com/), or using [Binder](https://jupyter.org/binder).
+
+Or, if you want to have full control and either know how to set up an environment or want to learn how to do this, you can choose open **(2)** to run all code locally on you own machine. For this we recommend setting up a new environment by following the steps below:
 
 ### Prerequisites
 
@@ -100,4 +110,6 @@ conda env update -f environment.yml --prune
 
 The `--prune` option causes conda to remove any dependencies that are no longer required from the environment.
 
-With these steps, you should have everything set up and ready to start diving into the material for this data science course. Happy data science coding!
+With these steps, you should have everything set up and ready to start diving into the material for this data science course. 
+
+**Happy data science coding!**

@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -52,7 +52,7 @@
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -208,23 +208,24 @@
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_09_machine_learning_algorithms.html">16. Machine Learning - Common Algorithms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_09b_machine_learning_algorithms_2.html">17. Machine Learning - Common Algorithms II (Linear Models)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_09c_machine_learning_algorithms_3.html">18. Machine Learning - Common Algorithms III (Decision Trees)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_09d_machine_learning_techniques.html">19. Machine Learning - Key Techniques</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_10_working_with_text_data.html">19. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_11_NLP_2_tokenization.html">20. NLP - basic techniques to analyse text data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_11_NLP_3_tfifd_and_machine_learning.html">21. Computing with Text: Counting words</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_12_NLP_4_ngrams_word_vectors.html">22. Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_10_working_with_text_data.html">20. Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_11_NLP_2_tokenization.html">21. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_11_NLP_3_tfifd_and_machine_learning.html">22. Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_12_NLP_4_ngrams_word_vectors.html">23. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the networks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_13_graphs.html">23. Networks / Graph Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_14_graph_visualization.html">24. Visualizing Graphs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_14_graphs_part2.html">25. Bottlenecks, Hubs, Communities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_13_graphs.html">24. Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_14_graph_visualization.html">25. Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_14_graphs_part2.html">26. Bottlenecks, Hubs, Communities</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Next steps</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/outlook.html">26. What are the next steps?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/outlook.html">27. What are the next steps?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -436,9 +437,9 @@ document.write(`
 <span id="ch-workflow"></span><h1><span class="section-number">7. </span>Data Science Workflow<a class="headerlink" href="#data-science-workflow" title="Link to this heading">#</a></h1>
 <p>Data science can often feel like piecing together a jigsaw puzzle. But like any puzzle, there’s a method to the madness, a sequence that can make the process smoother. That’s where the idea of a data science workflow comes in. In our previous chapter, we used the analogies of detective work and the scientific method to explain data science. Similarly, every detective has a method to their investigation, and every scientist follows a systematic process in their research.</p>
 <p>In data science, it’s paramount to have a blueprint, a sequence of steps, that can guide the project from inception to completion. This blueprint is called a <strong>data science workflow</strong>. It serves as a roadmap that provides clarity on the stages involved in a data science project. Just as a detective might start with gathering evidence, then move on to interviewing witnesses, and finally piece together the entire story, a data scientist moves through distinct phases to derive insights from data.</p>
-<p>While the last chapter hinted that there’s no universally accepted data science workflow, several models and frameworks have been proposed over the years <span id="id1">[<a class="reference internal" href="bibliography.html#id46" title="Claus Weihs and Katja Ickstadt. Data Science: the impact of statistics. International Journal of Data Science and Analytics, 6(3):189–194, November 2018. URL: https://doi.org/10.1007/s41060-018-0102-5 (visited on 2023-09-05), doi:10.1007/s41060-018-0102-5.">Weihs and Ickstadt, 2018</a>]</span><span id="id2">[<a class="reference internal" href="bibliography.html#id14" title="David Donoho. 50 Years of Data Science. Journal of Computational and Graphical Statistics, 26(4):745–766, October 2017. Publisher: Taylor &amp; Francis _eprint: https://doi.org/10.1080/10618600.2017.1384734. URL: https://doi.org/10.1080/10618600.2017.1384734 (visited on 2023-09-05), doi:10.1080/10618600.2017.1384734.">Donoho, 2017</a>]</span>. Each of these frameworks is tailored to different needs and contexts, and their structure and emphasis can vary significantly. For instance:</p>
+<p>While the last chapter hinted that there’s no universally accepted data science workflow, several models and frameworks have been proposed over the years <span id="id1">[<a class="reference internal" href="bibliography.html#id51" title="Claus Weihs and Katja Ickstadt. Data Science: the impact of statistics. International Journal of Data Science and Analytics, 6(3):189–194, November 2018. URL: https://doi.org/10.1007/s41060-018-0102-5 (visited on 2023-09-05), doi:10.1007/s41060-018-0102-5.">Weihs and Ickstadt, 2018</a>]</span><span id="id2">[<a class="reference internal" href="bibliography.html#id14" title="David Donoho. 50 Years of Data Science. Journal of Computational and Graphical Statistics, 26(4):745–766, October 2017. Publisher: Taylor &amp; Francis _eprint: https://doi.org/10.1080/10618600.2017.1384734. URL: https://doi.org/10.1080/10618600.2017.1384734 (visited on 2023-09-05), doi:10.1080/10618600.2017.1384734.">Donoho, 2017</a>]</span>. Each of these frameworks is tailored to different needs and contexts, and their structure and emphasis can vary significantly. For instance:</p>
 <ul class="simple">
-<li><p>Circular workflows, most commonly <strong>CRISP-DM</strong> <span id="id3">[<a class="reference internal" href="bibliography.html#id47" title="Rüdiger Wirth and Jochen Hipp. Crisp-dm: towards a standard process model for data mining. In Proceedings of the 4th international conference on the practical applications of knowledge discovery and data mining, volume 1, 29–39. Manchester, 2000.">Wirth and Hipp, 2000</a>]</span><span id="id4">[<a class="reference internal" href="bibliography.html#id46" title="Claus Weihs and Katja Ickstadt. Data Science: the impact of statistics. International Journal of Data Science and Analytics, 6(3):189–194, November 2018. URL: https://doi.org/10.1007/s41060-018-0102-5 (visited on 2023-09-05), doi:10.1007/s41060-018-0102-5.">Weihs and Ickstadt, 2018</a>]</span> usually emphasize deployment. They often stem from an industry or software development background where iterative development and frequent updates are the norm. These workflows recognize that the end of one project cycle can be the beginning of another, especially as new data comes in or as models need refining.</p></li>
+<li><p>Circular workflows, most commonly <strong>CRISP-DM</strong> <span id="id3">[<a class="reference internal" href="bibliography.html#id52" title="Rüdiger Wirth and Jochen Hipp. Crisp-dm: towards a standard process model for data mining. In Proceedings of the 4th international conference on the practical applications of knowledge discovery and data mining, volume 1, 29–39. Manchester, 2000.">Wirth and Hipp, 2000</a>]</span><span id="id4">[<a class="reference internal" href="bibliography.html#id51" title="Claus Weihs and Katja Ickstadt. Data Science: the impact of statistics. International Journal of Data Science and Analytics, 6(3):189–194, November 2018. URL: https://doi.org/10.1007/s41060-018-0102-5 (visited on 2023-09-05), doi:10.1007/s41060-018-0102-5.">Weihs and Ickstadt, 2018</a>]</span> usually emphasize deployment. They often stem from an industry or software development background where iterative development and frequent updates are the norm. These workflows recognize that the end of one project cycle can be the beginning of another, especially as new data comes in or as models need refining.</p></li>
 <li><p>Linear workflows, like <strong>OSEMN</strong> (Obtain, Scrub, Explore, Model, and iNterpret), tend to have a start and end. However, it’s essential to understand that even in these linear models, iterations within steps are common <span id="id5">[<a class="reference internal" href="bibliography.html#id27" title="Hilary Mason and Chris Wiggins. Dataists » A Taxonomy of Data Science. 2010. URL: http://www.dataists.com/2010/09/a-taxonomy-of-data-science/ (visited on 2023-09-05).">Mason and Wiggins, 2010</a>]</span>.</p></li>
 <li><p>There are also <strong>tree-like workflows</strong>, where after a certain step, the process might branch out into multiple paths, reflecting the multifaceted nature of some data science projects <span id="id6">[<a class="reference internal" href="bibliography.html#id18" title="Philip Guo. Data Science Workflow: Overview and Challenges. 2022. URL: https://cacm.acm.org/blogs/blog-cacm/169199-data-science-workflow-overview-and-challenges/fulltext (visited on 2023-09-05).">Guo, 2022</a>]</span>.</p></li>
 </ul>
