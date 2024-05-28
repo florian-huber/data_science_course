@@ -34,6 +34,7 @@ parts:
     - file: notebooks/live_coding_09_machine_learning_algorithms
     - file: notebooks/live_coding_09b_machine_learning_algorithms_2
     - file: notebooks/live_coding_09c_machine_learning_algorithms_3
+    - file: notebooks/live_coding_09d_machine_learning_techniques
   - caption: Working with text data
     numbered: true
     chapters:
