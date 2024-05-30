@@ -14,19 +14,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
@@ -37,9 +37,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -73,27 +73,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -115,8 +111,13 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -253,7 +254,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -262,7 +263,7 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
@@ -763,7 +764,7 @@ When tuning hyperparameters or making decisions about model architecture, it’s
 </pre></div>
 </div>
 <figure class="align-default" id="fig-scikit-pipeline">
-<img alt="images/fig_scikit_pipeline.png" src="images/fig_scikit_pipeline.png" />
+<img alt="../_images/fig_scikit_pipeline.png" src="../_images/fig_scikit_pipeline.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 19.2 </span><span class="caption-text">In addition to the “normal” workflow to train a model directly (<strong>A</strong>), the Scikit-Learn Pipeline allows combining multiple processing steps into a <code class="docutils literal notranslate"><span class="pre">Pipline</span></code> object. This can then be used just like a single model, for instance by running <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> or <code class="docutils literal notranslate"><span class="pre">.predict()</span></code>.</span><a class="headerlink" href="#fig-scikit-pipeline" title="Link to this image">#</a></p>
 </figcaption>
@@ -1103,7 +1104,7 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3097/3952750590.py:1: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option(&#39;future.no_silent_downcasting&#39;, True)`
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3125/3952750590.py:1: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option(&#39;future.no_silent_downcasting&#39;, True)`
   data[binary_columns] = data[binary_columns].replace({&#39;no&#39;: 0, &#39;yes&#39;: 1})
 </pre></div>
 </div>
@@ -1957,7 +1958,13 @@ At least for cases like the one at hand, where computation time is no restrictio
 <ul class="simple">
 <li><p><strong>RandomizedSearchCV</strong>: Can sample a given number of candidates from a parameter space with a specified distribution. More efficient than GridSearchCV when dealing with a large hyperparameter space or when we aim to reduce the computational burden.</p></li>
 </ul>
-<p>We will here only do a simple grid search using <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code>:</p>
+<p>We will here only do a simple grid search using Scikit-Learn’s <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code>. This works with any Scikit-Learn machine learning model, but also with <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code> objects as displayed in <a class="reference internal" href="#fig-scikit-gridsearch"><span class="std std-numref">Fig. 19.3</span></a>.</p>
+<figure class="align-default" id="fig-scikit-gridsearch">
+<img alt="../_images/fig_scikit_gridsearch.png" src="../_images/fig_scikit_gridsearch.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 19.3 </span><span class="caption-text">Scikit-Learn’s <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> combines a grid search for systematically comparing different parameter sets with a cross-validation approach. GridSearchCV objects again follow the Scikit-Learn workflow and can be trained using <code class="docutils literal notranslate"><span class="pre">.fit()</span></code>.</span><a class="headerlink" href="#fig-scikit-gridsearch" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
@@ -2462,10 +2469,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.005058</td>
-      <td>0.000070</td>
-      <td>0.012924</td>
-      <td>0.000508</td>
+      <td>0.004924</td>
+      <td>0.000292</td>
+      <td>0.012413</td>
+      <td>0.000432</td>
       <td>2</td>
       <td>{'model__n_neighbors': 2}</td>
       <td>0.801262</td>
@@ -2486,10 +2493,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
     </tr>
     <tr>
       <th>1</th>
-      <td>0.005025</td>
-      <td>0.000064</td>
-      <td>0.012739</td>
-      <td>0.000081</td>
+      <td>0.004773</td>
+      <td>0.000072</td>
+      <td>0.012401</td>
+      <td>0.000154</td>
       <td>3</td>
       <td>{'model__n_neighbors': 3}</td>
       <td>0.801262</td>
@@ -2510,10 +2517,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
     </tr>
     <tr>
       <th>2</th>
-      <td>0.005000</td>
-      <td>0.000034</td>
-      <td>0.013358</td>
-      <td>0.000957</td>
+      <td>0.004820</td>
+      <td>0.000031</td>
+      <td>0.012412</td>
+      <td>0.000200</td>
       <td>4</td>
       <td>{'model__n_neighbors': 4}</td>
       <td>0.782334</td>
@@ -4371,18 +4378,18 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   <tbody>
     <tr>
       <th>12</th>
-      <td>0.007212</td>
-      <td>0.000088</td>
-      <td>0.001923</td>
-      <td>0.000069</td>
+      <td>0.007014</td>
+      <td>0.000085</td>
+      <td>0.001622</td>
+      <td>0.000016</td>
       <td>20</td>
       <td>2</td>
       <td>{'max_depth': 20, 'min_samples_split': 2}</td>
-      <td>0.914773</td>
-      <td>0.910985</td>
-      <td>0.939279</td>
-      <td>0.921679</td>
-      <td>0.012541</td>
+      <td>0.912879</td>
+      <td>0.907197</td>
+      <td>0.946869</td>
+      <td>0.922315</td>
+      <td>0.017517</td>
       <td>1</td>
       <td>1.000000</td>
       <td>1.000000</td>
@@ -4391,46 +4398,46 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
       <td>0.000000</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>0.007175</td>
-      <td>0.000093</td>
-      <td>0.002002</td>
-      <td>0.000071</td>
-      <td>10</td>
-      <td>2</td>
-      <td>{'max_depth': 10, 'min_samples_split': 2}</td>
-      <td>0.899621</td>
-      <td>0.909091</td>
-      <td>0.950664</td>
-      <td>0.919792</td>
-      <td>0.022170</td>
-      <td>2</td>
-      <td>0.990521</td>
-      <td>0.994313</td>
-      <td>0.997159</td>
-      <td>0.993998</td>
-      <td>0.002719</td>
-    </tr>
-    <tr>
       <th>9</th>
-      <td>0.007253</td>
-      <td>0.000072</td>
-      <td>0.001913</td>
-      <td>0.000060</td>
+      <td>0.007023</td>
+      <td>0.000063</td>
+      <td>0.001640</td>
+      <td>0.000015</td>
       <td>15</td>
       <td>2</td>
       <td>{'max_depth': 15, 'min_samples_split': 2}</td>
-      <td>0.903409</td>
-      <td>0.899621</td>
-      <td>0.948767</td>
-      <td>0.917266</td>
-      <td>0.022328</td>
-      <td>3</td>
+      <td>0.916667</td>
+      <td>0.901515</td>
+      <td>0.939279</td>
+      <td>0.919154</td>
+      <td>0.015517</td>
+      <td>2</td>
       <td>1.000000</td>
       <td>1.000000</td>
       <td>1.000000</td>
       <td>1.000000</td>
       <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.007052</td>
+      <td>0.000028</td>
+      <td>0.001718</td>
+      <td>0.000075</td>
+      <td>10</td>
+      <td>2</td>
+      <td>{'max_depth': 10, 'min_samples_split': 2}</td>
+      <td>0.903409</td>
+      <td>0.899621</td>
+      <td>0.946869</td>
+      <td>0.916633</td>
+      <td>0.021436</td>
+      <td>3</td>
+      <td>0.990521</td>
+      <td>0.994313</td>
+      <td>0.997159</td>
+      <td>0.993998</td>
+      <td>0.002719</td>
     </tr>
   </tbody>
 </table>
@@ -4453,10 +4460,10 @@ Here, however, we will now do another cross validation run to illustrate what th
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;fit_time&#39;: array([0.01268554, 0.01192284, 0.01146817, 0.01200843, 0.01160192,
-        0.01220298, 0.01164508, 0.01184106, 0.01190567, 0.01229835]),
- &#39;score_time&#39;: array([0.00432849, 0.00393581, 0.00379467, 0.00401855, 0.00375414,
-        0.0040307 , 0.00399089, 0.00410128, 0.00389457, 0.00399351]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;fit_time&#39;: array([0.01255012, 0.01182342, 0.01140666, 0.01215172, 0.01148057,
+        0.01208496, 0.01138449, 0.01151896, 0.01160526, 0.01194453]),
+ &#39;score_time&#39;: array([0.00398612, 0.00360465, 0.00357962, 0.00378156, 0.00379992,
+        0.00351   , 0.00350165, 0.00351191, 0.00356364, 0.00357437]),
  &#39;test_accuracy&#39;: array([0.80660377, 0.86255924, 0.95734597, 0.94312796, 0.95260664,
         0.93364929, 0.96208531, 0.95734597, 0.95260664, 0.95734597]),
  &#39;test_f1_macro&#39;: array([0.80678078, 0.85822023, 0.95484148, 0.94288008, 0.9512887 ,
@@ -4513,7 +4520,7 @@ Here, however, we will now do another cross validation run to illustrate what th
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -4647,8 +4654,8 @@ By Florian Huber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>
