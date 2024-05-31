@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>16. Machine Learning - Common Algorithms &#8212; Introduction to Data Science (for not-yet-scientists)</title>
+    <title>16. Common Algorithms - k-Nearest Neighbors (k-NN) &#8212; Introduction to Data Science (for not-yet-scientists)</title>
   
   
   
@@ -62,8 +62,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/live_coding_09_machine_learning_algorithms';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="17. Machine Learning - Common Algorithms II (Linear Models)" href="live_coding_09b_machine_learning_algorithms_2.html" />
-    <link rel="prev" title="15. Machine Learning - Introduction" href="live_coding_08_machine_learning.html" />
+    <link rel="next" title="17. Common Algorithms II - Linear Models" href="live_coding_09b_machine_learning_algorithms_2.html" />
+    <link rel="prev" title="15. Supervised Machine Learning - Introduction" href="live_coding_08_machine_learning.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -207,28 +207,29 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Modeling</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_07_dimensionality_reduction.html">14. Dimensionality Reduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_08_machine_learning.html">15. Machine Learning - Introduction</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">16. Machine Learning - Common Algorithms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_09b_machine_learning_algorithms_2.html">17. Machine Learning - Common Algorithms II (Linear Models)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_09c_machine_learning_algorithms_3.html">18. Machine Learning - Common Algorithms III (Decision Trees)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_09d_machine_learning_techniques.html">19. Machine Learning - Key Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_08_machine_learning.html">15. Supervised Machine Learning - Introduction</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">16. Common Algorithms - k-Nearest Neighbors (k-NN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_09b_machine_learning_algorithms_2.html">17. Common Algorithms II - Linear Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_09c_machine_learning_algorithms_3.html">18. Common Algorithms III - Decision Trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_09d_machine_learning_techniques.html">19. Supervised Machine Learning - Key Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_09e_machine_learning_ensembles.html">20. Ensemble Models and Outlook</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">20. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">21. NLP - basic techniques to analyse text data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">22. Computing with Text: Counting words</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">23. Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">21. Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">22. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">23. Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">24. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the networks</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="live_coding_13_graphs.html">24. Networks / Graph Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graph_visualization.html">25. Visualizing Graphs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graphs_part2.html">26. Bottlenecks, Hubs, Communities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_13_graphs.html">25. Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graph_visualization.html">26. Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_14_graphs_part2.html">27. Bottlenecks, Hubs, Communities</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Next steps</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="outlook.html">27. What are the next steps?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="outlook.html">28. What are the next steps?</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
 <ul class="nav bd-sidenav">
@@ -473,7 +474,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Machine Learning - Common Algorithms</h1>
+    <h1>Common Algorithms - k-Nearest Neighbors (k-NN)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -483,7 +484,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nearest-neighbors-k-nn">16.1. k-nearest neighbors (k-NN)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">16.1. Introduction</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pros-cons-caveats">16.1.1. Pros, Cons, Caveats</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#caveats">16.1.1.1. Caveats</a></li>
 </ul>
@@ -512,11 +513,11 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="machine-learning-common-algorithms">
-<span id="ch-ml-algorithms-1"></span><h1><span class="section-number">16. </span>Machine Learning - Common Algorithms<a class="headerlink" href="#machine-learning-common-algorithms" title="Link to this heading">#</a></h1>
-<p>Instead of going much deeper into the theory of what machine learning is, we will simply have a look at a few very common algorithms every well-trained data scientist should know about. Some of them remain standard items in our everyday toolbox and you will most likely apply them every now and then. Others are important because they reflect key concepts in machine learning algorithms and help you gain a more fundamental understanding of what is actually happening under the hood.</p>
-<section id="k-nearest-neighbors-k-nn">
-<h2><span class="section-number">16.1. </span>k-nearest neighbors (k-NN)<a class="headerlink" href="#k-nearest-neighbors-k-nn" title="Link to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="common-algorithms-k-nearest-neighbors-k-nn">
+<span id="ch-ml-algorithms-1"></span><h1><span class="section-number">16. </span>Common Algorithms - k-Nearest Neighbors (k-NN)<a class="headerlink" href="#common-algorithms-k-nearest-neighbors-k-nn" title="Link to this heading">#</a></h1>
+<p>Instead of going much deeper into the theory of what machine learning is, we will have a look at a few very common algorithms that every well-trained data scientist should know about. Some of them remain standard items in our everyday toolbox and you will most likely apply them every now and then. Others are important because they reflect key concepts in machine learning algorithms and help you gain a more fundamental understanding of what is happening under the hood.</p>
+<section id="introduction">
+<h2><span class="section-number">16.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
 <p><strong><span class="math notranslate nohighlight">\(k\)</span>-nearest neighbors</strong> is, for very good reasons, one of the most commonly known machine learning algorithms. It is relatively intuitive and simple, yet still powerful enough to find plenty of use cases even today (despite having much fancier techniques on the market).</p>
 <p>The algorithm works as follows (<a class="reference internal" href="#fig-knn-algorithm"><span class="std std-numref">Fig. 16.1</span></a>). For any given data point <span class="math notranslate nohighlight">\(x\)</span>, do the following:</p>
 <ul class="simple">
@@ -586,7 +587,7 @@ This is the model’s main parameter and we are free to choose any value we like
 <section id="a-first-hands-on-example">
 <h2><span class="section-number">16.2. </span>A first Hands-on Example<a class="headerlink" href="#a-first-hands-on-example" title="Link to this heading">#</a></h2>
 <p>To get a better sense of how machine learning is done in practice with Python, let us work on a simple example.
-For this, we will use the <a class="reference external" href="https://allisonhorst.github.io/palmerpenguins/"><code class="docutils literal notranslate"><span class="pre">Penguin</span> <span class="pre">Dataset</span></code></a> <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id38" title="Allison Marie Horst, Alison Presmanes Hill, and Kristen B Gorman. palmerpenguins: Palmer Archipelago (Antarctica) penguin data. 2020. R package version 0.1.0. URL: https://allisonhorst.github.io/palmerpenguins/, doi:10.5281/zenodo.3960218.">Horst <em>et al.</em>, 2020</a>]</span> that consists of data from three different penguin species.</p>
+For this, we will use the <a class="reference external" href="https://allisonhorst.github.io/palmerpenguins/"><code class="docutils literal notranslate"><span class="pre">Penguin</span> <span class="pre">Dataset</span></code></a> <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id40" title="Allison Marie Horst, Alison Presmanes Hill, and Kristen B Gorman. palmerpenguins: Palmer Archipelago (Antarctica) penguin data. 2020. R package version 0.1.0. URL: https://allisonhorst.github.io/palmerpenguins/, doi:10.5281/zenodo.3960218.">Horst <em>et al.</em>, 2020</a>]</span> that consists of data from three different penguin species.</p>
 <p>The machine learning goal in this section will be to create models that can predict species based on penguin body features.
 This means that the species information will later be our <em>label</em>.</p>
 <p>We start by importing and inspecting the dataset:</p>
@@ -931,7 +932,7 @@ Unfortunately, however, this plot does not help to better understand how we coul
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f918c952c50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f1904b46cb0&gt;
 </pre></div>
 </div>
 <img alt="../_images/34e19f07ece9caa04a7a9380bbbeaca3011928009a894785c242d7c21c7ecdbc.png" src="../_images/34e19f07ece9caa04a7a9380bbbeaca3011928009a894785c242d7c21c7ecdbc.png" />
@@ -1782,7 +1783,7 @@ This matrix will compare all predictions to all true values and make a summary.<
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">15. </span>Machine Learning - Introduction</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Supervised Machine Learning - Introduction</p>
       </div>
     </a>
     <a class="right-next"
@@ -1790,7 +1791,7 @@ This matrix will compare all predictions to all true values and make a summary.<
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">17. </span>Machine Learning - Common Algorithms II (Linear Models)</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Common Algorithms II - Linear Models</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1810,7 +1811,7 @@ This matrix will compare all predictions to all true values and make a summary.<
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-nearest-neighbors-k-nn">16.1. k-nearest neighbors (k-NN)</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">16.1. Introduction</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pros-cons-caveats">16.1.1. Pros, Cons, Caveats</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#caveats">16.1.1.1. Caveats</a></li>
 </ul>
