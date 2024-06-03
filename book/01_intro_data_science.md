@@ -1,14 +1,14 @@
 (ch_data_science_intro)=
 # What is Data Science?
 
-In short,  data science is about **gaining and communicating insights from complex data through digital techniques**.
+In short, data science is about extracting and communicating relevant insights from complex data with the help of digital techniques.
 
-Unlike established fields like mathematics, physics, or history, data science relatively new. If you ask ten data scientists to define their field, you will likely get ten different answers. Some might view it as a distinct discipline, others as a technical  approach or mindset, and still others might consider it synonymous with  statistics. While we will explore these perspectives, let's start with a common understanding: data science is essentially 
+Unlike established fields like mathematics, physics, or history, data science relatively new. If you ask ten data scientists to define their field, you will likely get ten different answers. Some might view it as a distinct discipline, others as a technical  approach or mindset, and still others might consider it synonymous with statistics. Many authors have contributed definitions or descriptions of what data science is {cite}`cao_2017, donoho_2017, blei2017science, carmichael2018data`, but for now let's start with the rather general and accessible description of data science as 
 > **the art of gaining and communicating insights from complex data through digital techniques**.
 
-Many quantitative scientists would argue that they do similar work, as  they strive to learn from data and use digital tools extensively. This overlap does not diminish the importance of data science; it simply indicates that many scientists must also be data scientists to stay current in their fields. Rapid advancements in digital techniques, including machine learning, are transforming many research areas.
+Many quantitative scientists would argue that they do similar work, as they strive to learn from data and use digital tools extensively. This overlap does not diminish the importance of data science; it simply indicates that many scientists must also be data scientists to stay current in their fields. Rapid advancements in digital techniques, including machine learning, are transforming many research areas.
 
-Opinions on what data science exactly is can vary, often depending on the application area. In consulting and business, data science might mean something different than in academia. However, most agree on a Venn diagram that is frequently used to illustrate data science: the intersection of Digital Techniques, Statistics, and Domain Expertise.
+Opinions on what data science exactly is can vary, often depending on the application area. In consulting and business, data science might mean something different than in academia. However, most agree on a Venn diagram that is frequently used to illustrate data science {cite}`conway_data_2010, `: the intersection of Digital Techniques, Statistics, and Domain Expertise.
 
 <img src="../images/figures_venn_diagram.png" alt="Data Science Venn diagram" width="50%">
 
