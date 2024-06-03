@@ -1,22 +1,22 @@
 (ch_data_science_intro)=
 # What is Data Science?
 
-Short answer, if we have to break it down to one sentence: **Data Science ≈ "Gaining and communicating insights from complex data through digital techniques"**.
+In short,  data science is about **gaining and communicating insights from complex data through digital techniques**.
 
-Unlike mathematics, physics, or history, data science has just begun to become a discipline of its own. If you ask 10 practicing data scientists what data science is, you might get very different answers. Worse still, there's not even a consensus on whether data science is a field of its own, a technical approach, a mindset, or just another word for *statistics*. We will see a bit more about the different perspectives and origins of what data science is or isn't. But I want to start with the common basis. What is data science in general? I would answer that data science is essentially 
+Unlike established fields like mathematics, physics, or history, data science relatively new. If you ask ten data scientists to define their field, you will likely get ten different answers. Some might view it as a distinct discipline, others as a technical  approach or mindset, and still others might consider it synonymous with  statistics. While we will explore these perspectives, let's start with a common understanding: data science is essentially 
 > **the art of gaining and communicating insights from complex data through digital techniques**.
 
-Many quantitative scientists could also argue that they often do exactly this. They aim to learn new things about the world from data. And the use of digital tools is also clearly no longer a significant difference. However, this does not argue against a field called "Data Science," but rather only says that many quantitative scientists nowadays are also to some extent data scientists. They even have to be if they want to keep up with the state of the art in their fields, as many research areas are currently undergoing rapid change due to the widespread adoption of new digital techniques such as machine learning approaches.
+Many quantitative scientists would argue that they do similar work, as  they strive to learn from data and use digital tools extensively. This overlap does not diminish the importance of data science; it simply indicates that many scientists must also be data scientists to stay current in their fields. Rapid advancements in digital techniques, including machine learning, are transforming many research areas.
 
-Beyond the short definition of data science mentioned, opinions on what data science exactly is, converge a bit. Frequently this simply depends on the respective application area. Data science in consulting and business often means something different than data science in a more academic environment. However, in most cases, everyone can at least agree on a Venn diagram that is very often used in introductions in this - or slightly modified - form: Data science as the intersection of Digital Techniques (*digital tools/methods*), Statistics, and Domain Expertise.
+Opinions on what data science exactly is can vary, often depending on the application area. In consulting and business, data science might mean something different than in academia. However, most agree on a Venn diagram that is frequently used to illustrate data science: the intersection of Digital Techniques, Statistics, and Domain Expertise.
 
 <img src="../images/figures_venn_diagram.png" alt="Data Science Venn diagram" width="50%">
 
 **Figure 1.** Venn diagram to indicate the intersection of fields for data science.
 
-## Data is nothing new. So why now data science?
+## Data is Nothing New. So Why Data Science Now?
 
-Data has been a cornerstone of human understanding for millennia - from ancient civilizations keeping records of harvests and astronomy, to modern businesses tracking sales and performance. It's clear that data  in itself is not a new concept. However, the emergence and ascendancy of data science as a discipline is a relatively recent phenomenon. So, why now?
+Data has been a cornerstone of human understanding for millennia - from ancient civilizations keeping records of harvests and astronomy, to modern businesses tracking sales and performance. It's clear that data in itself is not a new concept. However, the emergence and ascendancy of data science as a discipline is a relatively recent phenomenon. So, why now?
 
 The prominence of data science in today's world can be attributed to several concurrent developments:
 
@@ -32,7 +32,7 @@ This existence (and appreciation) of larger and larger amounts of data can be se
 
 (4) There has been significant progress in the field of **algorithms**, which also includes machine learning. It is algorithms, which are at the heart of nearly every tool that we use as data scientists for understanding and interpreting data. This can range from optimization methods dating back more than 200 years (e.g., least square method) all the way to current deep learning approaches. These advancements have opened up new possibilities for predictive analytics, automation, and artificial intelligence.
 
-(5) Lastly, the often-underestimated field of **data visualization** has seen revolutionary advancements. Effective data visualization makes complex data more comprehensible, accessible, and actionable. The development of powerful visualization tools enables us to present data in a visually compelling manner that fosters understanding and drives informed decisions.
+(5) Lastly, the often-underestimated field of **data visualization** has seen revolutionary advancements. Effective data visualization makes complex data more comprehensible, accessible, and actionable. The development of powerful visualization tools enables us to present data in a visually compelling manner that fosters understanding and drives informed decisions {cite}`munzner2014visualization, healy2018data, wilke2019fundamentals`.
 
 So, while data is not new, the volume of data, our ability to process it, and the recognition of its value, are. These changes have given rise to the burgeoning field of data science, marking a new era in our relationship with data.
 
@@ -51,7 +51,7 @@ One of the key characteristics that makes data science so dynamic is its inheren
 
 Given the breadth and depth of the field, being a successful data scientist often requires more than just technical skills. A natural curiosity to explore and understand data, an openness to new ideas and methods, the eagerness to continuously learn and adapt, and most crucially, the ability to communicate and collaborate effectively are all vital attributes. After all, data science is a team sport. **No single person can master all facets of data science**; instead, it's about bringing diverse skills together, working with others, and learning from each other.
 
-In the forthcoming pages, we aim to guide you through the multifaceted world of data science, shedding light on its various dimensions, the skills required, and the myriad ways in which data science can be applied. As you delve deeper into this exciting field, we hope to inspire you with the potential and the possibilities of data science and prepare you for a journey of continuous learning and discovery. Welcome to the exciting world of data science!
+In the following pages, we will explore the multifaceted world of data  science, its skills, and applications. We hope to inspire you with the  potential of data science and prepare you for a journey of continuous  learning and discovery. Welcome to the exciting world of data science!
 
 
 
