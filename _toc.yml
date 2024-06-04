@@ -26,10 +26,10 @@ parts:
     - file: notebooks/live_coding_05_correlation_analysis
     - file: notebooks/live_coding_06_clustering
     - file: notebooks/live_coding_06b_introduction_outlier_detection
-  - caption: Data Modeling
+    - file: notebooks/live_coding_07_dimensionality_reduction
+  - caption: Supervised Machine Learning
     numbered: true
     chapters:
-    - file: notebooks/live_coding_07_dimensionality_reduction
     - file: notebooks/live_coding_08_machine_learning
     - file: notebooks/live_coding_09_machine_learning_algorithms
     - file: notebooks/live_coding_09b_machine_learning_algorithms_2
