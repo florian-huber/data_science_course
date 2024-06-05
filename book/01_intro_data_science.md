@@ -8,7 +8,7 @@ Unlike established fields like mathematics, physics, or history, data science re
 
 Many quantitative scientists would argue that they do similar work, as they strive to learn from data and use digital tools extensively. This overlap does not diminish the importance of data science; it simply indicates that many scientists must also be data scientists to stay current in their fields. Rapid advancements in digital techniques, including machine learning, are transforming many research areas.
 
-Opinions on what data science exactly is can vary, often depending on the application area. In consulting and business, data science might mean something different than in academia. However, most agree on a Venn diagram that is frequently used to illustrate data science {cite}`conway_data_2010, `: the intersection of Digital Techniques, Statistics, and Domain Expertise.
+Opinions on what data science exactly is can vary, often depending on the application area. In consulting and business, data science might mean something different than in academia. However, most agree on a Venn diagram that is frequently used to illustrate data science {cite}`conway_data_2010, carmichael2018data`: the intersection of Digital Techniques, Statistics, and Domain Expertise.
 
 <img src="../images/figures_venn_diagram.png" alt="Data Science Venn diagram" width="50%">
 
