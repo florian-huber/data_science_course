@@ -203,10 +203,10 @@
 <li class="toctree-l1"><a class="reference internal" href="live_coding_05_correlation_analysis.html">11. Correlation Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_06_clustering.html">12. Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_06b_introduction_outlier_detection.html">13. Outlier Detection</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Modeling</span></p>
-<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_07_dimensionality_reduction.html">14. Dimensionality Reduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_08_machine_learning.html">15. Supervised Machine Learning - Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09_machine_learning_algorithms.html">16. Common Algorithms - k-Nearest Neighbors (k-NN)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09b_machine_learning_algorithms_2.html">17. Common Algorithms II - Linear Models</a></li>
@@ -217,7 +217,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">21. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">22. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">22. NLP - Basic Techniques to Analyze Text Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">23. Computing with Text: Counting words</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">24. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
@@ -734,7 +734,7 @@ When tuning hyperparameters or making decisions about model architecture, it’s
 </section>
 <section id="beyond-this-course">
 <h3><span class="section-number">19.2.5. </span>Beyond this course:<a class="headerlink" href="#beyond-this-course" title="Link to this heading">#</a></h3>
-<p>Here, we did the sampling, i.e. the selection of data points for either training or testing, fully randomly. In many real world cases, however, the situation can be more complex. For instance, we might have many medical observations in a dataset with sometimes multiple entries for the same patient. In such a case we would have to split the data by patient and not fully randomly (see for instance here: <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id51" title="Ilias Tougui, Abdelilah Jilbab, and Jamal El Mhamdi. Impact of the choice of cross-validation techniques on the results of machine learning-based diagnostic applications. Healthcare informatics research, 27(3):189, 2021.">Tougui <em>et al.</em>, 2021</a>]</span>). In other cases, we will have strong biases and we would often like to compensate for this. For example to avoid that -purely by chance- a certain population or class is not well represented in a certain data split. The process to compensate for this is called <strong>stratification</strong>.</p>
+<p>Here, we did the sampling, i.e. the selection of data points for either training or testing, fully randomly. In many real world cases, however, the situation can be more complex. For instance, we might have many medical observations in a dataset with sometimes multiple entries for the same patient. In such a case we would have to split the data by patient and not fully randomly (see for instance here: <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id70" title="Ilias Tougui, Abdelilah Jilbab, and Jamal El Mhamdi. Impact of the choice of cross-validation techniques on the results of machine learning-based diagnostic applications. Healthcare informatics research, 27(3):189, 2021.">Tougui <em>et al.</em>, 2021</a>]</span>). In other cases, we will have strong biases and we would often like to compensate for this. For example to avoid that -purely by chance- a certain population or class is not well represented in a certain data split. The process to compensate for this is called <strong>stratification</strong>.</p>
 </section>
 </section>
 <section id="nice-to-have-scikit-learn-pipeline">
@@ -773,7 +773,7 @@ When tuning hyperparameters or making decisions about model architecture, it’s
 </section>
 <section id="hands-on-example-obesity-prediction">
 <h2><span class="section-number">19.4. </span>Hands-on Example: Obesity prediction<a class="headerlink" href="#hands-on-example-obesity-prediction" title="Link to this heading">#</a></h2>
-<p>We will here work with an <a class="reference external" href="https://archive.ics.uci.edu/dataset/544/estimation+of+obesity+levels+based+on+eating+habits+and+physical+condition"><code class="docutils literal notranslate"><span class="pre">Obesity</span> <span class="pre">Levels</span> <span class="pre">Dataset</span></code></a> <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id39" title="Fabio Mendoza Palechor and Alexis De la Hoz Manotas. Dataset for estimation of obesity levels based on eating habits and physical condition in individuals from colombia, peru and mexico. Data in Brief, 2019. URL: https://api.semanticscholar.org/CorpusID:201195793.">Palechor and la Hoz Manotas, 2019</a>]</span> which was downloaded from the <a class="reference external" href="https://archive.ics.uci.edu/dataset/544/estimation+of+obesity+levels+based+on+eating+habits+and+physical+condition">UCI archive</a>.</p>
+<p>We will here work with an <a class="reference external" href="https://archive.ics.uci.edu/dataset/544/estimation+of+obesity+levels+based+on+eating+habits+and+physical+condition"><code class="docutils literal notranslate"><span class="pre">Obesity</span> <span class="pre">Levels</span> <span class="pre">Dataset</span></code></a> <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id54" title="Fabio Mendoza Palechor and Alexis De la Hoz Manotas. Dataset for estimation of obesity levels based on eating habits and physical condition in individuals from colombia, peru and mexico. Data in Brief, 2019. URL: https://api.semanticscholar.org/CorpusID:201195793.">Palechor and la Hoz Manotas, 2019</a>]</span> which was downloaded from the <a class="reference external" href="https://archive.ics.uci.edu/dataset/544/estimation+of+obesity+levels+based+on+eating+habits+and+physical+condition">UCI archive</a>.</p>
 <p>This dataset comprises data for predicting obesity levels in individuals from Mexico, Peru, and Colombia, utilizing information about their dietary habits and physical condition. It includes 17 attributes across 2111 records. Each record is categorized under the class variable NObesity (Obesity Level), which facilitates the classification of data into categories such as Insufficient Weight, Normal Weight, Overweight Level I, Overweight Level II, Obesity Type I, Obesity Type II, and Obesity Type III. Only 23% of the data was sourced directly from individuals through a web-based platform. The larger part of the dataset, 77%, was synthetically generated using the Weka software and the SMOTE filter to augment the data diversity.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1105,7 +1105,7 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3036/3952750590.py:1: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option(&#39;future.no_silent_downcasting&#39;, True)`
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3080/3952750590.py:1: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option(&#39;future.no_silent_downcasting&#39;, True)`
   data[binary_columns] = data[binary_columns].replace({&#39;no&#39;: 0, &#39;yes&#39;: 1})
 </pre></div>
 </div>
@@ -2470,10 +2470,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.004420</td>
-      <td>0.000258</td>
-      <td>0.011942</td>
-      <td>0.000224</td>
+      <td>0.004378</td>
+      <td>0.000204</td>
+      <td>0.012593</td>
+      <td>0.001180</td>
       <td>2</td>
       <td>{'model__n_neighbors': 2}</td>
       <td>0.801262</td>
@@ -2494,10 +2494,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
     </tr>
     <tr>
       <th>1</th>
-      <td>0.004312</td>
-      <td>0.000041</td>
-      <td>0.012004</td>
-      <td>0.000051</td>
+      <td>0.004265</td>
+      <td>0.000038</td>
+      <td>0.012016</td>
+      <td>0.000102</td>
       <td>3</td>
       <td>{'model__n_neighbors': 3}</td>
       <td>0.801262</td>
@@ -2518,10 +2518,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
     </tr>
     <tr>
       <th>2</th>
-      <td>0.004344</td>
-      <td>0.000045</td>
-      <td>0.012160</td>
-      <td>0.000175</td>
+      <td>0.004330</td>
+      <td>0.000051</td>
+      <td>0.012131</td>
+      <td>0.000126</td>
       <td>4</td>
       <td>{'model__n_neighbors': 4}</td>
       <td>0.782334</td>
@@ -4379,18 +4379,18 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   <tbody>
     <tr>
       <th>12</th>
-      <td>0.006974</td>
-      <td>0.000125</td>
+      <td>0.006954</td>
+      <td>0.000081</td>
       <td>0.001623</td>
-      <td>0.000028</td>
+      <td>0.000005</td>
       <td>20</td>
       <td>2</td>
       <td>{'max_depth': 20, 'min_samples_split': 2}</td>
-      <td>0.909091</td>
-      <td>0.907197</td>
-      <td>0.948767</td>
-      <td>0.921685</td>
-      <td>0.019165</td>
+      <td>0.914773</td>
+      <td>0.903409</td>
+      <td>0.944972</td>
+      <td>0.921051</td>
+      <td>0.017539</td>
       <td>1</td>
       <td>1.000000</td>
       <td>1.000000</td>
@@ -4399,46 +4399,46 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
       <td>0.000000</td>
     </tr>
     <tr>
+      <th>9</th>
+      <td>0.007493</td>
+      <td>0.000802</td>
+      <td>0.001625</td>
+      <td>0.000013</td>
+      <td>15</td>
+      <td>2</td>
+      <td>{'max_depth': 15, 'min_samples_split': 2}</td>
+      <td>0.909091</td>
+      <td>0.897727</td>
+      <td>0.948767</td>
+      <td>0.918528</td>
+      <td>0.021879</td>
+      <td>2</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
       <th>6</th>
-      <td>0.006890</td>
-      <td>0.000032</td>
-      <td>0.001620</td>
-      <td>0.000023</td>
+      <td>0.006959</td>
+      <td>0.000045</td>
+      <td>0.001644</td>
+      <td>0.000037</td>
       <td>10</td>
       <td>2</td>
       <td>{'max_depth': 10, 'min_samples_split': 2}</td>
-      <td>0.909091</td>
+      <td>0.903409</td>
       <td>0.903409</td>
       <td>0.946869</td>
-      <td>0.919790</td>
-      <td>0.019288</td>
-      <td>2</td>
+      <td>0.917896</td>
+      <td>0.020487</td>
+      <td>3</td>
       <td>0.990521</td>
       <td>0.994313</td>
       <td>0.997159</td>
       <td>0.993998</td>
       <td>0.002719</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>0.006955</td>
-      <td>0.000123</td>
-      <td>0.001637</td>
-      <td>0.000033</td>
-      <td>20</td>
-      <td>5</td>
-      <td>{'max_depth': 20, 'min_samples_split': 5}</td>
-      <td>0.916667</td>
-      <td>0.901515</td>
-      <td>0.941176</td>
-      <td>0.919786</td>
-      <td>0.016341</td>
-      <td>3</td>
-      <td>0.989573</td>
-      <td>0.985782</td>
-      <td>0.988636</td>
-      <td>0.987997</td>
-      <td>0.001612</td>
     </tr>
   </tbody>
 </table>
@@ -4462,10 +4462,10 @@ Here, however, we will now do another cross-validation run to illustrate what th
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;fit_time&#39;: array([0.01236892, 0.01164484, 0.01136136, 0.01191545, 0.01121926,
-        0.01177669, 0.01134515, 0.01148105, 0.01154661, 0.01185131]),
- &#39;score_time&#39;: array([0.00367475, 0.00340915, 0.00341964, 0.00339127, 0.00340271,
-        0.00339961, 0.00341845, 0.00341892, 0.00338292, 0.00342464]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;fit_time&#39;: array([0.0123322 , 0.01159692, 0.01116943, 0.01176357, 0.01104188,
+        0.0116775 , 0.01114011, 0.01133227, 0.01144671, 0.0116899 ]),
+ &#39;score_time&#39;: array([0.00370312, 0.00340104, 0.00331664, 0.0033021 , 0.00331116,
+        0.00332069, 0.00330281, 0.00330997, 0.00332546, 0.0033226 ]),
  &#39;test_accuracy&#39;: array([0.80660377, 0.86255924, 0.95734597, 0.94312796, 0.95260664,
         0.93364929, 0.96208531, 0.95734597, 0.95260664, 0.95734597]),
  &#39;test_f1_macro&#39;: array([0.80678078, 0.85822023, 0.95484148, 0.94288008, 0.9512887 ,
@@ -4633,7 +4633,7 @@ By Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>

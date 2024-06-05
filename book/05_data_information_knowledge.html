@@ -201,10 +201,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_05_correlation_analysis.html">11. Correlation Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_06_clustering.html">12. Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_06b_introduction_outlier_detection.html">13. Outlier Detection</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Modeling</span></p>
-<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_07_dimensionality_reduction.html">14. Dimensionality Reduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_08_machine_learning.html">15. Supervised Machine Learning - Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_09_machine_learning_algorithms.html">16. Common Algorithms - k-Nearest Neighbors (k-NN)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_09b_machine_learning_algorithms_2.html">17. Common Algorithms II - Linear Models</a></li>
@@ -215,7 +215,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_10_working_with_text_data.html">21. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_11_NLP_2_tokenization.html">22. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_11_NLP_2_tokenization.html">22. NLP - Basic Techniques to Analyze Text Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_11_NLP_3_tfifd_and_machine_learning.html">23. Computing with Text: Counting words</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/live_coding_12_NLP_4_ngrams_word_vectors.html">24. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
@@ -449,10 +449,10 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="data-information-knowledge">
 <h1><span class="section-number">6. </span>Data - Information - Knowledge<a class="headerlink" href="#data-information-knowledge" title="Link to this heading">#</a></h1>
 <p>So far in our exploration of data science, we’ve been mostly circling around <em>data</em>. However, as briefly touched upon in <a class="reference internal" href="01_intro_data_science.html#ch-data-science-intro"><span class="std std-ref">What is Data Science?</span></a> and contrary to what the term <em>data science</em> might suggest, data science isn’t fundamentally about data. Think of it this way: if data is the raw material, then the ultimate product a data scientist crafts is <em>knowledge</em>. We sift through the vast sands of data to uncover gems of insight.</p>
-<p>The “DIKW Pyramid” (Data - Information - Knowledge - Wisdom) is a commonly depicted visualizations that displays an easy-to-understand hierarchy from raw data to profound knowledge and ultimately: wisdom (<a class="reference internal" href="#fig-dikw-pyramid"><span class="std std-numref">Fig. 6.1</span></a>). In practice, however, this model is often considered to be too simple, not precise enough, or even wrong (see for instance <span id="id1">[<a class="reference internal" href="bibliography.html#id16" title="Martin Frické. The knowledge pyramid: a critique of the DIKW hierarchy. Journal of Information Science, 35(2):131–142, April 2009. Publisher: SAGE Publications Ltd. URL: https://doi.org/10.1177/0165551508094050 (visited on 2024-04-22), doi:10.1177/0165551508094050.">Frické, 2009</a>]</span>). In addition, for the purpose of a data science introduction, the concept of <em>wisdom</em> is less relevant at this point. But it is essential to distinguish between the terms <em>data</em> , <em>information</em>, and <em>knowldege</em>, which I will in the following chapters mostly understand as follows:</p>
+<p>The “DIKW Pyramid” (Data - Information - Knowledge - Wisdom) is a commonly depicted visualizations that displays an easy-to-understand hierarchy from raw data to profound knowledge and ultimately: wisdom (<a class="reference internal" href="#fig-dikw-pyramid"><span class="std std-numref">Fig. 6.1</span></a>). In practice, however, this model is often considered to be too simple, not precise enough, or even wrong (see for instance <span id="id1">[<a class="reference internal" href="bibliography.html#id23" title="Martin Frické. The knowledge pyramid: a critique of the DIKW hierarchy. Journal of Information Science, 35(2):131–142, April 2009. Publisher: SAGE Publications Ltd. URL: https://doi.org/10.1177/0165551508094050 (visited on 2024-04-22), doi:10.1177/0165551508094050.">Frické, 2009</a>]</span>). In addition, for the purpose of a data science introduction, the concept of <em>wisdom</em> is less relevant at this point. But it is essential to distinguish between the terms <em>data</em> , <em>information</em>, and <em>knowldege</em>, which I will in the following chapters mostly understand as follows:</p>
 <ul class="simple">
 <li><p><strong>Data</strong>: The raw values or findings obtained through various means such as observations, measurements, surveys, etc. It represents the unprocessed reality, and -at least at this stage- it can be entirely incomprehensible or meaningless. Imagine a streaming camera in a forest meant to detect rare events of spotting certain wild animals. Most of the data recorded will show no such animals and will thus be entirely insignificant for our later analysis.</p></li>
-<li><p><strong>Information</strong>: This is data in context. It has been processed, categorized, and given structure, making it more comprehensible. One way to put it is: “Information is data with potential significance for a user” <span id="id2">[<a class="reference internal" href="bibliography.html#id38" title="Ralf Otte, Boris Wippermann, Sebastian Schade, and Viktor Otte. Von Data Mining bis Big Data: Handbuch für die industrielle Praxis. Carl Hanser Verlag GmbH &amp; Co. KG, München, 1 edition, July 2020. ISBN 978-3-446-45550-4.">Otte <em>et al.</em>, 2020</a>]</span>. It’s data with added value, transformed into a format that allows for a clearer interpretation.</p></li>
+<li><p><strong>Information</strong>: This is data in context. It has been processed, categorized, and given structure, making it more comprehensible. One way to put it is: “Information is data with potential significance for a user” <span id="id2">[<a class="reference internal" href="bibliography.html#id53" title="Ralf Otte, Boris Wippermann, Sebastian Schade, and Viktor Otte. Von Data Mining bis Big Data: Handbuch für die industrielle Praxis. Carl Hanser Verlag GmbH &amp; Co. KG, München, 1 edition, July 2020. ISBN 978-3-446-45550-4.">Otte <em>et al.</em>, 2020</a>]</span>. It’s data with added value, transformed into a format that allows for a clearer interpretation.</p></li>
 <li><p><strong>Knowledge</strong>: This goes beyond just having information; it’s understanding the information. Knowledge encompasses facts, theories, and rules that have been distilled from the information and are characterized by a high degree of certainty and applicability.</p></li>
 </ul>
 <figure class="align-default" id="fig-dikw-pyramid">
@@ -466,7 +466,7 @@ document.write(`
 <p>Now, think of data science as detective work. A detective starts with clues (our data). These clues, in isolation, may seem random or unimportant. But as the detective starts piecing them together, a story unfolds (information). Finally, using their understanding of the world, the detective makes an informed guess about what actually happened (knowledge).</p>
 <p>This hopefully gives you a bit of an intuition of what we are after as data scientists.
 But it should also be noted that there is no simple recipe of how to get from data to knowledge. In fact, this is what many scientists and philosophers were, and are, after: understanding how we can derive knowledge from data. There is no simple answer to this, and comparing many of the possible answers in details is far beyond the scope of this book. For the interested reader, I would still like to briefly introduce a few concepts.</p>
-<p>A classical, and often modified and extended, theory of how scientific knowledge progress works was proposed by Karl Popper <span id="id3">[<a class="reference internal" href="bibliography.html#id44" title="Karl Popper. Karl Popper: Logik der Forschung. Akademie Verlag, July 2013. ISBN 978-3-05-006378-2. URL: https://www.degruyter.com/document/doi/10.1524/9783050063782/html (visited on 2023-09-04), doi:10.1524/9783050063782.">Popper, 2013</a>]</span>. He suggested that scientists propose hypotheses based on initial observations (data). These hypotheses are then rigorously tested, and if proven wrong, are modified or replaced by newer, more refined hypotheses. This iterative cycle continues, constantly refining our body of knowledge.</p>
+<p>A classical, and often modified and extended, theory of how scientific knowledge progress works was proposed by Karl Popper <span id="id3">[<a class="reference internal" href="bibliography.html#id59" title="Karl Popper. Karl Popper: Logik der Forschung. Akademie Verlag, July 2013. ISBN 978-3-05-006378-2. URL: https://www.degruyter.com/document/doi/10.1524/9783050063782/html (visited on 2023-09-04), doi:10.1524/9783050063782.">Popper, 2013</a>]</span>. He suggested that scientists propose hypotheses based on initial observations (data). These hypotheses are then rigorously tested, and if proven wrong, are modified or replaced by newer, more refined hypotheses. This iterative cycle continues, constantly refining our body of knowledge.</p>
 <p>Another insightful approach is the “Inference to the Best Explanation” method <span id="id4">[<a class="reference internal" href="bibliography.html#id7" title="Thomas Bartelborth. Die erkenntnistheoretischen Grundlagen induktiven Schließens. Universität Leipzig, 2017. URL: https://nbn-resolving.org/urn:nbn:de:bsz:15-qucosa-220168.">Bartelborth, 2017</a>]</span>. Here’s how it works:</p>
 <ol class="arabic simple">
 <li><p><strong>Observation</strong>: Start by observing phenomena. This is your raw data.
@@ -484,8 +484,8 @@ But it should also be noted that there is no simple recipe of how to get from da
 <p>If this subject interests you, there are many exciting philosophical debates and works on the matter of knowledge and the methodologies to derive knowledge.</p>
 <p>Here just two more examples:</p>
 <ul class="simple">
-<li><p>Keith Lehrer, “Theory of Knowledge”, 2nd edition, 2019 <span id="id5">[<a class="reference internal" href="bibliography.html#id23" title="Keith Lehrer. Theory Of Knowledge: Second Edition. Routledge, New York, 2 edition, September 2019. ISBN 978-0-429-49426-0. doi:10.4324/9780429494260.">Lehrer, 2019</a>]</span></p></li>
-<li><p>Max Boisot and Augustí Canals, “Data, information and knowledge: have we got it right?”, 2004, Journal of Evolutionary Economics <span id="id6">[<a class="reference internal" href="bibliography.html#id8" title="Max Boisot and Agustí Canals. Data, information and knowledge: have we got it right? Journal of Evolutionary Economics, 14(1):43–67, January 2004. URL: https://doi.org/10.1007/s00191-003-0181-9 (visited on 2024-04-22), doi:10.1007/s00191-003-0181-9.">Boisot and Canals, 2004</a>]</span></p></li>
+<li><p>Keith Lehrer, “Theory of Knowledge”, 2nd edition, 2019 <span id="id5">[<a class="reference internal" href="bibliography.html#id35" title="Keith Lehrer. Theory Of Knowledge: Second Edition. Routledge, New York, 2 edition, September 2019. ISBN 978-0-429-49426-0. doi:10.4324/9780429494260.">Lehrer, 2019</a>]</span></p></li>
+<li><p>Max Boisot and Augustí Canals, “Data, information and knowledge: have we got it right?”, 2004, Journal of Evolutionary Economics <span id="id6">[<a class="reference internal" href="bibliography.html#id10" title="Max Boisot and Agustí Canals. Data, information and knowledge: have we got it right? Journal of Evolutionary Economics, 14(1):43–67, January 2004. URL: https://doi.org/10.1007/s00191-003-0181-9 (visited on 2024-04-22), doi:10.1007/s00191-003-0181-9.">Boisot and Canals, 2004</a>]</span></p></li>
 </ul>
 </section>
 </section>
@@ -580,7 +580,7 @@ By Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>

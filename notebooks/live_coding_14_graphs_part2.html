@@ -203,10 +203,10 @@
 <li class="toctree-l1"><a class="reference internal" href="live_coding_05_correlation_analysis.html">11. Correlation Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_06_clustering.html">12. Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_06b_introduction_outlier_detection.html">13. Outlier Detection</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Modeling</span></p>
-<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_07_dimensionality_reduction.html">14. Dimensionality Reduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_08_machine_learning.html">15. Supervised Machine Learning - Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09_machine_learning_algorithms.html">16. Common Algorithms - k-Nearest Neighbors (k-NN)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09b_machine_learning_algorithms_2.html">17. Common Algorithms II - Linear Models</a></li>
@@ -217,7 +217,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">21. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">22. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">22. NLP - Basic Techniques to Analyze Text Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">23. Computing with Text: Counting words</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">24. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
@@ -484,14 +484,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-the-structure-of-a-graph">27.1. Measuring the Structure of a Graph</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-important-is-a-node">27.2. How important is a Node?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality">27.2.1. Closeness Centrality</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#betweenness-centrality">27.2.2. Betweenness Centrality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-the-structure-of-a-graph">27.1. Measuring the Structure of a Graph</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-important-is-a-node">27.1.1. How important is a Node?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality">27.1.2. Closeness Centrality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#betweenness-centrality">27.1.3. Betweenness Centrality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-the-most-important-nodes">27.1.4. What are the “most important” nodes?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-important-is-an-edge">27.1.5. How important is an edge?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-the-most-important-nodes">27.3. What are the “most important” nodes?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-important-is-an-edge">27.4. How important is an edge?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-networks">27.2. More on Networks</a></li>
 </ul>
             </nav>
         </div>
@@ -525,13 +526,13 @@ C(i) = \frac{\tau(i)}{\tau_{max}(i)} = \frac{2\tau(i)}{k_i(k_i-1)}
 \[
 C= \frac{\sum_{i:k&gt;1}C(i)}{N_{k&gt;1   }}
 \]</div>
-</section>
 <section id="how-important-is-a-node">
-<h2><span class="section-number">27.2. </span>How important is a Node?<a class="headerlink" href="#how-important-is-a-node" title="Link to this heading">#</a></h2>
+<h3><span class="section-number">27.1.1. </span>How important is a Node?<a class="headerlink" href="#how-important-is-a-node" title="Link to this heading">#</a></h3>
 <p>Often, we are interested in the importance of individual nodes. Which elements are essential for the network? What are potential bottlenecks? Who / What is best connected?</p>
 <p>For this, there are a number of measuring methods, two of the most well-known are <em>closeness centrality</em> and <em>betweenness centrality</em>. The naming of these two terms is not ideal, at least we saw that if often is confusing to students at first. But let’s try to understand both measures to learn what we can use them for.</p>
+</section>
 <section id="closeness-centrality">
-<h3><span class="section-number">27.2.1. </span>Closeness Centrality<a class="headerlink" href="#closeness-centrality" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">27.1.2. </span>Closeness Centrality<a class="headerlink" href="#closeness-centrality" title="Link to this heading">#</a></h3>
 <p>The <em>closeness centrality</em> measures the average distance from a node to all other nodes. High closeness centrality means a small average distance (since the reciprocal is used in the formula), i.e., the nodes with the highest values are the “central” points of the network. It’s fastest to get anywhere from here.</p>
 <p><strong>Closeness centrality (for nodes)</strong>:</p>
 <div class="math notranslate nohighlight">
@@ -542,7 +543,7 @@ g_i =\frac{N - 1}{\sum  _{i\neq j}\ell_{ij}}
 <p>It is important to note, that the closeness centrality does not necessarily reflect what we intuitively mean by the “importance” of a node for the rest of the network. If you live in a tiny village that happens to be close to a major traffic hub, such as an international airport, this node (your village) would get a high closeness centrality because many other nodes are within short reach. The really important node, however, is the trafic hub itself an not your village (hope this doesn’t hurt any feelings…).</p>
 </section>
 <section id="betweenness-centrality">
-<h3><span class="section-number">27.2.2. </span>Betweenness Centrality<a class="headerlink" href="#betweenness-centrality" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">27.1.3. </span>Betweenness Centrality<a class="headerlink" href="#betweenness-centrality" title="Link to this heading">#</a></h3>
 <p><em>Betweenness centrality</em> considers how many of all shortest paths pass through a certain node. Or in other words, how many shortest paths would be eliminated if a certain node were removed. Bottlenecks in the network, for instance, are characterized by high <em>betweenness centrality</em>. But also central hubs that facilitate many paths in the network will rank high.</p>
 <p><strong>Betweenness centrality (for nodes)</strong></p>
 <div class="math notranslate nohighlight">
@@ -594,9 +595,8 @@ b_i = \sum  _{h \neq j \neq i}\frac{\sigma(j, h |i)}{\sigma(j, h)}
 </div>
 </div>
 </section>
-</section>
 <section id="what-are-the-most-important-nodes">
-<h2><span class="section-number">27.3. </span>What are the “most important” nodes?<a class="headerlink" href="#what-are-the-most-important-nodes" title="Link to this heading">#</a></h2>
+<h3><span class="section-number">27.1.4. </span>What are the “most important” nodes?<a class="headerlink" href="#what-are-the-most-important-nodes" title="Link to this heading">#</a></h3>
 <p>Graphs often represent complex data containing a lot of information about relationships, flows, routes, etc.
 …</p>
 <p>We are often interested in measuring the “importance” of nodes. And importance can mean a lot of different things, depending on what my data is and what my precise question and interest is.</p>
@@ -661,7 +661,7 @@ b_i = \sum  _{h \neq j \neq i}\frac{\sigma(j, h |i)}{\sigma(j, h)}
 </div>
 </section>
 <section id="how-important-is-an-edge">
-<h2><span class="section-number">27.4. </span>How important is an edge?<a class="headerlink" href="#how-important-is-an-edge" title="Link to this heading">#</a></h2>
+<h3><span class="section-number">27.1.5. </span>How important is an edge?<a class="headerlink" href="#how-important-is-an-edge" title="Link to this heading">#</a></h3>
 <p><em>Betweenness centrality</em> can be calculated not only for nodes but also for edges. Analog to the case for nodes you can think of this as a question to how often a certain link is used when traversing the graph between two nodes.</p>
 <p><strong>Betweenness centrality (for edges)</strong></p>
 <div class="math notranslate nohighlight">
@@ -669,6 +669,13 @@ b_i = \sum  _{h \neq j \neq i}\frac{\sigma(j, h |i)}{\sigma(j, h)}
 b_e = \sum_{i, j}\frac{\sigma(i, j |e)}{\sigma(i,j)}
 \]</div>
 <p>With <span class="math notranslate nohighlight">\(\sigma(i, j)\)</span> the number of shortest paths from node <span class="math notranslate nohighlight">\(i\)</span> to <span class="math notranslate nohighlight">\(j\)</span> and <span class="math notranslate nohighlight">\(\sigma(i, j |e)\)</span> the number of shortest paths from node <span class="math notranslate nohighlight">\(i\)</span> to <span class="math notranslate nohighlight">\(j\)</span> that pass through edge <span class="math notranslate nohighlight">\(e\)</span>.</p>
+</section>
+</section>
+<section id="more-on-networks">
+<h2><span class="section-number">27.2. </span>More on Networks<a class="headerlink" href="#more-on-networks" title="Link to this heading">#</a></h2>
+<p>A great introduction to the topic of networks and network analysis is the book “A first course in network science” <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id46" title="Filippo Menczer, Santo Fortunato, and Clayton A Davis. A first course in network science. Cambridge University Press, 2020.">Menczer <em>et al.</em>, 2020</a>]</span>.</p>
+<p>Much more on community detection can be found in:
+<span id="id2">[<a class="reference internal" href="../book/bibliography.html#id22" title="Santo Fortunato. Community detection in graphs. Physics reports, 486(3-5):75–174, 2010.">Fortunato, 2010</a>, <a class="reference internal" href="../book/bibliography.html#id55" title="Tiago P Peixoto. Descriptive vs. inferential community detection in networks: Pitfalls, myths and half-truths. Cambridge University Press, 2023.">Peixoto, 2023</a>]</span></p>
 </section>
 </section>
 
@@ -736,14 +743,15 @@ b_e = \sum_{i, j}\frac{\sigma(i, j |e)}{\sigma(i,j)}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-the-structure-of-a-graph">27.1. Measuring the Structure of a Graph</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-important-is-a-node">27.2. How important is a Node?</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality">27.2.1. Closeness Centrality</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#betweenness-centrality">27.2.2. Betweenness Centrality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#measuring-the-structure-of-a-graph">27.1. Measuring the Structure of a Graph</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-important-is-a-node">27.1.1. How important is a Node?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#closeness-centrality">27.1.2. Closeness Centrality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#betweenness-centrality">27.1.3. Betweenness Centrality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-the-most-important-nodes">27.1.4. What are the “most important” nodes?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-important-is-an-edge">27.1.5. How important is an edge?</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-are-the-most-important-nodes">27.3. What are the “most important” nodes?</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-important-is-an-edge">27.4. How important is an edge?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-networks">27.2. More on Networks</a></li>
 </ul>
   </nav></div>
 
@@ -768,7 +776,7 @@ By Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>

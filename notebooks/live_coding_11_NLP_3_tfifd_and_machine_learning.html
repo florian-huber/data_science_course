@@ -63,7 +63,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="24. Beyond Counting Individual Words: N-grams" href="live_coding_12_NLP_4_ngrams_word_vectors.html" />
-    <link rel="prev" title="22. NLP - basic techniques to analyse text data" href="live_coding_11_NLP_2_tokenization.html" />
+    <link rel="prev" title="22. NLP - Basic Techniques to Analyze Text Data" href="live_coding_11_NLP_2_tokenization.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -203,10 +203,10 @@
 <li class="toctree-l1"><a class="reference internal" href="live_coding_05_correlation_analysis.html">11. Correlation Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_06_clustering.html">12. Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_06b_introduction_outlier_detection.html">13. Outlier Detection</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Modeling</span></p>
-<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_07_dimensionality_reduction.html">14. Dimensionality Reduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_08_machine_learning.html">15. Supervised Machine Learning - Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09_machine_learning_algorithms.html">16. Common Algorithms - k-Nearest Neighbors (k-NN)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09b_machine_learning_algorithms_2.html">17. Common Algorithms II - Linear Models</a></li>
@@ -217,7 +217,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">21. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">22. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">22. NLP - Basic Techniques to Analyze Text Data</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">23. Computing with Text: Counting words</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">24. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
@@ -1139,7 +1139,7 @@ Test dataset size: (4099,)
 <hr class="docutils" />
 <p>Actually, this case is a bit of a gray zone.</p>
 <p>The ratings are discrete numbers: 1, 2, 3, 4, or 5. But the ratings are also <strong>ordered</strong>, so that predicting a 2 where the true label is a 1 is not that bad! When we train a model on a classification task, then it usually doesn’t matter which wrong class was predicted, so predicting a 2 where it’s actually 1 is as bad as predicting a 4 [^loss-functions]. So, that makes <em>regression</em> to appear as the natural choice…</p>
-<p>However, in practice, training a model on a classification task typically works notably better in such situations where we only have very few possible ordered values (see also <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id17" title="Narendra Kumar Gupta, Giuseppe Di Fabbrizio, and Patrick Haffner. Capturing the stars: predicting ratings for service and product reviews. In HLT-NAACL 2010. 2010.">Gupta <em>et al.</em>, 2010</a>]</span>).</p>
+<p>However, in practice, training a model on a classification task typically works notably better in such situations where we only have very few possible ordered values (see also <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id26" title="Narendra Kumar Gupta, Giuseppe Di Fabbrizio, and Patrick Haffner. Capturing the stars: predicting ratings for service and product reviews. In HLT-NAACL 2010. 2010.">Gupta <em>et al.</em>, 2010</a>]</span>).</p>
 <p>Nevertheless, we will start with a <strong>linear regression</strong> model and than compare it to a <strong>logistic regression</strong> model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1700,7 +1700,7 @@ weighted avg       0.83      0.86      0.83      4099
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">22. </span>NLP - basic techniques to analyse text data</p>
+        <p class="prev-next-title"><span class="section-number">22. </span>NLP - Basic Techniques to Analyze Text Data</p>
       </div>
     </a>
     <a class="right-next"
@@ -1780,7 +1780,7 @@ By Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>

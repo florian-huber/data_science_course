@@ -201,10 +201,10 @@
 <li class="toctree-l1"><a class="reference internal" href="live_coding_05_correlation_analysis.html">11. Correlation Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_06_clustering.html">12. Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_06b_introduction_outlier_detection.html">13. Outlier Detection</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Modeling</span></p>
-<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_07_dimensionality_reduction.html">14. Dimensionality Reduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_08_machine_learning.html">15. Supervised Machine Learning - Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09_machine_learning_algorithms.html">16. Common Algorithms - k-Nearest Neighbors (k-NN)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09b_machine_learning_algorithms_2.html">17. Common Algorithms II - Linear Models</a></li>
@@ -215,7 +215,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">21. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">22. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">22. NLP - Basic Techniques to Analyze Text Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">23. Computing with Text: Counting words</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">24. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
@@ -509,6 +509,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformers-bert-gpt">24.6.4. Transformers: BERT &amp; GPT</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-nlp">24.7. More on NLP</a></li>
 </ul>
             </nav>
         </div>
@@ -1878,7 +1879,7 @@ Perfect dinner spot in La Latina, a little ways away from the hustle and bustle 
 (2) <em>The client loves to have a cookie and a coffee.</em></p>
 <p>We will immediately identify that both sentences speak of very similar things. But if you look at the words in both sentences you will realize that only <em>“The”</em> and <em>“a”</em> are found in both. And, as we have seen in the tfidf-part, such words tell very little about the sentence content. All other words, however, only occur in one or the other sentence. Tfidf-vectors would compute a zero similarity here.</p>
 <p>This is where we come to <strong>word vectors</strong>. Word vectors, also known as <strong>word embeddings</strong>, are mathematical representations of words in a high-dimensional space where the semantic similarity between words corresponds to the geometric distance in the embedding space. Simply put, similar words are close together, and dissimilar words are farther apart. If done well, this should show that <em>“cookie”</em> and <em>“cake”</em> are not the same word, but mean something very related.</p>
-<p>The most prominent example of such a technique is Word2Vec <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id34" title="Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, and Jeffrey Dean. Distributed Representations of Words and Phrases and their Compositionality. October 2013. arXiv:1310.4546 [cs, stat]. URL: http://arxiv.org/abs/1310.4546 (visited on 2023-06-12), doi:10.48550/arXiv.1310.4546.">Mikolov <em>et al.</em>, 2013</a>]</span><span id="id3">[<a class="reference internal" href="../book/bibliography.html#id35" title="Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. Efficient Estimation of Word Representations in Vector Space. September 2013. arXiv:1301.3781 [cs]. URL: http://arxiv.org/abs/1301.3781 (visited on 2023-06-12), doi:10.48550/arXiv.1301.3781.">Mikolov <em>et al.</em>, 2013</a>]</span>.</p>
+<p>The most prominent example of such a technique is Word2Vec <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id47" title="Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, and Jeffrey Dean. Distributed Representations of Words and Phrases and their Compositionality. October 2013. arXiv:1310.4546 [cs, stat]. URL: http://arxiv.org/abs/1310.4546 (visited on 2023-06-12), doi:10.48550/arXiv.1310.4546.">Mikolov <em>et al.</em>, 2013</a>]</span><span id="id3">[<a class="reference internal" href="../book/bibliography.html#id48" title="Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. Efficient Estimation of Word Representations in Vector Space. September 2013. arXiv:1301.3781 [cs]. URL: http://arxiv.org/abs/1301.3781 (visited on 2023-06-12), doi:10.48550/arXiv.1301.3781.">Mikolov <em>et al.</em>, 2013</a>]</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install gensim</span>
@@ -2327,13 +2328,24 @@ afskfsd False 0.0 True
 </section>
 <section id="glove">
 <h3><span class="section-number">24.6.3. </span>GloVe<a class="headerlink" href="#glove" title="Link to this heading">#</a></h3>
-<p>GloVe, developed by Stanford, is another method to create word embeddings. While Word2Vec is a predictive model — a model that predicts context given a word, GloVe is a count-based model. It leverages matrix factorization techniques on the word-word co-occurrence matrix.</p>
+<p>GloVe, developed by Stanford, is another method to create word embeddings. While Word2Vec is a predictive model — a model that predicts the context given a word, GloVe is a count-based model. It leverages matrix factorization techniques on the word-word co-occurrence matrix.</p>
 </section>
 <section id="transformers-bert-gpt">
 <h3><span class="section-number">24.6.4. </span>Transformers: BERT &amp; GPT<a class="headerlink" href="#transformers-bert-gpt" title="Link to this heading">#</a></h3>
-<p>BERT (Bidirectional Encoder Representations from Transformers) and GPT (Generative Pretrained Transformer) models ushered in the era of transformers that not only consider local context but also take the entire sentence context into account to create word embeddings.</p>
+<p>One of the most fundamental limitations of Word2Vec and similar algorithms is rooted in the underlying bag-of-words approach. This removes a lot of information that lies in the <strong>order</strong> of words. Even constructs such as n-grams can only compensate for extremely local pattern such as <em>“do not like”</em>  vs <em>“do like”</em>.</p>
+<p>In contrast, deep learning techniques related to recurrent neural networks or -even more powerful- transformers, have the ability to learn pattern across many more words. In the case of transformers even across pages of text which is precisely why ChatGPT and following large language models were able to use natural language with an formerly unknown degree of subtlety.
+BERT (Bidirectional Encoder Representations from Transformers) and GPT (Generative Pretrained Transformer) models ushered in the era of transformers that not only consider local context but also take the entire sentence context into account to create word embeddings.</p>
 <p>In conclusion, while TF-IDF and n-grams offer a solid start, word embeddings and transformers take the representation of words to the next level. By considering context and semantic meaning, they offer a more complete and robust method to work with text.</p>
 </section>
+</section>
+<section id="more-on-nlp">
+<h2><span class="section-number">24.7. </span>More on NLP<a class="headerlink" href="#more-on-nlp" title="Link to this heading">#</a></h2>
+<p>It should come as no surprise that there is <em>much</em> more to learn about NLP than what was presented in this, and the previous chapters.</p>
+<p>Very good starting points for going deeper are:</p>
+<ul class="simple">
+<li><p>The book “Speech and Language Processing” by Jurafsky and Martin <span id="id4">[<a class="reference internal" href="../book/bibliography.html#id30" title="Dan Jurafsky and James H Martin. Speech and language processing. 3rd ed. draft. 2024.">Jurafsky and Martin, 2024</a>]</span>, see <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">link to the book</a>.</p></li>
+<li><p>“Natural language processing with transformers” by Tunstall, von Werra, and Wolf <span id="id5">[<a class="reference internal" href="../book/bibliography.html#id71" title="Lewis Tunstall, Leandro Von Werra, and Thomas Wolf. Natural language processing with transformers. &quot; O'Reilly Media, Inc.&quot;, 2022.">Tunstall <em>et al.</em>, 2022</a>]</span></p></li>
+</ul>
 </section>
 </section>
 
@@ -2428,6 +2440,7 @@ afskfsd False 0.0 True
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transformers-bert-gpt">24.6.4. Transformers: BERT &amp; GPT</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-nlp">24.7. More on NLP</a></li>
 </ul>
   </nav></div>
 
@@ -2452,7 +2465,7 @@ By Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>

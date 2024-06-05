@@ -201,10 +201,10 @@
 <li class="toctree-l1"><a class="reference internal" href="live_coding_05_correlation_analysis.html">11. Correlation Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_06_clustering.html">12. Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_06b_introduction_outlier_detection.html">13. Outlier Detection</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Modeling</span></p>
-<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_07_dimensionality_reduction.html">14. Dimensionality Reduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_08_machine_learning.html">15. Supervised Machine Learning - Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09_machine_learning_algorithms.html">16. Common Algorithms - k-Nearest Neighbors (k-NN)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09b_machine_learning_algorithms_2.html">17. Common Algorithms II - Linear Models</a></li>
@@ -215,7 +215,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">21. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">22. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">22. NLP - Basic Techniques to Analyze Text Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">23. Computing with Text: Counting words</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">24. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
@@ -518,7 +518,7 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">9.6. Further Cleaning Steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">9.6. Further Cleaning Steps</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-duplicates">9.6.1. Removing Duplicates</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standardizing-data">9.6.2. Standardizing Data</a></li>
 </ul>
@@ -595,7 +595,7 @@ Suppose we, or the experts we collaborate with, do not have a very solid underst
 </section>
 <section id="python-examples-handling-missing-values">
 <h3><span class="section-number">9.2.3. </span>Python Examples: Handling Missing Values<a class="headerlink" href="#python-examples-handling-missing-values" title="Link to this heading">#</a></h3>
-<p>We will include detailed Python examples demonstrating these techniques, showing practical implementations using libraries such as <code class="docutils literal notranslate"><span class="pre">pandas</span></code> and <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code>. This hands-on approach will help in solidifying the theoretical concepts discussed and provide learners with the tools they need to effectively handle missing data in their projects.</p>
+<p>We will include detailed Python examples demonstrating these techniques, showing practical implementations using key data science libraries such as <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id63" title="The pandas development team. Pandas-dev/pandas: pandas. February 2020. URL: https://doi.org/10.5281/zenodo.3509134, doi:10.5281/zenodo.3509134.">pandas development team, 2020</a>]</span> or <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id66" title="F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay. Scikit-learn: machine learning in Python. Journal of Machine Learning Research, 12:2825–2830, 2011.">Pedregosa <em>et al.</em>, 2011</a>]</span>. This hands-on approach will help in solidifying the theoretical concepts discussed and provide learners with the tools they need to effectively handle missing data in their projects.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -1553,8 +1553,8 @@ Types:</p>
 </section>
 </section>
 </section>
-<section id="id1">
-<h2><span class="section-number">9.6. </span>Further Cleaning Steps<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<section id="id3">
+<h2><span class="section-number">9.6. </span>Further Cleaning Steps<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <section id="removing-duplicates">
 <h3><span class="section-number">9.6.1. </span>Removing Duplicates<a class="headerlink" href="#removing-duplicates" title="Link to this heading">#</a></h3>
 <p>Duplicate entries in a dataset can skew analysis and lead to incorrect conclusions.
@@ -1813,7 +1813,7 @@ It’s often important to identify and remove duplicates to ensure data integrit
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">9.6. Further Cleaning Steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">9.6. Further Cleaning Steps</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-duplicates">9.6.1. Removing Duplicates</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standardizing-data">9.6.2. Standardizing Data</a></li>
 </ul>
@@ -1843,7 +1843,7 @@ By Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>

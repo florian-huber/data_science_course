@@ -60,7 +60,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/live_coding_10_working_with_text_data';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="22. NLP - basic techniques to analyse text data" href="live_coding_11_NLP_2_tokenization.html" />
+    <link rel="next" title="22. NLP - Basic Techniques to Analyze Text Data" href="live_coding_11_NLP_2_tokenization.html" />
     <link rel="prev" title="20. Ensemble Models and Outlook" href="live_coding_09e_machine_learning_ensembles.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -201,10 +201,10 @@
 <li class="toctree-l1"><a class="reference internal" href="live_coding_05_correlation_analysis.html">11. Correlation Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_06_clustering.html">12. Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_06b_introduction_outlier_detection.html">13. Outlier Detection</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Modeling</span></p>
-<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_07_dimensionality_reduction.html">14. Dimensionality Reduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_08_machine_learning.html">15. Supervised Machine Learning - Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09_machine_learning_algorithms.html">16. Common Algorithms - k-Nearest Neighbors (k-NN)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09b_machine_learning_algorithms_2.html">17. Common Algorithms II - Linear Models</a></li>
@@ -215,7 +215,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">21. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">22. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">22. NLP - Basic Techniques to Analyze Text Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">23. Computing with Text: Counting words</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">24. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
@@ -482,17 +482,18 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-and-structures-as-strings">21.1. 1. Data and Structures as Strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#human-language-in-text-form">21.2. 2. Human Language in Text Form</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-and-structures-as-strings">21.1. Data and Structures as Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#human-language-in-text-form">21.2. Human Language in Text Form</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-python-string-handling-methods">21.3. Basic Python string handling methods</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-string-methods">21.3.1. Python String Methods</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-strings">21.3.1.1. Modify strings</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#count-words">21.3.1.2. Count words</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-string-methods">21.3.1. Python String Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-strings">21.3.2. Modify strings</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-quiz">21.3.2.1. Mini Quiz!</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenize">21.3.2. Tokenize</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#very-common-problem-different-variations-of-a-word">21.3.3. Very common problem: different variations of a word</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-special-words-or-tags">21.3.3.1. Identify special words or tags</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#count-words">21.3.3. Count words</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenize">21.3.4. Tokenize</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-problem-different-variations-of-a-word">21.3.5. Common problem: different variations of a word</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-special-words-or-tags">21.3.5.1. Identify special words or tags</a></li>
 </ul>
 </li>
 </ul>
@@ -514,7 +515,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repetitions">21.4.7. Repetitions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characters">21.4.8. Characters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#groups-and-branches">21.4.9. Groups and Branches</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#developing-regex-solutions">21.4.10. Developing Regex solutions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#developing-regex-solutions">21.4.10. Developing Regex solutions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#let-bots-do-the-work">21.4.10.1. Let bots do the work</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -533,7 +537,7 @@ document.write(`
 <p>Data Science is a versatile field that integrates techniques from different domains to extract meaningful information from data. Often, the data we work with is numerical, perhaps tabular and structured. However, a significant portion of the data available today is unstructured and in the form of text. This chapter focuses on why and how we work with such text data.</p>
 <p>Text data can be found in various forms and domains. It’s ubiquitous in today’s digital world and holds immense value when it comes to generating insights and making informed decisions. In general, we can categorize the applications of text data in data science into two broad categories:</p>
 <section id="data-and-structures-as-strings">
-<h2><span class="section-number">21.1. </span>1. Data and Structures as Strings<a class="headerlink" href="#data-and-structures-as-strings" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">21.1. </span>Data and Structures as Strings<a class="headerlink" href="#data-and-structures-as-strings" title="Link to this heading">#</a></h2>
 <p>String data forms a large part of the information we handle in our day-to-day lives and in scientific research. It can include:</p>
 <ul class="simple">
 <li><p><strong>File and Folder names</strong>: These are often encoded as text and carry essential information about the content they represent. Proper management and manipulation of these names can significantly enhance our productivity and efficiency.</p></li>
@@ -542,7 +546,7 @@ document.write(`
 </ul>
 </section>
 <section id="human-language-in-text-form">
-<h2><span class="section-number">21.2. </span>2. Human Language in Text Form<a class="headerlink" href="#human-language-in-text-form" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">21.2. </span>Human Language in Text Form<a class="headerlink" href="#human-language-in-text-form" title="Link to this heading">#</a></h2>
 <p>Much of our communication today happens via written text. Such data is rich and diverse, and its analysis can provide a wealth of insights. It includes:</p>
 <ul class="simple">
 <li><p><strong>Social Media, Emails, Chats</strong>: A substantial amount of information is exchanged through social media posts, emails, and chat conversations. Analyzing this data can help understand user behavior, sentiments, trends, and more.</p></li>
@@ -553,7 +557,7 @@ document.write(`
 </ul>
 <p>In the following sections of this chapter, we will delve into how we can effectively manage and process these text data to extract valuable insights. This includes techniques from simple string manipulation to advanced natural language processing. Understanding text data and how to work with it is an invaluable skill in the modern data science landscape.</p>
 <p>But let us start with the most fundamental basics: string handling!
-Here a simple short text to work with (the text was generated by ChatGPT with its unique sense of humor…):</p>
+Here is a simple short text to work with (the text was generated by ChatGPT with its unique sense of humor…):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Once upon a time, in a far-off land of data, lived a strange yet</span>
@@ -681,8 +685,9 @@ and looking forward to meeting the &#39;Tuple Twins&#39;.
 <p>The <code class="docutils literal notranslate"><span class="pre">\'</span></code> sequence is used to include literal single quotes (<code class="docutils literal notranslate"><span class="pre">'</span></code>) in our text string. This is necessary because Python interprets single quotes as marking the start or end of a string. Therefore, to use a single quote as part of the string itself (for instance, in contractions like “don’t” or to denote possession as in “Python’s”), we ‘escape’ it using a backslash (<code class="docutils literal notranslate"><span class="pre">\</span></code>) before the quote.</p>
 <p>On the other hand, <code class="docutils literal notranslate"><span class="pre">\n</span></code> is a newline character that is used to start a new line. Python interprets this sequence as a single character that moves the cursor to the next line. This is why we see the text broken into multiple lines when we print the content of <code class="docutils literal notranslate"><span class="pre">my_text</span></code>.</p>
 <p>Understanding and being able to handle such escape sequences is an essential part of working with text data, as they can affect the processing and analysis of the text.</p>
+</section>
 <section id="modify-strings">
-<h4><span class="section-number">21.3.1.1. </span>Modify strings<a class="headerlink" href="#modify-strings" title="Link to this heading">#</a></h4>
+<h3><span class="section-number">21.3.2. </span>Modify strings<a class="headerlink" href="#modify-strings" title="Link to this heading">#</a></h3>
 <p>A very common method used to modify strings in Python is via the <code class="docutils literal notranslate"><span class="pre">replace()</span></code> methods. This is well suited to replace specific characters or sequences of characters.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -697,22 +702,22 @@ and looking forward to meeting the &#39;Tuple Twins&#39;.
 </div>
 </div>
 </div>
+<section id="mini-quiz">
+<h4><span class="section-number">21.3.2.1. </span>Mini Quiz!<a class="headerlink" href="#mini-quiz" title="Link to this heading">#</a></h4>
 <blockquote>
-<div><h3 class="rubric" id="mini-quiz">Mini Quiz!</h3>
-<p>Make a guess: What would the following code return?</p>
-</div></blockquote>
+<div><p>Make a guess: What would the following code return?</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;ab&quot;</span><span class="p">,</span> <span class="s2">&quot;cc&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
-<blockquote>
-<div><p>a) ccx<br />
+<p>a) ccx<br />
 b) ab<br />
 c) xxx<br />
 d) abx</p>
 </div></blockquote>
 </section>
+</section>
 <section id="count-words">
-<h4><span class="section-number">21.3.1.2. </span>Count words<a class="headerlink" href="#count-words" title="Link to this heading">#</a></h4>
+<h3><span class="section-number">21.3.3. </span>Count words<a class="headerlink" href="#count-words" title="Link to this heading">#</a></h3>
 <p>Counting words is a very common task. It is even central to many data science methods. Python string methods include methods like <code class="docutils literal notranslate"><span class="pre">count()</span></code> which, like their name says, can do some of this counting for us. But we will quickly see, that often this is not good enough.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -752,9 +757,8 @@ d) abx</p>
 </div>
 </div>
 </section>
-</section>
 <section id="tokenize">
-<h3><span class="section-number">21.3.2. </span>Tokenize<a class="headerlink" href="#tokenize" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">21.3.4. </span>Tokenize<a class="headerlink" href="#tokenize" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="n">my_text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>  <span class="c1"># still many wrong words in there</span>
@@ -782,8 +786,8 @@ d) abx</p>
 </div>
 </div>
 </section>
-<section id="very-common-problem-different-variations-of-a-word">
-<h3><span class="section-number">21.3.3. </span>Very common problem: different variations of a word<a class="headerlink" href="#very-common-problem-different-variations-of-a-word" title="Link to this heading">#</a></h3>
+<section id="common-problem-different-variations-of-a-word">
+<h3><span class="section-number">21.3.5. </span>Common problem: different variations of a word<a class="headerlink" href="#common-problem-different-variations-of-a-word" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">words</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;stringman&quot;</span><span class="p">),</span> <span class="n">words</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;string-man&quot;</span><span class="p">)</span>
@@ -831,7 +835,7 @@ d) abx</p>
 </div>
 </div>
 <section id="identify-special-words-or-tags">
-<h4><span class="section-number">21.3.3.1. </span>Identify special words or tags<a class="headerlink" href="#identify-special-words-or-tags" title="Link to this heading">#</a></h4>
+<h4><span class="section-number">21.3.5.1. </span>Identify special words or tags<a class="headerlink" href="#identify-special-words-or-tags" title="Link to this heading">#</a></h4>
 <p>By only using the above mentioned basic string method, we can achieve many basic tasks when handling text data in Python. For instance, we can divide text into individual words (more or less at least), and identify special terms or tags.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1135,21 +1139,25 @@ mno
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
 
 <span class="k">def</span> <span class="nf">smallest_chatbot_in_the_world</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A simple chatbot that responds to user complaints about problems or issues.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hi. What&#39;s up?&quot;</span><span class="p">)</span>
-    <span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;&gt;&gt;&gt; &quot;</span><span class="p">)</span>
+    <span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;&gt;&gt;&gt; &quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
     
-    <span class="c1"># mini chat-bot</span>
-    <span class="n">regex_problem</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(problem|issue[s]?) with ([a-zA-Z\s]*\b)&quot;</span>
-    <span class="n">problem_mentioned</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex_problem</span><span class="p">,</span> <span class="n">user_input</span><span class="p">)</span>
+    <span class="c1"># Mini chat-bot</span>
+    <span class="n">regex_problem</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(problem|issues?) with ([a-zA-Z\s]+)&quot;</span>
+    <span class="n">problem_mentioned</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regex_problem</span><span class="p">,</span> <span class="n">user_input</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">problem_mentioned</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">problem</span> <span class="o">=</span> <span class="n">problem_mentioned</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">problem</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\b(my|our)\b&quot;</span><span class="p">,</span> <span class="s2">&quot;your&quot;</span><span class="p">,</span> <span class="n">problem</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">problem_mentioned</span><span class="p">:</span>
+        <span class="n">problem</span> <span class="o">=</span> <span class="n">problem_mentioned</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">problem</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\b(my|our)\b&quot;</span><span class="p">,</span> <span class="s2">&quot;your&quot;</span><span class="p">,</span> <span class="n">problem</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Come on! ... *MIMIMI* ... &quot;</span><span class="p">)</span>
         <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stop complaining about </span><span class="si">{</span><span class="n">problem</span><span class="si">}</span><span class="s2">!!&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Yeah, I know what you mean.&quot;</span><span class="p">)</span>
+    
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Let&#39;s try something better next time... gotta go.&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1158,54 +1166,55 @@ mno
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smallest_chatbot_in_the_world</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">automated_run</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Set to False to run it yourself!</span>
+
+<span class="k">if</span> <span class="n">automated_run</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">unittest.mock</span> <span class="kn">import</span> <span class="n">patch</span>
+
+    <span class="c1"># Mock user input for testing</span>
+    <span class="k">with</span> <span class="n">patch</span><span class="p">(</span><span class="s2">&quot;builtins.input&quot;</span><span class="p">,</span>
+               <span class="n">return_value</span><span class="o">=</span><span class="s2">&quot;All good.&quot;</span><span class="p">):</span>
+        <span class="n">smallest_chatbot_in_the_world</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">smallest_chatbot_in_the_world</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hi. What&#39;s up?
+Yeah, I know what you mean.
 </pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">28</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">smallest_chatbot_in_the_world</span><span class="p">()</span>
-
-<span class="nn">Cell In[27], line 5,</span> in <span class="ni">smallest_chatbot_in_the_world</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">def</span> <span class="nf">smallest_chatbot_in_the_world</span><span class="p">():</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hi. What&#39;s up?&quot;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">5</span>     <span class="n">user_input</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;&gt;&gt;&gt; &quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="c1"># mini chat-bot</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">regex_problem</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;(problem|issue[s]?) with ([a-zA-Z\s]*\b)&quot;</span>
-
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/site-packages/ipykernel/kernelbase.py:1281,</span> in <span class="ni">Kernel.raw_input</span><span class="nt">(self, prompt)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1279</span> <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1280</span>     <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1281</span>     <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1282</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1283</span>     <span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1284</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_parent_ident</span><span class="p">[</span><span class="s2">&quot;shell&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">   </span><span class="mi">1285</span>     <span class="bp">self</span><span class="o">.</span><span class="n">get_parent</span><span class="p">(</span><span class="s2">&quot;shell&quot;</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1286</span>     <span class="n">password</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1287</span> <span class="p">)</span>
-
-<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Let&#39;s try something better next time... gotta go.
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smallest_chatbot_in_the_world</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">automated_run</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Set to False to run it yourself!</span>
+
+<span class="k">if</span> <span class="n">automated_run</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">unittest.mock</span> <span class="kn">import</span> <span class="n">patch</span>
+
+    <span class="c1"># Mock user input for testing</span>
+    <span class="k">with</span> <span class="n">patch</span><span class="p">(</span><span class="s2">&quot;builtins.input&quot;</span><span class="p">,</span>
+               <span class="n">return_value</span><span class="o">=</span><span class="s2">&quot;I have a problem with my computer&quot;</span><span class="p">):</span>
+        <span class="n">smallest_chatbot_in_the_world</span><span class="p">()</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">smallest_chatbot_in_the_world</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hi. What&#39;s up?
-&gt;&gt;&gt; I have serious issues with our world today.
 Come on! ... *MIMIMI* ... 
-Stop complaining about your world today!!
-Let&#39;s try something better next time... gotta go.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Stop complaining about your computer!!
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Let&#39;s try something better next time... gotta go.
 </pre></div>
 </div>
 </div>
@@ -1335,7 +1344,7 @@ How do you feel about being so ashamed of who you were?
 &gt;&gt; Its just that I can&#39;t forget about it
 How do you know you can&#39;t forget about it?
 &gt;&gt; How should I go on from here?
-Please consider whether you can answer your own question.
+Why do you ask that?
 </pre></div>
 </div>
 </div>
@@ -1349,15 +1358,38 @@ Please consider whether you can answer your own question.
 <li><p>https://regex101.com/</p></li>
 <li><p>https://regexr.com/</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dummy</span><span class="o">.</span><span class="n">dummy</span><span class="nd">@something</span><span class="o">.</span><span class="n">com</span>
+<p>Try, for instance, to distinguish correct email from not-correct email:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dummy</span><span class="o">.</span><span class="n">dummy</span><span class="nd">@something</span><span class="o">.</span><span class="n">com</span>
 <span class="n">this</span> <span class="n">goes</span> <span class="n">to</span> <span class="nb">all</span> <span class="n">people</span><span class="nd">@all</span>
 <span class="n">This</span><span class="o">-</span><span class="ow">is</span><span class="o">-</span><span class="n">my</span><span class="o">-</span><span class="n">mail</span><span class="nd">@my</span><span class="o">-</span><span class="n">mail</span><span class="o">.</span><span class="n">home</span><span class="o">.</span><span class="n">com</span>
 </pre></div>
 </div>
+<section id="let-bots-do-the-work">
+<h4><span class="section-number">21.4.10.1. </span>Let bots do the work<a class="headerlink" href="#let-bots-do-the-work" title="Link to this heading">#</a></h4>
+<p>To be honest, building regular expressions used to be a time-consuming and often unstructured trial and error process, at least for many people I know.</p>
+<p>Large language models are often a good shortcut. As usual, they won’t always come up the the most optimal solution and sometimes there solutions are even wrong. But so are mine when it comes to regex. So, whenever something is getting a bit more complicated, or when you just want to have a quick test, language models are a decent way to go. Obviously, never just copy+paste their suggestion, but try it out on some test samples!</p>
+<p>The following was just a quick result from ChatGPT 4o on the prompt</p>
+<blockquote>
+<div><p>“Please provide a regex for Python for finding all instances in my_text which are regular english verbs in past tense. Exclude cases such as red”.</p>
+</div></blockquote>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<span class="n">pattern</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\b\w{3,}ed\b&#39;</span>
+<span class="n">matches</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">my_text</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+
+<span class="c1"># Output the matches</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;lived&#39;, &#39;decided&#39;, &#39;appeared&#39;, &#39;transformed&#39;, &#39;tricked&#39;, &#39;hyphenated&#39;, &#39;Fooled&#39;, &#39;continued&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 </section>
 </section>
@@ -1406,7 +1438,7 @@ Please consider whether you can answer your own question.
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">22. </span>NLP - basic techniques to analyse text data</p>
+        <p class="prev-next-title"><span class="section-number">22. </span>NLP - Basic Techniques to Analyze Text Data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1426,17 +1458,18 @@ Please consider whether you can answer your own question.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-and-structures-as-strings">21.1. 1. Data and Structures as Strings</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#human-language-in-text-form">21.2. 2. Human Language in Text Form</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-and-structures-as-strings">21.1. Data and Structures as Strings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#human-language-in-text-form">21.2. Human Language in Text Form</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-python-string-handling-methods">21.3. Basic Python string handling methods</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-string-methods">21.3.1. Python String Methods</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-strings">21.3.1.1. Modify strings</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#count-words">21.3.1.2. Count words</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-string-methods">21.3.1. Python String Methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-strings">21.3.2. Modify strings</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-quiz">21.3.2.1. Mini Quiz!</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenize">21.3.2. Tokenize</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#very-common-problem-different-variations-of-a-word">21.3.3. Very common problem: different variations of a word</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-special-words-or-tags">21.3.3.1. Identify special words or tags</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#count-words">21.3.3. Count words</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenize">21.3.4. Tokenize</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-problem-different-variations-of-a-word">21.3.5. Common problem: different variations of a word</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#identify-special-words-or-tags">21.3.5.1. Identify special words or tags</a></li>
 </ul>
 </li>
 </ul>
@@ -1458,7 +1491,10 @@ Please consider whether you can answer your own question.
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repetitions">21.4.7. Repetitions</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#characters">21.4.8. Characters</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#groups-and-branches">21.4.9. Groups and Branches</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#developing-regex-solutions">21.4.10. Developing Regex solutions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#developing-regex-solutions">21.4.10. Developing Regex solutions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#let-bots-do-the-work">21.4.10.1. Let bots do the work</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -1485,7 +1521,7 @@ By Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>

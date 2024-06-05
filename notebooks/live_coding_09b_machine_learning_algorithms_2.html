@@ -203,10 +203,10 @@
 <li class="toctree-l1"><a class="reference internal" href="live_coding_05_correlation_analysis.html">11. Correlation Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_06_clustering.html">12. Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_06b_introduction_outlier_detection.html">13. Outlier Detection</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Modeling</span></p>
-<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_07_dimensionality_reduction.html">14. Dimensionality Reduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning</span></p>
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_08_machine_learning.html">15. Supervised Machine Learning - Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09_machine_learning_algorithms.html">16. Common Algorithms - k-Nearest Neighbors (k-NN)</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Common Algorithms II - Linear Models</a></li>
@@ -217,7 +217,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">21. Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">22. NLP - basic techniques to analyse text data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">22. NLP - Basic Techniques to Analyze Text Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">23. Computing with Text: Counting words</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">24. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
@@ -513,7 +513,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="common-algorithms-ii-linear-models">
 <h1><span class="section-number">17. </span>Common Algorithms II - Linear Models<a class="headerlink" href="#common-algorithms-ii-linear-models" title="Link to this heading">#</a></h1>
 <p>We first looked at k-nearest neighbors (k-NN) and applied it to a simple dataset by using the Scikit-Learn implementation.
-Scikit-Learn provides many more machine learning models, and all are relatively easy to use from a coding perspective <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id48" title="F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay. Scikit-learn: machine learning in Python. Journal of Machine Learning Research, 12:2825–2830, 2011.">Pedregosa <em>et al.</em>, 2011</a>]</span>.</p>
+Scikit-Learn provides many more machine learning models, and all are relatively easy to use from a coding perspective <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id66" title="F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay. Scikit-learn: machine learning in Python. Journal of Machine Learning Research, 12:2825–2830, 2011.">Pedregosa <em>et al.</em>, 2011</a>]</span>.</p>
 <p>The supervised models (see <a class="reference external" href="https://scikit-learn.org/stable/supervised_learning.html">the Scikit-Learn guide</a>) are usually handled in a very similar way. We first train a model using <code class="docutils literal notranslate"><span class="pre">model.fit(X,</span> <span class="pre">y)</span></code> where <code class="docutils literal notranslate"><span class="pre">X</span></code> is our training data and <code class="docutils literal notranslate"><span class="pre">y</span></code> our targets or labels. Predictions on new data <code class="docutils literal notranslate"><span class="pre">X_new</span></code> are generated using <code class="docutils literal notranslate"><span class="pre">model.predict(X_new)</span></code>.</p>
 <p>In most cases, the main difficulty is not the code part. It is the right choice of an algorithm and the proper preparation of the input data.
 One thing that can lead to quite embarrassing outcomes, but also to drastic failure of a project, is the use of machine learning models without a proper understanding of how they work. A good data scientist will develop an intuition over time for what type of models work well for a certain task and dataset. This is nothing that can be developed within a few days or weeks, but we can set a good starting point here.</p>
@@ -568,7 +568,7 @@ Their main issue is, that they are often just <em>too</em> simple to describe da
 </section>
 <section id="hands-on-example">
 <h2><span class="section-number">17.3. </span>Hands-on Example<a class="headerlink" href="#hands-on-example" title="Link to this heading">#</a></h2>
-<p>We here again work with the <a class="reference external" href="https://allisonhorst.github.io/palmerpenguins/"><code class="docutils literal notranslate"><span class="pre">Penguin</span> <span class="pre">Dataset</span></code></a> <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id40" title="Allison Marie Horst, Alison Presmanes Hill, and Kristen B Gorman. palmerpenguins: Palmer Archipelago (Antarctica) penguin data. 2020. R package version 0.1.0. URL: https://allisonhorst.github.io/palmerpenguins/, doi:10.5281/zenodo.3960218.">Horst <em>et al.</em>, 2020</a>]</span>. But instead of predicting the species (which is a categorical value), we will try to predict numerical values.
+<p>We here again work with the <a class="reference external" href="https://allisonhorst.github.io/palmerpenguins/"><code class="docutils literal notranslate"><span class="pre">Penguin</span> <span class="pre">Dataset</span></code></a> <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id56" title="Allison Marie Horst, Alison Presmanes Hill, and Kristen B Gorman. palmerpenguins: Palmer Archipelago (Antarctica) penguin data. 2020. R package version 0.1.0. URL: https://allisonhorst.github.io/palmerpenguins/, doi:10.5281/zenodo.3960218.">Horst <em>et al.</em>, 2020</a>]</span>. But instead of predicting the species (which is a categorical value), we will try to predict numerical values.
 This will create a <em>regression</em> task instead of a classification task.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1328,7 +1328,7 @@ By Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>
