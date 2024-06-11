@@ -590,6 +590,9 @@ This will create a <em>regression</em> task instead of a classification task.</p
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
+
+<span class="c1"># Set the ggplot style</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;ggplot&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1212,7 +1215,7 @@ Just as before with the k-NN model, we can simply create predictions on any data
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Predicted label&#39;)
 </pre></div>
 </div>
-<img alt="../_images/13c943cb745061944e878700456bd59e64e9e940de3d2dcaf2f3e7f16b7d54c7.png" src="../_images/13c943cb745061944e878700456bd59e64e9e940de3d2dcaf2f3e7f16b7d54c7.png" />
+<img alt="../_images/4867c4d14ce07c27eebf3370aadb1efead23c71551aa05b35016130b56975aff.png" src="../_images/4867c4d14ce07c27eebf3370aadb1efead23c71551aa05b35016130b56975aff.png" />
 </div>
 </div>
 <p>We can also look at the prediction errors, which simply is <code class="docutils literal notranslate"><span class="pre">y_test</span> <span class="pre">-</span> <span class="pre">predictions</span></code>.<br />
@@ -1230,7 +1233,7 @@ A histogram can quickly show us by how far our model predictions are off.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Prediction errors&#39;)
 </pre></div>
 </div>
-<img alt="../_images/d86b5a57578ce8837ffe488fe0d780577527b26fd28d203cf7ebca6b2d02dcc6.png" src="../_images/d86b5a57578ce8837ffe488fe0d780577527b26fd28d203cf7ebca6b2d02dcc6.png" />
+<img alt="../_images/fd77d80c2945f88b47ecfb334d8f2f61566e9ea549b96596d91a7dbe1deba158.png" src="../_images/fd77d80c2945f88b47ecfb334d8f2f61566e9ea549b96596d91a7dbe1deba158.png" />
 </div>
 </div>
 <p>In this example we see that most predictions are off by no more than +- 5.</p>
@@ -1790,12 +1793,12 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 
 <span class="c1"># Plot the data points and logistic function</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">hours</span><span class="p">,</span> <span class="n">passed</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;teal&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Data Points&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;indigo&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Logistic Function&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">hours</span><span class="p">,</span> <span class="n">passed</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Data Points&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;dodgerblue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Logistic Function&quot;</span><span class="p">)</span>
 
 <span class="c1"># Decision boundary (where the probability is 0.5)</span>
 <span class="n">decision_boundary</span> <span class="o">=</span> <span class="o">-</span><span class="n">log_reg</span><span class="o">.</span><span class="n">intercept_</span> <span class="o">/</span> <span class="n">log_reg</span><span class="o">.</span><span class="n">coef_</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">decision_boundary</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;crimson&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Decision Boundary (p=0.5)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">decision_boundary</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;purple&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Decision Boundary (p=0.5)&quot;</span><span class="p">)</span>
 
 <span class="c1"># Labels and legend</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Hours of Preparation&quot;</span><span class="p">)</span>
@@ -1809,7 +1812,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/62070173b5cca7cb4a7c7c19013a585a0f2e74ba046c63ca3c47fd07dc7838ef.png" src="../_images/62070173b5cca7cb4a7c7c19013a585a0f2e74ba046c63ca3c47fd07dc7838ef.png" />
+<img alt="../_images/7926b6ab6cc8df8a6f5a5436437563e9fa552dbae4246813d520908cadf11f92.png" src="../_images/7926b6ab6cc8df8a6f5a5436437563e9fa552dbae4246813d520908cadf11f92.png" />
 </div>
 </div>
 <p>As we can see from the plot, the decision boundary is set at around 5 hours of preparation. This means that our model will simply predict “passed” for any student that prepared for more than 5 hours, and “not passed” if not.</p>
@@ -1980,7 +1983,7 @@ weighted avg       0.99      0.99      0.99        67
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="../_images/f81d91bac438ad2f7288b6d3443a537278835f43307a442e2274879a4c0d3418.png" src="../_images/f81d91bac438ad2f7288b6d3443a537278835f43307a442e2274879a4c0d3418.png" />
+<img alt="../_images/14c4be4cad42ea8349c8d83eb05634a431a16c9d53390894800317da727dc173.png" src="../_images/14c4be4cad42ea8349c8d83eb05634a431a16c9d53390894800317da727dc173.png" />
 </div>
 </div>
 <p>Logistic regression is a comparably simple model. It remains, however, a widely used algorithm in machine learning, and we will apply it in a later chapter to classify text documents.</p>

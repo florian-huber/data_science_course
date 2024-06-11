@@ -598,6 +598,9 @@ This means that the species information will later be our <em>label</em>.</p>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
+
+<span class="c1"># Set the ggplot style</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;ggplot&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -919,7 +922,7 @@ Here, we will focus on the correlations and the actual plots between two feature
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="../_images/c89ffc8022b21586d4a85e331bc71efdf3977743d17d9f9952cbff70ea388969.png" src="../_images/c89ffc8022b21586d4a85e331bc71efdf3977743d17d9f9952cbff70ea388969.png" />
+<img alt="../_images/c90c7d3e54969198f374f39a37866509336876029a5b6de902019a43b49d2b3a.png" src="../_images/c90c7d3e54969198f374f39a37866509336876029a5b6de902019a43b49d2b3a.png" />
 </div>
 </div>
 <p>This plot shows us that many of the features are highly correlated.<br />
@@ -932,10 +935,10 @@ Unfortunately, however, this plot does not help to better understand how we coul
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f18f4bbcd30&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f0325034f70&gt;
 </pre></div>
 </div>
-<img alt="../_images/34e19f07ece9caa04a7a9380bbbeaca3011928009a894785c242d7c21c7ecdbc.png" src="../_images/34e19f07ece9caa04a7a9380bbbeaca3011928009a894785c242d7c21c7ecdbc.png" />
+<img alt="../_images/a10415e0a0bf01b00b8f3938acfd2f41e46a48b9272171d026cc1cba337c851a.png" src="../_images/a10415e0a0bf01b00b8f3938acfd2f41e46a48b9272171d026cc1cba337c851a.png" />
 </div>
 </div>
 <p>Look at this plot and ask yourself the question: Can we predict the species based on the shown body features?</p>
@@ -1739,7 +1742,7 @@ This matrix will compare all predictions to all true values and make a summary.<
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="../_images/3adaf3e1c83087fed3a244b86d4f4e07a607dc7ea0f882cb89c3288d868728a0.png" src="../_images/3adaf3e1c83087fed3a244b86d4f4e07a607dc7ea0f882cb89c3288d868728a0.png" />
+<img alt="../_images/f91dcc3ac67b0da29807d9b494ea7eceff10b591de9d831a3d6528594187f1d1.png" src="../_images/f91dcc3ac67b0da29807d9b494ea7eceff10b591de9d831a3d6528594187f1d1.png" />
 </div>
 </div>
 <p>What you should see is a confusion matrix that represents perfect (or near-perfect) predictions. In many real-world examples, our confusion matrix will not look like this, but also show all types of misclassifications.</p>

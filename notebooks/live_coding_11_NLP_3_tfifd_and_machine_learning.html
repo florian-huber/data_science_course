@@ -558,6 +558,9 @@ The distance between “happiness” and “die” is the same as between “Tha
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
 <span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+
+<span class="c1"># Set the ggplot style</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;ggplot&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -787,7 +790,7 @@ memory usage: 480.4+ KB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Rating Distribution&#39;)
 </pre></div>
 </div>
-<img alt="../_images/2147367e1b86644566557a634bdd2e2cd17d43d4a979b00bca44cf2c8bcec58b.png" src="../_images/2147367e1b86644566557a634bdd2e2cd17d43d4a979b00bca44cf2c8bcec58b.png" />
+<img alt="../_images/5eeaca6dfcda0d31da410a1646b1fc166f6ea17745656522707d6f8f3c962db8.png" src="../_images/5eeaca6dfcda0d31da410a1646b1fc166f6ea17745656522707d6f8f3c962db8.png" />
 </div>
 </div>
 <p>Here we see a first potential issue, a <strong>bias of the ratings</strong>. The dataset contains far more positive reviews (&gt;= 4) than neutral or negative ones. This is a common problem in machine learning and there are strategies to deal with this (e.g. <em>oversampling</em> or using <em>class weights</em>), but for now we will simply ignore it.</p>
@@ -1637,7 +1640,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/269e1e31b479adb85f35ee83652b2b57418f6a107a5947e833c5c10bdc56eac5.png" src="../_images/269e1e31b479adb85f35ee83652b2b57418f6a107a5947e833c5c10bdc56eac5.png" />
+<img alt="../_images/c846d28abf7f9b273112e0bc2f8ad69ab0126346a511bb4a537c0743920e588a.png" src="../_images/c846d28abf7f9b273112e0bc2f8ad69ab0126346a511bb4a537c0743920e588a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1694,7 +1697,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/64cd57278fc8630e853f7996e51d1480debd9619702dfd79e37885556fad736f.png" src="../_images/64cd57278fc8630e853f7996e51d1480debd9619702dfd79e37885556fad736f.png" />
+<img alt="../_images/735a1789e9b8af618a69a09b8b90489598b4bd61b91778b2de75e72af249a9c5.png" src="../_images/735a1789e9b8af618a69a09b8b90489598b4bd61b91778b2de75e72af249a9c5.png" />
 </div>
 </div>
 <p>Interestingly, this clipping step improved the quality of the predictions notably which can both be seen in the mean absolute error (MAE) and the error distribution.</p>
@@ -2162,7 +2165,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a38f5a4ab7ce533a1c83418a7dde723bf94e25948d900b1cfea99b1c9eb0ac37.png" src="../_images/a38f5a4ab7ce533a1c83418a7dde723bf94e25948d900b1cfea99b1c9eb0ac37.png" />
+<img alt="../_images/ac9f5b7d091cbae58eb73201feb1ad178825f16c32cee23b61bcd14916d7c0b5.png" src="../_images/ac9f5b7d091cbae58eb73201feb1ad178825f16c32cee23b61bcd14916d7c0b5.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2234,7 +2237,7 @@ weighted avg       0.58      0.60      0.58      4099
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f5db5a23d8d4029c69ef0007637a40af9653a91252bb47985c11b78b9e44c248.png" src="../_images/f5db5a23d8d4029c69ef0007637a40af9653a91252bb47985c11b78b9e44c248.png" />
+<img alt="../_images/c11bd914c3c32b21abc738377f12810c399da7c40711b256afb02a6cd2ee0c37.png" src="../_images/c11bd914c3c32b21abc738377f12810c399da7c40711b256afb02a6cd2ee0c37.png" />
 </div>
 </div>
 </section>
@@ -2854,7 +2857,7 @@ weighted avg       0.83      0.86      0.83      4099
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/89dc9b053d6283205851d2329d38e48c4ffec3d0f4b9ad52815d6a0f0477c06e.png" src="../_images/89dc9b053d6283205851d2329d38e48c4ffec3d0f4b9ad52815d6a0f0477c06e.png" />
+<img alt="../_images/1639d32ce8ff785129e2a4932139404f2e50b757ba9ba3a72c3d83581d190f5d.png" src="../_images/1639d32ce8ff785129e2a4932139404f2e50b757ba9ba3a72c3d83581d190f5d.png" />
 </div>
 </div>
 </section>
