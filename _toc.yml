@@ -14,7 +14,7 @@ parts:
     - file: book/04_data_and_types
     - file: book/05_data_information_knowledge
     - file: book/06_data_science_workflow
-  - caption: Data acquisition and first exploration
+  - caption: Data Acquisition and First Exploration
     numbered: true
     chapters:
     - file: book/07_data_acquisition_and_preparation
@@ -36,20 +36,20 @@ parts:
     - file: notebooks/live_coding_09c_machine_learning_algorithms_3
     - file: notebooks/live_coding_09d_machine_learning_techniques
     - file: notebooks/live_coding_09e_machine_learning_ensembles
-  - caption: Working with text data
+  - caption: Working with Text Data
     numbered: true
     chapters:
     - file: notebooks/live_coding_10_working_with_text_data
     - file: notebooks/live_coding_11_NLP_2_tokenization
     - file: notebooks/live_coding_11_NLP_3_tfifd_and_machine_learning
     - file: notebooks/live_coding_12_NLP_4_ngrams_word_vectors
-  - caption: Look at the networks
+  - caption: Look at the Networks
     numbered: true
     chapters:
     - file: notebooks/live_coding_13_graphs
     - file: notebooks/live_coding_14_graph_visualization
     - file: notebooks/live_coding_14_graphs_part2
-  - caption: Next steps
+  - caption: Next Steps
     numbered: true
     chapters:
     - file: notebooks/outlook
