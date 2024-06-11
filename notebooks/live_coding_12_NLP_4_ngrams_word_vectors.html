@@ -190,7 +190,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../book/05_data_information_knowledge.html">6. Data - Information - Knowledge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../book/06_data_science_workflow.html">7. Data Science Workflow</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data acquisition and first exploration</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Acquisition and First Exploration</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../book/07_data_acquisition_and_preparation.html">8. Data Acquisition &amp; Preparation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_03_data_preparation.html">9. Data Pre-Processing</a></li>
@@ -212,20 +212,20 @@
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09d_machine_learning_techniques.html">19. Supervised Machine Learning - Key Techniques</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09e_machine_learning_ensembles.html">20. Ensemble Models and Outlook</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Text Data</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">21. Introduction to Working with Text Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">22. NLP - Basic Techniques to Analyze Text Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">23. Computing with Text: Counting words</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">24. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the networks</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the Networks</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_13_graphs.html">25. Networks / Graph Theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_14_graph_visualization.html">26. Visualizing Graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_14_graphs_part2.html">27. Bottlenecks, Hubs, Communities</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Next steps</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Next Steps</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="outlook.html">28. What are the next steps?</a></li>
 </ul>
@@ -611,91 +611,7 @@ Bigrams (or 2-grams) would not catch those differences. But they can also be ver
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">43</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span> <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">output_path</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="c1"># Download the dataset</span>
-<span class="ne">---&gt; </span><span class="mi">43</span> <span class="n">download_from_zenodo</span><span class="p">(</span><span class="n">zenodo_link</span><span class="p">,</span> <span class="n">output_path</span><span class="p">)</span>
-
-<span class="nn">Cell In[2], line 27,</span> in <span class="ni">download_from_zenodo</span><span class="nt">(url, save_path)</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">26</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_path</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">27</span>     <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">8192</span><span class="p">):</span>
-<span class="g g-Whitespace">     </span><span class="mi">28</span>         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">30</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File downloaded successfully and saved to </span><span class="si">{</span><span class="n">save_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/site-packages/requests/models.py:820,</span> in <span class="ni">Response.iter_content.&lt;locals&gt;.generate</span><span class="nt">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">818</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="p">,</span> <span class="s2">&quot;stream&quot;</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">819</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">820</span>         <span class="k">yield from</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">chunk_size</span><span class="p">,</span> <span class="n">decode_content</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">821</span>     <span class="k">except</span> <span class="n">ProtocolError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">822</span>         <span class="k">raise</span> <span class="n">ChunkedEncodingError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/site-packages/urllib3/response.py:1040,</span> in <span class="ni">HTTPResponse.stream</span><span class="nt">(self, amt, decode_content)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1024</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1025</span><span class="sd"> A generator wrapper for the read() method. A call will block until</span>
-<span class="g g-Whitespace">   </span><span class="mi">1026</span><span class="sd"> ``amt`` bytes have been read from the connection or until the</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1037</span><span class="sd">     &#39;content-encoding&#39; header.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1038</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1039</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunked</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">supports_chunked_reads</span><span class="p">():</span>
-<span class="ne">-&gt; </span><span class="mi">1040</span>     <span class="k">yield from</span> <span class="bp">self</span><span class="o">.</span><span class="n">read_chunked</span><span class="p">(</span><span class="n">amt</span><span class="p">,</span> <span class="n">decode_content</span><span class="o">=</span><span class="n">decode_content</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1041</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1042</span>     <span class="k">while</span> <span class="ow">not</span> <span class="n">is_fp_closed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_fp</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_decoded_buffer</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/site-packages/urllib3/response.py:1187,</span> in <span class="ni">HTTPResponse.read_chunked</span><span class="nt">(self, amt, decode_content)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1185</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_left</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1186</span>     <span class="k">break</span>
-<span class="ne">-&gt; </span><span class="mi">1187</span> <span class="n">chunk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle_chunk</span><span class="p">(</span><span class="n">amt</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1188</span> <span class="n">decoded</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decode</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1189</span>     <span class="n">chunk</span><span class="p">,</span> <span class="n">decode_content</span><span class="o">=</span><span class="n">decode_content</span><span class="p">,</span> <span class="n">flush_decoder</span><span class="o">=</span><span class="kc">False</span>
-<span class="g g-Whitespace">   </span><span class="mi">1190</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1191</span> <span class="k">if</span> <span class="n">decoded</span><span class="p">:</span>
-
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/site-packages/urllib3/response.py:1129,</span> in <span class="ni">HTTPResponse._handle_chunk</span><span class="nt">(self, amt)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1127</span>     <span class="bp">self</span><span class="o">.</span><span class="n">chunk_left</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">1128</span> <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_left</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">amt</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_left</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1129</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fp</span><span class="o">.</span><span class="n">_safe_read</span><span class="p">(</span><span class="n">amt</span><span class="p">)</span>  <span class="c1"># type: ignore[union-attr]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1130</span>     <span class="bp">self</span><span class="o">.</span><span class="n">chunk_left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_left</span> <span class="o">-</span> <span class="n">amt</span>
-<span class="g g-Whitespace">   </span><span class="mi">1131</span>     <span class="n">returned_chunk</span> <span class="o">=</span> <span class="n">value</span>
-
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/http/client.py:631,</span> in <span class="ni">HTTPResponse._safe_read</span><span class="nt">(self, amt)</span>
-<span class="g g-Whitespace">    </span><span class="mi">624</span> <span class="k">def</span> <span class="nf">_safe_read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">amt</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">625</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Read the number of bytes requested.</span>
-<span class="g g-Whitespace">    </span><span class="mi">626</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">627</span><span class="sd">     This function should be used when &lt;amt&gt; bytes &quot;should&quot; be present for</span>
-<span class="g g-Whitespace">    </span><span class="mi">628</span><span class="sd">     reading. If the bytes are truly not available (due to EOF), then the</span>
-<span class="g g-Whitespace">    </span><span class="mi">629</span><span class="sd">     IncompleteRead exception can be used to detect the problem.</span>
-<span class="g g-Whitespace">    </span><span class="mi">630</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">631</span>     <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">amt</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">632</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">amt</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">633</span>         <span class="k">raise</span> <span class="n">IncompleteRead</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">amt</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
-
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/socket.py:705,</span> in <span class="ni">SocketIO.readinto</span><span class="nt">(self, b)</span>
-<span class="g g-Whitespace">    </span><span class="mi">703</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">704</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">705</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sock</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">706</span>     <span class="k">except</span> <span class="n">timeout</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">707</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_timeout_occurred</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/ssl.py:1307,</span> in <span class="ni">SSLSocket.recv_into</span><span class="nt">(self, buffer, nbytes, flags)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1303</span>     <span class="k">if</span> <span class="n">flags</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1304</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1305</span>           <span class="s2">&quot;non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
-<span class="g g-Whitespace">   </span><span class="mi">1306</span>           <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1307</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">nbytes</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1308</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1309</span>     <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">nbytes</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
-
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/ssl.py:1163,</span> in <span class="ni">SSLSocket.read</span><span class="nt">(self, len, buffer)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1161</span> <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1162</span>     <span class="k">if</span> <span class="n">buffer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1163</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1164</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1165</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File downloaded successfully and saved to ../datasets/madrid_reviews.csv
 </pre></div>
 </div>
 </div>
@@ -894,7 +810,7 @@ Now we end up with vectors of about 1 million entries (even though most will be 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(176848, 119352)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(176848, 119341)
 </pre></div>
 </div>
 </div>
@@ -910,7 +826,7 @@ Now we end up with vectors of about 1 million entries (even though most will be 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(20491, 84069)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(176848, 481562)
 </pre></div>
 </div>
 </div>
@@ -924,24 +840,21 @@ Now we end up with vectors of about 1 million entries (even though most will be 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;yr old&#39;, &#39;yrs&#39;, &#39;yrs old&#39;, &#39;yuca&#39;, &#39;yucca&#39;, &#39;yuck&#39;, &#39;yuk&#39;, &#39;yum&#39;,
-       &#39;yum and&#39;, &#39;yum great&#39;, &#39;yum soup&#39;, &#39;yum the&#39;, &#39;yum we&#39;, &#39;yum yum&#39;,
-       &#39;yumm&#39;, &#39;yummi&#39;, &#39;yummie&#39;, &#39;yummiest&#39;, &#39;yumminess&#39;, &#39;yummm&#39;,
-       &#39;yummmm&#39;, &#39;yummy&#39;, &#39;yummy all&#39;, &#39;yummy and&#39;, &#39;yummy as&#39;,
-       &#39;yummy but&#39;, &#39;yummy dishes&#39;, &#39;yummy food&#39;, &#39;yummy good&#39;,
-       &#39;yummy great&#39;, &#39;yummy if&#39;, &#39;yummy it&#39;, &#39;yummy my&#39;, &#39;yummy pizza&#39;,
-       &#39;yummy sangria&#39;, &#39;yummy tapas&#39;, &#39;yummy the&#39;, &#39;yummy they&#39;,
-       &#39;yummy too&#39;, &#39;yummy very&#39;, &#39;yummy we&#39;, &#39;yummy will&#39;, &#39;yummy would&#39;,
-       &#39;yummy yummy&#39;, &#39;yup&#39;, &#39;yuzu&#39;, &#39;zalacain&#39;, &#39;zalacain is&#39;,
-       &#39;zamburinas&#39;, &#39;zamburiñas&#39;, &#39;zara&#39;, &#39;zaragoza&#39;, &#39;zarzuela&#39;,
-       &#39;zealand&#39;, &#39;zen&#39;, &#39;zen market&#39;, &#39;zenith&#39;, &#39;zenith eggs&#39;, &#39;zerain&#39;,
-       &#39;zero&#39;, &#39;zero stars&#39;, &#39;zest&#39;, &#39;zesty&#39;, &#39;zing&#39;, &#39;zingy&#39;, &#39;zombie&#39;,
-       &#39;zone&#39;, &#39;zone of&#39;, &#39;zones&#39;, &#39;zoo&#39;, &#39;zucca&#39;, &#39;zucchini&#39;,
-       &#39;zucchini and&#39;, &#39;zucchini flowers&#39;, &#39;zucchini salad&#39;,
-       &#39;zucchini with&#39;, &#39;zumo&#39;, &#39;zumo de&#39;, &#39;zurbano&#39;, &#39;área&#39;, &#39;ôven&#39;,
-       &#39;único&#39;, &#39;그리고&#39;, &#39;너무&#39;, &#39;마드리드&#39;, &#39;많이&#39;, &#39;맛있고&#39;, &#39;맛있어요&#39;, &#39;맛있었어요&#39;, &#39;매우&#39;,
-       &#39;먹었는데&#39;, &#39;스페인&#39;, &#39;여기&#39;, &#39;음식도&#39;, &#39;있어서&#39;, &#39;정말&#39;, &#39;좋은&#39;, &#39;진짜&#39;, &#39;친절하고&#39;, &#39;특히&#39;],
-      dtype=object)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;zone of the&#39;, &#39;zone so&#39;, &#39;zones&#39;, &#39;zoo&#39;, &#39;zoo and&#39;, &#39;zoomed&#39;,
+       &#39;zucca&#39;, &#39;zucchini&#39;, &#39;zucchini and&#39;, &#39;zucchini carpaccio&#39;,
+       &#39;zucchini flowers&#39;, &#39;zucchini ravioli&#39;, &#39;zucchini salad&#39;,
+       &#39;zucchini salad and&#39;, &#39;zucchini soup&#39;, &#39;zucchini which&#39;,
+       &#39;zucchini with&#39;, &#39;zuchini&#39;, &#39;zuma&#39;, &#39;zumo&#39;, &#39;zumo de&#39;,
+       &#39;zumo de naranja&#39;, &#39;zurbano&#39;, &#39;ángel&#39;, &#39;área&#39;, &#39;ástor&#39;, &#39;ático&#39;,
+       &#39;él&#39;, &#39;époque&#39;, &#39;ñeru&#39;, &#39;ôven&#39;, &#39;último&#39;, &#39;único&#39;, &#39;über&#39;, &#39;очень&#39;,
+       &#39;אוכל&#39;, &#39;מאוד&#39;, &#39;מומלץ&#39;, &#39;جدا&#39;, &#39;가격도&#39;, &#39;같아요&#39;, &#39;같이&#39;, &#39;굉장히&#39;, &#39;그리고&#39;,
+       &#39;너무&#39;, &#39;다른&#39;, &#39;다시&#39;, &#39;덕분에&#39;, &#39;마드리드&#39;, &#39;마드리드에&#39;, &#39;마드리드에서&#39;, &#39;많이&#39;, &#39;맛있게&#39;,
+       &#39;맛있고&#39;, &#39;맛있습니다&#39;, &#39;맛있어요&#39;, &#39;맛있었습니다&#39;, &#39;맛있었어요&#39;, &#39;매우&#39;, &#39;먹고&#39;, &#39;먹었는데&#39;,
+       &#39;먹었습니다&#39;, &#39;먹을&#39;, &#39;메뉴&#39;, &#39;모두&#39;, &#39;바로&#39;, &#39;보다&#39;, &#39;빠에야&#39;, &#39;상그리아&#39;, &#39;스페인&#39;,
+       &#39;시켰는데&#39;, &#39;식당&#39;, &#39;여기&#39;, &#39;여행&#39;, &#39;원래&#39;, &#39;음식&#39;, &#39;음식도&#39;, &#39;음식이&#39;, &#39;입맛에&#39;, &#39;있는&#39;,
+       &#39;있어서&#39;, &#39;저희&#39;, &#39;정말&#39;, &#39;조금&#39;, &#39;좋아요&#39;, &#39;좋았어요&#39;, &#39;좋은&#39;, &#39;직원들도&#39;, &#39;직원분이&#39;, &#39;진짜&#39;,
+       &#39;추천&#39;, &#39;추천합니다&#39;, &#39;친절하게&#39;, &#39;친절하고&#39;, &#39;친절합니다&#39;, &#39;특히&#39;, &#39;한국인&#39;, &#39;한국인 입맛에&#39;,
+       &#39;함께&#39;, &#39;해서&#39;], dtype=object)
 </pre></div>
 </div>
 </div>
@@ -953,7 +866,7 @@ Now we end up with vectors of about 1 million entries (even though most will be 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;특히&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;해서&#39;
 </pre></div>
 </div>
 </div>
@@ -994,7 +907,7 @@ Test dataset size: (35370,)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(141478, 13241)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(141478, 10000)
 </pre></div>
 </div>
 </div>
@@ -1006,21 +919,21 @@ Test dataset size: (35370,)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;yakisoba&#39;, &#39;yakitori&#39;, &#39;yakitoro&#39;, &#39;yam&#39;, &#39;yamil&#39;, &#39;yang&#39;, &#39;yard&#39;,
-       &#39;yards&#39;, &#39;yate&#39;, &#39;yay&#39;, &#39;yeah&#39;, &#39;year&#39;, &#39;yearly&#39;, &#39;years&#39;, &#39;yell&#39;,
-       &#39;yelled&#39;, &#39;yelling&#39;, &#39;yellow&#39;, &#39;yelp&#39;, &#39;yep&#39;, &#39;yerbabuena&#39;, &#39;yes&#39;,
-       &#39;yesterday&#39;, &#39;yet&#39;, &#39;yo&#39;, &#39;yoghurt&#39;, &#39;yogurt&#39;, &#39;yogurts&#39;, &#39;yolk&#39;,
-       &#39;yolks&#39;, &#39;york&#39;, &#39;yorker&#39;, &#39;young&#39;, &#39;younger&#39;, &#39;youngest&#39;,
-       &#39;youngish&#39;, &#39;youngsters&#39;, &#39;your&#39;, &#39;youre&#39;, &#39;yours&#39;, &#39;yourself&#39;,
-       &#39;yourselves&#39;, &#39;youth&#39;, &#39;youthful&#39;, &#39;youtube&#39;, &#39;yoy&#39;, &#39;yr&#39;, &#39;yrs&#39;,
-       &#39;yuca&#39;, &#39;yucca&#39;, &#39;yuck&#39;, &#39;yuk&#39;, &#39;yum&#39;, &#39;yumm&#39;, &#39;yummie&#39;,
-       &#39;yummiest&#39;, &#39;yumminess&#39;, &#39;yummm&#39;, &#39;yummmm&#39;, &#39;yummy&#39;, &#39;yup&#39;, &#39;yuzu&#39;,
-       &#39;zalacain&#39;, &#39;zamburinas&#39;, &#39;zamburiñas&#39;, &#39;zara&#39;, &#39;zaragoza&#39;,
-       &#39;zarzuela&#39;, &#39;zealand&#39;, &#39;zen&#39;, &#39;zenith&#39;, &#39;zerain&#39;, &#39;zero&#39;, &#39;zest&#39;,
-       &#39;zesty&#39;, &#39;zing&#39;, &#39;zingy&#39;, &#39;zombie&#39;, &#39;zone&#39;, &#39;zones&#39;, &#39;zoo&#39;,
-       &#39;zucca&#39;, &#39;zucchini&#39;, &#39;zumo&#39;, &#39;área&#39;, &#39;único&#39;, &#39;그리고&#39;, &#39;너무&#39;, &#39;마드리드&#39;,
-       &#39;맛있고&#39;, &#39;맛있어요&#39;, &#39;맛있었어요&#39;, &#39;매우&#39;, &#39;먹었는데&#39;, &#39;음식도&#39;, &#39;정말&#39;, &#39;좋은&#39;, &#39;진짜&#39;,
-       &#39;친절하고&#39;, &#39;특히&#39;], dtype=object)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;worried&#39;, &#39;worries&#39;, &#39;worry&#39;, &#39;worse&#39;, &#39;worst&#39;, &#39;worth&#39;, &#39;worths&#39;,
+       &#39;worthwhile&#39;, &#39;worthy&#39;, &#39;woth&#39;, &#39;would&#39;, &#39;wouldn&#39;, &#39;wouldnt&#39;,
+       &#39;wound&#39;, &#39;wow&#39;, &#39;wowed&#39;, &#39;wrap&#39;, &#39;wrapped&#39;, &#39;wrapping&#39;, &#39;wraps&#39;,
+       &#39;write&#39;, &#39;writer&#39;, &#39;writers&#39;, &#39;writing&#39;, &#39;written&#39;, &#39;wrong&#39;,
+       &#39;wrongly&#39;, &#39;wrote&#39;, &#39;wrought&#39;, &#39;wth&#39;, &#39;www&#39;, &#39;x2&#39;, &#39;ximenez&#39;,
+       &#39;xmas&#39;, &#39;xo&#39;, &#39;xx&#39;, &#39;ya&#39;, &#39;yaki&#39;, &#39;yakisoba&#39;, &#39;yakitori&#39;,
+       &#39;yakitoro&#39;, &#39;yam&#39;, &#39;yamil&#39;, &#39;yang&#39;, &#39;yards&#39;, &#39;yeah&#39;, &#39;year&#39;,
+       &#39;years&#39;, &#39;yell&#39;, &#39;yelled&#39;, &#39;yelling&#39;, &#39;yellow&#39;, &#39;yelp&#39;, &#39;yep&#39;,
+       &#39;yerbabuena&#39;, &#39;yes&#39;, &#39;yesterday&#39;, &#39;yet&#39;, &#39;yo&#39;, &#39;yoghurt&#39;, &#39;yogurt&#39;,
+       &#39;yolk&#39;, &#39;york&#39;, &#39;young&#39;, &#39;younger&#39;, &#39;youngest&#39;, &#39;youngsters&#39;,
+       &#39;your&#39;, &#39;youre&#39;, &#39;yours&#39;, &#39;yourself&#39;, &#39;yourselves&#39;, &#39;youthful&#39;,
+       &#39;youtube&#39;, &#39;yr&#39;, &#39;yrs&#39;, &#39;yuca&#39;, &#39;yucca&#39;, &#39;yuck&#39;, &#39;yum&#39;, &#39;yumm&#39;,
+       &#39;yummie&#39;, &#39;yummy&#39;, &#39;yuzu&#39;, &#39;zalacain&#39;, &#39;zamburinas&#39;, &#39;zamburiñas&#39;,
+       &#39;zara&#39;, &#39;zen&#39;, &#39;zenith&#39;, &#39;zerain&#39;, &#39;zero&#39;, &#39;zone&#39;, &#39;zones&#39;, &#39;zoo&#39;,
+       &#39;zucchini&#39;, &#39;zumo&#39;, &#39;너무&#39;, &#39;맛있었어요&#39;, &#39;정말&#39;], dtype=object)
 </pre></div>
 </div>
 </div>
@@ -1038,17 +951,411 @@ Test dataset size: (35370,)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\flori\anaconda3\envs\ai_smart_health\lib\site-packages\sklearn\linear_model\_logistic.py:458: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
+<div class="output text_html"><style>#sk-container-id-1 {
+  /* Definition of color scheme common for light and dark mode */
+  --sklearn-color-text: black;
+  --sklearn-color-line: gray;
+  /* Definition of color scheme for unfitted estimators */
+  --sklearn-color-unfitted-level-0: #fff5e6;
+  --sklearn-color-unfitted-level-1: #f6e4d2;
+  --sklearn-color-unfitted-level-2: #ffe0b3;
+  --sklearn-color-unfitted-level-3: chocolate;
+  /* Definition of color scheme for fitted estimators */
+  --sklearn-color-fitted-level-0: #f0f8ff;
+  --sklearn-color-fitted-level-1: #d4ebff;
+  --sklearn-color-fitted-level-2: #b3dbfd;
+  --sklearn-color-fitted-level-3: cornflowerblue;
 
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-</pre></div>
-</div>
-<div class="output text_html"><style>#sk-container-id-2 {color: black;background-color: white;}#sk-container-id-2 pre{padding: 0;}#sk-container-id-2 div.sk-toggleable {background-color: white;}#sk-container-id-2 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-2 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-2 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-2 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-2 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-2 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-2 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-2 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-2 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-2 div.sk-item {position: relative;z-index: 1;}#sk-container-id-2 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-2 div.sk-item::before, #sk-container-id-2 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-2 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-2 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-2 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-2 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-2 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-2 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-2 div.sk-label-container {text-align: center;}#sk-container-id-2 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-2 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(max_iter=300)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked><label for="sk-estimator-id-2" class="sk-toggleable__label sk-toggleable__label-arrow">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression(max_iter=300)</pre></div></div></div></div></div></div></div>
+  /* Specific color for light theme */
+  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
+  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-icon: #696969;
+
+  @media (prefers-color-scheme: dark) {
+    /* Redefinition of color scheme for dark theme */
+    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
+    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-icon: #878787;
+  }
+}
+
+#sk-container-id-1 {
+  color: var(--sklearn-color-text);
+}
+
+#sk-container-id-1 pre {
+  padding: 0;
+}
+
+#sk-container-id-1 input.sk-hidden--visually {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#sk-container-id-1 div.sk-dashed-wrapped {
+  border: 1px dashed var(--sklearn-color-line);
+  margin: 0 0.4em 0.5em 0.4em;
+  box-sizing: border-box;
+  padding-bottom: 0.4em;
+  background-color: var(--sklearn-color-background);
+}
+
+#sk-container-id-1 div.sk-container {
+  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
+     but bootstrap.min.css set `[hidden] { display: none !important; }`
+     so we also need the `!important` here to be able to override the
+     default hidden behavior on the sphinx rendered scikit-learn.org.
+     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
+  display: inline-block !important;
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-text-repr-fallback {
+  display: none;
+}
+
+div.sk-parallel-item,
+div.sk-serial,
+div.sk-item {
+  /* draw centered vertical line to link estimators */
+  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Parallel-specific style estimator block */
+
+#sk-container-id-1 div.sk-parallel-item::after {
+  content: "";
+  width: 100%;
+  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
+  flex-grow: 1;
+}
+
+#sk-container-id-1 div.sk-parallel {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--sklearn-color-background);
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-parallel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#sk-container-id-1 div.sk-parallel-item:first-child::after {
+  align-self: flex-end;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:last-child::after {
+  align-self: flex-start;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:only-child::after {
+  width: 0;
+}
+
+/* Serial-specific style estimator block */
+
+#sk-container-id-1 div.sk-serial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--sklearn-color-background);
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+
+/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
+clickable and can be expanded/collapsed.
+- Pipeline and ColumnTransformer use this feature and define the default style
+- Estimators will overwrite some part of the style using the `sk-estimator` class
+*/
+
+/* Pipeline and ColumnTransformer style (default) */
+
+#sk-container-id-1 div.sk-toggleable {
+  /* Default theme specific background. It is overwritten whether we have a
+  specific estimator or a Pipeline/ColumnTransformer */
+  background-color: var(--sklearn-color-background);
+}
+
+/* Toggleable label */
+#sk-container-id-1 label.sk-toggleable__label {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:before {
+  /* Arrow on the left of the label */
+  content: "▸";
+  float: left;
+  margin-right: 0.25em;
+  color: var(--sklearn-color-icon);
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {
+  color: var(--sklearn-color-text);
+}
+
+/* Toggleable content - dropdown */
+
+#sk-container-id-1 div.sk-toggleable__content {
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  text-align: left;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content pre {
+  margin: 0.2em;
+  border-radius: 0.25em;
+  color: var(--sklearn-color-text);
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted pre {
+  /* unfitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+  /* Expand drop-down */
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+  content: "▾";
+}
+
+/* Pipeline/ColumnTransformer-specific style */
+
+#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator-specific style */
+
+/* Colorize estimator box */
+#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label label.sk-toggleable__label,
+#sk-container-id-1 div.sk-label label {
+  /* The background is the default theme color */
+  color: var(--sklearn-color-text-on-default-background);
+}
+
+/* On hover, darken the color of the background */
+#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+/* Label box, darken color on hover, fitted */
+#sk-container-id-1 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator label */
+
+#sk-container-id-1 div.sk-label label {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1.2em;
+}
+
+#sk-container-id-1 div.sk-label-container {
+  text-align: center;
+}
+
+/* Estimator-specific */
+#sk-container-id-1 div.sk-estimator {
+  font-family: monospace;
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+/* on hover */
+#sk-container-id-1 div.sk-estimator:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Specification for estimator info (e.g. "i" and "?") */
+
+/* Common style for "i" and "?" */
+
+.sk-estimator-doc-link,
+a:link.sk-estimator-doc-link,
+a:visited.sk-estimator-doc-link {
+  float: right;
+  font-size: smaller;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  text-decoration: none !important;
+  margin-left: 1ex;
+  /* unfitted */
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-1);
+}
+
+.sk-estimator-doc-link.fitted,
+a:link.sk-estimator-doc-link.fitted,
+a:visited.sk-estimator-doc-link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+div.sk-estimator:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover,
+div.sk-label-container:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover,
+div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+/* Span, style for the box shown on hovering the info icon */
+.sk-estimator-doc-link span {
+  display: none;
+  z-index: 9999;
+  position: relative;
+  font-weight: normal;
+  right: .2ex;
+  padding: .5ex;
+  margin: .5ex;
+  width: min-content;
+  min-width: 20ex;
+  max-width: 50ex;
+  color: var(--sklearn-color-text);
+  box-shadow: 2pt 2pt 4pt #999;
+  /* unfitted */
+  background: var(--sklearn-color-unfitted-level-0);
+  border: .5pt solid var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted span {
+  /* fitted */
+  background: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-estimator-doc-link:hover span {
+  display: block;
+}
+
+/* "?"-specific style due to the `<a>` HTML tag */
+
+#sk-container-id-1 a.estimator_doc_link {
+  float: right;
+  font-size: 1rem;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-decoration: none;
+  /* unfitted */
+  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+#sk-container-id-1 a.estimator_doc_link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+}
+</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(max_iter=300)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;LogisticRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression(max_iter=300)</pre></div> </div></div></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1065,8 +1372,7 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4, 5, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 4, 5, 5],
-      dtype=int64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4, 5, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 5, 4, 5, 5])
 </pre></div>
 </div>
 </div>
@@ -1078,24 +1384,24 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5, 5, 4, 5, 3, 5, 5, 5, 5, 4, 5, 5, 4, 5, 5, 3, 5, 5, 5, 5],
-      dtype=int64)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5, 5, 4, 5, 3, 5, 5, 5, 5, 4, 5, 5, 4, 5, 5, 3, 5, 5, 5, 5])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sb</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">predictions</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">predictions</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;prediction error&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;rating_review&#39;, ylabel=&#39;Count&#39;&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;prediction error&#39;)
 </pre></div>
 </div>
-<img alt="../_images/b48b14d68eed6ee78969c0dfd9a1898166b4542a0b9469c027109eb3e982f1c6.png" src="../_images/b48b14d68eed6ee78969c0dfd9a1898166b4542a0b9469c027109eb3e982f1c6.png" />
+<img alt="../_images/27676b1858ee2ff5930a71b401669117f07b458d5a96f64c33b0c6ba788c5007.png" src="../_images/27676b1858ee2ff5930a71b401669117f07b458d5a96f64c33b0c6ba788c5007.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1106,7 +1412,7 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3786542267458298
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.37837150127226465
 </pre></div>
 </div>
 </div>
@@ -1118,7 +1424,7 @@ Please also refer to the documentation for alternative solver options:
 <span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
 
 <span class="c1"># Plotting the confusion matrix with a heatmap</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 <span class="n">sb</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span>
            <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span>
            <span class="n">xticklabels</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span>
@@ -1133,7 +1439,7 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/640db3ccb20ca9302a9a1d45756a1b790d4fd2e743ae8e488377a2a28741ec80.png" src="../_images/640db3ccb20ca9302a9a1d45756a1b790d4fd2e743ae8e488377a2a28741ec80.png" />
+<img alt="../_images/159aed09ce7de17d5cf6529b4eb58a6bbac8288fc743a4019627e6051a6e17f1.png" src="../_images/159aed09ce7de17d5cf6529b4eb58a6bbac8288fc743a4019627e6051a6e17f1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1147,7 +1453,54 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(141478, 10000)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">min_df</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">max_df</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>                              <span class="n">max_features</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>                              <span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">tfidf_vectors</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">tfidf_vectors</span><span class="o">.</span><span class="n">shape</span>
+
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/site-packages/sklearn/feature_extraction/text.py:2093,</span> in <span class="ni">TfidfVectorizer.fit_transform</span><span class="nt">(self, raw_documents, y)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2086</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_params</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">2087</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tfidf</span> <span class="o">=</span> <span class="n">TfidfTransformer</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2088</span>     <span class="n">norm</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">norm</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2089</span>     <span class="n">use_idf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">use_idf</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2090</span>     <span class="n">smooth_idf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">smooth_idf</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2091</span>     <span class="n">sublinear_tf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sublinear_tf</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2092</span> <span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">2093</span> <span class="n">X</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">raw_documents</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2094</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tfidf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2095</span> <span class="c1"># X is already a transformed view of raw_documents so</span>
+<span class="g g-Whitespace">   </span><span class="mi">2096</span> <span class="c1"># we set copy to False</span>
+
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/site-packages/sklearn/base.py:1473,</span> in <span class="ni">_fit_context.&lt;locals&gt;.decorator.&lt;locals&gt;.wrapper</span><span class="nt">(estimator, *args, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1466</span>     <span class="n">estimator</span><span class="o">.</span><span class="n">_validate_params</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1468</span> <span class="k">with</span> <span class="n">config_context</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1469</span>     <span class="n">skip_parameter_validation</span><span class="o">=</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1470</span>         <span class="n">prefer_skip_nested_validation</span> <span class="ow">or</span> <span class="n">global_skip_validation</span>
+<span class="g g-Whitespace">   </span><span class="mi">1471</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1472</span> <span class="p">):</span>
+<span class="ne">-&gt; </span><span class="mi">1473</span>     <span class="k">return</span> <span class="n">fit_method</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/site-packages/sklearn/feature_extraction/text.py:1386,</span> in <span class="ni">CountVectorizer.fit_transform</span><span class="nt">(self, raw_documents, y)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1384</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;max_df corresponds to &lt; documents than min_df&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1385</span> <span class="k">if</span> <span class="n">max_features</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1386</span>     <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sort_features</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">vocabulary</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1387</span> <span class="n">X</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_limit_features</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1388</span>     <span class="n">X</span><span class="p">,</span> <span class="n">vocabulary</span><span class="p">,</span> <span class="n">max_doc_count</span><span class="p">,</span> <span class="n">min_doc_count</span><span class="p">,</span> <span class="n">max_features</span>
+<span class="g g-Whitespace">   </span><span class="mi">1389</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1390</span> <span class="k">if</span> <span class="n">max_features</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/site-packages/sklearn/feature_extraction/text.py:1200,</span> in <span class="ni">CountVectorizer._sort_features</span><span class="nt">(self, X, vocabulary)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1198</span> <span class="k">for</span> <span class="n">new_val</span><span class="p">,</span> <span class="p">(</span><span class="n">term</span><span class="p">,</span> <span class="n">old_val</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">sorted_features</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1199</span>     <span class="n">vocabulary</span><span class="p">[</span><span class="n">term</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_val</span>
+<span class="ne">-&gt; </span><span class="mi">1200</span>     <span class="n">map_index</span><span class="p">[</span><span class="n">old_val</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_val</span>
+<span class="g g-Whitespace">   </span><span class="mi">1202</span> <span class="n">X</span><span class="o">.</span><span class="n">indices</span> <span class="o">=</span> <span class="n">map_index</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">indices</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;clip&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1203</span> <span class="k">return</span> <span class="n">X</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -1340,7 +1693,7 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\flori\anaconda3\envs\ai_smart_health\lib\site-packages\sklearn\linear_model\_logistic.py:458: ConvergenceWarning: lbfgs failed to converge (status=1):
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\flori\anaconda3\envs\data_science\lib\site-packages\sklearn\linear_model\_logistic.py:460: ConvergenceWarning: lbfgs failed to converge (status=1):
 STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
 
 Increase the number of iterations (max_iter) or scale the data as shown in:
@@ -1350,7 +1703,7 @@ Please also refer to the documentation for alternative solver options:
   n_iter_i = _check_optimize_result(
 </pre></div>
 </div>
-<div class="output text_html"><style>#sk-container-id-4 {color: black;background-color: white;}#sk-container-id-4 pre{padding: 0;}#sk-container-id-4 div.sk-toggleable {background-color: white;}#sk-container-id-4 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-4 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-4 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-4 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-4 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-4 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-4 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-4 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-4 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-4 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-4 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-4 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-4 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-4 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-4 div.sk-item {position: relative;z-index: 1;}#sk-container-id-4 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-4 div.sk-item::before, #sk-container-id-4 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-4 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-4 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-4 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-4 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-4 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-4 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-4 div.sk-label-container {text-align: center;}#sk-container-id-4 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-4 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-4" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(max_iter=300)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" checked><label for="sk-estimator-id-4" class="sk-toggleable__label sk-toggleable__label-arrow">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression(max_iter=300)</pre></div></div></div></div></div></div></div>
+<div class="output text_html"><style>#sk-container-id-2 {color: black;}#sk-container-id-2 pre{padding: 0;}#sk-container-id-2 div.sk-toggleable {background-color: white;}#sk-container-id-2 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-2 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-2 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-2 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-2 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-2 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-2 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-2 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-2 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-2 div.sk-item {position: relative;z-index: 1;}#sk-container-id-2 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-2 div.sk-item::before, #sk-container-id-2 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-2 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-2 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-2 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-2 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-2 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-2 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-2 div.sk-label-container {text-align: center;}#sk-container-id-2 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-2 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(max_iter=300)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked><label for="sk-estimator-id-2" class="sk-toggleable__label sk-toggleable__label-arrow">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression(max_iter=300)</pre></div></div></div></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1388,7 +1741,8 @@ Please also refer to the documentation for alternative solver options:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sb</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">predictions</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">predictions</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;prediction error&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1397,7 +1751,7 @@ Please also refer to the documentation for alternative solver options:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;prediction error&#39;)
 </pre></div>
 </div>
-<img alt="../_images/4e67d49c7ad59b386b1ea053a0b78cfec56f2a5a834003740c5929ec1ee5699c.png" src="../_images/4e67d49c7ad59b386b1ea053a0b78cfec56f2a5a834003740c5929ec1ee5699c.png" />
+<img alt="../_images/1d0a31b03f9d5897f8ed93877850f1ef3c20f572192a5e9ebfb5ada5038ecec2.png" src="../_images/1d0a31b03f9d5897f8ed93877850f1ef3c20f572192a5e9ebfb5ada5038ecec2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1408,7 +1762,7 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.34684761096974837
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.34662143059089623
 </pre></div>
 </div>
 </div>
@@ -1420,7 +1774,7 @@ Please also refer to the documentation for alternative solver options:
 <span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
 
 <span class="c1"># Plotting the confusion matrix with a heatmap</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 <span class="n">sb</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span>
            <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span>
            <span class="n">xticklabels</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span>
@@ -1435,7 +1789,7 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/99335709ecc0f619f0254e9dc8244927932d9de999493b0d71c53a2f470bafd9.png" src="../_images/99335709ecc0f619f0254e9dc8244927932d9de999493b0d71c53a2f470bafd9.png" />
+<img alt="../_images/07d1a5d81d0f7654f03f407dc043b07480bd4372f1b2b756d57eca9d95bf3fe6.png" src="../_images/07d1a5d81d0f7654f03f407dc043b07480bd4372f1b2b756d57eca9d95bf3fe6.png" />
 </div>
 </div>
 </section>
@@ -1479,27 +1833,27 @@ Please also refer to the documentation for alternative solver options:
     <tr>
       <th>2008</th>
       <td>delicious</td>
-      <td>-5.679471</td>
+      <td>-5.684107</td>
     </tr>
     <tr>
       <th>2477</th>
       <td>excellent</td>
-      <td>-5.174349</td>
+      <td>-5.177781</td>
     </tr>
     <tr>
       <th>8694</th>
       <td>very good</td>
-      <td>-4.929491</td>
+      <td>-4.934601</td>
     </tr>
     <tr>
       <th>7185</th>
       <td>tasty</td>
-      <td>-3.620315</td>
+      <td>-3.622168</td>
     </tr>
     <tr>
       <th>8954</th>
       <td>was good</td>
-      <td>-3.569174</td>
+      <td>-3.573100</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1509,27 +1863,27 @@ Please also refer to the documentation for alternative solver options:
     <tr>
       <th>3619</th>
       <td>horrible</td>
-      <td>5.512549</td>
+      <td>5.520862</td>
     </tr>
     <tr>
       <th>1015</th>
       <td>avoid</td>
-      <td>5.905717</td>
+      <td>5.901747</td>
     </tr>
     <tr>
       <th>6344</th>
       <td>rude</td>
-      <td>5.934622</td>
+      <td>5.938042</td>
     </tr>
     <tr>
       <th>9826</th>
       <td>worst</td>
-      <td>6.540459</td>
+      <td>6.544302</td>
     </tr>
     <tr>
       <th>7215</th>
       <td>terrible</td>
-      <td>7.033302</td>
+      <td>7.040422</td>
     </tr>
   </tbody>
 </table>
@@ -1570,102 +1924,102 @@ Please also refer to the documentation for alternative solver options:
     <tr>
       <th>2008</th>
       <td>delicious</td>
-      <td>-5.679471</td>
+      <td>-5.684107</td>
     </tr>
     <tr>
       <th>2477</th>
       <td>excellent</td>
-      <td>-5.174349</td>
+      <td>-5.177781</td>
     </tr>
     <tr>
       <th>8694</th>
       <td>very good</td>
-      <td>-4.929491</td>
+      <td>-4.934601</td>
     </tr>
     <tr>
       <th>7185</th>
       <td>tasty</td>
-      <td>-3.620315</td>
+      <td>-3.622168</td>
     </tr>
     <tr>
       <th>8954</th>
       <td>was good</td>
-      <td>-3.569174</td>
+      <td>-3.573100</td>
     </tr>
     <tr>
       <th>2987</th>
       <td>friendly</td>
-      <td>-3.554020</td>
+      <td>-3.551191</td>
     </tr>
     <tr>
       <th>1272</th>
       <td>bit</td>
-      <td>-3.392447</td>
+      <td>-3.392709</td>
     </tr>
     <tr>
       <th>248</th>
       <td>amazing</td>
-      <td>-3.362312</td>
+      <td>-3.365730</td>
     </tr>
     <tr>
       <th>7327</th>
       <td>the best</td>
-      <td>-3.300674</td>
+      <td>-3.301114</td>
     </tr>
     <tr>
       <th>4991</th>
       <td>nice</td>
-      <td>-3.179749</td>
+      <td>-3.180537</td>
     </tr>
     <tr>
       <th>967</th>
       <td>atmosphere</td>
-      <td>-2.883584</td>
+      <td>-2.881488</td>
     </tr>
     <tr>
       <th>5066</th>
       <td>not bad</td>
-      <td>-2.815060</td>
+      <td>-2.822456</td>
     </tr>
     <tr>
       <th>1215</th>
       <td>best</td>
-      <td>-2.774438</td>
+      <td>-2.775572</td>
     </tr>
     <tr>
       <th>4385</th>
       <td>little</td>
-      <td>-2.698092</td>
+      <td>-2.696043</td>
     </tr>
     <tr>
       <th>8959</th>
       <td>was great</td>
-      <td>-2.671645</td>
+      <td>-2.674957</td>
     </tr>
     <tr>
       <th>5714</th>
       <td>perfect</td>
-      <td>-2.630462</td>
+      <td>-2.633117</td>
     </tr>
     <tr>
       <th>4486</th>
       <td>loved</td>
-      <td>-2.577662</td>
+      <td>-2.582056</td>
     </tr>
     <tr>
       <th>6117</th>
       <td>reasonable</td>
-      <td>-2.553251</td>
+      <td>-2.556686</td>
     </tr>
     <tr>
       <th>2574</th>
       <td>fantastic</td>
-      <td>-2.466228</td>
+      <td>-2.470324</td>
     </tr>
     <tr>
       <th>4492</th>
       <td>lovely</td>
-      <td>-2.462175</td>
+      <td>-2.463983</td>
     </tr>
   </tbody>
 </table>
@@ -1681,11 +2035,11 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1300   230   167    66    84]
- [  435   350   486   143    92]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 1301   230   166    66    84]
+ [  435   351   484   144    92]
  [  137   187  1392  1009   324]
- [   26    22   379  4200  4602]
- [   21     9    62  2231 17416]]
+ [   26    22   378  4202  4601]
+ [   21     9    62  2227 17420]]
               precision    recall  f1-score   support
 
            1       0.68      0.70      0.69      1847
@@ -1710,7 +2064,7 @@ weighted avg       0.68      0.70      0.68     35370
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
 
 <span class="c1"># Plotting the confusion matrix with a heatmap</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 <span class="n">sb</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span>
            <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span>
            <span class="n">xticklabels</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span>
@@ -1723,7 +2077,7 @@ weighted avg       0.68      0.70      0.68     35370
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9e7a4d4059260a64b495d1a52159e430a1b0846559943942c07ff0b5ec321734.png" src="../_images/9e7a4d4059260a64b495d1a52159e430a1b0846559943942c07ff0b5ec321734.png" />
+<img alt="../_images/35976750277b4bf2a1decfe3119cdbf5fcfaa89e8261ffabce8b7b084ab41f04.png" src="../_images/35976750277b4bf2a1decfe3119cdbf5fcfaa89e8261ffabce8b7b084ab41f04.png" />
 </div>
 </div>
 </section>
@@ -1882,13 +2236,6 @@ Perfect dinner spot in La Latina, a little ways away from the hustle and bustle 
 <p>The most prominent example of such a technique is Word2Vec <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id47" title="Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, and Jeffrey Dean. Distributed Representations of Words and Phrases and their Compositionality. October 2013. arXiv:1310.4546 [cs, stat]. URL: http://arxiv.org/abs/1310.4546 (visited on 2023-06-12), doi:10.48550/arXiv.1310.4546.">Mikolov <em>et al.</em>, 2013</a>]</span><span id="id3">[<a class="reference internal" href="../book/bibliography.html#id48" title="Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. Efficient Estimation of Word Representations in Vector Space. September 2013. arXiv:1301.3781 [cs]. URL: http://arxiv.org/abs/1301.3781 (visited on 2023-06-12), doi:10.48550/arXiv.1301.3781.">Mikolov <em>et al.</em>, 2013</a>]</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install gensim</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
 
 <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">TreebankWordTokenizer</span><span class="p">()</span>
@@ -1903,16 +2250,17 @@ Perfect dinner spot in La Latina, a little ways away from the hustle and bustle 
 </div>
 </div>
 </div>
+<p>The entire text will be divided into sentences, that will be our “documents” in Word2vec terms. To reduce the computation time we will only use a fraction of the sentences, but feel free to repeat the following code parts with all sentences.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">tqdm</span>
 
-<span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span><span class="n">process_document</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">values</span><span class="p">)]</span>
+<span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span><span class="n">process_document</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">values</span><span class="p">[:</span><span class="mi">50_000</span><span class="p">])]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"model_id": "675675ca963a4a21b58c5f88b39e1b0c", "version_major": 2, "version_minor": 0}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "908a537d2c26445b905bfcfa1d3ebc9e", "version_major": 2, "version_minor": 0}</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1921,7 +2269,7 @@ Perfect dinner spot in La Latina, a little ways away from the hustle and bustle 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>141478
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50000
 </pre></div>
 </div>
 </div>
@@ -1941,6 +2289,7 @@ Perfect dinner spot in La Latina, a little ways away from the hustle and bustle 
 </div>
 </div>
 </div>
+<p>In particular when we work with very large text corpora, training models such as Word2Vec can be time consuming. Usually, we therefore want to save the trained models for later re-use.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;word2vec_madrid_reviews.model&quot;</span><span class="p">)</span>
@@ -1957,66 +2306,22 @@ Perfect dinner spot in La Latina, a little ways away from the hustle and bustle 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># just to get an idea how these vectors look like</span>
+<span class="n">vector</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-2.03538680e+00,  2.52757788e-01, -6.78372085e-01, -1.26871383e+00,
-       -1.08166724e-01,  8.22216213e-01,  3.38415295e-01,  7.98148632e-01,
-       -9.87190962e-01, -9.55492854e-01,  4.07470644e-01,  1.39118874e+00,
-        1.67936873e+00, -1.62421167e-01, -1.18595815e+00,  2.57541704e+00,
-       -5.80342531e-01,  1.33421934e+00,  2.37748718e+00, -1.43586814e+00,
-       -1.04479599e+00,  6.39563650e-02, -8.97780657e-01,  6.41878784e-01,
-       -1.74520206e+00,  4.68130469e-01,  8.02812040e-01, -9.29517210e-01,
-       -7.74732411e-01, -8.87739718e-01, -5.06934702e-01, -3.21538508e-01,
-       -4.80596572e-02, -1.68594670e+00, -2.41771966e-01, -4.61565822e-01,
-       -2.03054279e-01,  9.59063053e-01, -4.65506434e-01,  1.38559628e+00,
-       -4.67663795e-01, -5.63467026e-01, -1.44417775e+00, -1.22851729e+00,
-        1.17849803e+00, -1.26880860e+00, -5.07019520e-01,  3.69102329e-01,
-        2.92213416e+00, -4.93991584e-01, -6.48129582e-01,  1.70414066e+00,
-       -1.23612189e+00, -1.72287583e+00,  1.15597653e+00,  1.44868660e+00,
-       -1.22250819e+00,  2.37475419e+00,  6.53695226e-01,  2.05163908e+00,
-       -3.08574414e+00,  1.66374397e+00, -2.80261766e-02,  6.86524808e-01,
-        1.53102946e+00,  6.65094972e-01, -5.36559187e-02, -7.84830332e-01,
-        7.35198379e-01,  1.32039881e+00,  7.09394872e-01, -1.21944356e+00,
-        8.04880083e-01, -2.76637882e-01, -6.61925673e-01, -1.25887072e+00,
-        1.19793057e+00,  4.21494067e-01,  7.66302586e-01,  9.96498585e-01,
-        5.08949719e-02,  1.45889115e+00,  5.01284957e-01, -7.05735385e-01,
-        1.15695286e+00, -2.63115740e+00,  6.68963552e-01, -1.25631428e+00,
-        8.86810184e-01,  6.45234525e-01,  1.62897801e+00,  6.84916005e-02,
-        1.24690199e+00, -4.46591347e-01, -1.15185416e+00,  5.72938859e-01,
-        1.25214541e+00, -1.03020048e+00,  1.85466862e+00,  2.71878541e-01,
-        6.15206361e-01,  1.77544081e+00,  1.54688907e+00, -3.51346731e+00,
-        2.00846910e+00,  2.17208838e+00, -5.17885029e-01, -5.46077728e-01,
-       -2.82651377e+00, -8.21791515e-02,  2.36416310e-01, -6.74597442e-01,
-       -8.51826787e-01, -3.59785527e-01, -1.56974423e+00,  9.27218020e-01,
-       -2.02717376e+00,  1.95397782e+00,  7.02663004e-01, -1.02236593e+00,
-        6.56838715e-01,  6.73914135e-01, -3.00290734e-01, -9.34027076e-01,
-       -8.00638616e-01, -1.32641673e-01, -7.23512411e-01, -1.51655793e+00,
-       -8.64614844e-01,  7.01261044e-01,  1.04395604e+00,  1.31523907e+00,
-        8.43236089e-01, -2.57687283e+00, -1.49496460e+00, -4.15781051e-01,
-       -5.65135837e-01,  2.03486538e+00,  1.17266095e+00, -2.50355184e-01,
-        1.85218894e+00,  5.07799566e-01,  1.23914981e+00, -4.94150430e-01,
-        2.27533412e+00, -2.61036470e-03, -3.87329668e-01, -1.11296475e-01,
-       -1.18795252e+00,  3.70148182e-01,  1.59401250e+00, -1.83947122e+00,
-       -2.73712277e+00,  4.71669245e+00,  1.95886984e-01, -4.84028697e-01,
-        9.64134216e-01,  2.53249586e-01, -2.59700298e+00, -2.38229573e-01,
-       -1.69923174e+00,  3.20591122e-01, -2.14936686e+00, -5.11169016e-01,
-        7.22345829e-01,  1.10016990e+00,  2.35557246e+00, -7.25124359e-01,
-       -1.31868494e+00, -6.81534111e-01, -4.91266608e-01,  1.32315159e+00,
-        9.05143797e-01,  9.32789594e-02, -6.45776391e-01, -1.09242570e+00,
-       -3.32741797e-01, -2.71128982e-01, -1.77400219e+00,  1.17381942e+00,
-       -3.83675754e-01, -1.02986455e+00, -2.15794826e+00, -9.86504018e-01,
-        1.52942610e+00,  7.36541212e-01, -3.30162406e+00,  1.44280720e+00,
-       -1.08328497e+00,  5.31407893e-02, -1.49774420e+00, -2.06774545e+00,
-       -1.72131769e-02, -1.64670253e+00,  1.24993122e+00, -2.00452232e+00,
-        5.38596213e-01, -4.72304463e-01,  1.02590454e+00,  7.42713094e-01],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.38687244, -1.0692282 , -1.9413655 ,  0.264635  ,  0.85302734,
+       -0.97620904,  1.7627273 ,  1.4508923 ,  0.39590555, -0.5755085 ,
+        0.8223221 ,  0.7494018 ,  0.7385848 ,  1.0885937 ,  0.23568982,
+        1.2578772 ,  2.4391305 , -0.4542736 , -0.15326655,  1.6938208 ],
       dtype=float32)
 </pre></div>
 </div>
 </div>
 </div>
+<p>Let’s now have a look at what work similarities we can get from the Word2Vec model that we just trained on the above sentences.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="s1">&#39;delicious&#39;</span><span class="p">,</span> <span class="n">topn</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
@@ -2024,16 +2329,16 @@ Perfect dinner spot in La Latina, a little ways away from the hustle and bustle 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;tasty&#39;, 0.8175682425498962),
- (&#39;delicious.&#39;, 0.7884759306907654),
- (&#39;yummy&#39;, 0.7805776000022888),
- (&#39;amazing&#39;, 0.7275819778442383),
- (&#39;fantastic&#39;, 0.7188233137130737),
- (&#39;divine&#39;, 0.7097207903862),
- (&#39;exquisite&#39;, 0.6883265376091003),
- (&#39;superb&#39;, 0.6864668130874634),
- (&#39;incredible&#39;, 0.6731298565864563),
- (&#39;phenomenal&#39;, 0.6625100374221802)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;tasty&#39;, 0.800070583820343),
+ (&#39;yummy&#39;, 0.7640842795372009),
+ (&#39;fantastic&#39;, 0.758423924446106),
+ (&#39;amazing&#39;, 0.7505677342414856),
+ (&#39;divine&#39;, 0.7486420273780823),
+ (&#39;superb&#39;, 0.7320771813392639),
+ (&#39;incredible&#39;, 0.7014109492301941),
+ (&#39;fabulous&#39;, 0.6964861154556274),
+ (&#39;outstanding&#39;, 0.6905204057693481),
+ (&#39;exquisite&#39;, 0.6843255758285522)]
 </pre></div>
 </div>
 </div>
@@ -2045,16 +2350,16 @@ Perfect dinner spot in La Latina, a little ways away from the hustle and bustle 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;Pizza&#39;, 0.687938392162323),
- (&#39;hamburger&#39;, 0.6807577610015869),
- (&#39;burger&#39;, 0.6770654916763306),
- (&#39;pasta&#39;, 0.6611385345458984),
- (&#39;carbonara&#39;, 0.6239833831787109),
- (&#39;burrito&#39;, 0.589520275592804),
- (&#39;pizza.&#39;, 0.5812183022499084),
- (&#39;margarita&#39;, 0.5620388388633728),
- (&#39;crust&#39;, 0.5615034699440002),
- (&#39;calzone&#39;, 0.550714910030365)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;burger&#39;, 0.7599653005599976),
+ (&#39;pasta&#39;, 0.692646324634552),
+ (&#39;hamburger&#39;, 0.6713453531265259),
+ (&#39;ramen&#39;, 0.6261649131774902),
+ (&#39;Pizza&#39;, 0.620985209941864),
+ (&#39;taco&#39;, 0.6181697249412537),
+ (&#39;salad&#39;, 0.6107888221740723),
+ (&#39;burrito&#39;, 0.6093743443489075),
+ (&#39;sushi&#39;, 0.6070583462715149),
+ (&#39;margarita&#39;, 0.6011375188827515)]
 </pre></div>
 </div>
 </div>
@@ -2066,16 +2371,16 @@ Perfect dinner spot in La Latina, a little ways away from the hustle and bustle 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;terrible&#39;, 0.8658505082130432),
- (&#39;awful&#39;, 0.8121690154075623),
- (&#39;bad&#39;, 0.7098363041877747),
- (&#39;appalling&#39;, 0.6666131615638733),
- (&#39;disgusting&#39;, 0.652198851108551),
- (&#39;poor&#39;, 0.6406951546669006),
- (&#39;shocking&#39;, 0.6216946840286255),
- (&#39;okay&#39;, 0.6188369989395142),
- (&#39;dreadful&#39;, 0.6177916526794434),
- (&#39;Terrible&#39;, 0.6082724928855896)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;terrible&#39;, 0.878247082233429),
+ (&#39;awful&#39;, 0.8632163405418396),
+ (&#39;disgusting&#39;, 0.7798396944999695),
+ (&#39;appalling&#39;, 0.7206198573112488),
+ (&#39;OK&#39;, 0.6718139052391052),
+ (&#39;exceptional&#39;, 0.6562348008155823),
+ (&#39;okay&#39;, 0.6466514468193054),
+ (&#39;spectacular&#39;, 0.6463118195533752),
+ (&#39;bad&#39;, 0.640613853931427),
+ (&#39;ok&#39;, 0.6305819153785706)]
 </pre></div>
 </div>
 </div>
@@ -2087,16 +2392,16 @@ Perfect dinner spot in La Latina, a little ways away from the hustle and bustle 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;friendly.&#39;, 0.764923095703125),
- (&#39;courteous&#39;, 0.7515475153923035),
- (&#39;polite&#39;, 0.7410220503807068),
- (&#39;welcoming&#39;, 0.7141723036766052),
- (&#39;cordial&#39;, 0.7002096176147461),
- (&#39;attentive&#39;, 0.6988195180892944),
- (&#39;personable&#39;, 0.6342913508415222),
- (&#39;gracious&#39;, 0.6272123456001282),
- (&#39;professional&#39;, 0.6221848726272583),
- (&#39;freindly&#39;, 0.6203247308731079)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;polite&#39;, 0.7567607164382935),
+ (&#39;welcoming&#39;, 0.746283769607544),
+ (&#39;courteous&#39;, 0.745752215385437),
+ (&#39;attentive&#39;, 0.7410457730293274),
+ (&#39;cheerful&#39;, 0.6754449009895325),
+ (&#39;helpful&#39;, 0.6668164134025574),
+ (&#39;personable&#39;, 0.6524792909622192),
+ (&#39;professional&#39;, 0.6462547183036804),
+ (&#39;unfriendly&#39;, 0.6401636004447937),
+ (&#39;Friendly&#39;, 0.6371017694473267)]
 </pre></div>
 </div>
 </div>
@@ -2108,16 +2413,16 @@ Perfect dinner spot in La Latina, a little ways away from the hustle and bustle 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;brownie&#39;, 0.7869287729263306),
- (&#39;cheesecake&#39;, 0.7738447189331055),
- (&#39;carrot&#39;, 0.7625924348831177),
- (&#39;caramel&#39;, 0.7542667388916016),
- (&#39;crepe&#39;, 0.742887020111084),
- (&#39;flan&#39;, 0.7408572435379028),
- (&#39;custard&#39;, 0.7393072843551636),
- (&#39;tiramisu&#39;, 0.7378472685813904),
- (&#39;icecream&#39;, 0.7375630736351013),
- (&#39;tart&#39;, 0.7370063662528992)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;cake&#39;, 0.8877770900726318),
+ (&#39;brownie&#39;, 0.8713868260383606),
+ (&#39;tart&#39;, 0.8378708958625793),
+ (&#39;lemon&#39;, 0.8312711119651794),
+ (&#39;mousse&#39;, 0.8296834230422974),
+ (&#39;carrot&#39;, 0.8133299350738525),
+ (&#39;cream&#39;, 0.8120887279510498),
+ (&#39;cheesecake&#39;, 0.8106086850166321),
+ (&#39;sorbet&#39;, 0.7980536818504333),
+ (&#39;ice&#39;, 0.7960500717163086)]
 </pre></div>
 </div>
 </div>
@@ -2129,16 +2434,16 @@ Perfect dinner spot in La Latina, a little ways away from the hustle and bustle 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;tea&#39;, 0.7526535987854004),
- (&#39;croissant&#39;, 0.7297593355178833),
- (&#39;cappuccino&#39;, 0.7134137153625488),
- (&#39;coffee.&#39;, 0.6472688913345337),
- (&#39;churros&#39;, 0.6273057460784912),
- (&#39;coffe&#39;, 0.6237097382545471),
- (&#39;juice&#39;, 0.6207398176193237),
- (&#39;breakfast&#39;, 0.6145669221878052),
- (&#39;latte&#39;, 0.6066522002220154),
- (&#39;espresso&#39;, 0.5939613580703735)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;tea&#39;, 0.7673963904380798),
+ (&#39;croissant&#39;, 0.676085352897644),
+ (&#39;snack&#39;, 0.6719610095024109),
+ (&#39;juice&#39;, 0.6616010665893555),
+ (&#39;desert&#39;, 0.6481211185455322),
+ (&#39;cappuccino&#39;, 0.6399251222610474),
+ (&#39;beer&#39;, 0.6388272643089294),
+ (&#39;chocolate&#39;, 0.6290140748023987),
+ (&#39;cup&#39;, 0.6245771050453186),
+ (&#39;orange&#39;, 0.615973174571991)]
 </pre></div>
 </div>
 </div>

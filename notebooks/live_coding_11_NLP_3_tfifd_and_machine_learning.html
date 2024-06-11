@@ -192,7 +192,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../book/05_data_information_knowledge.html">6. Data - Information - Knowledge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../book/06_data_science_workflow.html">7. Data Science Workflow</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data acquisition and first exploration</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Acquisition and First Exploration</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../book/07_data_acquisition_and_preparation.html">8. Data Acquisition &amp; Preparation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_03_data_preparation.html">9. Data Pre-Processing</a></li>
@@ -214,20 +214,20 @@
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09d_machine_learning_techniques.html">19. Supervised Machine Learning - Key Techniques</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09e_machine_learning_ensembles.html">20. Ensemble Models and Outlook</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Text Data</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">21. Introduction to Working with Text Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_2_tokenization.html">22. NLP - Basic Techniques to Analyze Text Data</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">23. Computing with Text: Counting words</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">24. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the networks</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the Networks</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_13_graphs.html">25. Networks / Graph Theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_14_graph_visualization.html">26. Visualizing Graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_14_graphs_part2.html">27. Bottlenecks, Hubs, Communities</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Next steps</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Next Steps</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="outlook.html">28. What are the next steps?</a></li>
 </ul>
@@ -527,7 +527,7 @@ document.write(`
 <h1><span class="section-number">23. </span>Computing with Text: Counting words<a class="headerlink" href="#computing-with-text-counting-words" title="Link to this heading">#</a></h1>
 <section id="turning-text-into-vectors">
 <h2><span class="section-number">23.1. </span>Turning Text into Vectors<a class="headerlink" href="#turning-text-into-vectors" title="Link to this heading">#</a></h2>
-<p>As we progress in the world of Data Science, we often find ourselves needing to transform our data into a format that’s more suitable for computation and analysis. When dealing with textual data, this means converting our words into numeric representations, often in the form of vectors. But why vectors, you may ask? Machine Learning algorithms, at their core, work with numerical data. They’re able to identify patterns, trends and relationships within numeric data much more effectively. Numerical vectors are a very suitable input for machine learning models. In addition, such vectors allow to directly use methods from algebra, for instance to computed distances or similarities between data points.</p>
+<p>In many different Data Science projects or tasks, we often find ourselves needing to transform our data into a format that is more suitable for computation and analysis. When dealing with textual data, this means converting our words into numeric representations, often in the form of vectors. But why vectors, you may ask? Machine Learning algorithms, at their core, work with numerical data. They’re able to identify patterns, trends, and relationships within numeric data much more effectively. Numerical vectors are a very suitable input for machine learning models. In addition, such vectors allow direct use of methods from algebra, for instance to computed distances or similarities between data points.</p>
 <section id="distance-similarity-measures">
 <h3><span class="section-number">23.1.1. </span>Distance/similarity measures<a class="headerlink" href="#distance-similarity-measures" title="Link to this heading">#</a></h3>
 <p>Depending on the type of numerical vector there are many suitable methods to compute vector-vector similarities (or inverse: distances). For real-numbered (float) vectors we can for instance simply use the <strong>Euclidean distance</strong> which you will know from Pythagoras. Or a <strong>Cosine similarity</strong> based on the angle between two vectors. For binary vectors there are other measures such as the <strong>Jaccard similarity</strong>.</p>
@@ -549,7 +549,7 @@ document.write(`
 and<br />
 <em>“That is the one and only way to die.”</em></p>
 <p>Despite having only one word difference, the Euclidean distance between these sentences would be very small since only one word differs.
-The distance between “happiness” and “die” is the same as between “That” and “This”, even though the first obviously has a much larger impact on the meaning of the sentence.</p>
+The distance between “happiness” and “die” is the same as between “That” and “This”, even though the first has a much larger impact on the meaning of the sentence.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -599,7 +599,7 @@ Distance between vector1 and vector3: 4.243.
 \[TF(t)=\frac{\text{Number of times term t appears in a document}}{\text{Total number of terms in the document}}
 \]</div>
 <ul class="simple">
-<li><p>The Inverse Document Frequency (IDF), computed as the logarithm of the number of the documents in the corpus divided by the number of documents where the specific term appears.</p></li>
+<li><p>The Inverse Document Frequency (IDF) is computed as the logarithm of the number of documents in the corpus divided by the number of documents where the specific term appears.</p></li>
 </ul>
 <div class="math notranslate nohighlight">
 \[IDF(t)=\log(\frac{\text{Total number of documents}}{\text{Number of documents with term t in it}})
@@ -609,16 +609,17 @@ Distance between vector1 and vector3: 4.243.
 </ul>
 <div class="math notranslate nohighlight">
 \[\text{TF−IDF}=TF×IDF\]</div>
-<p>This results in a vector space model where each word is assigned a TF-IDF score, and a document is represented as a vector of these scores. We can use libraries like <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> to compute these scores easily.</p>
-<p>Finally, we can use these TF-IDF vectors to train Machine Learning models. For example, we can train a logistic regression model for sentiment analysis. By turning our words into vectors, we’ve opened up a new world of possibilities for analysis and model training, pushing the boundaries of what we can achieve with Natural Language Processing.</p>
+<p>This results in a vector space model where each word is assigned a TF-IDF score, and a document is represented as a vector of these scores. We can use libraries like <code class="docutils literal notranslate"><span class="pre">Scikit-Learn</span></code><span id="id1">[<a class="reference internal" href="../book/bibliography.html#id66" title="F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay. Scikit-learn: machine learning in Python. Journal of Machine Learning Research, 12:2825–2830, 2011.">Pedregosa <em>et al.</em>, 2011</a>]</span> to compute these scores easily.</p>
+<p>Finally, we can use these TF-IDF vectors to train Machine Learning models. For example, we can train a logistic regression model (see <a class="reference internal" href="live_coding_09b_machine_learning_algorithms_2.html#ch-linear-models"><span class="std std-numref">Section 17</span></a>) for sentiment analysis.</p>
+<p>In this chapter, and the next one, we will see that turning words into vectors is a fundamental approach in NLP that opens up countless new possibilities for analysis and model training.</p>
 </section>
 <section id="hands-on-hotel-reviews">
 <h2><span class="section-number">23.4. </span>Hands-on: Hotel Reviews<a class="headerlink" href="#hands-on-hotel-reviews" title="Link to this heading">#</a></h2>
 <p>Let’s work with some actual data!</p>
-<p>We here will work with a dataset of about 20,000 hotel reviews from tripadvisor <a class="reference external" href="https://zenodo.org/records/1219899">see original dataset on zenodo</a> or <a class="reference external" href="https://www.kaggle.com/datasets/andrewmvd/trip-advisor-hotel-reviews">see dataset on kaggle</a>. The goal will be to train a machine learning model to predict rating based on a review text.</p>
+<p>We here will work with a dataset of about 20,000 hotel reviews from TripAdvisor (<a class="reference external" href="https://zenodo.org/records/1219899">see original dataset on zenodo</a> or <a class="reference external" href="https://www.kaggle.com/datasets/andrewmvd/trip-advisor-hotel-reviews">see dataset on kaggle</a>). The goal will be to train a machine learning model to predict hotel ratings based on a review text.</p>
 <section id="data-import-and-exploration">
 <h3><span class="section-number">23.4.1. </span>Data import and exploration<a class="headerlink" href="#data-import-and-exploration" title="Link to this heading">#</a></h3>
-<p>We will import the data using <code class="docutils literal notranslate"><span class="pre">Pandas</span></code>. We will then explore the data a bit. But since this dataset was already prepared to work for machine learning tasks, there is complicated data processing steps that we have to do at this point.</p>
+<p>As in the former chapters, we import the data using <code class="docutils literal notranslate"><span class="pre">Pandas</span></code>. We will then explore the data a bit. However, since this dataset was already prepared to work for machine learning tasks in this case, there are no complicated data processing steps that we have to do at this point.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -627,7 +628,8 @@ Distance between vector1 and vector3: 4.243.
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">This code block downloads the data from zenodo and stores it in a local &#39;datasets&#39; folder.</span>
+<span class="sd">This code block downloads the data from zenodo and stores it in</span>
+<span class="sd">a local &#39;datasets&#39; folder.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">requests</span>
@@ -682,17 +684,17 @@ Distance between vector1 and vector3: 4.243.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;../datasets/tripadvisor_hotel_reviews.csv&quot;</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;ansi&quot;</span><span class="p">)</span>
 <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">UnicodeDecodeError</span><span class="g g-Whitespace">                        </span>Traceback (most recent call last)
+<span class="ne">LookupError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;../datasets/tripadvisor_hotel_reviews.csv&quot;</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;ansi&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 
 <span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/site-packages/pandas/io/parsers/readers.py:1026,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
@@ -717,32 +719,30 @@ Distance between vector1 and vector3: 4.243.
 <span class="g g-Whitespace">   </span><span class="mi">1619</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="ne">-&gt; </span><span class="mi">1620</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
 
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/site-packages/pandas/io/parsers/readers.py:1898,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1895</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1897</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1898</span>     <span class="k">return</span> <span class="n">mapping</span><span class="p">[</span><span class="n">engine</span><span class="p">](</span><span class="n">f</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1899</span> <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1900</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/site-packages/pandas/io/parsers/readers.py:1880,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1878</span>     <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1879</span>         <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1880</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1881</span>     <span class="n">f</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1882</span>     <span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1883</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1884</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1885</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1886</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1887</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1888</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
+<span class="g g-Whitespace">   </span><span class="mi">1889</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1890</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span class="g g-Whitespace">   </span><span class="mi">1891</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
 
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/site-packages/pandas/io/parsers/c_parser_wrapper.py:93,</span> in <span class="ni">CParserWrapper.__init__</span><span class="nt">(self, src, **kwds)</span>
-<span class="g g-Whitespace">     </span><span class="mi">90</span> <span class="k">if</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;dtype_backend&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;pyarrow&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">91</span>     <span class="c1"># Fail here loudly instead of in cython after reading</span>
-<span class="g g-Whitespace">     </span><span class="mi">92</span>     <span class="n">import_optional_dependency</span><span class="p">(</span><span class="s2">&quot;pyarrow&quot;</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">93</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span> <span class="o">=</span> <span class="n">parsers</span><span class="o">.</span><span class="n">TextReader</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">95</span> <span class="bp">self</span><span class="o">.</span><span class="n">unnamed_cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reader</span><span class="o">.</span><span class="n">unnamed_cols</span>
-<span class="g g-Whitespace">     </span><span class="mi">97</span> <span class="c1"># error: Cannot determine type of &#39;names&#39;</span>
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.10/site-packages/pandas/io/common.py:723,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
+<span class="g g-Whitespace">    </span><span class="mi">720</span>     <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">722</span> <span class="c1"># validate encoding and errors</span>
+<span class="ne">--&gt; </span><span class="mi">723</span> <span class="n">codecs</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="n">encoding</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">724</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">errors</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">725</span>     <span class="n">codecs</span><span class="o">.</span><span class="n">lookup_error</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span>
 
-<span class="nn">File parsers.pyx:574,</span> in <span class="ni">pandas._libs.parsers.TextReader.__cinit__</span><span class="nt">()</span>
-
-<span class="nn">File parsers.pyx:663,</span> in <span class="ni">pandas._libs.parsers.TextReader._get_header</span><span class="nt">()</span>
-
-<span class="nn">File parsers.pyx:874,</span> in <span class="ni">pandas._libs.parsers.TextReader._tokenize_rows</span><span class="nt">()</span>
-
-<span class="nn">File parsers.pyx:891,</span> in <span class="ni">pandas._libs.parsers.TextReader._check_tokenize_status</span><span class="nt">()</span>
-
-<span class="nn">File parsers.pyx:2053,</span> in <span class="ni">pandas._libs.parsers.raise_parser_error</span><span class="nt">()</span>
-
-<span class="ne">UnicodeDecodeError</span>: &#39;utf-8&#39; codec can&#39;t decode byte 0xc7 in position 10968: invalid continuation byte
+<span class="ne">LookupError</span>: unknown encoding: ansi
 </pre></div>
 </div>
 </div>
@@ -756,23 +756,26 @@ Distance between vector1 and vector3: 4.243.
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 20491 entries, 0 to 20490
-Data columns (total 2 columns):
+Data columns (total 3 columns):
  #   Column  Non-Null Count  Dtype 
 ---  ------  --------------  ----- 
- 0   Review  20491 non-null  object
- 1   Rating  20491 non-null  int64 
-dtypes: int64(1), object(1)
-memory usage: 320.3+ KB
+ 0   S.No.   20491 non-null  int64 
+ 1   Review  20491 non-null  object
+ 2   Rating  20491 non-null  int64 
+dtypes: int64(2), object(1)
+memory usage: 480.4+ KB
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sb</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
-             <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Rating&#39;</span><span class="p">,</span>
-             <span class="n">palette</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span>
-            <span class="p">)</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Rating Distribution&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+             <span class="n">x</span><span class="o">=</span><span class="s2">&quot;Rating&quot;</span><span class="p">,</span>
+             <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span>
+             <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Rating&quot;</span><span class="p">,</span>
+            <span class="p">)</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Rating Distribution&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -780,7 +783,7 @@ memory usage: 320.3+ KB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Rating Distribution&#39;)
 </pre></div>
 </div>
-<img alt="../_images/856ddcefc71476ecfb19751dcb90b7e7a902d5715044d8a4b2e937e17a9934ea.png" src="../_images/856ddcefc71476ecfb19751dcb90b7e7a902d5715044d8a4b2e937e17a9934ea.png" />
+<img alt="../_images/716fe33995d3c72113447a68299eee9abaee2bb1585fc90adb2ce8eb88ae4f15.png" src="../_images/716fe33995d3c72113447a68299eee9abaee2bb1585fc90adb2ce8eb88ae4f15.png" />
 </div>
 </div>
 <p>Here we see a first potential issue, a <strong>bias of the ratings</strong>. The dataset contains far more positive reviews (&gt;= 4) than neutral or negative ones. This is a common problem in machine learning and there are strategies to deal with this (e.g. <em>oversampling</em> or using <em>class weights</em>), but for now we will simply ignore it.</p>
@@ -816,7 +819,7 @@ Test dataset size: (4099,)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(16392, 46816)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(16392, 46813)
 </pre></div>
 </div>
 </div>
@@ -830,7 +833,7 @@ Test dataset size: (4099,)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;nice hotel expensive parking got good deal stay hotel anniversary, arrived late evening took advice previous reviews did valet parking, check quick easy, little disappointed non-existent view room room clean nice size, bed comfortable woke stiff neck high pillows, not soundproof like heard music room night morning loud bangs doors opening closing hear people talking hallway, maybe just noisy neighbors, aveda bath products nice, did not goldfish stay nice touch taken advantage staying longer, location great walking distance shopping, overall nice experience having pay 40 parking night,  &#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
 </pre></div>
 </div>
 </div>
@@ -843,8 +846,8 @@ Test dataset size: (4099,)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;1x46816 sparse matrix of type &#39;&lt;class &#39;numpy.float64&#39;&gt;&#39;
-	with 248 stored elements in Compressed Sparse Row format&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;1x46813 sparse matrix of type &#39;&lt;class &#39;numpy.float64&#39;&gt;&#39;
+	with 247 stored elements in Compressed Sparse Row format&gt;
 </pre></div>
 </div>
 </div>
@@ -867,28 +870,29 @@ Test dataset size: (4099,)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;zoned&#39;, &#39;zones&#39;, &#39;zonethis&#39;, &#39;zoning&#39;, &#39;zoo&#39;, &#39;zoogarten&#39;,
-       &#39;zooji&#39;, &#39;zoological&#39;, &#39;zoologicher&#39;, &#39;zoologische&#39;,
-       &#39;zoologischer&#39;, &#39;zoologisher&#39;, &#39;zoom&#39;, &#39;zooming&#39;, &#39;zooms&#39;, &#39;zoomy&#39;,
-       &#39;zoran&#39;, &#39;zorbas&#39;, &#39;zucca&#39;, &#39;zuid&#39;, &#39;zum&#39;, &#39;zumo&#39;, &#39;zurich&#39;,
-       &#39;zvago&#39;, &#39;zyrtec&#39;, &#39;zytec&#39;, &#39;zz&#39;, &#39;zzzt&#39;, &#39;zzzzt&#39;, &#39;zzzzzs&#39;,
-       &#39;zzzzzzzzz&#39;, &#39;µlack&#39;, &#39;ààmake&#39;, &#39;ààneither&#39;, &#39;ààthe&#39;, &#39;ààthere&#39;,
-       &#39;âge&#39;, &#39;âme&#39;, &#39;ânes&#39;, &#39;âre&#39;, &#39;âs&#39;, &#39;ä__ç&#39;, &#39;ä__ç_é_&#39;, &#39;ä_ëù_ez&#39;,
-       &#39;äarely&#39;, &#39;äbec&#39;, &#39;äcialy&#39;, &#39;äciate&#39;, &#39;äciated&#39;, &#39;äcor&#39;, &#39;äe&#39;,
-       &#39;äed&#39;, &#39;äellement&#39;, &#39;äes&#39;, &#39;ägal&#39;, &#39;älanie&#39;, &#39;älie&#39;, &#39;ändo&#39;,
-       &#39;änial&#39;, &#39;äon&#39;, &#39;äpublique&#39;, &#39;ära&#39;, &#39;ärico&#39;, &#39;äring&#39;, &#39;äro&#39;, &#39;äs&#39;,
-       &#39;ätence&#39;, &#39;ätro&#39;, &#39;äut&#39;, &#39;åeach&#39;, &#39;åreakfast&#39;, &#39;æn&#39;, &#39;ærom&#39;,
-       &#39;æsimas&#39;, &#39;èery&#39;, &#39;èou&#39;, &#39;é__&#39;, &#39;é_ç&#39;, &#39;é_ç_a&#39;, &#39;é_çål&#39;, &#39;éenny&#39;,
-       &#39;êtyle&#39;, &#39;î_&#39;, &#39;î__ere&#39;, &#39;î__here&#39;, &#39;î__hese&#39;, &#39;öreat&#39;, &#39;ù_&#39;, &#39;ùn&#39;,
-       &#39;ùoom&#39;, &#39;ûan&#39;, &#39;ü_e&#39;, &#39;üefinitely&#39;, &#39;üescribed&#39;, &#39;üifficult&#39;,
-       &#39;üust&#39;, &#39;üâjili&#39;, &#39;üã&#39;, &#39;üè__&#39;, &#39;üècia&#39;], dtype=object)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([&#39;zones&#39;, &#39;zonethis&#39;, &#39;zoning&#39;, &#39;zoo&#39;, &#39;zoogarten&#39;, &#39;zooji&#39;,
+       &#39;zoological&#39;, &#39;zoologicher&#39;, &#39;zoologische&#39;, &#39;zoologischer&#39;,
+       &#39;zoologisher&#39;, &#39;zoom&#39;, &#39;zooming&#39;, &#39;zooms&#39;, &#39;zoomy&#39;, &#39;zoran&#39;,
+       &#39;zorbas&#39;, &#39;zucca&#39;, &#39;zuid&#39;, &#39;zum&#39;, &#39;zumo&#39;, &#39;zurich&#39;, &#39;zvago&#39;,
+       &#39;zyrtec&#39;, &#39;zytec&#39;, &#39;zz&#39;, &#39;zzzt&#39;, &#39;zzzzt&#39;, &#39;zzzzzs&#39;, &#39;zzzzzzzzz&#39;,
+       &#39;µlack&#39;, &#39;ààmake&#39;, &#39;ààneither&#39;, &#39;ààthe&#39;, &#39;ààthere&#39;, &#39;âge&#39;, &#39;âme&#39;,
+       &#39;ânes&#39;, &#39;âre&#39;, &#39;âs&#39;, &#39;ä__ç&#39;, &#39;ä__ç_é_&#39;, &#39;ä_ëù_ez&#39;, &#39;äarely&#39;,
+       &#39;äbec&#39;, &#39;äcialy&#39;, &#39;äciate&#39;, &#39;äciated&#39;, &#39;äcor&#39;, &#39;äe&#39;, &#39;äed&#39;,
+       &#39;äellement&#39;, &#39;äes&#39;, &#39;ägal&#39;, &#39;älanie&#39;, &#39;älie&#39;, &#39;ändo&#39;, &#39;änial&#39;,
+       &#39;äon&#39;, &#39;äpublique&#39;, &#39;ära&#39;, &#39;ärico&#39;, &#39;äring&#39;, &#39;äro&#39;, &#39;äs&#39;, &#39;ätence&#39;,
+       &#39;ätro&#39;, &#39;äut&#39;, &#39;åeach&#39;, &#39;åreakfast&#39;, &#39;æn&#39;, &#39;ærom&#39;, &#39;æsimas&#39;,
+       &#39;èery&#39;, &#39;èou&#39;, &#39;é__&#39;, &#39;é_ç_a&#39;, &#39;é_çål&#39;, &#39;é_çœybiscus&#39;, &#39;é_çžadizo&#39;,
+       &#39;éenny&#39;, &#39;êtyle&#39;, &#39;öreat&#39;, &#39;ù_šäœ&#39;, &#39;ù_šäœî_&#39;, &#39;ù_šäœî__ere&#39;,
+       &#39;ù_šäœî__here&#39;, &#39;ù_šäœî__hese&#39;, &#39;ùn&#39;, &#39;ùoom&#39;, &#39;ûan&#39;, &#39;ü_e&#39;,
+       &#39;üefinitely&#39;, &#39;üescribed&#39;, &#39;üifficult&#39;, &#39;üust&#39;, &#39;üâjili&#39;, &#39;üã&#39;,
+       &#39;üè__&#39;, &#39;üècia&#39;], dtype=object)
 </pre></div>
 </div>
 </div>
 </div>
-<p>Many of those words make no sense! It includes rare strings and typos.</p>
-<p>In such cases it is generelly advisable to reduce the number of words in our tfidf vector by removing words which are either occuring very rarely (only a few in the whole dataset) or which occur very often (in a large part of the documents). The first means our machine learning models can anyway not really learn a lot from it because it hardly occurs during training. The second means that such words probably have very little <em>discriminative power</em> because they are so common.</p>
-<p>Both things can easily be done with the <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer</span></code> by setting the <code class="docutils literal notranslate"><span class="pre">min_df</span></code> (minimum document frequency) and the <code class="docutils literal notranslate"><span class="pre">max_df</span></code> (maximum document frequency) values. We can use integers which will be interpreted as absolute numbers, for instance <code class="docutils literal notranslate"><span class="pre">min_df=10</span></code> means the word must occur at least 10 times. But we can also use floats which will be interpreted as fractions, so <code class="docutils literal notranslate"><span class="pre">max_df=0.25</span></code> meant that words which occur in more than 25% of all documents are not taken into our tfidf vectors.</p>
+<p>Many of those words make no sense! This includes rare strings and typos.</p>
+<p>In such cases, it is generally advisable to reduce the number of words in our TF-IDF vector by removing words that either occur very rarely (only a few times in the entire dataset) or very often (in a large portion of the documents). Words that rarely occur provide little value to our machine learning models because they hardly appear during training. Conversely, words that occur frequently likely have minimal discriminative power because they are so common.</p>
+<p>Both issues can be addressed easily with the <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer</span></code> by setting the <code class="docutils literal notranslate"><span class="pre">min_df</span></code> (minimum document frequency) and <code class="docutils literal notranslate"><span class="pre">max_df</span></code> (maximum document frequency) parameters. These can be set using integers or floats. For example, <code class="docutils literal notranslate"><span class="pre">min_df=10</span></code> means that a word must appear at least 10 times to be included. On the other hand, <code class="docutils literal notranslate"><span class="pre">max_df=0.25</span></code> means that words appearing in more than 25% of all documents are excluded from our TF-IDF vectors.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tfidf</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">min_df</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">max_df</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
@@ -1119,11 +1123,11 @@ Test dataset size: (4099,)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.03345672 0.         0.         0.         0.         0.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.03830825 0.         0.         0.11754202 0.         0.
  0.         0.         0.         0.         0.         0.
  0.         0.         0.         0.         0.         0.
  0.         0.        ]
-(1, 46816)
+(1, 8533)
 </pre></div>
 </div>
 </div>
@@ -1132,14 +1136,14 @@ Test dataset size: (4099,)
 </section>
 <section id="regression-or-classification">
 <h2><span class="section-number">23.5. </span>Regression or Classification?<a class="headerlink" href="#regression-or-classification" title="Link to this heading">#</a></h2>
-<p>When we’re dealing with machine learning tasks involving labels or targets, these tasks usually fall under two main categories: Regression and Classification.</p>
-<p>As we already discussed in the machine learning part of the course, <strong>regression</strong> generally refers to predicting a continuous number while <strong>classification</strong> refers to the prediction of specific, discrete values.</p>
+<p>When we deal with supervised machine learning tasks, those involve labels or targets. Such tasks usually fall under two main categories: Regression and Classification.</p>
+<p>As we already discussed in the machine learning part of the course (see <a class="reference internal" href="live_coding_08_machine_learning.html#ch-machine-learning-intro"><span class="std std-numref">Section 15</span></a>), <strong>regression</strong> generally refers to predicting a continuous number while <strong>classification</strong> refers to the prediction of specific, discrete values.</p>
 <p>If we want to predict if a mail is spam or not, or if we want to predict if an image displays a dog, a cat, or a parrot, we have a classification task.</p>
 <p>Here we want to predict ratings between 0 (bad) and 5 (very good), so what kind of task is this? What do you think?</p>
 <hr class="docutils" />
 <p>Actually, this case is a bit of a gray zone.</p>
 <p>The ratings are discrete numbers: 1, 2, 3, 4, or 5. But the ratings are also <strong>ordered</strong>, so that predicting a 2 where the true label is a 1 is not that bad! When we train a model on a classification task, then it usually doesn’t matter which wrong class was predicted, so predicting a 2 where it’s actually 1 is as bad as predicting a 4 [^loss-functions]. So, that makes <em>regression</em> to appear as the natural choice…</p>
-<p>However, in practice, training a model on a classification task typically works notably better in such situations where we only have very few possible ordered values (see also <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id26" title="Narendra Kumar Gupta, Giuseppe Di Fabbrizio, and Patrick Haffner. Capturing the stars: predicting ratings for service and product reviews. In HLT-NAACL 2010. 2010.">Gupta <em>et al.</em>, 2010</a>]</span>).</p>
+<p>However, in practice, training a model on a classification task typically works notably better in such situations where we only have very few possible ordered values (see also <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id26" title="Narendra Kumar Gupta, Giuseppe Di Fabbrizio, and Patrick Haffner. Capturing the stars: predicting ratings for service and product reviews. In HLT-NAACL 2010. 2010.">Gupta <em>et al.</em>, 2010</a>]</span>).</p>
 <p>Nevertheless, we will start with a <strong>linear regression</strong> model and than compare it to a <strong>logistic regression</strong> model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1174,7 +1178,7 @@ Name: Rating, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><style>#sk-container-id-1 {color: black;background-color: white;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">LinearRegression</label><div class="sk-toggleable__content"><pre>LinearRegression()</pre></div></div></div></div></div></div></div>
+<div class="output text_html"><style>#sk-container-id-1 {color: black;}#sk-container-id-1 pre{padding: 0;}#sk-container-id-1 div.sk-toggleable {background-color: white;}#sk-container-id-1 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-1 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-1 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-1 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-1 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-1 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-1 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-1 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-1 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-1 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-1 div.sk-item {position: relative;z-index: 1;}#sk-container-id-1 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-1 div.sk-item::before, #sk-container-id-1 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-1 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-1 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-1 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-1 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-1 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-1 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-1 div.sk-label-container {text-align: center;}#sk-container-id-1 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-1 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label sk-toggleable__label-arrow">LinearRegression</label><div class="sk-toggleable__content"><pre>LinearRegression()</pre></div></div></div></div></div></div></div>
 </div>
 <section id="evaluate-the-model">
 <h4><span class="section-number">23.5.1.1. </span>Evaluate the model<a class="headerlink" href="#evaluate-the-model" title="Link to this heading">#</a></h4>
@@ -1217,15 +1221,14 @@ Name: Rating, dtype: int64
 <p>How good are the predictions?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sb</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">predictions</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">predictions</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Rating&#39;, ylabel=&#39;Count&#39;&gt;
-</pre></div>
-</div>
-<img alt="../_images/9ac82e1019ea4b99b0306410614a986ec12275ee4d38d92a013dc957f17f6b7f.png" src="../_images/9ac82e1019ea4b99b0306410614a986ec12275ee4d38d92a013dc957f17f6b7f.png" />
+<img alt="../_images/20fad8224d3dad72d2d4252e7e51681990cb8fe8794f3ad1e2a9456bcf06b3fb.png" src="../_images/20fad8224d3dad72d2d4252e7e51681990cb8fe8794f3ad1e2a9456bcf06b3fb.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1236,12 +1239,12 @@ Name: Rating, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.7872191832942967
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.787206806488315
 </pre></div>
 </div>
 </div>
 </div>
-<p>A mean absolute error of 0.8 for rating from 1 to 5 is not spectacular, but it isn’t bad either. There is one very particular problem due to the linear regression model though:</p>
+<p>A mean absolute error of 0.8 for ratings from 1 to 5 is not a spectacularly good result, but it isn’t bad either. There is one very particular problem due to the linear regression model though:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predictions</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">predictions</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
@@ -1249,7 +1252,7 @@ Name: Rating, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1.8635146070281188, 7.274303749464632)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(-1.8632384891273492, 7.2737304843207395)
 </pre></div>
 </div>
 </div>
@@ -1268,22 +1271,21 @@ Name: Rating, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean absolute error after clipping the predictions: 0.6740064461149007
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean absolute error after clipping the predictions: 0.6740048418378741
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sb</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">predictions</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">predictions</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Rating&#39;, ylabel=&#39;Count&#39;&gt;
-</pre></div>
-</div>
-<img alt="../_images/ca88900539d6f7cb93c6e1e14813aa37447ce8c0a3bdb310a5bb9c45bdc50213.png" src="../_images/ca88900539d6f7cb93c6e1e14813aa37447ce8c0a3bdb310a5bb9c45bdc50213.png" />
+<img alt="../_images/88af56a17fc7d04ca7388bd0db70217af51027fd8bf154676d6045935065093d.png" src="../_images/88af56a17fc7d04ca7388bd0db70217af51027fd8bf154676d6045935065093d.png" />
 </div>
 </div>
 <p>Interestingly, this clipping step improved the quality of the predictions notably which can both be seen in the mean absolute error (MAE) and the error distribution.</p>
@@ -1291,30 +1293,19 @@ Name: Rating, dtype: int64
 </section>
 <section id="logistic-regression-model">
 <h3><span class="section-number">23.5.2. </span>Logistic Regression model<a class="headerlink" href="#logistic-regression-model" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p>hint: in this case don’t worry if you get warnings about reaching the iterations limit</p></li>
-</ul>
+<p>We will now use the logistic regression model. Remember, despite its name this is a model use for classification and not regression.</p>
+<p>Hint: In the following coding parts, please don’t worry if you get warnings about reaching the iterations limit. If you want, you can add a higher <code class="docutils literal notranslate"><span class="pre">max_iter</span></code> value (the Scikit-Learn default value is <code class="docutils literal notranslate"><span class="pre">100</span></code>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
 
-<span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">tfidf_vectors</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\flori\anaconda3\envs\ai_smart_health\lib\site-packages\sklearn\linear_model\_logistic.py:458: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-</pre></div>
-</div>
-<div class="output text_html"><style>#sk-container-id-3 {color: black;background-color: white;}#sk-container-id-3 pre{padding: 0;}#sk-container-id-3 div.sk-toggleable {background-color: white;}#sk-container-id-3 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-3 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-3 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-3 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-3 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-3 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-3 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-3 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-3 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-3 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-3 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-3 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-3 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-3 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-3 div.sk-item {position: relative;z-index: 1;}#sk-container-id-3 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-3 div.sk-item::before, #sk-container-id-3 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-3 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-3 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-3 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-3 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-3 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-3 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-3 div.sk-label-container {text-align: center;}#sk-container-id-3 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-3 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-3" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" checked><label for="sk-estimator-id-3" class="sk-toggleable__label sk-toggleable__label-arrow">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression()</pre></div></div></div></div></div></div></div>
+<div class="output text_html"><style>#sk-container-id-2 {color: black;}#sk-container-id-2 pre{padding: 0;}#sk-container-id-2 div.sk-toggleable {background-color: white;}#sk-container-id-2 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-2 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-2 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-2 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-2 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-2 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-2 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-2 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-2 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-2 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-2 div.sk-item {position: relative;z-index: 1;}#sk-container-id-2 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-2 div.sk-item::before, #sk-container-id-2 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-2 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-2 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-2 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-2 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-2 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-2 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-2 div.sk-label-container {text-align: center;}#sk-container-id-2 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-2 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(max_iter=1000)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked><label for="sk-estimator-id-2" class="sk-toggleable__label sk-toggleable__label-arrow">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression(max_iter=1000)</pre></div></div></div></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1353,15 +1344,14 @@ Please also refer to the documentation for alternative solver options:
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sb</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">predictions</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">predictions</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;Rating&#39;, ylabel=&#39;Count&#39;&gt;
-</pre></div>
-</div>
-<img alt="../_images/437bf9082555b1ad51802f5e384eb5dd5dd4babbe905c5230702c43f96b241fa.png" src="../_images/437bf9082555b1ad51802f5e384eb5dd5dd4babbe905c5230702c43f96b241fa.png" />
+<img alt="../_images/e9718bfac2a5794ba79159666c99423371e986b1945312f4d1e0ecf9c3c39ccb.png" src="../_images/e9718bfac2a5794ba79159666c99423371e986b1945312f4d1e0ecf9c3c39ccb.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1372,7 +1362,7 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4981702854354721
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4989021712612832
 </pre></div>
 </div>
 </div>
@@ -1391,14 +1381,14 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 167   65    7   30   16]
- [  60  121   59   78   37]
- [  12   62  108  228   61]
- [   5   14   49  614  521]
- [   1    6    7  338 1433]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 166   66    7   30   16]
+ [  59  120   61   77   38]
+ [  12   62  107  229   61]
+ [   5   14   48  613  523]
+ [   1    6    7  336 1435]]
               precision    recall  f1-score   support
 
-           1       0.68      0.59      0.63       285
+           1       0.68      0.58      0.63       285
            2       0.45      0.34      0.39       355
            3       0.47      0.23      0.31       471
            4       0.48      0.51      0.49      1203
@@ -1420,7 +1410,7 @@ weighted avg       0.58      0.60      0.58      4099
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
 
 <span class="c1"># Plotting the confusion matrix with a heatmap</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 <span class="n">sb</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span>
            <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span>
            <span class="n">xticklabels</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">classes_</span><span class="p">,</span>
@@ -1433,7 +1423,7 @@ weighted avg       0.58      0.60      0.58      4099
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/12cdf36c3087e4a9e10d1c4d1cdafe705fa9ca8ac1bf3860c753954698a7f047.png" src="../_images/12cdf36c3087e4a9e10d1c4d1cdafe705fa9ca8ac1bf3860c753954698a7f047.png" />
+<img alt="../_images/52cc1d43da95bd3d53f991e6dee9ab508bbbdbb8c94daaf732ab6d0f3ddfc675.png" src="../_images/52cc1d43da95bd3d53f991e6dee9ab508bbbdbb8c94daaf732ab6d0f3ddfc675.png" />
 </div>
 </div>
 </section>
@@ -1475,6 +1465,7 @@ weighted avg       0.58      0.60      0.58      4099
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>S.No.</th>
       <th>Review</th>
       <th>Rating</th>
       <th>rating_simplified</th>
@@ -1483,31 +1474,36 @@ weighted avg       0.58      0.60      0.58      4099
   <tbody>
     <tr>
       <th>0</th>
+      <td>1</td>
       <td>nice hotel expensive parking got good deal sta...</td>
       <td>4</td>
       <td>good</td>
     </tr>
     <tr>
       <th>1</th>
+      <td>2</td>
       <td>ok nothing special charge diamond member hilto...</td>
       <td>2</td>
       <td>bad</td>
     </tr>
     <tr>
       <th>2</th>
+      <td>3</td>
       <td>nice rooms not 4* experience hotel monaco seat...</td>
       <td>3</td>
       <td>neutral</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>unique, great stay, wonderful time hotel monac...</td>
+      <td>4</td>
+      <td>unique \tgreat stay \twonderful time hotel mon...</td>
       <td>5</td>
       <td>good</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>great stay great stay, went seahawk game aweso...</td>
+      <td>5</td>
+      <td>great stay great stay \twent seahawk game awes...</td>
       <td>5</td>
       <td>good</td>
     </tr>
@@ -1546,30 +1542,20 @@ Test dataset size: (4099,)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(16392, 46816)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(16392, 46813)
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">tfidf_vectors</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\flori\anaconda3\envs\ai_smart_health\lib\site-packages\sklearn\linear_model\_logistic.py:458: ConvergenceWarning: lbfgs failed to converge (status=1):
-STOP: TOTAL NO. of ITERATIONS REACHED LIMIT.
-
-Increase the number of iterations (max_iter) or scale the data as shown in:
-    https://scikit-learn.org/stable/modules/preprocessing.html
-Please also refer to the documentation for alternative solver options:
-    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
-  n_iter_i = _check_optimize_result(
-</pre></div>
-</div>
-<div class="output text_html"><style>#sk-container-id-4 {color: black;background-color: white;}#sk-container-id-4 pre{padding: 0;}#sk-container-id-4 div.sk-toggleable {background-color: white;}#sk-container-id-4 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-4 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-4 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-4 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-4 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-4 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-4 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-4 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-4 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-4 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-4 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-4 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-4 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-4 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-4 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-4 div.sk-item {position: relative;z-index: 1;}#sk-container-id-4 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-4 div.sk-item::before, #sk-container-id-4 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-4 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-4 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-4 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-4 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-4 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-4 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-4 div.sk-label-container {text-align: center;}#sk-container-id-4 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-4 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-4" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-4" type="checkbox" checked><label for="sk-estimator-id-4" class="sk-toggleable__label sk-toggleable__label-arrow">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression()</pre></div></div></div></div></div></div></div>
+<div class="output text_html"><style>#sk-container-id-3 {color: black;}#sk-container-id-3 pre{padding: 0;}#sk-container-id-3 div.sk-toggleable {background-color: white;}#sk-container-id-3 label.sk-toggleable__label {cursor: pointer;display: block;width: 100%;margin-bottom: 0;padding: 0.3em;box-sizing: border-box;text-align: center;}#sk-container-id-3 label.sk-toggleable__label-arrow:before {content: "▸";float: left;margin-right: 0.25em;color: #696969;}#sk-container-id-3 label.sk-toggleable__label-arrow:hover:before {color: black;}#sk-container-id-3 div.sk-estimator:hover label.sk-toggleable__label-arrow:before {color: black;}#sk-container-id-3 div.sk-toggleable__content {max-height: 0;max-width: 0;overflow: hidden;text-align: left;background-color: #f0f8ff;}#sk-container-id-3 div.sk-toggleable__content pre {margin: 0.2em;color: black;border-radius: 0.25em;background-color: #f0f8ff;}#sk-container-id-3 input.sk-toggleable__control:checked~div.sk-toggleable__content {max-height: 200px;max-width: 100%;overflow: auto;}#sk-container-id-3 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {content: "▾";}#sk-container-id-3 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 input.sk-hidden--visually {border: 0;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);height: 1px;margin: -1px;overflow: hidden;padding: 0;position: absolute;width: 1px;}#sk-container-id-3 div.sk-estimator {font-family: monospace;background-color: #f0f8ff;border: 1px dotted black;border-radius: 0.25em;box-sizing: border-box;margin-bottom: 0.5em;}#sk-container-id-3 div.sk-estimator:hover {background-color: #d4ebff;}#sk-container-id-3 div.sk-parallel-item::after {content: "";width: 100%;border-bottom: 1px solid gray;flex-grow: 1;}#sk-container-id-3 div.sk-label:hover label.sk-toggleable__label {background-color: #d4ebff;}#sk-container-id-3 div.sk-serial::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: 0;}#sk-container-id-3 div.sk-serial {display: flex;flex-direction: column;align-items: center;background-color: white;padding-right: 0.2em;padding-left: 0.2em;position: relative;}#sk-container-id-3 div.sk-item {position: relative;z-index: 1;}#sk-container-id-3 div.sk-parallel {display: flex;align-items: stretch;justify-content: center;background-color: white;position: relative;}#sk-container-id-3 div.sk-item::before, #sk-container-id-3 div.sk-parallel-item::before {content: "";position: absolute;border-left: 1px solid gray;box-sizing: border-box;top: 0;bottom: 0;left: 50%;z-index: -1;}#sk-container-id-3 div.sk-parallel-item {display: flex;flex-direction: column;z-index: 1;position: relative;background-color: white;}#sk-container-id-3 div.sk-parallel-item:first-child::after {align-self: flex-end;width: 50%;}#sk-container-id-3 div.sk-parallel-item:last-child::after {align-self: flex-start;width: 50%;}#sk-container-id-3 div.sk-parallel-item:only-child::after {width: 0;}#sk-container-id-3 div.sk-dashed-wrapped {border: 1px dashed gray;margin: 0 0.4em 0.5em 0.4em;box-sizing: border-box;padding-bottom: 0.4em;background-color: white;}#sk-container-id-3 div.sk-label label {font-family: monospace;font-weight: bold;display: inline-block;line-height: 1.2em;}#sk-container-id-3 div.sk-label-container {text-align: center;}#sk-container-id-3 div.sk-container {/* jupyter's `normalize.less` sets `[hidden] { display: none; }` but bootstrap.min.css set `[hidden] { display: none !important; }` so we also need the `!important` here to be able to override the default hidden behavior on the sphinx rendered scikit-learn.org. See: https://github.com/scikit-learn/scikit-learn/issues/21755 */display: inline-block !important;position: relative;}#sk-container-id-3 div.sk-text-repr-fallback {display: none;}</style><div id="sk-container-id-3" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(max_iter=1000)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-3" type="checkbox" checked><label for="sk-estimator-id-3" class="sk-toggleable__label sk-toggleable__label-arrow">LogisticRegression</label><div class="sk-toggleable__content"><pre>LogisticRegression(max_iter=1000)</pre></div></div></div></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1618,7 +1604,7 @@ Please also refer to the documentation for alternative solver options:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 505  107   28]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 504  108   28]
  [  20 2926   42]
  [  99  296   76]]
               precision    recall  f1-score   support
@@ -1640,7 +1626,7 @@ weighted avg       0.83      0.86      0.83      4099
 <span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
 
 <span class="c1"># Plotting the confusion matrix with a heatmap</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 <span class="n">sb</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span>
            <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span>
            <span class="n">xticklabels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span>
@@ -1653,7 +1639,7 @@ weighted avg       0.83      0.86      0.83      4099
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9a7738efe4f1191158f91d3abbffb1e88ba5abdbf6f753dc269add4f924859da.png" src="../_images/9a7738efe4f1191158f91d3abbffb1e88ba5abdbf6f753dc269add4f924859da.png" />
+<img alt="../_images/e1aefa2db58765a98194d2905f9e3a4be80a8ae2108f458e08a04160da1faeb7.png" src="../_images/e1aefa2db58765a98194d2905f9e3a4be80a8ae2108f458e08a04160da1faeb7.png" />
 </div>
 </div>
 </section>

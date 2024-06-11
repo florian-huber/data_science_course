@@ -190,7 +190,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../book/05_data_information_knowledge.html">6. Data - Information - Knowledge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../book/06_data_science_workflow.html">7. Data Science Workflow</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data acquisition and first exploration</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Acquisition and First Exploration</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../book/07_data_acquisition_and_preparation.html">8. Data Acquisition &amp; Preparation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_03_data_preparation.html">9. Data Pre-Processing</a></li>
@@ -212,20 +212,20 @@
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09d_machine_learning_techniques.html">19. Supervised Machine Learning - Key Techniques</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_09e_machine_learning_ensembles.html">20. Ensemble Models and Outlook</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with text data</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Text Data</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_10_working_with_text_data.html">21. Introduction to Working with Text Data</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">22. NLP - Basic Techniques to Analyze Text Data</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_11_NLP_3_tfifd_and_machine_learning.html">23. Computing with Text: Counting words</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_12_NLP_4_ngrams_word_vectors.html">24. Beyond Counting Individual Words: N-grams</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the networks</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the Networks</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="live_coding_13_graphs.html">25. Networks / Graph Theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_14_graph_visualization.html">26. Visualizing Graphs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="live_coding_14_graphs_part2.html">27. Bottlenecks, Hubs, Communities</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Next steps</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Next Steps</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="outlook.html">28. What are the next steps?</a></li>
 </ul>
@@ -502,7 +502,8 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-tokenization-and-lemmatization">22.7. Apply tokenization and lemmatization</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">22.8. Mini-Exercise!</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-summary-and-outlook">22.9. Chapter Summary and Outlook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-specific-word-types-or-combinations">22.9. Search specific word types or combinations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-summary-and-outlook">22.10. Chapter Summary and Outlook</a></li>
 </ul>
             </nav>
         </div>
@@ -515,10 +516,10 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="nlp-basic-techniques-to-analyze-text-data">
-<h1><span class="section-number">22. </span>NLP - Basic Techniques to Analyze Text Data<a class="headerlink" href="#nlp-basic-techniques-to-analyze-text-data" title="Link to this heading">#</a></h1>
+<span id="ch-nlp-basics"></span><h1><span class="section-number">22. </span>NLP - Basic Techniques to Analyze Text Data<a class="headerlink" href="#nlp-basic-techniques-to-analyze-text-data" title="Link to this heading">#</a></h1>
 <p>Natural Language Processing (NLP) is an interdisciplinary field between computer science, artificial intelligence, and linguistics that deals with the interaction between computers and humans using natural language (<a class="reference internal" href="#fig-nlp-venn"><span class="std std-numref">Fig. 22.1</span></a>). It allows computers to read, understand, interpret, and derive meaning from human languages in a valuable and structured manner. NLP aims at building computational models of human language understanding for the development of various practical applications.</p>
 <figure class="align-default" id="fig-nlp-venn">
-<img alt="images/fig_nlp_venn.png" src="images/fig_nlp_venn.png" />
+<img alt="../_images/fig_nlp_venn.png" src="../_images/fig_nlp_venn.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 22.1 </span><span class="caption-text">Yes, again a Venn diagram. This time to illustrate that NLP is a highly interdisciplinary field with roots in computer science, AI, but also linguistics.</span><a class="headerlink" href="#fig-nlp-venn" title="Link to this image">#</a></p>
 </figcaption>
@@ -723,17 +724,17 @@ python<span class="w"> </span>-m<span class="w"> </span>spacy<span class="w"> </
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl (12.8 MB)
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/12.8 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.6/12.8 MB</span> <span class=" -Color -Color-Red">17.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.8/12.8 MB</span> <span class=" -Color -Color-Red">23.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5.1/12.8 MB</span> <span class=" -Color -Color-Red">75.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5.2/12.8 MB</span> <span class=" -Color -Color-Red">76.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━ <span class=" -Color -Color-Green">10.5/12.8 MB</span> <span class=" -Color -Color-Red">126.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━ <span class=" -Color -Color-Green">11.0/12.8 MB</span> <span class=" -Color -Color-Red">153.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">12.8/12.8 MB</span> <span class=" -Color -Color-Red">156.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">12.8/12.8 MB</span> <span class=" -Color -Color-Red">105.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">12.8/12.8 MB</span> <span class=" -Color -Color-Red">164.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">12.8/12.8 MB</span> <span class=" -Color -Color-Red">108.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25hRequirement already satisfied: spacy&lt;3.8.0,&gt;=3.7.2 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from en-core-web-sm==3.7.1) (3.7.5)
 </pre></div>
 </div>
@@ -759,32 +760,32 @@ Requirement already satisfied: numpy&gt;=1.19.0 in /home/runner/micromamba/envs/
 Requirement already satisfied: language-data&gt;=1.2 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from langcodes&lt;4.0.0,&gt;=3.2.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (1.2.0)
 Requirement already satisfied: annotated-types&gt;=0.4.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from pydantic!=1.8,!=1.8.1,&lt;3.0.0,&gt;=1.7.4-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (0.7.0)
 Requirement already satisfied: pydantic-core==2.18.4 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from pydantic!=1.8,!=1.8.1,&lt;3.0.0,&gt;=1.7.4-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (2.18.4)
-Requirement already satisfied: typing-extensions&gt;=4.6.1 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from pydantic!=1.8,!=1.8.1,&lt;3.0.0,&gt;=1.7.4-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (4.12.1)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (3.3.2)
+Requirement already satisfied: typing-extensions&gt;=4.6.1 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from pydantic!=1.8,!=1.8.1,&lt;3.0.0,&gt;=1.7.4-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (4.12.2)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (3.3.2)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (3.7)
 Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (2.2.1)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (2024.2.2)
-Requirement already satisfied: blis&lt;0.8.0,&gt;=0.7.8 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from thinc&lt;8.3.0,&gt;=8.2.2-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (0.7.11)
-Requirement already satisfied: confection&lt;1.0.0,&gt;=0.0.1 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from thinc&lt;8.3.0,&gt;=8.2.2-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (0.1.5)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (2024.6.2)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: click&gt;=8.0.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from typer&lt;1.0.0,&gt;=0.3.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (8.1.7)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: blis&lt;0.8.0,&gt;=0.7.8 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from thinc&lt;8.3.0,&gt;=8.2.2-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (0.7.11)
+Requirement already satisfied: confection&lt;1.0.0,&gt;=0.0.1 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from thinc&lt;8.3.0,&gt;=8.2.2-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (0.1.5)
+Requirement already satisfied: click&gt;=8.0.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from typer&lt;1.0.0,&gt;=0.3.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (8.1.7)
 Requirement already satisfied: shellingham&gt;=1.3.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from typer&lt;1.0.0,&gt;=0.3.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (1.5.4)
 Requirement already satisfied: rich&gt;=10.11.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from typer&lt;1.0.0,&gt;=0.3.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (13.7.1)
-Requirement already satisfied: cloudpathlib&lt;1.0.0,&gt;=0.7.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from weasel&lt;0.5.0,&gt;=0.1.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (0.18.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: cloudpathlib&lt;1.0.0,&gt;=0.7.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from weasel&lt;0.5.0,&gt;=0.1.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (0.18.1)
 Requirement already satisfied: smart-open&lt;8.0.0,&gt;=5.2.1 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from weasel&lt;0.5.0,&gt;=0.1.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (7.0.4)
 Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from jinja2-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (2.1.5)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: marisa-trie&gt;=0.7.7 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from language-data&gt;=1.2-&gt;langcodes&lt;4.0.0,&gt;=3.2.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (1.1.1)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: marisa-trie&gt;=0.7.7 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from language-data&gt;=1.2-&gt;langcodes&lt;4.0.0,&gt;=3.2.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (1.2.0)
 Requirement already satisfied: markdown-it-py&gt;=2.2.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from rich&gt;=10.11.0-&gt;typer&lt;1.0.0,&gt;=0.3.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (3.0.0)
 Requirement already satisfied: pygments&lt;3.0.0,&gt;=2.13.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from rich&gt;=10.11.0-&gt;typer&lt;1.0.0,&gt;=0.3.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (2.18.0)
+Requirement already satisfied: wrapt in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from smart-open&lt;8.0.0,&gt;=5.2.1-&gt;weasel&lt;0.5.0,&gt;=0.1.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (1.16.0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: wrapt in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from smart-open&lt;8.0.0,&gt;=5.2.1-&gt;weasel&lt;0.5.0,&gt;=0.1.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (1.16.0)
-Requirement already satisfied: mdurl~=0.1 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from markdown-it-py&gt;=2.2.0-&gt;rich&gt;=10.11.0-&gt;typer&lt;1.0.0,&gt;=0.3.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (0.1.2)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: mdurl~=0.1 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from markdown-it-py&gt;=2.2.0-&gt;rich&gt;=10.11.0-&gt;typer&lt;1.0.0,&gt;=0.3.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (0.1.2)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: en-core-web-sm
@@ -1013,8 +1014,70 @@ Unique lemmas: 5589
 <p>Why do we get more tokens than lemmas?
 Have a look at both and find the answer!</p>
 </section>
+<section id="search-specific-word-types-or-combinations">
+<h2><span class="section-number">22.9. </span>Search specific word types or combinations<a class="headerlink" href="#search-specific-word-types-or-combinations" title="Link to this heading">#</a></h2>
+<p>With Spacy we can in principle also do more complex searches.
+We could, for instance search for nouns, verbs, or adjectives.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nouns</span> <span class="o">=</span> <span class="p">[</span><span class="n">token</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">doc</span> <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">pos_</span> <span class="o">==</span> <span class="s2">&quot;NOUN&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nouns</span><span class="p">[:</span><span class="mi">40</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[use, parts, world, cost, restrictions, terms, online, www.gutenberg.org, laws, country, Title, Language, START, worlds, things, man, I., FIGHTING, DESTRUCTION, WEYBRIDGE, CURATE, THUNDER, CHILD, FOOT, DEATH, CURATE, WORK, DAYS, COMING, I., one, years, century, world, intelligences, man, men, concerns, man, microscope]
+</pre></div>
+</div>
+</div>
+</div>
+<p>But we cannot only search all nouns or verbs, but also for specific combinations. As an example, we can search for all combinations of <code class="docutils literal notranslate"><span class="pre">like</span></code>or <code class="docutils literal notranslate"><span class="pre">love</span></code> with a noun:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">spacy.matcher</span> <span class="kn">import</span> <span class="n">Matcher</span>
+
+<span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;en_core_web_sm&quot;</span><span class="p">)</span>
+<span class="n">matcher</span> <span class="o">=</span> <span class="n">Matcher</span><span class="p">(</span><span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="p">)</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;LEMMA&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;IN&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;like&quot;</span><span class="p">,</span> <span class="s2">&quot;love&quot;</span><span class="p">]}},</span>
+            <span class="p">{</span><span class="s2">&quot;POS&quot;</span><span class="p">:</span> <span class="s2">&quot;NOUN&quot;</span><span class="p">}]</span>
+<span class="n">matcher</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;like/love&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">pattern</span><span class="p">])</span>
+
+<span class="n">matches</span> <span class="o">=</span> <span class="n">matcher</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">match_id</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">:</span>
+    <span class="n">string_id</span> <span class="o">=</span> <span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">strings</span><span class="p">[</span><span class="n">match_id</span><span class="p">]</span>  <span class="c1"># Get string representation</span>
+    <span class="n">span</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span>  <span class="c1"># The matched span</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">string_id</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">span</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>like/love 4797 4799 like end
+like/love 6222 6224 like eyes
+like/love 8394 8396 like object
+like/love 8970 8972 like water
+like/love 9644 9646 like puffs
+like/love 12536 12538 like summer
+like/love 16160 16162 like daylight
+like/love 19145 19147 like parade
+like/love 21471 21473 like distance
+like/love 23134 23136 like thunderclaps
+like/love 29624 29626 like men
+like/love 32952 32954 like forms
+like/love 33577 33579 like ghosts
+like/love 37823 37825 like clerks
+like/love 42739 42741 like generator
+like/love 46982 46984 like mud
+like/love 49375 49377 like branches
+like/love 67580 67582 like sheep
+</pre></div>
+</div>
+</div>
+</div>
+<p>Additionally, Spacy can be combined with regular expressions to create even more complex searches, but will not be shown here. Please consult Spacy’s documentation in case you want to build more complex search patterns.</p>
+</section>
 <section id="chapter-summary-and-outlook">
-<h2><span class="section-number">22.9. </span>Chapter Summary and Outlook<a class="headerlink" href="#chapter-summary-and-outlook" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">22.10. </span>Chapter Summary and Outlook<a class="headerlink" href="#chapter-summary-and-outlook" title="Link to this heading">#</a></h2>
 <p>Throughout this chapter, we delved into the world of Natural Language Processing (NLP), exploring several key techniques for handling and processing text data effectively:</p>
 <ul class="simple">
 <li><p><strong>Cleaning:</strong> This is often the first step in processing text data, involving tasks like removing URLs, Emojis, and special characters, or replacing unwanted line breaks (<code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code>).</p></li>
@@ -1111,7 +1174,8 @@ Have a look at both and find the answer!</p>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-tokenization-and-lemmatization">22.7. Apply tokenization and lemmatization</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">22.8. Mini-Exercise!</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-summary-and-outlook">22.9. Chapter Summary and Outlook</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-specific-word-types-or-combinations">22.9. Search specific word types or combinations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-summary-and-outlook">22.10. Chapter Summary and Outlook</a></li>
 </ul>
   </nav></div>
 

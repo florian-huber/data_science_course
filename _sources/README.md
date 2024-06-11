@@ -13,14 +13,14 @@ Data Science course developed at the Düsseldorf University of Applied Sciences 
 For the rendered book use [this link](https://florian-huber.github.io/data_science_course/book/cover.html)!
 
 ## Citation & pdf version of this book:
-A pdf version of this book can be found [on zenodo](https://zenodo.org/records/11190827)
+A pdf version of this book can be found [on zenodo](https://zenodo.org/records/11499835)
 
 This book and all material used to create the book are freely available and can be used according to the CC license (BY-NC-SA 4.0).
 If you use (parts of) this book for your work, please cite the book as:
 
 *Huber, F. (2024).*  
 *Introduction to Data Science (for not-yet scientists).*  
-*v0.13, 2024, Zenodo. https://doi.org/10.5281/zenodo.11190827*
+*v0.16, 2024, Zenodo. https://doi.org/10.5281/zenodo.11499835*
 
 ## Create new environment for this course (recommended)
 It is recommended to create a new environment for this course with many Python libraries that we will use in the Live Coding sessions. You can simply download the `environment.yml` file in this repository, or clone the repository using:
