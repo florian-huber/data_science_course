@@ -4,51 +4,51 @@ parts:
   - caption: Introduction
     numbered: true  # Only applies to chapters in Part 1.
     chapters:
-    - file: book/intro
-    - file: book/01_intro_data_science
-    - file: book/02_data_science_ethics_society
-    - file: book/03_use_of_this_book
+    - file: book/01_intro
+    - file: book/02_what_is_data_science
+    - file: book/03_data_science_ethics_society
+    - file: book/04_use_of_this_book
   - caption: Data Science Basics
     numbered: true
     chapters:
-    - file: book/04_data_and_types
-    - file: book/05_data_information_knowledge
-    - file: book/06_data_science_workflow
+    - file: book/05_data_and_types
+    - file: book/06_data_information_knowledge
+    - file: book/07_data_science_workflow
   - caption: Data Acquisition and First Exploration
     numbered: true
     chapters:
-    - file: book/07_data_acquisition_and_preparation
-    - file: notebooks/live_coding_03_data_preparation
-    - file: notebooks/live_coding_04_distributions_statistical_measures
+    - file: book/08_data_acquisition_and_preparation
+    - file: notebooks/09_data_preparation
+    - file: notebooks/10_distributions_statistical_measures
   - caption: In-depth Data Exploration
     numbered: true
     chapters:
-    - file: notebooks/live_coding_05_correlation_analysis
-    - file: notebooks/live_coding_06_clustering
-    - file: notebooks/live_coding_06b_introduction_outlier_detection
-    - file: notebooks/live_coding_07_dimensionality_reduction
+    - file: notebooks/11_correlation_analysis
+    - file: notebooks/12_clustering
+    - file: notebooks/13_introduction_outlier_detection
+    - file: notebooks/14_dimensionality_reduction
   - caption: Supervised Machine Learning
     numbered: true
     chapters:
-    - file: notebooks/live_coding_08_machine_learning
-    - file: notebooks/live_coding_09_machine_learning_algorithms
-    - file: notebooks/live_coding_09b_machine_learning_algorithms_2
-    - file: notebooks/live_coding_09c_machine_learning_algorithms_3
-    - file: notebooks/live_coding_09d_machine_learning_techniques
-    - file: notebooks/live_coding_09e_machine_learning_ensembles
+    - file: notebooks/15_machine_learning
+    - file: notebooks/16_machine_learning_algorithms
+    - file: notebooks/17_machine_learning_algorithms_2
+    - file: notebooks/18_machine_learning_algorithms_3
+    - file: notebooks/19_machine_learning_techniques
+    - file: notebooks/20_machine_learning_ensembles
   - caption: Working with Text Data
     numbered: true
     chapters:
-    - file: notebooks/live_coding_10_working_with_text_data
-    - file: notebooks/live_coding_11_NLP_2_tokenization
-    - file: notebooks/live_coding_11_NLP_3_tfifd_and_machine_learning
-    - file: notebooks/live_coding_12_NLP_4_ngrams_word_vectors
+    - file: notebooks/21_working_with_text_data
+    - file: notebooks/22_NLP_2_tokenization
+    - file: notebooks/23_NLP_3_tfifd_and_machine_learning
+    - file: notebooks/24_NLP_4_ngrams_word_vectors
   - caption: Look at the Networks
     numbered: true
     chapters:
-    - file: notebooks/live_coding_13_graphs
-    - file: notebooks/live_coding_14_graph_visualization
-    - file: notebooks/live_coding_14_graphs_part2
+    - file: notebooks/25_graphs
+    - file: notebooks/26_graph_visualization
+    - file: notebooks/27_graphs_communities
   - caption: Next Steps
     numbered: true
     chapters:

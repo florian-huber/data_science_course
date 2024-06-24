@@ -2,3 +2,10 @@ _build
 datasets_local
 material_and_raw
 .ipynb_checkpoints
+
+# Exclude too big datasets (they have download code in the notebooks)
+datasets/madrid_reviews.csv
+datasets/tripadvisor_hotel_reviews.csv
+notebooks/word2vec_madrid_reviews.model
+
+lib/
