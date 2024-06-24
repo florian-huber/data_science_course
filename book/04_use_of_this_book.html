@@ -1,0 +1,691 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4. How to use this book (… if you ask us) &#8212; Introduction to Data Science (for not-yet-scientists)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/04_use_of_this_book';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5. Data and Data Types" href="05_data_and_types.html" />
+    <link rel="prev" title="3. Data Science, Ethics, and Society" href="03_data_science_ethics_society.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="cover.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-light" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>
+    <script>document.write(`<img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-dark" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="cover.html">
+                    Introduction to Data Science (for not-yet scientists)
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_intro.html">1. Introduction: Data Science for Not-Yet-Scientists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_what_is_data_science.html">2. What is Data Science?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_data_science_ethics_society.html">3. Data Science, Ethics, and Society</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4. How to use this book (… if you ask us)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Science Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="05_data_and_types.html">5. Data and Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_data_information_knowledge.html">6. Data - Information - Knowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_data_science_workflow.html">7. Data Science Workflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Acquisition and First Exploration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="08_data_acquisition_and_preparation.html">8. Data Acquisition &amp; Preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/09_data_preparation.html">9. Data Pre-Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/10_distributions_statistical_measures.html">10. First Data Exploration</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth Data Exploration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/11_correlation_analysis.html">11. Correlation Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/12_clustering.html">12. Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/13_introduction_outlier_detection.html">13. Outlier Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/14_dimensionality_reduction.html">14. Dimensionality Reduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/15_machine_learning.html">15. Supervised Machine Learning - Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/16_machine_learning_algorithms.html">16. Common Algorithms - k-Nearest Neighbors (k-NN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/17_machine_learning_algorithms_2.html">17. Common Algorithms II - Linear Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/18_machine_learning_algorithms_3.html">18. Common Algorithms III - Decision Trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/19_machine_learning_techniques.html">19. Supervised Machine Learning - Key Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/20_machine_learning_ensembles.html">20. Ensemble Models and Outlook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Text Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/21_working_with_text_data.html">21. Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/22_NLP_2_tokenization.html">22. NLP - Basic Techniques to Analyze Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/23_NLP_3_tfifd_and_machine_learning.html">23. Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/24_NLP_4_ngrams_word_vectors.html">24. Beyond Counting Individual Words: N-grams</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the Networks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/25_graphs.html">25. Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/26_graph_visualization.html">26. Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/27_graphs_communities.html">27. Bottlenecks, Hubs, Communities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Next Steps</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/outlook.html">28. What are the next steps?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="github.html">Source Code on GitHub</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/data_science_course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/data_science_course/issues/new?title=Issue%20on%20page%20%2Fbook/04_use_of_this_book.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/book/04_use_of_this_book.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>How to use this book (… if you ask us)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-is-the-easy-part">4.1. Code is the easy part</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skills-you-should-have-to-work-with-this-book">4.2. Skills you should have to work with this book</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-python">4.3. Why Python?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-source-libraries">4.4. Open source libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-book-is-full-of-code-and-you-should-run-it-yourself">4.5. This Book is full of Code, and you Should Run It Yourself!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">4.5.1. Prerequisites</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-clone-the-repository">4.5.2. Step 1: Clone the Repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-navigate-to-the-repository">4.5.3. Step 2: Navigate to the Repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-create-a-new-environment">4.5.4. Step 3: Create a New Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-activate-the-new-environment">4.5.5. Step 4: Activate the New Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-updating-the-environment">4.5.6. Step 5: Updating the Environment</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="how-to-use-this-book-if-you-ask-us">
+<h1><span class="section-number">4. </span>How to use this book (… if you ask us)<a class="headerlink" href="#how-to-use-this-book-if-you-ask-us" title="Link to this heading">#</a></h1>
+<p>This textbook has been crafted with attention to detail to facilitate your journey into data science. However, the essence of its usefulness lies in how you engage with its content. Here’s some advice to optimize your learning experience:</p>
+<ul class="simple">
+<li><p><strong>Progress at Your Own Speed</strong>:
+Data science is a vast field, and everyone has their own pace. If you find certain concepts daunting, pause and seek additional resources. The internet is full of tutorials, videos, courses, and forums on practically all aspects that we cover in this book. The key is patience and persistence.</p></li>
+<li><p><strong>Learning by Doing</strong>:
+Reading this book alone won’t transform you into a data scientist. To truly learn data science, you need to actively engage in coding and working with real data sets. Observing code and nodding along saying, <em>“yeah, I got it”</em> is often one of the biggest mistakes that students can make. The quick <em>impression you understood something</em> is usually far away from <em>knowing how to do it yourself</em>!<br />
+We can’t stress this enough - <strong>the most prevalent pitfall many students succumb to is passive learning!</strong> The true test of your understanding comes when you can independently apply the skills, starting from scratch, not merely copying, pasting, and executing someone else’s code.</p></li>
+<li><p><strong>Lean on Tech, But Don’t Rely on It</strong>:
+While chatbots can serve as helpful data science assistants, they are not a substitute for your active learning. We firmly believe that the path to becoming a competent data scientist involves learning how to solve challenges on your own. Relying on a chatbot for answers is akin to copying solutions from another student or a forum. While this approach may help you complete your exercises in the short run, it won’t contribute much to your long-term learning and skill development.</p></li>
+</ul>
+<section id="code-is-the-easy-part">
+<h2><span class="section-number">4.1. </span>Code is the easy part<a class="headerlink" href="#code-is-the-easy-part" title="Link to this heading">#</a></h2>
+<p>The next paragraphs will be on code and programming. And for many students, in particular students without a strong computer science background, the coding parts often seems to be the main challenge in the beginning. So, just as a small warning before we talk Python: A very good data scientist for sure knows how to work with code. But that would not nearly be enough. You will later see, that many data science techniques -including very fancy ones- can often we executed with just a few lines of code. The real skill therefore will not be to be able to run all available techniques on any dataset you’ll get. It is the ability to know <em>how to use</em> those methods, but also to know <em>when to use</em> them! When you analyze data it will often come down to <strong>asking the right questions, and knowing which tools can help you answer them</strong>.</p>
+<p>But we will come to this many times again. For now, let’s get started with the very technical parts.</p>
+</section>
+<section id="skills-you-should-have-to-work-with-this-book">
+<h2><span class="section-number">4.2. </span>Skills you should have to work with this book<a class="headerlink" href="#skills-you-should-have-to-work-with-this-book" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Python Programming Basics</strong>: Understanding of variables, fundamental data types, loops, functions, and module imports are essential. If you’re new to Python or need a refresher, consider resources like <a class="reference external" href="https://docs.python.org/3/tutorial/index.html">Python.org’s Beginner’s Guide</a>, <a class="reference external" href="https://realpython.com/">RealPython</a>, or <a class="reference external" href="https://www.geeksforgeeks.org/python-programming-language/">GeeksforGeeks Python Programming Language</a>.</p></li>
+<li><p>At least <strong>High School Math Skills</strong>: Basic knowledge of statistics and algebra will serve you well, for instance to better understand the methods and their caveats.</p></li>
+</ul>
+</section>
+<section id="why-python">
+<h2><span class="section-number">4.3. </span>Why Python?<a class="headerlink" href="#why-python" title="Link to this heading">#</a></h2>
+<p>Python, over the years, has emerged as the lingua franca of data science. But why?</p>
+<ol class="arabic simple">
+<li><p><strong>Versatile Libraries</strong>: Python boasts an array of libraries, such as NumPy, pandas, and scikit-learn, specifically tailored for data science tasks.</p></li>
+<li><p><strong>Community Support</strong>: The vast Python community ensures regular updates, myriad tutorials, and instant help on forums.</p></li>
+<li><p><strong>Intuitive Syntax</strong>: Python’s clear and readable syntax makes it perfect for beginners.</p></li>
+<li><p><strong>Flexibility</strong>: Python seamlessly integrates with other languages, making it ideal for diverse tasks.</p></li>
+<li><p><strong>Industry Adoption</strong>: Major tech companies use Python, ensuring ample job opportunities.</p></li>
+</ol>
+<p>While languages like R and tools like KNIME have their strengths, Python’s holistic ecosystem and adaptability make it the preferred choice for many. All code examples in this book will be written in Python.</p>
+</section>
+<section id="open-source-libraries">
+<h2><span class="section-number">4.4. </span>Open source libraries<a class="headerlink" href="#open-source-libraries" title="Link to this heading">#</a></h2>
+<p>Python’s prowess in data science can be attributed to its incredible libraries. These libraries, backed by a robust open-source community, are the backbone of various data operations:</p>
+<ul class="simple">
+<li><p><strong>NumPy</strong>: Fundamental package for numerical computations in Python. <a class="reference external" href="https://numpy.org/doc/">NumPy Documentation</a></p></li>
+<li><p><strong>pandas</strong>: Offers data structures and operations for manipulating numerical tables and time series. <a class="reference external" href="https://pandas.pydata.org/docs/">pandas Documentation</a></p></li>
+<li><p><strong>SciPy</strong>: Builds on NumPy and provides a large number of functions that operate on NumPy arrays and are useful for different types of scientific and engineering applications. <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/">SciPy Documentation</a></p></li>
+<li><p><strong>scikit-learn</strong>: Simple and efficient tools for data mining and data analysis. <a class="reference external" href="https://scikit-learn.org/stable/documentation.html">scikit-learn Documentation</a></p></li>
+</ul>
+</section>
+<section id="this-book-is-full-of-code-and-you-should-run-it-yourself">
+<h2><span class="section-number">4.5. </span>This Book is full of Code, and you Should Run It Yourself!<a class="headerlink" href="#this-book-is-full-of-code-and-you-should-run-it-yourself" title="Link to this heading">#</a></h2>
+<p>This book is created using <a class="reference external" href="https://jupyterbook.org/en/stable/intro.html">Jupyter Book</a>  <span id="id1">[<a class="reference internal" href="bibliography.html#id33" title="Executable Books Community. Jupyter Book. February 2020. URL: https://zenodo.org/record/4539666 (visited on 2023-06-06), doi:10.5281/zenodo.4539666.">Community, 2020</a>]</span> and the entire code to produce this book is freely available <a class="reference external" href="https://github.com/florian-huber/data_science_course">on GitHub</a>.</p>
+<p>Every section of this book that contains code can be found as a <em>Jupyter Notebook</em>, so that you can go ahead and re-run the code, play with it, adapt it, expand it. To do so, we suggest two possible routes. You can <strong>(1)</strong> run the individual notebooks directly in your browser by clicking on the small rocket button on top which will open the provided notebook either in <a class="reference external" href="https://colab.research.google.com/">Google Colab</a>, or using <a class="reference external" href="https://jupyter.org/binder">Binder</a>.</p>
+<p>Or, if you want to have full control and either know how to set up an environment or want to learn how to do this, you can choose open <strong>(2)</strong> to run all code locally on you own machine. For this we recommend setting up a new environment by following the steps below:</p>
+<section id="prerequisites">
+<h3><span class="section-number">4.5.1. </span>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h3>
+<p>Before we begin, please ensure you have Anaconda or Miniconda installed on your machine. If you haven’t already done so, you can download and install Anaconda from <a class="reference external" href="https://www.anaconda.com/products/distribution">here</a>. Anaconda is a free and open-source distribution of Python for scientific computing. It comes with conda, a package, dependency, and environment manager. Miniconda is a smaller, “minimal” version of Anaconda that includes only conda and Python.</p>
+</section>
+<section id="step-1-clone-the-repository">
+<h3><span class="section-number">4.5.2. </span>Step 1: Clone the Repository<a class="headerlink" href="#step-1-clone-the-repository" title="Link to this heading">#</a></h3>
+<p>The first step is to clone the repository for this course. This can be done by using the <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/florian-huber/data_science_course.git
+</pre></div>
+</div>
+<p>This command will create a new directory named <code class="docutils literal notranslate"><span class="pre">data_science_course</span></code> in your current directory, and download the entire repository into that directory.</p>
+</section>
+<section id="step-2-navigate-to-the-repository">
+<h3><span class="section-number">4.5.3. </span>Step 2: Navigate to the Repository<a class="headerlink" href="#step-2-navigate-to-the-repository" title="Link to this heading">#</a></h3>
+<p>Next, navigate into the new <code class="docutils literal notranslate"><span class="pre">data_science_course</span></code> directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>data_science_course
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">cd</span></code> command (which stands for “change directory”) will move you into the directory that you specify after it.</p>
+</section>
+<section id="step-3-create-a-new-environment">
+<h3><span class="section-number">4.5.4. </span>Step 3: Create a New Environment<a class="headerlink" href="#step-3-create-a-new-environment" title="Link to this heading">#</a></h3>
+<p>Once you’re in the <code class="docutils literal notranslate"><span class="pre">data_science_course</span></code> directory, you can create a new conda environment for this course. This can be done using the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">create</span></code> command, along with the <code class="docutils literal notranslate"><span class="pre">-f</span></code> flag to specify the file defining the environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml
+</pre></div>
+</div>
+<p>This command will create a new conda environment named <code class="docutils literal notranslate"><span class="pre">data_science_course</span></code>, based on the specifications in the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file. The environment will include Python 3.9, along with a number of other Python packages that are used in this course.</p>
+</section>
+<section id="step-4-activate-the-new-environment">
+<h3><span class="section-number">4.5.5. </span>Step 4: Activate the New Environment<a class="headerlink" href="#step-4-activate-the-new-environment" title="Link to this heading">#</a></h3>
+<p>After the new environment has been created, you can activate it using the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code> command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>data_science_course
+</pre></div>
+</div>
+<p>Once the environment is activated, you can start working on the course materials. Remember, every time you want to work on the course, you should first activate the environment.</p>
+</section>
+<section id="step-5-updating-the-environment">
+<h3><span class="section-number">4.5.6. </span>Step 5: Updating the Environment<a class="headerlink" href="#step-5-updating-the-environment" title="Link to this heading">#</a></h3>
+<p>In case of updates to the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file, you can update your conda environment using the <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">env</span> <span class="pre">update</span></code> command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>update<span class="w"> </span>-f<span class="w"> </span>environment.yml<span class="w"> </span>--prune
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">--prune</span></code> option causes conda to remove any dependencies that are no longer required from the environment.</p>
+<p>With these steps, you should have everything set up and ready to start diving into the material for this data science course.</p>
+<p><strong>Happy data science coding!</strong></p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="03_data_science_ethics_society.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Data Science, Ethics, and Society</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="05_data_and_types.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Data and Data Types</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-is-the-easy-part">4.1. Code is the easy part</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skills-you-should-have-to-work-with-this-book">4.2. Skills you should have to work with this book</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-python">4.3. Why Python?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#open-source-libraries">4.4. Open source libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#this-book-is-full-of-code-and-you-should-run-it-yourself">4.5. This Book is full of Code, and you Should Run It Yourself!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">4.5.1. Prerequisites</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-clone-the-repository">4.5.2. Step 1: Clone the Repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-navigate-to-the-repository">4.5.3. Step 2: Navigate to the Repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-create-a-new-environment">4.5.4. Step 3: Create a New Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-activate-the-new-environment">4.5.5. Step 4: Activate the New Environment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-5-updating-the-environment">4.5.6. Step 5: Updating the Environment</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Florian Huber
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

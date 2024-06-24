@@ -1,0 +1,1233 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>22. NLP - Basic Techniques to Analyze Text Data &#8212; Introduction to Data Science (for not-yet-scientists)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/22_NLP_2_tokenization';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="23. Computing with Text: Counting words" href="23_NLP_3_tfifd_and_machine_learning.html" />
+    <link rel="prev" title="21. Introduction to Working with Text Data" href="21_working_with_text_data.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../book/cover.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-light" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>
+    <script>document.write(`<img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-dark" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../book/cover.html">
+                    Introduction to Data Science (for not-yet scientists)
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/01_intro.html">1. Introduction: Data Science for Not-Yet-Scientists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/02_what_is_data_science.html">2. What is Data Science?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/03_data_science_ethics_society.html">3. Data Science, Ethics, and Society</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/04_use_of_this_book.html">4. How to use this book (… if you ask us)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Science Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/05_data_and_types.html">5. Data and Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/06_data_information_knowledge.html">6. Data - Information - Knowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/07_data_science_workflow.html">7. Data Science Workflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Acquisition and First Exploration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/08_data_acquisition_and_preparation.html">8. Data Acquisition &amp; Preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_data_preparation.html">9. Data Pre-Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_distributions_statistical_measures.html">10. First Data Exploration</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth Data Exploration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="11_correlation_analysis.html">11. Correlation Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_clustering.html">12. Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_introduction_outlier_detection.html">13. Outlier Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_dimensionality_reduction.html">14. Dimensionality Reduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="15_machine_learning.html">15. Supervised Machine Learning - Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_machine_learning_algorithms.html">16. Common Algorithms - k-Nearest Neighbors (k-NN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_machine_learning_algorithms_2.html">17. Common Algorithms II - Linear Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_machine_learning_algorithms_3.html">18. Common Algorithms III - Decision Trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_machine_learning_techniques.html">19. Supervised Machine Learning - Key Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_machine_learning_ensembles.html">20. Ensemble Models and Outlook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Text Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="21_working_with_text_data.html">21. Introduction to Working with Text Data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">22. NLP - Basic Techniques to Analyze Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_NLP_3_tfifd_and_machine_learning.html">23. Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_NLP_4_ngrams_word_vectors.html">24. Beyond Counting Individual Words: N-grams</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the Networks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="25_graphs.html">25. Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_graph_visualization.html">26. Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="27_graphs_communities.html">27. Bottlenecks, Hubs, Communities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Next Steps</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="outlook.html">28. What are the next steps?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/bibliography.html">Bibliography</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/github.html">Source Code on GitHub</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/florian-huber/data_science_course/main?urlpath=tree/notebooks/22_NLP_2_tokenization.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/florian-huber/data_science_course/blob/main/notebooks/22_NLP_2_tokenization.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/data_science_course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/data_science_course/issues/new?title=Issue%20on%20page%20%2Fnotebooks/22_NLP_2_tokenization.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/22_NLP_2_tokenization.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>NLP - Basic Techniques to Analyze Text Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-areas-for-the-use-of-nlp-techniques">22.1. Example areas for the use of NLP techniques</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-nlp-libraries">22.2. Python NLP libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization-stemming-lemmatization">22.3. Tokenization, Stemming, Lemmatization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nltk">22.4. NLTK</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization">22.4.1. Tokenization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming">22.4.2. Stemming</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lemmatization">22.4.3. Lemmatization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nlp-for-languages-other-than-english">22.5. NLP for languages other than English</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-try-some-german">22.5.1. Let’s try some German</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-spacy-models-for-lemmatization">22.6. Applying SpaCy Models for Lemmatization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">22.6.1. Tokenization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">22.6.2. Lemmatization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-tokenization-and-lemmatization">22.7. Apply tokenization and lemmatization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">22.8. Mini-Exercise!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-specific-word-types-or-combinations">22.9. Search specific word types or combinations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-summary-and-outlook">22.10. Chapter Summary and Outlook</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="nlp-basic-techniques-to-analyze-text-data">
+<span id="ch-nlp-basics"></span><h1><span class="section-number">22. </span>NLP - Basic Techniques to Analyze Text Data<a class="headerlink" href="#nlp-basic-techniques-to-analyze-text-data" title="Link to this heading">#</a></h1>
+<p>Natural Language Processing (NLP) is an interdisciplinary field between computer science, artificial intelligence, and linguistics that deals with the interaction between computers and humans using natural language (<a class="reference internal" href="#fig-nlp-venn"><span class="std std-numref">Fig. 22.1</span></a>). It allows computers to read, understand, interpret, and derive meaning from human languages in a valuable and structured manner. NLP aims at building computational models of human language understanding for the development of various practical applications.</p>
+<figure class="align-default" id="fig-nlp-venn">
+<img alt="../_images/fig_nlp_venn.png" src="../_images/fig_nlp_venn.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 22.1 </span><span class="caption-text">Yes, again a Venn diagram. This time to illustrate that NLP is a highly interdisciplinary field with roots in computer science, AI, but also linguistics.</span><a class="headerlink" href="#fig-nlp-venn" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The importance of NLP in data science cannot be overstated. As we generate vast amounts of data in textual form each day, from social media posts and product reviews to emails and support tickets, NLP provides the tools and techniques necessary to make sense of this data. By transforming unstructured text into structured data, NLP allows us to analyze and extract insights from human language, providing valuable context to support decision-making processes.</p>
+<p>NLP is a very large and active field. Here we will only cover a few basics to make the first steps towards applying modern NLP techniques in data science workflows.</p>
+<section id="example-areas-for-the-use-of-nlp-techniques">
+<h2><span class="section-number">22.1. </span>Example areas for the use of NLP techniques<a class="headerlink" href="#example-areas-for-the-use-of-nlp-techniques" title="Link to this heading">#</a></h2>
+<p>Just to get an idea of how broad as well as how relevant NLP is, here some of the most common applications:</p>
+<ol class="arabic simple">
+<li><p><strong>Text Classification</strong>: This NLP application is tasked with assigning predefined categories or tags to text. With its automatic text analysis capabilities, it streamlines the process of organizing and categorizing text, proving essential for tasks such as spam detection, content filtering, and topic labeling.</p></li>
+<li><p><strong>Sentiment Analysis</strong>: employs NLP to identify and quantify subjective information within a text. This technique measures the sentiment or emotional tone behind words, for instance to help businesses understand customer sentiments towards products, services, or brand topics.</p></li>
+<li><p><strong>Summarization and Topic Modeling</strong>: These techniques involve distilling large volumes of text into concise summaries or extracting the main topics from a document or a collection of documents. By automatically identifying key points and themes, these applications can make a large corpus of text more accessible and digestible.</p></li>
+<li><p><strong>Spell Checking</strong>: This is a commonly used application that proofreads text for spelling errors. By comparing words against a dictionary of correctly spelled words, spell checking tools can suggest corrections, thus enhancing the clarity and credibility of the written text.</p></li>
+<li><p><strong>Machine Translation</strong>: This complex NLP task involves translating text from one language to another. With the ability to handle vast amounts of information, machine translation systems can greatly expedite multilingual communication and overcome language barriers. This technology is, for instance, used to handle large volumes of information that would be impractical to translate manually.</p></li>
+<li><p><strong>Chatbots</strong>: NLP plays a pivotal role in the functioning of chatbots, enabling them to understand human language, interpret user queries, and respond in a conversational manner. By leveraging NLP, chatbots can deliver customer service, provide information, and even entertain, all in real time. As every reader will know, this field has seen several breakthroughs in recent years.</p></li>
+</ol>
+</section>
+<section id="python-nlp-libraries">
+<h2><span class="section-number">22.2. </span>Python NLP libraries<a class="headerlink" href="#python-nlp-libraries" title="Link to this heading">#</a></h2>
+<p>There are several Python libraries that are popularly used for modern Natural Language Processing (NLP) tasks. Here are a few of the most commonly used ones:</p>
+<ol class="arabic simple">
+<li><p><strong>NLTK (Natural Language Toolkit)</strong>: This is a widely used library for symbolic and statistical NLP. It provides easy-to-use interfaces to over 50 corpora and lexical resources, such as WordNet. NLTK also includes text processing libraries for classification, tokenization, stemming, tagging, parsing, and semantic reasoning. It’s excellent for teaching and working with the basics of NLP.</p></li>
+<li><p><strong>SpaCy</strong>: This library is known for its advanced NLP capabilities and efficient performance. SpaCy is designed to handle large volumes of text, and its features include named entity recognition, part-of-speech tagging, dependency parsing, and sentence segmentation. Its flexibility and speed make it ideal for production-grade NLP tasks <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id74" title="Yuli Vasiliev. Natural language processing with Python and spaCy: A practical introduction. No Starch Press, 2020.">Vasiliev, 2020</a>]</span>.</p></li>
+<li><p><strong>Gensim</strong>: This is a robust open-source vector space modeling and topic modeling toolkit. Gensim is designed to handle large text collections using data streaming and incremental algorithms, which is different from most other scientific software packages that only target batch and in-memory processing. It’s especially good for tasks that involve topic modeling and document similarity analysis.</p></li>
+<li><p><strong>TextBlob</strong>: This library simplifies text processing tasks by providing a consistent API for diving into common NLP tasks such as part-of-speech tagging, noun phrase extraction, sentiment analysis, and more. TextBlob is very beginner-friendly and is an excellent choice for basic NLP tasks and for people getting started with NLP in Python.</p></li>
+<li><p><strong>Transformers (by Hugging Face)</strong>: This library is based on the transformer architecture (like BERT, GPT, RoBERTa, XLM, etc) and has pre-trained models for many NLP tasks. It offers simple, yet powerful, APIs for performing tasks such as text classification, named entity recognition, translation, summarization, and more. It is a go-to library for state-of-the-art NLP (but clearly beyond the NLP basics that we will cover here).</p></li>
+</ol>
+<p>Here, we will work with <strong>SpaCy</strong> and <strong>NLTK</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install nltk</span>
+<span class="c1">#!pip install spacy</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># NLP related libraries to work with text data</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">import</span> <span class="nn">spacy</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tokenization-stemming-lemmatization">
+<h2><span class="section-number">22.3. </span>Tokenization, Stemming, Lemmatization<a class="headerlink" href="#tokenization-stemming-lemmatization" title="Link to this heading">#</a></h2>
+<p>Before we dive into any complex operations with text data, we must first prepare it by dividing it into smaller, more manageable units. Similar to how we break down a paragraph into sentences and sentences into words when reading, we apply the same concept in Natural Language Processing (NLP) - but in a slightly different manner. This process is called tokenization.</p>
+<ol class="arabic simple">
+<li><p><strong>Tokenization</strong>: This is the first step in many NLP  pipelines. Tokenization is the process of breaking up the original raw  text into smaller pieces, known as tokens. These tokens help us  understand the context in which they’re used and draw meaning from them. Tokens are often words, but they can also be phrases, sentences, or  other units, depending on the level of detail needed. For example, the  sentence “This is an example sentence” would be tokenized into [‘This’,  ‘is’, ‘an’, ‘example’, ‘sentence’].</p></li>
+</ol>
+<p>Following tokenization, the resulting tokens often need to be normalized, a process that refines these tokens to improve their usefulness in further analysis.</p>
+<ol class="arabic simple" start="2">
+<li><p><strong>Token Normalization</strong>: Token normalization is a process that includes converting all text to the same case (usually lower), removing punctuation, and similar tasks. The process involves two major techniques: stemming and lemmatization.</p>
+<ul class="simple">
+<li><p><strong>Stemming</strong>: Stemming is the method of reducing inflected or derived words to their base or root form. For example, “running”, “runs”, and “ran” are all variations of the word “run”, so stemming reduces them all to “run”. However, stemming can sometimes be too crude, often cutting off the end of words in a way that leaves a base that isn’t a real word. For example, “argument” might be stemmed to “argu.”</p></li>
+<li><p><strong>Lemmatization</strong>: Lemmatization, on the other hand, is a more sophisticated process. While it has the same goal as stemming—to reduce a word to its base form—it uses a detailed lexicon and morphological analysis of words to achieve this. For example, lemmatization correctly identifies that the lemma for “better” is “good”. While it is more accurate than stemming, it is also more computationally intensive.</p></li>
+</ul>
+</li>
+</ol>
+<p>Tokenization, followed by token normalization, forms the initial preprocessing steps for most NLP tasks. They transform raw text data into a more digestible and analyzable format, preparing the ground for more advanced NLP techniques.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;wordnet&#39;</span><span class="p">)</span>
+<span class="c1">#nltk.download(&#39;omw-1.4&#39;)</span>
+<span class="c1">#nltk.download(&#39;punkt&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package wordnet to /home/runner/nltk_data...
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="nltk">
+<h2><span class="section-number">22.4. </span>NLTK<a class="headerlink" href="#nltk" title="Link to this heading">#</a></h2>
+<p>Here, we demonstrate the NLTK processes of tokenization, stemming, and lemmatization.</p>
+<section id="tokenization">
+<h3><span class="section-number">22.4.1. </span>Tokenization<a class="headerlink" href="#tokenization" title="Link to this heading">#</a></h3>
+<p>Tokenization is the process of splitting a large paragraph or text into sentences or words. These sentences or words are known as tokens. This is a crucial step in NLP as we often deal with words in text data.</p>
+<p>In this block of code, we import NLTK and define a string of text. The text contains a list of words with different grammatical forms. Using NLTK’s <code class="docutils literal notranslate"><span class="pre">TreebankWordTokenizer</span></code>, we break down the text into individual words, or “tokens”. The output is a list of these tokens.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;feet cats wolves talking talked?&quot;</span>
+
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">TreebankWordTokenizer</span><span class="p">()</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;feet&#39;, &#39;cats&#39;, &#39;wolves&#39;, &#39;talking&#39;, &#39;talked&#39;, &#39;?&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="stemming">
+<h3><span class="section-number">22.4.2. </span>Stemming<a class="headerlink" href="#stemming" title="Link to this heading">#</a></h3>
+<p>Stemming is a process of reducing inflected (or sometimes derived) words to their word stem or root form—generally a written word form. The stem need not be identical to the morphological root of the word.</p>
+<p>Here, we create a <code class="docutils literal notranslate"><span class="pre">PorterStemmer</span></code> object and use it to find the root stem of each word in our list of tokens. The result is a list of these stems. You’ll notice that the stems aren’t always valid words (like ‘wolv’ for ‘wolves’), as stemming operates on a rule-based approach without understanding the context.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stemmer</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">stem</span><span class="o">.</span><span class="n">PorterStemmer</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">([</span><span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;feet&#39;, &#39;cat&#39;, &#39;wolv&#39;, &#39;talk&#39;, &#39;talk&#39;, &#39;?&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lemmatization">
+<h3><span class="section-number">22.4.3. </span>Lemmatization<a class="headerlink" href="#lemmatization" title="Link to this heading">#</a></h3>
+<p>Lemmatization is the process of reducing inflected words to their word base or dictionary form. It’s similar to stemming but is more accurate as it takes the context and meaning of the word into consideration.</p>
+<p>Instead of the <code class="docutils literal notranslate"><span class="pre">PorterStemmer</span></code>, we use NLTK’s <code class="docutils literal notranslate"><span class="pre">WordNetLemmatizer</span></code> to find the dictionary base form (or lemma) of each word. This results in a list of lemmas. As you can see, lemmatization provides a more accurate root form (‘wolf’ for ‘wolves’) as compared to stemming.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stemmer</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">stem</span><span class="o">.</span><span class="n">WordNetLemmatizer</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">([</span><span class="n">stemmer</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;foot&#39;, &#39;cat&#39;, &#39;wolf&#39;, &#39;talking&#39;, &#39;talked&#39;, &#39;?&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="nlp-for-languages-other-than-english">
+<h2><span class="section-number">22.5. </span>NLP for languages other than English<a class="headerlink" href="#nlp-for-languages-other-than-english" title="Link to this heading">#</a></h2>
+<p>Natural Language Processing (NLP) is a truly global discipline, extending its reach to languages far beyond just English.</p>
+<p>However, it’s worth noting that the effectiveness and ease of applying NLP techniques may vary across languages. For instance, languages with complex morphology like Finnish or Turkish, or those with little word delimitation like Chinese, can present unique challenges. Furthermore, resources and pre-trained models, especially those for machine learning, are more readily available for some languages, particularly English, than for others.</p>
+<section id="let-s-try-some-german">
+<h3><span class="section-number">22.5.1. </span>Let’s try some German<a class="headerlink" href="#let-s-try-some-german" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Füsse Katzen Wölfe sprechen gesprochen?&quot;</span>  <span class="c1"># Not an actual German sentence. Only some words for illustrative purposes.</span>
+
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">TreebankWordTokenizer</span><span class="p">()</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="n">tokens</span>
+
+<span class="n">stemmer</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">stem</span><span class="o">.</span><span class="n">SnowballStemmer</span><span class="p">(</span><span class="s2">&quot;german&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">([</span><span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">token</span><span class="p">)</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;fuss&#39;, &#39;katz&#39;, &#39;wolf&#39;, &#39;sprech&#39;, &#39;gesproch&#39;, &#39;?&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="applying-spacy-models-for-lemmatization">
+<h2><span class="section-number">22.6. </span>Applying SpaCy Models for Lemmatization<a class="headerlink" href="#applying-spacy-models-for-lemmatization" title="Link to this heading">#</a></h2>
+<p><strong>SpaCy</strong> is a highly versatile and efficient Python library for Natural Language Processing (NLP). It offers comprehensive and advanced functionalities, outperforming NLTK in terms of efficiency and speed. You can find extensive details in <a class="reference external" href="https://spacy.io/usage/spacy-101">SpaCy’s official documentation</a>.</p>
+<p>Having familiarized ourselves with the concept of lemmatization, let’s now explore its practical application using SpaCy.</p>
+<p>Initially, you need to ensure that SpaCy and the relevant language models are installed in your environment. In the case of English, <code class="docutils literal notranslate"><span class="pre">en_core_web_sm</span></code> is a suitable model, whereas for German, <code class="docutils literal notranslate"><span class="pre">de_core_news_sm</span></code> can be utilized. SpaCy offers a variety of models for different languages which you can explore on the <a class="reference external" href="https://spacy.io/usage/models/">SpaCy models page</a>.</p>
+<p>Installation of SpaCy and downloading of language models can be performed via the following terminal commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>spacy
+python<span class="w"> </span>-m<span class="w"> </span>spacy<span class="w"> </span>download<span class="w"> </span>en_core_web_sm
+python<span class="w"> </span>-m<span class="w"> </span>spacy<span class="w"> </span>download<span class="w"> </span>de_core_news_sm
+</pre></div>
+</div>
+<p>Download the required language models first:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="c1"># Check if already installed</span>
+    <span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;en_core_web_sm&quot;</span><span class="p">)</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="c1"># If not, download the model</span>
+    <span class="o">!</span>python<span class="w"> </span>-m<span class="w"> </span>spacy<span class="w"> </span>download<span class="w"> </span>en_core_web_sm
+
+<span class="c1"># There are many other models, here a small model for German:</span>
+<span class="c1">#!python -m spacy download de_core_news_sm</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting en-core-web-sm==3.7.1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl (12.8 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/12.8 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">5.6/12.8 MB</span> <span class=" -Color -Color-Red">169.0 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━ <span class=" -Color -Color-Green">12.4/12.8 MB</span> <span class=" -Color -Color-Red">194.6 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">12.8/12.8 MB</span> <span class=" -Color -Color-Red">187.7 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">12.8/12.8 MB</span> <span class=" -Color -Color-Red">116.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: spacy&lt;3.8.0,&gt;=3.7.2 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from en-core-web-sm==3.7.1) (3.7.5)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: spacy-legacy&lt;3.1.0,&gt;=3.0.11 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (3.0.12)
+Requirement already satisfied: spacy-loggers&lt;2.0.0,&gt;=1.0.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (1.0.5)
+Requirement already satisfied: murmurhash&lt;1.1.0,&gt;=0.28.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (1.0.10)
+Requirement already satisfied: cymem&lt;2.1.0,&gt;=2.0.2 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (2.0.8)
+Requirement already satisfied: preshed&lt;3.1.0,&gt;=3.0.2 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (3.0.9)
+Requirement already satisfied: thinc&lt;8.3.0,&gt;=8.2.2 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (8.2.5)
+Requirement already satisfied: wasabi&lt;1.2.0,&gt;=0.9.1 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (1.1.3)
+Requirement already satisfied: srsly&lt;3.0.0,&gt;=2.4.3 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (2.4.8)
+Requirement already satisfied: catalogue&lt;2.1.0,&gt;=2.0.6 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (2.0.10)
+Requirement already satisfied: weasel&lt;0.5.0,&gt;=0.1.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (0.4.1)
+Requirement already satisfied: typer&lt;1.0.0,&gt;=0.3.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (0.12.3)
+Requirement already satisfied: tqdm&lt;5.0.0,&gt;=4.38.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (4.66.4)
+Requirement already satisfied: requests&lt;3.0.0,&gt;=2.13.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (2.32.3)
+Requirement already satisfied: pydantic!=1.8,!=1.8.1,&lt;3.0.0,&gt;=1.7.4 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (2.7.4)
+Requirement already satisfied: jinja2 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (3.1.4)
+Requirement already satisfied: setuptools in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (70.1.0)
+Requirement already satisfied: packaging&gt;=20.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (24.1)
+Requirement already satisfied: langcodes&lt;4.0.0,&gt;=3.2.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (3.4.0)
+Requirement already satisfied: numpy&gt;=1.19.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (1.26.4)
+Requirement already satisfied: language-data&gt;=1.2 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from langcodes&lt;4.0.0,&gt;=3.2.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (1.2.0)
+Requirement already satisfied: annotated-types&gt;=0.4.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from pydantic!=1.8,!=1.8.1,&lt;3.0.0,&gt;=1.7.4-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (0.7.0)
+Requirement already satisfied: pydantic-core==2.18.4 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from pydantic!=1.8,!=1.8.1,&lt;3.0.0,&gt;=1.7.4-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (2.18.4)
+Requirement already satisfied: typing-extensions&gt;=4.6.1 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from pydantic!=1.8,!=1.8.1,&lt;3.0.0,&gt;=1.7.4-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (4.12.2)
+Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (3.3.2)
+Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (3.7)
+Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (2.2.2)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (2024.6.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: blis&lt;0.8.0,&gt;=0.7.8 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from thinc&lt;8.3.0,&gt;=8.2.2-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (0.7.11)
+Requirement already satisfied: confection&lt;1.0.0,&gt;=0.0.1 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from thinc&lt;8.3.0,&gt;=8.2.2-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (0.1.5)
+Requirement already satisfied: click&gt;=8.0.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from typer&lt;1.0.0,&gt;=0.3.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (8.1.7)
+Requirement already satisfied: shellingham&gt;=1.3.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from typer&lt;1.0.0,&gt;=0.3.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (1.5.4)
+Requirement already satisfied: rich&gt;=10.11.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from typer&lt;1.0.0,&gt;=0.3.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (13.7.1)
+Requirement already satisfied: cloudpathlib&lt;1.0.0,&gt;=0.7.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from weasel&lt;0.5.0,&gt;=0.1.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (0.18.1)
+Requirement already satisfied: smart-open&lt;8.0.0,&gt;=5.2.1 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from weasel&lt;0.5.0,&gt;=0.1.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (7.0.4)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from jinja2-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (2.1.5)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: marisa-trie&gt;=0.7.7 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from language-data&gt;=1.2-&gt;langcodes&lt;4.0.0,&gt;=3.2.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (1.2.0)
+Requirement already satisfied: markdown-it-py&gt;=2.2.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from rich&gt;=10.11.0-&gt;typer&lt;1.0.0,&gt;=0.3.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (3.0.0)
+Requirement already satisfied: pygments&lt;3.0.0,&gt;=2.13.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from rich&gt;=10.11.0-&gt;typer&lt;1.0.0,&gt;=0.3.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (2.18.0)
+Requirement already satisfied: wrapt in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from smart-open&lt;8.0.0,&gt;=5.2.1-&gt;weasel&lt;0.5.0,&gt;=0.1.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (1.16.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: mdurl~=0.1 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from markdown-it-py&gt;=2.2.0-&gt;rich&gt;=10.11.0-&gt;typer&lt;1.0.0,&gt;=0.3.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (0.1.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: en-core-web-sm
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed en-core-web-sm-3.7.1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-C2">✔ Download and installation successful</span>
+You can now load the package via spacy.load(&#39;en_core_web_sm&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that the models are installed, we can load the desired one:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;en_core_web_sm&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s now define a text and pass it through the loaded model:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;Feet cats wolves, speak, spoken?&quot;</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>  <span class="c1"># create NLP object</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Feet cats wolves, speak, spoken?
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Or, try an example in German:</span>
+
+<span class="c1">#nlp = spacy.load(&#39;de_core_news_lg&#39;)  # large german language model</span>
+<span class="c1">#nlp = spacy.load(&#39;de_core_news_sm&#39;)  # small german lanugage model </span>
+
+<span class="c1">#text = &quot;Füsse Katzen Wölfe sprechen gesprochen?&quot;</span>
+<span class="c1">#doc = nlp(text)  # create NLP object</span>
+<span class="c1">#print(doc)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id2">
+<h3><span class="section-number">22.6.1. </span>Tokenization<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>By passing the text through the loaded NLP model, SpaCy already performs tokenization and a host of other operations under the hood:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">token</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Feet&#39;, &#39;cats&#39;, &#39;wolves&#39;, &#39;,&#39;, &#39;speak&#39;, &#39;,&#39;, &#39;spoken&#39;, &#39;?&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h3><span class="section-number">22.6.2. </span>Lemmatization<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Unlike <strong>NLTK</strong>, SpaCy has not option for <strong>stemming</strong>. But it provides many different language models (for many different languages) that allow for good <strong>lemmatization</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">token</span><span class="o">.</span><span class="n">lemma_</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;foot&#39;, &#39;cat&#39;, &#39;wolf&#39;, &#39;,&#39;, &#39;speak&#39;, &#39;,&#39;, &#39;speak&#39;, &#39;?&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each word in the text is replaced with its base form or lemma, taking into account its usage in the sentence. This helps in text normalization, a critical step in text preprocessing for NLP tasks.</p>
+</section>
+</section>
+<section id="apply-tokenization-and-lemmatization">
+<h2><span class="section-number">22.7. </span>Apply tokenization and lemmatization<a class="headerlink" href="#apply-tokenization-and-lemmatization" title="Link to this heading">#</a></h2>
+<p>“War of the worlds” von H.G. Wells</p>
+<p>In the following, we will work with the text of the book “War of the Worlds” from H.G. Wells which is freely available via the <a class="reference external" href="https://www.gutenberg.org/">Gutenberg Project</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the filename and open the file</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;../datasets/wells_war_of_the_worlds.txt&quot;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># Perform some basic cleaning: replace newline characters with spaces</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># How many characters?</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>338168
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Have a look at the first part of the text</span>
+<span class="n">text</span><span class="p">[:</span><span class="mi">1000</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;The Project Gutenberg eBook of The War of the Worlds, by H. G. Wells  This eBook is for the use of anyone anywhere in the United States and most other parts of the world at no cost and with almost no restrictions whatsoever. You may copy it, give it away or re-use it under the terms of the Project Gutenberg License included with this eBook or online at www.gutenberg.org. If you are not located in the United States, you will have to check the laws of the country where you are located before using this eBook.  Title: The War of the Worlds  Author: H. G. Wells  Release Date: July 1992 [eBook #36] [Most recently updated: November 27, 2021]  Language: English   *** START OF THE PROJECT GUTENBERG EBOOK THE WAR OF THE WORLDS ***  cover      The War of the Worlds  by H. G. Wells        ‘But who shall dwell in these worlds if they be inhabited?     . . . Are we or they Lords of the World? . . . And     how are all things made for man?’                     KEPLER (quoted in _The Anatomy of Melan&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load the English language model</span>
+<span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;en_core_web_sm&#39;</span><span class="p">)</span> 
+
+<span class="c1"># Create an NLP object by processing the text</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">text</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tokenization: split the text into individual tokens (words)</span>
+<span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">token</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tokens</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;The&#39;, &#39;Project&#39;, &#39;Gutenberg&#39;, &#39;eBook&#39;, &#39;of&#39;, &#39;The&#39;, &#39;War&#39;, &#39;of&#39;, &#39;the&#39;, &#39;Worlds&#39;, &#39;,&#39;, &#39;by&#39;, &#39;H.&#39;, &#39;G.&#39;, &#39;Wells&#39;, &#39; &#39;, &#39;This&#39;, &#39;eBook&#39;, &#39;is&#39;, &#39;for&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now that we have all tokens of our book, we can obviously count the number of tokens (which is not the number of words!). But we can also look at how many different tokens there are by using the Python <code class="docutils literal notranslate"><span class="pre">set()</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the total number of tokens and the number of unique tokens</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total tokens: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unique tokens: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">tokens</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total tokens: 71440
+Unique tokens: 7292
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let us now do the same, but with <strong>lemmatization</strong>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Lemmatization: reduce each token to its base or root form</span>
+<span class="n">lemmas</span> <span class="o">=</span> <span class="p">[</span><span class="n">token</span><span class="o">.</span><span class="n">lemma_</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lemmas</span><span class="p">[:</span><span class="mi">40</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;the&#39;, &#39;Project&#39;, &#39;Gutenberg&#39;, &#39;eBook&#39;, &#39;of&#39;, &#39;the&#39;, &#39;War&#39;, &#39;of&#39;, &#39;the&#39;, &#39;Worlds&#39;, &#39;,&#39;, &#39;by&#39;, &#39;H.&#39;, &#39;G.&#39;, &#39;Wells&#39;, &#39; &#39;, &#39;this&#39;, &#39;eBook&#39;, &#39;be&#39;, &#39;for&#39;, &#39;the&#39;, &#39;use&#39;, &#39;of&#39;, &#39;anyone&#39;, &#39;anywhere&#39;, &#39;in&#39;, &#39;the&#39;, &#39;United&#39;, &#39;States&#39;, &#39;and&#39;, &#39;most&#39;, &#39;other&#39;, &#39;part&#39;, &#39;of&#39;, &#39;the&#39;, &#39;world&#39;, &#39;at&#39;, &#39;no&#39;, &#39;cost&#39;, &#39;and&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also select tokens more specifically by using one of many attributes or methods from SpaCy (see <a class="reference external" href="https://spacy.io/api/token/">documentation</a>).</p>
+<p>For instance:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.is_punct</span></code> returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if a token is a punctuation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.is_alpha</span></code> returns <code class="docutils literal notranslate"><span class="pre">True</span></code>if a token contains alphabetic characters</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.is_stop</span></code> returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if word belongs to a so called “stop list” (less important words, we will come to this later)</p></li>
+</ul>
+<p>Since we here only want to count words:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lemmas</span> <span class="o">=</span> <span class="p">[</span><span class="n">token</span><span class="o">.</span><span class="n">lemma_</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">doc</span> <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">is_alpha</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lemmas</span><span class="p">[:</span><span class="mi">40</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;the&#39;, &#39;Project&#39;, &#39;Gutenberg&#39;, &#39;eBook&#39;, &#39;of&#39;, &#39;the&#39;, &#39;War&#39;, &#39;of&#39;, &#39;the&#39;, &#39;Worlds&#39;, &#39;by&#39;, &#39;Wells&#39;, &#39;this&#39;, &#39;eBook&#39;, &#39;be&#39;, &#39;for&#39;, &#39;the&#39;, &#39;use&#39;, &#39;of&#39;, &#39;anyone&#39;, &#39;anywhere&#39;, &#39;in&#39;, &#39;the&#39;, &#39;United&#39;, &#39;States&#39;, &#39;and&#39;, &#39;most&#39;, &#39;other&#39;, &#39;part&#39;, &#39;of&#39;, &#39;the&#39;, &#39;world&#39;, &#39;at&#39;, &#39;no&#39;, &#39;cost&#39;, &#39;and&#39;, &#39;with&#39;, &#39;almost&#39;, &#39;no&#39;, &#39;restriction&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print the total number of lemmas and the number of unique lemmas</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total lemmas: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">lemmas</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unique lemmas: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">lemmas</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total lemmas: 60629
+Unique lemmas: 5589
+</pre></div>
+</div>
+</div>
+</div>
+<p>By doing this, we are effectively shrinking the size of the dataset we are working with, while still retaining the essential meaning. It’s worth noting that we also removed “stop words” - common words such as “and”, “the”, “a” - during lemmatization, which usually do not contain important information and are often removed in NLP.</p>
+<p>In the following steps, we could now investigate which words are the most common ones, we could identify named entities (such as people or places) or use this text data to train a machine learning model (like a text classifier or a sentiment analysis model).</p>
+</section>
+<section id="mini-exercise">
+<h2><span class="section-number">22.8. </span>Mini-Exercise!<a class="headerlink" href="#mini-exercise" title="Link to this heading">#</a></h2>
+<p>Why do we get more tokens than lemmas?
+Have a look at both and find the answer!</p>
+</section>
+<section id="search-specific-word-types-or-combinations">
+<h2><span class="section-number">22.9. </span>Search specific word types or combinations<a class="headerlink" href="#search-specific-word-types-or-combinations" title="Link to this heading">#</a></h2>
+<p>With Spacy we can in principle also do more complex searches.
+We could, for instance search for nouns, verbs, or adjectives.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nouns</span> <span class="o">=</span> <span class="p">[</span><span class="n">token</span> <span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">doc</span> <span class="k">if</span> <span class="n">token</span><span class="o">.</span><span class="n">pos_</span> <span class="o">==</span> <span class="s2">&quot;NOUN&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">nouns</span><span class="p">[:</span><span class="mi">40</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[use, parts, world, cost, restrictions, terms, online, www.gutenberg.org, laws, country, Title, Language, START, worlds, things, man, I., FIGHTING, DESTRUCTION, WEYBRIDGE, CURATE, THUNDER, CHILD, FOOT, DEATH, CURATE, WORK, DAYS, COMING, I., one, years, century, world, intelligences, man, men, concerns, man, microscope]
+</pre></div>
+</div>
+</div>
+</div>
+<p>But we cannot only search all nouns or verbs, but also for specific combinations. As an example, we can search for all combinations of <code class="docutils literal notranslate"><span class="pre">like</span></code>or <code class="docutils literal notranslate"><span class="pre">love</span></code> with a noun:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">spacy.matcher</span> <span class="kn">import</span> <span class="n">Matcher</span>
+
+<span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;en_core_web_sm&quot;</span><span class="p">)</span>
+<span class="n">matcher</span> <span class="o">=</span> <span class="n">Matcher</span><span class="p">(</span><span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="p">)</span>
+
+<span class="n">pattern</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">&quot;LEMMA&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;IN&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;like&quot;</span><span class="p">,</span> <span class="s2">&quot;love&quot;</span><span class="p">]}},</span>
+            <span class="p">{</span><span class="s2">&quot;POS&quot;</span><span class="p">:</span> <span class="s2">&quot;NOUN&quot;</span><span class="p">}]</span>
+<span class="n">matcher</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;like/love&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">pattern</span><span class="p">])</span>
+
+<span class="n">matches</span> <span class="o">=</span> <span class="n">matcher</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">match_id</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">:</span>
+    <span class="n">string_id</span> <span class="o">=</span> <span class="n">nlp</span><span class="o">.</span><span class="n">vocab</span><span class="o">.</span><span class="n">strings</span><span class="p">[</span><span class="n">match_id</span><span class="p">]</span>  <span class="c1"># Get string representation</span>
+    <span class="n">span</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span>  <span class="c1"># The matched span</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">string_id</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">span</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>like/love 4797 4799 like end
+like/love 6222 6224 like eyes
+like/love 8394 8396 like object
+like/love 8970 8972 like water
+like/love 9644 9646 like puffs
+like/love 12536 12538 like summer
+like/love 16160 16162 like daylight
+like/love 19145 19147 like parade
+like/love 21471 21473 like distance
+like/love 23134 23136 like thunderclaps
+like/love 29624 29626 like men
+like/love 32952 32954 like forms
+like/love 33577 33579 like ghosts
+like/love 37823 37825 like clerks
+like/love 42739 42741 like generator
+like/love 46982 46984 like mud
+like/love 49375 49377 like branches
+like/love 67580 67582 like sheep
+</pre></div>
+</div>
+</div>
+</div>
+<p>Additionally, Spacy can be combined with regular expressions to create even more complex searches, but will not be shown here. Please consult Spacy’s documentation in case you want to build more complex search patterns.</p>
+</section>
+<section id="chapter-summary-and-outlook">
+<h2><span class="section-number">22.10. </span>Chapter Summary and Outlook<a class="headerlink" href="#chapter-summary-and-outlook" title="Link to this heading">#</a></h2>
+<p>Throughout this chapter, we delved into the world of Natural Language Processing (NLP), exploring several key techniques for handling and processing text data effectively:</p>
+<ul class="simple">
+<li><p><strong>Cleaning:</strong> This is often the first step in processing text data, involving tasks like removing URLs, Emojis, and special characters, or replacing unwanted line breaks (<code class="docutils literal notranslate"><span class="pre">&quot;\n&quot;</span></code>).</p></li>
+<li><p><strong>Tokenization:</strong> This involves breaking down text into smaller parts called tokens. Tokens can be as small as individual words or can even correspond to sentences or paragraphs, depending on the level of analysis required.</p></li>
+<li><p><strong>Stemming:</strong> Words can appear in different forms depending on gender, number, person, tense, and so on. Stemming involves reducing these words to their root or stem form. For example, the word “finding” could be stemmed to “find”. This process is heuristic and sometimes may lead to non-meaningful stems.</p></li>
+<li><p><strong>Lemmatization:</strong> Similar to stemming, lemmatization aims to reduce words to their base form, but with a more sophisticated approach that takes vocabulary and morphological analysis into account. Lemmatization ensures that only the inflectional endings are removed, thus isolating the canonical form of a word known as a lemma. For example, “found” would be lemmatized to “find”.</p></li>
+<li><p><strong>Other Operations:</strong> These could include removing numbers, punctuation marks, symbols, and stop words (commonly used words like “and”, “the”, “a”, etc.), as well as converting text to lowercase for uniformity.</p></li>
+</ul>
+<p>We’ve also discussed the application of these concepts using powerful Python libraries like NLTK and SpaCy, which provide intuitive and efficient tools for dealing with NLP tasks.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="21_working_with_text_data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">21. </span>Introduction to Working with Text Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="23_NLP_3_tfifd_and_machine_learning.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">23. </span>Computing with Text: Counting words</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-areas-for-the-use-of-nlp-techniques">22.1. Example areas for the use of NLP techniques</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-nlp-libraries">22.2. Python NLP libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization-stemming-lemmatization">22.3. Tokenization, Stemming, Lemmatization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nltk">22.4. NLTK</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization">22.4.1. Tokenization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming">22.4.2. Stemming</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lemmatization">22.4.3. Lemmatization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nlp-for-languages-other-than-english">22.5. NLP for languages other than English</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-try-some-german">22.5.1. Let’s try some German</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-spacy-models-for-lemmatization">22.6. Applying SpaCy Models for Lemmatization</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">22.6.1. Tokenization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">22.6.2. Lemmatization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#apply-tokenization-and-lemmatization">22.7. Apply tokenization and lemmatization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">22.8. Mini-Exercise!</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#search-specific-word-types-or-combinations">22.9. Search specific word types or combinations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#chapter-summary-and-outlook">22.10. Chapter Summary and Outlook</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Florian Huber
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

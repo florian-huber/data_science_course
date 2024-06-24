@@ -1,0 +1,1090 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>13. Outlier Detection &#8212; Introduction to Data Science (for not-yet-scientists)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/13_introduction_outlier_detection';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="14. Dimensionality Reduction" href="14_dimensionality_reduction.html" />
+    <link rel="prev" title="12. Clustering" href="12_clustering.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../book/cover.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-light" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>
+    <script>document.write(`<img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-dark" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../book/cover.html">
+                    Introduction to Data Science (for not-yet scientists)
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/01_intro.html">1. Introduction: Data Science for Not-Yet-Scientists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/02_what_is_data_science.html">2. What is Data Science?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/03_data_science_ethics_society.html">3. Data Science, Ethics, and Society</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/04_use_of_this_book.html">4. How to use this book (… if you ask us)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Science Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/05_data_and_types.html">5. Data and Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/06_data_information_knowledge.html">6. Data - Information - Knowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/07_data_science_workflow.html">7. Data Science Workflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Acquisition and First Exploration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/08_data_acquisition_and_preparation.html">8. Data Acquisition &amp; Preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_data_preparation.html">9. Data Pre-Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_distributions_statistical_measures.html">10. First Data Exploration</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth Data Exploration</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="11_correlation_analysis.html">11. Correlation Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_clustering.html">12. Clustering</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. Outlier Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_dimensionality_reduction.html">14. Dimensionality Reduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="15_machine_learning.html">15. Supervised Machine Learning - Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_machine_learning_algorithms.html">16. Common Algorithms - k-Nearest Neighbors (k-NN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_machine_learning_algorithms_2.html">17. Common Algorithms II - Linear Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_machine_learning_algorithms_3.html">18. Common Algorithms III - Decision Trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_machine_learning_techniques.html">19. Supervised Machine Learning - Key Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_machine_learning_ensembles.html">20. Ensemble Models and Outlook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Text Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="21_working_with_text_data.html">21. Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_NLP_2_tokenization.html">22. NLP - Basic Techniques to Analyze Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_NLP_3_tfifd_and_machine_learning.html">23. Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_NLP_4_ngrams_word_vectors.html">24. Beyond Counting Individual Words: N-grams</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the Networks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="25_graphs.html">25. Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_graph_visualization.html">26. Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="27_graphs_communities.html">27. Bottlenecks, Hubs, Communities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Next Steps</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="outlook.html">28. What are the next steps?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/bibliography.html">Bibliography</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/github.html">Source Code on GitHub</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/florian-huber/data_science_course/main?urlpath=tree/notebooks/13_introduction_outlier_detection.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/florian-huber/data_science_course/blob/main/notebooks/13_introduction_outlier_detection.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/data_science_course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/data_science_course/issues/new?title=Issue%20on%20page%20%2Fnotebooks/13_introduction_outlier_detection.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/13_introduction_outlier_detection.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Outlier Detection</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">13.1. Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-outlier-and-why-detect-them">13.1.1. What is an Outlier and Why Detect Them?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-in-outlier-detection">13.1.2. Challenges in Outlier Detection</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-isolation-forest">13.2. Method: Isolation Forest</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-and-theory">13.2.1. Concept and Theory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm">13.2.2. Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-in-scikit-learn">13.2.3. Implementation in Scikit-Learn</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-outlier-classification">13.2.4. Plot outlier classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-data-point-anomaly">13.2.5. Plot data point “anomaly”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chose-how-sensitive-the-outlier-detection-should-be">13.2.6. Chose how sensitive the outlier detection should be</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages">13.2.7. Advantages</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-local-outlier-factor-lof">13.3. Method: Local Outlier Factor (LOF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-and-background">13.3.1. Concept and Background</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">13.3.2. Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">13.3.3. Advantages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">13.3.4. Plot outlier classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">13.3.5. Plot data point “anomaly”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">13.3.6. Chose how sensitive the outlier detection should be</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-outlier-detection">13.4. More on Outlier Detection</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="outlier-detection">
+<span id="ch-outliers"></span><h1><span class="section-number">13. </span>Outlier Detection<a class="headerlink" href="#outlier-detection" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2><span class="section-number">13.1. </span>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<section id="what-is-an-outlier-and-why-detect-them">
+<h3><span class="section-number">13.1.1. </span>What is an Outlier and Why Detect Them?<a class="headerlink" href="#what-is-an-outlier-and-why-detect-them" title="Link to this heading">#</a></h3>
+<p><strong>Definition</strong>: An outlier is a data point that differs significantly from other observations in a dataset. These anomalies can arise due to variability in the measurement or experimental errors. Outliers are important to identify because they can lead to misleading analysis results or can indicate interesting phenomena.</p>
+<p><strong>Why should be care?</strong><br />
+In the context of data science, outliers can skew the results of data analysis, such as mean and standard deviation calculations. They can also affect the performance of machine learning models, leading to less accurate predictions. In all those cases outliers are data points that we often would like to <strong>either exclude</strong>, or at least treat <strong>differently</strong>. Think of a large dataset from a questionnaire where many thousands of people gave us answers. When we want to train a model to predict certain properties, we often might want to exclude outliers which could occur from people who did not fill in the questionnaire correctly. Or, we might consider not to “confuse” a model with rare data of a few people who are very different in their answers to the rest of our dataset.</p>
+<p>In data science workflows, however, the opposite can happen as well. These are cases where the <strong>outliers are our target data points</strong>. An example of this is cases where we look for unintentional or unwanted behavior such as fraud in financial transactions or hacker attacks.</p>
+</section>
+<section id="challenges-in-outlier-detection">
+<h3><span class="section-number">13.1.2. </span>Challenges in Outlier Detection<a class="headerlink" href="#challenges-in-outlier-detection" title="Link to this heading">#</a></h3>
+<p><strong>Difficulty</strong>: Detecting outliers is not trivial because it often depends on the context and the nature of the data. The challenge lies in distinguishing between a genuine outlier and a natural variation in the data.</p>
+<p><strong>Approach</strong>: To effectively detect outliers, data scientists must understand the underlying data distribution and choose appropriate methods for outlier identification.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">IsolationForest</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">LocalOutlierFactor</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create dummy dataset</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Create toy data: 2 clusters and some additional random data</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">400</span>
+<span class="n">n_noise_samples</span> <span class="o">=</span> <span class="mi">70</span>
+<span class="n">clusters</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">cluster_std</span><span class="o">=</span><span class="mf">0.70</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">random_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="mi">6</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_noise_samples</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">clusters</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">random_data</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6cbe1247312e6636bf4decd228f79da616c8f0b9054b69bd5a283efa41c3227b.png" src="../_images/6cbe1247312e6636bf4decd228f79da616c8f0b9054b69bd5a283efa41c3227b.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="method-isolation-forest">
+<h2><span class="section-number">13.2. </span>Method: Isolation Forest<a class="headerlink" href="#method-isolation-forest" title="Link to this heading">#</a></h2>
+<section id="concept-and-theory">
+<h3><span class="section-number">13.2.1. </span>Concept and Theory<a class="headerlink" href="#concept-and-theory" title="Link to this heading">#</a></h3>
+<p><strong>Isolation Forest</strong> (iForest) is an unsupervised learning algorithm for anomaly detection that works on the principle of isolating anomalies, instead of profiling normal data points. Developed 2008 <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id37" title="Fei Tony Liu, Kai Ming Ting, and Zhi-Hua Zhou. Isolation forest. In 2008 eighth ieee international conference on data mining, 413–422. IEEE, 2008.">Liu <em>et al.</em>, 2008</a>]</span>, it’s particularly effective in datasets with a high dimensionality.</p>
+<p><strong>Isolating Anomalies</strong>: The core idea behind Isolation Forest is that anomalies are few and different, which makes them easier to isolate. In a dataset, anomalies are susceptible to being isolated with fewer random partitions compared to normal points.</p>
+<p><strong>Tree Structure</strong>: The algorithm builds an ensemble of isolation trees (iTrees) for the dataset. Each iTree is constructed by randomly selecting a feature and then randomly selecting a split value between the maximum and minimum values of the selected feature. This process is repeated recursively until the data points are isolated or the tree reaches a certain height.</p>
+</section>
+<section id="algorithm">
+<h3><span class="section-number">13.2.2. </span>Algorithm<a class="headerlink" href="#algorithm" title="Link to this heading">#</a></h3>
+<p><strong>Construction of iTrees</strong>: In an iTree, each node represents a test (split), and the path from the root to a leaf node is a set of conditions isolating a data point. The length of this path is a measure of normality: shorter paths indicate anomalies.</p>
+<p><strong>Scoring Anomalies</strong>: Once the iTrees are built, the algorithm assigns an anomaly score to each data point. The score is calculated based on the average path length across the trees in the forest. Shorter paths are indicative of anomalies.</p>
+<p><strong>Ensemble Approach</strong>: The use of multiple trees reduces the risk of overfitting and increases the robustness of the model.</p>
+</section>
+<section id="implementation-in-scikit-learn">
+<h3><span class="section-number">13.2.3. </span>Implementation in Scikit-Learn<a class="headerlink" href="#implementation-in-scikit-learn" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">IsolationForest</span>
+
+<span class="c1"># Create the model</span>
+<span class="n">iso_forest</span> <span class="o">=</span> <span class="n">IsolationForest</span><span class="p">(</span>
+    <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">contamination</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Fit the model</span>
+<span class="n">iso_forest</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Classify as outlier / no outlier</span>
+<span class="n">outlier_classification</span> <span class="o">=</span> <span class="n">iso_forest</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Parameters</strong>:</p>
+<p>To learn more about the many different parameters, see the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.IsolationForest.html#sklearn.ensemble.IsolationForest">Scikit-Learn Documentation</a>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">n_estimators</span></code>: Number of iTrees in the forest.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">contamination</span></code>: The proportion of outliers in the data set.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_jobs</span></code>: The number of jobs to run in parallel.  <code class="docutils literal notranslate"><span class="pre">None</span></code> means no parallel jobs. <code class="docutils literal notranslate"><span class="pre">-1</span></code> means using all processors.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">random_state</span></code>: Controls the randomness of the bootstrapping.</p></li>
+</ul>
+</section>
+<section id="plot-outlier-classification">
+<h3><span class="section-number">13.2.4. </span>Plot outlier classification<a class="headerlink" href="#plot-outlier-classification" title="Link to this heading">#</a></h3>
+<p>We can use the isolation forest to predict for each data point if it is an outlier or not. This is binary classification problem, so all data points will be assigned as outliers or inliers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+
+<span class="c1"># Scatter Plot: Outlier</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">outlier_classification</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">scatter</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                     <span class="n">c</span><span class="o">=</span><span class="s2">&quot;crimson&quot;</span><span class="p">,</span>
+                     <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+                     <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Outlier&quot;</span><span class="p">,</span>
+                     <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># Data</span>
+<span class="n">scatter</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                     <span class="n">c</span><span class="o">=</span><span class="s2">&quot;teal&quot;</span><span class="p">,</span>
+                     <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+                     <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Data&quot;</span><span class="p">,</span>
+                     <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/90c66546740d64210a9c86dd408db3e99d805f61ea7c07c3de85cfb82331144a.png" src="../_images/90c66546740d64210a9c86dd408db3e99d805f61ea7c07c3de85cfb82331144a.png" />
+</div>
+</div>
+</section>
+<section id="plot-data-point-anomaly">
+<h3><span class="section-number">13.2.5. </span>Plot data point “anomaly”<a class="headerlink" href="#plot-data-point-anomaly" title="Link to this heading">#</a></h3>
+<p>If a binary classification is not what we want, we can also try to use the models decision function to get a somewhat quantitative measure of the “anomaly” of each datapoint.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Predict degree of anomaly</span>
+<span class="n">scores_pred</span> <span class="o">=</span> <span class="n">iso_forest</span><span class="o">.</span><span class="n">decision_function</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+           <span class="n">c</span><span class="o">=</span><span class="n">scores_pred</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;plasma&quot;</span><span class="p">,</span>
+           <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+           <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># Adding a colorbar</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">scatter</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Anomaly Degree&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/fe730bb6e360c58d2ed02ab230bdeb27fc42bf07dcef0c04498c017fbcfd3f44.png" src="../_images/fe730bb6e360c58d2ed02ab230bdeb27fc42bf07dcef0c04498c017fbcfd3f44.png" />
+</div>
+</div>
+</section>
+<section id="chose-how-sensitive-the-outlier-detection-should-be">
+<h3><span class="section-number">13.2.6. </span>Chose how sensitive the outlier detection should be<a class="headerlink" href="#chose-how-sensitive-the-outlier-detection-should-be" title="Link to this heading">#</a></h3>
+<p>The parameter <code class="docutils literal notranslate"><span class="pre">contamination</span></code> is used as a threshold for the binary decision into outlier/non-outlier.
+The actual underlying anomaly degree is not affected, as the plot below shows.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">outlier_classifications</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">anomaly_degrees</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">contamination</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]:</span>
+
+    <span class="c1"># Create the model</span>
+    <span class="n">iso_forest</span> <span class="o">=</span> <span class="n">IsolationForest</span><span class="p">(</span>
+        <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+        <span class="n">contamination</span><span class="o">=</span><span class="n">contamination</span><span class="p">,</span>
+        <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+    <span class="c1"># Fit the model</span>
+    <span class="n">iso_forest</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+    <span class="c1"># Classify as outlier / no outlier</span>
+    <span class="n">outlier_classifications</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">iso_forest</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+    <span class="n">anomaly_degrees</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">iso_forest</span><span class="o">.</span><span class="n">decision_function</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">contamination</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]):</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+        <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="n">c</span><span class="o">=</span><span class="n">outlier_classifications</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;rainbow&quot;</span><span class="p">,</span>
+        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+        <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Contamination: </span><span class="si">{</span><span class="n">contamination</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">contamination</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]):</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+        <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="n">c</span><span class="o">=</span><span class="n">anomaly_degrees</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;plasma&quot;</span><span class="p">,</span>
+        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+        <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Decision Function</span><span class="se">\n</span><span class="s2">(Contamination: </span><span class="si">{</span><span class="n">contamination</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Outlier Detection using Local Outlier Factor (LOF)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ad031a805ea14e933e3c1166801cf8711d5ef3bef1e2c37d6749a7c4de4ef1c6.png" src="../_images/ad031a805ea14e933e3c1166801cf8711d5ef3bef1e2c37d6749a7c4de4ef1c6.png" />
+</div>
+</div>
+</section>
+<section id="advantages">
+<h3><span class="section-number">13.2.7. </span>Advantages<a class="headerlink" href="#advantages" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Effectiveness in High-Dimensional Spaces</strong>: Performs well in high-dimensional datasets where traditional distance-based methods might falter.</p></li>
+<li><p><strong>Scalability</strong>: Due to its tree structure, it scales well with large datasets.</p></li>
+<li><p><strong>Low False Positive Rate</strong>: Tends to have a lower false positive rate compared to other anomaly detection methods.</p></li>
+<li><p><strong>Unsupervised Method</strong>: Does not require labeled data, making it suitable for scenarios where labeling is impractical.</p></li>
+</ol>
+<p>Isolation Forest stands out for its simplicity, effectiveness, and scalability in detecting anomalies, especially in high-dimensional data. Its unsupervised nature makes it a go-to method for various applications where identifying rare events is crucial. The implementation in Python’s scikit-learn library provides a user-friendly and efficient way to leverage this powerful algorithm.</p>
+</section>
+</section>
+<section id="method-local-outlier-factor-lof">
+<h2><span class="section-number">13.3. </span>Method: Local Outlier Factor (LOF)<a class="headerlink" href="#method-local-outlier-factor-lof" title="Link to this heading">#</a></h2>
+<section id="concept-and-background">
+<h3><span class="section-number">13.3.1. </span>Concept and Background<a class="headerlink" href="#concept-and-background" title="Link to this heading">#</a></h3>
+<p><strong>Local Outlier Factor (LOF)</strong> is an algorithm designed for detecting local outliers, introduced in 2000 <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id13" title="Markus M Breunig, Hans-Peter Kriegel, Raymond T Ng, and Jörg Sander. Lof: identifying density-based local outliers. In Proceedings of the 2000 ACM SIGMOD international conference on Management of data, 93–104. 2000.">Breunig <em>et al.</em>, 2000</a>]</span>. It’s particularly effective in identifying outliers in datasets where the density varies across different regions.</p>
+<p><strong>Local Density Estimation</strong>: LOF relies on the concept of local density, where locality is given by the k-nearest neighbors of a point. It compares the local density of a point to the densities of its neighbors. An outlier will have a substantially lower density than its neighbors.</p>
+</section>
+<section id="id3">
+<h3><span class="section-number">13.3.2. </span>Algorithm<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p><strong>Defining Local Reachability Density (LRD)</strong>: The LRD of a point measures how reachable the point is based on the distances to its neighbors. A lower LRD indicates an outlier.</p>
+<p><strong>Calculating LOF Score</strong>: The LOF score of a point is the ratio of the average LRD of its neighbors to its own LRD. Points with an LOF significantly greater than 1 are considered outliers.</p>
+<p><strong>Key Steps</strong>:</p>
+<ol class="arabic simple">
+<li><p>Find the k-nearest neighbors of each point.</p></li>
+<li><p>Calculate the reachability distance of each point from its neighbors.</p></li>
+<li><p>Compute the LRD for each point.</p></li>
+<li><p>Determine the LOF score for each point.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">LocalOutlierFactor</span>
+
+<span class="c1"># Create the model</span>
+<span class="n">lof</span> <span class="o">=</span> <span class="n">LocalOutlierFactor</span><span class="p">(</span>
+    <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">contamination</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">metric_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Fit the model and classify outliers</span>
+<span class="n">outlier_classification</span> <span class="o">=</span> <span class="n">lof</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Parameters</strong>:</p>
+<p>To learn more about the many different parameters, see the <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.LocalOutlierFactor.html#sklearn.neighbors.LocalOutlierFactor">Scikit-Learn Documentation</a>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code>: Number of neighbors to use.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">contamination</span></code>: The proportion of outliers in the dataset.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_jobs</span></code>: Number of parallel jobs to run. <code class="docutils literal notranslate"><span class="pre">None</span></code> means no parallel jobs. <code class="docutils literal notranslate"><span class="pre">-1</span></code> means using all processors.</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3><span class="section-number">13.3.3. </span>Advantages<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Effectiveness in Varying Density</strong>: Excellent for datasets where the density is not uniform.</p></li>
+<li><p><strong>Flexibility</strong>: Can work with different distance metrics, making it adaptable to various types of data.</p></li>
+<li><p><strong>Unsupervised Nature</strong>: Like Isolation Forest, it does not require labeled data.</p></li>
+<li><p><strong>Local Anomaly Detection</strong>: Superior at detecting anomalies that are only outliers within their local neighborhood.</p></li>
+</ol>
+<p>Local Outlier Factor is a powerful tool for detecting anomalies, especially in datasets with non-uniform densities. Its ability to focus on local neighborhoods makes it unique compared to more global methods. The implementation in Python’s scikit-learn makes it accessible and practical for a wide range of applications in anomaly detection.</p>
+</section>
+<section id="id5">
+<h3><span class="section-number">13.3.4. </span>Plot outlier classification<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>Just as with the isolation forest, we can use LOF to predict for each data point if it is an outlier or not.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([], [])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+
+<span class="c1"># Scatter Plot: Outlier</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">outlier_classification</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">scatter</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                     <span class="n">c</span><span class="o">=</span><span class="s2">&quot;crimson&quot;</span><span class="p">,</span>
+                     <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+                     <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Outlier&quot;</span><span class="p">,</span>
+                     <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># Data</span>
+<span class="n">scatter</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                     <span class="n">c</span><span class="o">=</span><span class="s2">&quot;teal&quot;</span><span class="p">,</span>
+                     <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+                     <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Data&quot;</span><span class="p">,</span>
+                     <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/f1d219d88479e918feba9db18b6b84a5c06dad291aef14f4e34791ea0b657bff.png" src="../_images/f1d219d88479e918feba9db18b6b84a5c06dad291aef14f4e34791ea0b657bff.png" />
+</div>
+</div>
+</section>
+<section id="id6">
+<h3><span class="section-number">13.3.5. </span>Plot data point “anomaly”<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>If a binary classification is not what we want, we can also try to use the models decision function to get a somewhat quantitative measure of the “anomaly” of each datapoint.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lof</span> <span class="o">=</span> <span class="n">LocalOutlierFactor</span><span class="p">(</span>
+    <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">contamination</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">novelty</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># this has to be set to True to later get anomaly ratings</span>
+    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">lof</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Predict degree of anomaly</span>
+<span class="n">anomaly_prediction</span> <span class="o">=</span> <span class="n">lof</span><span class="o">.</span><span class="n">decision_function</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+           <span class="n">c</span><span class="o">=</span><span class="n">anomaly_prediction</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;plasma&quot;</span><span class="p">,</span>
+           <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+           <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># Adding a colorbar</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">scatter</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Anomaly Degree&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/d6e37b04f8c050b0017834433ba34f0386647966d416027de1ea3a8ad9af0963.png" src="../_images/d6e37b04f8c050b0017834433ba34f0386647966d416027de1ea3a8ad9af0963.png" />
+</div>
+</div>
+</section>
+<section id="id7">
+<h3><span class="section-number">13.3.6. </span>Chose how sensitive the outlier detection should be<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>Here again, we can use the parameter <code class="docutils literal notranslate"><span class="pre">contamination</span></code> to set the threshold for the binary decision into outlier/non-outlier.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">outlier_classifications</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">anomaly_degrees</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">contamination</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]:</span>
+
+    <span class="n">lof</span> <span class="o">=</span> <span class="n">LocalOutlierFactor</span><span class="p">(</span>
+        <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+        <span class="n">contamination</span><span class="o">=</span><span class="n">contamination</span><span class="p">,</span>
+        <span class="n">novelty</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># this has to be set to True to later get anomaly ratings</span>
+        <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Fit the model</span>
+    <span class="n">lof</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+    <span class="c1"># Classify as outlier / no outlier</span>
+    <span class="n">outlier_classifications</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lof</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+    <span class="n">anomaly_degrees</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lof</span><span class="o">.</span><span class="n">decision_function</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">contamination</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]):</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+        <span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="n">c</span><span class="o">=</span><span class="n">outlier_classifications</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;rainbow&quot;</span><span class="p">,</span>
+        <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+        <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Contamination: </span><span class="si">{</span><span class="n">contamination</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Outlier Detection using Local Outlier Factor (LOF)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/134045dbd816a66c5d7af572974b3b09405609c3168b1e6194d85ea99e2587ef.png" src="../_images/134045dbd816a66c5d7af572974b3b09405609c3168b1e6194d85ea99e2587ef.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="more-on-outlier-detection">
+<h2><span class="section-number">13.4. </span>More on Outlier Detection<a class="headerlink" href="#more-on-outlier-detection" title="Link to this heading">#</a></h2>
+<p>Outlier detection, or anomaly detection, are often crucial steps in data analysis processes. As a consequence, there are many more techniques for detecting such outliers with varying advantages and disadvantages.</p>
+<p>To get a better impression of the rich realm of outlier detection methods, see for instance the following two review articles:
+<span id="id8">[<a class="reference internal" href="../book/bibliography.html#id11" title="Azzedine Boukerche, Lining Zheng, and Omar Alfandi. Outlier detection: methods, models, and classification. ACM Computing Surveys (CSUR), 53(3):1–37, 2020.">Boukerche <em>et al.</em>, 2020</a>]</span>, and <span id="id9">[<a class="reference internal" href="../book/bibliography.html#id69" title="Abir Smiti. A critical overview of outlier detection methods. Computer Science Review, 38:100306, 2020.">Smiti, 2020</a>]</span>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="12_clustering.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Clustering</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="14_dimensionality_reduction.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Dimensionality Reduction</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">13.1. Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-outlier-and-why-detect-them">13.1.1. What is an Outlier and Why Detect Them?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#challenges-in-outlier-detection">13.1.2. Challenges in Outlier Detection</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-isolation-forest">13.2. Method: Isolation Forest</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-and-theory">13.2.1. Concept and Theory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithm">13.2.2. Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementation-in-scikit-learn">13.2.3. Implementation in Scikit-Learn</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-outlier-classification">13.2.4. Plot outlier classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-data-point-anomaly">13.2.5. Plot data point “anomaly”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chose-how-sensitive-the-outlier-detection-should-be">13.2.6. Chose how sensitive the outlier detection should be</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages">13.2.7. Advantages</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-local-outlier-factor-lof">13.3. Method: Local Outlier Factor (LOF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept-and-background">13.3.1. Concept and Background</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">13.3.2. Algorithm</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">13.3.3. Advantages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">13.3.4. Plot outlier classification</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">13.3.5. Plot data point “anomaly”</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">13.3.6. Chose how sensitive the outlier detection should be</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-outlier-detection">13.4. More on Outlier Detection</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Florian Huber
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

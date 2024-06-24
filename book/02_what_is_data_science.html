@@ -1,0 +1,615 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2. What is Data Science? &#8212; Introduction to Data Science (for not-yet-scientists)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/02_what_is_data_science';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Data Science, Ethics, and Society" href="03_data_science_ethics_society.html" />
+    <link rel="prev" title="1. Introduction: Data Science for Not-Yet-Scientists" href="01_intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="cover.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-light" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>
+    <script>document.write(`<img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-dark" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="cover.html">
+                    Introduction to Data Science (for not-yet scientists)
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_intro.html">1. Introduction: Data Science for Not-Yet-Scientists</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. What is Data Science?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_data_science_ethics_society.html">3. Data Science, Ethics, and Society</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_use_of_this_book.html">4. How to use this book (… if you ask us)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Science Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="05_data_and_types.html">5. Data and Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_data_information_knowledge.html">6. Data - Information - Knowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_data_science_workflow.html">7. Data Science Workflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Acquisition and First Exploration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="08_data_acquisition_and_preparation.html">8. Data Acquisition &amp; Preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/09_data_preparation.html">9. Data Pre-Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/10_distributions_statistical_measures.html">10. First Data Exploration</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth Data Exploration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/11_correlation_analysis.html">11. Correlation Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/12_clustering.html">12. Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/13_introduction_outlier_detection.html">13. Outlier Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/14_dimensionality_reduction.html">14. Dimensionality Reduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/15_machine_learning.html">15. Supervised Machine Learning - Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/16_machine_learning_algorithms.html">16. Common Algorithms - k-Nearest Neighbors (k-NN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/17_machine_learning_algorithms_2.html">17. Common Algorithms II - Linear Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/18_machine_learning_algorithms_3.html">18. Common Algorithms III - Decision Trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/19_machine_learning_techniques.html">19. Supervised Machine Learning - Key Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/20_machine_learning_ensembles.html">20. Ensemble Models and Outlook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Text Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/21_working_with_text_data.html">21. Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/22_NLP_2_tokenization.html">22. NLP - Basic Techniques to Analyze Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/23_NLP_3_tfifd_and_machine_learning.html">23. Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/24_NLP_4_ngrams_word_vectors.html">24. Beyond Counting Individual Words: N-grams</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the Networks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/25_graphs.html">25. Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/26_graph_visualization.html">26. Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/27_graphs_communities.html">27. Bottlenecks, Hubs, Communities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Next Steps</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/outlook.html">28. What are the next steps?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="github.html">Source Code on GitHub</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/data_science_course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/data_science_course/issues/new?title=Issue%20on%20page%20%2Fbook/02_what_is_data_science.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/book/02_what_is_data_science.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>What is Data Science?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-is-nothing-new-so-why-data-science-now">2.1. Data is Nothing New. So Why Data Science Now?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-spotlight-the-many-facets-of-data-science">2.2. A brief spotlight: the many facets of Data Science</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="what-is-data-science">
+<span id="ch-data-science-intro"></span><h1><span class="section-number">2. </span>What is Data Science?<a class="headerlink" href="#what-is-data-science" title="Link to this heading">#</a></h1>
+<p>In short, data science is about extracting and communicating relevant insights from complex data with the help of digital techniques.</p>
+<p>Unlike established fields like mathematics, physics, or history, data science relatively new. If you ask ten data scientists to define their field, you will likely get ten different answers. Some might view it as a distinct discipline, others as a technical  approach or mindset, and still others might consider it synonymous with statistics. Many authors have contributed definitions or descriptions of what data science is <span id="id1">[<a class="reference internal" href="bibliography.html#id15" title="Longbing Cao. Data Science: A Comprehensive Overview. ACM Computing Surveys, 50(3):43:1–43:42, June 2017. URL: https://dl.acm.org/doi/10.1145/3076253 (visited on 2023-09-05), doi:10.1145/3076253.">Cao, 2017</a>, <a class="reference internal" href="bibliography.html#id21" title="David Donoho. 50 Years of Data Science. Journal of Computational and Graphical Statistics, 26(4):745–766, October 2017. Publisher: Taylor &amp; Francis _eprint: https://doi.org/10.1080/10618600.2017.1384734. URL: https://doi.org/10.1080/10618600.2017.1384734 (visited on 2023-09-05), doi:10.1080/10618600.2017.1384734.">Donoho, 2017</a>, <a class="reference internal" href="bibliography.html#id9" title="David M Blei and Padhraic Smyth. Science and data science. Proceedings of the National Academy of Sciences, 114(33):8689–8692, 2017.">Blei and Smyth, 2017</a>, <a class="reference internal" href="bibliography.html#id16" title="Iain Carmichael and JS Marron. Data science vs. statistics: two cultures? Japanese Journal of Statistics and Data Science, 1(1):117–138, 2018.">Carmichael and Marron, 2018</a>, <a class="reference internal" href="bibliography.html#id26" title="Joel Grus. Data science from scratch: first principles with python. O'Reilly Media, 2019.">Grus, 2019</a>]</span>, but for now let’s start with the rather general and accessible description of data science as</p>
+<blockquote>
+<div><p><strong>the art of gaining and communicating insights from complex data through digital techniques</strong>.</p>
+</div></blockquote>
+<p>Many quantitative scientists would argue that they do similar work, as they strive to learn from data and use digital tools extensively. This overlap does not diminish the importance of data science; it simply indicates that many scientists must also be data scientists to stay current in their fields. Rapid advancements in digital techniques, including machine learning, are transforming many research areas.</p>
+<p>Opinions on what data science exactly is can vary, often depending on the application area. In consulting and business, data science might mean something different than in academia. However, most agree on a Venn diagram that is frequently used to illustrate data science <span id="id2">[<a class="reference internal" href="bibliography.html#id16" title="Iain Carmichael and JS Marron. Data science vs. statistics: two cultures? Japanese Journal of Statistics and Data Science, 1(1):117–138, 2018.">Carmichael and Marron, 2018</a>, <a class="reference internal" href="bibliography.html#id18" title="Drew Conway. The data science venn diagram. 2010. URL: ttp://drewconway.com/zia/2013/3/26/the-data-science-venn-diagram (visited on 2024-06-03).">Conway, 2010</a>]</span>: the intersection of Digital Techniques, Statistics, and Domain Expertise.</p>
+<a class="reference internal image-reference" href="../_images/figures_venn_diagram.png"><img alt="Data Science Venn diagram" src="../_images/figures_venn_diagram.png" style="width: 50%;" /></a>
+<p><strong>Figure 1.</strong> Venn diagram to indicate the intersection of fields for data science.</p>
+<section id="data-is-nothing-new-so-why-data-science-now">
+<h2><span class="section-number">2.1. </span>Data is Nothing New. So Why Data Science Now?<a class="headerlink" href="#data-is-nothing-new-so-why-data-science-now" title="Link to this heading">#</a></h2>
+<p>Data has been a cornerstone of human understanding for millennia - from ancient civilizations keeping records of harvests and astronomy, to modern businesses tracking sales and performance. It’s clear that data in itself is not a new concept. However, the emergence and ascendancy of data science as a discipline is a relatively recent phenomenon. So, why now?</p>
+<p>The prominence of data science in today’s world can be attributed to several concurrent developments:</p>
+<p>(1) The exponential <strong>increase in the volume of data generated</strong>. Thanks to digitalization and the rise of the Internet, mobile devices, and IoT (Internet of Things), we are producing data at a previously unimaginable scale. This big data presents both a challenge and an opportunity - the challenge being how to handle and process this vast amount of information, and the opportunity being the valuable insights that can be gleaned from it.</p>
+<p>This is accompanied by an increased recognition of the importance of data-driven decision-making across diverse sectors <span id="id3">[<a class="reference internal" href="bibliography.html#id62" title="Foster Provost and Tom Fawcett. Data science and its relationship to big data and data-driven decision making. Big data, 1(1):51–59, 2013.">Provost and Fawcett, 2013</a>]</span>. Various industries, governments, and institutions have realized that leveraging the power of data can lead to increased efficiency, better decision-making, and a competitive advantage.</p>
+<p>This existence (and appreciation) of larger and larger amounts of data can be seen as a substrate for the rise of data science, but it really needed a combination of several other developments to be able to properly work with such data (<a class="reference internal" href="#fig-historical-streams"><span class="std std-numref">Fig. 2.1</span></a>).</p>
+<p>(2) The evolution and expansion of <strong>statistical methodologies</strong> have been a key driver. Statistics provide the foundational principles and techniques for analyzing data, making inferences, and predicting future trends. In the era of big data, classical and modern statistical techniques form the backbone of most analyses in data science. The relationship is actually so close that in the 1990s, statisticians like Jeff Wu even suggested renaming statistics to “Data Science”, a debate which is still ongoing <span id="id4">[<a class="reference internal" href="bibliography.html#id16" title="Iain Carmichael and JS Marron. Data science vs. statistics: two cultures? Japanese Journal of Statistics and Data Science, 1(1):117–138, 2018.">Carmichael and Marron, 2018</a>]</span>. Despite all overlap, both terms still exist and usually mean related but different things (see also <span id="id5">[<a class="reference internal" href="bibliography.html#id29" title="Hossein Hassani, Christina Beneki, Emmanuel Sirimal Silva, Nicolas Vandeput, and Dag Øivind Madsen. The science of statistics versus data science: what is the future? Technological Forecasting and Social Change, 173:121111, 2021.">Hassani <em>et al.</em>, 2021</a>]</span>).</p>
+<p>(3) The strides we’ve made in <strong>data handling capabilities</strong> have greatly facilitated the rise of data science. This obviously includes the drastic advancements in computational power and storage capabilities that made it possible to collect, store, and analyze these massive datasets. But this also includes many developments from computer science, such as databases. Just a few decades ago, collecting, storing, and analyzing the vast amounts of data we deal with today would have been unimaginable, let alone impractical.</p>
+<p>(4) There has been significant progress in the field of <strong>algorithms</strong>, which also includes machine learning. It is algorithms, which are at the heart of nearly every tool that we use as data scientists for understanding and interpreting data. This can range from optimization methods dating back more than 200 years (e.g., least square method) all the way to current deep learning approaches. These advancements have opened up new possibilities for predictive analytics, automation, and artificial intelligence.</p>
+<p>(5) Lastly, the often-underestimated field of <strong>data visualization</strong> has seen revolutionary advancements. Effective data visualization makes complex data more comprehensible, accessible, and actionable. The development of powerful visualization tools enables us to present data in a visually compelling manner that fosters understanding and drives informed decisions <span id="id6">[<a class="reference internal" href="bibliography.html#id51" title="Tamara Munzner. Visualization analysis and design. CRC press, 2014.">Munzner, 2014</a>, <a class="reference internal" href="bibliography.html#id30" title="Kieran Healy. Data visualization: a practical introduction. Princeton University Press, 2018.">Healy, 2018</a>, <a class="reference internal" href="bibliography.html#id78" title="Claus O Wilke. Fundamentals of data visualization: a primer on making informative and compelling figures. O'Reilly Media, 2019.">Wilke, 2019</a>]</span>.</p>
+<p>So, while data is not new, the volume of data, our ability to process it, and the recognition of its value, are. These changes have given rise to the burgeoning field of data science, marking a new era in our relationship with data.</p>
+<figure class="align-default" id="fig-historical-streams">
+<img alt="../_images/figure_foundations_of_data_science_history.png" src="../_images/figure_foundations_of_data_science_history.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">The concurrent developments leading to Data Science <a class="footnote-reference brackets" href="#bayes-and-gauss" id="id7" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</span><a class="headerlink" href="#fig-historical-streams" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="a-brief-spotlight-the-many-facets-of-data-science">
+<span id="facets-of-data-science"></span><h2><span class="section-number">2.2. </span>A brief spotlight: the many facets of Data Science<a class="headerlink" href="#a-brief-spotlight-the-many-facets-of-data-science" title="Link to this heading">#</a></h2>
+<p>Data science, by its very nature, stands at the bustling intersection of digital techniques, statistical methodologies, and domain expertise. It is a broad and incredibly diverse field with intricate links to many different sectors and disciplines. This diversity results in a wide variety of roles and responsibilities, each bringing unique skills and viewpoints to address an array of challenges and opportunities.</p>
+<p>One of the key characteristics that makes data science so dynamic is its inherent multidisciplinarity. Data science <strong>isn’t just about dealing with numbers or coding</strong>—it’s about leveraging a suite of digital tools and statistical methods to draw insights from data, and applying these insights to a specific context or domain. A data scientist working in healthcare, for instance, might use different techniques and has a different focus than a data scientist working in retail or finance. The beauty of data science lies in this versatility—it is a field where skills and disciplines converge and collaborate.</p>
+<p>Given the breadth and depth of the field, being a successful data scientist requires much more than just technical skills. A natural curiosity to explore and understand data, an openness to new ideas and methods, the eagerness to continuously learn and adapt, and most crucially, the ability to communicate and collaborate effectively are all vital attributes. After all, data science is a team sport. <strong>No single person can master all facets of data science</strong>; instead, it’s about bringing diverse skills together, working with others, and learning from each other.</p>
+<p>In the following pages, we will explore the multifaceted world of data  science, its skills, and applications. We hope to inspire you with the  potential of data science and prepare you for a journey of continuous  learning and discovery. Welcome to the exciting world of data science!</p>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="bayes-and-gauss" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id7">1</a><span class="fn-bracket">]</span></span>
+<p>Images of <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Thomas_Bayes.gif">Thomas Bayes</a> and <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Bendixen_-_Carl_Friedrich_Gau%C3%9F,_1828.jpg">Carl Friedrich Gauß</a> taken from Wikipedia. For Thomas Bayes it is not even fully certain that the image actually shows him.</p>
+</aside>
+</aside>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="01_intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Introduction: Data Science for Not-Yet-Scientists</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="03_data_science_ethics_society.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Data Science, Ethics, and Society</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-is-nothing-new-so-why-data-science-now">2.1. Data is Nothing New. So Why Data Science Now?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-spotlight-the-many-facets-of-data-science">2.2. A brief spotlight: the many facets of Data Science</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Florian Huber
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

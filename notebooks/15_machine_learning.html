@@ -1,0 +1,714 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>15. Supervised Machine Learning - Introduction &#8212; Introduction to Data Science (for not-yet-scientists)</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/15_machine_learning';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="16. Common Algorithms - k-Nearest Neighbors (k-NN)" href="16_machine_learning_algorithms.html" />
+    <link rel="prev" title="14. Dimensionality Reduction" href="14_dimensionality_reduction.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../book/cover.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-light" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>
+    <script>document.write(`<img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-dark" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../book/cover.html">
+                    Introduction to Data Science (for not-yet scientists)
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/01_intro.html">1. Introduction: Data Science for Not-Yet-Scientists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/02_what_is_data_science.html">2. What is Data Science?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/03_data_science_ethics_society.html">3. Data Science, Ethics, and Society</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/04_use_of_this_book.html">4. How to use this book (… if you ask us)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Science Basics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/05_data_and_types.html">5. Data and Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/06_data_information_knowledge.html">6. Data - Information - Knowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/07_data_science_workflow.html">7. Data Science Workflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Acquisition and First Exploration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/08_data_acquisition_and_preparation.html">8. Data Acquisition &amp; Preparation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_data_preparation.html">9. Data Pre-Processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_distributions_statistical_measures.html">10. First Data Exploration</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth Data Exploration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="11_correlation_analysis.html">11. Correlation Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_clustering.html">12. Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_introduction_outlier_detection.html">13. Outlier Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_dimensionality_reduction.html">14. Dimensionality Reduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">15. Supervised Machine Learning - Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_machine_learning_algorithms.html">16. Common Algorithms - k-Nearest Neighbors (k-NN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_machine_learning_algorithms_2.html">17. Common Algorithms II - Linear Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_machine_learning_algorithms_3.html">18. Common Algorithms III - Decision Trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_machine_learning_techniques.html">19. Supervised Machine Learning - Key Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_machine_learning_ensembles.html">20. Ensemble Models and Outlook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Text Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="21_working_with_text_data.html">21. Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_NLP_2_tokenization.html">22. NLP - Basic Techniques to Analyze Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_NLP_3_tfifd_and_machine_learning.html">23. Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_NLP_4_ngrams_word_vectors.html">24. Beyond Counting Individual Words: N-grams</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the Networks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="25_graphs.html">25. Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_graph_visualization.html">26. Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="27_graphs_communities.html">27. Bottlenecks, Hubs, Communities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Next Steps</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="outlook.html">28. What are the next steps?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/bibliography.html">Bibliography</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/github.html">Source Code on GitHub</a></li>
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/florian-huber/data_science_course/main?urlpath=tree/notebooks/15_machine_learning.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/florian-huber/data_science_course/blob/main/notebooks/15_machine_learning.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/data_science_course" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/florian-huber/data_science_course/issues/new?title=Issue%20on%20page%20%2Fnotebooks/15_machine_learning.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/15_machine_learning.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Supervised Machine Learning - Introduction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-machine-learning">15.1. What is Machine Learning?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-vs-unsupervised-learning">15.1.1. Supervised vs. Unsupervised Learning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-vs-regression">15.1.2. Classification vs. Regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#features-and-labels">15.1.3. Features and Labels</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-testing">15.2. Training &amp; Testing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-we-know-how-good-our-model-is">15.2.1. How do we know how <em>good</em> our model is?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">15.2.2. Train/Test split</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="supervised-machine-learning-introduction">
+<span id="ch-machine-learning-intro"></span><h1><span class="section-number">15. </span>Supervised Machine Learning - Introduction<a class="headerlink" href="#supervised-machine-learning-introduction" title="Link to this heading">#</a></h1>
+<section id="what-is-machine-learning">
+<h2><span class="section-number">15.1. </span>What is Machine Learning?<a class="headerlink" href="#what-is-machine-learning" title="Link to this heading">#</a></h2>
+<p>There is still a lot of confusion about terms like <strong>artificial intelligence</strong> (or: <strong>A.I.</strong>), <strong>machine learning</strong>, and <strong>deep learning</strong>.
+The aim of this course is not to give a full in-depth introduction to all those topics, because this clearly demands one (or usually: multiple) course on its own. For more in-depth information we will provide some resources at the end of this chapter.</p>
+<p>However, what this section should show is, that the underlying idea of machine learning is often quite approachable. And some of the respective techniques can be used with relative ease, at least from the code perspective. If you haven’t learned the basics of machine learning before, it is unlikely that this section will make you feel like you have mastered the art. But, again, this is not the main goal.</p>
+<p>Machine learning is a subfield of <em>artificial intelligence</em> (see <a class="reference internal" href="14_dimensionality_reduction.html#fig-dimensionality-reduction01"><span class="std std-numref">Fig. 14.1</span></a>), which often makes this sound very intimidating at first. In its full complexity, this is indeed hard to master. But it is important to note at this point, that machine learning itself can also be seen as <em>just another tool</em> that we have as data scientists. In fact, many of its techniques are no more complicated or complex than methods in dimensionality reduction or clustering that we have seen in the last chapters (actually, those are often considered machine learning techniques as well, but we will skip this discussion for now).</p>
+<figure class="align-default" id="fig-ai-vs-ml-vs-dl">
+<img alt="../_images/fig_ai_vs_ml_vs_deep_learning.png" src="../_images/fig_ai_vs_ml_vs_deep_learning.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.1 </span><span class="caption-text">Machine Learning is a field of techniques that belongs to <em>artificial intelligence</em>. Currently, machine learning is even the main representation of artificial intelligence with <em>deep learning</em> being the most prominent subset. Here, however, we will focus on more classical machine learning techniques (no worries, those remain equally important in real-life practice!).</span><a class="headerlink" href="#fig-ai-vs-ml-vs-dl" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The key idea behind machine learning is that we use algorithms that <em>“learn from data”</em>. Learning here is nothing magic and typically means something very different from our everyday use of the word “learning” in a human context. Learning here simply means that the rules by which a program decides on its outcome or behavior are no longer <em>hard-coded</em> by a person, but they are automatically searched and optimized.</p>
+<p>To give you an idea of how simple this “learning” can be: Imagine we have two highly correlated features, for instance the shoe size and the height of of many people. We could than automatically find a good linear fit function and then use this to make predictions for new data entries. Say, you find footprints of size 47 after a robery, then your new “machine learning model” (yes, that’s simply the linear fit!) can predict the height of that person (<a class="reference internal" href="#fig-predictions-already-done"><span class="std std-numref">Fig. 15.2</span></a><strong>A</strong>). The prediction is probably not perfect, but we have good reasons to believe that it most likely won’t be too far off either.</p>
+<p>Or, think of several chat messages that we clustered into “spam”, “negative”, and “positive” and which is nicely reflected by their position in a 2D plot after dimensionality reduction (<a class="reference internal" href="#fig-predictions-already-done"><span class="std std-numref">Fig. 15.2</span></a><strong>B</strong>). If we now receive a new message which ends up clearly within the “positive” cluster, then we can obviously risk the first best guess of saying that this might be a positive message as well. Again, we could be wrong, but based on the data we have, this simply seems to be the best guess we can do.</p>
+<p>So, when is this going to be called <em>machine learning</em>?
+When we have an algorithm that does this guessing based on the data for us it is machine learning. If we do the guessing, it is not machine learning.</p>
+<figure class="align-default" id="fig-predictions-already-done">
+<img alt="../_images/fig_predictions_already_done.png" src="../_images/fig_predictions_already_done.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.2 </span><span class="caption-text">Even before coming to this chapter, we have already worked with techniques that would actually allow to make predictions on the basis of known data points. <strong>A</strong>, when we looked at (high) correlations this already implied that there is a more or less reliable link between different features. <strong>B</strong>, when we think of clustering and dimensionality reduction it seems rather obvious that we could make predictions for new datapoints based on their lower dimensional position!</span><a class="headerlink" href="#fig-predictions-already-done" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Before we look at some actual machine learning techniques, a few key terms and distinctions should be explained.</p>
+<section id="supervised-vs-unsupervised-learning">
+<h3><span class="section-number">15.1.1. </span>Supervised vs. Unsupervised Learning<a class="headerlink" href="#supervised-vs-unsupervised-learning" title="Link to this heading">#</a></h3>
+<p>In machine learning, we distinguish <strong>supervised learning</strong> and <strong>unsupervised learning</strong>.</p>
+<p><strong>Supervised Learning</strong> involves training a model on a labeled dataset, which means that each training example is paired with an output label. The model learns to make predictions based on this input-output mapping. Common tasks in supervised learning include classification and regression. An example of supervised learning is spam email detection, where the model is trained on emails labeled as “spam” or “not spam.”</p>
+<p><strong>Unsupervised Learning</strong>, on the other hand, involves training a model on data that does not have labeled responses. The goal here is to infer the natural structure present within a set of data points. This is often used for clustering and association problems. An example of unsupervised learning is customer segmentation, where the model identifies distinct groups of customers based on purchasing behavior without prior knowledge of the group definitions.</p>
+<p>Wait. That sounds familiar, right?<br />
+And indeed, this is exactly what we covered in the prior sections! Many algorithms used in dimensionality reduction (<a class="reference internal" href="14_dimensionality_reduction.html#ch-dimensionality"><span class="std std-numref">Section 14</span></a>) and clustering (<a class="reference internal" href="12_clustering.html#ch-clustering"><span class="std std-numref">Section 12</span></a>) were already machine learning and examples of unsupervised learning.</p>
+</section>
+<section id="classification-vs-regression">
+<h3><span class="section-number">15.1.2. </span>Classification vs. Regression<a class="headerlink" href="#classification-vs-regression" title="Link to this heading">#</a></h3>
+<p>In machine learning, we distinguish two types of tasks that a model can perform: <strong>classification</strong> and <strong>regression</strong>.</p>
+<p><strong>Classification</strong> means that models will predict the class of unknown data points based on what they “learned” from <strong>labeled data</strong>. Labeled data means that this is data for which we <em>know</em> the true labels (also called: targets or ground truth). For example, in a medical diagnosis application, a classification model might predict whether a patient has a particular disease (e.g., positive or negative) based on their medical records.</p>
+<p><strong>Regression</strong> means that models will predict one (or multiple) numerical values for unknown data points. For instance, a regression model could predict house prices based on features like size, location, and the number of bedrooms. Unlike classification, where the output is a discrete class, regression outputs continuous values.</p>
+<p>Both classification and regression fall under the category of supervised learning because they require labeled training data. An illustration of this distinction can be seen in <a class="reference internal" href="#fig-classification-regression"><span class="std std-numref">Fig. 15.3</span></a>, where one side shows the discrete class predictions of a classification task and the other shows the continuous value predictions of a regression task.</p>
+<figure class="align-default" id="fig-classification-regression">
+<img alt="../_images/fig_classification_regression.png" src="../_images/fig_classification_regression.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15.3 </span><span class="caption-text">In <em>machine learning</em> we distinguish <strong>classification</strong> and <strong>regression</strong> tasks. The key difference is that classification models will predict one out of several possible categories while regression models output numerical values (floats).</span><a class="headerlink" href="#fig-classification-regression" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="features-and-labels">
+<h3><span class="section-number">15.1.3. </span>Features and Labels<a class="headerlink" href="#features-and-labels" title="Link to this heading">#</a></h3>
+<p>Features are the input variables used to make predictions. Labels are the output variable that the model is trying to predict. For example, in a dataset of house prices, features might include the size of the house, the number of bedrooms, and the neighborhood, while the label would be the price of the house.</p>
+</section>
+</section>
+<section id="training-testing">
+<h2><span class="section-number">15.2. </span>Training &amp; Testing<a class="headerlink" href="#training-testing" title="Link to this heading">#</a></h2>
+<p>For the following sections, we need a few more key terms:</p>
+<ul class="simple">
+<li><p><strong>model</strong>: you can think of a machine learning model as a program function. It takes a certain, well-defined input (the <strong>data</strong>, often lazyly written as <span class="math notranslate nohighlight">\(X\)</span>) and generates predictions or <strong>labels</strong> (lazyly written: <span class="math notranslate nohighlight">\(y\)</span>).</p></li>
+<li><p>A model is <em>trained</em> on data with known labels. This is what is meant by the word <em>learning</em> in machine learning. However, this learning has little to no resemblance to human learning. It usually refers to an automated optimization on a given target which is expressed in terms of maths.</p></li>
+<li><p>What is automatically optimized in the model training are the model <em>parameters</em>. Those are thereby “learned” by the model during training. This is different from general model settings that are called <em>hyperparameters</em> and have to be set by us (or, they are pre-defined as default values by the code developers).</p></li>
+<li><p>The prediction of labels is called <em>prediction</em> or <em>inference</em>. This should happen after the model training.</p></li>
+</ul>
+<section id="how-do-we-know-how-good-our-model-is">
+<h3><span class="section-number">15.2.1. </span>How do we know how <em>good</em> our model is?<a class="headerlink" href="#how-do-we-know-how-good-our-model-is" title="Link to this heading">#</a></h3>
+<p>The tricky part about applying supervised machine learning models is that we <em>train</em> the model using (more or less-) well-understood data and later want to use its predictions on <em>unknown</em> data. So, we want to use our model for data where we don’t know the correct labels ourselves (say, predicting tomorrow’s weather). Or, we could know the labels but do not want to manually create those for all cases (for instance: classify all incoming mail as spam or no-spam).</p>
+<p>But, can we really trust the model’s predictions?</p>
+<p>As the name says, everything the model outputs are <em>predictions</em>. For all models we will consider here, every single model output is <strong>uncertain and could be wrong</strong>. With the tools we have at hand in this section, we cannot even estimate the chance of failing. But, we can measure how reliable our model is <em>on average</em>!</p>
+<p>For this, we need to do the single most important action in machine learning,: the <strong>train/test split</strong>.</p>
+</section>
+<section id="train-test-split">
+<h3><span class="section-number">15.2.2. </span>Train/Test split<a class="headerlink" href="#train-test-split" title="Link to this heading">#</a></h3>
+<p>For supervised machine learning, we need data (<span class="math notranslate nohighlight">\(X\)</span>) and corresponding labels (<span class="math notranslate nohighlight">\(y\)</span>). To avoid blindly applying our model to truly unseen and unknown data, we virtually <strong>always</strong> split our data into training and test data. As the name suggests, the training data can be used to train our machine learning model. The test data is kept and will <strong>never</strong> be used in training, but only to assess the quality of predictions of our model. Typically, we want as much data as possible for the training since more data usually correlates with better models. However, we also have to reserve enough data for the test set to later guarantee a meaningful assessment of our model.</p>
+<p>We will later see that this can easily be done by using the <code class="docutils literal notranslate"><span class="pre">train_test_split</span></code> function from <code class="docutils literal notranslate"><span class="pre">Scikit-Learn</span></code>. Scikit-Learn is the main Python library for machine learning methods that are not deep learning <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id68" title="F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay. Scikit-learn: machine learning in Python. Journal of Machine Learning Research, 12:2825–2830, 2011.">Pedregosa <em>et al.</em>, 2011</a>]</span> and we will use this throughout the following chapters.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="14_dimensionality_reduction.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Dimensionality Reduction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="16_machine_learning_algorithms.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Common Algorithms - k-Nearest Neighbors (k-NN)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-machine-learning">15.1. What is Machine Learning?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-vs-unsupervised-learning">15.1.1. Supervised vs. Unsupervised Learning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classification-vs-regression">15.1.2. Classification vs. Regression</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#features-and-labels">15.1.3. Features and Labels</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-testing">15.2. Training &amp; Testing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-we-know-how-good-our-model-is">15.2.1. How do we know how <em>good</em> our model is?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">15.2.2. Train/Test split</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Florian Huber
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
