@@ -546,6 +546,10 @@ Bigrams (or 2-grams) would not catch those differences. But they can also be ver
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
 <span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+
+
+<span class="c1"># Set the ggplot style</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;ggplot&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1457,28 +1461,28 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
-<span class="n">sb</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">predictions</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">predictions</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;prediction error&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>  <span class="c1"># Set x-ticks to be all integers between -4 and 4</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;prediction error&#39;)
-</pre></div>
-</div>
-<img alt="../_images/863aa22e44a0f05fd515c889a22200f5f35d2b2119a521f8aec2d1c7610648bf.png" src="../_images/863aa22e44a0f05fd515c889a22200f5f35d2b2119a521f8aec2d1c7610648bf.png" />
+<img alt="../_images/8552d766d9436f7c76baf49a1177312520503547322f969d36a75466f9d2997c.png" src="../_images/8552d766d9436f7c76baf49a1177312520503547322f969d36a75466f9d2997c.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mean absolute error:</span>
-<span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">predictions</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean absolute error (MAE): </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">predictions</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y_test</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.432
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean absolute error (MAE): 0.4320
 </pre></div>
 </div>
 </div>
@@ -1505,7 +1509,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e87fcb417e9d15dba8624ace06135e9beb508291676c4e9a84bf98fd353ec643.png" src="../_images/e87fcb417e9d15dba8624ace06135e9beb508291676c4e9a84bf98fd353ec643.png" />
+<img alt="../_images/c518ebf7a75b911650e2e3224c1da6f2b91eba947ff4dcc6357cebbbf0ac2a0e.png" src="../_images/c518ebf7a75b911650e2e3224c1da6f2b91eba947ff4dcc6357cebbbf0ac2a0e.png" />
 </div>
 </div>
 <section id="look-at-the-vectors">
@@ -2153,28 +2157,28 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
-<span class="n">sb</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">predictions</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">predictions</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;prediction error&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;prediction error&#39;)
-</pre></div>
-</div>
-<img alt="../_images/182a7d3d7198694b601f97bc6212afc723173622fdee3a5600f34d2b9558a165.png" src="../_images/182a7d3d7198694b601f97bc6212afc723173622fdee3a5600f34d2b9558a165.png" />
+<img alt="../_images/bb59e9d4a9a0be139d9bc4c470bb2714b0770f72bb3bae9c899cd428cf80fe78.png" src="../_images/bb59e9d4a9a0be139d9bc4c470bb2714b0770f72bb3bae9c899cd428cf80fe78.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mean absolute error:</span>
-<span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">predictions</span> <span class="o">-</span> <span class="n">y_test</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean absolute error (MAE): </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">predictions</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y_test</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4095
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean absolute error (MAE): 0.4095
 </pre></div>
 </div>
 </div>
@@ -2201,7 +2205,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/321200a3ae1d8edf2631eb1f1c214487718306a452e409e70aed5708068609a5.png" src="../_images/321200a3ae1d8edf2631eb1f1c214487718306a452e409e70aed5708068609a5.png" />
+<img alt="../_images/40f7e6a720f48476c8fb266c752e6ebe0945a65ef2b776dbf767aa8de24d1832.png" src="../_images/40f7e6a720f48476c8fb266c752e6ebe0945a65ef2b776dbf767aa8de24d1832.png" />
 </div>
 </div>
 </section>
@@ -2489,7 +2493,7 @@ weighted avg       0.64      0.66      0.64      8000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c699c00b755e6c655bdda905808e5a65a8f71d38dfe5f0a2cb891bb4378c0b2b.png" src="../_images/c699c00b755e6c655bdda905808e5a65a8f71d38dfe5f0a2cb891bb4378c0b2b.png" />
+<img alt="../_images/62a73b2723da153c8bad404078362c02ad0a9ca73caa803e37234f12848bbea9.png" src="../_images/62a73b2723da153c8bad404078362c02ad0a9ca73caa803e37234f12848bbea9.png" />
 </div>
 </div>
 </section>
@@ -2683,7 +2687,7 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "23ede8625ae044a4a82768aae65b4d3b"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "73c83d00f9fd47f5820abefc62c4a58f"}</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3109,7 +3113,7 @@ afskfsd False 0.0 True
 <h3><span class="section-number">24.6.1. </span>Limitations and more Powerful Alternatives<a class="headerlink" href="#limitations-and-more-powerful-alternatives" title="Link to this heading">#</a></h3>
 <p>While Word2Vec is a powerful tool, it has limitations. One significant issue is that Word2Vec assigns one vector per word, which poses a problem for words with multiple meanings based on their context (homonyms and polysemes, such as “apple” the fruit vs. “apple” the company).</p>
 <p>A more fundamental limitation of Word2Vec and similar algorithms lies in the underlying bag-of-words approach, which removes information related to the order of words. Even constructs like n-grams can only compensate for extremely local patterns, such as differentiating “do not like” from “do like”.</p>
-<p>In contrast, deep learning techniques like recurrent neural networks and, more powerfully, <strong>transformers</strong>, can learn patterns across many more words. Transformers, in particular, can learn patterns across entire pages of text <span id="id5">[<a class="reference internal" href="../book/bibliography.html#id75" title="Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin. Attention is all you need. Advances in neural information processing systems, 2017.">Vaswani <em>et al.</em>, 2017</a>]</span>, enabling models like ChatGPT and other large language models to use natural language with unprecedented subtlety. Models such as BERT (Bidirectional Encoder Representations from Transformers) <span id="id6">[<a class="reference internal" href="../book/bibliography.html#id20" title="Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. Bert: pre-training of deep bidirectional transformers for language understanding. arXiv preprint arXiv:1810.04805, 2018.">Devlin <em>et al.</em>, 2018</a>]</span> and GPT (Generative Pretrained Transformer) <span id="id7">[<a class="reference internal" href="../book/bibliography.html#id63">Radford <em>et al.</em>, 2018</a>]</span> produce contextualized representations of words within a given context, taking the entire sentence or paragraph into account rather than generating static word embeddings.</p>
+<p>In contrast, deep learning techniques like recurrent neural networks and, more powerfully, <strong>transformers</strong>, can learn patterns across many more words. Transformers, in particular, can learn patterns across entire pages of text <span id="id5">[<a class="reference internal" href="../book/bibliography.html#id75" title="Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin. Attention is all you need. Advances in neural information processing systems, 2017.">Vaswani <em>et al.</em>, 2017</a>]</span>, enabling models like ChatGPT and other large language models to use natural language with unprecedented subtlety. Models such as BERT (Bidirectional Encoder Representations from Transformers) <span id="id6">[<a class="reference internal" href="../book/bibliography.html#id20" title="Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. Bert: pre-training of deep bidirectional transformers for language understanding. arXiv preprint arXiv:1810.04805, 2018.">Devlin <em>et al.</em>, 2018</a>]</span> and GPT (Generative Pretrained Transformer) <span id="id7">[<a class="reference internal" href="../book/bibliography.html#id63">Radford <em>et al.</em>, 2018</a>]</span> produce contextualized representations of words within a given context, taking the entire sentence or paragraph into account rather than generating static word embeddings. Working in Python also allows you to try and test many different transformer models, for instance via <em>huggingface</em> <span id="id8">[<a class="reference internal" href="../book/bibliography.html#id80" title="Thomas Wolf, Lysandre Debut, Victor Sanh, Julien Chaumond, Clement Delangue, Anthony Moi, Pierric Cistac, Tim Rault, Rémi Louf, Morgan Funtowicz, and others. Huggingface's transformers: state-of-the-art natural language processing. arXiv preprint arXiv:1910.03771, 2019.">Wolf <em>et al.</em>, 2019</a>]</span>.</p>
 <p>In conclusion, while TF-IDF and n-grams offer a solid start, word embeddings like those produced by Word2Vec and contextualized representations from transformers provide more advanced methods for working with text by considering context and semantic meaning.</p>
 </section>
 </section>
@@ -3118,8 +3122,8 @@ afskfsd False 0.0 True
 <p>It should come as no surprise that there is <em>much</em> more to learn about NLP than what was presented in this, and the previous chapters.</p>
 <p>Very good starting points for going deeper are:</p>
 <ul class="simple">
-<li><p>The book “Speech and Language Processing” by Jurafsky and Martin <span id="id8">[<a class="reference internal" href="../book/bibliography.html#id31" title="Dan Jurafsky and James H Martin. Speech and language processing. 3rd ed. draft. 2024.">Jurafsky and Martin, 2024</a>]</span>, see <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">link to the book</a>.</p></li>
-<li><p>“Natural language processing with transformers” by Tunstall, von Werra, and Wolf <span id="id9">[<a class="reference internal" href="../book/bibliography.html#id73" title="Lewis Tunstall, Leandro Von Werra, and Thomas Wolf. Natural language processing with transformers. &quot; O'Reilly Media, Inc.&quot;, 2022.">Tunstall <em>et al.</em>, 2022</a>]</span></p></li>
+<li><p>The book “Speech and Language Processing” by Jurafsky and Martin <span id="id9">[<a class="reference internal" href="../book/bibliography.html#id31" title="Dan Jurafsky and James H Martin. Speech and language processing. 3rd ed. draft. 2024.">Jurafsky and Martin, 2024</a>]</span>, see <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">link to the book</a>.</p></li>
+<li><p>“Natural language processing with transformers” by Tunstall, von Werra, and Wolf <span id="id10">[<a class="reference internal" href="../book/bibliography.html#id73" title="Lewis Tunstall, Leandro Von Werra, and Thomas Wolf. Natural language processing with transformers. &quot; O'Reilly Media, Inc.&quot;, 2022.">Tunstall <em>et al.</em>, 2022</a>]</span></p></li>
 </ul>
 </section>
 </section>
