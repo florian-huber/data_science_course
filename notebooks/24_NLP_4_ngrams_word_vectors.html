@@ -507,7 +507,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-short-cuts">24.6. Alternative short-cuts</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-and-more-powerful-alternatives">24.6.1. Limitations and more Powerful Alternatives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-and-more-powerful-alternatives">24.6.1. Limitations and More Powerful Alternatives</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-nlp">24.7. More on NLP</a></li>
@@ -2687,7 +2687,7 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "73c83d00f9fd47f5820abefc62c4a58f"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "994502c177644b8b8432437750619b4d"}</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3110,10 +3110,10 @@ afskfsd False 0.0 True
 </div>
 </div>
 <section id="limitations-and-more-powerful-alternatives">
-<h3><span class="section-number">24.6.1. </span>Limitations and more Powerful Alternatives<a class="headerlink" href="#limitations-and-more-powerful-alternatives" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">24.6.1. </span>Limitations and More Powerful Alternatives<a class="headerlink" href="#limitations-and-more-powerful-alternatives" title="Link to this heading">#</a></h3>
 <p>While Word2Vec is a powerful tool, it has limitations. One significant issue is that Word2Vec assigns one vector per word, which poses a problem for words with multiple meanings based on their context (homonyms and polysemes, such as “apple” the fruit vs. “apple” the company).</p>
 <p>A more fundamental limitation of Word2Vec and similar algorithms lies in the underlying bag-of-words approach, which removes information related to the order of words. Even constructs like n-grams can only compensate for extremely local patterns, such as differentiating “do not like” from “do like”.</p>
-<p>In contrast, deep learning techniques like recurrent neural networks and, more powerfully, <strong>transformers</strong>, can learn patterns across many more words. Transformers, in particular, can learn patterns across entire pages of text <span id="id5">[<a class="reference internal" href="../book/bibliography.html#id75" title="Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin. Attention is all you need. Advances in neural information processing systems, 2017.">Vaswani <em>et al.</em>, 2017</a>]</span>, enabling models like ChatGPT and other large language models to use natural language with unprecedented subtlety. Models such as BERT (Bidirectional Encoder Representations from Transformers) <span id="id6">[<a class="reference internal" href="../book/bibliography.html#id20" title="Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. Bert: pre-training of deep bidirectional transformers for language understanding. arXiv preprint arXiv:1810.04805, 2018.">Devlin <em>et al.</em>, 2018</a>]</span> and GPT (Generative Pretrained Transformer) <span id="id7">[<a class="reference internal" href="../book/bibliography.html#id63">Radford <em>et al.</em>, 2018</a>]</span> produce contextualized representations of words within a given context, taking the entire sentence or paragraph into account rather than generating static word embeddings. Working in Python also allows you to try and test many different transformer models, for instance via <em>huggingface</em> <span id="id8">[<a class="reference internal" href="../book/bibliography.html#id80" title="Thomas Wolf, Lysandre Debut, Victor Sanh, Julien Chaumond, Clement Delangue, Anthony Moi, Pierric Cistac, Tim Rault, Rémi Louf, Morgan Funtowicz, and others. Huggingface's transformers: state-of-the-art natural language processing. arXiv preprint arXiv:1910.03771, 2019.">Wolf <em>et al.</em>, 2019</a>]</span>.</p>
+<p>In contrast, deep learning techniques like recurrent neural networks and, more powerfully, <strong>transformers</strong>, can learn patterns across many more words. Transformers, in particular, can learn patterns across entire pages of text <span id="id5">[<a class="reference internal" href="../book/bibliography.html#id75" title="Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin. Attention is all you need. Advances in neural information processing systems, 2017.">Vaswani <em>et al.</em>, 2017</a>]</span>, enabling models like ChatGPT and other large language models to use natural language with unprecedented subtlety. Models such as BERT (Bidirectional Encoder Representations from Transformers) <span id="id6">[<a class="reference internal" href="../book/bibliography.html#id20" title="Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. Bert: pre-training of deep bidirectional transformers for language understanding. arXiv preprint arXiv:1810.04805, 2018.">Devlin <em>et al.</em>, 2018</a>]</span> and GPT (Generative Pretrained Transformer) <span id="id7">[<a class="reference internal" href="../book/bibliography.html#id63" title="Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, Ilya Sutskever, and others. Language models are unsupervised multitask learners. OpenAI blog, 1(8):9, 2019.">Radford <em>et al.</em>, 2019</a>]</span> produce contextualized representations of words within a given context, taking the entire sentence or paragraph into account rather than generating static word embeddings. Working in Python also allows you to try and test many different transformer models, for instance via <em>huggingface</em> <span id="id8">[<a class="reference internal" href="../book/bibliography.html#id80" title="Thomas Wolf, Lysandre Debut, Victor Sanh, Julien Chaumond, Clement Delangue, Anthony Moi, Pierric Cistac, Tim Rault, Rémi Louf, Morgan Funtowicz, and others. Huggingface's transformers: state-of-the-art natural language processing. arXiv preprint arXiv:1910.03771, 2019.">Wolf <em>et al.</em>, 2019</a>]</span>.</p>
 <p>In conclusion, while TF-IDF and n-grams offer a solid start, word embeddings like those produced by Word2Vec and contextualized representations from transformers provide more advanced methods for working with text by considering context and semantic meaning.</p>
 </section>
 </section>
@@ -3217,7 +3217,7 @@ afskfsd False 0.0 True
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-short-cuts">24.6. Alternative short-cuts</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-and-more-powerful-alternatives">24.6.1. Limitations and more Powerful Alternatives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-and-more-powerful-alternatives">24.6.1. Limitations and More Powerful Alternatives</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-nlp">24.7. More on NLP</a></li>
