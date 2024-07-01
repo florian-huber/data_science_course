@@ -18,12 +18,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
@@ -37,9 +37,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -139,6 +139,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../book/cover.html">
   
@@ -160,7 +162,7 @@
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -443,10 +445,10 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -454,7 +456,7 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
@@ -543,7 +545,7 @@ document.write(`
 <p>There are several Python libraries that are popularly used for modern Natural Language Processing (NLP) tasks. Here are a few of the most commonly used ones:</p>
 <ol class="arabic simple">
 <li><p><strong>NLTK (Natural Language Toolkit)</strong>: This is a widely used library for symbolic and statistical NLP. It provides easy-to-use interfaces to over 50 corpora and lexical resources, such as WordNet. NLTK also includes text processing libraries for classification, tokenization, stemming, tagging, parsing, and semantic reasoning. It’s excellent for teaching and working with the basics of NLP.</p></li>
-<li><p><strong>SpaCy</strong>: This library is known for its advanced NLP capabilities and efficient performance. SpaCy is designed to handle large volumes of text, and its features include named entity recognition, part-of-speech tagging, dependency parsing, and sentence segmentation. Its flexibility and speed make it ideal for production-grade NLP tasks <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id74" title="Yuli Vasiliev. Natural language processing with Python and spaCy: A practical introduction. No Starch Press, 2020.">Vasiliev, 2020</a>]</span>.</p></li>
+<li><p><strong>SpaCy</strong>: This library is known for its advanced NLP capabilities and efficient performance. SpaCy is designed to handle large volumes of text, and its features include named entity recognition, part-of-speech tagging, dependency parsing, and sentence segmentation. Its flexibility and speed make it ideal for production-grade NLP tasks <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id75" title="Yuli Vasiliev. Natural language processing with Python and spaCy: A practical introduction. No Starch Press, 2020.">Vasiliev, 2020</a>]</span>.</p></li>
 <li><p><strong>Gensim</strong>: This is a robust open-source vector space modeling and topic modeling toolkit. Gensim is designed to handle large text collections using data streaming and incremental algorithms, which is different from most other scientific software packages that only target batch and in-memory processing. It’s especially good for tasks that involve topic modeling and document similarity analysis.</p></li>
 <li><p><strong>TextBlob</strong>: This library simplifies text processing tasks by providing a consistent API for diving into common NLP tasks such as part-of-speech tagging, noun phrase extraction, sentiment analysis, and more. TextBlob is very beginner-friendly and is an excellent choice for basic NLP tasks and for people getting started with NLP in Python.</p></li>
 <li><p><strong>Transformers (by Hugging Face)</strong>: This library is based on the transformer architecture (like BERT, GPT, RoBERTa, XLM, etc) and has pre-trained models for many NLP tasks. It offers simple, yet powerful, APIs for performing tasks such as text classification, named entity recognition, translation, summarization, and more. It is a go-to library for state-of-the-art NLP (but clearly beyond the NLP basics that we will cover here).</p></li>
@@ -726,12 +728,14 @@ python<span class="w"> </span>-m<span class="w"> </span>spacy<span class="w"> </
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/12.8 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">4.1/12.8 MB</span> <span class=" -Color -Color-Red">122.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━ <span class=" -Color -Color-Green">9.5/12.8 MB</span> <span class=" -Color -Color-Red">139.2 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━╺━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">2.0/12.8 MB</span> <span class=" -Color -Color-Red">61.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">12.8/12.8 MB</span> <span class=" -Color -Color-Red">160.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">12.8/12.8 MB</span> <span class=" -Color -Color-Red">107.9 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━╸━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">7.7/12.8 MB</span> <span class=" -Color -Color-Red">112.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╸ <span class=" -Color -Color-Green">12.8/12.8 MB</span> <span class=" -Color -Color-Red">179.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">12.8/12.8 MB</span> <span class=" -Color -Color-Red">113.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25hRequirement already satisfied: spacy&lt;3.8.0,&gt;=3.7.2 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from en-core-web-sm==3.7.1) (3.7.5)
 </pre></div>
 </div>
@@ -750,25 +754,25 @@ Requirement already satisfied: tqdm&lt;5.0.0,&gt;=4.38.0 in /home/runner/microma
 Requirement already satisfied: requests&lt;3.0.0,&gt;=2.13.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (2.32.3)
 Requirement already satisfied: pydantic!=1.8,!=1.8.1,&lt;3.0.0,&gt;=1.7.4 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (2.7.4)
 Requirement already satisfied: jinja2 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (3.1.4)
-Requirement already satisfied: setuptools in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (70.1.0)
+Requirement already satisfied: setuptools in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (70.1.1)
 Requirement already satisfied: packaging&gt;=20.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (24.1)
 Requirement already satisfied: langcodes&lt;4.0.0,&gt;=3.2.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (3.4.0)
 Requirement already satisfied: numpy&gt;=1.19.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (1.26.4)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: language-data&gt;=1.2 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from langcodes&lt;4.0.0,&gt;=3.2.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (1.2.0)
+Requirement already satisfied: language-data&gt;=1.2 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from langcodes&lt;4.0.0,&gt;=3.2.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (1.2.0)
 Requirement already satisfied: annotated-types&gt;=0.4.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from pydantic!=1.8,!=1.8.1,&lt;3.0.0,&gt;=1.7.4-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (0.7.0)
 Requirement already satisfied: pydantic-core==2.18.4 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from pydantic!=1.8,!=1.8.1,&lt;3.0.0,&gt;=1.7.4-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (2.18.4)
 Requirement already satisfied: typing-extensions&gt;=4.6.1 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from pydantic!=1.8,!=1.8.1,&lt;3.0.0,&gt;=1.7.4-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (4.12.2)
-Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (3.3.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (3.3.2)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (3.7)
 Requirement already satisfied: urllib3&lt;3,&gt;=1.21.1 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (2.2.2)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from requests&lt;3.0.0,&gt;=2.13.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (2024.6.2)
+Requirement already satisfied: blis&lt;0.8.0,&gt;=0.7.8 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from thinc&lt;8.3.0,&gt;=8.2.2-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (0.7.11)
+Requirement already satisfied: confection&lt;1.0.0,&gt;=0.0.1 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from thinc&lt;8.3.0,&gt;=8.2.2-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (0.1.5)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: blis&lt;0.8.0,&gt;=0.7.8 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from thinc&lt;8.3.0,&gt;=8.2.2-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (0.7.11)
-Requirement already satisfied: confection&lt;1.0.0,&gt;=0.0.1 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from thinc&lt;8.3.0,&gt;=8.2.2-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (0.1.5)
-Requirement already satisfied: click&gt;=8.0.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from typer&lt;1.0.0,&gt;=0.3.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (8.1.7)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: click&gt;=8.0.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from typer&lt;1.0.0,&gt;=0.3.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (8.1.7)
 Requirement already satisfied: shellingham&gt;=1.3.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from typer&lt;1.0.0,&gt;=0.3.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (1.5.4)
 Requirement already satisfied: rich&gt;=10.11.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from typer&lt;1.0.0,&gt;=0.3.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (13.7.1)
 Requirement already satisfied: cloudpathlib&lt;1.0.0,&gt;=0.7.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from weasel&lt;0.5.0,&gt;=0.1.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (0.18.1)
@@ -777,14 +781,12 @@ Requirement already satisfied: MarkupSafe&gt;=2.0 in /home/runner/micromamba/env
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: marisa-trie&gt;=0.7.7 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from language-data&gt;=1.2-&gt;langcodes&lt;4.0.0,&gt;=3.2.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (1.2.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: markdown-it-py&gt;=2.2.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from rich&gt;=10.11.0-&gt;typer&lt;1.0.0,&gt;=0.3.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (3.0.0)
+Requirement already satisfied: markdown-it-py&gt;=2.2.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from rich&gt;=10.11.0-&gt;typer&lt;1.0.0,&gt;=0.3.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (3.0.0)
 Requirement already satisfied: pygments&lt;3.0.0,&gt;=2.13.0 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from rich&gt;=10.11.0-&gt;typer&lt;1.0.0,&gt;=0.3.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (2.18.0)
-Requirement already satisfied: wrapt in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from smart-open&lt;8.0.0,&gt;=5.2.1-&gt;weasel&lt;0.5.0,&gt;=0.1.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (1.16.0)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: mdurl~=0.1 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from markdown-it-py&gt;=2.2.0-&gt;rich&gt;=10.11.0-&gt;typer&lt;1.0.0,&gt;=0.3.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (0.1.2)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: wrapt in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from smart-open&lt;8.0.0,&gt;=5.2.1-&gt;weasel&lt;0.5.0,&gt;=0.1.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (1.16.0)
+Requirement already satisfied: mdurl~=0.1 in /home/runner/micromamba/envs/data_science/lib/python3.10/site-packages (from markdown-it-py&gt;=2.2.0-&gt;rich&gt;=10.11.0-&gt;typer&lt;1.0.0,&gt;=0.3.0-&gt;spacy&lt;3.8.0,&gt;=3.7.2-&gt;en-core-web-sm==3.7.1) (0.1.2)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: en-core-web-sm
@@ -1223,8 +1225,8 @@ By Florian Huber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

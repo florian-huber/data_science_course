@@ -15,69 +15,44 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-from gensim.models import Word2Vec
+import spacy
 
-# Assume 'sentences' is a list of lists of tokenized sentences
-model = Word2Vec(sentences,
-                 vector_size=200,
-                 window=5,
-                 min_count=2,
-                 workers=4)
+nlp = spacy.load("en_core_web_lg")
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mImportError[0m                               Traceback (most recent call last)
-Cell [0;32mIn[49], line 1[0m
-[0;32m----> 1[0m [38;5;28;01mfrom[39;00m [38;5;21;01mgensim[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmodels[39;00m [38;5;28;01mimport[39;00m Word2Vec
-[1;32m      3[0m [38;5;66;03m# Assume 'sentences' is a list of lists of tokenized sentences[39;00m
-[1;32m      4[0m model [38;5;241m=[39m Word2Vec(sentences,
-[1;32m      5[0m                  vector_size[38;5;241m=[39m[38;5;241m200[39m,
-[1;32m      6[0m                  window[38;5;241m=[39m[38;5;241m5[39m,
-[1;32m      7[0m                  min_count[38;5;241m=[39m[38;5;241m2[39m,
-[1;32m      8[0m                  workers[38;5;241m=[39m[38;5;241m4[39m)
+[0;31mOSError[0m                                   Traceback (most recent call last)
+Cell [0;32mIn[60], line 3[0m
+[1;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01mspacy[39;00m
+[0;32m----> 3[0m nlp [38;5;241m=[39m [43mspacy[49m[38;5;241;43m.[39;49m[43mload[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43men_core_web_lg[39;49m[38;5;124;43m"[39;49m[43m)[49m
 
-File [0;32m~/micromamba/envs/data_science/lib/python3.10/site-packages/gensim/__init__.py:11[0m
-[1;32m      7[0m __version__ [38;5;241m=[39m [38;5;124m'[39m[38;5;124m4.3.2[39m[38;5;124m'[39m
-[1;32m      9[0m [38;5;28;01mimport[39;00m [38;5;21;01mlogging[39;00m
-[0;32m---> 11[0m [38;5;28;01mfrom[39;00m [38;5;21;01mgensim[39;00m [38;5;28;01mimport[39;00m parsing, corpora, matutils, interfaces, models, similarities, utils  [38;5;66;03m# noqa:F401[39;00m
-[1;32m     14[0m logger [38;5;241m=[39m logging[38;5;241m.[39mgetLogger([38;5;124m'[39m[38;5;124mgensim[39m[38;5;124m'[39m)
-[1;32m     15[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m logger[38;5;241m.[39mhandlers:  [38;5;66;03m# To ensure reload() doesn't add another one[39;00m
-
-File [0;32m~/micromamba/envs/data_science/lib/python3.10/site-packages/gensim/corpora/__init__.py:6[0m
-[1;32m      1[0m [38;5;124;03m"""[39;00m
-[1;32m      2[0m [38;5;124;03mThis package contains implementations of various streaming corpus I/O format.[39;00m
-[1;32m      3[0m [38;5;124;03m"""[39;00m
-[1;32m      5[0m [38;5;66;03m# bring corpus classes directly into package namespace, to save some typing[39;00m
-[0;32m----> 6[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mindexedcorpus[39;00m [38;5;28;01mimport[39;00m IndexedCorpus  [38;5;66;03m# noqa:F401 must appear before the other classes[39;00m
-[1;32m      8[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mmmcorpus[39;00m [38;5;28;01mimport[39;00m MmCorpus  [38;5;66;03m# noqa:F401[39;00m
-[1;32m      9[0m [38;5;28;01mfrom[39;00m [38;5;21;01m.[39;00m[38;5;21;01mbleicorpus[39;00m [38;5;28;01mimport[39;00m BleiCorpus  [38;5;66;03m# noqa:F401[39;00m
-
-File [0;32m~/micromamba/envs/data_science/lib/python3.10/site-packages/gensim/corpora/indexedcorpus.py:14[0m
-[1;32m     10[0m [38;5;28;01mimport[39;00m [38;5;21;01mlogging[39;00m
-[1;32m     12[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m
-[0;32m---> 14[0m [38;5;28;01mfrom[39;00m [38;5;21;01mgensim[39;00m [38;5;28;01mimport[39;00m interfaces, utils
-[1;32m     16[0m logger [38;5;241m=[39m logging[38;5;241m.[39mgetLogger([38;5;18m__name__[39m)
-[1;32m     19[0m [38;5;28;01mclass[39;00m [38;5;21;01mIndexedCorpus[39;00m(interfaces[38;5;241m.[39mCorpusABC):
-
-File [0;32m~/micromamba/envs/data_science/lib/python3.10/site-packages/gensim/interfaces.py:19[0m
-[1;32m      7[0m [38;5;124;03m"""Basic interfaces used across the whole Gensim package.[39;00m
-[1;32m      8[0m 
-[1;32m      9[0m [38;5;124;03mThese interfaces are used for building corpora, model transformation and similarity queries.[39;00m
+File [0;32m~/micromamba/envs/data_science/lib/python3.10/site-packages/spacy/__init__.py:51[0m, in [0;36mload[0;34m(name, vocab, disable, enable, exclude, config)[0m
+[1;32m     27[0m [38;5;28;01mdef[39;00m [38;5;21mload[39m(
+[1;32m     28[0m     name: Union[[38;5;28mstr[39m, Path],
+[1;32m     29[0m     [38;5;241m*[39m,
 [0;32m   (...)[0m
-[1;32m     14[0m 
-[1;32m     15[0m [38;5;124;03m"""[39;00m
-[1;32m     17[0m [38;5;28;01mimport[39;00m [38;5;21;01mlogging[39;00m
-[0;32m---> 19[0m [38;5;28;01mfrom[39;00m [38;5;21;01mgensim[39;00m [38;5;28;01mimport[39;00m utils, matutils
-[1;32m     22[0m logger [38;5;241m=[39m logging[38;5;241m.[39mgetLogger([38;5;18m__name__[39m)
-[1;32m     25[0m [38;5;28;01mclass[39;00m [38;5;21;01mCorpusABC[39;00m(utils[38;5;241m.[39mSaveLoad):
+[1;32m     34[0m     config: Union[Dict[[38;5;28mstr[39m, Any], Config] [38;5;241m=[39m util[38;5;241m.[39mSimpleFrozenDict(),
+[1;32m     35[0m ) [38;5;241m-[39m[38;5;241m>[39m Language:
+[1;32m     36[0m [38;5;250m    [39m[38;5;124;03m"""Load a spaCy model from an installed package or a local path.[39;00m
+[1;32m     37[0m 
+[1;32m     38[0m [38;5;124;03m    name (str): Package name or model path.[39;00m
+[0;32m   (...)[0m
+[1;32m     49[0m [38;5;124;03m    RETURNS (Language): The loaded nlp object.[39;00m
+[1;32m     50[0m [38;5;124;03m    """[39;00m
+[0;32m---> 51[0m     [38;5;28;01mreturn[39;00m [43mutil[49m[38;5;241;43m.[39;49m[43mload_model[49m[43m([49m
+[1;32m     52[0m [43m        [49m[43mname[49m[43m,[49m
+[1;32m     53[0m [43m        [49m[43mvocab[49m[38;5;241;43m=[39;49m[43mvocab[49m[43m,[49m
+[1;32m     54[0m [43m        [49m[43mdisable[49m[38;5;241;43m=[39;49m[43mdisable[49m[43m,[49m
+[1;32m     55[0m [43m        [49m[43menable[49m[38;5;241;43m=[39;49m[43menable[49m[43m,[49m
+[1;32m     56[0m [43m        [49m[43mexclude[49m[38;5;241;43m=[39;49m[43mexclude[49m[43m,[49m
+[1;32m     57[0m [43m        [49m[43mconfig[49m[38;5;241;43m=[39;49m[43mconfig[49m[43m,[49m
+[1;32m     58[0m [43m    [49m[43m)[49m
 
-File [0;32m~/micromamba/envs/data_science/lib/python3.10/site-packages/gensim/matutils.py:20[0m
-[1;32m     18[0m [38;5;28;01mimport[39;00m [38;5;21;01mscipy[39;00m[38;5;21;01m.[39;00m[38;5;21;01msparse[39;00m
-[1;32m     19[0m [38;5;28;01mfrom[39;00m [38;5;21;01mscipy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mstats[39;00m [38;5;28;01mimport[39;00m entropy
-[0;32m---> 20[0m [38;5;28;01mfrom[39;00m [38;5;21;01mscipy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mlinalg[39;00m [38;5;28;01mimport[39;00m get_blas_funcs, triu
-[1;32m     21[0m [38;5;28;01mfrom[39;00m [38;5;21;01mscipy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mlinalg[39;00m[38;5;21;01m.[39;00m[38;5;21;01mlapack[39;00m [38;5;28;01mimport[39;00m get_lapack_funcs
-[1;32m     22[0m [38;5;28;01mfrom[39;00m [38;5;21;01mscipy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mspecial[39;00m [38;5;28;01mimport[39;00m psi  [38;5;66;03m# gamma function utils[39;00m
+File [0;32m~/micromamba/envs/data_science/lib/python3.10/site-packages/spacy/util.py:472[0m, in [0;36mload_model[0;34m(name, vocab, disable, enable, exclude, config)[0m
+[1;32m    470[0m [38;5;28;01mif[39;00m name [38;5;129;01min[39;00m OLD_MODEL_SHORTCUTS:
+[1;32m    471[0m     [38;5;28;01mraise[39;00m [38;5;167;01mIOError[39;00m(Errors[38;5;241m.[39mE941[38;5;241m.[39mformat(name[38;5;241m=[39mname, full[38;5;241m=[39mOLD_MODEL_SHORTCUTS[name]))  [38;5;66;03m# type: ignore[index][39;00m
+[0;32m--> 472[0m [38;5;28;01mraise[39;00m [38;5;167;01mIOError[39;00m(Errors[38;5;241m.[39mE050[38;5;241m.[39mformat(name[38;5;241m=[39mname))
 
-[0;31mImportError[0m: cannot import name 'triu' from 'scipy.linalg' (/home/runner/micromamba/envs/data_science/lib/python3.10/site-packages/scipy/linalg/__init__.py)
+[0;31mOSError[0m: [E050] Can't find model 'en_core_web_lg'. It doesn't seem to be a Python package or a valid path to a data directory.
 

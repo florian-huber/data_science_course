@@ -18,12 +18,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
@@ -37,9 +37,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -139,6 +139,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../book/cover.html">
   
@@ -160,7 +162,7 @@
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -443,10 +445,10 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -454,7 +456,7 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
@@ -573,7 +575,7 @@ In the context of data science, outliers can skew the results of data analysis, 
 <h2><span class="section-number">13.2. </span>Method: Isolation Forest<a class="headerlink" href="#method-isolation-forest" title="Link to this heading">#</a></h2>
 <section id="concept-and-theory">
 <h3><span class="section-number">13.2.1. </span>Concept and Theory<a class="headerlink" href="#concept-and-theory" title="Link to this heading">#</a></h3>
-<p><strong>Isolation Forest</strong> (iForest) is an unsupervised learning algorithm for anomaly detection that works on the principle of isolating anomalies, instead of profiling normal data points. Developed 2008 <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id37" title="Fei Tony Liu, Kai Ming Ting, and Zhi-Hua Zhou. Isolation forest. In 2008 eighth ieee international conference on data mining, 413–422. IEEE, 2008.">Liu <em>et al.</em>, 2008</a>]</span>, it’s particularly effective in datasets with a high dimensionality.</p>
+<p><strong>Isolation Forest</strong> (iForest) is an unsupervised learning algorithm for anomaly detection that works on the principle of isolating anomalies, instead of profiling normal data points. Developed 2008 <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id38" title="Fei Tony Liu, Kai Ming Ting, and Zhi-Hua Zhou. Isolation forest. In 2008 eighth ieee international conference on data mining, 413–422. IEEE, 2008.">Liu <em>et al.</em>, 2008</a>]</span>, it’s particularly effective in datasets with a high dimensionality.</p>
 <p><strong>Isolating Anomalies</strong>: The core idea behind Isolation Forest is that anomalies are few and different, which makes them easier to isolate. In a dataset, anomalies are susceptible to being isolated with fewer random partitions compared to normal points.</p>
 <p><strong>Tree Structure</strong>: The algorithm builds an ensemble of isolation trees (iTrees) for the dataset. Each iTree is constructed by randomly selecting a feature and then randomly selecting a split value between the maximum and minimum values of the selected feature. This process is repeated recursively until the data points are isolated or the tree reaches a certain height.</p>
 </section>
@@ -752,7 +754,7 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 <h2><span class="section-number">13.3. </span>Method: Local Outlier Factor (LOF)<a class="headerlink" href="#method-local-outlier-factor-lof" title="Link to this heading">#</a></h2>
 <section id="concept-and-background">
 <h3><span class="section-number">13.3.1. </span>Concept and Background<a class="headerlink" href="#concept-and-background" title="Link to this heading">#</a></h3>
-<p><strong>Local Outlier Factor (LOF)</strong> is an algorithm designed for detecting local outliers, introduced in 2000 <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id13" title="Markus M Breunig, Hans-Peter Kriegel, Raymond T Ng, and Jörg Sander. Lof: identifying density-based local outliers. In Proceedings of the 2000 ACM SIGMOD international conference on Management of data, 93–104. 2000.">Breunig <em>et al.</em>, 2000</a>]</span>. It’s particularly effective in identifying outliers in datasets where the density varies across different regions.</p>
+<p><strong>Local Outlier Factor (LOF)</strong> is an algorithm designed for detecting local outliers, introduced in 2000 <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id14" title="Markus M Breunig, Hans-Peter Kriegel, Raymond T Ng, and Jörg Sander. Lof: identifying density-based local outliers. In Proceedings of the 2000 ACM SIGMOD international conference on Management of data, 93–104. 2000.">Breunig <em>et al.</em>, 2000</a>]</span>. It’s particularly effective in identifying outliers in datasets where the density varies across different regions.</p>
 <p><strong>Local Density Estimation</strong>: LOF relies on the concept of local density, where locality is given by the k-nearest neighbors of a point. It compares the local density of a point to the densities of its neighbors. An outlier will have a substantially lower density than its neighbors.</p>
 </section>
 <section id="id3">
@@ -940,7 +942,7 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 <h2><span class="section-number">13.4. </span>More on Outlier Detection<a class="headerlink" href="#more-on-outlier-detection" title="Link to this heading">#</a></h2>
 <p>Outlier detection, or anomaly detection, are often crucial steps in data analysis processes. As a consequence, there are many more techniques for detecting such outliers with varying advantages and disadvantages.</p>
 <p>To get a better impression of the rich realm of outlier detection methods, see for instance the following two review articles:
-<span id="id8">[<a class="reference internal" href="../book/bibliography.html#id11" title="Azzedine Boukerche, Lining Zheng, and Omar Alfandi. Outlier detection: methods, models, and classification. ACM Computing Surveys (CSUR), 53(3):1–37, 2020.">Boukerche <em>et al.</em>, 2020</a>]</span>, and <span id="id9">[<a class="reference internal" href="../book/bibliography.html#id69" title="Abir Smiti. A critical overview of outlier detection methods. Computer Science Review, 38:100306, 2020.">Smiti, 2020</a>]</span>.</p>
+<span id="id8">[<a class="reference internal" href="../book/bibliography.html#id12" title="Azzedine Boukerche, Lining Zheng, and Omar Alfandi. Outlier detection: methods, models, and classification. ACM Computing Surveys (CSUR), 53(3):1–37, 2020.">Boukerche <em>et al.</em>, 2020</a>]</span>, and <span id="id9">[<a class="reference internal" href="../book/bibliography.html#id70" title="Abir Smiti. A critical overview of outlier detection methods. Computer Science Review, 38:100306, 2020.">Smiti, 2020</a>]</span>.</p>
 </section>
 </section>
 
@@ -1081,8 +1083,8 @@ By Florian Huber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

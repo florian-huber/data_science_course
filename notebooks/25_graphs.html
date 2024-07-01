@@ -18,12 +18,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
@@ -37,9 +37,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
@@ -141,6 +141,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../book/cover.html">
   
@@ -162,7 +164,7 @@
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -445,10 +447,10 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -456,7 +458,7 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
@@ -559,7 +561,7 @@ document.write(`
 </section>
 <section id="graphs-in-python-with-networkx">
 <h2><span class="section-number">25.3. </span>Graphs in Python with <code class="docutils literal notranslate"><span class="pre">NetworkX</span></code><a class="headerlink" href="#graphs-in-python-with-networkx" title="Link to this heading">#</a></h2>
-<p>If if comes to working with networks/graphs, the goto Python library is <code class="docutils literal notranslate"><span class="pre">NetworkX</span></code> <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id52" title="Aric A. Hagberg, Daniel A. Schult, and Pieter J. Swart. Exploring network structure, dynamics, and function using networkx. In Gaël Varoquaux, Travis Vaught, and Jarrod Millman, editors, Proceedings of the 7th Python in Science Conference, 11 - 15. Pasadena, CA USA, 2008.">Hagberg <em>et al.</em>, 2008</a>]</span>, which also comes with an <a class="reference external" href="https://networkx.org/documentation/stable/reference/index.html">extensive documentation</a>.
+<p>If if comes to working with networks/graphs, the goto Python library is <code class="docutils literal notranslate"><span class="pre">NetworkX</span></code> <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id53" title="Aric A. Hagberg, Daniel A. Schult, and Pieter J. Swart. Exploring network structure, dynamics, and function using networkx. In Gaël Varoquaux, Travis Vaught, and Jarrod Millman, editors, Proceedings of the 7th Python in Science Conference, 11 - 15. Pasadena, CA USA, 2008.">Hagberg <em>et al.</em>, 2008</a>]</span>, which also comes with an <a class="reference external" href="https://networkx.org/documentation/stable/reference/index.html">extensive documentation</a>.
 In addition, <code class="docutils literal notranslate"><span class="pre">NetworkX</span></code> also provides its own <a class="reference external" href="https://networkx.org/documentation/stable/tutorial.html">tutorial material</a>.</p>
 <p>Here, we will do a quick introduction to NetworkX which we will then use for all graph-related parts in this course.</p>
 <section id="installation">
@@ -686,7 +688,7 @@ To initiate a directed graph we can use <code class="docutils literal notranslat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c00ace13e55290e23966f90c2800b8e991bbcf4260eebeae44df7eb7a5a7f068.png" src="../_images/c00ace13e55290e23966f90c2800b8e991bbcf4260eebeae44df7eb7a5a7f068.png" />
+<img alt="../_images/c62ded39dc38137fbf37d3c26a38013aba04db7f1694caeb4e62f5c9ead73819.png" src="../_images/c62ded39dc38137fbf37d3c26a38013aba04db7f1694caeb4e62f5c9ead73819.png" />
 </div>
 </div>
 <p>We see that some nodes have more connections (up to three in this example), while others have fewer connections, such as the node “Alice” with only one edge to another node (“Peter”).
@@ -830,7 +832,6 @@ Density = 0.6
 <span class="n">ax1</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
 <span class="n">ax3</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
-<span class="c1"># plt.savefig(&quot;fig_graphs_densities.svg&quot;)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -857,7 +858,7 @@ Density = 0.6
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5279ba8db27af519b5cdaf1e24f2662ab319291dc53aa05032c817a09e4c92af.png" src="../_images/5279ba8db27af519b5cdaf1e24f2662ab319291dc53aa05032c817a09e4c92af.png" />
+<img alt="../_images/94ef9b42a9033f3ea877a06dce1e64177b609e02611ba08b7de8da14d1c85523.png" src="../_images/94ef9b42a9033f3ea877a06dce1e64177b609e02611ba08b7de8da14d1c85523.png" />
 </div>
 </div>
 </section>
@@ -879,7 +880,7 @@ Density = 0.6
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3645d09e15ac216d8d96a40e73abfc992b98469806b5ba40e370dc0edc2de552.png" src="../_images/3645d09e15ac216d8d96a40e73abfc992b98469806b5ba40e370dc0edc2de552.png" />
+<img alt="../_images/0afe405c3b541b8ba98831a8cdde0ecd2f42abe17db0b784d3c990a328764690.png" src="../_images/0afe405c3b541b8ba98831a8cdde0ecd2f42abe17db0b784d3c990a328764690.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -893,7 +894,7 @@ Density = 0.6
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/177b47b6045b1170ef38e044f5ddf0b89c5d32e01a93419c96b56e3d30bcaf77.png" src="../_images/177b47b6045b1170ef38e044f5ddf0b89c5d32e01a93419c96b56e3d30bcaf77.png" />
+<img alt="../_images/374ed57b9a4aa6334a52cc4a4bf820cf2109f189dc86ba4019aa4025caefb8f2.png" src="../_images/374ed57b9a4aa6334a52cc4a4bf820cf2109f189dc86ba4019aa4025caefb8f2.png" />
 </div>
 </div>
 </section>
@@ -1055,8 +1056,8 @@ By Florian Huber
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
