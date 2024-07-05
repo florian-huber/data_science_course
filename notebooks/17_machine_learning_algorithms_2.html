@@ -528,7 +528,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="common-algorithms-ii-linear-models">
 <span id="ch-linear-models"></span><h1><span class="section-number">17. </span>Common Algorithms II - Linear Models<a class="headerlink" href="#common-algorithms-ii-linear-models" title="Link to this heading">#</a></h1>
 <p>We first looked at k-nearest neighbors (k-NN) and applied it to a simple dataset by using the Scikit-Learn implementation.
-Scikit-Learn provides many more machine learning models, and all are relatively easy to use from a coding perspective <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id69" title="F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay. Scikit-learn: machine learning in Python. Journal of Machine Learning Research, 12:2825–2830, 2011.">Pedregosa <em>et al.</em>, 2011</a>]</span>.</p>
+Scikit-Learn provides many more machine learning models, and all are relatively easy to use from a coding perspective <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id70" title="F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay. Scikit-learn: machine learning in Python. Journal of Machine Learning Research, 12:2825–2830, 2011.">Pedregosa <em>et al.</em>, 2011</a>]</span>.</p>
 <p>The supervised models (see <a class="reference external" href="https://scikit-learn.org/stable/supervised_learning.html">the Scikit-Learn guide</a>) are usually handled in a very similar way. We first train a model using <code class="docutils literal notranslate"><span class="pre">model.fit(X,</span> <span class="pre">y)</span></code> where <code class="docutils literal notranslate"><span class="pre">X</span></code> is our training data and <code class="docutils literal notranslate"><span class="pre">y</span></code> our targets or labels. Predictions on new data <code class="docutils literal notranslate"><span class="pre">X_new</span></code> are generated using <code class="docutils literal notranslate"><span class="pre">model.predict(X_new)</span></code>.</p>
 <p>In most cases, the main difficulty is not the code part. It is the right choice of an algorithm and the proper preparation of the input data.
 One thing that can lead to quite embarrassing outcomes, but also to drastic failure of a project, is the use of machine learning models without a proper understanding of how they work. A good data scientist will develop an intuition over time for what type of models work well for a certain task and dataset. This is nothing that can be developed within a few days or weeks, but we can set a good starting point here.</p>
@@ -583,7 +583,7 @@ Their main issue is, that they are often just <em>too</em> simple to describe da
 </section>
 <section id="hands-on-example-linear-regression">
 <h2><span class="section-number">17.3. </span>Hands-on Example: Linear Regression<a class="headerlink" href="#hands-on-example-linear-regression" title="Link to this heading">#</a></h2>
-<p>We here again work with the <a class="reference external" href="https://allisonhorst.github.io/palmerpenguins/"><code class="docutils literal notranslate"><span class="pre">Penguin</span> <span class="pre">Dataset</span></code></a> <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id58" title="Allison Marie Horst, Alison Presmanes Hill, and Kristen B Gorman. palmerpenguins: Palmer Archipelago (Antarctica) penguin data. 2020. R package version 0.1.0. URL: https://allisonhorst.github.io/palmerpenguins/, doi:10.5281/zenodo.3960218.">Horst <em>et al.</em>, 2020</a>]</span>. But instead of predicting the species (which is a categorical value), we will try to predict numerical values.
+<p>We here again work with the <a class="reference external" href="https://allisonhorst.github.io/palmerpenguins/"><code class="docutils literal notranslate"><span class="pre">Penguin</span> <span class="pre">Dataset</span></code></a> <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id59" title="Allison Marie Horst, Alison Presmanes Hill, and Kristen B Gorman. palmerpenguins: Palmer Archipelago (Antarctica) penguin data. 2020. R package version 0.1.0. URL: https://allisonhorst.github.io/palmerpenguins/, doi:10.5281/zenodo.3960218.">Horst <em>et al.</em>, 2020</a>]</span>. But instead of predicting the species (which is a categorical value), we will try to predict numerical values.
 This will create a <em>regression</em> task instead of a classification task.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1217,7 +1217,7 @@ Just as before with the k-NN model, we can simply create predictions on any data
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Predicted label&#39;)
 </pre></div>
 </div>
-<img alt="../_images/4867c4d14ce07c27eebf3370aadb1efead23c71551aa05b35016130b56975aff.png" src="../_images/4867c4d14ce07c27eebf3370aadb1efead23c71551aa05b35016130b56975aff.png" />
+<img alt="../_images/012cdd6d0498927a5c58a1aff61676ea0ec941400666cbbe6325fd827ee9e5b4.png" src="../_images/012cdd6d0498927a5c58a1aff61676ea0ec941400666cbbe6325fd827ee9e5b4.png" />
 </div>
 </div>
 <p>We can also look at the prediction errors, which simply is <code class="docutils literal notranslate"><span class="pre">y_test</span> <span class="pre">-</span> <span class="pre">predictions</span></code>.<br />
@@ -1235,7 +1235,7 @@ A histogram can quickly show us by how far our model predictions are off.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Prediction errors&#39;)
 </pre></div>
 </div>
-<img alt="../_images/fd77d80c2945f88b47ecfb334d8f2f61566e9ea549b96596d91a7dbe1deba158.png" src="../_images/fd77d80c2945f88b47ecfb334d8f2f61566e9ea549b96596d91a7dbe1deba158.png" />
+<img alt="../_images/439887316a3d4be46ca4e028fc8b637fa1c1486bcfcb95be145b0a8b30df3a60.png" src="../_images/439887316a3d4be46ca4e028fc8b637fa1c1486bcfcb95be145b0a8b30df3a60.png" />
 </div>
 </div>
 <p>In this example we see that most predictions are off by no more than +- 5.</p>
@@ -1814,7 +1814,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/7926b6ab6cc8df8a6f5a5436437563e9fa552dbae4246813d520908cadf11f92.png" src="../_images/7926b6ab6cc8df8a6f5a5436437563e9fa552dbae4246813d520908cadf11f92.png" />
+<img alt="../_images/d5502b324560c6f27463c180824f98844e32444456c71256512eeb26a1b3cc08.png" src="../_images/d5502b324560c6f27463c180824f98844e32444456c71256512eeb26a1b3cc08.png" />
 </div>
 </div>
 <p>As we can see from the plot, the decision boundary is set at around 5 hours of preparation. This means that our model will simply predict “passed” for any student that prepared for more than 5 hours, and “not passed” if not.</p>
@@ -1985,7 +1985,7 @@ weighted avg       0.99      0.99      0.99        67
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="../_images/14c4be4cad42ea8349c8d83eb05634a431a16c9d53390894800317da727dc173.png" src="../_images/14c4be4cad42ea8349c8d83eb05634a431a16c9d53390894800317da727dc173.png" />
+<img alt="../_images/a3f4a44fe6b05e79da603a59feef38d4a2136ce493b6790861daf0807cb61e37.png" src="../_images/a3f4a44fe6b05e79da603a59feef38d4a2136ce493b6790861daf0807cb61e37.png" />
 </div>
 </div>
 <p>Logistic regression is a comparably simple model. It remains, however, a widely used algorithm in machine learning, and we will apply it in a later chapter to classify text documents.</p>

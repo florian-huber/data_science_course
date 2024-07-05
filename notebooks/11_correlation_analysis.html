@@ -647,7 +647,7 @@ Corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/29779ce6b43bcd2cabde4aa70193a3e9be31f2d1cd1d1efee63b4921877b5349.png" src="../_images/29779ce6b43bcd2cabde4aa70193a3e9be31f2d1cd1d1efee63b4921877b5349.png" />
+<img alt="../_images/cdf36d0096e4c2360e453f723cdbe4a5a77e080b6e57662e922202471ff46b38.png" src="../_images/cdf36d0096e4c2360e453f723cdbe4a5a77e080b6e57662e922202471ff46b38.png" />
 </div>
 </div>
 <p>What would you say, which features are correlated, and which are not?</p>
@@ -1006,15 +1006,16 @@ Corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1381badf631f4d358812e537c70403d0e10f4b079e176597fc70b11a5715b777.png" src="../_images/1381badf631f4d358812e537c70403d0e10f4b079e176597fc70b11a5715b777.png" />
+<img alt="../_images/ebfd5a760a6901694cd9a99bff4e57ce69518ab1cdf83bd8108065d4c8f3a4cf.png" src="../_images/ebfd5a760a6901694cd9a99bff4e57ce69518ab1cdf83bd8108065d4c8f3a4cf.png" />
 </div>
 </div>
 </section>
 <section id="limitations-of-the-pearson-correlation-measure">
 <h2><span class="section-number">11.3. </span>Limitations of the (Pearson) Correlation Measure<a class="headerlink" href="#limitations-of-the-pearson-correlation-measure" title="Link to this heading">#</a></h2>
-<p>While high (and low) correlation coefficients often indicate actual correlations in the data, there are also several issues/limitations with this approach.</p>
+<p>Pronounced high (or low) correlation coefficients indicate actual correlations in the data, which -in the case of the Pearson correlation- usually means that there is a clear linear dependency between two features.</p>
+<p>This approach, however, has several limitations that can complicate the interpretation of such correlation measures. In the following, the most common pitfalls will be presented.</p>
 <p><strong>The value of the slope has no influence</strong><br />
-The strength of a correlation is not dependent on the slope of a relation between two values, only to the sign of it.</p>
+The strength of a correlation is a measure of how clear the linear dependency between two features is. But the result is not dependent on the slope of such a relation between two values (only on the sign of it). See the plot below:</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1077,12 +1078,12 @@ The strength of a correlation is not dependent on the slope of a relation betwee
   c /= stddev[None, :]
 </pre></div>
 </div>
-<img alt="../_images/b06d6ffe85f0ff27a16ca602a606e275509ad1b0f41f8e5fa0bd8072783a87cd.png" src="../_images/b06d6ffe85f0ff27a16ca602a606e275509ad1b0f41f8e5fa0bd8072783a87cd.png" />
+<img alt="../_images/6c7080eaef83c573e44e87733250f5a2c3ab655c7b8bccca08f9f3c2f212321e.png" src="../_images/6c7080eaef83c573e44e87733250f5a2c3ab655c7b8bccca08f9f3c2f212321e.png" />
 </div>
 </div>
-<p><strong>Only detects linear relationships</strong><br />
-A low correlation doesn’t mean there isn’t a significant relationship!</p>
-<p>The following figure shows data with clearly visible pattern (to the human eye at least), but with no, or nearly no detectable Pearson correlation.</p>
+<p><strong>(Pearson) correlation coefficients only detects linear relationships</strong><br />
+While pronounced correlation coefficients reflect a clear dependency between values, a low correlation coefficient is more complicated to interpret. Most importantly, a low correlation does not imply that there is no significant relationship!</p>
+<p>The following figure shows data with clearly visible pattern (to the human eye), but with no, or nearly no detectable Pearson correlation.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1147,11 +1148,12 @@ A low correlation doesn’t mean there isn’t a significant relationship!</p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/9813ee96d8c4f5ca1683dea1354c606a0cbbab86c1472ecd441e96377973926f.png" src="../_images/9813ee96d8c4f5ca1683dea1354c606a0cbbab86c1472ecd441e96377973926f.png" />
+<img alt="../_images/48d7b52cc17747c9621d7299aebc9833555ab8c47ea7a082b7c95b5eaa3ff0fa.png" src="../_images/48d7b52cc17747c9621d7299aebc9833555ab8c47ea7a082b7c95b5eaa3ff0fa.png" />
 </div>
 </div>
 <p>Another prominent example to illustrate how little the Pearson correlation coefficient sometimes tells us is the <code class="docutils literal notranslate"><span class="pre">datasaurus</span></code> dataset from the last chapter. Here, too, the data is distributed very differently, but the correlation coefficient remains the same.</p>
-<p>Yet another well-known illustrative example is “Anscombe’s quartet <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id3" title="F. J. Anscombe. Graphs in Statistical Analysis. The American Statistician, 27(1):17–21, February 1973. Publisher: Taylor &amp; Francis _eprint: https://www.tandfonline.com/doi/pdf/10.1080/00031305.1973.10478966. URL: https://www.tandfonline.com/doi/abs/10.1080/00031305.1973.10478966 (visited on 2024-04-22), doi:10.1080/00031305.1973.10478966.">Anscombe, 1973</a>]</span>.</p>
+<p><strong>Correlation coefficient is very sensitive to outliers</strong></p>
+<p>Another well-known illustrative example for the limitations of the correlation coefficient is “Anscombe’s quartet <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id3" title="F. J. Anscombe. Graphs in Statistical Analysis. The American Statistician, 27(1):17–21, February 1973. Publisher: Taylor &amp; Francis _eprint: https://www.tandfonline.com/doi/pdf/10.1080/00031305.1973.10478966. URL: https://www.tandfonline.com/doi/abs/10.1080/00031305.1973.10478966 (visited on 2024-04-22), doi:10.1080/00031305.1973.10478966.">Anscombe, 1973</a>]</span>. This includes the already mentioned restriction to mostly linear relationships. But it also demonstrates nicely, that the correlation coefficient can change drastically due to one or few outliers in our data as can be seen in the following plots:</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1207,7 +1209,7 @@ A low correlation doesn’t mean there isn’t a significant relationship!</p>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/f3f6dbb3ff8afcac7a692e7b9704f66f6abfcb2d0d15c01b3a071fc5aac0974b.png" src="../_images/f3f6dbb3ff8afcac7a692e7b9704f66f6abfcb2d0d15c01b3a071fc5aac0974b.png" />
+<img alt="../_images/5ccfc9818b964034ac5ce1748358de1f1630ad3f77046b61c14e5ecff73cc282.png" src="../_images/5ccfc9818b964034ac5ce1748358de1f1630ad3f77046b61c14e5ecff73cc282.png" />
 </div>
 </div>
 <p><strong>In many cases (such as the ones above), Pearson correlation is not enough!</strong></p>
@@ -1220,7 +1222,7 @@ A low correlation doesn’t mean there isn’t a significant relationship!</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5cf12f4befd6a446d19a30cf4addbb6ea97bb9cd9ef3b9a0849eee279c4a914e.png" src="../_images/5cf12f4befd6a446d19a30cf4addbb6ea97bb9cd9ef3b9a0849eee279c4a914e.png" />
+<img alt="../_images/bf64a80f65840adc9613d8bd7db35724187f2b9acd6ad8d42e773f8de02eed08.png" src="../_images/bf64a80f65840adc9613d8bd7db35724187f2b9acd6ad8d42e773f8de02eed08.png" />
 </div>
 </div>
 <p>It is of course also easily possible to plot only the parts we are most interested in, for instance:</p>
@@ -1243,7 +1245,7 @@ A low correlation doesn’t mean there isn’t a significant relationship!</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;shoe_size&#39;, ylabel=&#39;height&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/f2dbfb54abc7a89b81bf975fcd17da4457d759258b1b979206dd6bb5e039c323.png" src="../_images/f2dbfb54abc7a89b81bf975fcd17da4457d759258b1b979206dd6bb5e039c323.png" />
+<img alt="../_images/c7624b7fc1da3c8ac92ae136ef060f9af36f391d30aea5aed724dc487a18db60.png" src="../_images/c7624b7fc1da3c8ac92ae136ef060f9af36f391d30aea5aed724dc487a18db60.png" />
 </div>
 </div>
 </section>

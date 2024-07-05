@@ -559,7 +559,7 @@ The <em>curse of dimensionality</em> can be understood by imagining that we have
 <h3><span class="section-number">14.1.3. </span>The Role of Dimensionality Reduction<a class="headerlink" href="#the-role-of-dimensionality-reduction" title="Link to this heading">#</a></h3>
 <p>To address these challenges, <strong>dimensionality reduction</strong> techniques are employed extensively in data science. These techniques strive to retain the most critical information in the data while reducing the number of dimensions involved. This can be viewed as a form of data compression that simplifies large datasets, making them easier to explore and analyze.</p>
 <p>Dimensionality reduction is beneficial not only for simplifying data visualization but also for enhancing the performance of analytical models by reducing the computational burden and minimizing the risk of overfitting.</p>
-<p>Luckily, we -as (future) data scientists- can make use of a wide variety of powerful techniques to reduce the number of our feature dimensions. In this chapter, we will focus on a few common techniques which fall into different categories of algorithms as shown in <a class="reference internal" href="#fig-dimensionality-reduction-techniques"><span class="std std-numref">Fig. 14.2</span></a>. There are, however, plenty of other methods that we cannot cover here, see for instance <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id4" title="Farzana Anowar, Samira Sadaoui, and Bassant Selim. Conceptual and empirical comparison of dimensionality reduction algorithms (pca, kpca, lda, mds, svd, lle, isomap, le, ica, t-sne). Computer Science Review, 40:100378, 2021.">Anowar <em>et al.</em>, 2021</a>]</span> or <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id77" title="Yingfan Wang, Haiyang Huang, Cynthia Rudin, and Yaron Shaposhnik. Understanding how dimension reduction tools work: an empirical approach to deciphering t-sne, umap, trimap, and pacmap for data visualization. Journal of Machine Learning Research, 22(201):1–73, 2021.">Wang <em>et al.</em>, 2021</a>]</span>.</p>
+<p>Luckily, we -as (future) data scientists- can make use of a wide variety of powerful techniques to reduce the number of our feature dimensions. In this chapter, we will focus on a few common techniques which fall into different categories of algorithms as shown in <a class="reference internal" href="#fig-dimensionality-reduction-techniques"><span class="std std-numref">Fig. 14.2</span></a>. There are, however, plenty of other methods that we cannot cover here, see for instance <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id4" title="Farzana Anowar, Samira Sadaoui, and Bassant Selim. Conceptual and empirical comparison of dimensionality reduction algorithms (pca, kpca, lda, mds, svd, lle, isomap, le, ica, t-sne). Computer Science Review, 40:100378, 2021.">Anowar <em>et al.</em>, 2021</a>]</span> or <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id78" title="Yingfan Wang, Haiyang Huang, Cynthia Rudin, and Yaron Shaposhnik. Understanding how dimension reduction tools work: an empirical approach to deciphering t-sne, umap, trimap, and pacmap for data visualization. Journal of Machine Learning Research, 22(201):1–73, 2021.">Wang <em>et al.</em>, 2021</a>]</span>.</p>
 <p>Before we start looking at the different methods, a brief warning: In nearly all cases, dimensionality reduction comes with a <strong>trade-off between reduction of dimensions and information loss</strong>. No matter which method we use to reduce 20-dimensional data to 2-dimensional data, some information will be lost in the process.</p>
 <figure class="align-default" id="fig-dimensionality-reduction-techniques">
 <img alt="../_images/fig_dimensionality_reduction_techniques.png" src="../_images/fig_dimensionality_reduction_techniques.png" />
@@ -773,7 +773,7 @@ The upper limit is the number of input dimensions, which in our simple example h
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/aceafde5eca67741f1518ecb4f78ca81ef3ac9ea4846d63b5ff7f14ec21040fd.png" src="../_images/aceafde5eca67741f1518ecb4f78ca81ef3ac9ea4846d63b5ff7f14ec21040fd.png" />
+<img alt="../_images/7e6201274b634fb256aee0e5d50dd4e9177b1b7d45b7a72b8ab29503777eaf07.png" src="../_images/7e6201274b634fb256aee0e5d50dd4e9177b1b7d45b7a72b8ab29503777eaf07.png" />
 </div>
 </div>
 <p>In the figures above, we can see a clear demonstration of PCA in action:</p>
@@ -1002,7 +1002,7 @@ In the following part, we will look at data from a marketing campaign, or more g
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2d7957e05b97000a23e3877611cd9b173c497151363adf31c391da77cdfb89ec.png" src="../_images/2d7957e05b97000a23e3877611cd9b173c497151363adf31c391da77cdfb89ec.png" />
+<img alt="../_images/2567571892d6f648f14a5c31468e384e21e25bfabdfb6dae1941d1a9bea0d04e.png" src="../_images/2567571892d6f648f14a5c31468e384e21e25bfabdfb6dae1941d1a9bea0d04e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1482,7 +1482,7 @@ The most common pitfall, however, is that <strong>PCA is extremely sensitive to 
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/4c75e800580b0836b522e5bc81bdc82aa5c8b2d004ef7f1a842f366641e8f9cf.png" src="../_images/4c75e800580b0836b522e5bc81bdc82aa5c8b2d004ef7f1a842f366641e8f9cf.png" />
+<img alt="../_images/a60dd0d63789b444dbc5325c7314e80069ceafbaf9ff9c152ce935a346c18683.png" src="../_images/a60dd0d63789b444dbc5325c7314e80069ceafbaf9ff9c152ce935a346c18683.png" />
 </div>
 </div>
 <p>We can, obviously, freely choose which feature we want to use for coloring. It is also possible to add another feature for scaling the size of the dots.</p>
@@ -1505,7 +1505,7 @@ The most common pitfall, however, is that <strong>PCA is extremely sensitive to 
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/30293e7cd373f8b55595bdb077babb677b517c253e812006ad5f7689bb9b0d0e.png" src="../_images/30293e7cd373f8b55595bdb077babb677b517c253e812006ad5f7689bb9b0d0e.png" />
+<img alt="../_images/26ca5fb9e40b69ee38ad310d8c38cb15c6686309dd65cee3e478ebcd13c916b7.png" src="../_images/26ca5fb9e40b69ee38ad310d8c38cb15c6686309dd65cee3e478ebcd13c916b7.png" />
 </div>
 </div>
 </section>
@@ -1554,7 +1554,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/ffe75efd0e8162c4ba92e683fcff79b151fca8db9b77fdd95cd4b7c0a85d334b.png" src="../_images/ffe75efd0e8162c4ba92e683fcff79b151fca8db9b77fdd95cd4b7c0a85d334b.png" />
+<img alt="../_images/d954c221632fab8cceda7de2f2f962456ba2791f9219d8d3c00d7c5b726cdd7f.png" src="../_images/d954c221632fab8cceda7de2f2f962456ba2791f9219d8d3c00d7c5b726cdd7f.png" />
 </div>
 </div>
 <p>First we will apply <strong>PCA</strong> to reduce this data to one dimension.</p>
@@ -1585,7 +1585,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/c43bd8c1a6f5525c6705a2d5641f6887a55ba338a7200912ea01e9933b087bb2.png" src="../_images/c43bd8c1a6f5525c6705a2d5641f6887a55ba338a7200912ea01e9933b087bb2.png" />
+<img alt="../_images/bd22c26dda019931b73054ae88acb2e9bf0a7a8b3de28e42acbff91ee77bd303.png" src="../_images/bd22c26dda019931b73054ae88acb2e9bf0a7a8b3de28e42acbff91ee77bd303.png" />
 </div>
 </div>
 <p>As we see from this plot, <strong>PCA</strong> is not able to separate the two different colors. This means it doesn not find a good lower dimensional representation of this particular dataset.</p>
@@ -1627,7 +1627,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/754a692381b336660d8201907fa3a468144125ef9c1a5f90bba8e1dfc54e87f4.png" src="../_images/754a692381b336660d8201907fa3a468144125ef9c1a5f90bba8e1dfc54e87f4.png" />
+<img alt="../_images/463ee27bca682722ee1b902fa5522e0f343b4192e667be518304fc4e4be1b3be.png" src="../_images/463ee27bca682722ee1b902fa5522e0f343b4192e667be518304fc4e4be1b3be.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1650,7 +1650,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/73e28360ae0e5be7910271300c9c2f80fbbcb5a6c70e16f60f4ef87d59c039e3.png" src="../_images/73e28360ae0e5be7910271300c9c2f80fbbcb5a6c70e16f60f4ef87d59c039e3.png" />
+<img alt="../_images/d8e6c19c2092501394116cda1a81b43c62e8a5c917adc056c1b21ca48c6a65ca.png" src="../_images/d8e6c19c2092501394116cda1a81b43c62e8a5c917adc056c1b21ca48c6a65ca.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1668,7 +1668,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3560ddac0bf1da6c651256b3b3bfc752eb63dcc73b824217f406ef03906a5ed7.png" src="../_images/3560ddac0bf1da6c651256b3b3bfc752eb63dcc73b824217f406ef03906a5ed7.png" />
+<img alt="../_images/1ebc4deecc2d0545fdf25f833664b34a97a310258768e7b52f21d21e74205e60.png" src="../_images/1ebc4deecc2d0545fdf25f833664b34a97a310258768e7b52f21d21e74205e60.png" />
 </div>
 </div>
 <p>Here we see, that kernel-PCA is capable of keeping the two colors separate even after reducing all points to one dimension.</p>
@@ -1728,13 +1728,13 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/54d6f1f9ea59ef95c9e25695024ebdaefeed38c6d858fa48092fb65767634132.png" src="../_images/54d6f1f9ea59ef95c9e25695024ebdaefeed38c6d858fa48092fb65767634132.png" />
+<img alt="../_images/f6e1d98de72f970753b433a62b8506fedec2ebb124e6f3e7f2c84bd2938dfc78.png" src="../_images/f6e1d98de72f970753b433a62b8506fedec2ebb124e6f3e7f2c84bd2938dfc78.png" />
 </div>
 </div>
 </section>
 <section id="umap-uniform-manifold-approximation-and-projection">
 <h3><span class="section-number">14.4.2. </span>UMAP (Uniform Manifold Approximation and Projection)<a class="headerlink" href="#umap-uniform-manifold-approximation-and-projection" title="Link to this heading">#</a></h3>
-<p>UMAP is a relatively recent addition to dimensionality reduction techniques <span id="id3">[<a class="reference internal" href="../book/bibliography.html#id46" title="Leland McInnes, John Healy, and James Melville. Umap: uniform manifold approximation and projection for dimension reduction. arXiv preprint arXiv:1802.03426, 2018.">McInnes <em>et al.</em>, 2018</a>]</span>. It is particularly effective for large datasets and is known for preserving more of the global data structure compared to methods like t-SNE.</p>
+<p>UMAP is a relatively recent addition to dimensionality reduction techniques <span id="id3">[<a class="reference internal" href="../book/bibliography.html#id47" title="Leland McInnes, John Healy, and James Melville. Umap: uniform manifold approximation and projection for dimension reduction. arXiv preprint arXiv:1802.03426, 2018.">McInnes <em>et al.</em>, 2018</a>]</span>. It is particularly effective for large datasets and is known for preserving more of the global data structure compared to methods like t-SNE.</p>
 <p><strong>Advantages:</strong></p>
 <ul class="simple">
 <li><p>Efficient with large datasets.</p></li>
@@ -1751,7 +1751,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 <h3><span class="section-number">14.4.3. </span>Comparison and Application<a class="headerlink" href="#comparison-and-application" title="Link to this heading">#</a></h3>
 <p>Each of these techniques has unique strengths and weaknesses, making them suitable for different types of data and objectives. Kernel-PCA is a versatile tool for moderately complex data, while t-SNE and UMAP excel at revealing intricate structures in high-dimensional data.</p>
 <p>The choice of technique depends on the specific requirements of the analysis, such as the need for speed (favoring Kernel-PCA), detail (favoring t-SNE), or a balance of structure preservation and speed (favoring UMAP). Understanding the nature of the dataset and the goals of the analysis is key to selecting the most appropriate dimensionality reduction method.</p>
-<p>For even more techniques, see for instance <span id="id4">[<a class="reference internal" href="../book/bibliography.html#id4" title="Farzana Anowar, Samira Sadaoui, and Bassant Selim. Conceptual and empirical comparison of dimensionality reduction algorithms (pca, kpca, lda, mds, svd, lle, isomap, le, ica, t-sne). Computer Science Review, 40:100378, 2021.">Anowar <em>et al.</em>, 2021</a>]</span> or <span id="id5">[<a class="reference internal" href="../book/bibliography.html#id77" title="Yingfan Wang, Haiyang Huang, Cynthia Rudin, and Yaron Shaposhnik. Understanding how dimension reduction tools work: an empirical approach to deciphering t-sne, umap, trimap, and pacmap for data visualization. Journal of Machine Learning Research, 22(201):1–73, 2021.">Wang <em>et al.</em>, 2021</a>]</span>.</p>
+<p>For even more techniques, see for instance <span id="id4">[<a class="reference internal" href="../book/bibliography.html#id4" title="Farzana Anowar, Samira Sadaoui, and Bassant Selim. Conceptual and empirical comparison of dimensionality reduction algorithms (pca, kpca, lda, mds, svd, lle, isomap, le, ica, t-sne). Computer Science Review, 40:100378, 2021.">Anowar <em>et al.</em>, 2021</a>]</span> or <span id="id5">[<a class="reference internal" href="../book/bibliography.html#id78" title="Yingfan Wang, Haiyang Huang, Cynthia Rudin, and Yaron Shaposhnik. Understanding how dimension reduction tools work: an empirical approach to deciphering t-sne, umap, trimap, and pacmap for data visualization. Journal of Machine Learning Research, 22(201):1–73, 2021.">Wang <em>et al.</em>, 2021</a>]</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">umap</span>
@@ -1773,7 +1773,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/da715098ddd253529153b05d769adc75eccb2447247fa7f6717a01128836d1e7.png" src="../_images/da715098ddd253529153b05d769adc75eccb2447247fa7f6717a01128836d1e7.png" />
+<img alt="../_images/74a488274ac5e9853ec97893485ddbffb0941632abbace2a88294fc2957d3874.png" src="../_images/74a488274ac5e9853ec97893485ddbffb0941632abbace2a88294fc2957d3874.png" />
 </div>
 </div>
 </section>
@@ -1813,7 +1813,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/b9819e9c0628e3b2591838e93bd9467d00cfeb765794afee5243c7dc6f64afca.png" src="../_images/b9819e9c0628e3b2591838e93bd9467d00cfeb765794afee5243c7dc6f64afca.png" />
+<img alt="../_images/5303301dc4e8262a167869d9b2c06d44b3f00f0d829cbb0c17f79e5ecf150db6.png" src="../_images/5303301dc4e8262a167869d9b2c06d44b3f00f0d829cbb0c17f79e5ecf150db6.png" />
 </div>
 </div>
 <p>We can of course, also plot several features in parallel by combining multiple plots.</p>
@@ -1844,7 +1844,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/5e6e421f63e48fefdcba9302262def778faf6bf44ce68962a603c04c44558b87.png" src="../_images/5e6e421f63e48fefdcba9302262def778faf6bf44ce68962a603c04c44558b87.png" />
+<img alt="../_images/10cd42ebf3521ece825ad4b46abd0442e773b9aa382a4523ddf51416e8159f7f.png" src="../_images/10cd42ebf3521ece825ad4b46abd0442e773b9aa382a4523ddf51416e8159f7f.png" />
 </div>
 </div>
 </section>

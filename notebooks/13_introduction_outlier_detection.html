@@ -566,7 +566,7 @@ In the context of data science, outliers can skew the results of data analysis, 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6cbe1247312e6636bf4decd228f79da616c8f0b9054b69bd5a283efa41c3227b.png" src="../_images/6cbe1247312e6636bf4decd228f79da616c8f0b9054b69bd5a283efa41c3227b.png" />
+<img alt="../_images/776eaa891b085903b5077c55ff5a826da1b3bb1f99cd2a140c0127834da8a6e5.png" src="../_images/776eaa891b085903b5077c55ff5a826da1b3bb1f99cd2a140c0127834da8a6e5.png" />
 </div>
 </div>
 </section>
@@ -575,7 +575,7 @@ In the context of data science, outliers can skew the results of data analysis, 
 <h2><span class="section-number">13.2. </span>Method: Isolation Forest<a class="headerlink" href="#method-isolation-forest" title="Link to this heading">#</a></h2>
 <section id="concept-and-theory">
 <h3><span class="section-number">13.2.1. </span>Concept and Theory<a class="headerlink" href="#concept-and-theory" title="Link to this heading">#</a></h3>
-<p><strong>Isolation Forest</strong> (iForest) is an unsupervised learning algorithm for anomaly detection that works on the principle of isolating anomalies, instead of profiling normal data points. Developed 2008 <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id38" title="Fei Tony Liu, Kai Ming Ting, and Zhi-Hua Zhou. Isolation forest. In 2008 eighth ieee international conference on data mining, 413–422. IEEE, 2008.">Liu <em>et al.</em>, 2008</a>]</span>, it’s particularly effective in datasets with a high dimensionality.</p>
+<p><strong>Isolation Forest</strong> (iForest) is an unsupervised learning algorithm for anomaly detection that works on the principle of isolating anomalies, instead of profiling normal data points. Developed 2008 <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id39" title="Fei Tony Liu, Kai Ming Ting, and Zhi-Hua Zhou. Isolation forest. In 2008 eighth ieee international conference on data mining, 413–422. IEEE, 2008.">Liu <em>et al.</em>, 2008</a>]</span>, it’s particularly effective in datasets with a high dimensionality.</p>
 <p><strong>Isolating Anomalies</strong>: The core idea behind Isolation Forest is that anomalies are few and different, which makes them easier to isolate. In a dataset, anomalies are susceptible to being isolated with fewer random partitions compared to normal points.</p>
 <p><strong>Tree Structure</strong>: The algorithm builds an ensemble of isolation trees (iTrees) for the dataset. Each iTree is constructed by randomly selecting a feature and then randomly selecting a split value between the maximum and minimum values of the selected feature. This process is repeated recursively until the data points are isolated or the tree reaches a certain height.</p>
 </section>
@@ -645,7 +645,7 @@ In the context of data science, outliers can skew the results of data analysis, 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/90c66546740d64210a9c86dd408db3e99d805f61ea7c07c3de85cfb82331144a.png" src="../_images/90c66546740d64210a9c86dd408db3e99d805f61ea7c07c3de85cfb82331144a.png" />
+<img alt="../_images/254995ea2d6f5e9a562a05c10c948d61c1667ed04f6838571371c892f095b3e0.png" src="../_images/254995ea2d6f5e9a562a05c10c948d61c1667ed04f6838571371c892f095b3e0.png" />
 </div>
 </div>
 </section>
@@ -677,7 +677,11 @@ In the context of data science, outliers can skew the results of data analysis, 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/fe730bb6e360c58d2ed02ab230bdeb27fc42bf07dcef0c04498c017fbcfd3f44.png" src="../_images/fe730bb6e360c58d2ed02ab230bdeb27fc42bf07dcef0c04498c017fbcfd3f44.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2832/1899131088.py:8: UserWarning: Adding colorbar to a different Figure &lt;Figure size 1200x1200 with 1 Axes&gt; than &lt;Figure size 1200x1200 with 2 Axes&gt; which fig.colorbar is called on.
+  cbar = plt.colorbar(scatter, ax=ax)
+</pre></div>
+</div>
+<img alt="../_images/1d34301ccdc332a49a9c8af0b683c0435d530cb43a9edf5e41b0b572b6640ee7.png" src="../_images/1d34301ccdc332a49a9c8af0b683c0435d530cb43a9edf5e41b0b572b6640ee7.png" />
 </div>
 </div>
 </section>
@@ -735,7 +739,7 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ad031a805ea14e933e3c1166801cf8711d5ef3bef1e2c37d6749a7c4de4ef1c6.png" src="../_images/ad031a805ea14e933e3c1166801cf8711d5ef3bef1e2c37d6749a7c4de4ef1c6.png" />
+<img alt="../_images/cddde1b8f31f72d46f8690ea92c519f67bc012d0a82bb58820d7ff75bd474e7b.png" src="../_images/cddde1b8f31f72d46f8690ea92c519f67bc012d0a82bb58820d7ff75bd474e7b.png" />
 </div>
 </div>
 </section>
@@ -754,7 +758,7 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 <h2><span class="section-number">13.3. </span>Method: Local Outlier Factor (LOF)<a class="headerlink" href="#method-local-outlier-factor-lof" title="Link to this heading">#</a></h2>
 <section id="concept-and-background">
 <h3><span class="section-number">13.3.1. </span>Concept and Background<a class="headerlink" href="#concept-and-background" title="Link to this heading">#</a></h3>
-<p><strong>Local Outlier Factor (LOF)</strong> is an algorithm designed for detecting local outliers, introduced in 2000 <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id14" title="Markus M Breunig, Hans-Peter Kriegel, Raymond T Ng, and Jörg Sander. Lof: identifying density-based local outliers. In Proceedings of the 2000 ACM SIGMOD international conference on Management of data, 93–104. 2000.">Breunig <em>et al.</em>, 2000</a>]</span>. It’s particularly effective in identifying outliers in datasets where the density varies across different regions.</p>
+<p><strong>Local Outlier Factor (LOF)</strong> is an algorithm designed for detecting local outliers, introduced in 2000 <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id15" title="Markus M Breunig, Hans-Peter Kriegel, Raymond T Ng, and Jörg Sander. Lof: identifying density-based local outliers. In Proceedings of the 2000 ACM SIGMOD international conference on Management of data, 93–104. 2000.">Breunig <em>et al.</em>, 2000</a>]</span>. It’s particularly effective in identifying outliers in datasets where the density varies across different regions.</p>
 <p><strong>Local Density Estimation</strong>: LOF relies on the concept of local density, where locality is given by the k-nearest neighbors of a point. It compares the local density of a point to the densities of its neighbors. An outlier will have a substantially lower density than its neighbors.</p>
 </section>
 <section id="id3">
@@ -846,7 +850,7 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f1d219d88479e918feba9db18b6b84a5c06dad291aef14f4e34791ea0b657bff.png" src="../_images/f1d219d88479e918feba9db18b6b84a5c06dad291aef14f4e34791ea0b657bff.png" />
+<img alt="../_images/beaedc04b6243194575ad2faa8dcf9baf7ddd199e95e4ec1675c6eb5906b60f1.png" src="../_images/beaedc04b6243194575ad2faa8dcf9baf7ddd199e95e4ec1675c6eb5906b60f1.png" />
 </div>
 </div>
 </section>
@@ -886,7 +890,11 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d6e37b04f8c050b0017834433ba34f0386647966d416027de1ea3a8ad9af0963.png" src="../_images/d6e37b04f8c050b0017834433ba34f0386647966d416027de1ea3a8ad9af0963.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2832/1174718005.py:8: UserWarning: Adding colorbar to a different Figure &lt;Figure size 1200x1200 with 1 Axes&gt; than &lt;Figure size 1200x1200 with 2 Axes&gt; which fig.colorbar is called on.
+  cbar = plt.colorbar(scatter, ax=ax)
+</pre></div>
+</div>
+<img alt="../_images/934d3f16cdc6c0da44f6ffdf1ad8068d2da4175c7f6c1c98f94aad24100cd9a4.png" src="../_images/934d3f16cdc6c0da44f6ffdf1ad8068d2da4175c7f6c1c98f94aad24100cd9a4.png" />
 </div>
 </div>
 </section>
@@ -933,7 +941,7 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/134045dbd816a66c5d7af572974b3b09405609c3168b1e6194d85ea99e2587ef.png" src="../_images/134045dbd816a66c5d7af572974b3b09405609c3168b1e6194d85ea99e2587ef.png" />
+<img alt="../_images/3ca637abb8e5947e245e124ead0f03cf787e6b806670960ec308b5976e188091.png" src="../_images/3ca637abb8e5947e245e124ead0f03cf787e6b806670960ec308b5976e188091.png" />
 </div>
 </div>
 </section>
@@ -942,7 +950,7 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 <h2><span class="section-number">13.4. </span>More on Outlier Detection<a class="headerlink" href="#more-on-outlier-detection" title="Link to this heading">#</a></h2>
 <p>Outlier detection, or anomaly detection, are often crucial steps in data analysis processes. As a consequence, there are many more techniques for detecting such outliers with varying advantages and disadvantages.</p>
 <p>To get a better impression of the rich realm of outlier detection methods, see for instance the following two review articles:
-<span id="id8">[<a class="reference internal" href="../book/bibliography.html#id12" title="Azzedine Boukerche, Lining Zheng, and Omar Alfandi. Outlier detection: methods, models, and classification. ACM Computing Surveys (CSUR), 53(3):1–37, 2020.">Boukerche <em>et al.</em>, 2020</a>]</span>, and <span id="id9">[<a class="reference internal" href="../book/bibliography.html#id70" title="Abir Smiti. A critical overview of outlier detection methods. Computer Science Review, 38:100306, 2020.">Smiti, 2020</a>]</span>.</p>
+<span id="id8">[<a class="reference internal" href="../book/bibliography.html#id13" title="Azzedine Boukerche, Lining Zheng, and Omar Alfandi. Outlier detection: methods, models, and classification. ACM Computing Surveys (CSUR), 53(3):1–37, 2020.">Boukerche <em>et al.</em>, 2020</a>]</span>, and <span id="id9">[<a class="reference internal" href="../book/bibliography.html#id71" title="Abir Smiti. A critical overview of outlier detection methods. Computer Science Review, 38:100306, 2020.">Smiti, 2020</a>]</span>.</p>
 </section>
 </section>
 

@@ -503,13 +503,12 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-all-graphs-are-connected">25.4. Not all graphs are connected</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directed-graphs">25.5. Directed graphs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-network-data">25.6. Import network data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">25.6.1. EXERCISE 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">25.6.2. EXERCISE 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">25.6.3. EXERCISE 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#student-exercise-flight-routes-usa">25.6. Student exercise: Flight Routes USA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">25.6.1. Exercise 1:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">25.6.2. Exercise 2:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">25.6.3. Exercise 3:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-importance">25.7. Node importance</a></li>
 </ul>
             </nav>
         </div>
@@ -561,7 +560,7 @@ document.write(`
 </section>
 <section id="graphs-in-python-with-networkx">
 <h2><span class="section-number">25.3. </span>Graphs in Python with <code class="docutils literal notranslate"><span class="pre">NetworkX</span></code><a class="headerlink" href="#graphs-in-python-with-networkx" title="Link to this heading">#</a></h2>
-<p>If if comes to working with networks/graphs, the goto Python library is <code class="docutils literal notranslate"><span class="pre">NetworkX</span></code> <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id53" title="Aric A. Hagberg, Daniel A. Schult, and Pieter J. Swart. Exploring network structure, dynamics, and function using networkx. In Gaël Varoquaux, Travis Vaught, and Jarrod Millman, editors, Proceedings of the 7th Python in Science Conference, 11 - 15. Pasadena, CA USA, 2008.">Hagberg <em>et al.</em>, 2008</a>]</span>, which also comes with an <a class="reference external" href="https://networkx.org/documentation/stable/reference/index.html">extensive documentation</a>.
+<p>If if comes to working with networks/graphs, the goto Python library is <code class="docutils literal notranslate"><span class="pre">NetworkX</span></code> <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id54" title="Aric A. Hagberg, Daniel A. Schult, and Pieter J. Swart. Exploring network structure, dynamics, and function using networkx. In Gaël Varoquaux, Travis Vaught, and Jarrod Millman, editors, Proceedings of the 7th Python in Science Conference, 11 - 15. Pasadena, CA USA, 2008.">Hagberg <em>et al.</em>, 2008</a>]</span>, which also comes with an <a class="reference external" href="https://networkx.org/documentation/stable/reference/index.html">extensive documentation</a>.
 In addition, <code class="docutils literal notranslate"><span class="pre">NetworkX</span></code> also provides its own <a class="reference external" href="https://networkx.org/documentation/stable/tutorial.html">tutorial material</a>.</p>
 <p>Here, we will do a quick introduction to NetworkX which we will then use for all graph-related parts in this course.</p>
 <section id="installation">
@@ -569,7 +568,8 @@ In addition, <code class="docutils literal notranslate"><span class="pre">Networ
 <p>NetworkX can simply be installed using <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">networkx</span></code>, or from a Jupyter notebook, use  <code class="docutils literal notranslate"><span class="pre">!pip</span> <span class="pre">install</span> <span class="pre">networkx</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
@@ -688,7 +688,7 @@ To initiate a directed graph we can use <code class="docutils literal notranslat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/542fabcc16474ef59cee426c865791e57bb8df77156773e5fa86da67caf753e1.png" src="../_images/542fabcc16474ef59cee426c865791e57bb8df77156773e5fa86da67caf753e1.png" />
+<img alt="../_images/ed747b5ab6cd4bad58a26574e633157f74e5f465f9074fabcd7f70c3a07f2669.png" src="../_images/ed747b5ab6cd4bad58a26574e633157f74e5f465f9074fabcd7f70c3a07f2669.png" />
 </div>
 </div>
 <p>We see that some nodes have more connections (up to three in this example), while others have fewer connections, such as the node “Alice” with only one edge to another node (“Peter”).
@@ -838,7 +838,7 @@ Density = 0.6
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/58a955fe9abac76cdba4c5bf7dcdb376312b5c2fd37b4c31f9de9d33b5530b5a.png" src="../_images/58a955fe9abac76cdba4c5bf7dcdb376312b5c2fd37b4c31f9de9d33b5530b5a.png" />
+<img alt="../_images/9fb960b81404e57f3f53849f1aea7cf37568fa75313e8cd0855b4d3fe1fcb147.png" src="../_images/9fb960b81404e57f3f53849f1aea7cf37568fa75313e8cd0855b4d3fe1fcb147.png" />
 </div>
 </div>
 </section>
@@ -846,6 +846,7 @@ Density = 0.6
 </section>
 <section id="not-all-graphs-are-connected">
 <h2><span class="section-number">25.4. </span>Not all graphs are connected<a class="headerlink" href="#not-all-graphs-are-connected" title="Link to this heading">#</a></h2>
+<p>So far we looked at <em>connected</em> graphs which means that there is at least one path between any two nodes in our graph. This is, however, no necessary condition for graphs. In fact, many graphs are <em>disconnected</em>, i.e., at least one node in the graph has not a path to every other node. See for instance the following example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
@@ -858,13 +859,27 @@ Density = 0.6
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b391a0f128ca2b7bc4e7394a8e606126f23ffd7c379bf847e8d19d73bb1beed2.png" src="../_images/b391a0f128ca2b7bc4e7394a8e606126f23ffd7c379bf847e8d19d73bb1beed2.png" />
+<img alt="../_images/6e75e5ce93c083a48a932d82f7187d1dc43f461c99daa77008a4c153be4e0073.png" src="../_images/6e75e5ce93c083a48a932d82f7187d1dc43f461c99daa77008a4c153be4e0073.png" />
+</div>
+</div>
+<p>Using networkx this can be tested very easily:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nx</span><span class="o">.</span><span class="n">is_connected</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
 </div>
 </div>
 </section>
 <hr class="docutils" />
 <section id="directed-graphs">
 <h2><span class="section-number">25.5. </span>Directed graphs<a class="headerlink" href="#directed-graphs" title="Link to this heading">#</a></h2>
+<p>As introduced above, graphs can also be <em>directed</em> which means that edges have a direction <em>from</em> one node <em>to</em> another node. In networkx the required object is a <code class="docutils literal notranslate"><span class="pre">DiGraph</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
@@ -880,7 +895,7 @@ Density = 0.6
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5d5a9988aca24d9dacc09122b75ab207508803b40f017f8c5d3e043ba1f88716.png" src="../_images/5d5a9988aca24d9dacc09122b75ab207508803b40f017f8c5d3e043ba1f88716.png" />
+<img alt="../_images/3352e72ceaef15caf3c22e04c974c79d383c76489380653de3c55da59d4d761a.png" src="../_images/3352e72ceaef15caf3c22e04c974c79d383c76489380653de3c55da59d4d761a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -894,29 +909,39 @@ Density = 0.6
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6bee31ffa1cd6b4095069b9322126d71b0e2ee99bf39b47e3df4fa79bdb65716.png" src="../_images/6bee31ffa1cd6b4095069b9322126d71b0e2ee99bf39b47e3df4fa79bdb65716.png" />
+<img alt="../_images/e4b2c9a3bf0f280d137ee3d1e158a1c0b76b25a55b9103903eb33b6b17874b74.png" src="../_images/e4b2c9a3bf0f280d137ee3d1e158a1c0b76b25a55b9103903eb33b6b17874b74.png" />
 </div>
 </div>
 </section>
-<section id="import-network-data">
-<h2><span class="section-number">25.6. </span>Import network data<a class="headerlink" href="#import-network-data" title="Link to this heading">#</a></h2>
-<p>Hier schauen wir uns Flugverbindungen in den USA an <code class="docutils literal notranslate"><span class="pre">openflights_usa.graphml</span></code></p>
+<hr class="docutils" />
+<section id="student-exercise-flight-routes-usa">
+<h2><span class="section-number">25.6. </span>Student exercise: Flight Routes USA<a class="headerlink" href="#student-exercise-flight-routes-usa" title="Link to this heading">#</a></h2>
+<p>We can look at the possible direct flight routes in the USA by importing the <code class="docutils literal notranslate"><span class="pre">openflights_usa.graphml</span></code> file.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_data</span> <span class="o">=</span> <span class="s2">&quot;../datasets&quot;</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path_data</span><span class="p">,</span> <span class="s2">&quot;openflights_usa.graphml&quot;</span><span class="p">)</span>
+
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">read_graphml</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <section id="exercise-1">
-<h3><span class="section-number">25.6.1. </span>EXERCISE 1<a class="headerlink" href="#exercise-1" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">25.6.1. </span>Exercise 1:<a class="headerlink" href="#exercise-1" title="Link to this heading">#</a></h3>
+<p>Answer the following question using networkx:</p>
 <p>Is there a direct flight between Indianapolis and Fairbanks, Alaska (FAI)? A direct flight is one with no intermediate stops.</p>
 </section>
 <section id="exercise-2">
-<h3><span class="section-number">25.6.2. </span>EXERCISE 2<a class="headerlink" href="#exercise-2" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">25.6.2. </span>Exercise 2:<a class="headerlink" href="#exercise-2" title="Link to this heading">#</a></h3>
+<p>Answer the following question using networkx:</p>
 <p>If I wanted to fly from Indianapolis to Fairbanks, Alaska what would be an itinerary with the fewest number of flights?</p>
 </section>
 <section id="exercise-3">
-<h3><span class="section-number">25.6.3. </span>EXERCISE 3<a class="headerlink" href="#exercise-3" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">25.6.3. </span>Exercise 3:<a class="headerlink" href="#exercise-3" title="Link to this heading">#</a></h3>
+<p>Answer the following question using networkx:</p>
 <p>Is it possible to travel from any airport in the US to any other airport in the US, possibly using connecting flights? In other words, does there exist a path in the network between every possible pair of airports?</p>
 </section>
-</section>
-<hr class="docutils" />
-<section id="node-importance">
-<h2><span class="section-number">25.7. </span>Node importance<a class="headerlink" href="#node-importance" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -1001,13 +1026,12 @@ Density = 0.6
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#not-all-graphs-are-connected">25.4. Not all graphs are connected</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directed-graphs">25.5. Directed graphs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#import-network-data">25.6. Import network data</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">25.6.1. EXERCISE 1</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">25.6.2. EXERCISE 2</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">25.6.3. EXERCISE 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#student-exercise-flight-routes-usa">25.6. Student exercise: Flight Routes USA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1">25.6.1. Exercise 1:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2">25.6.2. Exercise 2:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3">25.6.3. Exercise 3:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#node-importance">25.7. Node importance</a></li>
 </ul>
   </nav></div>
 
