@@ -19,7 +19,7 @@ This book and all material used to create the book are freely available and can 
 If you use (parts of) this book for your work, please cite the book as:
 
 *Huber, F. (2024).*  
-*Introduction to Data Science (for not-yet scientists).*  
+*Hands-on Introduction to Data Science with Python.*  
 *v0.18, 2024, Zenodo. https://doi.org/10.5281/zenodo.10074474*
 
 ## Create new environment for this course (recommended)
