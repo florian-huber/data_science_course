@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -177,13 +177,13 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../book/cover.html">
-                    Introduction to Data Science (for not-yet scientists)
+                    Hands-on Introduction to Data Science with Python
                 </a>
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../book/01_intro.html">1. Introduction: Data Science for Not-Yet-Scientists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/01_intro.html">1. Introduction to this book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../book/02_what_is_data_science.html">2. What is Data Science?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../book/03_data_science_ethics_society.html">3. Data Science, Ethics, and Society</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../book/04_use_of_this_book.html">4. How to use this book (… if you ask us)</a></li>
@@ -570,7 +570,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/2acfc8bb6b0452dc2ad9919195fbb4abd78f54171af223a64ede78ffea1f6d5a.png" src="../_images/2acfc8bb6b0452dc2ad9919195fbb4abd78f54171af223a64ede78ffea1f6d5a.png" />
+<img alt="../_images/eb2f214e7e02f11cea27f8b50be59983d8fea2ba287bd652d64021df8d6fbc00.png" src="../_images/eb2f214e7e02f11cea27f8b50be59983d8fea2ba287bd652d64021df8d6fbc00.png" />
 </div>
 </div>
 <p>A decision tree can handle such data, but the highly non-linear arrangement of the data points makes it slightly cumbersome for such a model. The decision tree (<a class="reference internal" href="18_machine_learning_algorithms_3.html#ch-decision-trees"><span class="std std-numref">Section 18</span></a>) learns decision boundaries along the x- and y-axis, and the shape of a spiral cannot be approximated very well with only a few such binary decisions.</p>
@@ -1034,7 +1034,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Tree with max_depth None&#39;)
 </pre></div>
 </div>
-<img alt="../_images/d3aac556204f0b02005304d2f7fc75ac0488dbaf5442891d8dcf8782988fc396.png" src="../_images/d3aac556204f0b02005304d2f7fc75ac0488dbaf5442891d8dcf8782988fc396.png" />
+<img alt="../_images/03b649db72d0c24bc1ccbd0212412265d56b67cd3d269bc6683efa39f427b4a8.png" src="../_images/03b649db72d0c24bc1ccbd0212412265d56b67cd3d269bc6683efa39f427b4a8.png" />
 </div>
 </div>
 <p>As expected, the decision tree with low depth is incapable of modeling the data’s spiral shape very well. This is also called <strong>underfitting</strong>. On the other hand, the tree with unrestricted depth will come with the problem of <strong>overfitting</strong>.</p>
@@ -1126,7 +1126,7 @@ During prediction, the output of all <span class="math notranslate nohighlight">
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/28f3055589005a1db358e7a40dc7cf4f781825001bc306e33966b9fb5f6451c7.png" src="../_images/28f3055589005a1db358e7a40dc7cf4f781825001bc306e33966b9fb5f6451c7.png" />
+<img alt="../_images/91d6c2c2f1cca81993fc6889e68693273419855466d303845ec99d724b0cfef9.png" src="../_images/91d6c2c2f1cca81993fc6889e68693273419855466d303845ec99d724b0cfef9.png" />
 </div>
 </div>
 <p>The individual decision trees were trained with different subsets of our data (for <code class="docutils literal notranslate"><span class="pre">BOOTSTRAP</span> <span class="pre">=</span> <span class="pre">True</span></code>). As a consequence, they all learned different decision boundaries, none of them being very good overall due to the limited depth of each tree.</p>
@@ -1178,7 +1178,7 @@ During prediction, the output of all <span class="math notranslate nohighlight">
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3182/166062201.py:6: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option(&#39;future.no_silent_downcasting&#39;, True)`
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3076/166062201.py:6: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option(&#39;future.no_silent_downcasting&#39;, True)`
   data[binary_columns] = data[binary_columns].replace({&#39;no&#39;: 0, &#39;yes&#39;: 1})
 </pre></div>
 </div>
@@ -1530,7 +1530,7 @@ As we saw in the last chapter, such a model works OK-ish on this dataset.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a309867b1c0e257231843322d25682b8e149273f6959806a19b079dc562b9c2c.png" src="../_images/a309867b1c0e257231843322d25682b8e149273f6959806a19b079dc562b9c2c.png" />
+<img alt="../_images/b956810855a277adaa640043a2b03c00a457d798d3059e43a33b13297de82394.png" src="../_images/b956810855a277adaa640043a2b03c00a457d798d3059e43a33b13297de82394.png" />
 </div>
 </div>
 <p>In many cases, ensemble models outperform individual models when it comes to robustness and the quality of the predictions. They come with two downsides. Firstly, they require the training and internal handling of dozens or hundreds of models instead of only one. For moderately sized datasets this is usually a price people are very willing to pay.</p>
