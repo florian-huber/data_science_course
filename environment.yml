@@ -10,7 +10,6 @@ dependencies:
   - pyvis
   - requests
   - scikit-learn
-  - scipy  #<1.13  # remove once gensim update is available
   - seaborn
   - tqdm
   - pytest
@@ -21,6 +20,7 @@ dependencies:
     - networkx
     - nltk
     - plotly
+    - scipy  #<1.13  # remove once gensim update is available
     - spacy
     - squarify
     - umap-learn
