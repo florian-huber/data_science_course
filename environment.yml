@@ -10,10 +10,10 @@ dependencies:
   - pyvis
   - requests
   - scikit-learn
+  - scipy
   - seaborn
   - tqdm
   - pytest
-  - libopenblas
   - pip:
     - gensim>=4.3.3
     - jupyter
