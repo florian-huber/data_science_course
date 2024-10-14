@@ -15,13 +15,12 @@ dependencies:
   - pytest
   - libopenblas
   - pip:
-    - gensim
+    - gensim>=4.3.3
     - jupyter
     - matplotlib
     - networkx
     - nltk
     - plotly
-    - scipy  #<1.13  # remove once gensim update is available
     - spacy
     - squarify
     - umap-learn
