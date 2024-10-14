@@ -13,6 +13,7 @@ dependencies:
   - seaborn
   - tqdm
   - pytest
+  - libopenblas
   - pip:
     - gensim
     - jupyter
