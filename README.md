@@ -31,7 +31,7 @@ Then, in the folder with the `environment.yml` file simply run:
 ```
 conda env create -f environment.yml
 ```
-This should create a Python 3.10 environment with the packages listed in the yaml-file.
+This should create a Python 3.12 environment with the packages listed in the yaml-file.
 
 **The classical conda environmental solver can be slow!** So it might make sense to switch to faster alternatives, either within Conda (see https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community) or mamba.
 
