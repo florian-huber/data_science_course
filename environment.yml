@@ -10,7 +10,7 @@ dependencies:
   - pyvis
   - requests
   - scikit-learn
-  - scipy<1.13  # remove once gensim update is available
+  - scipy  #<1.13  # remove once gensim update is available
   - seaborn
   - tqdm
   - pytest
