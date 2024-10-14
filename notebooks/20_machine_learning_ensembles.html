@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>20. Ensemble Models and Outlook &#8212; Introduction to Data Science (for not-yet-scientists)</title>
+    <title>20. Ensemble Models and Outlook &#8212; Hands-on Introduction to Data Science with Python</title>
   
   
   
@@ -155,8 +155,8 @@
       
     
     
-    <img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-light" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>
-    <script>document.write(`<img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-dark" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>`);</script>
+    <img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-light" alt="Hands-on Introduction to Data Science with Python - Home"/>
+    <script>document.write(`<img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-dark" alt="Hands-on Introduction to Data Science with Python - Home"/>`);</script>
   
   
 </a></div>
@@ -1038,7 +1038,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <p>As expected, the decision tree with low depth is incapable of modeling the data’s spiral shape very well. This is also called <strong>underfitting</strong>. On the other hand, the tree with unrestricted depth will come with the problem of <strong>overfitting</strong>.</p>
-<p>Finding a good sweet spot between under- and over-fitting can be difficult for decision trees. It is usually much more effective to rather combine many trees to form an <strong>ensemble model</strong>. Two key concepts for training an ensemble model are: <strong>bagging</strong> and <strong>boosting</strong> <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id34" title="Sotiris Kotsiantis. Combining bagging, boosting, rotation forest and random subspace methods. Artificial intelligence review, 35:223–240, 2011.">Kotsiantis, 2011</a>]</span>.</p>
+<p>Finding a good sweet spot between under- and over-fitting can be difficult for decision trees. It is usually much more effective to rather combine many trees to form an <strong>ensemble model</strong>. Two key concepts for training an ensemble model are: <strong>bagging</strong> and <strong>boosting</strong> <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id35" title="Sotiris Kotsiantis. Combining bagging, boosting, rotation forest and random subspace methods. Artificial intelligence review, 35:223–240, 2011.">Kotsiantis, 2011</a>]</span>.</p>
 </section>
 <section id="bagging-bootstrap-aggregating">
 <h2><span class="section-number">20.2. </span>Bagging (Bootstrap Aggregating)<a class="headerlink" href="#bagging-bootstrap-aggregating" title="Link to this heading">#</a></h2>
@@ -1178,7 +1178,7 @@ During prediction, the output of all <span class="math notranslate nohighlight">
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3076/166062201.py:6: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option(&#39;future.no_silent_downcasting&#39;, True)`
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3010/166062201.py:6: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option(&#39;future.no_silent_downcasting&#39;, True)`
   data[binary_columns] = data[binary_columns].replace({&#39;no&#39;: 0, &#39;yes&#39;: 1})
 </pre></div>
 </div>
@@ -1447,7 +1447,7 @@ As we saw in the last chapter, such a model works OK-ish on this dataset.</p>
 <section id="boosting">
 <h2><span class="section-number">20.4. </span>Boosting<a class="headerlink" href="#boosting" title="Link to this heading">#</a></h2>
 <p>Boosting is another ensemble technique that focuses on training models sequentially. Each new model attempts to correct the errors made by the previous ones. This way, the models “boost” the performance by focusing more on the difficult cases.</p>
-<p>There are several different boosting techniques and strategies <span id="id3">[<a class="reference internal" href="../book/bibliography.html#id73" title="Jafar Tanha, Yousef Abdi, Negin Samadi, Nazila Razzaghi, and Mohammad Asadpour. Boosting methods for multi-class imbalanced data classification: an experimental review. Journal of Big Data, 7:1–47, 2020.">Tanha <em>et al.</em>, 2020</a>, <a class="reference internal" href="../book/bibliography.html#id9" title="Candice Bentéjac, Anna Csörgő, and Gonzalo Martínez-Muñoz. A comparative analysis of gradient boosting algorithms. Artificial Intelligence Review, 54:1937–1967, 2021.">Bentéjac <em>et al.</em>, 2021</a>]</span>. In AdaBoost, for instance, each data point is assigned a weight. Initially, every example starts with the same weight. Then, iteratively, the weights are adjusted depending on the prediction errors with weights increasing for misclassified data points <span id="id4">[<a class="reference internal" href="../book/bibliography.html#id27" title="Yoav Freund and Robert E Schapire. A decision-theoretic generalization of on-line learning and an application to boosting. Journal of computer and system sciences, 55(1):119–139, 1997.">Freund and Schapire, 1997</a>]</span>, see also <a class="reference internal" href="#fig-ensemble-boosting"><span class="std std-numref">Fig. 20.2</span></a>.</p>
+<p>There are several different boosting techniques and strategies <span id="id3">[<a class="reference internal" href="../book/bibliography.html#id74" title="Jafar Tanha, Yousef Abdi, Negin Samadi, Nazila Razzaghi, and Mohammad Asadpour. Boosting methods for multi-class imbalanced data classification: an experimental review. Journal of Big Data, 7:1–47, 2020.">Tanha <em>et al.</em>, 2020</a>, <a class="reference internal" href="../book/bibliography.html#id9" title="Candice Bentéjac, Anna Csörgő, and Gonzalo Martínez-Muñoz. A comparative analysis of gradient boosting algorithms. Artificial Intelligence Review, 54:1937–1967, 2021.">Bentéjac <em>et al.</em>, 2021</a>]</span>. In AdaBoost, for instance, each data point is assigned a weight. Initially, every example starts with the same weight. Then, iteratively, the weights are adjusted depending on the prediction errors with weights increasing for misclassified data points <span id="id4">[<a class="reference internal" href="../book/bibliography.html#id27" title="Yoav Freund and Robert E Schapire. A decision-theoretic generalization of on-line learning and an application to boosting. Journal of computer and system sciences, 55(1):119–139, 1997.">Freund and Schapire, 1997</a>]</span>, see also <a class="reference internal" href="#fig-ensemble-boosting"><span class="std std-numref">Fig. 20.2</span></a>.</p>
 <figure class="align-default" id="fig-ensemble-boosting">
 <img alt="../_images/fig_ensemble_boosting.png" src="../_images/fig_ensemble_boosting.png" />
 <figcaption>
@@ -1478,7 +1478,7 @@ As we saw in the last chapter, such a model works OK-ish on this dataset.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/data_science/lib/python3.10/site-packages/sklearn/ensemble/_weight_boosting.py:527: FutureWarning: The SAMME.R algorithm (the default) is deprecated and will be removed in 1.6. Use the SAMME algorithm to circumvent this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/sklearn/ensemble/_weight_boosting.py:527: FutureWarning: The SAMME.R algorithm (the default) is deprecated and will be removed in 1.6. Use the SAMME algorithm to circumvent this warning.
   warnings.warn(
 </pre></div>
 </div>
@@ -1503,7 +1503,7 @@ As we saw in the last chapter, such a model works OK-ish on this dataset.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/data_science/lib/python3.10/site-packages/sklearn/ensemble/_weight_boosting.py:527: FutureWarning: The SAMME.R algorithm (the default) is deprecated and will be removed in 1.6. Use the SAMME algorithm to circumvent this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/sklearn/ensemble/_weight_boosting.py:527: FutureWarning: The SAMME.R algorithm (the default) is deprecated and will be removed in 1.6. Use the SAMME algorithm to circumvent this warning.
   warnings.warn(
 </pre></div>
 </div>
@@ -1534,21 +1534,22 @@ As we saw in the last chapter, such a model works OK-ish on this dataset.</p>
 </div>
 </div>
 <p>In many cases, ensemble models outperform individual models when it comes to robustness and the quality of the predictions. They come with two downsides. Firstly, they require the training and internal handling of dozens or hundreds of models instead of only one. For moderately sized datasets this is usually a price people are very willing to pay.</p>
-<p>Secondly, ensemble models are often harder to interpret. An individual decision tree is, in principle, fully human-readable. However, a random forest of hundreds of trees is not as easily accessible. There are techniques that help us to interpret predictions of such ensemble models, such as SHAP <span id="id6">[<a class="reference internal" href="../book/bibliography.html#id41" title="Scott M Lundberg and Su-In Lee. A unified approach to interpreting model predictions. In I. Guyon, U. V. Luxburg, S. Bengio, H. Wallach, R. Fergus, S. Vishwanathan, and R. Garnett, editors, Advances in Neural Information Processing Systems 30, pages 4765–4774. Curran Associates, Inc., 2017. URL: http://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions.pdf.">Lundberg and Lee, 2017</a>]</span> <span id="id7">[<a class="reference internal" href="../book/bibliography.html#id42" title="Scott M. Lundberg, Gabriel Erion, Hugh Chen, Alex DeGrave, Jordan M. Prutkin, Bala Nair, Ronit Katz, Jonathan Himmelfarb, Nisha Bansal, and Su-In Lee. From local explanations to global understanding with explainable ai for trees. Nature Machine Intelligence, 2(1):2522-5839, 2020.">Lundberg <em>et al.</em>, 2020</a>]</span>. Feel free to explore those tools yourself (e.g. <a class="reference external" href="https://github.com/shap/shap">SHAP</a>).</p>
+<p>Secondly, ensemble models are often harder to interpret. An individual decision tree is, in principle, fully human-readable. However, a random forest of hundreds of trees is not as easily accessible. There are techniques that help us to interpret predictions of such ensemble models, such as SHAP <span id="id6">[<a class="reference internal" href="../book/bibliography.html#id42" title="Scott M Lundberg and Su-In Lee. A unified approach to interpreting model predictions. In I. Guyon, U. V. Luxburg, S. Bengio, H. Wallach, R. Fergus, S. Vishwanathan, and R. Garnett, editors, Advances in Neural Information Processing Systems 30, pages 4765–4774. Curran Associates, Inc., 2017. URL: http://papers.nips.cc/paper/7062-a-unified-approach-to-interpreting-model-predictions.pdf.">Lundberg and Lee, 2017</a>]</span> <span id="id7">[<a class="reference internal" href="../book/bibliography.html#id43" title="Scott M. Lundberg, Gabriel Erion, Hugh Chen, Alex DeGrave, Jordan M. Prutkin, Bala Nair, Ronit Katz, Jonathan Himmelfarb, Nisha Bansal, and Su-In Lee. From local explanations to global understanding with explainable ai for trees. Nature Machine Intelligence, 2(1):2522-5839, 2020.">Lundberg <em>et al.</em>, 2020</a>]</span>. Feel free to explore those tools yourself (e.g. <a class="reference external" href="https://github.com/shap/shap">SHAP</a>).</p>
 </section>
 <section id="outlook-more-on-machine-learning">
 <h2><span class="section-number">20.5. </span>Outlook: More on Machine Learning<a class="headerlink" href="#outlook-more-on-machine-learning" title="Link to this heading">#</a></h2>
-<p>This course is meant as a general introduction to data science. Machine Learning is, no doubt, one of the most essential tools for any data scientist to know about. In fact, it is not just one tool but an entire toolbox full of very powerful methods. It is important to know at least common examples of the most prominent types of tools, including unsupervised methods such as clustering techniques and dimensionality reduction, as well as supervised methods like k-nearest neighbors, linear regression, or decision trees.</p>
-<p>However, this will just give you a first impression of what is possible with machine learning. In addition, we will focus on a basic intuition and first application of these methods. We will not cover all algorithms in full depth.</p>
-<p>To deepen your understanding of individual methods and broaden your knowledge on various techniques, you might want to explore further. This includes the large field of deep learning, which we cannot cover in this course.</p>
+<p>This course is meant as a general introduction to data science. Machine Learning is, no doubt, one of the most essential tools for any data scientist. In fact, it is not just one tool but rather an entire toolbox full of very powerful methods. While nobody will be able to be on top of all possible tools in this toolbox, having at least an intuitive understanding of the most prominent types of tools is key for modern data science workflows. This includes unsupervised methods such as clustering techniques and dimensionality reduction, as well as supervised methods like k-nearest neighbors, linear regression, or decision trees.</p>
+<p>We have covered those techniques in this and the prior chapters with exactly this goal in mind. The focus was on a basic intuition and first application of these methods. You will hopefully later realize, that many core concepts apply to other machine learning approaches, too. Still, the extend of machine learning covered in this book is mostly supposed to serve as a good first basis. When you face actual problems that you want to solve using machine learning, you will probably have to expand this basis quiet a bit. Here, we did not cover all algorithms in full depth. And we also had to leave out several common limitations and pitfalls. And, as you probably already know, there are <em>many</em> machine learning techniques beyond the ones introduced in the prior chapters, from <em>support vector machines</em> all the way to modern <em>deep learning</em> approaches.</p>
+<p>While we cannot (or do not want) to cover all those techniques in this introduction to data science, there are -luckily- many good resources to help you deepen your understanding of individual methods and broaden your knowledge on various techniques. This includes the large field of deep learning, which is highly relevant for many data science applications, but also something that requires a substantial investment of time to master.</p>
 <section id="further-learning-resources">
 <h3><span class="section-number">20.5.1. </span>Further Learning Resources<a class="headerlink" href="#further-learning-resources" title="Link to this heading">#</a></h3>
 <p><strong>Online courses and tutorials:</strong><br />
 There are many, in fact probably too many, courses and tutorials out there. One of them that is clearly a long time recommendation is Andrew Ng’s open online courses such as the <a class="reference external" href="https://www.coursera.org/specializations/machine-learning-introduction">Machine Learning Introduction on coursera</a>.</p>
 <p><strong>Books on Machine Learning and Deep Learning:</strong></p>
 <ul class="simple">
-<li><p>“Machine Learning with PyTorch and Scikit-Learn: Develop machine learning and deep learning models with Python” <span id="id8">[<a class="reference internal" href="../book/bibliography.html#id66" title="Sebastian Raschka, Yuxi Hayden Liu, Vahid Mirjalili, and Dmytro Dzhulgakov. Machine Learning with PyTorch and Scikit-Learn: Develop machine learning and deep learning models with Python. Packt Publishing Ltd, 2022.">Raschka <em>et al.</em>, 2022</a>]</span></p></li>
-<li><p>“Understanding Deep Learning” by Simon Prince, MIT Press, 2023 <span id="id9">[<a class="reference internal" href="../book/bibliography.html#id63" title="Simon JD Prince. Understanding Deep Learning. MIT press, 2023.">Prince, 2023</a>]</span></p></li>
+<li><p>“Machine Learning with PyTorch and Scikit-Learn: Develop machine learning and deep learning models with Python” <span id="id8">[<a class="reference internal" href="../book/bibliography.html#id67" title="Sebastian Raschka, Yuxi Hayden Liu, Vahid Mirjalili, and Dmytro Dzhulgakov. Machine Learning with PyTorch and Scikit-Learn: Develop machine learning and deep learning models with Python. Packt Publishing Ltd, 2022.">Raschka <em>et al.</em>, 2022</a>]</span></p></li>
+<li><p>“Understanding Deep Learning” by Simon Prince, MIT Press, 2023 <span id="id9">[<a class="reference internal" href="../book/bibliography.html#id64" title="Simon JD Prince. Understanding Deep Learning. MIT press, 2023.">Prince, 2023</a>]</span></p></li>
+<li><p>“Introduction to pytorch”, <span id="id10">[<a class="reference internal" href="../book/bibliography.html#id34" title="Nikhil Ketkar, Jojo Moolayil, Nikhil Ketkar, and Jojo Moolayil. Introduction to pytorch. Deep learning with python: learn best practices of deep learning models with PyTorch, pages 27–91, 2021.">Ketkar <em>et al.</em>, 2021</a>]</span></p></li>
 </ul>
 <p>By continuing to explore these resources, you can build a solid foundation in machine learning and stay up-to-date with the latest advancements in the field.</p>
 <p>Happy (machine) learning!</p>

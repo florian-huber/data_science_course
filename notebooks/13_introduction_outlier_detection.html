@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>13. Outlier Detection &#8212; Introduction to Data Science (for not-yet-scientists)</title>
+    <title>13. Outlier Detection &#8212; Hands-on Introduction to Data Science with Python</title>
   
   
   
@@ -153,8 +153,8 @@
       
     
     
-    <img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-light" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>
-    <script>document.write(`<img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-dark" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>`);</script>
+    <img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-light" alt="Hands-on Introduction to Data Science with Python - Home"/>
+    <script>document.write(`<img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-dark" alt="Hands-on Introduction to Data Science with Python - Home"/>`);</script>
   
   
 </a></div>
@@ -575,7 +575,7 @@ In the context of data science, outliers can skew the results of data analysis, 
 <h2><span class="section-number">13.2. </span>Method: Isolation Forest<a class="headerlink" href="#method-isolation-forest" title="Link to this heading">#</a></h2>
 <section id="concept-and-theory">
 <h3><span class="section-number">13.2.1. </span>Concept and Theory<a class="headerlink" href="#concept-and-theory" title="Link to this heading">#</a></h3>
-<p><strong>Isolation Forest</strong> (iForest) is an unsupervised learning algorithm for anomaly detection that works on the principle of isolating anomalies, instead of profiling normal data points. Developed 2008 <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id39" title="Fei Tony Liu, Kai Ming Ting, and Zhi-Hua Zhou. Isolation forest. In 2008 eighth ieee international conference on data mining, 413–422. IEEE, 2008.">Liu <em>et al.</em>, 2008</a>]</span>, it’s particularly effective in datasets with a high dimensionality.</p>
+<p><strong>Isolation Forest</strong> (iForest) is an unsupervised learning algorithm for anomaly detection that works on the principle of isolating anomalies, instead of profiling normal data points. Developed 2008 <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id40" title="Fei Tony Liu, Kai Ming Ting, and Zhi-Hua Zhou. Isolation forest. In 2008 eighth ieee international conference on data mining, 413–422. IEEE, 2008.">Liu <em>et al.</em>, 2008</a>]</span>, it’s particularly effective in datasets with a high dimensionality.</p>
 <p><strong>Isolating Anomalies</strong>: The core idea behind Isolation Forest is that anomalies are few and different, which makes them easier to isolate. In a dataset, anomalies are susceptible to being isolated with fewer random partitions compared to normal points.</p>
 <p><strong>Tree Structure</strong>: The algorithm builds an ensemble of isolation trees (iTrees) for the dataset. Each iTree is constructed by randomly selecting a feature and then randomly selecting a split value between the maximum and minimum values of the selected feature. This process is repeated recursively until the data points are isolated or the tree reaches a certain height.</p>
 </section>
@@ -677,7 +677,7 @@ In the context of data science, outliers can skew the results of data analysis, 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2733/1899131088.py:8: UserWarning: Adding colorbar to a different Figure &lt;Figure size 1200x1200 with 1 Axes&gt; than &lt;Figure size 1200x1200 with 2 Axes&gt; which fig.colorbar is called on.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2671/1899131088.py:8: UserWarning: Adding colorbar to a different Figure &lt;Figure size 1200x1200 with 1 Axes&gt; than &lt;Figure size 1200x1200 with 2 Axes&gt; which fig.colorbar is called on.
   cbar = plt.colorbar(scatter, ax=ax)
 </pre></div>
 </div>
@@ -890,7 +890,7 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2733/1174718005.py:8: UserWarning: Adding colorbar to a different Figure &lt;Figure size 1200x1200 with 1 Axes&gt; than &lt;Figure size 1200x1200 with 2 Axes&gt; which fig.colorbar is called on.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2671/1174718005.py:8: UserWarning: Adding colorbar to a different Figure &lt;Figure size 1200x1200 with 1 Axes&gt; than &lt;Figure size 1200x1200 with 2 Axes&gt; which fig.colorbar is called on.
   cbar = plt.colorbar(scatter, ax=ax)
 </pre></div>
 </div>
@@ -950,7 +950,7 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 <h2><span class="section-number">13.4. </span>More on Outlier Detection<a class="headerlink" href="#more-on-outlier-detection" title="Link to this heading">#</a></h2>
 <p>Outlier detection, or anomaly detection, are often crucial steps in data analysis processes. As a consequence, there are many more techniques for detecting such outliers with varying advantages and disadvantages.</p>
 <p>To get a better impression of the rich realm of outlier detection methods, see for instance the following two review articles:
-<span id="id8">[<a class="reference internal" href="../book/bibliography.html#id13" title="Azzedine Boukerche, Lining Zheng, and Omar Alfandi. Outlier detection: methods, models, and classification. ACM Computing Surveys (CSUR), 53(3):1–37, 2020.">Boukerche <em>et al.</em>, 2020</a>]</span>, and <span id="id9">[<a class="reference internal" href="../book/bibliography.html#id71" title="Abir Smiti. A critical overview of outlier detection methods. Computer Science Review, 38:100306, 2020.">Smiti, 2020</a>]</span>.</p>
+<span id="id8">[<a class="reference internal" href="../book/bibliography.html#id13" title="Azzedine Boukerche, Lining Zheng, and Omar Alfandi. Outlier detection: methods, models, and classification. ACM Computing Surveys (CSUR), 53(3):1–37, 2020.">Boukerche <em>et al.</em>, 2020</a>]</span>, and <span id="id9">[<a class="reference internal" href="../book/bibliography.html#id72" title="Abir Smiti. A critical overview of outlier detection methods. Computer Science Review, 38:100306, 2020.">Smiti, 2020</a>]</span>.</p>
 </section>
 </section>
 

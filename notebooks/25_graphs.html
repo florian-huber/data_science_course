@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>25. Networks / Graph Theory &#8212; Introduction to Data Science (for not-yet-scientists)</title>
+    <title>25. Networks / Graph Theory &#8212; Hands-on Introduction to Data Science with Python</title>
   
   
   
@@ -155,8 +155,8 @@
       
     
     
-    <img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-light" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>
-    <script>document.write(`<img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-dark" alt="Introduction to Data Science (for not-yet-scientists) - Home"/>`);</script>
+    <img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-light" alt="Hands-on Introduction to Data Science with Python - Home"/>
+    <script>document.write(`<img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-dark" alt="Hands-on Introduction to Data Science with Python - Home"/>`);</script>
   
   
 </a></div>
@@ -560,7 +560,7 @@ document.write(`
 </section>
 <section id="graphs-in-python-with-networkx">
 <h2><span class="section-number">25.3. </span>Graphs in Python with <code class="docutils literal notranslate"><span class="pre">NetworkX</span></code><a class="headerlink" href="#graphs-in-python-with-networkx" title="Link to this heading">#</a></h2>
-<p>If if comes to working with networks/graphs, the goto Python library is <code class="docutils literal notranslate"><span class="pre">NetworkX</span></code> <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id54" title="Aric A. Hagberg, Daniel A. Schult, and Pieter J. Swart. Exploring network structure, dynamics, and function using networkx. In Gaël Varoquaux, Travis Vaught, and Jarrod Millman, editors, Proceedings of the 7th Python in Science Conference, 11 - 15. Pasadena, CA USA, 2008.">Hagberg <em>et al.</em>, 2008</a>]</span>, which also comes with an <a class="reference external" href="https://networkx.org/documentation/stable/reference/index.html">extensive documentation</a>.
+<p>If if comes to working with networks/graphs, the goto Python library is <code class="docutils literal notranslate"><span class="pre">NetworkX</span></code> <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id55" title="Aric A. Hagberg, Daniel A. Schult, and Pieter J. Swart. Exploring network structure, dynamics, and function using networkx. In Gaël Varoquaux, Travis Vaught, and Jarrod Millman, editors, Proceedings of the 7th Python in Science Conference, 11 - 15. Pasadena, CA USA, 2008.">Hagberg <em>et al.</em>, 2008</a>]</span>, which also comes with an <a class="reference external" href="https://networkx.org/documentation/stable/reference/index.html">extensive documentation</a>.
 In addition, <code class="docutils literal notranslate"><span class="pre">NetworkX</span></code> also provides its own <a class="reference external" href="https://networkx.org/documentation/stable/tutorial.html">tutorial material</a>.</p>
 <p>Here, we will do a quick introduction to NetworkX which we will then use for all graph-related parts in this course.</p>
 <section id="installation">
@@ -580,7 +580,7 @@ In addition, <code class="docutils literal notranslate"><span class="pre">Networ
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;3.3&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;3.4.1&#39;
 </pre></div>
 </div>
 </div>
@@ -688,7 +688,7 @@ To initiate a directed graph we can use <code class="docutils literal notranslat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/89a5773bc423aa8f844d9edc88d08d6cd2a82941005ee9344fabbfccf8dc844a.png" src="../_images/89a5773bc423aa8f844d9edc88d08d6cd2a82941005ee9344fabbfccf8dc844a.png" />
+<img alt="../_images/f2b19c79068cf63e60a755af3d4997424bf91b0350098b96a530cb25ff50a8ad.png" src="../_images/f2b19c79068cf63e60a755af3d4997424bf91b0350098b96a530cb25ff50a8ad.png" />
 </div>
 </div>
 <p>We see that some nodes have more connections (up to three in this example), while others have fewer connections, such as the node “Alice” with only one edge to another node (“Peter”).
@@ -859,7 +859,7 @@ Density = 0.6
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/36e76e1f67d5b710c0bd1d8ec0c037c4139b5ee79ea87c2feb4621bed79bb600.png" src="../_images/36e76e1f67d5b710c0bd1d8ec0c037c4139b5ee79ea87c2feb4621bed79bb600.png" />
+<img alt="../_images/5c8b85ded7fa5d7445d9ad57049cd178fd04cd568191bbeee06bbd1b071d321d.png" src="../_images/5c8b85ded7fa5d7445d9ad57049cd178fd04cd568191bbeee06bbd1b071d321d.png" />
 </div>
 </div>
 <p>Using networkx this can be tested very easily:</p>
@@ -895,7 +895,7 @@ Density = 0.6
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bd7d5771f67af5a827c6cca69f6ade051317a4b466319606c89a9bf07f43c858.png" src="../_images/bd7d5771f67af5a827c6cca69f6ade051317a4b466319606c89a9bf07f43c858.png" />
+<img alt="../_images/dcf70f8aed488070e5818e21d66b5de89e2b4b2217c89b14a19a44f5ec8c2c2d.png" src="../_images/dcf70f8aed488070e5818e21d66b5de89e2b4b2217c89b14a19a44f5ec8c2c2d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -909,7 +909,7 @@ Density = 0.6
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/84a3c38e164c271bdd06506b72af6e4ac72a242d3ceb040dea899ba1147157c9.png" src="../_images/84a3c38e164c271bdd06506b72af6e4ac72a242d3ceb040dea899ba1147157c9.png" />
+<img alt="../_images/ebdceb6ca1f83b1e790df8504b7a020dd1cfa5d2cf4e79ea3d6d24c2d34d5fca.png" src="../_images/ebdceb6ca1f83b1e790df8504b7a020dd1cfa5d2cf4e79ea3d6d24c2d34d5fca.png" />
 </div>
 </div>
 </section>

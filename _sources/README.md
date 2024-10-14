@@ -6,7 +6,7 @@
     <img src="https://github.com/florian-huber/data_science_course/blob/main/images/data_science_cover_illustration.png" width="600" alt="Book cover">
 </p>
 
-# Introduction to data science (for not yet scientists)
+# Hands-on Introduction to Data Science using Python
 Data Science course developed at the Düsseldorf University of Applied Sciences (HSD) and the Centre for Digitalization and Digitality (ZDD).
 
 ## Access the online version of this book:
