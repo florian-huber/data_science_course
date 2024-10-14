@@ -8,7 +8,7 @@ dependencies:
   - pandas
   - pip
   - requests
-  - scikit-learn>=1.4.0
+  - "scikit-learn>=1.4.0 --prefer-binary"
   - seaborn
   - tqdm
   - pytest
@@ -20,7 +20,7 @@ dependencies:
     - nltk
     - plotly
     - pyvis
-    - spacy
+    - spacy>=3.8.0
     - "scipy>=1.8.0 --prefer-binary"
     - squarify
     - umap-learn
