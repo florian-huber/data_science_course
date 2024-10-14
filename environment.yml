@@ -7,9 +7,8 @@ dependencies:
   - numpy
   - pandas
   - pip
-  - pyvis
   - requests
-  - scikit-learn
+  - scikit-learn>=1.4.0
   - seaborn
   - tqdm
   - pytest
@@ -20,6 +19,7 @@ dependencies:
     - networkx
     - nltk
     - plotly
+    - pyvis
     - spacy
     - "scipy>=1.8.0 --prefer-binary"
     - squarify
