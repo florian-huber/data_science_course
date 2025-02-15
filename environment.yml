@@ -14,6 +14,7 @@ dependencies:
   - tqdm
   - pytest
   - pip:
+    - faker
     - gensim>=4.3.3
     - jupyter
     - matplotlib
