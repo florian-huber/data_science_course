@@ -1,13 +1,13 @@
 Traceback (most recent call last):
   File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/nbclient/client.py", line 1314, in execute
+  File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/nbclient/client.py", line 1319, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/micromamba/envs/data_science/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+  File "/home/runner/micromamba/envs/data_science/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
     return future.result()
            ^^^^^^^^^^^^^^^
   File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
@@ -24,38 +24,36 @@ nlp = spacy.load("en_core_web_lg")
 ------------------
 
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mOSError[0m                                   Traceback (most recent call last)
-Cell [0;32mIn[60], line 3[0m
-[1;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01mspacy[39;00m
-[0;32m----> 3[0m nlp [38;5;241m=[39m [43mspacy[49m[38;5;241;43m.[39;49m[43mload[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43men_core_web_lg[39;49m[38;5;124;43m"[39;49m[43m)[49m
+[31m---------------------------------------------------------------------------[39m
+[31mOSError[39m                                   Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[60][39m[32m, line 3[39m
+[32m      1[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mspacy[39;00m
+[32m----> [39m[32m3[39m nlp = [43mspacy[49m[43m.[49m[43mload[49m[43m([49m[33;43m"[39;49m[33;43men_core_web_lg[39;49m[33;43m"[39;49m[43m)[49m
 
-File [0;32m~/micromamba/envs/data_science/lib/python3.12/site-packages/spacy/__init__.py:51[0m, in [0;36mload[0;34m(name, vocab, disable, enable, exclude, config)[0m
-[1;32m     27[0m [38;5;28;01mdef[39;00m [38;5;21mload[39m(
-[1;32m     28[0m     name: Union[[38;5;28mstr[39m, Path],
-[1;32m     29[0m     [38;5;241m*[39m,
-[0;32m   (...)[0m
-[1;32m     34[0m     config: Union[Dict[[38;5;28mstr[39m, Any], Config] [38;5;241m=[39m util[38;5;241m.[39mSimpleFrozenDict(),
-[1;32m     35[0m ) [38;5;241m-[39m[38;5;241m>[39m Language:
-[1;32m     36[0m [38;5;250m    [39m[38;5;124;03m"""Load a spaCy model from an installed package or a local path.[39;00m
-[1;32m     37[0m 
-[1;32m     38[0m [38;5;124;03m    name (str): Package name or model path.[39;00m
-[0;32m   (...)[0m
-[1;32m     49[0m [38;5;124;03m    RETURNS (Language): The loaded nlp object.[39;00m
-[1;32m     50[0m [38;5;124;03m    """[39;00m
-[0;32m---> 51[0m     [38;5;28;01mreturn[39;00m [43mutil[49m[38;5;241;43m.[39;49m[43mload_model[49m[43m([49m
-[1;32m     52[0m [43m        [49m[43mname[49m[43m,[49m
-[1;32m     53[0m [43m        [49m[43mvocab[49m[38;5;241;43m=[39;49m[43mvocab[49m[43m,[49m
-[1;32m     54[0m [43m        [49m[43mdisable[49m[38;5;241;43m=[39;49m[43mdisable[49m[43m,[49m
-[1;32m     55[0m [43m        [49m[43menable[49m[38;5;241;43m=[39;49m[43menable[49m[43m,[49m
-[1;32m     56[0m [43m        [49m[43mexclude[49m[38;5;241;43m=[39;49m[43mexclude[49m[43m,[49m
-[1;32m     57[0m [43m        [49m[43mconfig[49m[38;5;241;43m=[39;49m[43mconfig[49m[43m,[49m
-[1;32m     58[0m [43m    [49m[43m)[49m
+[36mFile [39m[32m~/micromamba/envs/data_science/lib/python3.12/site-packages/spacy/__init__.py:51[39m, in [36mload[39m[34m(name, vocab, disable, enable, exclude, config)[39m
+[32m     27[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mload[39m(
+[32m     28[39m     name: Union[[38;5;28mstr[39m, Path],
+[32m     29[39m     *,
+[32m   (...)[39m[32m     34[39m     config: Union[Dict[[38;5;28mstr[39m, Any], Config] = util.SimpleFrozenDict(),
+[32m     35[39m ) -> Language:
+[32m     36[39m [38;5;250m    [39m[33;03m"""Load a spaCy model from an installed package or a local path.[39;00m
+[32m     37[39m 
+[32m     38[39m [33;03m    name (str): Package name or model path.[39;00m
+[32m   (...)[39m[32m     49[39m [33;03m    RETURNS (Language): The loaded nlp object.[39;00m
+[32m     50[39m [33;03m    """[39;00m
+[32m---> [39m[32m51[39m     [38;5;28;01mreturn[39;00m [43mutil[49m[43m.[49m[43mload_model[49m[43m([49m
+[32m     52[39m [43m        [49m[43mname[49m[43m,[49m
+[32m     53[39m [43m        [49m[43mvocab[49m[43m=[49m[43mvocab[49m[43m,[49m
+[32m     54[39m [43m        [49m[43mdisable[49m[43m=[49m[43mdisable[49m[43m,[49m
+[32m     55[39m [43m        [49m[43menable[49m[43m=[49m[43menable[49m[43m,[49m
+[32m     56[39m [43m        [49m[43mexclude[49m[43m=[49m[43mexclude[49m[43m,[49m
+[32m     57[39m [43m        [49m[43mconfig[49m[43m=[49m[43mconfig[49m[43m,[49m
+[32m     58[39m [43m    [49m[43m)[49m
 
-File [0;32m~/micromamba/envs/data_science/lib/python3.12/site-packages/spacy/util.py:472[0m, in [0;36mload_model[0;34m(name, vocab, disable, enable, exclude, config)[0m
-[1;32m    470[0m [38;5;28;01mif[39;00m name [38;5;129;01min[39;00m OLD_MODEL_SHORTCUTS:
-[1;32m    471[0m     [38;5;28;01mraise[39;00m [38;5;167;01mIOError[39;00m(Errors[38;5;241m.[39mE941[38;5;241m.[39mformat(name[38;5;241m=[39mname, full[38;5;241m=[39mOLD_MODEL_SHORTCUTS[name]))  [38;5;66;03m# type: ignore[index][39;00m
-[0;32m--> 472[0m [38;5;28;01mraise[39;00m [38;5;167;01mIOError[39;00m(Errors[38;5;241m.[39mE050[38;5;241m.[39mformat(name[38;5;241m=[39mname))
+[36mFile [39m[32m~/micromamba/envs/data_science/lib/python3.12/site-packages/spacy/util.py:472[39m, in [36mload_model[39m[34m(name, vocab, disable, enable, exclude, config)[39m
+[32m    470[39m [38;5;28;01mif[39;00m name [38;5;129;01min[39;00m OLD_MODEL_SHORTCUTS:
+[32m    471[39m     [38;5;28;01mraise[39;00m [38;5;167;01mIOError[39;00m(Errors.E941.format(name=name, full=OLD_MODEL_SHORTCUTS[name]))  [38;5;66;03m# type: ignore[index][39;00m
+[32m--> [39m[32m472[39m [38;5;28;01mraise[39;00m [38;5;167;01mIOError[39;00m(Errors.E050.format(name=name))
 
-[0;31mOSError[0m: [E050] Can't find model 'en_core_web_lg'. It doesn't seem to be a Python package or a valid path to a data directory.
+[31mOSError[39m: [E050] Can't find model 'en_core_web_lg'. It doesn't seem to be a Python package or a valid path to a data directory.
 

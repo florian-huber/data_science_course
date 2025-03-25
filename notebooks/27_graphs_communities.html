@@ -28,8 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -554,12 +554,12 @@ C= \frac{\sum_{i:k&gt;1}C(i)}{N_{k&gt;1   }}
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
 <span class="c1"># Import networkx</span>
-<span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">networkx</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx</span>
 </pre></div>
 </div>
 </div>
@@ -581,7 +581,7 @@ C= \frac{\sum_{i:k&gt;1}C(i)}{N_{k&gt;1   }}
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
 <span class="c1"># Function to plot the graph and display metrics</span>
-<span class="k">def</span> <span class="nf">plot_graph</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">G</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_graph</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">G</span><span class="p">):</span>
     <span class="n">pos</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
     <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="o">**</span><span class="n">plot_parameters</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
@@ -611,7 +611,7 @@ C= \frac{\sum_{i:k&gt;1}C(i)}{N_{k&gt;1   }}
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/e6a8ab3a01c2e1aeae0aebddc9fcaf1355bd2ce288e8f77f85700fd52673520b.png" src="../_images/e6a8ab3a01c2e1aeae0aebddc9fcaf1355bd2ce288e8f77f85700fd52673520b.png" />
+<img alt="../_images/8377ed001dfffc3e68f4bc8a831b72c021d805a4a36f1ff4d474fa3711ae0b5e.png" src="../_images/8377ed001dfffc3e68f4bc8a831b72c021d805a4a36f1ff4d474fa3711ae0b5e.png" />
 </div>
 </div>
 </section>
@@ -662,7 +662,7 @@ b_i = \sum  _{h \neq j \neq i}\frac{\sigma(j, h |i)}{\sigma(j, h)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b9c80d8d61fa6cbaebb527a5f323b1d1ab609f579835d7218d07d0d3e1c1357c.png" src="../_images/b9c80d8d61fa6cbaebb527a5f323b1d1ab609f579835d7218d07d0d3e1c1357c.png" />
+<img alt="../_images/6395275f3ed9654f0c5f9063225a78e6c5e7380a8ac0c822166606c85fd07107.png" src="../_images/6395275f3ed9654f0c5f9063225a78e6c5e7380a8ac0c822166606c85fd07107.png" />
 </div>
 </div>
 </section>
@@ -680,7 +680,7 @@ b_i = \sum  _{h \neq j \neq i}\frac{\sigma(j, h |i)}{\sigma(j, h)}
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.cm</span> <span class="kn">import</span> <span class="n">ScalarMappable</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.cm</span><span class="w"> </span><span class="kn">import</span> <span class="n">ScalarMappable</span>
 
 
 <span class="n">properties1</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">closeness_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
@@ -688,7 +688,7 @@ b_i = \sum  _{h \neq j \neq i}\frac{\sigma(j, h |i)}{\sigma(j, h)}
 
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">plot_centrality</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">properties</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_centrality</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">properties</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot network and color nodes by centralities-&quot;&quot;&quot;</span>
     <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
     <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">nodelist</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">properties</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span>
@@ -717,7 +717,7 @@ b_i = \sum  _{h \neq j \neq i}\frac{\sigma(j, h |i)}{\sigma(j, h)}
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/12e23bb44cc821c5c3efc4eb6ff0043bb8973393a9fb79611fe9d20bd5a7dd2f.png" src="../_images/12e23bb44cc821c5c3efc4eb6ff0043bb8973393a9fb79611fe9d20bd5a7dd2f.png" />
+<img alt="../_images/c24ab4614f3ef9555ca3f932134936693ec99346a7ccce647729ca71513d56c8.png" src="../_images/c24ab4614f3ef9555ca3f932134936693ec99346a7ccce647729ca71513d56c8.png" />
 </div>
 </div>
 </section>
@@ -763,7 +763,7 @@ b_e = \sum_{i, j}\frac{\sigma(i, j |e)}{\sigma(i,j)}
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/31a0b3d3d6e6060e57ccf2210573238c80c88283d1b320568b0c069db8fc2a27.png" src="../_images/31a0b3d3d6e6060e57ccf2210573238c80c88283d1b320568b0c069db8fc2a27.png" />
+<img alt="../_images/70bbd4af172f56f9c7ee8e5f08629bc4bcdf4a331158865c549b4da5f19ed6f0.png" src="../_images/70bbd4af172f56f9c7ee8e5f08629bc4bcdf4a331158865c549b4da5f19ed6f0.png" />
 </div>
 </div>
 </section>
@@ -801,7 +801,7 @@ b_e = \sum_{i, j}\frac{\sigma(i, j |e)}{\sigma(i,j)}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7745660e53db768020b2a43c4541d77db0aa4b237c25c20699553313a6321a97.png" src="../_images/7745660e53db768020b2a43c4541d77db0aa4b237c25c20699553313a6321a97.png" />
+<img alt="../_images/0887193d3c7e56bd05873fe75d7cbd23e8d3efda32ed4dfaae3c8261e2e89a91.png" src="../_images/0887193d3c7e56bd05873fe75d7cbd23e8d3efda32ed4dfaae3c8261e2e89a91.png" />
 </div>
 </div>
 <p>In the above graph, most people will immediately “see” three different clusters (or, in network analysis language: communities). But how can we assign them automatically?</p>
@@ -846,7 +846,7 @@ b_e = \sum_{i, j}\frac{\sigma(i, j |e)}{\sigma(i,j)}
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/36e12df3a594d4a2c4ccda4ca01c52c8ddec9750f85989adde9399d7d810c9c4.png" src="../_images/36e12df3a594d4a2c4ccda4ca01c52c8ddec9750f85989adde9399d7d810c9c4.png" />
+<img alt="../_images/21640fd84c59ea7fefc9f9a4d44b45e371ad0da16732c2ef66381a6602cb1357.png" src="../_images/21640fd84c59ea7fefc9f9a4d44b45e371ad0da16732c2ef66381a6602cb1357.png" />
 </div>
 </div>
 <p>We can see, that indeed, the highest edge betweenness centrality is assigned to edges connecting the different clusters. An important issue with Girvan-Newman, however, is that we have to define when to stop iteratively removing such edges.</p>
@@ -931,11 +931,11 @@ b_e = \sum_{i, j}\frac{\sigma(i, j |e)}{\sigma(i,j)}
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3361/3250153097.py:23: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3573/3250153097.py:23: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
   plt.legend()
 </pre></div>
 </div>
-<img alt="../_images/30450a129e49e1c5c55714b0a2d5756adc6928f1e8940d8d757baa6c4e33a6ad.png" src="../_images/30450a129e49e1c5c55714b0a2d5756adc6928f1e8940d8d757baa6c4e33a6ad.png" />
+<img alt="../_images/4f9fe8a345349d3a2b1e90cc75916ad65ed8fcae1c212170b612f09598a6c98e.png" src="../_images/4f9fe8a345349d3a2b1e90cc75916ad65ed8fcae1c212170b612f09598a6c98e.png" />
 </div>
 </div>
 </section>
@@ -967,7 +967,7 @@ Q = \frac{1}{2m} \sum_{ij} \left[ A_{ij} - \frac{k_i k_j}{2m} \right] \delta(c_i
 <p>The Louvain algorithm iterates between these two phases until no further modularity improvements can be made. This method is highly efficient and can handle very large networks, making it widely used in practical applications. It effectively balances accuracy with computational complexity, allowing for the detection of high-quality community structures in a reasonable amount of time.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx.algorithms.community</span> <span class="k">as</span> <span class="nn">nx_comm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">networkx.algorithms.community</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">nx_comm</span>
 
 <span class="n">partitions_louvain</span> <span class="o">=</span> <span class="n">nx_comm</span><span class="o">.</span><span class="n">louvain_communities</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
@@ -1039,11 +1039,11 @@ Q = \frac{1}{2m} \sum_{ij} \left[ A_{ij} - \frac{k_i k_j}{2m} \right] \delta(c_i
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3361/1809915951.py:23: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3573/1809915951.py:23: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
   plt.legend()
 </pre></div>
 </div>
-<img alt="../_images/7b4131071469bfeb6f6c42b2f89211c34cda7c7cc6552ba1b62a2cfba9544f6e.png" src="../_images/7b4131071469bfeb6f6c42b2f89211c34cda7c7cc6552ba1b62a2cfba9544f6e.png" />
+<img alt="../_images/2557c46aaf9edf0de050166098e88b97cf78777cc3e6367c8bb3b0430029d400.png" src="../_images/2557c46aaf9edf0de050166098e88b97cf78777cc3e6367c8bb3b0430029d400.png" />
 </div>
 </div>
 <p>Finally, let’s see how this works for less obvious community structures:</p>
@@ -1101,11 +1101,11 @@ Q = \frac{1}{2m} \sum_{ij} \left[ A_{ij} - \frac{k_i k_j}{2m} \right] \delta(c_i
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3361/2251159713.py:41: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3573/2251159713.py:41: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
   plt.legend()
 </pre></div>
 </div>
-<img alt="../_images/cd3ab6cd50793bef6e5edc44072ddb91575d5f5e5cc49e9f5668d5b606e190cc.png" src="../_images/cd3ab6cd50793bef6e5edc44072ddb91575d5f5e5cc49e9f5668d5b606e190cc.png" />
+<img alt="../_images/9bfb77dbf1a748ee05b130fcb92feca6254a7715161763535eed2353272a5424.png" src="../_images/9bfb77dbf1a748ee05b130fcb92feca6254a7715161763535eed2353272a5424.png" />
 </div>
 </div>
 </section>

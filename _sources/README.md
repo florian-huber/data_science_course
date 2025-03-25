@@ -20,7 +20,7 @@ If you use (parts of) this book for your work, please cite the book as:
 
 *Huber, F. (2024).*  
 *Hands-on Introduction to Data Science with Python.*  
-*v0.18, 2024, Zenodo. https://doi.org/10.5281/zenodo.10074474*
+*v0.21, 2024, Zenodo. https://doi.org/10.5281/zenodo.10074474*
 
 ## Create new environment for this course (recommended)
 It is recommended to create a new environment for this course with many Python libraries that we will use in the Live Coding sessions. You can simply download the `environment.yml` file in this repository, or clone the repository using:
@@ -31,7 +31,7 @@ Then, in the folder with the `environment.yml` file simply run:
 ```
 conda env create -f environment.yml
 ```
-This should create a Python 3.10 environment with the packages listed in the yaml-file.
+This should create a Python 3.12 environment with the packages listed in the yaml-file.
 
 **The classical conda environmental solver can be slow!** So it might make sense to switch to faster alternatives, either within Conda (see https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community) or mamba.
 

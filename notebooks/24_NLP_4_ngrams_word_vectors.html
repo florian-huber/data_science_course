@@ -28,8 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -542,12 +542,12 @@ Bigrams (or 2-grams) would not catch those differences. But they can also be ver
 <p>Now we will see how we can make use of such n-grams.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
-<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sb</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_extraction.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">TfidfVectorizer</span>
 
 
 <span class="c1"># Set the ggplot style</span>
@@ -575,11 +575,11 @@ Bigrams (or 2-grams) would not catch those differences. But they can also be ver
 <span class="sd">This code block downloads the data from zenodo and stores it in a local &#39;datasets&#39; folder.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
 
-<span class="k">def</span> <span class="nf">download_from_zenodo</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">download_from_zenodo</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Downloads a file from a given Zenodo link and saves it to the specified path.</span>
 
@@ -781,7 +781,7 @@ Bigrams (or 2-grams) would not catch those differences. But they can also be ver
 <p>As we did in the previous chapters, we can simply use the Scikit-Learn <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer</span></code> to create tfidf-vectors of our documents. But now with <code class="docutils literal notranslate"><span class="pre">ngram_range</span></code> set to more than just 1-grams. For a start, we will use 1-grams and 2-grams:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.feature_extraction.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">TfidfVectorizer</span>
 
 <span class="c1"># considers both unigrams and bigrams</span>
 <span class="n">vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>  
@@ -944,7 +944,7 @@ Instead of manually adjusting the <code class="docutils literal notranslate"><sp
 <p>First, we do a data split to later train a machine learning model:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
 
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
     <span class="n">data</span><span class="o">.</span><span class="n">review_full</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">rating_review</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -1014,7 +1014,7 @@ Test dataset size: (8000,)
 <p>By the way: Why did we now get less than max_features?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>  <span class="c1"># don&#39;t worry it also works without setting max_iter</span>
 <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">tfidf_vectors</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -1024,7 +1024,8 @@ Test dataset size: (8000,)
 <div class="cell_output docutils container">
 <div class="output text_html"><style>#sk-container-id-1 {
   /* Definition of color scheme common for light and dark mode */
-  --sklearn-color-text: black;
+  --sklearn-color-text: #000;
+  --sklearn-color-text-muted: #666;
   --sklearn-color-line: gray;
   /* Definition of color scheme for unfitted estimators */
   --sklearn-color-unfitted-level-0: #fff5e6;
@@ -1169,12 +1170,21 @@ clickable and can be expanded/collapsed.
 /* Toggleable label */
 #sk-container-id-1 label.sk-toggleable__label {
   cursor: pointer;
-  display: block;
+  display: flex;
   width: 100%;
   margin-bottom: 0;
   padding: 0.5em;
   box-sizing: border-box;
   text-align: center;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+#sk-container-id-1 label.sk-toggleable__label .caption {
+  font-size: 0.6rem;
+  font-weight: lighter;
+  color: var(--sklearn-color-text-muted);
 }
 
 #sk-container-id-1 label.sk-toggleable__label-arrow:before {
@@ -1327,7 +1337,8 @@ a:visited.sk-estimator-doc-link {
   height: 1em;
   width: 1em;
   text-decoration: none !important;
-  margin-left: 1ex;
+  margin-left: 0.5em;
+  text-align: center;
   /* unfitted */
   border: var(--sklearn-color-unfitted-level-1) 1pt solid;
   color: var(--sklearn-color-unfitted-level-1);
@@ -1426,7 +1437,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(max_iter=300)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;LogisticRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression(max_iter=300)</pre></div> </div></div></div></div></div></div>
+</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(max_iter=300)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>LogisticRegression</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression(max_iter=300)</pre></div> </div></div></div></div></div></div>
 </div>
 <p>We will then use the before initialized tfidf-vectorizer to process our test data.</p>
 <div class="cell docutils container">
@@ -1474,7 +1485,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3cd0ebfb18e7235d14054f5ee5718ae67f0b1c9229db03b3fb512723ece81bb7.png" src="../_images/3cd0ebfb18e7235d14054f5ee5718ae67f0b1c9229db03b3fb512723ece81bb7.png" />
+<img alt="../_images/a670afe23cbe846907e73d41f4f6a50b9fa5bdd24663fa49c9c8157e0cd79a88.png" src="../_images/a670afe23cbe846907e73d41f4f6a50b9fa5bdd24663fa49c9c8157e0cd79a88.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1491,7 +1502,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">classification_report</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">classification_report</span>
 
 <span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
 
@@ -1511,7 +1522,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9a2b54741c810fbfbf5350c9b37e7bdbc1eb7876855ac02c82cd1fbca48f3995.png" src="../_images/9a2b54741c810fbfbf5350c9b37e7bdbc1eb7876855ac02c82cd1fbca48f3995.png" />
+<img alt="../_images/2c0019b0d3b265f0a032d945e3f22360d9efc40c28c48bca9b6c7e0c55b00e3d.png" src="../_images/2c0019b0d3b265f0a032d945e3f22360d9efc40c28c48bca9b6c7e0c55b00e3d.png" />
 </div>
 </div>
 <section id="look-at-the-vectors">
@@ -1711,7 +1722,7 @@ Luckily, they are stored as sparse arrays so that only the (few) non-zero elemen
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">max_iter</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>  <span class="c1"># don&#39;t worry it also works without setting max_iter</span>
 <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">tfidf_vectors</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
@@ -1721,7 +1732,8 @@ Luckily, they are stored as sparse arrays so that only the (few) non-zero elemen
 <div class="cell_output docutils container">
 <div class="output text_html"><style>#sk-container-id-2 {
   /* Definition of color scheme common for light and dark mode */
-  --sklearn-color-text: black;
+  --sklearn-color-text: #000;
+  --sklearn-color-text-muted: #666;
   --sklearn-color-line: gray;
   /* Definition of color scheme for unfitted estimators */
   --sklearn-color-unfitted-level-0: #fff5e6;
@@ -1866,12 +1878,21 @@ clickable and can be expanded/collapsed.
 /* Toggleable label */
 #sk-container-id-2 label.sk-toggleable__label {
   cursor: pointer;
-  display: block;
+  display: flex;
   width: 100%;
   margin-bottom: 0;
   padding: 0.5em;
   box-sizing: border-box;
   text-align: center;
+  align-items: start;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+#sk-container-id-2 label.sk-toggleable__label .caption {
+  font-size: 0.6rem;
+  font-weight: lighter;
+  color: var(--sklearn-color-text-muted);
 }
 
 #sk-container-id-2 label.sk-toggleable__label-arrow:before {
@@ -2024,7 +2045,8 @@ a:visited.sk-estimator-doc-link {
   height: 1em;
   width: 1em;
   text-decoration: none !important;
-  margin-left: 1ex;
+  margin-left: 0.5em;
+  text-align: center;
   /* unfitted */
   border: var(--sklearn-color-unfitted-level-1) 1pt solid;
   color: var(--sklearn-color-unfitted-level-1);
@@ -2123,7 +2145,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   /* fitted */
   background-color: var(--sklearn-color-fitted-level-3);
 }
-</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(max_iter=300)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;LogisticRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression(max_iter=300)</pre></div> </div></div></div></div></div></div>
+</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LogisticRegression(max_iter=300)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-2" type="checkbox" checked><label for="sk-estimator-id-2" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>LogisticRegression</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.linear_model.LogisticRegression.html">?<span>Documentation for LogisticRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>LogisticRegression(max_iter=300)</pre></div> </div></div></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2170,7 +2192,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b79a0ebb7b7f4c2043f2caa8c060c9e98003dd949df3f9da0e347a4f85ea346f.png" src="../_images/b79a0ebb7b7f4c2043f2caa8c060c9e98003dd949df3f9da0e347a4f85ea346f.png" />
+<img alt="../_images/47abf11cf176aa5058bb23fe7f7a928a48f184eb90aa0514cfbb90c5cd1f5a55.png" src="../_images/47abf11cf176aa5058bb23fe7f7a928a48f184eb90aa0514cfbb90c5cd1f5a55.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2187,7 +2209,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">classification_report</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">classification_report</span>
 
 <span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
 
@@ -2207,7 +2229,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/442a75ae1b87ceb4fb5cb343f5ba89b6eda3ffa8d33c658bb78738f50fda10d0.png" src="../_images/442a75ae1b87ceb4fb5cb343f5ba89b6eda3ffa8d33c658bb78738f50fda10d0.png" />
+<img alt="../_images/0968794384922644f21e99234ec36a193ad8a5a6a9dcd431c04ba2776befea29.png" src="../_images/0968794384922644f21e99234ec36a193ad8a5a6a9dcd431c04ba2776befea29.png" />
 </div>
 </div>
 </section>
@@ -2445,7 +2467,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">classification_report</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">classification_report</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predictions</span><span class="p">))</span>
@@ -2495,7 +2517,7 @@ weighted avg       0.64      0.66      0.64      8000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d10bf55bbf7f038a7604b2d6ea6d7f6060e4efa5f3ebd1c73ffeb6b6d920b943.png" src="../_images/d10bf55bbf7f038a7604b2d6ea6d7f6060e4efa5f3ebd1c73ffeb6b6d920b943.png" />
+<img alt="../_images/83b788dce7d3058d303244e6d14b282bb3a694846b72e94981814f0716517593.png" src="../_images/83b788dce7d3058d303244e6d14b282bb3a694846b72e94981814f0716517593.png" />
 </div>
 </div>
 </section>
@@ -2551,7 +2573,7 @@ Why not use the vectors to compute distances or similarities? This way, we can s
 <p>In order for this to work, however, we should not rely on for-loops. Those are inherently slow in Python. We rather use optimized functions for this such as from <code class="docutils literal notranslate"><span class="pre">sklear.metrics.pairwise</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">cosine_similarity</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics.pairwise</span><span class="w"> </span><span class="kn">import</span> <span class="n">cosine_similarity</span>
 
 <span class="n">review_id</span> <span class="o">=</span> <span class="o">-</span><span class="mi">11</span><span class="c1">#-9#-2</span>
 <span class="n">query_vector</span> <span class="o">=</span> <span class="n">tfidf_vectors</span><span class="p">[</span><span class="n">review_id</span><span class="p">,</span> <span class="p">:]</span>
@@ -2665,12 +2687,12 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </figure>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
 
 <span class="n">tokenizer</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">TreebankWordTokenizer</span><span class="p">()</span>
 <span class="n">stemmer</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">stem</span><span class="o">.</span><span class="n">WordNetLemmatizer</span><span class="p">()</span>
 
-<span class="k">def</span> <span class="nf">process_document</span><span class="p">(</span><span class="n">doc</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">process_document</span><span class="p">(</span><span class="n">doc</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert document to lemmas.&quot;&quot;&quot;</span>
     <span class="n">tokens</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
     <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;.,;:!? &quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">]</span>
@@ -2682,14 +2704,14 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 <p>The entire text will be divided into sentences, that will be our “documents” in Word2vec terms. To reduce the computation time we will only use a fraction of the sentences, but feel free to repeat the following code parts with all sentences.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.notebook</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
 
 <span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span><span class="n">process_document</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">values</span><span class="p">[:</span><span class="mi">50_000</span><span class="p">])]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "fe67d8a52e444f40913cbe9f9bc38e4b"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "45a6957b4b2643e4b5fe9a7754949791"}</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2706,7 +2728,7 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 <p>We will now train our own Word2Vec model using <code class="docutils literal notranslate"><span class="pre">Gensim</span></code>, see also <a class="reference external" href="https://radimrehurek.com/gensim/models/word2vec.html#usage-examples">documentation</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gensim.models</span> <span class="kn">import</span> <span class="n">Word2Vec</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">gensim.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Word2Vec</span>
 
 <span class="c1"># Assume &#39;sentences&#39; is a list of lists of tokenized sentences</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">Word2Vec</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span>
@@ -2741,10 +2763,10 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.91410285, -1.4563946 ,  0.4228479 , -0.14279772, -0.4274632 ,
-        0.6511377 ,  0.93982494,  0.2574794 , -1.0582342 ,  0.10997292,
-        0.20510814,  0.53749746, -0.5058969 ,  0.0918088 ,  0.15881227,
-        1.4754533 ,  1.0349059 , -0.52666837, -0.09534109,  0.72095007],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.631603  , -1.0771776 ,  0.22526176, -0.50391495,  0.12703596,
+       -0.40214393,  1.0089499 ,  0.96791977, -0.43909448,  0.6261931 ,
+        0.12582171, -0.36545417, -1.1398062 ,  1.2129985 ,  0.46546593,
+        0.18669693,  0.9757946 , -0.7864563 , -1.4716821 ,  0.23481983],
       dtype=float32)
 </pre></div>
 </div>
@@ -2758,16 +2780,16 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;tasty&#39;, 0.8217989802360535),
- (&#39;yummy&#39;, 0.8094857931137085),
- (&#39;fantastic&#39;, 0.804514467716217),
- (&#39;amazing&#39;, 0.7624901533126831),
- (&#39;fabulous&#39;, 0.7530526518821716),
- (&#39;incredible&#39;, 0.7440138459205627),
- (&#39;superb&#39;, 0.7403611540794373),
- (&#39;awesome&#39;, 0.7191765308380127),
- (&#39;outstanding&#39;, 0.7180500030517578),
- (&#39;excellent&#39;, 0.709700882434845)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;tasty&#39;, 0.8172634243965149),
+ (&#39;yummy&#39;, 0.8169894218444824),
+ (&#39;fantastic&#39;, 0.7978318929672241),
+ (&#39;amazing&#39;, 0.7780168056488037),
+ (&#39;superb&#39;, 0.7425981163978577),
+ (&#39;incredible&#39;, 0.7387852668762207),
+ (&#39;fabulous&#39;, 0.7178133726119995),
+ (&#39;awesome&#39;, 0.7057554721832275),
+ (&#39;outstanding&#39;, 0.7043496966362),
+ (&#39;phenomenal&#39;, 0.6970510482788086)]
 </pre></div>
 </div>
 </div>
@@ -2779,16 +2801,16 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;burger&#39;, 0.84384685754776),
- (&#39;hamburger&#39;, 0.7577774524688721),
- (&#39;pasta&#39;, 0.7346887588500977),
- (&#39;paella&#39;, 0.7143691778182983),
- (&#39;sushi&#39;, 0.7117481827735901),
- (&#39;ramen&#39;, 0.7072259187698364),
- (&#39;salad&#39;, 0.674453616142273),
- (&#39;veggie&#39;, 0.6728622317314148),
- (&#39;sandwich&#39;, 0.6663693785667419),
- (&#39;steak&#39;, 0.665494978427887)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;burger&#39;, 0.843440055847168),
+ (&#39;hamburger&#39;, 0.7472385764122009),
+ (&#39;Paella&#39;, 0.7072907090187073),
+ (&#39;paella&#39;, 0.7038463950157166),
+ (&#39;sushi&#39;, 0.7014381885528564),
+ (&#39;pasta&#39;, 0.6926369667053223),
+ (&#39;salad&#39;, 0.6874116063117981),
+ (&#39;topping&#39;, 0.6653841733932495),
+ (&#39;fry&#39;, 0.6455309391021729),
+ (&#39;sandwich&#39;, 0.6369296312332153)]
 </pre></div>
 </div>
 </div>
@@ -2800,16 +2822,16 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;terrible&#39;, 0.9065782427787781),
- (&#39;awful&#39;, 0.8905686736106873),
- (&#39;okay&#39;, 0.7794991731643677),
- (&#39;exceptional&#39;, 0.7730740308761597),
- (&#39;appalling&#39;, 0.7609680891036987),
- (&#39;alright&#39;, 0.7501316666603088),
- (&#39;OK&#39;, 0.7361237406730652),
- (&#39;extraordinary&#39;, 0.7190428376197815),
- (&#39;disgusting&#39;, 0.7158125042915344),
- (&#39;bad&#39;, 0.7009385824203491)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;awful&#39;, 0.8840464949607849),
+ (&#39;terrible&#39;, 0.8635461330413818),
+ (&#39;okay&#39;, 0.7532966732978821),
+ (&#39;exceptional&#39;, 0.7531830668449402),
+ (&#39;appalling&#39;, 0.7347985506057739),
+ (&#39;alright&#39;, 0.7330262660980225),
+ (&#39;disgusting&#39;, 0.7210685610771179),
+ (&#39;OK&#39;, 0.7160491943359375),
+ (&#39;lacking&#39;, 0.7025188207626343),
+ (&#39;bad&#39;, 0.6984463930130005)]
 </pre></div>
 </div>
 </div>
@@ -2821,16 +2843,16 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;attentive&#39;, 0.8258311748504639),
- (&#39;polite&#39;, 0.8101087808609009),
- (&#39;welcoming&#39;, 0.8100021481513977),
- (&#39;helpful&#39;, 0.7950845956802368),
- (&#39;professional&#39;, 0.7776087522506714),
- (&#39;courteous&#39;, 0.7562598586082458),
- (&#39;efficient&#39;, 0.7367644309997559),
- (&#39;accommodating&#39;, 0.7099648714065552),
- (&#39;pleasant&#39;, 0.6933385133743286),
- (&#39;cheerful&#39;, 0.6795176267623901)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;attentive&#39;, 0.844037652015686),
+ (&#39;polite&#39;, 0.8361809849739075),
+ (&#39;welcoming&#39;, 0.815373957157135),
+ (&#39;professional&#39;, 0.8143268823623657),
+ (&#39;helpful&#39;, 0.8091511726379395),
+ (&#39;courteous&#39;, 0.7686809301376343),
+ (&#39;efficient&#39;, 0.744461178779602),
+ (&#39;accommodating&#39;, 0.7246511578559875),
+ (&#39;cheerful&#39;, 0.686018705368042),
+ (&#39;personable&#39;, 0.6829713582992554)]
 </pre></div>
 </div>
 </div>
@@ -2842,16 +2864,16 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;cake&#39;, 0.8989304304122925),
- (&#39;yogurt&#39;, 0.865440845489502),
- (&#39;strawberry&#39;, 0.8396663665771484),
- (&#39;sorbet&#39;, 0.8378489017486572),
- (&#39;mousse&#39;, 0.8356587290763855),
- (&#39;churros&#39;, 0.8347333073616028),
- (&#39;cream&#39;, 0.8345314264297485),
- (&#39;lemon&#39;, 0.8321852087974548),
- (&#39;mango&#39;, 0.8230348825454712),
- (&#39;ice&#39;, 0.82096928358078)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;cake&#39;, 0.9049417972564697),
+ (&#39;lemon&#39;, 0.8670935034751892),
+ (&#39;churros&#39;, 0.8646656274795532),
+ (&#39;yogurt&#39;, 0.8501813411712646),
+ (&#39;strawberry&#39;, 0.8499044179916382),
+ (&#39;almond&#39;, 0.8444222211837769),
+ (&#39;sorbet&#39;, 0.8331552147865295),
+ (&#39;mousse&#39;, 0.8302348256111145),
+ (&#39;flan&#39;, 0.8294708132743835),
+ (&#39;brownie&#39;, 0.8265946507453918)]
 </pre></div>
 </div>
 </div>
@@ -2863,16 +2885,16 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;beer&#39;, 0.7547350525856018),
- (&#39;snack&#39;, 0.7385279536247253),
- (&#39;tea&#39;, 0.7331685423851013),
- (&#39;soda&#39;, 0.7189373970031738),
- (&#39;croissant&#39;, 0.7122147679328918),
- (&#39;churros&#39;, 0.692791759967804),
- (&#39;juice&#39;, 0.6843217015266418),
- (&#39;chocolate&#39;, 0.6830002665519714),
- (&#39;desert&#39;, 0.6745012998580933),
- (&#39;pastry&#39;, 0.6694607734680176)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;snack&#39;, 0.7611315250396729),
+ (&#39;beer&#39;, 0.7525042295455933),
+ (&#39;tea&#39;, 0.7255809903144836),
+ (&#39;soda&#39;, 0.703698456287384),
+ (&#39;croissant&#39;, 0.6818862557411194),
+ (&#39;juice&#39;, 0.6726522445678711),
+ (&#39;chocolate&#39;, 0.6604589819908142),
+ (&#39;refill&#39;, 0.656204879283905),
+ (&#39;churros&#39;, 0.6545469164848328),
+ (&#39;desert&#39;, 0.6398410201072693)]
 </pre></div>
 </div>
 </div>
@@ -2894,7 +2916,7 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spacy</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">spacy</span>
 
 <span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;en_core_web_lg&quot;</span><span class="p">)</span>
 </pre></div>
@@ -2904,21 +2926,19 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">60</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">spacy</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">spacy</span>
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;en_core_web_lg&quot;</span><span class="p">)</span>
 
 <span class="nn">File ~/micromamba/envs/data_science/lib/python3.12/site-packages/spacy/__init__.py:51,</span> in <span class="ni">load</span><span class="nt">(name, vocab, disable, enable, exclude, config)</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="k">def</span> <span class="nf">load</span><span class="p">(</span>
+<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span>
 <span class="g g-Whitespace">     </span><span class="mi">28</span>     <span class="n">name</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span>
 <span class="g g-Whitespace">     </span><span class="mi">29</span>     <span class="o">*</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span>     <span class="n">config</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">Config</span><span class="p">]</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">SimpleFrozenDict</span><span class="p">(),</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>     <span class="mi">34</span>     <span class="n">config</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">Config</span><span class="p">]</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">SimpleFrozenDict</span><span class="p">(),</span>
 <span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Language</span><span class="p">:</span>
 <span class="g g-Whitespace">     </span><span class="mi">36</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Load a spaCy model from an installed package or a local path.</span>
 <span class="g g-Whitespace">     </span><span class="mi">37</span><span class="sd"> </span>
 <span class="g g-Whitespace">     </span><span class="mi">38</span><span class="sd">     name (str): Package name or model path.</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">     </span><span class="mi">49</span><span class="sd">     RETURNS (Language): The loaded nlp object.</span>
+<span class="sd">   (...)     49     RETURNS (Language): The loaded nlp object.</span>
 <span class="g g-Whitespace">     </span><span class="mi">50</span><span class="sd">     &quot;&quot;&quot;</span>
 <span class="ne">---&gt; </span><span class="mi">51</span>     <span class="k">return</span> <span class="n">util</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span>
 <span class="g g-Whitespace">     </span><span class="mi">52</span>         <span class="n">name</span><span class="p">,</span>

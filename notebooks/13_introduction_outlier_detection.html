@@ -28,8 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -537,12 +537,12 @@ In the context of data science, outliers can skew the results of data analysis, 
 <p><strong>Approach</strong>: To effectively detect outliers, data scientists must understand the underlying data distribution and choose appropriate methods for outlier identification.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_blobs</span>
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">IsolationForest</span>
-<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">LocalOutlierFactor</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">IsolationForest</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neighbors</span><span class="w"> </span><span class="kn">import</span> <span class="n">LocalOutlierFactor</span>
 </pre></div>
 </div>
 </div>
@@ -566,7 +566,7 @@ In the context of data science, outliers can skew the results of data analysis, 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/da5c532674268cd4d46e86d0a29d90d6174873ec67769f7b0b8b49cbc0b004e5.png" src="../_images/da5c532674268cd4d46e86d0a29d90d6174873ec67769f7b0b8b49cbc0b004e5.png" />
+<img alt="../_images/1780ce3e8719629b35f30ea20b04afc98ad14272841eaca33c4d10a14bbf3dfa.png" src="../_images/1780ce3e8719629b35f30ea20b04afc98ad14272841eaca33c4d10a14bbf3dfa.png" />
 </div>
 </div>
 </section>
@@ -589,7 +589,7 @@ In the context of data science, outliers can skew the results of data analysis, 
 <h3><span class="section-number">13.2.3. </span>Implementation in Scikit-Learn<a class="headerlink" href="#implementation-in-scikit-learn" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">IsolationForest</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">IsolationForest</span>
 
 <span class="c1"># Create the model</span>
 <span class="n">iso_forest</span> <span class="o">=</span> <span class="n">IsolationForest</span><span class="p">(</span>
@@ -645,7 +645,7 @@ In the context of data science, outliers can skew the results of data analysis, 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d966c4064210d173312fe69694224ee163648e94415a589e8dd57a5674482b08.png" src="../_images/d966c4064210d173312fe69694224ee163648e94415a589e8dd57a5674482b08.png" />
+<img alt="../_images/10187e93d3cae67776c2570c84d4d8f2c91a3b40a1b549f9355dd489346930b4.png" src="../_images/10187e93d3cae67776c2570c84d4d8f2c91a3b40a1b549f9355dd489346930b4.png" />
 </div>
 </div>
 </section>
@@ -677,11 +677,11 @@ In the context of data science, outliers can skew the results of data analysis, 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2671/1899131088.py:8: UserWarning: Adding colorbar to a different Figure &lt;Figure size 1200x1200 with 1 Axes&gt; than &lt;Figure size 1200x1200 with 2 Axes&gt; which fig.colorbar is called on.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2884/1899131088.py:8: UserWarning: Adding colorbar to a different Figure &lt;Figure size 1200x1200 with 1 Axes&gt; than &lt;Figure size 1200x1200 with 2 Axes&gt; which fig.colorbar is called on.
   cbar = plt.colorbar(scatter, ax=ax)
 </pre></div>
 </div>
-<img alt="../_images/9167efe5764708733c73f91db2c671dd06299332ffd403218d1f2681066b3aeb.png" src="../_images/9167efe5764708733c73f91db2c671dd06299332ffd403218d1f2681066b3aeb.png" />
+<img alt="../_images/d3762e491aeab33991e3e224d4f9f67cd65ca24399d5b506656e9f2158b59525.png" src="../_images/d3762e491aeab33991e3e224d4f9f67cd65ca24399d5b506656e9f2158b59525.png" />
 </div>
 </div>
 </section>
@@ -739,7 +739,7 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6cfb899e9324369ff0a2dd1e4d206f17b211cda4f8bc868fe912073e560da76b.png" src="../_images/6cfb899e9324369ff0a2dd1e4d206f17b211cda4f8bc868fe912073e560da76b.png" />
+<img alt="../_images/bb53bec4af1ee777d05607c5b199b83c9cd96680158529f876dace6f3fb97177.png" src="../_images/bb53bec4af1ee777d05607c5b199b83c9cd96680158529f876dace6f3fb97177.png" />
 </div>
 </div>
 </section>
@@ -774,7 +774,7 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">LocalOutlierFactor</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neighbors</span><span class="w"> </span><span class="kn">import</span> <span class="n">LocalOutlierFactor</span>
 
 <span class="c1"># Create the model</span>
 <span class="n">lof</span> <span class="o">=</span> <span class="n">LocalOutlierFactor</span><span class="p">(</span>
@@ -824,8 +824,8 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpatches</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 
@@ -850,7 +850,7 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/925388741cb4fd8e4b6c273514cbe89878c908315a6447b17d036c7e2bb4b5f9.png" src="../_images/925388741cb4fd8e4b6c273514cbe89878c908315a6447b17d036c7e2bb4b5f9.png" />
+<img alt="../_images/49c76c7cee0a1cdf79f99539625078d98ade066d38616ea7fcd4158c80df9d0e.png" src="../_images/49c76c7cee0a1cdf79f99539625078d98ade066d38616ea7fcd4158c80df9d0e.png" />
 </div>
 </div>
 </section>
@@ -890,11 +890,11 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2671/1174718005.py:8: UserWarning: Adding colorbar to a different Figure &lt;Figure size 1200x1200 with 1 Axes&gt; than &lt;Figure size 1200x1200 with 2 Axes&gt; which fig.colorbar is called on.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2884/1174718005.py:8: UserWarning: Adding colorbar to a different Figure &lt;Figure size 1200x1200 with 1 Axes&gt; than &lt;Figure size 1200x1200 with 2 Axes&gt; which fig.colorbar is called on.
   cbar = plt.colorbar(scatter, ax=ax)
 </pre></div>
 </div>
-<img alt="../_images/0f85ec4dbbe73f88cbb97ecccc0f0f526cadb0e9c451466ba3a122212694687a.png" src="../_images/0f85ec4dbbe73f88cbb97ecccc0f0f526cadb0e9c451466ba3a122212694687a.png" />
+<img alt="../_images/f93ae1eb0ca1528d86b80ae11a560df2d08af954de4b8fa8048a37bccfa14781.png" src="../_images/f93ae1eb0ca1528d86b80ae11a560df2d08af954de4b8fa8048a37bccfa14781.png" />
 </div>
 </div>
 </section>
@@ -941,7 +941,7 @@ The actual underlying anomaly degree is not affected, as the plot below shows.</
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9364d4993bcc377ffb67219a18cbbd796da537546668a5385d7240ea74977eba.png" src="../_images/9364d4993bcc377ffb67219a18cbbd796da537546668a5385d7240ea74977eba.png" />
+<img alt="../_images/fda7070d2bd57af5c1086a3e53b001d3122067e311b47a40f33b82e84574a59b.png" src="../_images/fda7070d2bd57af5c1086a3e53b001d3122067e311b47a40f33b82e84574a59b.png" />
 </div>
 </div>
 </section>

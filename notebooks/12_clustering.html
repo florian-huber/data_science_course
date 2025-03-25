@@ -28,8 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -554,12 +554,12 @@ There is a commonly shared intuition that a “good” cluster is one where all 
 <p>Next, we create such a synthetic dataset with three clusters. This dataset consists of three groups of points, each generated from a different Gaussian distribution. Each group of points has its own mean and standard deviation along the x and y axes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 
 <span class="c1"># optional, only to avoid KMeans warning on Windows (too few chunks compared to threads)</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;OMP_NUM_THREADS&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
 
 <span class="c1"># Set the ggplot style (optional)</span>
@@ -596,7 +596,7 @@ There is a commonly shared intuition that a “good” cluster is one where all 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9518a1559c6b7468c820c37b111b9489b9e9ca687636e71330f185d359062231.png" src="../_images/9518a1559c6b7468c820c37b111b9489b9e9ca687636e71330f185d359062231.png" />
+<img alt="../_images/36bb27a9ee4d616cf6ddfbe763240c3351dd1037c795fed6db0918d964b85a70.png" src="../_images/36bb27a9ee4d616cf6ddfbe763240c3351dd1037c795fed6db0918d964b85a70.png" />
 </div>
 </div>
 <p>Assigning the three clusters in this case does not exactly feel like rocket science. We could all do this manually with a pen in no time. So, why bother to use - let alone understand or develop - algorithms for this task?</p>
@@ -667,7 +667,7 @@ Common strategies include:</p>
 <p>In the following sections, we will make use of the <code class="docutils literal notranslate"><span class="pre">Scikit-Learn</span></code> implementations of several different clustering algorithms. The workflow will therefore look very similar in all cases, with the most notable difference the various main parameters that each of those algorithms requires. More information on the code implementations can be found on the <a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html">Scikit-Learn documentation</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">KMeans</span>
 
 <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
@@ -686,7 +686,7 @@ Common strategies include:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e8debbe1cd8415279a1d01f4b1785161af3d974bb09d7b1dec78ff788b2e157f.png" src="../_images/e8debbe1cd8415279a1d01f4b1785161af3d974bb09d7b1dec78ff788b2e157f.png" />
+<img alt="../_images/c2e94e085e594dd8bf4921707bac0db78e3270eec9023f80a9bf696e9df3b950.png" src="../_images/c2e94e085e594dd8bf4921707bac0db78e3270eec9023f80a9bf696e9df3b950.png" />
 </div>
 </div>
 <section id="very-often-clusters-are-not-that-easily-distinguishable">
@@ -733,15 +733,15 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f508574f530&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f0a5b045ac0&gt;
 </pre></div>
 </div>
-<img alt="../_images/bb3562af626a5ba195c002b0d3d9743a1cf70616ec333be15d090b9d730a8f4b.png" src="../_images/bb3562af626a5ba195c002b0d3d9743a1cf70616ec333be15d090b9d730a8f4b.png" />
+<img alt="../_images/7d795cd59d16fb31da64a2b95ea15fd165e2342a916d52a862ee2d0453a3ea8e.png" src="../_images/7d795cd59d16fb31da64a2b95ea15fd165e2342a916d52a862ee2d0453a3ea8e.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">KMeans</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">KMeans</span>
 
 <span class="n">kmeans</span> <span class="o">=</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span>
@@ -795,7 +795,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bea5f23fb7cbb76c973d0959a889ed557102ce3e697b988e06e5a45dbe87b46a.png" src="../_images/bea5f23fb7cbb76c973d0959a889ed557102ce3e697b988e06e5a45dbe87b46a.png" />
+<img alt="../_images/910cb2e8ee98e417824d4b5c91dbf3c7ba1143ac80316acc418ac46ce8e5fdc1.png" src="../_images/910cb2e8ee98e417824d4b5c91dbf3c7ba1143ac80316acc418ac46ce8e5fdc1.png" />
 </div>
 </div>
 <p>Once the clusters have been found (using the <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> method as done above), we can also use a k-means model to make predctions on unknown datapoints.</p>
@@ -864,7 +864,7 @@ This is already one step more “realistic” in the sense that most commonly we
 <p>Using Scikit-Learn, we can use DBSCAN as follows:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">DBSCAN</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">DBSCAN</span>
 
 <span class="n">dbscan</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
@@ -909,7 +909,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bc07f93c6222fc130947433dbf416341b2e6f9670d0ffff45241f2f2c226bb59.png" src="../_images/bc07f93c6222fc130947433dbf416341b2e6f9670d0ffff45241f2f2c226bb59.png" />
+<img alt="../_images/81df01d5550659abc75b9458c1061df15b42495088490a2fbffaae738e00424d.png" src="../_images/81df01d5550659abc75b9458c1061df15b42495088490a2fbffaae738e00424d.png" />
 </div>
 </div>
 <section id="parameter-variation">
@@ -928,7 +928,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f844a4fce8de16bc3d2ae863ccb6338915912050e36b665e8ce6cce751784d62.png" src="../_images/f844a4fce8de16bc3d2ae863ccb6338915912050e36b665e8ce6cce751784d62.png" />
+<img alt="../_images/c7839c5f48684ced3f60201a54158f1f61566526eaebc5b862fbf392f69a7dac.png" src="../_images/c7839c5f48684ced3f60201a54158f1f61566526eaebc5b862fbf392f69a7dac.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -963,7 +963,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/cd5fa4f85bae87a693b8682afe949531d604df9de77b14bfaba1d07afe813d20.png" src="../_images/cd5fa4f85bae87a693b8682afe949531d604df9de77b14bfaba1d07afe813d20.png" />
+<img alt="../_images/c28c9f29535a7190fe88a47562fb2d4566bacc53a120913611420337eefa4ea6.png" src="../_images/c28c9f29535a7190fe88a47562fb2d4566bacc53a120913611420337eefa4ea6.png" />
 </div>
 </div>
 </section>
@@ -1003,7 +1003,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.mixture</span> <span class="kn">import</span> <span class="n">GaussianMixture</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.mixture</span><span class="w"> </span><span class="kn">import</span> <span class="n">GaussianMixture</span>
 
 <span class="n">gm</span> <span class="o">=</span> <span class="n">GaussianMixture</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
@@ -1044,7 +1044,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d1a2ceac2f84f7f6c9a4327f92b1199d96990b69920e72332ead6642bd9a4cd2.png" src="../_images/d1a2ceac2f84f7f6c9a4327f92b1199d96990b69920e72332ead6642bd9a4cd2.png" />
+<img alt="../_images/8ba15392104bdcb83a38c7470c9f913b0449ecdcc79f997807372289b5b8ecba.png" src="../_images/8ba15392104bdcb83a38c7470c9f913b0449ecdcc79f997807372289b5b8ecba.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1059,7 +1059,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/62c294fd94c51c011851f9d587c39468f70e664f6204093048be3e47a7a4a214.png" src="../_images/62c294fd94c51c011851f9d587c39468f70e664f6204093048be3e47a7a4a214.png" />
+<img alt="../_images/278e5f4a9f70414e299726991a8978363d719e0234d63c6fd7951550e51aa610.png" src="../_images/278e5f4a9f70414e299726991a8978363d719e0234d63c6fd7951550e51aa610.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1069,14 +1069,14 @@ This is already one step more “realistic” in the sense that most commonly we
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Ellipse</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">linalg</span>
-<span class="kn">import</span> <span class="nn">itertools</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ellipse</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">linalg</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
 
 <span class="c1"># Color iterator for different clusters</span>
 <span class="n">color_iter</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">cycle</span><span class="p">([</span><span class="s1">&#39;teal&#39;</span><span class="p">,</span> <span class="s1">&#39;cornflowerblue&#39;</span><span class="p">,</span> <span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="s1">&#39;crimson&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
 
-<span class="k">def</span> <span class="nf">plot_gmm</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y_</span><span class="p">,</span> <span class="n">means</span><span class="p">,</span> <span class="n">covariances</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_gmm</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y_</span><span class="p">,</span> <span class="n">means</span><span class="p">,</span> <span class="n">covariances</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Plot the Gaussian Mixture Model with multiple ellipses to show the distribution density.&quot;&quot;&quot;</span>
     <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
@@ -1118,7 +1118,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/a0ee1adaeac86183322cdbdff567bfc0d7321a20f5a812a3cce753a23723a9c7.png" src="../_images/a0ee1adaeac86183322cdbdff567bfc0d7321a20f5a812a3cce753a23723a9c7.png" />
+<img alt="../_images/85749b064d77a5b6b2042a24bc1eecfda524498df9e1a1c8e168410e5e278b5b.png" src="../_images/85749b064d77a5b6b2042a24bc1eecfda524498df9e1a1c8e168410e5e278b5b.png" />
 </div>
 </div>
 <section id="advantages-of-gmm">
@@ -1152,7 +1152,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">AgglomerativeClustering</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">AgglomerativeClustering</span>
 
 <span class="n">ward</span> <span class="o">=</span> <span class="n">AgglomerativeClustering</span><span class="p">(</span><span class="n">linkage</span><span class="o">=</span><span class="s2">&quot;ward&quot;</span><span class="p">,</span>
                               <span class="n">n_clusters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -1172,7 +1172,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/080bfd5a27bfd9bf913f1726c82232a5707e247aed2c1abe06f401832ce56549.png" src="../_images/080bfd5a27bfd9bf913f1726c82232a5707e247aed2c1abe06f401832ce56549.png" />
+<img alt="../_images/d710b8b7548fca7f5ab541c2e072c76f2eacb510aaaffa18b33e660cac0f57c6.png" src="../_images/d710b8b7548fca7f5ab541c2e072c76f2eacb510aaaffa18b33e660cac0f57c6.png" />
 </div>
 </div>
 <section id="id1">
@@ -1185,7 +1185,7 @@ This is already one step more “realistic” in the sense that most commonly we
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">AgglomerativeClustering</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">AgglomerativeClustering</span>
 
 
 <span class="c1"># Create a subplot grid</span>
@@ -1215,7 +1215,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/e6c18c61182acefbd6adc471eceedb50098026783c252c7ce7f71b00622ae911.png" src="../_images/e6c18c61182acefbd6adc471eceedb50098026783c252c7ce7f71b00622ae911.png" />
+<img alt="../_images/bda1d87b71e217ddfc24d622fb389d76baad15df4caa0e62f09f2645974668da.png" src="../_images/bda1d87b71e217ddfc24d622fb389d76baad15df4caa0e62f09f2645974668da.png" />
 </div>
 </div>
 <p>But, what is this <em>distance threshold</em>?<br />
@@ -1227,11 +1227,11 @@ This threshold here defines where we cut othe dendrogram. The lower the distance
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.cluster.hierarchy</span> <span class="kn">import</span> <span class="n">dendrogram</span>
-<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
-<span class="kn">from</span> <span class="nn">sklearn.cluster</span> <span class="kn">import</span> <span class="n">AgglomerativeClustering</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.cluster.hierarchy</span><span class="w"> </span><span class="kn">import</span> <span class="n">dendrogram</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_iris</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">AgglomerativeClustering</span>
 
-<span class="k">def</span> <span class="nf">plot_dendrogram</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_dendrogram</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Plots a dendrogram based on the linkage matrix derived from an AgglomerativeClustering model.</span>
 
@@ -1280,7 +1280,7 @@ This threshold here defines where we cut othe dendrogram. The lower the distance
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/783fa8cb616520343df17602cfc2a6816b7f5c869608b064504f56ad3231b66e.png" src="../_images/783fa8cb616520343df17602cfc2a6816b7f5c869608b064504f56ad3231b66e.png" />
+<img alt="../_images/8a15b19a8ec24309adc38b37b16a0ea16a08bfb78415ee4419a3a1cc18bc0850.png" src="../_images/8a15b19a8ec24309adc38b37b16a0ea16a08bfb78415ee4419a3a1cc18bc0850.png" />
 </div>
 </div>
 </section>
@@ -1308,7 +1308,7 @@ This threshold here defines where we cut othe dendrogram. The lower the distance
 <h3><span class="section-number">12.6.1. </span>Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Link to this heading">#</a></h3>
 <p><strong>Standardization</strong>: Most clustering algorithms, including K-means and GMM, assume that features have the same scale for them to perform optimally. Standardization (or Z-score normalization) is crucial as it scales the data to have a mean of zero and a standard deviation of one. This ensures that each feature contributes equally to the distance calculations, which is vital for distance-based algorithms.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
 
 <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
 <span class="n">data_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>

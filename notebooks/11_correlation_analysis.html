@@ -28,8 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -504,13 +504,13 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="correlation-analysis">
 <h1><span class="section-number">11. </span>Correlation Analysis<a class="headerlink" href="#correlation-analysis" title="Link to this heading">#</a></h1>
-<p>Correlation analysis is a fundamental statistical tool used to study the relationship between two or more variables. The term “correlation” originates from the Latin correlatio, meaning a mutual relationship. In the realm of statistics, correlation is specifically employed as a “measure of association,” which quantifies the strength and direction of a relationship between two variables.</p>
-<p>Understanding correlation is essential in data science as it helps in predicting one variable based on the presence of another, determining the association between variables, and in feature selection during the modeling phase. Correlations are also often used as a starting point for a deeper understanding for a deeper, <em>causal</em> understanding of a certain system (we will later see that correlation and causation are very clearly <strong>not</strong> the same!). However, before delving into complex models, it’s crucial to grasp the basics of measuring relationships through correlation.</p>
+<p>Correlation analysis is a fundamental statistical tool used to study the relationship between two or more variables. The term “correlation” originates from the Latin <em>correlatio</em>, meaning a mutual relationship. In the realm of statistics, correlation is specifically employed as a “measure of association,” which quantifies the strength and direction of a relationship between two variables.</p>
+<p>Understanding correlation is essential in data science as it helps in predicting one variable based on the presence of another, determining the association between variables, and in feature selection during the modeling phase. Correlations are also often used as a starting point for a deeper understanding for a deeper, <em>causal</em> understanding of a certain system (we will later see that correlation and causation are very clearly <strong>not</strong> the same!).</p>
 <p>In everyday life, we say that something <em>correlates</em> when different events or measurements align very well. Or we refer to things such as co-incidence. In the following, however, we are looking for a metric that can numerically describe whether a correlation exists and, if so, how pronounced it is.</p>
 <section id="covariance-pearson-correlation-coefficient">
 <h2><span class="section-number">11.1. </span>Covariance, (Pearson) Correlation Coefficient<a class="headerlink" href="#covariance-pearson-correlation-coefficient" title="Link to this heading">#</a></h2>
 <p><strong>Covariance</strong><br />
-A first step towards measuring correlation is through variance, which measures the spread of individual data points around the mean. Expanding from variance, we encounter <strong>covariance</strong>, a measure that extends the idea to two variables. Covariance quantifies how much two variables change together, but its value is scale-dependent, making it difficult to interpret directly.</p>
+A first option for measuring correlation is through variance, which measures the spread of individual data points around the mean. Expanding from variance, we encounter <strong>covariance</strong>, a measure that extends the idea to two variables. Covariance quantifies how much two variables change together, but its value is scale-dependent, making it difficult to interpret directly.</p>
 <p>The formula for covariance between two variables X and Y is given by:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -525,7 +525,7 @@ To address the limitations of covariance, the <strong>Pearson Correlation Coeffi
 Corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
 \]</div>
 <p>This formula normalizes the covariance by the product of the standard deviations of the variables, thus providing a clearer, scale-independent measure of their relationship.</p>
-<p>Now let’s have a hands-on look at what correlations look like, and how they can be quantified.</p>
+<p>Now let’s have a hands-on look at some examples of correlation, and how they can be quantified.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -533,12 +533,12 @@ Corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sb</span>
 
 <span class="c1"># Set the ggplot style (optional)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;ggplot&quot;</span><span class="p">)</span>
@@ -554,13 +554,16 @@ Corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># create some toy data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create some toy data</span>
 
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1"># Random number generator</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Genereated data</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
-<span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 
 <span class="n">corr_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="n">a</span><span class="p">,</span>
                          <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="n">b</span><span class="p">,</span>
@@ -606,23 +609,23 @@ Corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
     <tr>
       <th>0</th>
       <td>0</td>
-      <td>2</td>
+      <td>7</td>
+      <td>14</td>
       <td>20</td>
-      <td>34</td>
     </tr>
     <tr>
       <th>1</th>
       <td>1</td>
-      <td>6</td>
+      <td>3</td>
       <td>-2</td>
-      <td>42</td>
+      <td>39</td>
     </tr>
     <tr>
       <th>2</th>
       <td>2</td>
-      <td>-8</td>
-      <td>-3</td>
-      <td>13</td>
+      <td>2</td>
+      <td>2</td>
+      <td>15</td>
     </tr>
   </tbody>
 </table>
@@ -647,12 +650,35 @@ Corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/ae1837c7526fba43eb923d406c5737777942cb656d17fcfe517a88c4ee6a269c.png" src="../_images/ae1837c7526fba43eb923d406c5737777942cb656d17fcfe517a88c4ee6a269c.png" />
+<img alt="../_images/a516fe6fe374eee1e76e1185218cf6bb49fbd92ccc6c2c5d36e9beb2216b8b65.png" src="../_images/a516fe6fe374eee1e76e1185218cf6bb49fbd92ccc6c2c5d36e9beb2216b8b65.png" />
 </div>
 </div>
 <p>What would you say, which features are correlated, and which are not?</p>
 <p>Here, different variables are plotted against each other, a-b, a-c, and a-d. I guess most will agree that the first and second plots show a certain degree of correlation. First, between a and b, and in the second panel between a and c. The third panel shows two features that apparently are entirely unrelated in their behavior. Another thing we can see in those examples is that we should be able to measure different degrees or strengths of a correlation.</p>
-<p>We can see the correlation in a&lt;-&gt;b. The Pearson Correlation Coefficient measures this type of correlation very well. For this example, the values are <span class="math notranslate nohighlight">\(Corr(a, b) = 0.90\)</span> , <span class="math notranslate nohighlight">\(Corr(a, c) = 0.68\)</span> , and <span class="math notranslate nohighlight">\(Corr(a, d) = 0.02\)</span>. We would thus see a strong correlation between a and b and a moderate correlation between a and c. However, there is no noticeable correlation between a and d.</p>
+<p>We can see the correlation in a&lt;-&gt;b. The Pearson Correlation Coefficient measures this type of correlation very well. For this example, the values are:</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Corr(a, b) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">corr_data</span><span class="o">.</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">corr_data</span><span class="o">.</span><span class="n">b</span><span class="p">)[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Corr(a, c) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">corr_data</span><span class="o">.</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">corr_data</span><span class="o">.</span><span class="n">c</span><span class="p">)[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Corr(a, d) = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">corr_data</span><span class="o">.</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">corr_data</span><span class="o">.</span><span class="n">d</span><span class="p">)[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Corr(a, b) = 0.91
+Corr(a, c) = 0.70
+Corr(a, d) = 0.07
+</pre></div>
+</div>
+</div>
+</div>
+<p>We would thus see a strong correlation between a and b and a moderate correlation between a and c. However, there is no noticeable correlation between a and d.</p>
 <p>The correlation coefficient allows us to quickly identify significant correlations in the data. For datasets with many variables (or features), we can easily determine the correlations for all combinations of the variables, resulting in what is called a correlation matrix.</p>
 </section>
 <section id="correlation-matrix">
@@ -722,29 +748,29 @@ Corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
     <tr>
       <th>a</th>
       <td>1.000000</td>
-      <td>0.900512</td>
-      <td>0.675015</td>
-      <td>0.022422</td>
+      <td>0.913443</td>
+      <td>0.697268</td>
+      <td>0.073561</td>
     </tr>
     <tr>
       <th>b</th>
-      <td>0.900512</td>
+      <td>0.913443</td>
       <td>1.000000</td>
-      <td>0.533063</td>
-      <td>-0.124933</td>
+      <td>0.594195</td>
+      <td>0.063557</td>
     </tr>
     <tr>
       <th>c</th>
-      <td>0.675015</td>
-      <td>0.533063</td>
+      <td>0.697268</td>
+      <td>0.594195</td>
       <td>1.000000</td>
-      <td>0.105887</td>
+      <td>0.071658</td>
     </tr>
     <tr>
       <th>d</th>
-      <td>0.022422</td>
-      <td>-0.124933</td>
-      <td>0.105887</td>
+      <td>0.073561</td>
+      <td>0.063557</td>
+      <td>0.071658</td>
       <td>1.000000</td>
     </tr>
   </tbody>
@@ -802,7 +828,7 @@ Corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
       <td>woman</td>
       <td>160.0</td>
       <td>40.0</td>
-      <td>56</td>
+      <td>49</td>
     </tr>
     <tr>
       <th>1</th>
@@ -810,7 +836,7 @@ Corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
       <td>woman</td>
       <td>171.0</td>
       <td>39.0</td>
-      <td>24</td>
+      <td>29</td>
     </tr>
     <tr>
       <th>2</th>
@@ -826,7 +852,7 @@ Corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
       <td>woman</td>
       <td>176.0</td>
       <td>40.0</td>
-      <td>47</td>
+      <td>21</td>
     </tr>
     <tr>
       <th>4</th>
@@ -834,7 +860,7 @@ Corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
       <td>man</td>
       <td>195.0</td>
       <td>46.0</td>
-      <td>24</td>
+      <td>69</td>
     </tr>
   </tbody>
 </table>
@@ -882,43 +908,43 @@ Corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
       <th>mean</th>
       <td>165.233800</td>
       <td>39.77500</td>
-      <td>43.227723</td>
+      <td>40.722772</td>
     </tr>
     <tr>
       <th>std</th>
       <td>39.817544</td>
       <td>5.55613</td>
-      <td>15.786628</td>
+      <td>16.236452</td>
     </tr>
     <tr>
       <th>min</th>
       <td>1.630000</td>
       <td>35.00000</td>
-      <td>17.000000</td>
+      <td>16.000000</td>
     </tr>
     <tr>
       <th>25%</th>
       <td>163.000000</td>
       <td>38.00000</td>
-      <td>30.000000</td>
+      <td>28.000000</td>
     </tr>
     <tr>
       <th>50%</th>
       <td>168.500000</td>
       <td>39.00000</td>
-      <td>42.000000</td>
+      <td>38.000000</td>
     </tr>
     <tr>
       <th>75%</th>
       <td>174.250000</td>
       <td>40.00000</td>
-      <td>56.000000</td>
+      <td>52.000000</td>
     </tr>
     <tr>
       <th>max</th>
       <td>364.000000</td>
       <td>88.00000</td>
-      <td>70.000000</td>
+      <td>71.000000</td>
     </tr>
   </tbody>
 </table>
@@ -970,18 +996,18 @@ Corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
       <th>height</th>
       <td>1.000000</td>
       <td>0.834646</td>
-      <td>-0.092439</td>
+      <td>-0.081570</td>
     </tr>
     <tr>
       <th>shoe_size</th>
       <td>0.834646</td>
       <td>1.000000</td>
-      <td>-0.076316</td>
+      <td>-0.062622</td>
     </tr>
     <tr>
       <th>age</th>
-      <td>-0.092439</td>
-      <td>-0.076316</td>
+      <td>-0.081570</td>
+      <td>-0.062622</td>
       <td>1.000000</td>
     </tr>
   </tbody>
@@ -1006,7 +1032,7 @@ Corr(X, Y) = \frac{Cov(X, Y)}{\sqrt{Var(X)}\sqrt{Var(Y)}}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/718433eedb81e3a375701fcead1c50a316b02b3ea37c61e82e0e1aa3af6a505a.png" src="../_images/718433eedb81e3a375701fcead1c50a316b02b3ea37c61e82e0e1aa3af6a505a.png" />
+<img alt="../_images/b853cf8824e17627d7bf0854c47cddd97dc3bb7e269fe3ddf40c767c27192d7f.png" src="../_images/b853cf8824e17627d7bf0854c47cddd97dc3bb7e269fe3ddf40c767c27192d7f.png" />
 </div>
 </div>
 </section>
@@ -1028,7 +1054,7 @@ The strength of a correlation is a measure of how clear the linear dependency be
 <span class="c1"># Seed for reproducibility</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">scatter_plot</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">scatter_plot</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="c1"># Create scatter plot</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
 
@@ -1037,7 +1063,7 @@ The strength of a correlation is a measure of how clear the linear dependency be
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 
-<span class="k">def</span> <span class="nf">scatter_corr</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">corr_coef</span><span class="p">,</span> <span class="n">num_points</span><span class="o">=</span><span class="n">NUM_POINTS</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">scatter_corr</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">corr_coef</span><span class="p">,</span> <span class="n">num_points</span><span class="o">=</span><span class="n">NUM_POINTS</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; A function to create scatter plots with different correlation coefficients.&quot;&quot;&quot;</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num_points</span><span class="p">)</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">corr_coef</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">corr_coef</span><span class="o">**</span><span class="mi">2</span><span class="p">),</span> <span class="n">num_points</span><span class="p">)</span>
@@ -1045,7 +1071,7 @@ The strength of a correlation is a measure of how clear the linear dependency be
     <span class="n">scatter_plot</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Corr= </span><span class="si">{</span><span class="n">corr_coef</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 
-<span class="k">def</span> <span class="nf">scatter_linear</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">num_points</span><span class="o">=</span><span class="n">NUM_POINTS</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">scatter_linear</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">slope</span><span class="p">,</span> <span class="n">num_points</span><span class="o">=</span><span class="n">NUM_POINTS</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; A function to create scatter plots with different correlation coefficients.&quot;&quot;&quot;</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">num_points</span><span class="p">)</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">slope</span>
@@ -1078,7 +1104,7 @@ The strength of a correlation is a measure of how clear the linear dependency be
   c /= stddev[None, :]
 </pre></div>
 </div>
-<img alt="../_images/7337be671cbe1993ecd628e8eb1270b030b247cd0fac48bd595c125ac86c3cb2.png" src="../_images/7337be671cbe1993ecd628e8eb1270b030b247cd0fac48bd595c125ac86c3cb2.png" />
+<img alt="../_images/13d23a485d004c76d0f56aa6435e2cff699cc7f8c53abb6eac94514201f48955.png" src="../_images/13d23a485d004c76d0f56aa6435e2cff699cc7f8c53abb6eac94514201f48955.png" />
 </div>
 </div>
 <p><strong>(Pearson) correlation coefficients only detects linear relationships</strong><br />
@@ -1095,7 +1121,7 @@ While pronounced correlation coefficients reflect a clear dependency between val
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># Define a function to create scatter plots with non-linear relationships</span>
-<span class="k">def</span> <span class="nf">scatter_nonlinear</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">scatter_nonlinear</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
     <span class="c1"># Generate x values</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">pattern</span> <span class="o">==</span> <span class="s1">&#39;wave&#39;</span><span class="p">:</span>
@@ -1148,7 +1174,7 @@ While pronounced correlation coefficients reflect a clear dependency between val
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/49ba27652bd109f2d5e69e26831818c5e0887a285899f01d711ef48b76b86248.png" src="../_images/49ba27652bd109f2d5e69e26831818c5e0887a285899f01d711ef48b76b86248.png" />
+<img alt="../_images/81fcd84533b54e58cb4f566c5588d022e444f38dd545f4ba193fb9a883682b98.png" src="../_images/81fcd84533b54e58cb4f566c5588d022e444f38dd545f4ba193fb9a883682b98.png" />
 </div>
 </div>
 <p>Another prominent example to illustrate how little the Pearson correlation coefficient sometimes tells us is the <code class="docutils literal notranslate"><span class="pre">datasaurus</span></code> dataset from the last chapter. Here, too, the data is distributed very differently, but the correlation coefficient remains the same.</p>
@@ -1209,7 +1235,7 @@ While pronounced correlation coefficients reflect a clear dependency between val
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/5f597a7de7e39b1dade911a106a7e333de0ddd1c11c21631963b72f0d5b59859.png" src="../_images/5f597a7de7e39b1dade911a106a7e333de0ddd1c11c21631963b72f0d5b59859.png" />
+<img alt="../_images/6f99fbae8202c31a18e61d3771d2905ca5dad4afb0c218062212d3f4f1afc7ce.png" src="../_images/6f99fbae8202c31a18e61d3771d2905ca5dad4afb0c218062212d3f4f1afc7ce.png" />
 </div>
 </div>
 <p><strong>In many cases (such as the ones above), Pearson correlation is not enough!</strong></p>
@@ -1222,7 +1248,7 @@ While pronounced correlation coefficients reflect a clear dependency between val
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3ffa2f3f134736ad4c483ba85aae6c184450fcde4f9815735b5c9837e3a598df.png" src="../_images/3ffa2f3f134736ad4c483ba85aae6c184450fcde4f9815735b5c9837e3a598df.png" />
+<img alt="../_images/a1b17c3debd792654c52792557502864a4acaf6614529ef9abddbb2129f4ea3b.png" src="../_images/a1b17c3debd792654c52792557502864a4acaf6614529ef9abddbb2129f4ea3b.png" />
 </div>
 </div>
 <p>It is of course also easily possible to plot only the parts we are most interested in, for instance:</p>
@@ -1245,7 +1271,7 @@ While pronounced correlation coefficients reflect a clear dependency between val
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;shoe_size&#39;, ylabel=&#39;height&#39;&gt;
 </pre></div>
 </div>
-<img alt="../_images/e41bf5ed92642ec5cb9bd448d237a77e273c5bcf8d5e646b39a6f23aef75c252.png" src="../_images/e41bf5ed92642ec5cb9bd448d237a77e273c5bcf8d5e646b39a6f23aef75c252.png" />
+<img alt="../_images/8b8ce491c57e614ce5516014953f261333ce0baab72ac2b7c5bdb051752c022f.png" src="../_images/8b8ce491c57e614ce5516014953f261333ce0baab72ac2b7c5bdb051752c022f.png" />
 </div>
 </div>
 </section>

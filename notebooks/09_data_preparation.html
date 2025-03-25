@@ -28,8 +28,8 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -498,6 +498,7 @@ document.write(`
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-examples-handling-missing-values">9.2.3. Python Examples: Handling Missing Values</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-missing-values">9.2.4. Remove missing values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">9.2.5. Imputation</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-datasets">9.3. Combining Datasets</a><ul class="nav section-nav flex-column">
@@ -520,7 +521,7 @@ document.write(`
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">9.6. Further Cleaning Steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">9.6. Further Cleaning Steps</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-duplicates">9.6.1. Removing Duplicates</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standardizing-data">9.6.2. Standardizing Data</a></li>
 </ul>
@@ -543,26 +544,29 @@ document.write(`
 <h2><span class="section-number">9.1. </span>What is Data Pre-Processing?<a class="headerlink" href="#what-is-data-pre-processing" title="Link to this heading">#</a></h2>
 <p>We have now arrived what we called <em>Scrub Data</em> in the <strong>ASEMIC</strong> data science workflow.
 More formally, this is usually termed <strong>Data Pre-Processing</strong> and is a crucial step in every data science project. This process involves the preparation and cleansing of raw data to make it suitable for further analysis and modeling. In essence, data pre-processing is about transforming raw data into a clean dataset that is free from errors, inconsistencies, and is formatted appropriately for use in analytics applications.</p>
-<p>The necessity for data pre-processing arises from the fact that real-world data is often incomplete, inconsistent, and/or lacking in certain behaviors or trends. Data might also be contaminated by errors or outliers that could potentially skew the results of any analysis performed.</p>
+<p>Data pre-processing is necessary because real-world data is nearly always incomplete, inconsistent, and/or lacking in certain behaviors or trends. Data might also be contaminated by errors or outliers that could skew the results of any analysis.</p>
 <section id="why-is-it-important">
 <h3><span class="section-number">9.1.1. </span>Why is it Important?<a class="headerlink" href="#why-is-it-important" title="Link to this heading">#</a></h3>
-<p>An often-heard quote in data science, most frequently in machine learning, is:<br />
-<em>Garbage in, garbage out!</em><br />
-This phrase underscores a crucial truth about data science: the quality of the output is heavily dependent on the quality of the input. With a huge range of sophisticated tools and techniques available today, there is a common misconception that these tools can automatically correct or overcome shortcomings in the data. While modern technologies such as machine learning and artificial intelligence are powerful in extracting patterns and making predictions, they are not capable of performing miracles. Poor-quality data will likely result in poor-quality insights, leading to decisions that could be misleading or even detrimental.</p>
-<p>Therefore, investing time in data pre-processing not only enhances the reliability of your data but also significantly boosts the effectiveness of the analytical models that process this data. This step ensures that subsequent analyses are both accurate and robust, providing meaningful insights that are based on a solid foundation of clean and well-structured data.</p>
-<p>Data pre-processing is usually perceived as a much less “shiny” part of a data science process when compared to more “fancy” steps such as data visualization or training a machine learning model. It is not uncommon though, that the data acquisition and data preparation phase is what ultimately determines if a project will be a huge success or a failure!</p>
+<p>An often-heard quote in data science, in particular in the field of machine-learning, is:</p>
+<blockquote>
+<div><p><em>Garbage in, garbage out!</em></p>
+</div></blockquote>
+<p>This phrase underscores a crucial truth about data science: the quality of the output is heavily dependent on the quality of the input. With a huge range of sophisticated tools and techniques available today, there is a common misconception that these tools can automatically correct or overcome shortcomings in the data. While modern technologies such as machine learning and artificial intelligence are powerful in extracting patterns and making predictions, they are not capable of performing miracles (don’t trust people that tell you otherwise…). Poor-quality data will likely result in poor-quality insights, leading to decisions that could be misleading or even detrimental.</p>
+<p>Therefore, investing time in data pre-processing not only enhances the reliability of your data but also significantly boosts the effectiveness of the analytical models that process this data. This step ensures that subsequent analyses are accurate and robust, providing meaningful insights that are based on a solid foundation of clean and well-structured data.</p>
+<p>Data pre-processing is usually perceived as a much less “shiny” part of a data science process when compared to more “fancy” steps such as data visualization or training a machine-learning model. It is not uncommon though, that the data acquisition and data preparation phase is what ultimately determines if a project will be a huge success or a failure!
+And, time for an important spoiler: if you are going to work in the field of data science you might be surprised to find out that getting, understanding, and preparing the data you need for an analysis or the training of a model might cost you much more time, sweat and tears than the shiny parts that people will see in your final results.</p>
 </section>
 <section id="steps-in-data-pre-processing">
 <h3><span class="section-number">9.1.2. </span>Steps in Data Pre-Processing<a class="headerlink" href="#steps-in-data-pre-processing" title="Link to this heading">#</a></h3>
 <p>The process of data pre-processing includes several key steps:</p>
 <ol class="arabic simple">
-<li><p><strong>Handling Missing Data</strong>: Filling or removing data entries that are missing to prevent errors in analysis.</p></li>
+<li><p><strong>Handling Missing Data</strong>: Filling or removing missing data entries to prevent errors in the analysis.</p></li>
 <li><p><strong>Data Integration</strong>: Combining data from multiple sources to create a comprehensive dataset.</p></li>
 <li><p><strong>Data Transformation</strong>: Normalizing, scaling, or converting data to ensure that the dataset has a consistent scale and format.</p></li>
 <li><p><strong>Data Cleaning</strong>: Removing noise and correcting inconsistencies, which may involve addressing outliers, duplicate data, and correcting typos.</p></li>
-<li><p><strong>Data Reduction</strong>: Reducing the complexity of data, which can involve decreasing the number of features in a dataset or modifying the dataset to focus on important attributes.</p></li>
+<li><p><strong>Data Reduction</strong>: Reducing the complexity of data, for instance decreasing the number of features in a dataset, or modifying the dataset to focus on important attributes.</p></li>
 </ol>
-<p>These steps help in transforming raw data into a refined format that enhances the analytical capabilities of data science tools, leading to more accurate and insightful outcomes.</p>
+<p>These steps allow transforming raw data into a refined format that enhances the analytical capabilities of data science tools, leading to more accurate and insightful outcomes.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -584,8 +588,8 @@ This phrase underscores a crucial truth about data science: the quality of the o
 </section>
 <section id="imputation">
 <h4><span class="section-number">9.2.2.2. </span>2. Imputation<a class="headerlink" href="#imputation" title="Link to this heading">#</a></h4>
-<p>Imputation means that we try to make good guesses of what the missing data <em>could have been</em>. It therefore is about much more than just spending a bit more time compared to a simple deletion step. Whether or not it is appropriate to use imputation depends on how well we understand the data and how sensitive the following data science tasks are.
-Suppose we, or the experts we collaborate with, do not have a very solid understanding of the data, its meaning, its measurement process etc.. In that case, we should usually not include imputation because it comes with a very high risk of introducing artifacts that we are not aware of.</p>
+<p>Imputation means that we try to make good guesses of what the missing data <em>could have been</em>. This is often <strong>much</strong> more complex than a simple deletion step. First and foremost, we would therefore ask if imputation is really necessary because we cannot afford to “lose” any more data. Whether or not we can then, at least partly, rescue our data by imputation  depends on how well we understand the data and how sensitive the following data science tasks are.
+Suppose we, or the experts we collaborate with, do not have a solid understanding of the data, its meaning, its measurement process, etc. In that case, we should not include imputation because it comes with a high risk of introducing artifacts that we might not even be aware of.</p>
 <p>The same is true if the following analysis is very sensible and thus requires properly measured values.</p>
 <p>In other cases, however, imputation can indeed improve later results because it might allow us to work with a larger part of the available data. Common imputation types are:</p>
 <ul class="simple">
@@ -600,14 +604,17 @@ Suppose we, or the experts we collaborate with, do not have a very solid underst
 <p>We will include detailed Python examples demonstrating these techniques, showing practical implementations using key data science libraries such as <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id68" title="The pandas development team. Pandas-dev/pandas: pandas. February 2020. URL: https://doi.org/10.5281/zenodo.3509134, doi:10.5281/zenodo.3509134.">pandas development team, 2020</a>]</span> or <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id71" title="F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay. Scikit-learn: machine learning in Python. Journal of Machine Learning Research, 12:2825–2830, 2011.">Pedregosa <em>et al.</em>, 2011</a>]</span>. This hands-on approach will help in solidifying the theoretical concepts discussed and provide learners with the tools they need to effectively handle missing data in their projects.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="c1"># Create sample data</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;Diane&quot;</span><span class="p">],</span>
-        <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">28</span><span class="p">],</span>
-        <span class="s1">&#39;Salary&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50000</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">60000</span><span class="p">,</span> <span class="mi">52000</span><span class="p">]}</span>
+<span class="c1"># Create dummy data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;Diane&quot;</span><span class="p">],</span>
+    <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">28</span><span class="p">],</span>
+    <span class="s1">&#39;Salary&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50000</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">60000</span><span class="p">,</span> <span class="mi">52000</span><span class="p">]</span>
+<span class="p">}</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original DataFrame:&quot;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -878,17 +885,261 @@ memory usage: 228.0+ bytes
 </table>
 </div></div></div>
 </div>
+</section>
+<section id="id3">
+<h3><span class="section-number">9.2.5. </span>Imputation<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Let’s now see how we can impute missing values. But again, as explained above, imputation means that we alter, or rather fake data. So, obviously, we should be extremely careful in how and when we do this in practice!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">KNNImputer</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">faker</span><span class="w"> </span><span class="kn">import</span> <span class="n">Faker</span>  <span class="c1"># a small Python library to create dummy data</span>
+<span class="n">fake</span> <span class="o">=</span> <span class="n">Faker</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">create_salary</span><span class="p">(</span><span class="n">age</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Just making things up here...&quot;&quot;&quot;</span>
+    <span class="n">random_base</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+    <span class="n">non_random_part</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="n">age</span>
+    <span class="k">return</span> <span class="n">random_base</span> <span class="o">+</span> <span class="n">non_random_part</span>
+
+<span class="c1"># Now let&#39;s create some fake data:</span>
+<span class="n">num_data</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">fake</span><span class="o">.</span><span class="n">first_name</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_data</span><span class="p">)]</span>
+<span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">62</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_data</span><span class="p">)]</span>
+<span class="n">salaries</span> <span class="o">=</span> <span class="p">[</span><span class="n">create_salary</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="k">for</span> <span class="n">age</span> <span class="ow">in</span> <span class="n">ages</span><span class="p">]</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="n">names</span><span class="p">,</span>
+    <span class="s2">&quot;Age&quot;</span><span class="p">:</span> <span class="n">ages</span><span class="p">,</span>
+    <span class="s2">&quot;Salary&quot;</span><span class="p">:</span> <span class="n">salaries</span><span class="p">,</span>
+<span class="p">})</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Marcus</td>
+      <td>22</td>
+      <td>69000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Erik</td>
+      <td>42</td>
+      <td>54000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Jasmine</td>
+      <td>20</td>
+      <td>57000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Bonnie</td>
+      <td>53</td>
+      <td>79000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Scott</td>
+      <td>43</td>
+      <td>56000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Let us now remove some data to see what we could do to later fix this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Marcus</td>
+      <td>22</td>
+      <td>69000.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Erik</td>
+      <td>42</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Jasmine</td>
+      <td>20</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Bonnie</td>
+      <td>53</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Scott</td>
+      <td>43</td>
+      <td>56000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Often people will simply fill missing entries with a global value such as the mean or median.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">median_salary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">Salary</span><span class="p">)</span>
+<span class="n">median_salary</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>74000.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_imputed</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">median_salary</span><span class="p">)</span>
+<span class="n">data_imputed</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Marcus</td>
+      <td>22</td>
+      <td>69000.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Erik</td>
+      <td>42</td>
+      <td>74000.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Jasmine</td>
+      <td>20</td>
+      <td>74000.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Bonnie</td>
+      <td>53</td>
+      <td>74000.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Scott</td>
+      <td>43</td>
+      <td>56000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>If this is now “only” 3 entries out of 100 and we are not primarily interested in the Salary for further analysis it could be OK to do something like this. Still, always remember that we just invented new values, so this data should not be kept or shared without making this clear.</p>
+<p>Technically often a bit better than simple mean or median substitutions are imputations based on existing data, for instance using the kNN-imputer from Scikit-Learn. We will later, in the machine-learning part see in depth how such a model works. Here we will skip the details and just say that it will replace missing values by what is found in the <em>k</em> most similar existing entries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.impute</span><span class="w"> </span><span class="kn">import</span> <span class="n">KNNImputer</span>
 
 <span class="c1"># Creating the imputer object</span>
 <span class="n">imputer</span> <span class="o">=</span> <span class="n">KNNImputer</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="c1"># Assuming df is a DataFrame containing the relevant features</span>
-<span class="n">df_filled</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">imputer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Salary&#39;</span><span class="p">]]),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Salary&#39;</span><span class="p">])</span>
+<span class="c1"># Copy all data</span>
+<span class="n">data_imputed</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Replace the columns used for imputation (the imputor object will only change missing values and leave existing ones unchanged!)</span>
+<span class="n">data_imputed</span><span class="p">[[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Salary&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">imputer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Salary&#39;</span><span class="p">]])</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DataFrame after KNN Imputation:&quot;</span><span class="p">)</span>
-<span class="n">df_filled</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">data_imputed</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -914,6 +1165,7 @@ memory usage: 228.0+ bytes
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>Name</th>
       <th>Age</th>
       <th>Salary</th>
     </tr>
@@ -921,28 +1173,39 @@ memory usage: 228.0+ bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>25.000000</td>
-      <td>50000.0</td>
+      <td>Marcus</td>
+      <td>22.0</td>
+      <td>69000.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>27.666667</td>
-      <td>54000.0</td>
+      <td>Erik</td>
+      <td>42.0</td>
+      <td>79000.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>30.000000</td>
-      <td>60000.0</td>
+      <td>Jasmine</td>
+      <td>20.0</td>
+      <td>51500.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>28.000000</td>
-      <td>52000.0</td>
+      <td>Bonnie</td>
+      <td>53.0</td>
+      <td>72500.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Scott</td>
+      <td>43.0</td>
+      <td>56000.0</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
+<p>If you now go back to our original data you will see that those guesses are still off, but better than just taking the global median value.</p>
 </section>
 </section>
 <section id="combining-datasets">
@@ -1555,8 +1818,8 @@ Types:</p>
 </section>
 </section>
 </section>
-<section id="id3">
-<h2><span class="section-number">9.6. </span>Further Cleaning Steps<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
+<section id="id4">
+<h2><span class="section-number">9.6. </span>Further Cleaning Steps<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <section id="removing-duplicates">
 <h3><span class="section-number">9.6.1. </span>Removing Duplicates<a class="headerlink" href="#removing-duplicates" title="Link to this heading">#</a></h3>
 <p>Duplicate entries in a dataset can skew analysis and lead to incorrect conclusions.
@@ -1793,6 +2056,7 @@ It’s often important to identify and remove duplicates to ensure data integrit
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-examples-handling-missing-values">9.2.3. Python Examples: Handling Missing Values</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-missing-values">9.2.4. Remove missing values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">9.2.5. Imputation</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-datasets">9.3. Combining Datasets</a><ul class="nav section-nav flex-column">
@@ -1815,7 +2079,7 @@ It’s often important to identify and remove duplicates to ensure data integrit
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">9.6. Further Cleaning Steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">9.6. Further Cleaning Steps</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-duplicates">9.6.1. Removing Duplicates</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standardizing-data">9.6.2. Standardizing Data</a></li>
 </ul>
