@@ -15,10 +15,10 @@ In this book, we'll be introducing our tailored workflow called **ASEMIC** ({num
 
 - **A**cquire data: This is where we obtain our raw data, the foundation of our entire project.
 - **S**crub data: Data is rarely perfect. In this phase, we clean our data by handling missing values, outliers, and errors.
-- **E**xplore data: Through visualization and statistical analysis, we delve deep into our data to understand its nuances.
+- **E**xplore data: Through visualization and statistical analysis, we usually need to move from a first intuitive overview of our data to understanding its nuances.
 - **M**odel data: Based on our understanding, we choose suitable algorithms and techniques to model our data.
 - **I**nterpret results: Once we have our model results, we decipher what they mean in the context of our problem.
-- **C**ommunicate results: Data science is as much about communication as computation. Here, we present our findings in a clear, compelling manner.
+- **C**ommunicate results: Though occasionally overlooked, communicating the results of a data science process is something I would consider a key step in a data science workflow. Here, we present our findings in a clear, compelling manner.
 
 ```{figure} ../images/fig_asemic_data_science_workflow.png
 :name: fig_asemic_sketch
