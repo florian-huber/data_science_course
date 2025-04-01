@@ -451,14 +451,14 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="data-and-data-types">
 <h1><span class="section-number">5. </span>Data and Data Types<a class="headerlink" href="#data-and-data-types" title="Link to this heading">#</a></h1>
-<p>There are many different definitions for the term <strong>data</strong> [add refs]. Here’s one of them, which will do for us to start with:</p>
+<p>There are many different definitions for the term <strong>data</strong>. Here’s one of them, which will do for us to start with:</p>
 <blockquote>
 <div><p>Data ≈ values or findings obtained through observations, measurements, etc.</p>
 </div></blockquote>
 <section id="history-of-data">
 <h2><span class="section-number">5.1. </span>History of Data<a class="headerlink" href="#history-of-data" title="Link to this heading">#</a></h2>
-<p>A characteristic of data is that it must be measured or recorded. Hence, data is as old as the oldest human systems for recording data. One of the earliest remnants of such an endeavor is the Ishango bone, estimated to be around 20,000 years old <span id="id1">[<a class="reference internal" href="bibliography.html#id62" title="Vladimir Pletser and Dirk Huylebrouck. The Ishango Artefact: the Missing Base 12 Link. Forma, 1999.">Pletser and Huylebrouck, 1999</a>]</span>. This artifact, displaying systematic notches grouped in blocks, resembles an ancient tally stick, hinting at our ancestral drive to count or record.</p>
-<p>The very essence of data collection goes hand in hand with the birth of writing and symbolic representation. Interestingly, the oldest instances of these systems were not used to create elaborate letters, prose, or captivating stories. Instead, they were wielded for what may seem mundane today: collect and manage taxes and outstanding services. This fits to a saying that is usually linked to Benjamin Franklin: <em>“…in this world nothing can be said to be certain, except death and taxes”</em>.</p>
+<p>A characteristic of data is that it must be measured or recorded. Hence, data is as old as the oldest human systems for recording data. One of the earliest remnants of such an endeavor is the Ishango bone, estimated to be around 20,000 years old <span id="id1">[<a class="reference internal" href="bibliography.html#id64" title="Vladimir Pletser and Dirk Huylebrouck. The Ishango Artefact: the Missing Base 12 Link. Forma, 1999.">Pletser and Huylebrouck, 1999</a>]</span>. This artifact, displaying systematic notches grouped in blocks, resembles an ancient tally stick, hinting at our ancestral drive to count or record.</p>
+<p>The very essence of data collection goes hand in hand with the birth of writing and symbolic representation. Interestingly, the oldest instances of these systems were not used to create elaborate letters, prose, or captivating stories. Instead, they were wielded for what may seem mundane today: collect and manage taxes and outstanding services. This fits to a saying that is usually linked to Benjamin Franklin: <em>“…in this world nothing can be said to be certain, except death and taxes”</em> <a class="footnote-reference brackets" href="#death-taxes" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p>
 <p>While data has been collected and used for millennia, the term <em>“data”</em> itself is relatively nascent. Originating from the Latin word <em>datum</em>, which means “given”, the English adoption of <em>data</em> is believed to have been in the 1640s. The evolution of the term underscores our ever-growing understanding and reliance on the structured representation of knowledge.</p>
 </section>
 <section id="data-types">
@@ -475,16 +475,16 @@ document.write(`
 <p><strong>Data vs. Metadata</strong></p>
 <p>While <em>data</em> represents the core information we aim to analyze or utilize, <em>metadata</em> is the information about this data. It describes the data’s context, quality, condition, origin, and other characteristics. If data is a book, metadata is the blurb on the back, providing insights about its content, author, and publication details.</p>
 <p><strong>Categorical vs. Numerical Data</strong></p>
-<p><em>Data</em> in the realm of analysis can be classified into two main types: categorical and numerical.</p>
+<p>When it comes to data analysis we often distinguish two main types of <em>data</em>: categorical and numerical.</p>
 <p><em>Categorical data</em> refers to data that falls into distinct groups or categories without any natural order or ranking among them. These categories are defined by  qualitative characteristics that describe or identify traits or  attributes. For example, the color of a shirt—whether it is blue, red,  or green—represents categorical data.</p>
-<p><em>Numerical data</em>, as the name suggests, encompasses data represented by numbers, which can be further  categorized into two subtypes: discrete and continuous. Discrete data  are countable quantities like the number of books on a shelf, while  continuous data involve measurements and can represent any value within a range, such as the height of a person or the weight of an object.</p>
+<p><em>Numerical data</em>, as the name suggests, encompasses data represented by numbers, which can be further  categorized into two subtypes: discrete and continuous. Discrete data are countable quantities like the number of books on a shelf, while  continuous data involve measurements and can represent any value within a range, such as the height of a person or the weight of an object.</p>
 <p><strong>Understanding Data Scales</strong></p>
-<p>A deeper exploration into data reveals various scales on which it can be measured:</p>
+<p>Very often, the distinction between <em>categorical</em> and <em>numerical</em> data is not good enough. Helpful for later steps in a data science process are the following data scales:</p>
 <ul class="simple">
-<li><p><strong>Nominal Scale</strong>: This scale is used for categorizing data without implying any order. It’s applicable to categorical data where the emphasis is on distinguishing between items based on names or labels, such as gender, ethnicity, or eye color.</p></li>
-<li><p><strong>Ordinal Scale</strong>: Here, data is still categorical but with an inherent order or ranking among the categories. However, the differences between these ranks are not equal or standardized. A common example would be a rating system (e.g., poor, fair, good, excellent) where the scale implies order but not the magnitude of difference between adjacent rankings.</p></li>
-<li><p><strong>Interval Scale</strong>: This scale applies to numerical data that has equal intervals between values but no true zero point, making ratios meaningless. Temperature measured in Celsius is a classic example, where the difference between 10°C and 20°C is the same as between 20°C and 30°C, but 0°C does not denote an absence of temperature. As a consequence, 5°C is <strong>not</strong> five times as warm as 1°C.</p></li>
-<li><p><strong>Ratio Scale</strong>: Ratio scales are similar to interval scales in that they feature equal spacing between values but also include a true zero point, allowing for meaningful ratios. Examples include measurements of length, weight, and age.</p></li>
+<li><p><strong>Nominal Scale</strong>: This scale is used for categorizing data without implying any order. It’s applicable to categorical data where the emphasis is on distinguishing between items based on names or labels. Typical examples are gender, country, ethnicity, or eye color.</p></li>
+<li><p><strong>Ordinal Scale</strong>: Here, data is still categorical but with an inherent order or ranking among the categories. However, the differences between these ranks are not equal or standardized. A common example would be a rating system such as: poor, fair, good, excellent. Here the scale implies order but not the magnitude of difference between adjacent rankings.</p></li>
+<li><p><strong>Interval Scale</strong>: This scale applies to numerical data that has equal intervals between values but no true zero point, making ratios meaningless. Temperature measured in Celsius is a classic example, where the difference between 10°C and 20°C is the same as between 20°C and 30°C, such that we can talk about a 10°C difference in both cases. But 0°C does not denote an absence of temperature. As a consequence, 5°C is <strong>not</strong> five times as warm as 1°C.</p></li>
+<li><p><strong>Ratio Scale</strong>: Ratio scales are similar to interval scales in that they feature equal spacing between values but also include a true zero point, allowing for meaningful ratios. Examples include measurements of length, weight, and age. A 10 year old bottle of wine is indeed two times older than a 5 year old bottle.</p></li>
 </ul>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
@@ -526,7 +526,7 @@ document.write(`
 </section>
 <section id="big-data">
 <h2><span class="section-number">5.3. </span>Big Data<a class="headerlink" href="#big-data" title="Link to this heading">#</a></h2>
-<p>Working in data science there is really no way to avoid dealing with the challenges, the promises, or even the (many) definitions of <strong>Big Data</strong>. Since this is not our core concern in this book, I will simply stick to the very simple definition, roughly following <span id="id2">[<a class="reference internal" href="bibliography.html#id69" title="Philip Russom and others. Big data analytics. TDWI best practices report, fourth quarter, 19(4):1–34, 2011.">Russom and others, 2011</a>]</span>, and say:</p>
+<p>Working in data science there is really no way to avoid dealing with the challenges, the promises, or even the (many) definitions of <strong>Big Data</strong>. Since this is not our core concern in this book, I will simply stick to the very simple definition, roughly following <span id="id3">[<a class="reference internal" href="bibliography.html#id71" title="Philip Russom and others. Big data analytics. TDWI best practices report, fourth quarter, 19(4):1–34, 2011.">Russom and others, 2011</a>]</span>, and say:</p>
 <blockquote>
 <div><p><strong>Big Data</strong> ≈ Data that is too large, too complex, or too volatile to be evaluated using manual and traditional data processing methods.</p>
 </div></blockquote>
@@ -536,6 +536,13 @@ document.write(`
 <blockquote>
 <div><p>Anything that can be done with basic Excel methods <strong>is not Big Data</strong>.</p>
 </div></blockquote>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="death-taxes" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
+<p>This phrase was indeed written by Benjamin Franklin in a letter in 1789, although a similar phrase also appeared earlier in a book by Christopher Bullock <span id="id4">[<a class="reference internal" href="bibliography.html#id41" title="Jordan Liles. Did Ben Franklin Pen the Famous 'Death and Taxes' Quote? July 2022. URL: https://www.snopes.com//fact-check/death-and-taxes-quote/ (visited on 2025-04-01).">Liles, 2022</a>]</span><span id="id5">[<a class="reference internal" href="bibliography.html#id17" title="Christopher Bullock, B. Joy Jeffries, and William Shakespeare. The cobler of Preston, a farce. As it is acted at the Theatre-Royal in Lincoln's-Inn-Fields. London : S. Bladon, 1767. URL: http://archive.org/details/coblerofprestonf00bull (visited on 2025-04-01).">Bullock <em>et al.</em>, 1767</a>]</span>.</p>
+</aside>
+</aside>
 </section>
 </section>
 

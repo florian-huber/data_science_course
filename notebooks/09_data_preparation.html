@@ -601,7 +601,7 @@ Suppose we, or the experts we collaborate with, do not have a solid understandin
 </section>
 <section id="python-examples-handling-missing-values">
 <h3><span class="section-number">9.2.3. </span>Python Examples: Handling Missing Values<a class="headerlink" href="#python-examples-handling-missing-values" title="Link to this heading">#</a></h3>
-<p>We will include detailed Python examples demonstrating these techniques, showing practical implementations using key data science libraries such as <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id68" title="The pandas development team. Pandas-dev/pandas: pandas. February 2020. URL: https://doi.org/10.5281/zenodo.3509134, doi:10.5281/zenodo.3509134.">pandas development team, 2020</a>]</span> or <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id71" title="F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay. Scikit-learn: machine learning in Python. Journal of Machine Learning Research, 12:2825–2830, 2011.">Pedregosa <em>et al.</em>, 2011</a>]</span>. This hands-on approach will help in solidifying the theoretical concepts discussed and provide learners with the tools they need to effectively handle missing data in their projects.</p>
+<p>We will include detailed Python examples demonstrating these techniques, showing practical implementations using key data science libraries such as <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id70" title="The pandas development team. Pandas-dev/pandas: pandas. February 2020. URL: https://doi.org/10.5281/zenodo.3509134, doi:10.5281/zenodo.3509134.">pandas development team, 2020</a>]</span> or <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id73" title="F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay. Scikit-learn: machine learning in Python. Journal of Machine Learning Research, 12:2825–2830, 2011.">Pedregosa <em>et al.</em>, 2011</a>]</span>. This hands-on approach will help in solidifying the theoretical concepts discussed and provide learners with the tools they need to effectively handle missing data in their projects.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -944,33 +944,33 @@ memory usage: 228.0+ bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>Marcus</td>
-      <td>22</td>
-      <td>69000</td>
+      <td>Donna</td>
+      <td>26</td>
+      <td>73000</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Erik</td>
-      <td>42</td>
-      <td>54000</td>
+      <td>Amy</td>
+      <td>51</td>
+      <td>100000</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Jasmine</td>
-      <td>20</td>
-      <td>57000</td>
+      <td>Lindsey</td>
+      <td>30</td>
+      <td>51000</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Bonnie</td>
-      <td>53</td>
-      <td>79000</td>
+      <td>Stephen</td>
+      <td>28</td>
+      <td>77000</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Scott</td>
-      <td>43</td>
-      <td>56000</td>
+      <td>Stephanie</td>
+      <td>37</td>
+      <td>82000</td>
     </tr>
   </tbody>
 </table>
@@ -1011,33 +1011,33 @@ memory usage: 228.0+ bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>Marcus</td>
-      <td>22</td>
-      <td>69000.0</td>
+      <td>Donna</td>
+      <td>26</td>
+      <td>73000.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Erik</td>
-      <td>42</td>
+      <td>Amy</td>
+      <td>51</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Jasmine</td>
-      <td>20</td>
+      <td>Lindsey</td>
+      <td>30</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Bonnie</td>
-      <td>53</td>
+      <td>Stephen</td>
+      <td>28</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Scott</td>
-      <td>43</td>
-      <td>56000.0</td>
+      <td>Stephanie</td>
+      <td>37</td>
+      <td>82000.0</td>
     </tr>
   </tbody>
 </table>
@@ -1052,7 +1052,7 @@ memory usage: 228.0+ bytes
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>74000.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>71000.0
 </pre></div>
 </div>
 </div>
@@ -1091,33 +1091,33 @@ memory usage: 228.0+ bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>Marcus</td>
-      <td>22</td>
-      <td>69000.0</td>
+      <td>Donna</td>
+      <td>26</td>
+      <td>73000.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Erik</td>
-      <td>42</td>
-      <td>74000.0</td>
+      <td>Amy</td>
+      <td>51</td>
+      <td>71000.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Jasmine</td>
-      <td>20</td>
-      <td>74000.0</td>
+      <td>Lindsey</td>
+      <td>30</td>
+      <td>71000.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Bonnie</td>
-      <td>53</td>
-      <td>74000.0</td>
+      <td>Stephen</td>
+      <td>28</td>
+      <td>71000.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Scott</td>
-      <td>43</td>
-      <td>56000.0</td>
+      <td>Stephanie</td>
+      <td>37</td>
+      <td>82000.0</td>
     </tr>
   </tbody>
 </table>
@@ -1173,33 +1173,33 @@ memory usage: 228.0+ bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>Marcus</td>
-      <td>22.0</td>
-      <td>69000.0</td>
+      <td>Donna</td>
+      <td>26.0</td>
+      <td>73000.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Erik</td>
-      <td>42.0</td>
-      <td>79000.0</td>
+      <td>Amy</td>
+      <td>51.0</td>
+      <td>80500.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Jasmine</td>
-      <td>20.0</td>
-      <td>51500.0</td>
+      <td>Lindsey</td>
+      <td>30.0</td>
+      <td>54500.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Bonnie</td>
-      <td>53.0</td>
-      <td>72500.0</td>
+      <td>Stephen</td>
+      <td>28.0</td>
+      <td>54500.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Scott</td>
-      <td>43.0</td>
-      <td>56000.0</td>
+      <td>Stephanie</td>
+      <td>37.0</td>
+      <td>82000.0</td>
     </tr>
   </tbody>
 </table>

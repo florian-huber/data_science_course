@@ -1,6 +1,6 @@
 # Data and Data Types
 
-There are many different definitions for the term **data** [add refs]. Here's one of them, which will do for us to start with:
+There are many different definitions for the term **data**. Here's one of them, which will do for us to start with:
 
 > Data ≈ values or findings obtained through observations, measurements, etc.
 
@@ -8,7 +8,7 @@ There are many different definitions for the term **data** [add refs]. Here's on
 
 A characteristic of data is that it must be measured or recorded. Hence, data is as old as the oldest human systems for recording data. One of the earliest remnants of such an endeavor is the Ishango bone, estimated to be around 20,000 years old {cite}`pletser_ishango_1999`. This artifact, displaying systematic notches grouped in blocks, resembles an ancient tally stick, hinting at our ancestral drive to count or record.
 
-The very essence of data collection goes hand in hand with the birth of writing and symbolic representation. Interestingly, the oldest instances of these systems were not used to create elaborate letters, prose, or captivating stories. Instead, they were wielded for what may seem mundane today: collect and manage taxes and outstanding services. This fits to a saying that is usually linked to Benjamin Franklin: *"...in this world nothing can be said to be certain, except death and taxes"*.
+The very essence of data collection goes hand in hand with the birth of writing and symbolic representation. Interestingly, the oldest instances of these systems were not used to create elaborate letters, prose, or captivating stories. Instead, they were wielded for what may seem mundane today: collect and manage taxes and outstanding services. This fits to a saying that is usually linked to Benjamin Franklin: *"...in this world nothing can be said to be certain, except death and taxes"* [^death-taxes]
 
 While data has been collected and used for millennia, the term *"data"* itself is relatively nascent. Originating from the Latin word *datum*, which means "given", the English adoption of *data* is believed to have been in the 1640s. The evolution of the term underscores our ever-growing understanding and reliance on the structured representation of knowledge.
 
@@ -38,20 +38,20 @@ While *data* represents the core information we aim to analyze or utilize, *meta
 
 **Categorical vs. Numerical Data**
 
-*Data* in the realm of analysis can be classified into two main types: categorical and numerical.
+When it comes to data analysis we often distinguish two main types of *data*: categorical and numerical.
 
 *Categorical data* refers to data that falls into distinct groups or categories without any natural order or ranking among them. These categories are defined by  qualitative characteristics that describe or identify traits or  attributes. For example, the color of a shirt—whether it is blue, red,  or green—represents categorical data.
 
-*Numerical data*, as the name suggests, encompasses data represented by numbers, which can be further  categorized into two subtypes: discrete and continuous. Discrete data  are countable quantities like the number of books on a shelf, while  continuous data involve measurements and can represent any value within a range, such as the height of a person or the weight of an object.
+*Numerical data*, as the name suggests, encompasses data represented by numbers, which can be further  categorized into two subtypes: discrete and continuous. Discrete data are countable quantities like the number of books on a shelf, while  continuous data involve measurements and can represent any value within a range, such as the height of a person or the weight of an object.
 
 **Understanding Data Scales**
 
-A deeper exploration into data reveals various scales on which it can be measured:
+Very often, the distinction between *categorical* and *numerical* data is not good enough. Helpful for later steps in a data science process are the following data scales:
 
-- **Nominal Scale**: This scale is used for categorizing data without implying any order. It's applicable to categorical data where the emphasis is on distinguishing between items based on names or labels, such as gender, ethnicity, or eye color.
-- **Ordinal Scale**: Here, data is still categorical but with an inherent order or ranking among the categories. However, the differences between these ranks are not equal or standardized. A common example would be a rating system (e.g., poor, fair, good, excellent) where the scale implies order but not the magnitude of difference between adjacent rankings.
-- **Interval Scale**: This scale applies to numerical data that has equal intervals between values but no true zero point, making ratios meaningless. Temperature measured in Celsius is a classic example, where the difference between 10°C and 20°C is the same as between 20°C and 30°C, but 0°C does not denote an absence of temperature. As a consequence, 5°C is **not** five times as warm as 1°C.
-- **Ratio Scale**: Ratio scales are similar to interval scales in that they feature equal spacing between values but also include a true zero point, allowing for meaningful ratios. Examples include measurements of length, weight, and age.
+- **Nominal Scale**: This scale is used for categorizing data without implying any order. It's applicable to categorical data where the emphasis is on distinguishing between items based on names or labels. Typical examples are gender, country, ethnicity, or eye color.
+- **Ordinal Scale**: Here, data is still categorical but with an inherent order or ranking among the categories. However, the differences between these ranks are not equal or standardized. A common example would be a rating system such as: poor, fair, good, excellent. Here the scale implies order but not the magnitude of difference between adjacent rankings.
+- **Interval Scale**: This scale applies to numerical data that has equal intervals between values but no true zero point, making ratios meaningless. Temperature measured in Celsius is a classic example, where the difference between 10°C and 20°C is the same as between 20°C and 30°C, such that we can talk about a 10°C difference in both cases. But 0°C does not denote an absence of temperature. As a consequence, 5°C is **not** five times as warm as 1°C.
+- **Ratio Scale**: Ratio scales are similar to interval scales in that they feature equal spacing between values but also include a true zero point, allowing for meaningful ratios. Examples include measurements of length, weight, and age. A 10 year old bottle of wine is indeed two times older than a 5 year old bottle.
 
 | Scale Type | Characteristics | Data Type | Operations | Examples |
 | ------------ | ------------------------------------------- | ----------- | --------------------------------------------- | ------------------------------- |
@@ -73,4 +73,10 @@ Beyond the volume-related discussions, there are other factors that also contrib
 If you still feel like you have no idea what big data actually means, feel free to just go ahead to the next chapters with a basic first intuition of: 
 
 > Anything that can be done with basic Excel methods **is not Big Data**.
+
+
+
+
+
+[^death-taxes]: This phrase was indeed written by Benjamin Franklin in a letter in 1789, although a similar phrase also appeared earlier in a book by Christopher Bullock {cite}`liles_2022`{cite}` bullock_cobler_1767`.
 
