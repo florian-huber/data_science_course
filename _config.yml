@@ -32,6 +32,7 @@ parse:
     - html_image
     - amsmath
     - dollarmath
+  myst_dmath_double_inline: true  # Use double dollar signs for inline math
 
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:
