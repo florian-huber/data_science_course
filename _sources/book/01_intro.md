@@ -1,4 +1,4 @@
-## Introduction to this book
+# Introduction to this book
 
 In today's world, data is generated at an unprecedented pace, and our ability to harness it is changing the way we live, work, and even think. Data science, the interdisciplinary field that blends statistics, computer science, and domain-specific knowledge, empowers us to extract insights from this vast ocean of data. As data science becomes increasingly essential across various industries and sectors, there is a growing need for skilled professionals who can make sense of data and transform it into actionable information. This book is designed to give you a very broad and at the same time a very practical hands-on tour through the full spectrum of data science approaches.
 

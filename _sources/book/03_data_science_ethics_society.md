@@ -7,9 +7,9 @@ It is very easy to agree on the necessity of ethical considerations in cases tha
 Let's start with something that might at first appear to come with rather little ethical difficulties: Advertisement!
 After all, what does it really matter if you propose a website user a red or a green pair of shoes?
 
-### Let's look at some examples!
+## Let's look at some examples!
 
-#### Targeted Advertisement - good, bad, neutral?
+### Targeted Advertisement - good, bad, neutral?
 
 Even before the digital revolution, targeted advertising was a commonly used strategy. Businesses would use basic demographic information, such as age, gender, and location, to tailor their messages to specific audiences. However, with the advent of the internet and the surge in digital data, the face of targeted advertising has transformed completely. Today's targeted ads are not just influenced by basic personal features, but are significantly shaped by individual online behaviors, including search histories, website visits, and social media interactions {numref}`fig_advertise01`. This evolution has ushered in a new era of personalized advertising, elevating its precision and relevance to unprecedented levels.
 
@@ -69,7 +69,7 @@ In several actual cases, algorithms were (and are) used for decisions with very 
 
 The ethical scrutiny for algorithms like COMPAS is intense, primarily because they touch upon core values of fairness and equity. Despite being designed  to aid in decision-making, there often is a high risk for amplification of existing  prejudices. This raises profound ethical questions about reliance on algorithmic judgments in life-altering decisions and underscores the need for rigorous oversight, transparency, and ethical accountability in their design and application. But it also raises questions on where, how -as well as whether or not- we want to apply certain algorithms in important decision making processes.
 
-### Data Science is tied to ethical considerations
+## Data Science is tied to ethical considerations
 
 As we journey from the relatively straightforward domain of targeted  advertising to the complex and consequential realms of employment  discrimination and judicial decision-making, it becomes evident that the ethical implications of data science are profound and pervasive. Each  application area brings its own set of ethical challenges, demanding a  nuanced understanding and thoughtful consideration from data scientists.
 
@@ -101,13 +101,13 @@ There are many great resources to dig deeper into the topic of ethics and data s
 
   
 
-### Group Exercise - get a sense of the wide range of ethical implications!
+## Group Exercise - get a sense of the wide range of ethical implications!
 
-#### Objective:
+### Objective:
 
 This exercise is designed to engage participants in a thoughtful discussion about the ethical implications of data science applications across various domains. By working in small groups, you'll explore real-world scenarios where data science intersects with ethical considerations, fostering a deeper understanding of the responsibilities that accompany the power of data analytics.
 
-#### Instructions:
+### Instructions:
 
 1. **Form Small Groups:** Divide into small groups of 3-5 participants. Each group will select one of the following areas to focus on for their discussion. If there are enough groups, try to ensure that each topic is covered by at least one group.
 2. **Select a Topic:** Choose one of the following areas for your group's discussion:

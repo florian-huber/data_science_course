@@ -1107,7 +1107,7 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3284/3952750590.py:1: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option(&#39;future.no_silent_downcasting&#39;, True)`
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3224/3952750590.py:1: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option(&#39;future.no_silent_downcasting&#39;, True)`
   data[binary_columns] = data[binary_columns].replace({&#39;no&#39;: 0, &#39;yes&#39;: 1})
 </pre></div>
 </div>
@@ -2494,10 +2494,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.004442</td>
-      <td>0.000197</td>
-      <td>0.012979</td>
-      <td>0.001387</td>
+      <td>0.004453</td>
+      <td>0.000266</td>
+      <td>0.013015</td>
+      <td>0.001432</td>
       <td>2</td>
       <td>{'model__n_neighbors': 2}</td>
       <td>0.801262</td>
@@ -2518,10 +2518,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
     </tr>
     <tr>
       <th>1</th>
-      <td>0.004315</td>
-      <td>0.000057</td>
-      <td>0.012371</td>
-      <td>0.000071</td>
+      <td>0.004311</td>
+      <td>0.000075</td>
+      <td>0.012359</td>
+      <td>0.000142</td>
       <td>3</td>
       <td>{'model__n_neighbors': 3}</td>
       <td>0.801262</td>
@@ -2542,10 +2542,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
     </tr>
     <tr>
       <th>2</th>
-      <td>0.004289</td>
-      <td>0.000013</td>
-      <td>0.012374</td>
-      <td>0.000053</td>
+      <td>0.004364</td>
+      <td>0.000111</td>
+      <td>0.012437</td>
+      <td>0.000115</td>
       <td>4</td>
       <td>{'model__n_neighbors': 4}</td>
       <td>0.782334</td>
@@ -4396,7 +4396,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
              return_train_score=True, verbose=1)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-15" type="checkbox" ><label for="sk-estimator-id-15" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>GridSearchCV</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.model_selection.GridSearchCV.html">?<span>Documentation for GridSearchCV</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>GridSearchCV(cv=3, estimator=DecisionTreeClassifier(),
              param_grid={&#x27;max_depth&#x27;: [5, 8, 10, 15, 20],
                          &#x27;min_samples_split&#x27;: [2, 5, 10]},
-             return_train_score=True, verbose=1)</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-16" type="checkbox" ><label for="sk-estimator-id-16" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>best_estimator_: DecisionTreeClassifier</div></div></label><div class="sk-toggleable__content fitted"><pre>DecisionTreeClassifier(max_depth=20)</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-17" type="checkbox" ><label for="sk-estimator-id-17" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>DecisionTreeClassifier</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.tree.DecisionTreeClassifier.html">?<span>Documentation for DecisionTreeClassifier</span></a></div></label><div class="sk-toggleable__content fitted"><pre>DecisionTreeClassifier(max_depth=20)</pre></div> </div></div></div></div></div></div></div></div></div></div></div>
+             return_train_score=True, verbose=1)</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-16" type="checkbox" ><label for="sk-estimator-id-16" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>best_estimator_: DecisionTreeClassifier</div></div></label><div class="sk-toggleable__content fitted"><pre>DecisionTreeClassifier(max_depth=10)</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-17" type="checkbox" ><label for="sk-estimator-id-17" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>DecisionTreeClassifier</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.tree.DecisionTreeClassifier.html">?<span>Documentation for DecisionTreeClassifier</span></a></div></label><div class="sk-toggleable__content fitted"><pre>DecisionTreeClassifier(max_depth=10)</pre></div> </div></div></div></div></div></div></div></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4446,20 +4446,41 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   </thead>
   <tbody>
     <tr>
+      <th>6</th>
+      <td>0.007129</td>
+      <td>0.000075</td>
+      <td>0.001568</td>
+      <td>0.000009</td>
+      <td>10</td>
+      <td>2</td>
+      <td>{'max_depth': 10, 'min_samples_split': 2}</td>
+      <td>0.909091</td>
+      <td>0.905303</td>
+      <td>0.943074</td>
+      <td>0.919156</td>
+      <td>0.016983</td>
+      <td>1</td>
+      <td>0.990521</td>
+      <td>0.994313</td>
+      <td>0.997159</td>
+      <td>0.993998</td>
+      <td>0.002719</td>
+    </tr>
+    <tr>
       <th>12</th>
-      <td>0.007246</td>
-      <td>0.000082</td>
-      <td>0.001646</td>
-      <td>0.000040</td>
+      <td>0.007305</td>
+      <td>0.000103</td>
+      <td>0.001559</td>
+      <td>0.000003</td>
       <td>20</td>
       <td>2</td>
       <td>{'max_depth': 20, 'min_samples_split': 2}</td>
-      <td>0.916667</td>
+      <td>0.903409</td>
       <td>0.905303</td>
-      <td>0.948767</td>
-      <td>0.923579</td>
-      <td>0.018405</td>
-      <td>1</td>
+      <td>0.941176</td>
+      <td>0.916630</td>
+      <td>0.017375</td>
+      <td>2</td>
       <td>1.000000</td>
       <td>1.000000</td>
       <td>1.000000</td>
@@ -4468,45 +4489,24 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
     </tr>
     <tr>
       <th>9</th>
-      <td>0.007257</td>
-      <td>0.000109</td>
-      <td>0.001622</td>
+      <td>0.007313</td>
+      <td>0.000094</td>
+      <td>0.001557</td>
       <td>0.000009</td>
       <td>15</td>
       <td>2</td>
       <td>{'max_depth': 15, 'min_samples_split': 2}</td>
-      <td>0.901515</td>
-      <td>0.903409</td>
-      <td>0.956357</td>
-      <td>0.920427</td>
-      <td>0.025418</td>
-      <td>2</td>
+      <td>0.897727</td>
+      <td>0.907197</td>
+      <td>0.941176</td>
+      <td>0.915367</td>
+      <td>0.018655</td>
+      <td>3</td>
       <td>1.000000</td>
       <td>1.000000</td>
       <td>1.000000</td>
       <td>1.000000</td>
       <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>0.007178</td>
-      <td>0.000037</td>
-      <td>0.001697</td>
-      <td>0.000037</td>
-      <td>10</td>
-      <td>2</td>
-      <td>{'max_depth': 10, 'min_samples_split': 2}</td>
-      <td>0.909091</td>
-      <td>0.901515</td>
-      <td>0.943074</td>
-      <td>0.917893</td>
-      <td>0.018072</td>
-      <td>3</td>
-      <td>0.990521</td>
-      <td>0.994313</td>
-      <td>0.997159</td>
-      <td>0.993998</td>
-      <td>0.002719</td>
     </tr>
   </tbody>
 </table>
@@ -4530,10 +4530,10 @@ Here, however, we will now do another cross-validation run to illustrate what th
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;fit_time&#39;: array([0.01277757, 0.01211476, 0.01165652, 0.01228952, 0.01155663,
-        0.01213241, 0.01162219, 0.01179147, 0.01190162, 0.01219821]),
- &#39;score_time&#39;: array([0.00355649, 0.00338459, 0.00332522, 0.00336528, 0.00328302,
-        0.00327277, 0.00327802, 0.00329113, 0.00330782, 0.00329781]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;fit_time&#39;: array([0.0129478 , 0.01208448, 0.01163173, 0.01227427, 0.01157188,
+        0.01227355, 0.01169515, 0.0118773 , 0.01195073, 0.01223326]),
+ &#39;score_time&#39;: array([0.00351334, 0.00326324, 0.0032444 , 0.00321221, 0.00322223,
+        0.003299  , 0.00325084, 0.00335312, 0.00319481, 0.00321674]),
  &#39;test_accuracy&#39;: array([0.80660377, 0.86255924, 0.95734597, 0.94312796, 0.95260664,
         0.93364929, 0.96208531, 0.95734597, 0.95260664, 0.95734597]),
  &#39;test_f1_macro&#39;: array([0.80678078, 0.85822023, 0.95484148, 0.94288008, 0.9512887 ,
@@ -4701,7 +4701,7 @@ By Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2025.
       <br/>
     
   </p>
