@@ -504,7 +504,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="correlation-analysis">
 <h1><span class="section-number">11. </span>Correlation Analysis<a class="headerlink" href="#correlation-analysis" title="Link to this heading">#</a></h1>
-<p>Correlation analysis is a fundamental statistical tool used to study the relationship between two or more variables. The term “correlation” originates from the Latin <em>correlatio</em>, meaning a mutual relationship. In the realm of statistics, correlation is specifically employed as a “measure of association,” which quantifies the strength and direction of a relationship between two variables.</p>
+<p>Correlation analysis is a fundamental statistical tool used to study the relationship between two or more features. The term “correlation” originates from the Latin <em>correlatio</em>, meaning a mutual relationship. In the realm of statistics, correlation is specifically employed as a “measure of association,” which quantifies the strength and direction of a relationship between two variables.</p>
 <p>Understanding correlation is essential in data science as it helps in predicting one variable based on the presence of another, determining the association between variables, and in feature selection during the modeling phase. Correlations are also often used as a starting point for a deeper understanding for a deeper, <em>causal</em> understanding of a certain system (we will later see that correlation and causation are very clearly <strong>not</strong> the same!).</p>
 <p>In everyday life, we say that something <em>correlates</em> when different events or measurements align very well. Or we refer to things such as co-incidence. In the following, however, we are looking for a metric that can numerically describe whether a correlation exists and, if so, how pronounced it is.</p>
 <section id="covariance-pearson-correlation-coefficient">
@@ -828,7 +828,7 @@ Corr(a, d) = 0.07
       <td>woman</td>
       <td>160.0</td>
       <td>40.0</td>
-      <td>58</td>
+      <td>20</td>
     </tr>
     <tr>
       <th>1</th>
@@ -836,7 +836,7 @@ Corr(a, d) = 0.07
       <td>woman</td>
       <td>171.0</td>
       <td>39.0</td>
-      <td>29</td>
+      <td>22</td>
     </tr>
     <tr>
       <th>2</th>
@@ -844,7 +844,7 @@ Corr(a, d) = 0.07
       <td>woman</td>
       <td>174.0</td>
       <td>39.0</td>
-      <td>66</td>
+      <td>64</td>
     </tr>
     <tr>
       <th>3</th>
@@ -852,7 +852,7 @@ Corr(a, d) = 0.07
       <td>woman</td>
       <td>176.0</td>
       <td>40.0</td>
-      <td>17</td>
+      <td>31</td>
     </tr>
     <tr>
       <th>4</th>
@@ -860,7 +860,7 @@ Corr(a, d) = 0.07
       <td>man</td>
       <td>195.0</td>
       <td>46.0</td>
-      <td>65</td>
+      <td>56</td>
     </tr>
   </tbody>
 </table>
@@ -908,13 +908,13 @@ Corr(a, d) = 0.07
       <th>mean</th>
       <td>165.233800</td>
       <td>39.77500</td>
-      <td>45.405941</td>
+      <td>45.940594</td>
     </tr>
     <tr>
       <th>std</th>
       <td>39.817544</td>
       <td>5.55613</td>
-      <td>16.372036</td>
+      <td>16.123785</td>
     </tr>
     <tr>
       <th>min</th>
@@ -926,19 +926,19 @@ Corr(a, d) = 0.07
       <th>25%</th>
       <td>163.000000</td>
       <td>38.00000</td>
-      <td>32.000000</td>
+      <td>31.000000</td>
     </tr>
     <tr>
       <th>50%</th>
       <td>168.500000</td>
       <td>39.00000</td>
-      <td>46.000000</td>
+      <td>48.000000</td>
     </tr>
     <tr>
       <th>75%</th>
       <td>174.250000</td>
       <td>40.00000</td>
-      <td>60.000000</td>
+      <td>59.000000</td>
     </tr>
     <tr>
       <th>max</th>
@@ -996,18 +996,18 @@ Corr(a, d) = 0.07
       <th>height</th>
       <td>1.000000</td>
       <td>0.834646</td>
-      <td>-0.103678</td>
+      <td>-0.011927</td>
     </tr>
     <tr>
       <th>shoe_size</th>
       <td>0.834646</td>
       <td>1.000000</td>
-      <td>-0.093471</td>
+      <td>-0.055801</td>
     </tr>
     <tr>
       <th>age</th>
-      <td>-0.103678</td>
-      <td>-0.093471</td>
+      <td>-0.011927</td>
+      <td>-0.055801</td>
       <td>1.000000</td>
     </tr>
   </tbody>
@@ -1032,7 +1032,7 @@ Corr(a, d) = 0.07
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e42efd784e9260700e82c1832097c1216396065a9d85de83727946cab0882be4.png" src="../_images/e42efd784e9260700e82c1832097c1216396065a9d85de83727946cab0882be4.png" />
+<img alt="../_images/5ee941ad079525bb8835bde245860e959ccc9902d120465d95e1763fc4b7b19d.png" src="../_images/5ee941ad079525bb8835bde245860e959ccc9902d120465d95e1763fc4b7b19d.png" />
 </div>
 </div>
 </section>
@@ -1055,7 +1055,7 @@ The strength of a correlation is a measure of how clear the linear dependency be
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">scatter_plot</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="c1"># Create scatter plot</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Create a simple scatter plot.&quot;&quot;&quot;</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
 
     <span class="c1"># Set aspect to equal for better comparison</span>
@@ -1090,7 +1090,6 @@ The strength of a correlation is a measure of how clear the linear dependency be
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">slope</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">slopes</span><span class="p">):</span>
     <span class="n">scatter_linear</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">],</span> <span class="n">slope</span><span class="p">)</span>
 
-<span class="c1"># Tight layout to minimize the overlap</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -1117,21 +1116,23 @@ While pronounced correlation coefficients reflect a clear dependency between val
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Seed for reproducibility</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">NUM_POINTS</span> <span class="o">=</span> <span class="mi">250</span>
+
+<span class="c1"># Seed for reproducibility</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># Define a function to create scatter plots with non-linear relationships</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">scatter_nonlinear</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">pattern</span><span class="p">):</span>
     <span class="c1"># Generate x values</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">NUM_POINTS</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">pattern</span> <span class="o">==</span> <span class="s1">&#39;wave&#39;</span><span class="p">:</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">pattern</span> <span class="o">==</span> <span class="s1">&#39;square&#39;</span><span class="p">:</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">NUM_POINTS</span><span class="p">)</span>
         <span class="n">x</span> <span class="o">*=</span> <span class="mi">2</span><span class="o">/</span><span class="mi">3</span>
         <span class="n">y</span> <span class="o">*=</span> <span class="mi">2</span><span class="o">/</span><span class="mi">3</span>
     <span class="k">elif</span> <span class="n">pattern</span> <span class="o">==</span> <span class="s1">&#39;square_rotated&#39;</span><span class="p">:</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">NUM_POINTS</span><span class="p">)</span>
         <span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="o">*</span><span class="n">y</span><span class="p">])</span>
         <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
         <span class="n">c</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
@@ -1139,17 +1140,17 @@ While pronounced correlation coefficients reflect a clear dependency between val
         <span class="n">rotated_points</span> <span class="o">=</span> <span class="n">rotation_matrix</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
         <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="o">=</span> <span class="n">rotated_points</span>
     <span class="k">elif</span> <span class="n">pattern</span> <span class="o">==</span> <span class="s1">&#39;circle&#39;</span><span class="p">:</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">300</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">NUM_POINTS</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">NUM_POINTS</span><span class="p">)</span>
         <span class="n">x</span> <span class="o">*=</span> <span class="mi">2</span>
         <span class="n">y</span> <span class="o">*=</span> <span class="mi">2</span>
     <span class="k">elif</span> <span class="n">pattern</span> <span class="o">==</span> <span class="s1">&#39;diamond&#39;</span><span class="p">:</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">NUM_POINTS</span><span class="p">)</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
         <span class="n">x</span> <span class="o">*=</span> <span class="mi">2</span><span class="o">/</span><span class="mi">3</span>
         <span class="n">y</span> <span class="o">*=</span> <span class="mi">2</span><span class="o">/</span><span class="mi">3</span>       
     <span class="k">elif</span> <span class="n">pattern</span> <span class="o">==</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">300</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">NUM_POINTS</span><span class="p">)</span>
 
     <span class="c1"># Create scatter plot</span>
     <span class="n">scatter_plot</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
@@ -1166,7 +1167,6 @@ While pronounced correlation coefficients reflect a clear dependency between val
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">pattern</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">patterns2</span><span class="p">):</span>
     <span class="n">scatter_nonlinear</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">],</span> <span class="n">pattern</span><span class="p">)</span>
 
-<span class="c1"># Tight layout to minimize the overlap</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -1174,7 +1174,7 @@ While pronounced correlation coefficients reflect a clear dependency between val
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/81fcd84533b54e58cb4f566c5588d022e444f38dd545f4ba193fb9a883682b98.png" src="../_images/81fcd84533b54e58cb4f566c5588d022e444f38dd545f4ba193fb9a883682b98.png" />
+<img alt="../_images/0e9ec75bb3ce99e230fbc69086efcca2ce23fb0f8c4ace226619b26d62c438ea.png" src="../_images/0e9ec75bb3ce99e230fbc69086efcca2ce23fb0f8c4ace226619b26d62c438ea.png" />
 </div>
 </div>
 <p>Another prominent example to illustrate how little the Pearson correlation coefficient sometimes tells us is the <code class="docutils literal notranslate"><span class="pre">datasaurus</span></code> dataset from the last chapter. Here, too, the data is distributed very differently, but the correlation coefficient remains the same.</p>
@@ -1217,13 +1217,12 @@ While pronounced correlation coefficients reflect a clear dependency between val
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">anscombe_data</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
     <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
     <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Data set </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="c1"># Calculating the Pearson correlation coefficient for each dataset</span>
+
     <span class="n">corr_coef</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
     <span class="n">correlation_coefficients</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">corr_coef</span><span class="p">)</span>
     <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Corr: </span><span class="si">{</span><span class="n">corr_coef</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span>
                 <span class="n">transform</span><span class="o">=</span><span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 
-<span class="c1"># Set common labels</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
 
@@ -1248,7 +1247,7 @@ While pronounced correlation coefficients reflect a clear dependency between val
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/80f838efff0ae9247e0725ded1deb0cca1d6b27e09bcc0962f07349769eb9a9c.png" src="../_images/80f838efff0ae9247e0725ded1deb0cca1d6b27e09bcc0962f07349769eb9a9c.png" />
+<img alt="../_images/47a812a30cccb378df56466b60473ae5d51294657281c9093f67b776e7f14bab.png" src="../_images/47a812a30cccb378df56466b60473ae5d51294657281c9093f67b776e7f14bab.png" />
 </div>
 </div>
 <p>It is of course also easily possible to plot only the parts we are most interested in, for instance:</p>
