@@ -504,7 +504,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-datasets">9.3. Combining Datasets</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-combine-datasets">9.3.1. Why Combine Datasets?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-different-types-of-merges">9.3.2. Understanding Different Types of Merges</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#common-types-of-merges">9.3.2.1. Common Types of Merges</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-join">9.3.2.1. Inner Join</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#outer-join">9.3.2.2. Outer Join</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-challenges">9.3.3. Typical Challenges:</a></li>
@@ -944,33 +945,33 @@ memory usage: 228.0+ bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>James</td>
-      <td>48</td>
+      <td>Kenneth</td>
+      <td>55</td>
       <td>86000</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Shannon</td>
-      <td>56</td>
-      <td>92000</td>
+      <td>Crystal</td>
+      <td>24</td>
+      <td>73000</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Cynthia</td>
-      <td>46</td>
-      <td>79000</td>
+      <td>Brian</td>
+      <td>47</td>
+      <td>69000</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Mary</td>
-      <td>59</td>
-      <td>86000</td>
+      <td>Vanessa</td>
+      <td>61</td>
+      <td>107000</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Christina</td>
-      <td>58</td>
-      <td>68000</td>
+      <td>Tammy</td>
+      <td>31</td>
+      <td>62000</td>
     </tr>
   </tbody>
 </table>
@@ -1011,33 +1012,33 @@ memory usage: 228.0+ bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>James</td>
-      <td>48</td>
+      <td>Kenneth</td>
+      <td>55</td>
       <td>86000.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Shannon</td>
-      <td>56</td>
+      <td>Crystal</td>
+      <td>24</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Cynthia</td>
-      <td>46</td>
+      <td>Brian</td>
+      <td>47</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Mary</td>
-      <td>59</td>
+      <td>Vanessa</td>
+      <td>61</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Christina</td>
-      <td>58</td>
-      <td>68000.0</td>
+      <td>Tammy</td>
+      <td>31</td>
+      <td>62000.0</td>
     </tr>
   </tbody>
 </table>
@@ -1052,7 +1053,7 @@ memory usage: 228.0+ bytes
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>74000.0
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>71000.0
 </pre></div>
 </div>
 </div>
@@ -1091,33 +1092,33 @@ memory usage: 228.0+ bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>James</td>
-      <td>48</td>
+      <td>Kenneth</td>
+      <td>55</td>
       <td>86000.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Shannon</td>
-      <td>56</td>
-      <td>74000.0</td>
+      <td>Crystal</td>
+      <td>24</td>
+      <td>71000.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Cynthia</td>
-      <td>46</td>
-      <td>74000.0</td>
+      <td>Brian</td>
+      <td>47</td>
+      <td>71000.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Mary</td>
-      <td>59</td>
-      <td>74000.0</td>
+      <td>Vanessa</td>
+      <td>61</td>
+      <td>71000.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Christina</td>
-      <td>58</td>
-      <td>68000.0</td>
+      <td>Tammy</td>
+      <td>31</td>
+      <td>62000.0</td>
     </tr>
   </tbody>
 </table>
@@ -1173,33 +1174,33 @@ memory usage: 228.0+ bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>James</td>
-      <td>48.0</td>
+      <td>Kenneth</td>
+      <td>55.0</td>
       <td>86000.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Shannon</td>
-      <td>56.0</td>
-      <td>83000.0</td>
+      <td>Crystal</td>
+      <td>24.0</td>
+      <td>56500.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Cynthia</td>
-      <td>46.0</td>
-      <td>88500.0</td>
+      <td>Brian</td>
+      <td>47.0</td>
+      <td>78500.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Mary</td>
-      <td>59.0</td>
-      <td>79500.0</td>
+      <td>Vanessa</td>
+      <td>61.0</td>
+      <td>81500.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Christina</td>
-      <td>58.0</td>
-      <td>68000.0</td>
+      <td>Tammy</td>
+      <td>31.0</td>
+      <td>62000.0</td>
     </tr>
   </tbody>
 </table>
@@ -1221,26 +1222,39 @@ memory usage: 228.0+ bytes
 </figcaption>
 </figure>
 <p>Figure (<a class="reference internal" href="#fig-data-merging01"><span class="std std-numref">Fig. 9.1</span></a>) shows some common merging types. More information on different ways to combine data using pandas can be found in the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html">pandas documentation on merging</a>.</p>
+<p>Here, only briefly: The basic syntax of the <code class="docutils literal notranslate"><span class="pre">merge</span></code> function is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left_data</span><span class="p">,</span> <span class="n">right_data</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>With the following key parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">how</span></code>: The type of merge to be performed. The options include:</p>
+<ul>
+<li><p>‘inner’: Returns rows with matching keys in both DataFrames.</p></li>
+<li><p>‘left’: Returns all rows from the left DataFrame, along with matching rows from the right DataFrame.</p></li>
+<li><p>‘right’: Returns all rows from the right DataFrame, along with matching rows from the left DataFrame.</p></li>
+<li><p>‘outer’: Returns all rows from both DataFrames. Missing values will be filled with NaN.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">on</span></code>: Column or list of columns to join on. The column(s) must be present in both DataFrames.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">left_on</span></code> and <code class="docutils literal notranslate"><span class="pre">right_on</span></code>: These are used when the keys to merge on have different names in the left and right DataFrames.</p></li>
+</ul>
 </section>
 <section id="understanding-different-types-of-merges">
 <h3><span class="section-number">9.3.2. </span>Understanding Different Types of Merges<a class="headerlink" href="#understanding-different-types-of-merges" title="Link to this heading">#</a></h3>
 <p>Combining datasets effectively requires understanding the nature of the relationships between them. This understanding guides the choice of merging technique, each of which can affect the outcome of the analysis differently.</p>
-<section id="common-types-of-merges">
-<h4><span class="section-number">9.3.2.1. </span>Common Types of Merges<a class="headerlink" href="#common-types-of-merges" title="Link to this heading">#</a></h4>
-<ol class="arabic">
-<li><p><strong>Inner Join</strong><br />
-<strong>Description</strong>: The inner join returns only those records that have matching values in both datasets. This method is most useful when you need to combine records that have a direct correspondence in both sources.<br />
-<strong>Use Case</strong>: Analyzing data where only complete records from both datasets are necessary, such as matching customer demographics with their purchasing records.</p></li>
-<li><p><strong>Outer Join</strong><br />
-Types:</p>
-<ul class="simple">
-<li><p><strong>Full Outer Join</strong>: Combines all records from both datasets, filling in missing values with NaNs where no match is found.</p></li>
-<li><p><strong>Left Outer Join</strong>: Includes all records from the left dataset and the matched records from the right dataset.</p></li>
-<li><p><strong>Right Outer Join</strong>: Includes all records from the right dataset and the matched records from the left dataset.</p></li>
-</ul>
+<section id="inner-join">
+<h4><span class="section-number">9.3.2.1. </span>Inner Join<a class="headerlink" href="#inner-join" title="Link to this heading">#</a></h4>
+<p><strong>Description</strong>: The inner join returns only those records that have matching values in both datasets. This method is most useful when you need to combine records that have a direct correspondence in both sources.<br />
+<strong>Use Case</strong>: Analyzing data where only complete records from both datasets are necessary, such as matching customer demographics with their purchasing records.</p>
+</section>
+<section id="outer-join">
+<h4><span class="section-number">9.3.2.2. </span>Outer Join<a class="headerlink" href="#outer-join" title="Link to this heading">#</a></h4>
+<p>There are different types of outer joins:
+- <strong>Full Outer Join</strong>: Combines all records from both datasets, filling in missing values with NaNs where no match is found.
+- <strong>Left Outer Join</strong>: Includes all records from the left dataset and the matched records from the right dataset.
+- <strong>Right Outer Join</strong>: Includes all records from the right dataset and the matched records from the left dataset.</p>
 <p><strong>Use Case</strong>: Useful when you want to retain all information from one or both datasets, filling gaps with missing values for further analysis.</p>
-</li>
-</ol>
 <p>To illustrate these concepts, let’s see practical examples.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2062,7 +2076,8 @@ It’s often important to identify and remove duplicates to ensure data integrit
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-datasets">9.3. Combining Datasets</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-combine-datasets">9.3.1. Why Combine Datasets?</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-different-types-of-merges">9.3.2. Understanding Different Types of Merges</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#common-types-of-merges">9.3.2.1. Common Types of Merges</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-join">9.3.2.1. Inner Join</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#outer-join">9.3.2.2. Outer Join</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-challenges">9.3.3. Typical Challenges:</a></li>
