@@ -733,7 +733,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f6de2cd8ef0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f0accca8a70&gt;
 </pre></div>
 </div>
 <img alt="../_images/7d795cd59d16fb31da64a2b95ea15fd165e2342a916d52a862ee2d0453a3ea8e.png" src="../_images/7d795cd59d16fb31da64a2b95ea15fd165e2342a916d52a862ee2d0453a3ea8e.png" />
@@ -850,9 +850,9 @@ The main limitation of K-Means is probably the fact that it requires the users t
 <p>DBSCAN stands for Density-Based Spatial Clustering of Applications with Noise. It’s like an adventurous hike where we group together hikers based on how closely they walk together and how often they stop to rest. To explain DBSCAN in an accessible way, let’s consider our hikers as data points in a park (our dataset).</p>
 <p><strong>How DBSCAN works:</strong></p>
 <ol class="arabic simple">
-<li><p><strong>Starting Point (Core Points)</strong>:  First, select a hiker and check how many others are within a preset distance (<code class="docutils literal notranslate"><span class="pre">epsilon</span></code>). If a sufficient number (defined by <code class="docutils literal notranslate"><span class="pre">min_samples</span></code>) are within this range, this hiker becomes a core of a potential cluster.</p></li>
+<li><p><strong>Starting Point (Core Points)</strong>:  First, select a hiker and check how many others are within a preset distance (<code class="docutils literal notranslate"><span class="pre">epsilon</span></code>). If a sufficient number (defined by <code class="docutils literal notranslate"><span class="pre">min_samples</span></code>) is within this range, this hiker becomes a core of a potential cluster.</p></li>
 <li><p><strong>Forming Groups (Cluster Expansion)</strong>: From our core hiker, we extend the group by asking each new hiker in the epsilon area to invite other hikers within their own epsilon area. If these hikers also have enough companions within their reach, the group grows – this is how DBSCAN expands clusters.</p></li>
-<li><p><strong>Connecting Groups (Density Reachability)</strong>: Sometimes, a hiker might not have enough people within their epsilon distance to form their own core group but is close enough to be part of the existing group. These hikers act as bridges and help in joining different core groups, forming a larger cluster.</p></li>
+<li><p><strong>Connecting Groups (Density Reachability)</strong>: Sometimes, a hiker might not have enough people within their epsilon distance to form their own core group, but is close enough to be part of the existing group. These hikers act as bridges and help in joining different core groups, forming a larger cluster.</p></li>
 <li><p><strong>Identifying Lone Hikers (Noise Detection)</strong>: Some hikers prefer solitude and are too far from others to join any group. These are labeled as ‘noise’—similar to outliers in data.</p></li>
 <li><p><strong>Adapting to Terrain (Handling Different Densities)</strong>: Just as groups of hikers might spread out in open fields and bunch up in narrow trails, DBSCAN tries to adapt to areas of different point densities. This can be tricky because the same ‘epsilon’ and <code class="docutils literal notranslate"><span class="pre">min_samples</span></code> might not work for both sparse and dense areas, which is a challenge for DBSCAN.</p></li>
 <li><p><strong>Exploring the Entire Park (Full Dataset)</strong>: The process continues until all hikers are either grouped or labeled as noise. Unlike K-means, we don’t need to know how many groups (clusters) we want to form in advance – the hikers (data points) naturally form groups based on their proximity and the number of companions they have.</p></li>
@@ -860,7 +860,7 @@ The main limitation of K-Means is probably the fact that it requires the users t
 <figure class="align-default" id="fig-dbscan">
 <img alt="../_images/fig_dbscan_sketch.png" src="../_images/fig_dbscan_sketch.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 12.4 </span><span class="caption-text">Illustrative diagram of the DBSCAN clustering process. For each data point the algorithm iteratively searches points within a distance <span class="math notranslate nohighlight">\(\epsilon\)</span>, starting from a randomly chosen point (A) and then expanding (B). Points which are close but have fewer than required connections still belong to clusters (C). Only if no such points are found, a point is labeled an outlier (gray dots, D).</span><a class="headerlink" href="#fig-dbscan" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 12.4 </span><span class="caption-text">Illustrative diagram of the DBSCAN clustering process. For each data point, the algorithm iteratively searches points within a distance <span class="math notranslate nohighlight">\(\epsilon\)</span>, starting from a randomly chosen point (A) and then expanding (B). Points that are close but have fewer than required connections still belong to clusters (light blue point in panel C). Only if no such points are found, a point is labeled an outlier (gray dots, D).</span><a class="headerlink" href="#fig-dbscan" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>DBSCAN is particularly effective for complex datasets with non-linear cluster shapes and varying densities. However, the choice of <code class="docutils literal notranslate"><span class="pre">epsilon</span></code> and <code class="docutils literal notranslate"><span class="pre">min_samples</span></code> is crucial, as it significantly impacts the clustering results.</p>
@@ -1310,8 +1310,7 @@ This threshold here defines where we cut othe dendrogram. The lower the distance
 <section id="data-preprocessing">
 <h3><span class="section-number">12.6.1. </span>Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Link to this heading">#</a></h3>
 <p><strong>Standardization</strong>: Most clustering algorithms, including K-means and GMM, assume that features have the same scale for them to perform optimally. Standardization (or Z-score normalization) is crucial as it scales the data to have a mean of zero and a standard deviation of one. This ensures that each feature contributes equally to the distance calculations, which is vital for distance-based algorithms.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.preprocessing</span><span class="w"> </span><span class="kn">import</span> <span class="n">StandardScaler</span>
 
 <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
 <span class="n">data_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
