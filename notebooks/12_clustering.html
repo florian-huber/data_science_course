@@ -57,6 +57,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/12_clustering';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -491,10 +493,9 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">12.1.4. Mini-exercise</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kmeans-clustering">12.2. KMeans Clustering</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means-clustering">12.2. K-Means Clustering</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#very-often-clusters-are-not-that-easily-distinguishable">12.2.1. Very often, clusters are not that easily distinguishable!</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-kmeans">12.2.2. Advantages of KMeans:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages-of-kmeans">12.2.3. Disadvantages of KMeans:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-and-limitations-of-k-means">12.2.2. Advantages and Limitations of K-Means:</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dbscan-density-based-spatial-clustering-of-applications-with-noise">12.3. DBSCAN (Density-Based Spatial Clustering of Applications with Noise)</a><ul class="nav section-nav flex-column">
@@ -641,11 +642,11 @@ Common strategies include:</p>
 </ul>
 <p>These diverse approaches highlight why numerous clustering algorithms have been developed, each with its own strengths and suitable applications. This exercise should help you appreciate the complexity of designing an algorithm that robustly and effectively identifies clusters in varied datasets</p>
 <hr class="docutils" />
-<p>In the following, we will introduce and apply some very common clustering algorithms.</p>
+<p>In the following, we will introduce and apply some common clustering algorithms.</p>
 </section>
 </section>
-<section id="kmeans-clustering">
-<h2><span class="section-number">12.2. </span>KMeans Clustering<a class="headerlink" href="#kmeans-clustering" title="Link to this heading">#</a></h2>
+<section id="k-means-clustering">
+<h2><span class="section-number">12.2. </span>K-Means Clustering<a class="headerlink" href="#k-means-clustering" title="Link to this heading">#</a></h2>
 <p>The K-means algorithm is a popular and intuitive method used for clustering and can be likened to the task of organizing similar items into buckets. To intuitively understand how it works, let’s imagine we are sorting fruit based on sweetness and size. Each fruit will be a data point with sweetness and size as its two features.</p>
 <p>Here’s the step-by-step process:</p>
 <ol class="arabic simple">
@@ -656,7 +657,7 @@ Common strategies include:</p>
 <li><p><strong>Convergence</strong>: This process of assignment and updating continues until things settle down – that is, the fruits no longer switch buckets (clusters), and the centroids no longer change. This is called convergence.</p></li>
 <li><p><strong>Result</strong>: At the end, we have our fruits sorted into buckets where each fruit is surrounded by others with similar sweetness and size. Each bucket represents a cluster.</p></li>
 </ol>
-<p>In a more technical context, the ‘sweetness’ and ‘size’ are analogs for the features of the dataset, and the ‘average’ fruit represents the mean of the cluster’s points in feature space.</p>
+<p>In a more technical context, the ‘sweetness’ and ‘size’ are analogs for the dataset’s features, and the ‘average’ fruit represents the mean of the cluster’s points in feature space.</p>
 <figure class="align-default" id="fig-kmeans">
 <img alt="../_images/fig_kmeans_sketch.png" src="../_images/fig_kmeans_sketch.png" />
 <figcaption>
@@ -732,7 +733,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fc9c52ab410&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f6de2cd8ef0&gt;
 </pre></div>
 </div>
 <img alt="../_images/7d795cd59d16fb31da64a2b95ea15fd165e2342a916d52a862ee2d0453a3ea8e.png" src="../_images/7d795cd59d16fb31da64a2b95ea15fd165e2342a916d52a862ee2d0453a3ea8e.png" />
@@ -828,25 +829,18 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 </section>
-<section id="advantages-of-kmeans">
-<h3><span class="section-number">12.2.2. </span>Advantages of KMeans:<a class="headerlink" href="#advantages-of-kmeans" title="Link to this heading">#</a></h3>
-<p>KMeans is certainly one of the most intuitive clustering algorithms. It is relatively easy to understand and to implement. This iterative approach consists fundamentally of two steps: assigning data points to the nearest centroid and recalculating centroids.</p>
-<p>In the most simple implementations (“naive KMeans”) the algorithm has some computational bottlenecks which can make it slow, but there are many clever solutions that currently allow to use KMeans very efficiently even on very large datasets <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id32" title="Greg Hamerly. Making k-means even faster. In Proceedings of the 2010 SIAM International Conference on Data Mining (SDM), Proceedings, pages 130–140. Society for Industrial and Applied Mathematics, April 2010. URL: https://epubs.siam.org/doi/abs/10.1137/1.9781611972801.12 (visited on 2025-04-29), doi:10.1137/1.9781611972801.12.">Hamerly, 2010</a>, <a class="reference internal" href="../book/bibliography.html#id63" title="Dan Pelleg and Andrew Moore. Accelerating exact k-means algorithms with geometric reasoning. In Proceedings of the fifth ACM SIGKDD international conference on Knowledge discovery and data mining, KDD '99, 277–281. New York, NY, USA, August 1999. Association for Computing Machinery. URL: https://dl.acm.org/doi/10.1145/312129.312248 (visited on 2025-04-29), doi:10.1145/312129.312248.">Pelleg and Moore, 1999</a>]</span>.</p>
-<p>In general, KMeans performs well with clusters that are relatively isotropic and similar in size.</p>
-<p>Despite its straightforward nature, KMeans has some limitations that need consideration.</p>
+<section id="advantages-and-limitations-of-k-means">
+<h3><span class="section-number">12.2.2. </span>Advantages and Limitations of K-Means:<a class="headerlink" href="#advantages-and-limitations-of-k-means" title="Link to this heading">#</a></h3>
+<p>K-Means is certainly one of the most intuitive clustering algorithms. It is relatively easy to understand and to implement. This iterative approach consists fundamentally of two steps: assigning data points to the nearest centroid and recalculating centroids.</p>
+<p>In the simplest implementations (“naive KMeans”), the algorithm has some computational bottlenecks which can make it slow, but there are many clever solutions that currently allow to use K-Means very efficiently even on very large datasets <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id32" title="Greg Hamerly. Making k-means even faster. In Proceedings of the 2010 SIAM International Conference on Data Mining (SDM), Proceedings, pages 130–140. Society for Industrial and Applied Mathematics, April 2010. URL: https://epubs.siam.org/doi/abs/10.1137/1.9781611972801.12 (visited on 2025-04-29), doi:10.1137/1.9781611972801.12.">Hamerly, 2010</a>, <a class="reference internal" href="../book/bibliography.html#id63" title="Dan Pelleg and Andrew Moore. Accelerating exact k-means algorithms with geometric reasoning. In Proceedings of the fifth ACM SIGKDD international conference on Knowledge discovery and data mining, KDD '99, 277–281. New York, NY, USA, August 1999. Association for Computing Machinery. URL: https://dl.acm.org/doi/10.1145/312129.312248 (visited on 2025-04-29), doi:10.1145/312129.312248.">Pelleg and Moore, 1999</a>]</span>.</p>
+<p>In general, K-Means performs well with clusters that are relatively isotropic and similar in size.</p>
+<p>Despite its straightforward nature, K-Means has some limitations that need consideration.
+The main limitation of K-Means is probably the fact that it requires the users to specify the number of clusters beforehand. Often, we will not know this number in advance so that we have to generate good estimates, for instance by trying many different Ks. There are various methods to evaluate which K is likely the “best” choice, but the right choice of K also depends on the data and our question to that data. This means that no generally excepted solution to this problem will always work!</p>
+<p>Even if we know how to estimate a suitable K for K-Means, the algorithm has further important limitations:</p>
 <ul class="simple">
-<li><p><strong>Simplicity</strong>: The algorithm is easy to understand and implement.</p></li>
-<li><p><strong>Efficiency</strong>: It is computationally efficient, making it suitable for large datasets.</p></li>
-<li><p><strong>Effectiveness</strong>: Performs well with clusters that are relatively isotropic and similar in size.</p></li>
-</ul>
-</section>
-<section id="disadvantages-of-kmeans">
-<h3><span class="section-number">12.2.3. </span>Disadvantages of KMeans:<a class="headerlink" href="#disadvantages-of-kmeans" title="Link to this heading">#</a></h3>
-<ul class="simple">
-<li><p><strong>Fixed Number of Clusters</strong>: Requires specifying the number of clusters beforehand, which is not always known in advance and can be difficult to estimate.</p></li>
 <li><p><strong>Cluster Assumptions</strong>: Assumes that clusters are spherical and of similar size, which may not hold true for all datasets.</p></li>
-<li><p><strong>Sensitivity to Initial Conditions</strong>: The initial placement of centroids can affect the final outcome, and KMeans can sometimes converge to a local minimum rather than the global best solution.</p></li>
-<li><p><strong>Outlier Sensitivity</strong>: Outliers can skew the centroids, making KMeans less robust to anomalous data points.</p></li>
+<li><p><strong>Sensitivity to Initial Conditions</strong>: The initial placement of centroids can affect the final outcome, and K-Means can sometimes converge to a local minimum rather than the global best solution.</p></li>
+<li><p><strong>Outlier Sensitivity</strong>: Outliers can skew the centroids, making K-Means less robust to anomalous data points.</p></li>
 </ul>
 </section>
 </section>
@@ -863,6 +857,12 @@ This is already one step more “realistic” in the sense that most commonly we
 <li><p><strong>Adapting to Terrain (Handling Different Densities)</strong>: Just as groups of hikers might spread out in open fields and bunch up in narrow trails, DBSCAN tries to adapt to areas of different point densities. This can be tricky because the same ‘epsilon’ and <code class="docutils literal notranslate"><span class="pre">min_samples</span></code> might not work for both sparse and dense areas, which is a challenge for DBSCAN.</p></li>
 <li><p><strong>Exploring the Entire Park (Full Dataset)</strong>: The process continues until all hikers are either grouped or labeled as noise. Unlike K-means, we don’t need to know how many groups (clusters) we want to form in advance – the hikers (data points) naturally form groups based on their proximity and the number of companions they have.</p></li>
 </ol>
+<figure class="align-default" id="fig-dbscan">
+<img alt="../_images/fig_dbscan_sketch.png" src="../_images/fig_dbscan_sketch.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 12.4 </span><span class="caption-text">Illustrative diagram of the DBSCAN clustering process. For each data point the algorithm iteratively searches points within a distance <span class="math notranslate nohighlight">\(\epsilon\)</span>, starting from a randomly chosen point (A) and then expanding (B). Points which are close but have fewer than required connections still belong to clusters (C). Only if no such points are found, a point is labeled an outlier (gray dots, D).</span><a class="headerlink" href="#fig-dbscan" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <p>DBSCAN is particularly effective for complex datasets with non-linear cluster shapes and varying densities. However, the choice of <code class="docutils literal notranslate"><span class="pre">epsilon</span></code> and <code class="docutils literal notranslate"><span class="pre">min_samples</span></code> is crucial, as it significantly impacts the clustering results.</p>
 <p>Using Scikit-Learn, we can use DBSCAN as follows:</p>
 <div class="cell docutils container">
@@ -1418,10 +1418,9 @@ For a start, it makes sense to have a look at some of the other clustering algor
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">12.1.4. Mini-exercise</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kmeans-clustering">12.2. KMeans Clustering</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means-clustering">12.2. K-Means Clustering</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#very-often-clusters-are-not-that-easily-distinguishable">12.2.1. Very often, clusters are not that easily distinguishable!</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-kmeans">12.2.2. Advantages of KMeans:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#disadvantages-of-kmeans">12.2.3. Disadvantages of KMeans:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-and-limitations-of-k-means">12.2.2. Advantages and Limitations of K-Means:</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dbscan-density-based-spatial-clustering-of-applications-with-noise">12.3. DBSCAN (Density-Based Spatial Clustering of Applications with Noise)</a><ul class="nav section-nav flex-column">
