@@ -510,7 +510,7 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchical-clustering-ward">12.5. Hierarchical clustering (Ward)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-hierarchical-clustering-works">12.5.1. How Hierarchical Clustering Works:</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">12.5.1.1. Parameter variation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">12.5.1.1. Parameter variation</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-hierarchical-clustering">12.5.2. Advantages of Hierarchical Clustering:</a></li>
@@ -649,15 +649,14 @@ Common strategies include:</p>
 <p>The K-means algorithm is a popular and intuitive method used for clustering and can be likened to the task of organizing similar items into buckets. To intuitively understand how it works, let’s imagine we are sorting fruit based on sweetness and size. Each fruit will be a data point with sweetness and size as its two features.</p>
 <p>Here’s the step-by-step process:</p>
 <ol class="arabic simple">
-<li><p><strong>Initialization</strong>: First, choose the number of buckets (clusters), say three for this fruit example. Begin by randomly selecting three fruits to act as the initial ‘centroids’ or representatives of these clusters.</p></li>
-<li><p><strong>Assignment</strong>: Assign each piece of fruit to the centroid it most closely resembles in terms of sweetness and size. The measurement of closeness could here be done based on the Euclidean distance between the features (sweetness and size).</p></li>
-<li><p><strong>Update Centroids</strong>: Once all fruits are assigned, recalculate each group’s centroid by finding the average sweetness and size of the fruits in that group. These averages become the new centroids.</p></li>
+<li><p><strong>Initialization</strong>: First, choose the number of buckets (clusters), say three for this fruit example. Begin by randomly selecting three fruits to act as the initial ‘centroids’ or representatives of these clusters (<a class="reference internal" href="#fig-kmeans"><span class="std std-numref">Fig. 12.3</span></a> A).</p></li>
+<li><p><strong>Assignment</strong>: Assign each piece of fruit to the centroid it most closely resembles in terms of sweetness and size. The measurement of closeness could here be done based on the Euclidean distance between the features (sweetness and size) (<a class="reference internal" href="#fig-kmeans"><span class="std std-numref">Fig. 12.3</span></a> B).</p></li>
+<li><p><strong>Update Centroids</strong>: Once all fruits are assigned, recalculate each group’s centroid by finding the average sweetness and size of the fruits in that group. These averages become the new centroids (<a class="reference internal" href="#fig-kmeans"><span class="std std-numref">Fig. 12.3</span></a> C).</p></li>
 <li><p><strong>Repeat Assignment and Update</strong>: Steps 2 and 3 are repeated. Fruits may switch buckets if they’re closer to a different centroid after the update. New centroids are calculated after the reassignments.</p></li>
 <li><p><strong>Convergence</strong>: This process of assignment and updating continues until things settle down – that is, the fruits no longer switch buckets (clusters), and the centroids no longer change. This is called convergence.</p></li>
 <li><p><strong>Result</strong>: At the end, we have our fruits sorted into buckets where each fruit is surrounded by others with similar sweetness and size. Each bucket represents a cluster.</p></li>
 </ol>
 <p>In a more technical context, the ‘sweetness’ and ‘size’ are analogs for the features of the dataset, and the ‘average’ fruit represents the mean of the cluster’s points in feature space.</p>
-<p>This iterative approach consists fundamentally of two steps: assigning data points to the nearest centroid and recalculating centroids. Despite its straightforward nature, KMeans has some limitations that need consideration.</p>
 <figure class="align-default" id="fig-kmeans">
 <img alt="../_images/fig_kmeans_sketch.png" src="../_images/fig_kmeans_sketch.png" />
 <figcaption>
@@ -733,7 +732,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fbdc6374b00&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fc9c52ab410&gt;
 </pre></div>
 </div>
 <img alt="../_images/7d795cd59d16fb31da64a2b95ea15fd165e2342a916d52a862ee2d0453a3ea8e.png" src="../_images/7d795cd59d16fb31da64a2b95ea15fd165e2342a916d52a862ee2d0453a3ea8e.png" />
@@ -831,6 +830,10 @@ This is already one step more “realistic” in the sense that most commonly we
 </section>
 <section id="advantages-of-kmeans">
 <h3><span class="section-number">12.2.2. </span>Advantages of KMeans:<a class="headerlink" href="#advantages-of-kmeans" title="Link to this heading">#</a></h3>
+<p>KMeans is certainly one of the most intuitive clustering algorithms. It is relatively easy to understand and to implement. This iterative approach consists fundamentally of two steps: assigning data points to the nearest centroid and recalculating centroids.</p>
+<p>In the most simple implementations (“naive KMeans”) the algorithm has some computational bottlenecks which can make it slow, but there are many clever solutions that currently allow to use KMeans very efficiently even on very large datasets <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id32" title="Greg Hamerly. Making k-means even faster. In Proceedings of the 2010 SIAM International Conference on Data Mining (SDM), Proceedings, pages 130–140. Society for Industrial and Applied Mathematics, April 2010. URL: https://epubs.siam.org/doi/abs/10.1137/1.9781611972801.12 (visited on 2025-04-29), doi:10.1137/1.9781611972801.12.">Hamerly, 2010</a>, <a class="reference internal" href="../book/bibliography.html#id63" title="Dan Pelleg and Andrew Moore. Accelerating exact k-means algorithms with geometric reasoning. In Proceedings of the fifth ACM SIGKDD international conference on Knowledge discovery and data mining, KDD '99, 277–281. New York, NY, USA, August 1999. Association for Computing Machinery. URL: https://dl.acm.org/doi/10.1145/312129.312248 (visited on 2025-04-29), doi:10.1145/312129.312248.">Pelleg and Moore, 1999</a>]</span>.</p>
+<p>In general, KMeans performs well with clusters that are relatively isotropic and similar in size.</p>
+<p>Despite its straightforward nature, KMeans has some limitations that need consideration.</p>
 <ul class="simple">
 <li><p><strong>Simplicity</strong>: The algorithm is easy to understand and implement.</p></li>
 <li><p><strong>Efficiency</strong>: It is computationally efficient, making it suitable for large datasets.</p></li>
@@ -1175,8 +1178,8 @@ This is already one step more “realistic” in the sense that most commonly we
 <img alt="../_images/d710b8b7548fca7f5ab541c2e072c76f2eacb510aaaffa18b33e660cac0f57c6.png" src="../_images/d710b8b7548fca7f5ab541c2e072c76f2eacb510aaaffa18b33e660cac0f57c6.png" />
 </div>
 </div>
-<section id="id1">
-<h4><span class="section-number">12.5.1.1. </span>Parameter variation<a class="headerlink" href="#id1" title="Link to this heading">#</a></h4>
+<section id="id2">
+<h4><span class="section-number">12.5.1.1. </span>Parameter variation<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
 <p>Just as the other clustering techniques, hierarchical clustering also requires defining key parameters. In the present case the <code class="docutils literal notranslate"><span class="pre">distance_threshold</span></code> is one of the most important parameters to explore and choose. As the following figure illustrates, this parameters has a drastic impact on the number of clusters found.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -1339,7 +1342,7 @@ This threshold here defines where we cut othe dendrogram. The lower the distance
 For a start, it makes sense to have a look at some of the other clustering algorithms what can be found within <a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html">Scikit-learn’s clustering module</a>.</p>
 <p>There is also plenty of books, tutorials, articles on various clustering techniques. Here just one more recent scientific review article on different clustering techniques:</p>
 <ul class="simple">
-<li><p>“A review of clustering techniques and developments” by Amit Saxena and Mukesh Prasad and Akshansh Gupta and Neha Bharill and Om Prakash Patel and Aruna Tiwari and Meng Joo Er and Weiping Ding and Chin-Teng Lin, 2017, Neurocomputing, Vol.267, <a class="reference external" href="https://doi.org/10.1016/j.neucom.2017.06.053">https://doi.org/10.1016/j.neucom.2017.06.053</a> <span id="id2">[<a class="reference internal" href="../book/bibliography.html#id72" title="Amit Saxena, Mukesh Prasad, Akshansh Gupta, Neha Bharill, Om Prakash Patel, Aruna Tiwari, Meng Joo Er, Weiping Ding, and Chin-Teng Lin. A review of clustering techniques and developments. Neurocomputing, 267:664–681, 2017.">Saxena <em>et al.</em>, 2017</a>]</span></p></li>
+<li><p>“A review of clustering techniques and developments” by Amit Saxena and Mukesh Prasad and Akshansh Gupta and Neha Bharill and Om Prakash Patel and Aruna Tiwari and Meng Joo Er and Weiping Ding and Chin-Teng Lin, 2017, Neurocomputing, Vol.267, <a class="reference external" href="https://doi.org/10.1016/j.neucom.2017.06.053">https://doi.org/10.1016/j.neucom.2017.06.053</a> <span id="id3">[<a class="reference internal" href="../book/bibliography.html#id74" title="Amit Saxena, Mukesh Prasad, Akshansh Gupta, Neha Bharill, Om Prakash Patel, Aruna Tiwari, Meng Joo Er, Weiping Ding, and Chin-Teng Lin. A review of clustering techniques and developments. Neurocomputing, 267:664–681, 2017.">Saxena <em>et al.</em>, 2017</a>]</span></p></li>
 </ul>
 </section>
 </section>
@@ -1434,7 +1437,7 @@ For a start, it makes sense to have a look at some of the other clustering algor
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchical-clustering-ward">12.5. Hierarchical clustering (Ward)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-hierarchical-clustering-works">12.5.1. How Hierarchical Clustering Works:</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">12.5.1.1. Parameter variation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">12.5.1.1. Parameter variation</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-of-hierarchical-clustering">12.5.2. Advantages of Hierarchical Clustering:</a></li>

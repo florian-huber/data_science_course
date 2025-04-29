@@ -789,7 +789,6 @@ Corr(a, d) = 0.07
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;https://raw.githubusercontent.com/florian-huber/data_science_course/main/datasets/wo_men.csv&quot;</span>
 
 <span class="n">data_people</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-<span class="n">data_people</span><span class="p">[</span><span class="s2">&quot;age&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_people</span><span class="p">))</span>
 <span class="n">data_people</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -819,6 +818,10 @@ Corr(a, d) = 0.07
       <th>height</th>
       <th>shoe_size</th>
       <th>age</th>
+      <th>eye_color</th>
+      <th>weight</th>
+      <th>blood_pressure</th>
+      <th>resting_pulse</th>
     </tr>
   </thead>
   <tbody>
@@ -828,7 +831,11 @@ Corr(a, d) = 0.07
       <td>woman</td>
       <td>160.0</td>
       <td>40.0</td>
-      <td>17</td>
+      <td>67</td>
+      <td>blue</td>
+      <td>75.7</td>
+      <td>113.8</td>
+      <td>63</td>
     </tr>
     <tr>
       <th>1</th>
@@ -836,7 +843,11 @@ Corr(a, d) = 0.07
       <td>woman</td>
       <td>171.0</td>
       <td>39.0</td>
-      <td>65</td>
+      <td>21</td>
+      <td>brown</td>
+      <td>50.2</td>
+      <td>98.9</td>
+      <td>67</td>
     </tr>
     <tr>
       <th>2</th>
@@ -844,7 +855,11 @@ Corr(a, d) = 0.07
       <td>woman</td>
       <td>174.0</td>
       <td>39.0</td>
-      <td>71</td>
+      <td>46</td>
+      <td>brown</td>
+      <td>97.2</td>
+      <td>118.3</td>
+      <td>75</td>
     </tr>
     <tr>
       <th>3</th>
@@ -852,7 +867,11 @@ Corr(a, d) = 0.07
       <td>woman</td>
       <td>176.0</td>
       <td>40.0</td>
-      <td>68</td>
+      <td>33</td>
+      <td>brown</td>
+      <td>91.1</td>
+      <td>100.4</td>
+      <td>79</td>
     </tr>
     <tr>
       <th>4</th>
@@ -860,7 +879,11 @@ Corr(a, d) = 0.07
       <td>man</td>
       <td>195.0</td>
       <td>46.0</td>
-      <td>43</td>
+      <td>54</td>
+      <td>blue</td>
+      <td>67.0</td>
+      <td>143.5</td>
+      <td>67</td>
     </tr>
   </tbody>
 </table>
@@ -895,6 +918,9 @@ Corr(a, d) = 0.07
       <th>height</th>
       <th>shoe_size</th>
       <th>age</th>
+      <th>weight</th>
+      <th>blood_pressure</th>
+      <th>resting_pulse</th>
     </tr>
   </thead>
   <tbody>
@@ -903,48 +929,72 @@ Corr(a, d) = 0.07
       <td>100.000000</td>
       <td>100.00000</td>
       <td>101.000000</td>
+      <td>101.000000</td>
+      <td>101.000000</td>
+      <td>101.000000</td>
     </tr>
     <tr>
       <th>mean</th>
       <td>165.233800</td>
       <td>39.77500</td>
-      <td>45.237624</td>
+      <td>41.673267</td>
+      <td>77.370297</td>
+      <td>119.494059</td>
+      <td>70.722772</td>
     </tr>
     <tr>
       <th>std</th>
       <td>39.817544</td>
       <td>5.55613</td>
-      <td>16.637998</td>
+      <td>16.067426</td>
+      <td>17.321533</td>
+      <td>10.021515</td>
+      <td>5.841436</td>
     </tr>
     <tr>
       <th>min</th>
       <td>1.630000</td>
       <td>35.00000</td>
       <td>16.000000</td>
+      <td>47.700000</td>
+      <td>95.600000</td>
+      <td>57.000000</td>
     </tr>
     <tr>
       <th>25%</th>
       <td>163.000000</td>
       <td>38.00000</td>
-      <td>29.000000</td>
+      <td>28.000000</td>
+      <td>61.700000</td>
+      <td>113.800000</td>
+      <td>67.000000</td>
     </tr>
     <tr>
       <th>50%</th>
       <td>168.500000</td>
       <td>39.00000</td>
-      <td>48.000000</td>
+      <td>38.000000</td>
+      <td>77.700000</td>
+      <td>119.700000</td>
+      <td>71.000000</td>
     </tr>
     <tr>
       <th>75%</th>
       <td>174.250000</td>
       <td>40.00000</td>
-      <td>60.000000</td>
+      <td>56.000000</td>
+      <td>93.700000</td>
+      <td>125.800000</td>
+      <td>74.000000</td>
     </tr>
     <tr>
       <th>max</th>
       <td>364.000000</td>
       <td>88.00000</td>
       <td>71.000000</td>
+      <td>105.300000</td>
+      <td>146.500000</td>
+      <td>87.000000</td>
     </tr>
   </tbody>
 </table>
@@ -990,6 +1040,9 @@ Corr(a, d) = 0.07
       <th>height</th>
       <th>shoe_size</th>
       <th>age</th>
+      <th>weight</th>
+      <th>blood_pressure</th>
+      <th>resting_pulse</th>
     </tr>
   </thead>
   <tbody>
@@ -997,18 +1050,54 @@ Corr(a, d) = 0.07
       <th>height</th>
       <td>1.000000</td>
       <td>0.834646</td>
-      <td>0.177689</td>
+      <td>-0.104061</td>
+      <td>-0.036888</td>
+      <td>0.085438</td>
+      <td>0.188240</td>
     </tr>
     <tr>
       <th>shoe_size</th>
       <td>0.834646</td>
       <td>1.000000</td>
-      <td>0.239728</td>
+      <td>-0.089209</td>
+      <td>-0.014565</td>
+      <td>0.049667</td>
+      <td>0.133353</td>
     </tr>
     <tr>
       <th>age</th>
-      <td>0.177689</td>
-      <td>0.239728</td>
+      <td>-0.104061</td>
+      <td>-0.089209</td>
+      <td>1.000000</td>
+      <td>-0.120862</td>
+      <td>0.233381</td>
+      <td>-0.085840</td>
+    </tr>
+    <tr>
+      <th>weight</th>
+      <td>-0.036888</td>
+      <td>-0.014565</td>
+      <td>-0.120862</td>
+      <td>1.000000</td>
+      <td>0.067986</td>
+      <td>-0.054658</td>
+    </tr>
+    <tr>
+      <th>blood_pressure</th>
+      <td>0.085438</td>
+      <td>0.049667</td>
+      <td>0.233381</td>
+      <td>0.067986</td>
+      <td>1.000000</td>
+      <td>-0.058540</td>
+    </tr>
+    <tr>
+      <th>resting_pulse</th>
+      <td>0.188240</td>
+      <td>0.133353</td>
+      <td>-0.085840</td>
+      <td>-0.054658</td>
+      <td>-0.058540</td>
       <td>1.000000</td>
     </tr>
   </tbody>
@@ -1033,7 +1122,7 @@ Corr(a, d) = 0.07
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3fe0ac4a51193ebeecf48596f7dcb885cc5d0d1a1eb88c9848abf07edf215ef7.png" src="../_images/3fe0ac4a51193ebeecf48596f7dcb885cc5d0d1a1eb88c9848abf07edf215ef7.png" />
+<img alt="../_images/b0f9e18925858c88ecd7db4fea3bd752ba12c8856684208692a292d7ff114e19.png" src="../_images/b0f9e18925858c88ecd7db4fea3bd752ba12c8856684208692a292d7ff114e19.png" />
 </div>
 </div>
 </section>
@@ -1248,7 +1337,7 @@ While pronounced correlation coefficients reflect a clear dependency between val
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3cb688d8b79a21ccf94668417266e0e160fd27754152263d3828dadcf4746bfd.png" src="../_images/3cb688d8b79a21ccf94668417266e0e160fd27754152263d3828dadcf4746bfd.png" />
+<img alt="../_images/53c1742ac980b929351bf94b472d8e23bcd32ccb7581327fb37462ed51763280.png" src="../_images/53c1742ac980b929351bf94b472d8e23bcd32ccb7581327fb37462ed51763280.png" />
 </div>
 </div>
 <p>It is of course also easily possible to plot only the parts we are most interested in, for instance:</p>
@@ -1259,19 +1348,29 @@ While pronounced correlation coefficients reflect a clear dependency between val
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;orange&quot;</span> <span class="k">if</span> <span class="n">x</span><span class="o">==</span><span class="s2">&quot;man&quot;</span> <span class="k">else</span> <span class="s2">&quot;teal&quot;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data_people</span><span class="o">.</span><span class="n">sex</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
-<span class="n">data_people</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;shoe_size&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="c1"># plot men</span>
+<span class="n">men</span> <span class="o">=</span> <span class="n">data_people</span><span class="p">[</span><span class="n">data_people</span><span class="o">.</span><span class="n">sex</span> <span class="o">==</span> <span class="s2">&quot;man&quot;</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">men</span><span class="o">.</span><span class="n">shoe_size</span><span class="p">,</span> <span class="n">men</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;man&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="c1"># plot women</span>
+<span class="n">women</span> <span class="o">=</span> <span class="n">data_people</span><span class="p">[</span><span class="n">data_people</span><span class="o">.</span><span class="n">sex</span> <span class="o">==</span> <span class="s2">&quot;woman&quot;</span><span class="p">]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">women</span><span class="o">.</span><span class="n">shoe_size</span><span class="p">,</span> <span class="n">women</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;teal&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;woman&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Sex&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Shoe Size&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Height&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Height vs Shoe Size by Sex&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: xlabel=&#39;shoe_size&#39;, ylabel=&#39;height&#39;&gt;
-</pre></div>
-</div>
-<img alt="../_images/8b8ce491c57e614ce5516014953f261333ce0baab72ac2b7c5bdb051752c022f.png" src="../_images/8b8ce491c57e614ce5516014953f261333ce0baab72ac2b7c5bdb051752c022f.png" />
+<img alt="../_images/7c280be2bf613f22e79c26332d61895687366fb82c8b214dbf62a7215cd5bdf4.png" src="../_images/7c280be2bf613f22e79c26332d61895687366fb82c8b214dbf62a7215cd5bdf4.png" />
 </div>
 </div>
 </section>
