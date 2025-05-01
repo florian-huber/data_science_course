@@ -679,14 +679,14 @@ Common strategies include:</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;tab20&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c2e94e085e594dd8bf4921707bac0db78e3270eec9023f80a9bf696e9df3b950.png" src="../_images/c2e94e085e594dd8bf4921707bac0db78e3270eec9023f80a9bf696e9df3b950.png" />
+<img alt="../_images/9eff5b86347532433cb2325f3a4c7fb441f6ccf5fde89ed2569fa3d16b357b27.png" src="../_images/9eff5b86347532433cb2325f3a4c7fb441f6ccf5fde89ed2569fa3d16b357b27.png" />
 </div>
 </div>
 <section id="very-often-clusters-are-not-that-easily-distinguishable">
@@ -727,16 +727,16 @@ This is already one step more “realistic” in the sense that most commonly we
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;teal&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;teal&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
 <span class="c1"># plt.savefig(&quot;example_clustering_01.png&quot;, dpi=300, bbox_inches=&quot;tight&quot;)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f0accca8a70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fddc4818e30&gt;
 </pre></div>
 </div>
-<img alt="../_images/7d795cd59d16fb31da64a2b95ea15fd165e2342a916d52a862ee2d0453a3ea8e.png" src="../_images/7d795cd59d16fb31da64a2b95ea15fd165e2342a916d52a862ee2d0453a3ea8e.png" />
+<img alt="../_images/b5ba6d80c8a8130ce40c28f182f5de7551e9e587e5240807bc030c4a0b7e9528.png" src="../_images/b5ba6d80c8a8130ce40c28f182f5de7551e9e587e5240807bc030c4a0b7e9528.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -786,7 +786,7 @@ This is already one step more “realistic” in the sense that most commonly we
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">kmeans</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;nipy_spectral&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
            <span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;crimson&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;K-Means clustering with k=5&quot;</span><span class="p">)</span>
@@ -795,7 +795,7 @@ This is already one step more “realistic” in the sense that most commonly we
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/910cb2e8ee98e417824d4b5c91dbf3c7ba1143ac80316acc418ac46ce8e5fdc1.png" src="../_images/910cb2e8ee98e417824d4b5c91dbf3c7ba1143ac80316acc418ac46ce8e5fdc1.png" />
+<img alt="../_images/f4fb2de5e97de56816009bb0360fc48be0c75b818efb24246f8dd5904cdb9136.png" src="../_images/f4fb2de5e97de56816009bb0360fc48be0c75b818efb24246f8dd5904cdb9136.png" />
 </div>
 </div>
 <p>Once the clusters have been found (using the <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> method as done above), we can also use a k-means model to make predctions on unknown datapoints.</p>
@@ -905,14 +905,14 @@ The main limitation of K-Means is probably the fact that it requires the users t
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">dbscan</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">dbscan</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;nipy_spectral&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;DBSCAN clustering with epsilon=0.5 and min_samples=2&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/81df01d5550659abc75b9458c1061df15b42495088490a2fbffaae738e00424d.png" src="../_images/81df01d5550659abc75b9458c1061df15b42495088490a2fbffaae738e00424d.png" />
+<img alt="../_images/255cb978bf9d0e391fd4975270258356091a952e4f09f97179b9c540cd77424c.png" src="../_images/255cb978bf9d0e391fd4975270258356091a952e4f09f97179b9c540cd77424c.png" />
 </div>
 </div>
 <section id="parameter-variation">
@@ -924,14 +924,14 @@ The main limitation of K-Means is probably the fact that it requires the users t
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">dbscan</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">dbscan</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;nipy_spectral&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;DBSCAN clustering with epsilon=1 and min_samples=2&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/c7839c5f48684ced3f60201a54158f1f61566526eaebc5b862fbf392f69a7dac.png" src="../_images/c7839c5f48684ced3f60201a54158f1f61566526eaebc5b862fbf392f69a7dac.png" />
+<img alt="../_images/6107699f8a8cb2cb53887ee6a3621a2a78242ed6c9b92364345f3b20ecff1fa5.png" src="../_images/6107699f8a8cb2cb53887ee6a3621a2a78242ed6c9b92364345f3b20ecff1fa5.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -941,23 +941,47 @@ The main limitation of K-Means is probably the fact that it requires the users t
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a subplot grid</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpl</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.patheffects</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">PathEffects</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">DBSCAN</span>
 
-<span class="c1"># Enumerate over desired distance thresholds</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 <span class="n">epsilons</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">eps</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">epsilons</span><span class="p">):</span>
-    <span class="n">dbscan</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-    <span class="c1"># Plot the results</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">eps</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">epsilons</span><span class="p">):</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span><span class="p">]</span>
-    <span class="n">scatter</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">dbscan</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">db</span><span class="o">.</span><span class="n">labels_</span>
+    <span class="n">uniq</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
+
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colormaps</span><span class="p">[</span><span class="s1">&#39;nipy_spectral&#39;</span><span class="p">]</span>
     
-    <span class="c1"># Enhancements for clarity</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;DBSCAN with epsilon=</span><span class="si">{</span><span class="n">eps</span><span class="si">}</span><span class="s2"> (and min_samples=2)&quot;</span><span class="p">)</span>
+    <span class="c1"># Plot each cluster and annotate its centroid</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">lab</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">uniq</span><span class="p">):</span>
+        <span class="n">pts</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">labels</span> <span class="o">==</span> <span class="n">lab</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">pts</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="c1"># pick a distinct color by normalizing idx over number of clusters</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">cmap</span><span class="p">(</span><span class="n">idx</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">uniq</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">uniq</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">cmap</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pts</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">pts</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+                   <span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="n">color</span><span class="p">],</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+        
+        <span class="c1"># centroid text</span>
+        <span class="n">cen</span> <span class="o">=</span> <span class="n">pts</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Noise&#39;</span> <span class="k">if</span> <span class="n">lab</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">lab</span><span class="p">)</span>
+        <span class="n">txt</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">cen</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cen</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">name</span><span class="p">,</span>
+                      <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span>
+                      <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+        <span class="c1"># add black outline</span>
+        <span class="n">txt</span><span class="o">.</span><span class="n">set_path_effects</span><span class="p">([</span>
+            <span class="n">PathEffects</span><span class="o">.</span><span class="n">withStroke</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">foreground</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+        <span class="p">])</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ε=</span><span class="si">{</span><span class="n">eps</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Feature 1&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Feature 2&#39;</span><span class="p">)</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">scatter</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Cluster Label&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -966,7 +990,7 @@ The main limitation of K-Means is probably the fact that it requires the users t
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/c28c9f29535a7190fe88a47562fb2d4566bacc53a120913611420337eefa4ea6.png" src="../_images/c28c9f29535a7190fe88a47562fb2d4566bacc53a120913611420337eefa4ea6.png" />
+<img alt="../_images/e8c5e6908495f53ca80d40b205760e8d01d1e15d075d253e08b885c56522e499.png" src="../_images/e8c5e6908495f53ca80d40b205760e8d01d1e15d075d253e08b885c56522e499.png" />
 </div>
 </div>
 </section>
@@ -1040,14 +1064,14 @@ The main limitation of K-Means is probably the fact that it requires the users t
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;nipy_spectral&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Gaussian Mixture model with 5 components&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8ba15392104bdcb83a38c7470c9f913b0449ecdcc79f997807372289b5b8ecba.png" src="../_images/8ba15392104bdcb83a38c7470c9f913b0449ecdcc79f997807372289b5b8ecba.png" />
+<img alt="../_images/62d7dd65dd1d1ced6a25c17f3034899fd31a5adab915bf8a97cdd35501162ff7.png" src="../_images/62d7dd65dd1d1ced6a25c17f3034899fd31a5adab915bf8a97cdd35501162ff7.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1055,14 +1079,14 @@ The main limitation of K-Means is probably the fact that it requires the users t
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gm</span> <span class="o">=</span> <span class="n">GaussianMixture</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">gm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">gm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;nipy_spectral&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Gaussian Mixture model with 4 components&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/278e5f4a9f70414e299726991a8978363d719e0234d63c6fd7951550e51aa610.png" src="../_images/278e5f4a9f70414e299726991a8978363d719e0234d63c6fd7951550e51aa610.png" />
+<img alt="../_images/8b8a1e22f640a365c7940e255939b3a4609e2b4f248aed013373fd6e55e7d0eb.png" src="../_images/8b8a1e22f640a365c7940e255939b3a4609e2b4f248aed013373fd6e55e7d0eb.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1168,14 +1192,14 @@ The main limitation of K-Means is probably the fact that it requires the users t
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">ward</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">ward</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;nipy_spectral&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Agglomerative Clustering with distance_threshold=10&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d710b8b7548fca7f5ab541c2e072c76f2eacb510aaaffa18b33e660cac0f57c6.png" src="../_images/d710b8b7548fca7f5ab541c2e072c76f2eacb510aaaffa18b33e660cac0f57c6.png" />
+<img alt="../_images/344dd88742f7c536cdb8400728a6dccd90834c24b23dbca5c19d48b75be4b304.png" src="../_images/344dd88742f7c536cdb8400728a6dccd90834c24b23dbca5c19d48b75be4b304.png" />
 </div>
 </div>
 <section id="id2">
@@ -1188,28 +1212,45 @@ The main limitation of K-Means is probably the fact that it requires the users t
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">AgglomerativeClustering</span>
-
-
-<span class="c1"># Create a subplot grid</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">13</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
 <span class="c1"># Enumerate over desired distance thresholds</span>
 <span class="n">distance_thresholds</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">distance_threshold</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">distance_thresholds</span><span class="p">):</span>
-    <span class="c1"># Fit the model</span>
+    <span class="c1"># Compute the clusters</span>
     <span class="n">ward</span> <span class="o">=</span> <span class="n">AgglomerativeClustering</span><span class="p">(</span><span class="n">linkage</span><span class="o">=</span><span class="s2">&quot;ward&quot;</span><span class="p">,</span> <span class="n">n_clusters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">distance_threshold</span><span class="o">=</span><span class="n">distance_threshold</span><span class="p">)</span>
     <span class="n">ward</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-    <span class="c1"># Plot the results</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span><span class="p">]</span>
-    <span class="n">scatter</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">ward</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">ward</span><span class="o">.</span><span class="n">labels_</span>
+    <span class="n">uniq</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
+
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">mpl</span><span class="o">.</span><span class="n">colormaps</span><span class="p">[</span><span class="s1">&#39;nipy_spectral&#39;</span><span class="p">]</span>
     
-    <span class="c1"># Enhancements for clarity</span>
+    <span class="c1"># Plot each cluster and annotate its centroid</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">lab</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">uniq</span><span class="p">):</span>
+        <span class="n">pts</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">labels</span> <span class="o">==</span> <span class="n">lab</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">pts</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="c1"># pick a distinct color by normalizing idx over number of clusters</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">cmap</span><span class="p">(</span><span class="n">idx</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">uniq</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">uniq</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">cmap</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">pts</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">pts</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+                   <span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="n">color</span><span class="p">],</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+        
+        <span class="c1"># centroid text</span>
+        <span class="n">cen</span> <span class="o">=</span> <span class="n">pts</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Noise&#39;</span> <span class="k">if</span> <span class="n">lab</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">lab</span><span class="p">)</span>
+        <span class="n">txt</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">cen</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">cen</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">name</span><span class="p">,</span>
+                      <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span>
+                      <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+        <span class="c1"># add black outline</span>
+        <span class="n">txt</span><span class="o">.</span><span class="n">set_path_effects</span><span class="p">([</span>
+            <span class="n">PathEffects</span><span class="o">.</span><span class="n">withStroke</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">foreground</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+        <span class="p">])</span>
+    
     <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Agglomerative Clustering with distance_threshold=</span><span class="si">{</span><span class="n">distance_threshold</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Feature 1&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Feature 2&#39;</span><span class="p">)</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">scatter</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Cluster Label&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -1218,7 +1259,7 @@ The main limitation of K-Means is probably the fact that it requires the users t
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/bda1d87b71e217ddfc24d622fb389d76baad15df4caa0e62f09f2645974668da.png" src="../_images/bda1d87b71e217ddfc24d622fb389d76baad15df4caa0e62f09f2645974668da.png" />
+<img alt="../_images/7b4949afc494955f2cfdb8b4b01677b617ef501940af1537a10695ff7e47db6d.png" src="../_images/7b4949afc494955f2cfdb8b4b01677b617ef501940af1537a10695ff7e47db6d.png" />
 </div>
 </div>
 <p>But, what is this <em>distance threshold</em>?<br />
