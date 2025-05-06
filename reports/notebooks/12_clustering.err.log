@@ -1,0 +1,129 @@
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/micromamba/envs/data_science/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import numpy as np
+import matplotlib.pyplot as plt
+from itertools import cycle
+
+from sklearn.datasets import make_blobs
+from sklearn.cluster import KMeans, DBSCAN, OPTICS, AgglomerativeClustering
+from sklearn.mixture import GaussianMixture
+
+# Seed for reproducibility
+random_state = 42
+np.random.seed(random_state)
+
+# Generate datasets
+n_samples = 500
+
+# 1. Ideal clusters (blobs)
+X_blobs, _ = make_blobs(n_samples=n_samples, centers=3, cluster_std=1.0, random_state=random_state)
+
+# 2. Spiral data
+theta = np.concat([
+    np.linspace(0, 2.0 * np.pi, int(n_samples/2)),
+    np.linspace(2.5 * np.pi, 4.5 * np.pi, int(n_samples/2))
+])
+r = theta.copy() / 5
+noise = np.random.RandomState(random_state).normal(scale=0.1, size=(n_samples, 2))
+X_spiral = np.vstack((r * np.cos(theta), r * np.sin(theta))).T + noise
+
+# 3. Varied clusters with pronounced density fluctuations
+X_varied, _ = make_blobs(
+    n_samples=n_samples,
+    centers=3,
+    cluster_std=[0.5, 3.0, 0.3],
+    random_state=random_state
+)
+
+# 4. No structure
+X_no_structure = np.random.uniform(-1, 1, size=(n_samples, 2))
+
+datasets = [
+    (X_blobs, "Blobs (ideal clusters)"),
+    (X_spiral, "Spiral"),
+    (X_varied, "Varied clusters"),
+    #(X_no_structure, "No structure")
+]
+
+# Define clustering algorithms
+algorithms = [
+    ("K-Means", KMeans(n_clusters=3, random_state=random_state)),
+    ("DBSCAN", DBSCAN(eps=0.5, min_samples=5)),
+    ("OPTICS", OPTICS(min_samples=5, xi=0.5, min_cluster_size=0.05)),
+    ("Ward", AgglomerativeClustering(n_clusters=3, linkage="ward")),
+    ("Gaussian Mixture", GaussianMixture(n_components=3, covariance_type="full", random_state=random_state))
+]
+
+# Create overview plot
+fig, axes = plt.subplots(len(datasets), len(algorithms), figsize=(18, 11))
+for row, (X, title) in enumerate(datasets):
+    for col, (name, algo) in enumerate(algorithms):
+        ax = axes[row, col]
+        # Fit and predict
+        if hasattr(algo, "fit_predict"):
+            labels = algo.fit_predict(X)
+        else:
+            model = algo.fit(X)
+            labels = model.predict(X)
+        
+        # Color mapping
+        unique_labels = np.unique(labels)
+        color_cycle = cycle(plt.cm.tab10.colors)
+        cluster_colors = {
+            lab: (0, 0, 0, 1) if lab == -1 else next(color_cycle)
+            for lab in unique_labels
+        }
+        colors = [cluster_colors[lab] for lab in labels]
+        
+        ax.scatter(X[:, 0], X[:, 1], s=10, c=colors)
+        if row == 0:
+            ax.set_title(name, fontsize=14)
+        if col == 0:
+            ax.set_ylabel(title, fontsize=14)
+        ax.set_xticks([])
+        ax.set_yticks([])
+
+fig.suptitle("Comparison of Clustering Algorithms on Different Datasets", fontsize=16)
+plt.tight_layout(rect=[0, 0, 1, 0.96])
+plt.show()
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mAttributeError[39m                            Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[29][39m[32m, line 20[39m
+[32m     17[39m X_blobs, _ = make_blobs(n_samples=n_samples, centers=[32m3[39m, cluster_std=[32m1.0[39m, random_state=random_state)
+[32m     19[39m [38;5;66;03m# 2. Spiral data[39;00m
+[32m---> [39m[32m20[39m theta = [43mnp[49m[43m.[49m[43mconcat[49m([
+[32m     21[39m     np.linspace([32m0[39m, [32m2.0[39m * np.pi, [38;5;28mint[39m(n_samples/[32m2[39m)),
+[32m     22[39m     np.linspace([32m2.5[39m * np.pi, [32m4.5[39m * np.pi, [38;5;28mint[39m(n_samples/[32m2[39m))
+[32m     23[39m ])
+[32m     24[39m r = theta.copy() / [32m5[39m
+[32m     25[39m noise = np.random.RandomState(random_state).normal(scale=[32m0.1[39m, size=(n_samples, [32m2[39m))
+
+[36mFile [39m[32m~/micromamba/envs/data_science/lib/python3.12/site-packages/numpy/__init__.py:333[39m, in [36m__getattr__[39m[34m(attr)[39m
+[32m    330[39m     [33m"[39m[33mRemoved in NumPy 1.25.0[39m[33m"[39m
+[32m    331[39m     [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m([33m"[39m[33mTester was removed in NumPy 1.25.[39m[33m"[39m)
+[32m--> [39m[32m333[39m [38;5;28;01mraise[39;00m [38;5;167;01mAttributeError[39;00m([33m"[39m[33mmodule [39m[38;5;132;01m{!r}[39;00m[33m has no attribute [39m[33m"[39m
+[32m    334[39m                      [33m"[39m[38;5;132;01m{!r}[39;00m[33m"[39m.format([34m__name__[39m, attr))
+
+[31mAttributeError[39m: module 'numpy' has no attribute 'concat'
+
