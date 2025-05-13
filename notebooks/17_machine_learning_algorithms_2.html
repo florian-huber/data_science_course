@@ -506,11 +506,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-boundary">17.4.2. Decision Boundary</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-the-model">17.4.3. Training the Model</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-example-student-exam-results">17.4.4. Simple Example: Student Exam Results</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">17.4.5. Pros, Cons, Caveats</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pros">17.4.5.1. Pros:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cons">17.4.5.2. Cons:</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">17.4.5. Pros, Cons, Caveats</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-example-logistic-regression">17.5. Hands-on Example: Logistic Regression</a></li>
@@ -1228,7 +1224,7 @@ Just as before with the k-NN model, we can simply create predictions on any data
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Predicted label&#39;)
 </pre></div>
 </div>
-<img alt="../_images/4dc42f59f87cc2aae0dac5e8286bb77716bd0fddb223bf48b61e74a9c15a9c41.png" src="../_images/4dc42f59f87cc2aae0dac5e8286bb77716bd0fddb223bf48b61e74a9c15a9c41.png" />
+<img alt="../_images/408024e450916694f14293931d193fbb2da8e04a5c78aa301c07bb138b40d813.png" src="../_images/408024e450916694f14293931d193fbb2da8e04a5c78aa301c07bb138b40d813.png" />
 </div>
 </div>
 <p>We can also look at the prediction errors, which simply is <code class="docutils literal notranslate"><span class="pre">y_test</span> <span class="pre">-</span> <span class="pre">predictions</span></code>.<br />
@@ -1246,7 +1242,7 @@ A histogram can quickly show us by how far our model predictions are off.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Prediction errors&#39;)
 </pre></div>
 </div>
-<img alt="../_images/051714328ebaa47c9390e3484fe76574ecdf7d256c9feba5f825fc0fc950202c.png" src="../_images/051714328ebaa47c9390e3484fe76574ecdf7d256c9feba5f825fc0fc950202c.png" />
+<img alt="../_images/e3d30cac7f001256f3ef493319387f694c386e57e15a880fd6a6a924c8fd3945.png" src="../_images/e3d30cac7f001256f3ef493319387f694c386e57e15a880fd6a6a924c8fd3945.png" />
 </div>
 </div>
 <p>In this example we see that most predictions are off by no more than +- 5.</p>
@@ -1836,7 +1832,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/ed9b3315f6de311e051e8527369d4e63f9e2d27cdbaf9c4a302e7eba2bb7605e.png" src="../_images/ed9b3315f6de311e051e8527369d4e63f9e2d27cdbaf9c4a302e7eba2bb7605e.png" />
+<img alt="../_images/af86c3e9ff6741aebd63816343533c894f3838803007a08c0c2395fd3bcd9539.png" src="../_images/af86c3e9ff6741aebd63816343533c894f3838803007a08c0c2395fd3bcd9539.png" />
 </div>
 </div>
 <p>As we can see from the plot, the decision boundary is set at around 5 hours of preparation. This means that our model will simply predict “passed” for any student that prepared for more than 5 hours, and “not passed” if not.</p>
@@ -1844,22 +1840,18 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
 </section>
 <section id="id3">
 <h3><span class="section-number">17.4.5. </span>Pros, Cons, Caveats<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
-<section id="pros">
-<h4><span class="section-number">17.4.5.1. </span>Pros:<a class="headerlink" href="#pros" title="Link to this heading">#</a></h4>
+<p><strong>Pros:</strong></p>
 <ul class="simple">
 <li><p><strong>Interpretability:</strong> Logistic regression provides clear and interpretable coefficients that indicate the strength and direction of the relationship between independent variables and the dependent variable.</p></li>
 <li><p><strong>Efficiency:</strong> It is computationally efficient and scales well with large datasets.</p></li>
 <li><p><strong>Probabilistic Outputs:</strong> Provides probabilistic predictions, which can be useful for decision-making processes that incorporate uncertainty.</p></li>
 </ul>
-</section>
-<section id="cons">
-<h4><span class="section-number">17.4.5.2. </span>Cons:<a class="headerlink" href="#cons" title="Link to this heading">#</a></h4>
+<p><strong>Cons:</strong></p>
 <ul class="simple">
 <li><p><strong>Linearity Assumption:</strong> Assumes a linear relationship between the independent variables and the log-odds of the dependent variable, which may not hold in all cases.</p></li>
 <li><p><strong>Not Suitable for Complex Relationships:</strong> Logistic regression may not perform well when the relationship between the independent and dependent variables is highly complex and non-linear.</p></li>
 <li><p><strong>Sensitivity to Outliers:</strong> Like linear regression, logistic regression can be sensitive to outliers, which can affect the model’s performance.</p></li>
 </ul>
-</section>
 </section>
 </section>
 <section id="hands-on-example-logistic-regression">
@@ -2007,7 +1999,7 @@ weighted avg       0.99      0.99      0.99        67
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="../_images/53a458e0b3f9267d94627e6312aa10fc7de10465972922a7eb4c69c9ec7f04f7.png" src="../_images/53a458e0b3f9267d94627e6312aa10fc7de10465972922a7eb4c69c9ec7f04f7.png" />
+<img alt="../_images/0e3c8e632e79ef2b497345d13ea8807e370f8681c854df76a32c5d1e0aec29e0.png" src="../_images/0e3c8e632e79ef2b497345d13ea8807e370f8681c854df76a32c5d1e0aec29e0.png" />
 </div>
 </div>
 <p>Logistic regression is a comparably simple model. It remains, however, a widely used algorithm in machine learning, and we will apply it in a later chapter to classify text documents.</p>
@@ -2098,11 +2090,7 @@ weighted avg       0.99      0.99      0.99        67
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#decision-boundary">17.4.2. Decision Boundary</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-the-model">17.4.3. Training the Model</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-example-student-exam-results">17.4.4. Simple Example: Student Exam Results</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">17.4.5. Pros, Cons, Caveats</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pros">17.4.5.1. Pros:</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cons">17.4.5.2. Cons:</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">17.4.5. Pros, Cons, Caveats</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-example-logistic-regression">17.5. Hands-on Example: Logistic Regression</a></li>
