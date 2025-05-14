@@ -548,19 +548,20 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="supervised-machine-learning-key-techniques">
 <h1><span class="section-number">19. </span>Supervised Machine Learning - Key Techniques<a class="headerlink" href="#supervised-machine-learning-key-techniques" title="Link to this heading">#</a></h1>
-<p>In the previous chapters, several common machine learning models were introduced. Code-wise it is fairly simple to apply such models since <strong>Scikit-Learn</strong> gives us a simple interface to define, train, and apply such models.</p>
-<p>The workflow always looks very similar, independent of the type of model you chose:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">my_model</span> <span class="o">=</span> <span class="n">ScikitLearnModel</span><span class="p">(</span><span class="n">parameter1</span><span class="p">,</span> <span class="n">parameter2</span> <span class="o">...</span><span class="p">)</span>
+<p>So far, we’ve explored a range of popular supervised models and seen how Scikit-Learn’s unified API makes it almost effortless to define, train, and deploy them. In fact, most Scikit-Learn workflows boil down to three simple steps:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Instantiate your model</span>
+<span class="n">my_model</span> <span class="o">=</span> <span class="n">ScikitLearnModel</span><span class="p">(</span><span class="n">parameter1</span><span class="p">,</span> <span class="n">parameter2</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
 
-<span class="c1"># Train the model</span>
+<span class="c1"># 2. Fit it to your data</span>
 <span class="n">my_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 
-<span class="c1"># Make predictions</span>
+<span class="c1"># 3. Generate predictions</span>
 <span class="n">my_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_new</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>In practice, however, it requires a lot more to successfully apply machine learning techniques. First of all, machine learning notoriously <strong>requires experience</strong>, so better be prepared to spend quite some time working on machine learning tasks before you start to get the feeling that you know how to do this in practice. There are plenty of nice tutorials and challenges out there (e.g., on Kaggle). Even better is of course if you can get actual real world problems where you can explore the possibilities of machine learning. This could be small projects related to your studies or a job. Or you just invent your own small challenges…</p>
-<p>Secondly, there is at least a few more <strong>key concepts about model training and evaluation</strong> that are (in my eyes) absolutely essential. Let’s try to quickly give a tour in this chapter.</p>
+<p>But real-world success demands much more than knowing these commands! Developing true expertise requires a lot of hands-on experience: be prepared to spend significant time exploring datasets, engineering features, and tuning hyperparameters before you intuitively understand what approaches work and why.</p>
+<p>Whether through online tutorials, Kaggle competitions or, ideally, practical projects from your studies, your job, or even self-directed challenges, every experiment builds the depth of insight you need.</p>
+<p>Equally important is mastering fundamental concepts in model training and evaluation. Grasping techniques like cross-validation, recognizing and avoiding overfitting or underfitting, selecting the right performance metrics, and properly preprocessing data are all essential to turning code into reliable predictions. In this chapter, we’ll guide you through those critical ideas so that when you next invoke fit() and predict(), you’ll know better what to look for — and how to steer it toward your goals.</p>
 <section id="model-evaluation">
 <h2><span class="section-number">19.1. </span>Model Evaluation<a class="headerlink" href="#model-evaluation" title="Link to this heading">#</a></h2>
 <p>Model evaluation is crucial in understanding the performance of machine learning algorithms. Beyond the basic metrics introduced previously like accuracy and confusion matrices, it is very useful to know more about additional metrics to capture different aspects of model performance comprehensively.</p>
@@ -596,47 +597,37 @@ document.write(`
 <section id="precision-and-recall">
 <h4><span class="section-number">19.1.1.2. </span>2. Precision and Recall<a class="headerlink" href="#precision-and-recall" title="Link to this heading">#</a></h4>
 <p>Precision and recall are metrics that provide more insight into the accuracy of positive predictions and the classifier’s ability to recover all relevant instances, respectively.</p>
-<ul>
-<li><p><strong>Precision (Positive Predictive Value)</strong>: The ratio of correctly predicted positive observations to the total predicted positives.</p>
+<p><strong>Precision (Positive Predictive Value)</strong>:<br />
+The ratio of correctly predicted positive observations to the total predicted positives.</p>
 <div class="math notranslate nohighlight">
 \[
-  Precision = \frac{TP}{TP + FP}
-  \]</div>
+Precision = \frac{TP}{TP + FP}
+\]</div>
 <p>High precision indicates a low false positive rate, which is crucial in scenarios where the cost of a false positive is high, such as in email spam classification.</p>
-</li>
-<li><p><strong>Recall (Sensitivity, True Positive Rate)</strong>: The ratio of correctly predicted positive observations to all observations in actual class.</p>
+<p><strong>Recall (Sensitivity, True Positive Rate)</strong>:<br />
+The ratio of correctly predicted positive observations to all observations in actual class.</p>
 <div class="math notranslate nohighlight">
 \[
-  Recall = \frac{TP}{TP + FN}
-  \]</div>
+Recall = \frac{TP}{TP + FN}
+\]</div>
 <p>High recall is vital in medical scenarios or fraud detection, where failing to detect an anomaly can have severe consequences.</p>
-</li>
-</ul>
 </section>
 <section id="f1-score">
 <h4><span class="section-number">19.1.1.3. </span>3. F1 Score<a class="headerlink" href="#f1-score" title="Link to this heading">#</a></h4>
 <p>The F1 Score is the weighted average of Precision and Recall. Therefore, this score takes both false positives and false negatives into account. It is particularly useful when the class distribution is uneven (biased data).</p>
-<ul>
-<li><p>Formula:</p>
 <div class="math notranslate nohighlight">
 \[
-  F_1 = 2 \cdot \frac{Precision \cdot Recall}{Precision + Recall}
-  \]</div>
+F_1 = 2 \cdot \frac{Precision \cdot Recall}{Precision + Recall}
+\]</div>
 <p>The F1 score is an excellent measure to use if you need to seek a balance between Precision and Recall and there is an uneven class distribution (as in the case of your fraudulent vs. non-fraudulent calls scenario).</p>
-</li>
-</ul>
 </section>
 <section id="accuracy">
 <h4><span class="section-number">19.1.1.4. </span>4. Accuracy<a class="headerlink" href="#accuracy" title="Link to this heading">#</a></h4>
 <p>As previously discussed, accuracy is the ratio of correctly predicted observations to the total observations and can be misleading in the presence of an imbalanced dataset.</p>
-<ul>
-<li><p>Formula:</p>
 <div class="math notranslate nohighlight">
 \[
-  Accuracy = \frac{TP + TN}{TP + TN + FP + FN}
-  \]</div>
-</li>
-</ul>
+Accuracy = \frac{TP + TN}{TP + TN + FP + FN}
+\]</div>
 </section>
 </section>
 <section id="detailed-model-evaluation-metrics-regression">
@@ -645,28 +636,20 @@ document.write(`
 <section id="mean-absolute-error-mae">
 <h4><span class="section-number">19.1.2.1. </span>1. Mean Absolute Error (MAE)<a class="headerlink" href="#mean-absolute-error-mae" title="Link to this heading">#</a></h4>
 <p>MAE measures the average magnitude of the errors in a set of predictions, without considering their direction. It’s the average over the test sample of the absolute differences between prediction and actual observation where all individual differences have equal weight.</p>
-<ul>
-<li><p>Formula:</p>
 <div class="math notranslate nohighlight">
 \[
-  \text{MAE} = \frac{1}{n} \sum_{i=1}^n |y_i - \hat{y}_i|
-  \]</div>
+\text{MAE} = \frac{1}{n} \sum_{i=1}^n |y_i - \hat{y}_i|
+\]</div>
 <p>where <span class="math notranslate nohighlight">\(y_i\)</span> are the actual values and <span class="math notranslate nohighlight">\(\hat{y}_i\)</span> are the predicted values.</p>
-</li>
-</ul>
 </section>
 <section id="mean-squared-error-mse">
 <h4><span class="section-number">19.1.2.2. </span>2. Mean Squared Error (MSE)<a class="headerlink" href="#mean-squared-error-mse" title="Link to this heading">#</a></h4>
 <p>MSE is like MAE but squares the difference before summing them all instead of using the absolute value. This has the effect of heavily penalizing larger errors.</p>
-<ul>
-<li><p>Formula:</p>
 <div class="math notranslate nohighlight">
 \[
-  \text{MSE} = \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2
-  \]</div>
+\text{MSE} = \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2
+\]</div>
 <p>MSE is more sensitive to outliers than MAE and tends to emphasize larger differences.</p>
-</li>
-</ul>
 <p>There are many more metrics available, such as <code class="docutils literal notranslate"><span class="pre">RMSE</span></code> or <code class="docutils literal notranslate"><span class="pre">R-squared</span></code>, but we will not cover them in this course.</p>
 <p>In Scikit-Learn all those scores are already implemented:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">f1_score</span>
@@ -707,18 +690,17 @@ When tuning hyperparameters or making decisions about model architecture, it’s
 </section>
 <section id="cross-validation-enhancing-model-validation">
 <h3><span class="section-number">19.2.2. </span>Cross-Validation: Enhancing Model Validation<a class="headerlink" href="#cross-validation-enhancing-model-validation" title="Link to this heading">#</a></h3>
-<p><strong>Cross-validation</strong> is a robust method for estimating the effectiveness of your model which is especially useful when dealing with limited data.</p>
-<ul>
-<li><p><strong>K-Fold Cross-Validation</strong>: The data set is divided into ‘k’ smaller sets. The model is trained on ‘k-1’ of these folds, with the remaining part used as the test fold. This process is repeated ‘k’ times with each of the ‘k’ folds used exactly once as the test set.</p>
+<p>Cross-validation is a robust method for estimating the effectiveness of your model, which is especially useful when dealing with limited data.</p>
+<p>A <strong>k-Fold Cross-Validation</strong> means that the dataset is divided into ‘k’ smaller sets. The model is trained on ‘k-1’ of these folds, with the remaining part used as the test fold. This process is repeated ‘k’ times, with each of the ‘k’ folds used exactly once as the test set.</p>
+<p>Using Scikit-Learn this can be realized like this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">cross_val_score</span><span class="p">,</span> <span class="n">KFold</span>
+
 <span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">scores</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">kf</span><span class="p">)</span>
 <span class="n">average_score</span> <span class="o">=</span> <span class="n">scores</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
 </div>
-</li>
-<li><p><strong>Stratified K-Fold</strong>: A variation of k-fold which is used when one has imbalanced classes. It ensures that each fold of the dataset has the same proportion of examples in each class as the complete set.</p></li>
-</ul>
+<p>A variation of a k-fold is the <strong>stratified K-Fold</strong> that is used for highly imbalanced classes. It ensures that each fold of the dataset has the same proportion of examples in each class as the complete set.</p>
 <figure class="align-default" id="fig-cross-validation-training">
 <img alt="../_images/fig_cross_validation_training.png" src="../_images/fig_cross_validation_training.png" />
 <figcaption>
@@ -728,7 +710,8 @@ When tuning hyperparameters or making decisions about model architecture, it’s
 </section>
 <section id="advanced-techniques-for-unbalanced-data">
 <h3><span class="section-number">19.2.3. </span>Advanced Techniques for Unbalanced Data<a class="headerlink" href="#advanced-techniques-for-unbalanced-data" title="Link to this heading">#</a></h3>
-<p>When dealing with imbalanced datasets, traditional training and testing strategies may not suffice, as they might lead to models biased towards the majority class.</p>
+<p>When dealing with imbalanced datasets, traditional training and testing strategies may not suffice, as they might lead to models biased towards the majority class.
+Common strategies to work with highly imbalanced data are:</p>
 <ul class="simple">
 <li><p><strong>Oversampling the Minority Class</strong>: Increasing the number of instances in the minority class by duplicating them to prevent the model from being biased toward the majority class.</p></li>
 <li><p><strong>Undersampling the Majority Class</strong>: Reducing the number of instances in the majority class to balance the dataset.</p></li>
@@ -742,7 +725,7 @@ When tuning hyperparameters or making decisions about model architecture, it’s
 </section>
 <section id="beyond-this-course">
 <h3><span class="section-number">19.2.5. </span>Beyond this course:<a class="headerlink" href="#beyond-this-course" title="Link to this heading">#</a></h3>
-<p>Here, we did the sampling, i.e. the selection of data points for either training or testing, fully randomly. In many real world cases, however, the situation can be more complex. For instance, we might have many medical observations in a dataset with sometimes multiple entries for the same patient. In such a case we would have to split the data by patient and not fully randomly (see for instance here: <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id79" title="Ilias Tougui, Abdelilah Jilbab, and Jamal El Mhamdi. Impact of the choice of cross-validation techniques on the results of machine learning-based diagnostic applications. Healthcare informatics research, 27(3):189, 2021.">Tougui <em>et al.</em>, 2021</a>]</span>). In other cases, we will have strong biases and we would often like to compensate for this. For example to avoid that -purely by chance- a certain population or class is not well represented in a certain data split. The process to compensate for this is called <strong>stratification</strong>.</p>
+<p>Here, we did the sampling, that is the selection of data points, for either training or testing, fully randomly. In many real-world cases, however, the situation can be more complex. For instance, we might have many medical observations in a dataset with sometimes multiple entries for the same patient. In such a case we would have to split the data by patient and not fully randomly (see, for instance, here: <span id="id1">[<a class="reference internal" href="../book/bibliography.html#id79" title="Ilias Tougui, Abdelilah Jilbab, and Jamal El Mhamdi. Impact of the choice of cross-validation techniques on the results of machine learning-based diagnostic applications. Healthcare informatics research, 27(3):189, 2021.">Tougui <em>et al.</em>, 2021</a>]</span>). In other cases, we will have strong biases and we would often like to compensate for this. For example, to avoid that -purely by chance- a certain population or class is not well represented in a certain data split. The process to compensate for this is called <strong>stratification</strong>.</p>
 </section>
 </section>
 <section id="nice-to-have-scikit-learn-pipeline">
@@ -1113,7 +1096,7 @@ Name: count, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3303/3952750590.py:1: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option(&#39;future.no_silent_downcasting&#39;, True)`
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3352/3952750590.py:1: FutureWarning: Downcasting behavior in `replace` is deprecated and will be removed in a future version. To retain the old behavior, explicitly call `result.infer_objects(copy=False)`. To opt-in to the future behavior, set `pd.set_option(&#39;future.no_silent_downcasting&#39;, True)`
   data[binary_columns] = data[binary_columns].replace({&#39;no&#39;: 0, &#39;yes&#39;: 1})
 </pre></div>
 </div>
@@ -2500,10 +2483,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.004515</td>
-      <td>0.000247</td>
-      <td>0.012545</td>
-      <td>0.000228</td>
+      <td>0.005021</td>
+      <td>0.000149</td>
+      <td>0.013091</td>
+      <td>0.000189</td>
       <td>2</td>
       <td>{'model__n_neighbors': 2}</td>
       <td>0.801262</td>
@@ -2524,10 +2507,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
     </tr>
     <tr>
       <th>1</th>
-      <td>0.004340</td>
-      <td>0.000040</td>
-      <td>0.012489</td>
-      <td>0.000159</td>
+      <td>0.004933</td>
+      <td>0.000087</td>
+      <td>0.012874</td>
+      <td>0.000086</td>
       <td>3</td>
       <td>{'model__n_neighbors': 3}</td>
       <td>0.801262</td>
@@ -2548,10 +2531,10 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
     </tr>
     <tr>
       <th>2</th>
-      <td>0.004341</td>
-      <td>0.000061</td>
-      <td>0.012578</td>
-      <td>0.000213</td>
+      <td>0.004948</td>
+      <td>0.000043</td>
+      <td>0.013047</td>
+      <td>0.000142</td>
       <td>4</td>
       <td>{'model__n_neighbors': 4}</td>
       <td>0.782334</td>
@@ -4402,7 +4385,7 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
              return_train_score=True, verbose=1)</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-15" type="checkbox" ><label for="sk-estimator-id-15" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>GridSearchCV</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.model_selection.GridSearchCV.html">?<span>Documentation for GridSearchCV</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></div></label><div class="sk-toggleable__content fitted"><pre>GridSearchCV(cv=3, estimator=DecisionTreeClassifier(),
              param_grid={&#x27;max_depth&#x27;: [5, 8, 10, 15, 20],
                          &#x27;min_samples_split&#x27;: [2, 5, 10]},
-             return_train_score=True, verbose=1)</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-16" type="checkbox" ><label for="sk-estimator-id-16" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>best_estimator_: DecisionTreeClassifier</div></div></label><div class="sk-toggleable__content fitted"><pre>DecisionTreeClassifier(max_depth=10)</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-17" type="checkbox" ><label for="sk-estimator-id-17" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>DecisionTreeClassifier</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.tree.DecisionTreeClassifier.html">?<span>Documentation for DecisionTreeClassifier</span></a></div></label><div class="sk-toggleable__content fitted"><pre>DecisionTreeClassifier(max_depth=10)</pre></div> </div></div></div></div></div></div></div></div></div></div></div>
+             return_train_score=True, verbose=1)</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-16" type="checkbox" ><label for="sk-estimator-id-16" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>best_estimator_: DecisionTreeClassifier</div></div></label><div class="sk-toggleable__content fitted"><pre>DecisionTreeClassifier(max_depth=15)</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-17" type="checkbox" ><label for="sk-estimator-id-17" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>DecisionTreeClassifier</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.6/modules/generated/sklearn.tree.DecisionTreeClassifier.html">?<span>Documentation for DecisionTreeClassifier</span></a></div></label><div class="sk-toggleable__content fitted"><pre>DecisionTreeClassifier(max_depth=15)</pre></div> </div></div></div></div></div></div></div></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4452,20 +4435,41 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
   </thead>
   <tbody>
     <tr>
+      <th>9</th>
+      <td>0.007427</td>
+      <td>0.000109</td>
+      <td>0.001852</td>
+      <td>0.000056</td>
+      <td>15</td>
+      <td>2</td>
+      <td>{'max_depth': 15, 'min_samples_split': 2}</td>
+      <td>0.916667</td>
+      <td>0.901515</td>
+      <td>0.950664</td>
+      <td>0.922949</td>
+      <td>0.020551</td>
+      <td>1</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
       <th>6</th>
-      <td>0.007098</td>
-      <td>0.000064</td>
-      <td>0.001635</td>
-      <td>0.000063</td>
+      <td>0.007397</td>
+      <td>0.000050</td>
+      <td>0.001879</td>
+      <td>0.000119</td>
       <td>10</td>
       <td>2</td>
       <td>{'max_depth': 10, 'min_samples_split': 2}</td>
-      <td>0.905303</td>
-      <td>0.910985</td>
+      <td>0.907197</td>
+      <td>0.903409</td>
       <td>0.948767</td>
-      <td>0.921685</td>
-      <td>0.019290</td>
-      <td>1</td>
+      <td>0.919791</td>
+      <td>0.020547</td>
+      <td>2</td>
       <td>0.990521</td>
       <td>0.994313</td>
       <td>0.997159</td>
@@ -4474,39 +4478,18 @@ div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
     </tr>
     <tr>
       <th>12</th>
-      <td>0.007203</td>
-      <td>0.000107</td>
-      <td>0.001621</td>
-      <td>0.000014</td>
+      <td>0.007439</td>
+      <td>0.000094</td>
+      <td>0.001804</td>
+      <td>0.000040</td>
       <td>20</td>
       <td>2</td>
       <td>{'max_depth': 20, 'min_samples_split': 2}</td>
-      <td>0.903409</td>
-      <td>0.903409</td>
-      <td>0.948767</td>
-      <td>0.918528</td>
-      <td>0.021382</td>
-      <td>2</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>0.007205</td>
-      <td>0.000099</td>
-      <td>0.001594</td>
-      <td>0.000005</td>
-      <td>15</td>
-      <td>2</td>
-      <td>{'max_depth': 15, 'min_samples_split': 2}</td>
-      <td>0.901515</td>
+      <td>0.907197</td>
       <td>0.903409</td>
       <td>0.944972</td>
-      <td>0.916632</td>
-      <td>0.020054</td>
+      <td>0.918526</td>
+      <td>0.018764</td>
       <td>3</td>
       <td>1.000000</td>
       <td>1.000000</td>
@@ -4536,10 +4519,10 @@ Here, however, we will now do another cross-validation run to illustrate what th
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;fit_time&#39;: array([0.0127871 , 0.01213646, 0.01166081, 0.01238203, 0.0115304 ,
-        0.01215649, 0.01186824, 0.01209998, 0.012151  , 0.01247954]),
- &#39;score_time&#39;: array([0.00350809, 0.00333667, 0.00329185, 0.00332856, 0.00322175,
-        0.00326467, 0.00324321, 0.00325274, 0.00322413, 0.00321794]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;fit_time&#39;: array([0.01323295, 0.01233625, 0.0122366 , 0.01265311, 0.01194239,
+        0.01247597, 0.01183271, 0.01217055, 0.01212049, 0.01245809]),
+ &#39;score_time&#39;: array([0.00406766, 0.00379014, 0.00368953, 0.00387096, 0.00385237,
+        0.00364351, 0.00360465, 0.00373125, 0.00366664, 0.00365639]),
  &#39;test_accuracy&#39;: array([0.80660377, 0.86255924, 0.95734597, 0.94312796, 0.95260664,
         0.93364929, 0.96208531, 0.95734597, 0.95260664, 0.95734597]),
  &#39;test_f1_macro&#39;: array([0.80678078, 0.85822023, 0.95484148, 0.94288008, 0.9512887 ,
@@ -4565,7 +4548,7 @@ Here, however, we will now do another cross-validation run to illustrate what th
 <img alt="../_images/47fe7cedd37d263411fdba61066adeef3dad243e419537008f98ba5783d68d3f.png" src="../_images/47fe7cedd37d263411fdba61066adeef3dad243e419537008f98ba5783d68d3f.png" />
 </div>
 </div>
-<p>As we can see, the accuracy does depend strongly on the random split of the data! This effect is particularly strong in small and/or very heterogeneous datasets.</p>
+<p>As we can see, the accuracy does depend on the actual split of the data. This effect is particularly strong in small or very heterogeneous datasets where.</p>
 </section>
 </section>
 </section>
