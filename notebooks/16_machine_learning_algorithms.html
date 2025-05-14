@@ -613,7 +613,10 @@ This means that the species information will later be our <em>label</em>.</p>
 <h3><span class="section-number">16.3.1. </span>Data Inspection &amp; Cleaning<a class="headerlink" href="#data-inspection-cleaning" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;../datasets/penguins_size.csv&quot;</span>  <span class="c1"># contains some changes with respect to the original dataset!</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The &quot;classical&quot; penguins dataset, but with some additional changes </span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;../datasets/penguins_size.csv&quot;</span>  
+<span class="c1"># or: filename = r&quot;https://raw.githubusercontent.com/florian-huber/data_science_course/refs/heads/main/datasets/penguins_size.csv&quot;</span>
+
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -934,15 +937,15 @@ Unfortunately, however, this plot does not help to better understand how we coul
 <p>What works better in this context is a <code class="docutils literal notranslate"><span class="pre">pairplot</span></code> from <code class="docutils literal notranslate"><span class="pre">Seaborn</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sb</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">diag_kind</span><span class="o">=</span><span class="s2">&quot;hist&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sb</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;species&quot;</span><span class="p">,</span> <span class="n">diag_kind</span><span class="o">=</span><span class="s2">&quot;hist&quot;</span><span class="p">,</span> <span class="n">corner</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f89ab8b82c0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;seaborn.axisgrid.PairGrid at 0x7f44c0237f80&gt;
 </pre></div>
 </div>
-<img alt="../_images/df01a7bd08548acd032d4b10479c3c62cdc8eadabf9326621a26c2b12142105a.png" src="../_images/df01a7bd08548acd032d4b10479c3c62cdc8eadabf9326621a26c2b12142105a.png" />
+<img alt="../_images/14af08c30a7e55bd23dff70247a01a7f11b0180cc74401210533ee7800176abb.png" src="../_images/14af08c30a7e55bd23dff70247a01a7f11b0180cc74401210533ee7800176abb.png" />
 </div>
 </div>
 <p>Look at this plot and ask yourself the question: Can we predict the species based on the shown body features?</p>

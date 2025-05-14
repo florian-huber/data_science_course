@@ -649,7 +649,10 @@ IG = E (parent) - \Sigma w_i E(child_i)
 <h3><span class="section-number">18.2.1. </span>Data Inspection &amp; Cleaning<a class="headerlink" href="#data-inspection-cleaning" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;../datasets/penguins_size.csv&quot;</span>  <span class="c1"># contains some changes with respect to the original dataset!</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The &quot;classical&quot; penguins dataset, but with some additional changes </span>
+<span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;../datasets/penguins_size.csv&quot;</span>  
+<span class="c1"># or: filename = r&quot;https://raw.githubusercontent.com/florian-huber/data_science_course/refs/heads/main/datasets/penguins_size.csv&quot;</span>
+
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 </pre></div>
 </div>
