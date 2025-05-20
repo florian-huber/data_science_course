@@ -488,14 +488,10 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-decision-tree">18.1. Building a Decision Tree</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automated-decision-tree-construction">18.1.1. Automated Decision Tree Construction</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entropy">18.1.2. Entropy</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-entropy">18.1.2.1. What is Entropy?</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-entropy-work-in-decision-trees">18.1.2.2. How Does Entropy Work in Decision Trees?</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example">18.1.2.3. Example:</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-entropy-to-information-gain">18.1.3. From Entropy to Information Gain</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-and-disadvantages-of-decision-trees">18.1.4. Advantages and Disadvantages of Decision Trees</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gini-index">18.1.2. Gini Index</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-concrete-illustration">18.1.3. A Concrete Illustration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">18.1.4. Putting It All Together</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-and-disadvantages-of-decision-trees">18.1.5. Advantages and Disadvantages of Decision Trees</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-example">18.2. Hands-on Example</a><ul class="nav section-nav flex-column">
@@ -538,76 +534,87 @@ document.write(`
 <p>That seems to work OK. But how could we automate this? What could be a good algorithm to find good decision boundaries for us?</p>
 <section id="automated-decision-tree-construction">
 <h3><span class="section-number">18.1.1. </span>Automated Decision Tree Construction<a class="headerlink" href="#automated-decision-tree-construction" title="Link to this heading">#</a></h3>
-<p>To automate the construction of a decision tree, we need an algorithm that can systematically find the best features to split the data. Here’s how it typically works:</p>
-<ul class="simple">
-<li><p><strong>Choose the Best Split:</strong> The algorithm evaluates all possible splits for each feature and selects the one that best separates the classes. This is often done using criteria like Gini impurity or entropy. In the following part the entropy will be explained in more detail.</p></li>
-<li><p><strong>Split the Data:</strong> Once the best split is found, the data is divided into two subsets, and the process is repeated recursively for each subset.</p></li>
-<li><p><strong>Stopping Criteria:</strong> The recursion continues until a stopping criterion is met, such as a maximum tree depth or a minimum number of samples per node.</p></li>
-</ul>
+<p>To automate the construction of a decision tree, we need an algorithm that can systematically find the best features to split the data. In decision tree construction, we automate this choice by measuring the “impurity” of a node, which measures how mixed the classes are, and then picking the split that drives that impurity down most steeply.</p>
+<p>First, the algorithm scans each feature in turn. For a continuous feature, it sorts the unique values and considers splits at midpoints between successive values. For a categorical feature, it examines sensible partitions of categories (or uses heuristics to limit the search). Each candidate split divides the parent node into two child nodes, and we can quickly compute an impurity score for each.</p>
+<p>Rather than exhaust every conceivable partition (which can explode combinatorially), modern implementations efficiently consider only candidate thresholds that lie between sorted values, or use greedy heuristics on large category sets.  Once all viable splits for all features have been scored, the algorithm picks the one with the greatest reduction in impurity, carves the data apart, and then repeats this process recursively on each child node until a stopping rule applies—say, a maximum tree depth, a minimum number of samples in a node, or when nodes become perfectly pure.</p>
 </section>
-<section id="entropy">
-<h3><span class="section-number">18.1.2. </span>Entropy<a class="headerlink" href="#entropy" title="Link to this heading">#</a></h3>
-<p>Entropy is a key concept used in decision trees to measure the impurity or disorder within a set of data. It originates from information theory, where it quantifies the amount of uncertainty or randomness in a system. In the context of decision trees, entropy helps to determine how a dataset should be split to create the most informative and efficient structure.</p>
-<section id="what-is-entropy">
-<h4><span class="section-number">18.1.2.1. </span>What is Entropy?<a class="headerlink" href="#what-is-entropy" title="Link to this heading">#</a></h4>
-<p>Entropy, in the context of decision trees, is defined as:</p>
+<section id="gini-index">
+<h3><span class="section-number">18.1.2. </span>Gini Index<a class="headerlink" href="#gini-index" title="Link to this heading">#</a></h3>
+<p>There are various options to quantify disorder. Commonly used in decision trees are <strong>entropy</strong> or the <strong>Gini index</strong>. We will here use the Gini index which often feels more intuitive: it measures the probability of misclassifying a randomly chosen instance if you assign its label by randomly sampling the node’s class distribution.</p>
+<p>Formally, if a node contains K classes and the proportion of class <span class="math notranslate nohighlight">\(i\)</span> is <span class="math notranslate nohighlight">\(p_i\)</span>, the Gini index is</p>
 <div class="math notranslate nohighlight">
 \[
-Entropy(S) = −\Sigma_{i=1}^N p_i ln (p_i)
+Gini = 1 - \sum_{i=1}^K p_i^2
 \]</div>
-<p>where:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(S\)</span> is the set of data.</p></li>
-<li><p><span class="math notranslate nohighlight">\(N\)</span> is the number of classes in the dataset.</p></li>
-<li><p><span class="math notranslate nohighlight">\(p_i\)</span> is the proportion of instances belonging to class <span class="math notranslate nohighlight">\(i\)</span>.</p></li>
-</ul>
+<p>When evaluating a split, we compute the Gini of the parent node, then the Gini of each child, and finally the <strong>weighted average</strong> of those child Gini scores. The drop from parent to children—the <strong>Gini gain</strong>—is exactly:</p>
+<div class="math notranslate nohighlight">
+\[
+\Delta G = Gini_{parent} - \bigl(\tfrac{n_L}{n}\,Gini_L + \tfrac{n_R}{n}\,Gini_R\bigr)
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(n_L\)</span> and <span class="math notranslate nohighlight">\(n_R\)</span> are the sample counts in the left and right child, so the left and right branch of the current tree node. The algorithm chooses the split that maximizes this gain, steering each branch toward ever-greater homogeneity.</p>
 </section>
-<section id="how-does-entropy-work-in-decision-trees">
-<h4><span class="section-number">18.1.2.2. </span>How Does Entropy Work in Decision Trees?<a class="headerlink" href="#how-does-entropy-work-in-decision-trees" title="Link to this heading">#</a></h4>
-<p>When building a decision tree, the goal is to split the data in a way that results in the highest information gain. Information gain is the reduction in entropy from a prior state (before the split) to a post-split state (after the split). Lower entropy means that the subsets are more homogenous (i.e., contain more instances of a single class), which is desirable.</p>
-<ol class="arabic simple">
-<li><p><strong>Initial Entropy</strong>: Calculate the entropy of the entire dataset before any splits.</p></li>
-<li><p><strong>Entropy After Split</strong>: For each possible split, calculate the entropy of the resulting subsets.</p></li>
-<li><p><strong>Information Gain</strong>: Compute the information gain by comparing the initial entropy with the entropy after the split. The split that results in the highest information gain is chosen because it most effectively reduces the disorder.</p></li>
-</ol>
-</section>
-<section id="example">
-<h4><span class="section-number">18.1.2.3. </span>Example:<a class="headerlink" href="#example" title="Link to this heading">#</a></h4>
-<p>Suppose we have a dataset with two classes, squares and triangles. Let’s compare two possible splits in <a class="reference internal" href="#fig-decision-tree-entropy"><span class="std std-numref">Fig. 18.3</span></a>.</p>
-<figure class="align-default" id="fig-decision-tree-entropy">
+<section id="a-concrete-illustration">
+<h3><span class="section-number">18.1.3. </span>A Concrete Illustration<a class="headerlink" href="#a-concrete-illustration" title="Link to this heading">#</a></h3>
+<p>Suppose our root node holds 20 shapes—10 squares and 10 triangles—so each class has proportion 0.5.</p>
+<figure class="align-default" id="fig-decision-tree-algorithm">
 <img alt="../_images/fig_decision_tree_entropy.png" src="../_images/fig_decision_tree_entropy.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 18.3 </span><span class="caption-text">We here compare two possible splits (x &gt; 3 or x &gt; 3.5) to decide which one is better based on the entropy.</span><a class="headerlink" href="#fig-decision-tree-entropy" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 18.3 </span><span class="caption-text">We here compare two possible splits (x &gt; 3 or x &gt; 3.5) to decide which one is better based on the Gini index.</span><a class="headerlink" href="#fig-decision-tree-algorithm" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>If our dataset has an equal number of instances from each class, the entropy will be at its maximum, indicating high disorder. This is exactly what we start with in the beginning where we have 10 squares and 10 triangles. The probability to draw a square (or a triangle) is exactly 0.5.</p>
+<p>The Gini index at the root is</p>
 <div class="math notranslate nohighlight">
 \[
-Entropy(S)= - (0.5 \cdot ln(0.5) + 0.5 \cdot ln(0.5)) = 1
+Gini_{root}=1 - (0.5^2 + 0.5^2)=0.5
 \]</div>
-<p>If we then only look at the left group after the split at <span class="math notranslate nohighlight">\(x &gt; 3\)</span>:</p>
+<p>Consider two candidate splits on feature x:</p>
+<p>• Split A: x &gt; 3. The left child contains 5 shapes (2 squares, 3 triangles), so <span class="math notranslate nohighlight">\(p_{square}=\frac{2}{5}\)</span> and</p>
 <div class="math notranslate nohighlight">
 \[
-Entropy(S)= - (2/5 \cdot ln(2/5) + 3/5 \cdot ln(3/5)) \approx 0.971
+Gini_L = 1 - (0.4^2 + 0.6^2) = 0.48
 \]</div>
-<p>For a split at <span class="math notranslate nohighlight">\(x &gt; 3.5\)</span> the entropy becomes</p>
+<p>and the right child holds 15 shapes (8 squares, 7 triangles), <span class="math notranslate nohighlight">\(p_{square}=\frac{8}{15}\)</span>, yielding</p>
 <div class="math notranslate nohighlight">
 \[
-Entropy(S)= - 2/2 \cdot ln(2/2) = 0
+Gini_R = 1 - (\frac{2}{5}^2 + \frac{8}{15}^2) ≈ 0.498
 \]</div>
-<p>In comparison, it is clear that the second example represents a far greater change of entropy making this split favorable.</p>
+<p>The weighted impurity after Split A is</p>
+<div class="math notranslate nohighlight">
+\[
+G_A = \tfrac{5}{20}\times0.48 + \tfrac{15}{20}\times0.498 \approx 0.493
+\]</div>
+<p>and the Gini gain is <span class="math notranslate nohighlight">\(\Delta G = G_{parent} - G_A = 0.5 − 0.493 = 0.007\)</span>.</p>
+<p>• Split B: x &gt; 3.5. Now the left side has 2 shapes (both squares), so <span class="math notranslate nohighlight">\(Gini_L = 0\)</span>; the right side has 18 shapes (8 squares, 10 triangles), so</p>
+<div class="math notranslate nohighlight">
+\[
+Gini_R = 1 - (\frac{8}{18}^2 + \frac{10}{18}^2) ≈ 0.493
+\]</div>
+<p>and the weighted sum:</p>
+<div class="math notranslate nohighlight">
+\[
+G_B = \tfrac{2}{20}\times0 + \tfrac{18}{20}\times0.493 = 0.444
+\]</div>
+<p>giving a Gini gain of <span class="math notranslate nohighlight">\(\Delta G = G_{parent} - G_B = 0.5 − 0.444 = 0.056\)</span>.</p>
+<p>Clearly Split B yields a bigger impurity drop, so it’s the winner.</p>
 </section>
-</section>
-<section id="from-entropy-to-information-gain">
-<h3><span class="section-number">18.1.3. </span>From Entropy to Information Gain<a class="headerlink" href="#from-entropy-to-information-gain" title="Link to this heading">#</a></h3>
-<p>In fact, the entropy itself has to be weighted to avoid only looking for splits with clear but very tiny groups at the end. One option to do so is by using the <em>information gain</em>:</p>
-<div class="math notranslate nohighlight">
-\[
-IG = E (parent) - \Sigma w_i E(child_i)
-\]</div>
+<section id="putting-it-all-together">
+<h3><span class="section-number">18.1.4. </span>Putting It All Together<a class="headerlink" href="#putting-it-all-together" title="Link to this heading">#</a></h3>
+<p>The decision tree algorithm can be imagined as follows. At each step, the tree-growing algorithm does:</p>
+<ol class="arabic simple">
+<li><p>Scans each feature’s candidate thresholds or category partitions,</p></li>
+<li><p>Computes parent and child Gini indices, then gini gain,</p></li>
+<li><p>Chooses the split with the largest gain,</p></li>
+<li><p>Repeats on new nodes until stopping criteria apply.</p></li>
+</ol>
+<p>The most important <strong>stopping criteria</strong> are:</p>
+<ul class="simple">
+<li><p>The reached node only contains datapoints of one sort (so in our example: only squares or triangles)</p></li>
+<li><p>The reached node reaches a set minimum size (in Scikit-Learn the <code class="docutils literal notranslate"><span class="pre">min_samples_leaf</span></code> parameter)</p></li>
+<li><p>The tree reaches a set maximum depth (in Scikit-Learn the <code class="docutils literal notranslate"><span class="pre">max_depth</span></code> parameter)</p></li>
+</ul>
 </section>
 <section id="advantages-and-disadvantages-of-decision-trees">
-<h3><span class="section-number">18.1.4. </span>Advantages and Disadvantages of Decision Trees<a class="headerlink" href="#advantages-and-disadvantages-of-decision-trees" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">18.1.5. </span>Advantages and Disadvantages of Decision Trees<a class="headerlink" href="#advantages-and-disadvantages-of-decision-trees" title="Link to this heading">#</a></h3>
 <figure class="align-default" id="fig-decision-tree-issues">
 <img alt="../_images/fig_decision_tree_issues.png" src="../_images/fig_decision_tree_issues.png" />
 <figcaption>
@@ -1359,14 +1366,10 @@ Just as before with the k-NN model, we can simply create predictions on any data
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-decision-tree">18.1. Building a Decision Tree</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automated-decision-tree-construction">18.1.1. Automated Decision Tree Construction</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entropy">18.1.2. Entropy</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-entropy">18.1.2.1. What is Entropy?</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-entropy-work-in-decision-trees">18.1.2.2. How Does Entropy Work in Decision Trees?</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example">18.1.2.3. Example:</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-entropy-to-information-gain">18.1.3. From Entropy to Information Gain</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-and-disadvantages-of-decision-trees">18.1.4. Advantages and Disadvantages of Decision Trees</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gini-index">18.1.2. Gini Index</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-concrete-illustration">18.1.3. A Concrete Illustration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">18.1.4. Putting It All Together</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advantages-and-disadvantages-of-decision-trees">18.1.5. Advantages and Disadvantages of Decision Trees</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-example">18.2. Hands-on Example</a><ul class="nav section-nav flex-column">
