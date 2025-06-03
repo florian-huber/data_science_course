@@ -562,10 +562,10 @@ Gini = 1 - \sum_{i=1}^K p_i^2
 <p><span class="caption-number">Fig. 18.3 </span><span class="caption-text">We here compare two possible splits (x &gt; 3 or x &gt; 3.5) to decide which one is better based on the Gini index.</span><a class="headerlink" href="#fig-decision-tree-algorithm" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The Gini index at the root is</p>
+<p>The Gini index at the beginning (in the “parent” node) is</p>
 <div class="math notranslate nohighlight">
 \[
-Gini_{root}=1 - (0.5^2 + 0.5^2)=0.5
+G_{parent}=1 - (0.5^2 + 0.5^2)=0.5
 \]</div>
 <p>Consider two candidate splits on feature x:</p>
 <p>• Split A: x &gt; 3. The left child contains 5 shapes (2 squares, 3 triangles), so <span class="math notranslate nohighlight">\(p_{square}=\frac{2}{5}\)</span> and</p>
@@ -578,7 +578,7 @@ Gini_L = 1 - (0.4^2 + 0.6^2) = 0.48
 \[
 Gini_R = 1 - (\frac{2}{5}^2 + \frac{8}{15}^2) ≈ 0.498
 \]</div>
-<p>The weighted impurity after Split A is</p>
+<p>The weighted sum of both <span class="math notranslate nohighlight">\(Gini_L\)</span> and <span class="math notranslate nohighlight">\(Gini_R\)</span> after Split A is</p>
 <div class="math notranslate nohighlight">
 \[
 G_A = \tfrac{5}{20}\times0.48 + \tfrac{15}{20}\times0.498 \approx 0.493
