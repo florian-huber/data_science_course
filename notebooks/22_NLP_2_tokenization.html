@@ -586,7 +586,13 @@ Chatbots leverage NLP to understand user queries, infer intent, and generate app
 </section>
 <section id="nlp-preprocessing-workflow">
 <h2><span class="section-number">22.3. </span>NLP Preprocessing Workflow<a class="headerlink" href="#nlp-preprocessing-workflow" title="Link to this heading">#</a></h2>
-<p>We usually work with text in various formats and sizes, for instance, from <code class="docutils literal notranslate"><span class="pre">.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">.html</span></code>, or other structured or unstructured text file formats.</p>
+<p>We usually work with text in various formats and sizes, for instance, from <code class="docutils literal notranslate"><span class="pre">.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">.html</span></code>, or other structured or unstructured text file formats. For a later systematic data analysis or the training of machine-learning models, we first have to preprocess the text data consistently, typically done as sketched in <a class="reference internal" href="#fig-nlp-processing-workflow"><span class="std std-numref">Fig. 22.2</span></a>.</p>
+<figure class="align-default" id="fig-nlp-processing-workflow">
+<img alt="../_images/fig_nlp_processing_workflow.png" src="../_images/fig_nlp_processing_workflow.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 22.2 </span><span class="caption-text">Typically, an NLP preprocessing workflow consists of several stages, including raw text cleaning, tokenization, token cleaning, and token normalization. This is often the basis for later analysis or modeling steps.</span><a class="headerlink" href="#fig-nlp-processing-workflow" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 <section id="raw-text-cleaning">
 <h3><span class="section-number">22.3.1. </span>Raw Text Cleaning<a class="headerlink" href="#raw-text-cleaning" title="Link to this heading">#</a></h3>
 <p>When you obtain or scrape text from various sources (web pages, PDFs, social media, logs), it often contains “noise” that can hinder analysis:</p>
@@ -798,12 +804,10 @@ python<span class="w"> </span>-m<span class="w"> </span>spacy<span class="w"> </
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl (12.8 MB)
+?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/12.8 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/12.8 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">12.8/12.8 MB</span> <span class=" -Color -Color-Red">140.1 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">12.8/12.8 MB</span> <span class=" -Color -Color-Red">165.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25h
 </pre></div>
 </div>
