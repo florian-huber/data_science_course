@@ -19,20 +19,48 @@ Traceback (most recent call last):
            ^^^^^^^^^^^^^^^
   File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/nbclient/client.py", line 1005, in async_execute_cell
-    exec_reply = await self.task_poll_for_reply
-                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/nbclient/client.py", line 806, in _async_poll_for_reply
-    error_on_timeout_execute_reply = await self._async_handle_timeout(timeout, cell)
-                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/nbclient/client.py", line 856, in _async_handle_timeout
-    raise CellTimeoutError.error_from_timeout_and_cell(
-nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
-The message was: Cell execution timed out.
-Here is a preview of the cell contents:
--------------------
-['"""', "This code block downloads the data from zenodo and stores it in a local 'datasets' folder.", '"""', '', 'import requests']
-...
-["# Create directory if it doesn't exist", 'os.makedirs(os.path.dirname(output_path), exist_ok=True)', '', '# Download the dataset', 'download_from_zenodo(zenodo_link, output_path)']
--------------------
+  File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import spacy
+
+nlp = spacy.load("en_core_web_lg")
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mOSError[39m                                   Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[60][39m[32m, line 3[39m
+[32m      1[39m [38;5;28;01mimport[39;00m[38;5;250m [39m[34;01mspacy[39;00m
+[32m----> [39m[32m3[39m nlp = [43mspacy[49m[43m.[49m[43mload[49m[43m([49m[33;43m"[39;49m[33;43men_core_web_lg[39;49m[33;43m"[39;49m[43m)[49m
+
+[36mFile [39m[32m~/micromamba/envs/data_science/lib/python3.12/site-packages/spacy/__init__.py:51[39m, in [36mload[39m[34m(name, vocab, disable, enable, exclude, config)[39m
+[32m     27[39m [38;5;28;01mdef[39;00m[38;5;250m [39m[34mload[39m(
+[32m     28[39m     name: Union[[38;5;28mstr[39m, Path],
+[32m     29[39m     *,
+[32m   (...)[39m[32m     34[39m     config: Union[Dict[[38;5;28mstr[39m, Any], Config] = util.SimpleFrozenDict(),
+[32m     35[39m ) -> Language:
+[32m     36[39m [38;5;250m    [39m[33;03m"""Load a spaCy model from an installed package or a local path.[39;00m
+[32m     37[39m 
+[32m     38[39m [33;03m    name (str): Package name or model path.[39;00m
+[32m   (...)[39m[32m     49[39m [33;03m    RETURNS (Language): The loaded nlp object.[39;00m
+[32m     50[39m [33;03m    """[39;00m
+[32m---> [39m[32m51[39m     [38;5;28;01mreturn[39;00m [43mutil[49m[43m.[49m[43mload_model[49m[43m([49m
+[32m     52[39m [43m        [49m[43mname[49m[43m,[49m
+[32m     53[39m [43m        [49m[43mvocab[49m[43m=[49m[43mvocab[49m[43m,[49m
+[32m     54[39m [43m        [49m[43mdisable[49m[43m=[49m[43mdisable[49m[43m,[49m
+[32m     55[39m [43m        [49m[43menable[49m[43m=[49m[43menable[49m[43m,[49m
+[32m     56[39m [43m        [49m[43mexclude[49m[43m=[49m[43mexclude[49m[43m,[49m
+[32m     57[39m [43m        [49m[43mconfig[49m[43m=[49m[43mconfig[49m[43m,[49m
+[32m     58[39m [43m    [49m[43m)[49m
+
+[36mFile [39m[32m~/micromamba/envs/data_science/lib/python3.12/site-packages/spacy/util.py:472[39m, in [36mload_model[39m[34m(name, vocab, disable, enable, exclude, config)[39m
+[32m    470[39m [38;5;28;01mif[39;00m name [38;5;129;01min[39;00m OLD_MODEL_SHORTCUTS:
+[32m    471[39m     [38;5;28;01mraise[39;00m [38;5;167;01mIOError[39;00m(Errors.E941.format(name=name, full=OLD_MODEL_SHORTCUTS[name]))  [38;5;66;03m# type: ignore[index][39;00m
+[32m--> [39m[32m472[39m [38;5;28;01mraise[39;00m [38;5;167;01mIOError[39;00m(Errors.E050.format(name=name))
+
+[31mOSError[39m: [E050] Can't find model 'en_core_web_lg'. It doesn't seem to be a Python package or a valid path to a data directory.
 
