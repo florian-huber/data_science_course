@@ -1,41 +1,43 @@
 # How to use this book (... if you ask us)
 
-This textbook has been crafted with attention to detail to facilitate your journey into data science. However, the essence of its usefulness lies in how you engage with its content. Here's some advice to optimize your learning experience:
+This textbook has been written to support your journey into data science as clearly and practically as possible. But like any book, its value depends on how you use it. The following suggestions will help you get the most out of it.
 
 - **Progress at Your Own Speed**: 
-  Data science is a vast field, and everyone has their own pace. If you find certain concepts daunting, pause and seek additional resources. The internet is full of tutorials, videos, courses, and forums on practically all aspects that we cover in this book. The key is patience and persistence.
+  Data science is a broad field, and different topics will feel easier or harder depending on your background. If a concept seems difficult at first, take your time. Pause, revisit the section, and look for additional explanations elsewhere. The internet offers many excellent tutorials, videos, courses, and discussion forums on almost every topic covered in this book. The key is patience and persistence.
 - **Learning by Doing**: 
-  Reading this book alone won't transform you into a data scientist. To truly learn data science, you need to actively engage in coding and working with real data sets. Observing code and nodding along saying, *"yeah, I got it"* is often one of the biggest mistakes that students can make. The quick *impression you understood something* is usually far away from *knowing how to do it yourself*!  
-  We can't stress this enough - **the most prevalent pitfall many students succumb to is passive learning!** The true test of your understanding comes when you can independently apply the skills, starting from scratch, not merely copying, pasting, and executing someone else's code.
-- **Lean on Tech, But Don't Rely on It**: 
+  Simply reading about data science will not make you a data scientist. To really learn, you need to write code, run analyses, and work with data yourself.
+  One of the most common mistakes students make is passive learning: reading through code, following an explanation, and thinking, *"yeah, I got it"*. But understanding an explanation is very different from being able to solve a problem on your own!  
+  The real test of learning begins when you can apply a method independently: starting from scratch, making decisions yourself, and solving the small problems that inevitably come up along the way. For that reason, I strongly encourage you not just to read the examples in this book, but to run them, modify them, break them, and rebuild them.
+- **Use technology as support, not as a substitute**: 
   While chatbots can serve as helpful data science assistants, they are not a substitute for your active learning. We firmly believe that the path to becoming a competent data scientist involves learning how to solve challenges on your own. Relying on a chatbot for answers is akin to copying solutions from another student or a forum. While this approach may help you complete your exercises in the short run, it won't contribute much to your long-term learning and skill development.
 
 
 
 ## Code is the easy part
 
-The next paragraphs will be on code and programming. And for many students, in particular students without a strong computer science background, the coding parts often seems to be the main challenge in the beginning. So, just as a small warning before we talk Python: A very good data scientist for sure knows how to work with code. But that would not nearly be enough. You will later see, that many data science techniques -including very fancy ones- can often we executed with just a few lines of code. The real skill therefore will not be to be able to run all available techniques on any dataset you'll get. It is the ability to know *how to use* those methods, but also to know *when to use* them! When you analyze data it will often come down to **asking the right questions, and knowing which tools can help you answer them**.
+The next paragraphs will be on code and programming. And for many students, in particular students without a strong computer science background, the coding parts often seems to be the main challenge in the beginning. So, just as a small warning before we talk Python: A very good data scientist for sure knows how to work with code. But that would not nearly be enough. You will later see, that many data science techniques, including very fancy ones, can often we executed with just a few lines of code. The real skill therefore will not be to be able to run all available techniques on any dataset you'll get. It is the ability to know *how to use* those methods, but also to know *when to use* them! When you analyze data it will often come down to **asking the right questions, and knowing which tools can help you answer them**.
 
 But we will come to this many times again. For now, let's get started with the very technical parts.
 
-## Skills you should have to work with this book
+## Skills you should already have before you start
+This book is intended to be accessible, but it does assume some basic prior knowledge.
 
-- **Python Programming Basics**: Understanding of variables, fundamental data types, loops, functions, and module imports are essential. If you're new to Python or need a refresher, consider resources like [Python.org's Beginner's Guide](https://docs.python.org/3/tutorial/index.html), [RealPython](https://realpython.com/), or [GeeksforGeeks Python Programming Language](https://www.geeksforgeeks.org/python-programming-language/).
-- At least **High School Math Skills**: Basic knowledge of statistics and algebra will serve you well, for instance to better understand the methods and their caveats.
+- **Python programming basics**: You should be familiar with variables, basic data types, loops, functions, and importing modules. If you are new to Python or want a refresher, good starting points include [Python.org's Beginner's Guide](https://docs.python.org/3/tutorial/index.html), [RealPython](https://realpython.com/), or [GeeksforGeeks Python Programming Language](https://www.geeksforgeeks.org/python-programming-language/).
+- **Basic school-level mathematics**: A general understanding of algebra and basic statistics will be helpful, especially when it comes to understanding methods and their limitations.
 
-
+You do not need an advanced background in mathematics, statistics, or computer science to work with this book. But you should be willing to engage actively with both code and quantitative reasoning.
 
 ## Why Python?
 
 Python, over the years, has emerged as the lingua franca of data science. But why?
 
-1. **Versatile Libraries**: Python boasts an array of libraries, such as NumPy, pandas, and scikit-learn, specifically tailored for data science tasks.
-2. **Community Support**: The vast Python community ensures regular updates, myriad tutorials, and instant help on forums.
-3. **Intuitive Syntax**: Python's clear and readable syntax makes it perfect for beginners.
-4. **Flexibility**: Python seamlessly integrates with other languages, making it ideal for diverse tasks.
-5. **Industry Adoption**: Major tech companies use Python, ensuring ample job opportunities.
+1. **A rich ecosystem of libraries**: Python offers powerful libraries such as NumPy, pandas, matplotlib, seaborn, and scikit-learn for numerical computing, data handling, visualization, and machine learning.
+2. **Readable syntax**: Python is often easier to read and write than many other programming languages, which makes it especially suitable for beginners.
+3. **Strong community support**: Because Python is so widely used, there are countless tutorials, examples, forums, and community resources available.
+4. **Flexibility**: Python can be used for many different tasks, from quick scripts and data analysis to machine learning and web development.
+5. **Wide adoption in academia and industry**: Python is used extensively in research, education, and industry, making it a practical language to learn.
 
-While languages like R and tools like KNIME have their strengths, Python's holistic ecosystem and adaptability make it the preferred choice for many. All code examples in this book will be written in Python.
+Other languages and tools, such as R, Julia, or KNIME, also have important strengths. But Python’s combination of accessibility, flexibility, and ecosystem makes it an excellent choice for this book. All code examples in the book are therefore written in Python.
 
 ## Open source libraries
 
