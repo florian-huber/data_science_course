@@ -10,6 +10,9 @@ on:
         required: True
         default: ''
 
+env:
+  BASE_URL: /${{ github.event.repository.name }}
+
 # This job installs dependencies, builds the book #TODO: and pushes it to `gh-pages`
 jobs:
   deploy-book:
