@@ -35,7 +35,7 @@ jobs:
       - name: Build the book
         run: |
           pip install jupyter-book
-          jupyter-book build
+          jupyter-book build --html
 
       # Push the book's HTML to github-pages
       - name: GitHub Pages action
