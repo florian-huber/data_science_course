@@ -19,7 +19,7 @@ jobs:
         shell: bash -l {0}
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: mamba-org/setup-micromamba@v2
         with:
           environment-file: environment.yml
@@ -35,7 +35,7 @@ jobs:
       - name: Build the book
         run: |
           pip install jupyter-book
-          jupyter-book build .
+          jupyter-book build
 
       # Push the book's HTML to github-pages
       - name: GitHub Pages action
