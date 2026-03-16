@@ -1,17 +1,28 @@
 # Data Science, Ethics, and Society
 
-In an increasingly data-driven world, the role of data science extends beyond pure analysis and prediction. The use of data and algorithms is intimately entwined with ethical considerations and societal implications. The power of data science to influence and shape our world is vast, and, as the Spider-Man quote goes: *"with great power comes great responsibility"* ([see wikipedia](https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility)). 
+In an increasingly data-driven world, the role of data science extends far beyond pure analysis and prediction. The data we collect, the models we build, and the decisions we support are all connected to ethical questions and broader societal consequences. The power of data science to influence and shape our world is vast, and, as the Spider-Man quote goes: *"with great power comes great responsibility"* ([see wikipedia](https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility)). 
 
-It is very easy to agree on the necessity of ethical considerations in cases that directly touch life and death questions, such as the use of algorithms for medical diagnosis or autonomous transport. But ethics is not just about immediate life and death situations. In fact, most data science tasks bring ethical questions and societal implications, be it analyzing online user behavior, studying internal corporate processes, evaluating political campaigns, or communicating scientific content — all tasks that are more and more relying on data science techniques (to name just a few). 
+It is easy to recognize the importance of ethics in situations that directly involve life-and-death decisions, such as medical diagnosis or autonomous driving. But ethical issues arise much earlier and much more often than that. They appear whenever data is collected, categorized, analyzed, and used to influence people or institutions. This includes, for example, analyzing online behavior, evaluating job applicants, studying internal company processes, optimizing political campaigns, allocating public resources, or communicating scientific findings.
 
-Let's start with something that might at first appear to come with rather little ethical difficulties: Advertisement!
-After all, what does it really matter if you propose a website user a red or a green pair of shoes?
+A useful starting point is this: data science is never only technical. It always involves choices. What data should be collected? Which patterns matter? Which outcomes should be optimized? Who benefits from a system, and who might be harmed by it? Who is responsible when something goes wrong?
 
-## Let's look at some examples!
+In this sense, ethical reflection in data science often revolves around a few central questions:
+
+* **Privacy and consent**: What data is collected, and did people meaningfully agree to its use?
+* **Fairness and discrimination**: Are some groups systematically disadvantaged?
+* **Transparency and explainability**: Can people understand how decisions are made?
+* **Accountability**: Who is responsible for the consequences of a model or system?
+* **Human oversight**: When should humans remain in control of important decisions?
+* **Societal impact**: How do data-driven systems shape institutions, behavior, and power?
+
+Let us begin with a case that might at first seem rather harmless: advertising.
+After all, what does it really matter if you propose a website user a red or a green pair of shoes, right?
+
+## Let's look at some examples
 
 ### Targeted Advertisement - good, bad, neutral?
 
-Even before the digital revolution, targeted advertising was a commonly used strategy. Businesses would use basic demographic information, such as age, gender, and location, to tailor their messages to specific audiences. However, with the advent of the internet and the surge in digital data, the face of targeted advertising has transformed completely. Today's targeted ads are not just influenced by basic personal features, but are significantly shaped by individual online behaviors, including search histories, website visits, and social media interactions {numref}`fig_advertise01`. This evolution has ushered in a new era of personalized advertising, elevating its precision and relevance to unprecedented levels.
+Even before the digital revolution, targeted advertising was a commonly used strategy. Companies used general demographic information such as age, gender, and location to tailor their messages to different audiences. But with the rise of the internet and digital platforms, targeted advertising has changed fundamentally. Today, ads are often shaped not only by broad demographic categories, but also by detailed behavioral data: search histories, clicks, purchases, browsing patterns, location histories, and social media activity {numref}`fig_advertise01`. 
 
 
 
@@ -21,7 +32,7 @@ Even before the digital revolution, targeted advertising was a commonly used str
 Targeted advertisement can nowadays use much more data and information on a potential customer (here: Alice) when compared to pre-digital times.
 ```
 
-You may already be feeling a touch of unease. Is it truly beneficial for companies or other organizations to have access to all this data? On the flip side, consider this: isn't it a **win/win situation**? Companies can reach a much more suitable audience, and individuals receive advertisements tailored to their profiles and interests. Take, for example, Alice ({numref}`fig_advertise02`). Because of her age (neither too young nor too old), location (within 2 hours of the festival venue), and interests (many likes for Hip-Hop bands), she receives an advertisement for a Hip-Hop festival. This offer is a clear match for her. However, Alice wouldn't get a mail catalog for a package tour operator catering to a different customer profile—typically older and, let's say, less concerned about the carbon emissions of their tours. That's a plus for Alice. And a plus for both companies, isn't it?
+You may already be feeling a touch of unease. Is it truly beneficial for companies or other organizations to have access to all this data? On the flip side, consider this: isn't it a **win/win situation**? Companies reach a more relevant audience, and users receive advertisements that are more closely matched to their interests. Take, for example, Alice ({numref}`fig_advertise02`). Because of her age (neither too young nor too old), location (within 2 hours of the festival venue), and interests (many likes for Hip-Hop bands), she receives an advertisement for a Hip-Hop festival. This offer is a clear match for her. However, Alice wouldn't get a mail catalog for a package tour operator catering to a different customer profile—typically older and, let's say, less concerned about the carbon emissions of their tours. That's a plus for Alice. And a plus for both companies, isn't it?
 
 ```{figure} ../images/fig_targeted_advertisement_02.png
 :name: fig_advertise02
@@ -29,7 +40,9 @@ You may already be feeling a touch of unease. Is it truly beneficial for compani
 In many cases, target advertisement does little harm. It might even seem like a win/win situation at first.
 ```
 
-However, things get a bit more complex when we consider the marketing of more sensitive products. Let's take the example of maternity wear. Suppose a company uses data science to detect early signs of pregnancy, like changes in online shopping behavior. They might then start sending ads for maternity clothes. This could potentially lead to uncomfortable or even harmful situations ({numref}`fig_advertise03`). 
+But even this apparently simple example raises important ethical questions. How much data should companies be allowed to collect? Do users really understand what is being tracked about them? Can personalized advertising become manipulative rather than merely relevant? And what happens when the advertised product or inferred trait is sensitive?
+
+Let's take the example of maternity wear. Suppose a company uses data science to detect early signs of pregnancy, like changes in online shopping behavior. They might then start sending ads for maternity clothes. This could potentially lead to uncomfortable or even harmful situations ({numref}`fig_advertise03`). 
 
 For instance, what if the individual hasn't yet told their family or friends about the pregnancy? [^target-story] Or, in a more distressing scenario, what if the pregnancy is unwanted, or complications arise? In such cases, receiving maternity ads could cause emotional distress. And it's not limited to maternity products; this applies to any sensitive product or service.
 
@@ -43,14 +56,16 @@ And what if the advertisement is not a product in a classical sense, but a high-
 
 ### From Consumer Preferences to Career Opportunities
 
-The leap from targeted product advertisements to job ads might seem minor at first glance, but it signifies a profound shift in impact.  While targeted ads for products and services primarily affect consumer choices and privacy, targeted job advertisements can shape an individual's career trajectory and financial stability. Consider a study using AdFisher, an automated tool designed to scrutinize the interplay between user behavior, Google ads, and the Ad Settings that Google provides for user control and transparency {cite}`datta2015automated`. During the course of the research, it was discovered that modifying the user profile to 'female' resulted in fewer advertisements for high-paying jobs compared to when it was set to 'male' ({numref}`fig_advertise04`). Such discrepancies underscore the potential for digital platforms to  perpetuate or even exacerbate societal inequalities, inadvertently gatekeeping opportunities based on demographics rather than merit.
+The step from product advertisements to job advertisements may seem small, but the consequences are much more serious. While consumer ads influence what people might buy, job ads can influence people’s professional opportunities, financial situation, and long-term career paths.
+
+A well-known study using the AdFisher tool examined how online advertising systems responded to different user profiles and found that setting a profile to "female" led to fewer ads for high-paying jobs than setting it to "male" {cite}`datta2015automated` ({numref}`fig_advertise04`). This is ethically significant because it can maintain, or even strengthen, existing societal inequalities, inadvertently gatekeeping opportunities based on demographics rather than merit.
 
 This issue of algorithmic bias in job advertising is not an isolated phenomenon. It echoes a broader concern about how data science applications can affect fundamental aspects of people's lives, including their professional opportunities. When algorithms trained on historical data inherit past biases, they risk perpetuating those biases, thus highlighting the ethical imperative for transparency, fairness, and accountability in their development and deployment.
 
 ```{figure} ../images/fig_targeted_advertisement_04.png
 :name: fig_advertise04
 
-Advertisements can have potentially large impacts... for instance, if we talk about job advertisements. 
+If we talk about job advertisements, it should immediately become clearer that this advertisement game can quickly become more serious than only to propose a new pair of shoes. 
 ```
 
 A similar study examined Facebook's ad delivery process, revealing another layer of potential algorithmic discrimination {cite}`Ali_2019`. The research indicated that, even when advertisers aim for inclusivity in their targeting parameters, the optimization processes employed by Facebook could inadvertently skew ad delivery along gender and racial lines. This was particularly evident in advertisements for employment and housing opportunities. As such, these findings underline the importance of scrutinizing not just the algorithms behind data analytics but also the optimization mechanisms of digital platforms themselves, further emphasizing the role data scientists must play in promoting fairness and preventing discrimination.
@@ -105,7 +120,7 @@ There are many great resources to dig deeper into the topic of ethics and data s
 
 ### Objective:
 
-This exercise is designed to engage participants in a thoughtful discussion about the ethical implications of data science applications across various domains. By working in small groups, you'll explore real-world scenarios where data science intersects with ethical considerations, fostering a deeper understanding of the responsibilities that accompany the power of data analytics.
+This exercise is designed to help you discuss and reflect on the ethical implications of data science in different domains. Working in small groups, you will examine a concrete application area and identify possible ethical tensions, risks, and responsibilities.
 
 ### Instructions:
 
