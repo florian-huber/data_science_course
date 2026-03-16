@@ -23,58 +23,58 @@ project:
       template: plain_latex_book
       output: exports/book.pdf
   toc:
-    - file: book\cover.md
+    - file: book/cover.md
     - title: Introduction
       children:
-        - file: book\01_intro.md
-        - file: book\02_what_is_data_science.md
-        - file: book\03_data_science_ethics_society.md
-        - file: book\04_use_of_this_book.md
+        - file: book/01_intro.md
+        - file: book/02_what_is_data_science.md
+        - file: book/03_data_science_ethics_society.md
+        - file: book/04_use_of_this_book.md
     - title: Data Science Basics
       children:
-        - file: book\05_data_and_types.md
-        - file: book\06_data_information_knowledge.md
-        - file: book\07_data_science_workflow.md
+        - file: book/05_data_and_types.md
+        - file: book/06_data_information_knowledge.md
+        - file: book/07_data_science_workflow.md
     - title: Data Acquisition and First Exploration
       children:
-        - file: book\08_data_acquisition_and_preparation.md
-        - file: notebooks\09_data_preparation.ipynb
-        - file: notebooks\10_distributions_statistical_measures.ipynb
+        - file: book/08_data_acquisition_and_preparation.md
+        - file: notebooks/09_data_preparation.ipynb
+        - file: notebooks/10_distributions_statistical_measures.ipynb
     - title: In-depth Data Exploration
       children:
-        - file: notebooks\11_correlation_analysis.ipynb
-        - file: notebooks\12_clustering.ipynb
-        - file: notebooks\13_introduction_outlier_detection.ipynb
-        - file: notebooks\14_dimensionality_reduction.ipynb
+        - file: notebooks/11_correlation_analysis.ipynb
+        - file: notebooks/12_clustering.ipynb
+        - file: notebooks/13_introduction_outlier_detection.ipynb
+        - file: notebooks/14_dimensionality_reduction.ipynb
     - title: Supervised Machine Learning
       children:
-        - file: notebooks\15_machine_learning.ipynb
-        - file: notebooks\16_machine_learning_algorithms.ipynb
-        - file: notebooks\17_machine_learning_algorithms_2.ipynb
-        - file: notebooks\18_machine_learning_algorithms_3.ipynb
-        - file: notebooks\19_machine_learning_techniques.ipynb
-        - file: notebooks\20_machine_learning_ensembles.ipynb
+        - file: notebooks/15_machine_learning.ipynb
+        - file: notebooks/16_machine_learning_algorithms.ipynb
+        - file: notebooks/17_machine_learning_algorithms_2.ipynb
+        - file: notebooks/18_machine_learning_algorithms_3.ipynb
+        - file: notebooks/19_machine_learning_techniques.ipynb
+        - file: notebooks/20_machine_learning_ensembles.ipynb
     - title: Working with Text Data
       children:
-        - file: notebooks\21_working_with_text_data.ipynb
-        - file: notebooks\22_NLP_2_tokenization.ipynb
-        - file: notebooks\23_NLP_3_tfifd_and_machine_learning.ipynb
-        - file: notebooks\24_NLP_4_ngrams_word_vectors.ipynb
+        - file: notebooks/21_working_with_text_data.ipynb
+        - file: notebooks/22_NLP_2_tokenization.ipynb
+        - file: notebooks/23_NLP_3_tfifd_and_machine_learning.ipynb
+        - file: notebooks/24_NLP_4_ngrams_word_vectors.ipynb
     - title: Look at the Networks
       children:
-        - file: notebooks\25_graphs.ipynb
-        - file: notebooks\26_graph_visualization.ipynb
-        - file: notebooks\27_graphs_communities.ipynb
+        - file: notebooks/25_graphs.ipynb
+        - file: notebooks/26_graph_visualization.ipynb
+        - file: notebooks/27_graphs_communities.ipynb
     - title: Next Steps
       children:
-        - file: notebooks\outlook.ipynb
+        - file: notebooks/outlook.ipynb
     - title: References
       children:
-        - file: book\acknowledgements.md
-        - file: book\bibliography.ipynb
+        - file: book/acknowledgements.md
+        - file: book/bibliography.ipynb
     - title: Source Code and Contributions
       children:
-        - file: book\github.md
+        - file: book/github.md
 site:
   options:
     logo: images/data_science_cover_illustration_logo.png
