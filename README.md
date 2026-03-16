@@ -10,7 +10,7 @@
 Data Science course developed at the Düsseldorf University of Applied Sciences (HSD) and the Centre for Digitalization and Digitality (ZDD).
 
 ## Access the online version of this book:
-For the rendered book use [this link](https://florian-huber.github.io/data_science_course/book/cover.html)!
+For the rendered book use [this link](https://florian-huber.github.io/data_science_course/)!
 
 ## Citation & pdf version of this book:
 A pdf version of this book can be found [on zenodo](https://zenodo.org/records/10074474)
