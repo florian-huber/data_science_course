@@ -78,5 +78,6 @@ project:
 site:
   options:
     logo: images/data_science_cover_illustration_logo.png
+    favicon: images/favicon.ico
     folders: true
   template: book-theme
