@@ -46,7 +46,7 @@ project:
         - file: notebooks/12_clustering.ipynb
         - file: notebooks/13_introduction_outlier_detection.ipynb
         - file: notebooks/14_dimensionality_reduction.ipynb
-    - title: Supervised Machine Learning
+    - title: Supervised Machine Learning (Basics)
       children:
         - file: notebooks/15_machine_learning.ipynb
         - file: notebooks/16_machine_learning_algorithms.ipynb
