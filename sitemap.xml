@@ -20,6 +20,9 @@
     <loc>http://localhost:3000/book/data-and-types</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/book/data-acquisition</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/book/data-information-knowledge</loc>
   </url>
   <url>
@@ -89,7 +92,7 @@
     <loc>http://localhost:3000/book/acknowledgements</loc>
   </url>
   <url>
-    <loc>http://localhost:3000/book/bibliography</loc>
+    <loc>http://localhost:3000/book/references</loc>
   </url>
   <url>
     <loc>http://localhost:3000/book/github</loc>
