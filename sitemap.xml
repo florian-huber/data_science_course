@@ -26,9 +26,6 @@
     <loc>http://localhost:3000/book/data-science-workflow</loc>
   </url>
   <url>
-    <loc>http://localhost:3000/book/data-acquisition-and-preparation</loc>
-  </url>
-  <url>
     <loc>http://localhost:3000/notebooks/data-preparation</loc>
   </url>
   <url>
