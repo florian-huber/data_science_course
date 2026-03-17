@@ -36,9 +36,8 @@ project:
         - file: book/06_data_acquisition.md
         - file: book/07_data_information_knowledge.md
         - file: book/08_data_science_workflow.md
-    - title: Data Acquisition and First Exploration
+    - title: First Data Exploration
       children:
-        - file: book/09_data_acquisition_and_preparation.md
         - file: notebooks/09_data_preparation.ipynb
         - file: notebooks/10_distributions_statistical_measures.ipynb
     - title: In-depth Data Exploration
