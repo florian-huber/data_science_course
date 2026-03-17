@@ -71,7 +71,7 @@ project:
     - title: References
       children:
         - file: book/acknowledgements.md
-        - file: book/bibliography.ipynb
+        - file: book/references.md
     - title: Source Code and Contributions
       children:
         - file: book/github.md
