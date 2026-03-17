@@ -30,14 +30,15 @@ project:
         - file: book/02_what_is_data_science.md
         - file: book/03_data_science_ethics_society.md
         - file: book/04_use_of_this_book.md
-    - title: Data Science Basics
+    - title: From Data to Knowledge
       children:
         - file: book/05_data_and_types.md
-        - file: book/06_data_information_knowledge.md
-        - file: book/07_data_science_workflow.md
+        - file: book/06_data_acquisition.md
+        - file: book/07_data_information_knowledge.md
+        - file: book/08_data_science_workflow.md
     - title: Data Acquisition and First Exploration
       children:
-        - file: book/08_data_acquisition_and_preparation.md
+        - file: book/09_data_acquisition_and_preparation.md
         - file: notebooks/09_data_preparation.ipynb
         - file: notebooks/10_distributions_statistical_measures.ipynb
     - title: In-depth Data Exploration
