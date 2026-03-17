@@ -1,3 +1,4 @@
+(ch_ethics)=
 # Data Science, Ethics, and Society
 
 In an increasingly data-driven world, the role of data science extends far beyond pure analysis and prediction. The data we collect, the models we build, and the decisions we support are all connected to ethical questions and broader societal consequences. The power of data science to influence and shape our world is vast, and, as the Spider-Man quote goes: *"with great power comes great responsibility"* ([see wikipedia](https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility)). 
