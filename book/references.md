@@ -94,3 +94,5 @@ This page collects all references cited throughout the book.
 - {cite}`breunig2000lof`
 - {cite}`boukerche2020outlier`
 - {cite}`smiti2020critical`
+- {cite}`linartas_unverdiente_2025`
+- {cite}`zucman_reichensteuer_2026`
