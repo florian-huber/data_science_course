@@ -17,7 +17,7 @@ dependencies:
     - faker
     - gensim>=4.3.3
     - jupyter
-    - juyterlab_myst
+    - jupyterlab_myst
     - matplotlib
     - networkx
     - nltk
