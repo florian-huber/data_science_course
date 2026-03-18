@@ -1,3 +1,4 @@
+(ch-data-to-knowledge)=
 # Data - Information - Knowledge
 
 In {numref}`ch_data_acquisition` we just made an effort to collect our own data. What comes next?
