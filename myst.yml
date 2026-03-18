@@ -1,8 +1,6 @@
 version: 1
 project:
   title: Hands-on Introduction to Data Science with Python
-  authors:
-    - name: Florian Huber
   copyright: '2025'
   exclude:
     - _build
