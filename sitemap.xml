@@ -41,6 +41,9 @@
     <loc>http://localhost:3000/notebooks/clustering</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/notebooks/b-clustering-beyond-the-basics</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/notebooks/introduction-outlier-detection</loc>
   </url>
   <url>
