@@ -42,6 +42,7 @@ project:
       children:
         - file: notebooks/11_correlation_analysis.ipynb
         - file: notebooks/12_clustering.ipynb
+        - file: notebooks/12b_clustering_beyond_the_basics.ipynb
         - file: notebooks/13_introduction_outlier_detection.ipynb
         - file: notebooks/14_dimensionality_reduction.ipynb
     - title: Supervised Machine Learning (Basics)

@@ -14,6 +14,7 @@ dependencies:
   - tqdm
   - pytest
   - pip:
+    - colormaps
     - faker
     - gensim>=4.3.3
     - jupyter
@@ -24,5 +25,4 @@ dependencies:
     - plotly
     - pyvis
     - scipy>=1.8.0
-    - squarify
     - umap-learn

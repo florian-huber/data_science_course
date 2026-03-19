@@ -9,3 +9,4 @@ datasets/tripadvisor_hotel_reviews.csv
 notebooks/word2vec_madrid_reviews.model
 
 lib/
+exports/
