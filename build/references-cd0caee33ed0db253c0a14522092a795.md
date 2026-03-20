@@ -96,3 +96,6 @@ This page collects all references cited throughout the book.
 - {cite}`smiti2020critical`
 - {cite}`linartas_unverdiente_2025`
 - {cite}`zucman_reichensteuer_2026`
+- {cite}`diez_openintro_2022`
+- {cite}`heumann_introduction_2022`
+- {cite}`lista_statistical_2023`
