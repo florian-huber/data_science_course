@@ -1,4 +1,4 @@
-[![Jupyter Book Badge](https://img.shields.io/badge/jupyter-book-orange?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAZCAMAAAAVHr4VAAAAXVBMVEX////v7+/zdybv7+/zdybv7+/zdybv7+/zdybv7+/zdybv7+/zdybv7+/zdybv7+/zdybv7+/zdybv7+/v7+/zdybv7+/zdybv7+/v7+/zdybv7+/zdybv7+/zdyaSmqV2AAAAHXRSTlMAEBAgIDAwQEBQUGBgcHCAgJCQoLCwwMDQ4ODw8MDkUIUAAADJSURBVHjaddAFkgNBCAXQP+7uAvc/5tLFVseYF8crUB0560r/5gwvjYYm8gq8QJoyIJNwlnUH0WEnART6YSezV6c5tjOTaoKdfGXtnclFlEBEXVd8JzG4pa/LDql9Jff/ZCC/h2zSqF5bzf4vqkgNwEzeClUd8uMadLE6OnhBFsES5niQh2BOYUqZsfGdmrmbN+TMvPROHUOkde8sEs6Bnr0tDDf2Roj6fmVfubuGyttejCeLc+xFm+NLuLnJeFAyl3gS932MF/wBoukfUcwI05kAAAAASUVORK5CYII=)](https://florian-huber.github.io/data_science_course/)
+[![Link Badge](https://img.shields.io/badge/free_online_book-link-teal?style=flat)](https://florian-huber.github.io/data_science_course/)
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/florian-huber/data_science_course/deploy_book.yml?label=Deploy%20book)
 ![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/florian-huber/data_science_course/CI_tests.yml)
 
@@ -37,12 +37,5 @@ This should create a Python 3.12 environment with the packages listed in the yam
 
 ## Build book locally
 
-The current book project is meant to be generated using [*Jupyter Book*](https://jupyterbook.org). Once installed run the following terminal command from the cloned folder:
-```
-jupyter-book build --html
-```
-
-One option for creating a pdf of the entire book is:
-```
-jupyter-book build --builder pdflatex
+The current book project is meant to be generated using [*Sphinx*]([https://jupyterbook.org](https://www.sphinx-doc.org/en/master/index.html)). More instructions will follow.
 ```
