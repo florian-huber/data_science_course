@@ -47,6 +47,10 @@ html_theme_options = {
 # Notebook behavior
 nb_execution_mode = "cache"
 
+html_js_files = [
+    "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"
+]
+
 # Optional MyST features
 myst_enable_extensions = [
     "colon_fence",
