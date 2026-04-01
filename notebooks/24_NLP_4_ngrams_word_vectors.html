@@ -150,14 +150,11 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../index.html">
-                    <no title>
+                    Hands-on Introduction to Data Science with Python
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../book/cover.html">Hands-on Introduction to Data Science with Python</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../book/01_intro.html">Introduction to this book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../book/02_what_is_data_science.html">What is Data Science?</a></li>
@@ -609,36 +606,19 @@ Bigrams (or 2-grams) would not catch those differences. However, they can be hel
 <span class="g g-Whitespace">   </span><span class="mi">1255</span>         <span class="ow">or</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_decoder</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decoder</span><span class="o">.</span><span class="n">has_unconsumed_tail</span><span class="p">)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1256</span>     <span class="p">):</span>
 
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.12/site-packages/urllib3/response.py:1421,</span> in <span class="ni">HTTPResponse.read_chunked</span><span class="nt">(self, amt, decode_content)</span>
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.12/site-packages/urllib3/response.py:1418,</span> in <span class="ni">HTTPResponse.read_chunked</span><span class="nt">(self, amt, decode_content)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1416</span>     <span class="n">chunk</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1417</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1418</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_update_chunk_length</span><span class="p">()</span>
 <span class="g g-Whitespace">   </span><span class="mi">1419</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_left</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 <span class="g g-Whitespace">   </span><span class="mi">1420</span>         <span class="k">break</span>
-<span class="ne">-&gt; </span><span class="mi">1421</span>     <span class="n">chunk</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_handle_chunk</span><span class="p">(</span><span class="n">amt</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1422</span> <span class="n">decoded</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_decode</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1423</span>     <span class="n">chunk</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1424</span>     <span class="n">decode_content</span><span class="o">=</span><span class="n">decode_content</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1425</span>     <span class="n">flush_decoder</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1426</span>     <span class="n">max_length</span><span class="o">=</span><span class="n">amt</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1427</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1428</span> <span class="k">if</span> <span class="n">decoded</span><span class="p">:</span>
 
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.12/site-packages/urllib3/response.py:1354,</span> in <span class="ni">HTTPResponse._handle_chunk</span><span class="nt">(self, amt)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1352</span>     <span class="bp">self</span><span class="o">.</span><span class="n">chunk_left</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">1353</span> <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_left</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">amt</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_left</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1354</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fp</span><span class="o">.</span><span class="n">_safe_read</span><span class="p">(</span><span class="n">amt</span><span class="p">)</span>  <span class="c1"># type: ignore[union-attr]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1355</span>     <span class="bp">self</span><span class="o">.</span><span class="n">chunk_left</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_left</span> <span class="o">-</span> <span class="n">amt</span>
-<span class="g g-Whitespace">   </span><span class="mi">1356</span>     <span class="n">returned_chunk</span> <span class="o">=</span> <span class="n">value</span>
-
-<span class="nn">File ~/micromamba/envs/data_science/lib/python3.12/http/client.py:648,</span> in <span class="ni">HTTPResponse._safe_read</span><span class="nt">(self, amt)</span>
-<span class="g g-Whitespace">    </span><span class="mi">641</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Read the number of bytes requested.</span>
-<span class="g g-Whitespace">    </span><span class="mi">642</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">643</span><span class="sd"> This function should be used when &lt;amt&gt; bytes &quot;should&quot; be present for</span>
-<span class="g g-Whitespace">    </span><span class="mi">644</span><span class="sd"> reading. If the bytes are truly not available (due to EOF), then the</span>
-<span class="g g-Whitespace">    </span><span class="mi">645</span><span class="sd"> IncompleteRead exception can be used to detect the problem.</span>
-<span class="g g-Whitespace">    </span><span class="mi">646</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">647</span> <span class="n">cursize</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">amt</span><span class="p">,</span> <span class="n">_MIN_READ_BUF_SIZE</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">648</span> <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">cursize</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">649</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">amt</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">650</span>     <span class="k">return</span> <span class="n">data</span>
+<span class="nn">File ~/micromamba/envs/data_science/lib/python3.12/site-packages/urllib3/response.py:1333,</span> in <span class="ni">HTTPResponse._update_chunk_length</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1331</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">chunk_left</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1332</span>     <span class="k">return</span> <span class="kc">None</span>
+<span class="ne">-&gt; </span><span class="mi">1333</span> <span class="n">line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fp</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>  <span class="c1"># type: ignore[union-attr]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1334</span> <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="g g-Whitespace">   </span><span class="mi">1335</span> <span class="k">try</span><span class="p">:</span>
 
 <span class="nn">File ~/micromamba/envs/data_science/lib/python3.12/socket.py:720,</span> in <span class="ni">SocketIO.readinto</span><span class="nt">(self, b)</span>
 <span class="g g-Whitespace">    </span><span class="mi">718</span> <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
@@ -2424,7 +2404,7 @@ By Florian Huber
 
   <p class="copyright">
     
-      © Copyright 2025, Florian Huber.
+      © Copyright 2026, Florian Huber.
       <br/>
     
   </p>
