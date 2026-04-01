@@ -37,12 +37,5 @@ This should create a Python 3.12 environment with the packages listed in the yam
 
 ## Build book locally
 
-The current book project is meant to be generated using [*Jupyter Book*](https://jupyterbook.org). Once installed run the following terminal command from the cloned folder:
-```
-jupyter-book build --html
-```
-
-One option for creating a pdf of the entire book is:
-```
-jupyter-book build --builder pdflatex
+The current book project is meant to be generated using [*Sphinx*]([https://jupyterbook.org](https://www.sphinx-doc.org/en/master/index.html)). More instructions will follow.
 ```
