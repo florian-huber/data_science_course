@@ -76,7 +76,9 @@ project:
         - file: book/github.md
 site:
   options:
-    logo: images/data_science_cover_illustration_logo.png
-    favicon: images/favicon.ico
+    logo: public/data_science_cover_illustration_logo.png
+    logo_text: ""
+    favicon: public/favicon.ico
     folders: true
+    style: public/book-overrides.css
   template: book-theme
