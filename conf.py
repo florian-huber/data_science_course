@@ -1,10 +1,11 @@
 project = "Hands-on Introduction to Data Science with Python"
 author = "Florian Huber"
-copyright = "2025, Florian Huber"
+copyright = "2026, Florian Huber"
 
 extensions = [
     "myst_nb",
     "sphinxcontrib.bibtex",
+    "sphinx.ext.githubpages",
 ]
 
 source_suffix = {
