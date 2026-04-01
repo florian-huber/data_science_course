@@ -1,4 +1,4 @@
-<img src="../_static/data_science_cover_illustration.png" alt="cover image"/>
+<img src="_static/data_science_cover_illustration.png" alt="cover data science book"/>
 
 # Hands-on Introduction to Data Science with Python
 
