@@ -1,6 +1,6 @@
-<img src="../images/data_science_cover_illustration.png" alt="cover image"/>
+<img src="../_static/data_science_cover_illustration.png" alt="cover image"/>
 
-## Hands-on Introduction to Data Science with Python
+# Hands-on Introduction to Data Science with Python
 
 **by Florian Huber**
 
