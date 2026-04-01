@@ -45,7 +45,7 @@ html_theme_options = {
 }
 
 # Notebook behavior
-nb_execution_mode = "off"
+nb_execution_mode = "cache"
 
 # Optional MyST features
 myst_enable_extensions = [
