@@ -1,0 +1,660 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Data Science, Ethics, and Society &#8212; Hands-on Introduction to Data Science with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/03_data_science_ethics_society';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="How to use this book (… if you ask us)" href="04_use_of_this_book.html" />
+    <link rel="prev" title="What is Data Science?" href="02_what_is_data_science.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-light" alt="Hands-on Introduction to Data Science with Python - Home"/>
+    <img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-dark pst-js-only" alt="Hands-on Introduction to Data Science with Python - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="cover.html">Hands-on Introduction to Data Science with Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_intro.html">Introduction to this book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_what_is_data_science.html">What is Data Science?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Science, Ethics, and Society</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_use_of_this_book.html">How to use this book (… if you ask us)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">From Data to Knowledge</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="05_data_and_types.html">Data and Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_data_acquisition.html">Data Acquisition – Where Do We Get Our Data?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_data_information_knowledge.html">Data - Information - Knowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_data_science_workflow.html">Data Science Workflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">First Data Exploration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/09_data_preparation.html">Data Cleaning and Preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/10_distributions_statistical_measures.html">Statistical Measures and Distributions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth Data Exploration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/11_correlation_analysis.html">Correlation Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/12_clustering.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/12b_clustering_beyond_the_basics.html">Clustering beyond the basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/13_introduction_outlier_detection.html">Outlier Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/14_dimensionality_reduction.html">Dimensionality Reduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning (Basics)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/15_machine_learning.html">Supervised Machine Learning - Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/16_machine_learning_algorithms.html">Common Algorithms - k-Nearest Neighbors (k-NN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/17_machine_learning_algorithms_2.html">Common Algorithms II - Linear Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/18_machine_learning_algorithms_3.html">Common Algorithms III - Decision Trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/19_machine_learning_techniques.html">Supervised Machine Learning - Key Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/20_machine_learning_ensembles.html">Ensemble Models and Outlook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Text Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/21_working_with_text_data.html">Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/22_NLP_2_tokenization.html">NLP - Basic Techniques to Analyze Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/23_NLP_3_tfifd_and_machine_learning.html">Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/24_NLP_4_ngrams_word_vectors.html">Beyond Counting Individual Words: N-grams</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the Networks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/25_graphs.html">Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/26_graph_visualization.html">Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/27_graphs_communities.html">Bottlenecks, Hubs, Communities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Next Steps</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/outlook.html">What are the next steps?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">Complete Bibliography</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="github.html">Source Code on GitHub</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/florian-huber/data_science_course" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/book/03_data_science_ethics_society.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data Science, Ethics, and Society</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-look-at-some-examples">Let’s look at some examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#targeted-advertisement-good-bad-neutral">Targeted Advertisement - good, bad, neutral?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-consumer-preferences-to-career-opportunities">From Consumer Preferences to Career Opportunities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beyond-the-job-market-high-stakes-algorithmic-decision-making">Beyond the Job Market: High-Stakes Algorithmic Decision-Making</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-science-is-tied-to-ethical-considerations">Data Science is tied to ethical considerations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continue-reading">Continue reading!</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-exercise-get-a-sense-of-the-wide-range-of-ethical-implications">Group Exercise - get a sense of the wide range of ethical implications!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objective">Objective:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">Instructions:</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="data-science-ethics-and-society">
+<span id="ch-ethics"></span><h1>Data Science, Ethics, and Society<a class="headerlink" href="#data-science-ethics-and-society" title="Link to this heading">#</a></h1>
+<p>In an increasingly data-driven world, the role of data science extends far beyond pure analysis and prediction. The data we collect, the models we build, and the decisions we support are all connected to ethical questions and broader societal consequences. The power of data science to influence and shape our world is vast, and, as the Spider-Man quote goes: <em>“with great power comes great responsibility”</em> (<a class="reference external" href="https://en.wikipedia.org/wiki/With_great_power_comes_great_responsibility">see wikipedia</a>).</p>
+<p>It is easy to recognize the importance of ethics in situations that directly involve life-and-death decisions, such as medical diagnosis or autonomous driving. But ethical issues arise much earlier and much more often than that. They appear whenever data is collected, categorized, analyzed, and used to influence people or institutions. This includes, for example, analyzing online behavior, evaluating job applicants, studying internal company processes, optimizing political campaigns, allocating public resources, or communicating scientific findings.</p>
+<p>A useful starting point is this: data science is never only technical. It always involves choices. What data should be collected? Which patterns matter? Which outcomes should be optimized? Who benefits from a system, and who might be harmed by it? Who is responsible when something goes wrong?</p>
+<p>In this sense, ethical reflection in data science often revolves around a few central questions:</p>
+<ul class="simple">
+<li><p><strong>Privacy and consent</strong>: What data is collected, and did people meaningfully agree to its use?</p></li>
+<li><p><strong>Fairness and discrimination</strong>: Are some groups systematically disadvantaged?</p></li>
+<li><p><strong>Transparency and explainability</strong>: Can people understand how decisions are made?</p></li>
+<li><p><strong>Accountability</strong>: Who is responsible for the consequences of a model or system?</p></li>
+<li><p><strong>Human oversight</strong>: When should humans remain in control of important decisions?</p></li>
+<li><p><strong>Societal impact</strong>: How do data-driven systems shape institutions, behavior, and power?</p></li>
+</ul>
+<p>Let us begin with a case that might at first seem rather harmless: advertising.
+After all, what does it really matter if you propose a website user a red or a green pair of shoes, right?</p>
+<section id="let-s-look-at-some-examples">
+<h2>Let’s look at some examples<a class="headerlink" href="#let-s-look-at-some-examples" title="Link to this heading">#</a></h2>
+<section id="targeted-advertisement-good-bad-neutral">
+<h3>Targeted Advertisement - good, bad, neutral?<a class="headerlink" href="#targeted-advertisement-good-bad-neutral" title="Link to this heading">#</a></h3>
+<p>Even before the digital revolution, targeted advertising was a commonly used strategy. Companies used general demographic information such as age, gender, and location to tailor their messages to different audiences. But with the rise of the internet and digital platforms, targeted advertising has changed fundamentally. Today, ads are often shaped not only by broad demographic categories, but also by detailed behavioral data: search histories, clicks, purchases, browsing patterns, location histories, and social media activity <a class="reference internal" href="#fig-advertise01"><span class="std std-numref">Fig. 3</span></a>.</p>
+<figure class="align-default" id="fig-advertise01">
+<img alt="../_images/fig_targeted_advertisement_01.png" src="../_images/fig_targeted_advertisement_01.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Targeted advertisement can nowadays use much more data and information on a potential customer (here: Alice) when compared to pre-digital times.</span><a class="headerlink" href="#fig-advertise01" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>You may already be feeling a touch of unease. Is it truly beneficial for companies or other organizations to have access to all this data? On the flip side, consider this: isn’t it a <strong>win/win situation</strong>? Companies reach a more relevant audience, and users receive advertisements that are more closely matched to their interests. Take, for example, Alice (<a class="reference internal" href="#fig-advertise02"><span class="std std-numref">Fig. 4</span></a>). Because of her age (neither too young nor too old), location (within 2 hours of the festival venue), and interests (many likes for Hip-Hop bands), she receives an advertisement for a Hip-Hop festival. This offer is a clear match for her. However, Alice wouldn’t get a mail catalog for a package tour operator catering to a different customer profile—typically older and, let’s say, less concerned about the carbon emissions of their tours. That’s a plus for Alice. And a plus for both companies, isn’t it?</p>
+<figure class="align-default" id="fig-advertise02">
+<img alt="../_images/fig_targeted_advertisement_02.png" src="../_images/fig_targeted_advertisement_02.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">In many cases, target advertisement does little harm. It might even seem like a win/win situation at first.</span><a class="headerlink" href="#fig-advertise02" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>But even this apparently simple example raises important ethical questions. How much data should companies be allowed to collect? Do users really understand what is being tracked about them? Can personalized advertising become manipulative rather than merely relevant? And what happens when the advertised product or inferred trait is sensitive?</p>
+<p>Let’s take the example of maternity wear. Suppose a company uses data science to detect early signs of pregnancy, like changes in online shopping behavior. They might then start sending ads for maternity clothes. This could potentially lead to uncomfortable or even harmful situations (<a class="reference internal" href="#fig-advertise03"><span class="std std-numref">Fig. 5</span></a>).</p>
+<p>For instance, what if the individual hasn’t yet told their family or friends about the pregnancy? <a class="footnote-reference brackets" href="#target-story" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> Or, in a more distressing scenario, what if the pregnancy is unwanted, or complications arise? In such cases, receiving maternity ads could cause emotional distress. And it’s not limited to maternity products; this applies to any sensitive product or service.</p>
+<figure class="align-default" id="fig-advertise03">
+<img alt="../_images/fig_targeted_advertisement_03.png" src="../_images/fig_targeted_advertisement_03.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">But even advertisements can quickly turn into ethically much more complicated matters.</span><a class="headerlink" href="#fig-advertise03" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>And what if the advertisement is not a product in a classical sense, but a high-paying job?</p>
+</section>
+<section id="from-consumer-preferences-to-career-opportunities">
+<h3>From Consumer Preferences to Career Opportunities<a class="headerlink" href="#from-consumer-preferences-to-career-opportunities" title="Link to this heading">#</a></h3>
+<p>The step from product advertisements to job advertisements may seem small, but the consequences are much more serious. While consumer ads influence what people might buy, job ads can influence people’s professional opportunities, financial situation, and long-term career paths.</p>
+<p>A well-known study using the AdFisher tool examined how online advertising systems responded to different user profiles and found that setting a profile to “female” led to fewer ads for high-paying jobs than setting it to “male” <span id="id2">[<a class="reference internal" href="references.html#id25" title="Amit Datta, Michael Carl Tschantz, and Anupam Datta. Automated experiments on ad privacy settings: a tale of opacity, choice, and discrimination. 2015. arXiv:1408.6491.">Datta <em>et al.</em>, 2015</a>]</span> (<a class="reference internal" href="#fig-advertise04"><span class="std std-numref">Fig. 6</span></a>). This is ethically significant because it can maintain, or even strengthen, existing societal inequalities, inadvertently gatekeeping opportunities based on demographics rather than merit.</p>
+<p>This issue of algorithmic bias in job advertising is not an isolated phenomenon. It echoes a broader concern about how data science applications can affect fundamental aspects of people’s lives, including their professional opportunities. When algorithms trained on historical data inherit past biases, they risk perpetuating those biases, thus highlighting the ethical imperative for transparency, fairness, and accountability in their development and deployment.</p>
+<figure class="align-default" id="fig-advertise04">
+<img alt="../_images/fig_targeted_advertisement_04.png" src="../_images/fig_targeted_advertisement_04.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">If we talk about job advertisements, it should immediately become clearer that this advertisement game can quickly become more serious than only to propose a new pair of shoes.</span><a class="headerlink" href="#fig-advertise04" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>A similar study examined Facebook’s ad delivery process, revealing another layer of potential algorithmic discrimination <span id="id3">[<a class="reference internal" href="references.html#id2" title="Muhammad Ali, Piotr Sapiezynski, Miranda Bogen, Aleksandra Korolova, Alan Mislove, and Aaron Rieke. Discrimination through optimization. Proceedings of the ACM on Human-Computer Interaction, 3(CSCW):1–30, nov 2019. URL: https://doi.org/10.1145%2F3359301, doi:10.1145/3359301.">Ali <em>et al.</em>, 2019</a>]</span>. The research indicated that, even when advertisers aim for inclusivity in their targeting parameters, the optimization processes employed by Facebook could inadvertently skew ad delivery along gender and racial lines. This was particularly evident in advertisements for employment and housing opportunities. As such, these findings underline the importance of scrutinizing not just the algorithms behind data analytics but also the optimization mechanisms of digital platforms themselves, further emphasizing the role data scientists must play in promoting fairness and preventing discrimination.</p>
+<p>Algorithms that preferentially select certain groups of people for jobs (or housing ads), make it fairly obvious that those applications have a strong the ethical dimension. But we can still go a few steps further to even more drastic examples. For this, let’s move away from targeted advertisements. Data Science algorithms have also been used in the past to help with the actual selection of candidates for job vacancies, for instance, Facebook <span id="id4">[<a class="reference internal" href="references.html#id50" title="Reuters. Amazon scraps secret AI recruiting tool that showed bias against women. October 2018. URL: https://www.reuters.com/article/us-amazon-com-jobs-automation-insight-idUSKCN1MK08G (visited on 2023-06-05).">Reuters, 2018</a>]</span>. And it turned out that due to several flaws and biases in the data (most developers are male), this algorithm had learned to also prefer male candidates over female candidates.</p>
+</section>
+<section id="beyond-the-job-market-high-stakes-algorithmic-decision-making">
+<h3>Beyond the Job Market: High-Stakes Algorithmic Decision-Making<a class="headerlink" href="#beyond-the-job-market-high-stakes-algorithmic-decision-making" title="Link to this heading">#</a></h3>
+<p>The transition from the job market to even more critical uses of algorithms illustrates the expanding ethical horizon that data scientists must navigate. A stark example of this is found in the use of algorithms in the judicial system, such as the COMPAS software <span id="id5">[<a class="reference internal" href="references.html#id58" title="Kirsten Martin. Ethical Implications and Accountability of Algorithms. Journal of Business Ethics, 160(4):835–850, December 2019. URL: https://doi.org/10.1007/s10551-018-3921-3 (visited on 2023-06-09), doi:10.1007/s10551-018-3921-3.">Martin, 2019</a>]</span><span id="id6">[<a class="reference internal" href="references.html#id5" title="Solon Barocas and Andrew D. Selbst. Big Data's Disparate Impact. California Law Review, 104(3):671–732, 2016. Publisher: California Law Review, Inc. URL: https://www.jstor.org/stable/24758720 (visited on 2023-06-09).">Barocas and Selbst, 2016</a>]</span> that is used to predict the risk of recidivism for people that stand trial and hence influences if those people get released on bail or not. The stakes in this context are incomparably higher, as the outcomes directly impact individuals’ liberty and societal perceptions of justice.</p>
+<figure class="align-default" id="fig-ethics-examples">
+<img alt="../_images/fig_algorithm_ethics.png" src="../_images/fig_algorithm_ethics.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">In several actual cases, algorithms were (and are) used for decisions with very severe personal consequences.</span><a class="headerlink" href="#fig-ethics-examples" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The ethical scrutiny for algorithms like COMPAS is intense, primarily because they touch upon core values of fairness and equity. Despite being designed  to aid in decision-making, there often is a high risk for amplification of existing  prejudices. This raises profound ethical questions about reliance on algorithmic judgments in life-altering decisions and underscores the need for rigorous oversight, transparency, and ethical accountability in their design and application. But it also raises questions on where, how -as well as whether or not- we want to apply certain algorithms in important decision making processes.</p>
+</section>
+</section>
+<section id="data-science-is-tied-to-ethical-considerations">
+<h2>Data Science is tied to ethical considerations<a class="headerlink" href="#data-science-is-tied-to-ethical-considerations" title="Link to this heading">#</a></h2>
+<p>As we journey from the relatively straightforward domain of targeted  advertising to the complex and consequential realms of employment  discrimination and judicial decision-making, it becomes evident that the ethical implications of data science are profound and pervasive. Each  application area brings its own set of ethical challenges, demanding a  nuanced understanding and thoughtful consideration from data scientists.</p>
+<p>It is crucial to understand that, from an ethical standpoint, <strong>data is not neutral</strong> <span id="id7">[<a class="reference internal" href="references.html#id100" title="Catherine D'Ignazio and Lauren F. Klein. Data feminism. &lt;Strong&gt; ideas series. The MIT Press, Cambridge, Massachusetts ; London, England, 2020. ISBN 978-0-262-04400-4.">D'Ignazio and Klein, 2020</a>]</span>, and likewise, <strong>algorithms are not neutral</strong> <span id="id8">[<a class="reference internal" href="references.html#id58" title="Kirsten Martin. Ethical Implications and Accountability of Algorithms. Journal of Business Ethics, 160(4):835–850, December 2019. URL: https://doi.org/10.1007/s10551-018-3921-3 (visited on 2023-06-09), doi:10.1007/s10551-018-3921-3.">Martin, 2019</a>]</span><span id="id9">[<a class="reference internal" href="references.html#id89" title="C. Stinson. Algorithms are not neutral. AI Ethics, 2:763–770, 2022. doi:10.1007/s43681-022-00136-w.">Stinson, 2022</a>]</span><span id="id10">[<a class="reference internal" href="references.html#id30" title="Sina Fazelpour and David Danks. Algorithmic bias: Senses, sources, solutions. Philosophy Compass, 16(8):e12760, 2021. _eprint: https://onlinelibrary.wiley.com/doi/pdf/10.1111/phc3.12760. URL: https://onlinelibrary.wiley.com/doi/abs/10.1111/phc3.12760 (visited on 2023-06-09), doi:10.1111/phc3.12760.">Fazelpour and Danks, 2021</a>]</span>. As (future) data scientists, we must exercise the utmost care when working with data and algorithms. The examples provided should illustrate the importance of critically reflecting on the intentions behind our actions as data scientists. This reflection should encompass various perspectives to comprehend the “bigger picture”. For instance, Shoshana Zuboff’s “The Age of Surveillance Capitalism” <span id="id11">[<a class="reference internal" href="references.html#id101" title="Shoshana Zuboff. The Age of Surveillance Capitalism: The Fight for a Human Future at the New Frontier of Power. Profile Books, 1st edition, 2019. ISBN 9781781256848.">Zuboff, 2019</a>]</span> delves into how corporations like Google leverage users’ personal data, or “behavioral surplus”, to customize advertisements, essentially transforming users into products. Zuboff criticizes this practice, asserting that it undermines individuals’ autonomy and capacity to influence their future. She proposes regulations and corporate accountability to ensure that technology benefits users rather than merely serving large corporations. Hence, the fact that we, as data scientists, <em>can</em> potentially extract maximum information or yield the “best” predictions from data does not mean we <em>should</em> do so.</p>
+<p>A very important aspect in this context is the question of accountability, so who is in the end responsible for decisions taken by (or based on) an algorithm, for instance <span id="id12">[<a class="reference internal" href="references.html#id58" title="Kirsten Martin. Ethical Implications and Accountability of Algorithms. Journal of Business Ethics, 160(4):835–850, December 2019. URL: https://doi.org/10.1007/s10551-018-3921-3 (visited on 2023-06-09), doi:10.1007/s10551-018-3921-3.">Martin, 2019</a>]</span>. Most data scientists are no trained ethicists and lawyers, and they also don’t have to be. But I hope that the ethical aspects we briefly touch upon in this chapter make clear, that our role as data scientists is not finished when we have working code and a pretty-looking plot in the end. It is not finished if we trained a machine-learning model that predicts with 99.9% accuracy (what does that mean anyway…). It is not finished when we successfully published our results or got a clap on our shoulders from the upper management. Our core job <strong>includes</strong> the ethical component, we have the duty to reflect on the potential consequences of our work. And this means that we should not only learn how to apply so many different data science methods, but also we need to learn enough about those methods to judge why we use a certain method and what common pitfalls are that we need to test and take care of. Luckily, making this extra effort will also technically make us better data scientists.</p>
+<p>How do you feel now? Sounds like a heavy burden? Sure. But remember the wisdom of Spider-Man:</p>
+<blockquote>
+<div><p><strong>With great power comes great responsibility!</strong></p>
+</div></blockquote>
+<section id="continue-reading">
+<h3>Continue reading!<a class="headerlink" href="#continue-reading" title="Link to this heading">#</a></h3>
+<p>There are many great resources to dig deeper into the topic of ethics and data science. Here are just a few suggestions.</p>
+<ul class="simple">
+<li><p><strong>“Fairness and Machine Learning: Limitations and Opportunities” by Solon Barocas, Moritz Hardt, and Arvind Narayanan</strong><br />
+This accessible online resource (freely available book, but also videos and materials, see <a class="reference external" href="https://fairmlbook.org/">here</a>) provides an in-depth look at the challenges and opportunities for ensuring fairness in machine learning systems. It’s an excellent primer for data scientists interested in developing algorithms that avoid perpetuating biases.
+<span id="id13">[<a class="reference internal" href="references.html#id6" title="Solon Barocas, Moritz Hardt, and Arvind Narayanan. Fairness and Machine Learning: Limitations and Opportunities. MIT Press, 2023.">Barocas <em>et al.</em>, 2023</a>]</span></p></li>
+<li><p><strong>“Weapons of Math Destruction” by Cathy O’Neil</strong><br />
+This book provides a critical look at how big data algorithms can increase inequality and threaten democracy. O’Neil explores a variety of case studies where algorithms have had profound negative effects on people’s lives, making it an essential read for understanding the societal impacts of data science.
+<span id="id14">[<a class="reference internal" href="references.html#id71" title="Cathy O'neil. Weapons of math destruction: How big data increases inequality and threatens democracy. Crown, 2017.">O'neil, 2017</a>]</span></p></li>
+<li><p><strong>Ethics and Data Science (Mike Loukides, Hilary Mason, and DJ Patil on O’Reilly Media)</strong><br />
+A concise, practical handbook that offers a framework for ethical decision making in data science projects. It includes case studies, guidelines, and exercises to help practitioners incorporate ethical considerations into their workflows.
+<span id="id15">[<a class="reference internal" href="references.html#id55" title="Mike Loukides, Hilary Mason, and D. J. Patil. Ethics and Data Science. O'Reilly Media, 1st edition edition, July 2018.">Loukides <em>et al.</em>, 2018</a>]</span></p></li>
+</ul>
+</section>
+</section>
+<section id="group-exercise-get-a-sense-of-the-wide-range-of-ethical-implications">
+<h2>Group Exercise - get a sense of the wide range of ethical implications!<a class="headerlink" href="#group-exercise-get-a-sense-of-the-wide-range-of-ethical-implications" title="Link to this heading">#</a></h2>
+<section id="objective">
+<h3>Objective:<a class="headerlink" href="#objective" title="Link to this heading">#</a></h3>
+<p>This exercise is designed to help you discuss and reflect on the ethical implications of data science in different domains. Working in small groups, you will examine a concrete application area and identify possible ethical tensions, risks, and responsibilities.</p>
+</section>
+<section id="instructions">
+<h3>Instructions:<a class="headerlink" href="#instructions" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Form Small Groups:</strong> Divide into small groups of 3-5 participants. Each group will select one of the following areas to focus on for their discussion. If there are enough groups, try to ensure that each topic is covered by at least one group.</p></li>
+<li><p><strong>Select a Topic:</strong> Choose one of the following areas for your group’s discussion:</p>
+<ul class="simple">
+<li><p><strong>Analyzing Online User Behavior</strong></p></li>
+<li><p><strong>Studying Internal Corporate Processes</strong></p></li>
+<li><p><strong>Evaluating Political Campaigns</strong></p></li>
+<li><p><strong>Developing Algorithms in Medicine and Research</strong></p></li>
+<li><p><strong>Communicating Scientific Content</strong></p></li>
+</ul>
+</li>
+<li><p><strong>Discussion Points:</strong> For your selected area, consider the following points during your discussion:</p>
+<ul class="simple">
+<li><p><strong>Ethical Dilemmas:</strong> Identify specific ethical dilemmas or concerns that may arise in the application of data science within your chosen area. Consider issues such as privacy, consent, potential for bias, and misuse of data.</p></li>
+<li><p><strong>Impact Assessment:</strong> Discuss the potential impacts (both positive and negative) of these data science applications on individuals, communities, and society at large.</p></li>
+<li><p><strong>Balancing Act:</strong> Reflect on how the benefits of these applications can be balanced with ethical considerations. What measures or safeguards could be implemented to mitigate ethical risks?</p></li>
+<li><p><strong>Creative Solutions:</strong> Propose innovative ideas or strategies that could address or alleviate the identified ethical dilemmas, enhancing the ethical deployment of data science techniques in your chosen area.</p></li>
+</ul>
+</li>
+<li><p><strong>Presentation:</strong> Prepare a brief summary of your group’s discussion, highlighting the key ethical dilemmas, impacts, and proposed solutions or measures. Each group will present their findings to the rest of the participants, fostering a broader conversation about the ethical implications of data science.</p></li>
+<li><p><strong>Group Reflection:</strong> After all presentations, reflect as a larger group on the common themes and unique challenges identified across different domains. Discuss how the principles of ethical data science can be universally applied, and consider the role of data scientists in navigating these ethical landscapes responsibly.</p></li>
+</ol>
+</section>
+</section>
+</section>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="target-story" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>Such a case around a company called “target” <a class="reference external" href="https://www.nytimes.com/2012/02/19/magazine/shopping-habits.htmlmention">appeared in 2012 in the New York Times</a> and was often referred to in debates around the power of “big data” in such a context. Worth noting maybe, that not everyone fully believed the story itself, e.g. this <a class="reference external" href="https://medium.com/&#64;colin.fraser/target-didnt-figure-out-a-teen-girl-was-pregnant-before-her-father-did-a6be13b973a5">blog post</a>.</p>
+</aside>
+</aside>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="02_what_is_data_science.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">What is Data Science?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="04_use_of_this_book.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">How to use this book (… if you ask us)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#let-s-look-at-some-examples">Let’s look at some examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#targeted-advertisement-good-bad-neutral">Targeted Advertisement - good, bad, neutral?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#from-consumer-preferences-to-career-opportunities">From Consumer Preferences to Career Opportunities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beyond-the-job-market-high-stakes-algorithmic-decision-making">Beyond the Job Market: High-Stakes Algorithmic Decision-Making</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-science-is-tied-to-ethical-considerations">Data Science is tied to ethical considerations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continue-reading">Continue reading!</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#group-exercise-get-a-sense-of-the-wide-range-of-ethical-implications">Group Exercise - get a sense of the wide range of ethical implications!</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objective">Objective:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#instructions">Instructions:</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Florian Huber
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Florian Huber.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

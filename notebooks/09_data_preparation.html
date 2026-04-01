@@ -1,0 +1,2132 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Data Cleaning and Preprocessing &#8212; Hands-on Introduction to Data Science with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/09_data_preparation';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Statistical Measures and Distributions" href="10_distributions_statistical_measures.html" />
+    <link rel="prev" title="Data Science Workflow" href="../book/08_data_science_workflow.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-light" alt="Hands-on Introduction to Data Science with Python - Home"/>
+    <img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-dark pst-js-only" alt="Hands-on Introduction to Data Science with Python - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/cover.html">Hands-on Introduction to Data Science with Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/01_intro.html">Introduction to this book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/02_what_is_data_science.html">What is Data Science?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/03_data_science_ethics_society.html">Data Science, Ethics, and Society</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/04_use_of_this_book.html">How to use this book (… if you ask us)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">From Data to Knowledge</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/05_data_and_types.html">Data and Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/06_data_acquisition.html">Data Acquisition – Where Do We Get Our Data?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/07_data_information_knowledge.html">Data - Information - Knowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/08_data_science_workflow.html">Data Science Workflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">First Data Exploration</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Cleaning and Preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_distributions_statistical_measures.html">Statistical Measures and Distributions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth Data Exploration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="11_correlation_analysis.html">Correlation Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_clustering.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12b_clustering_beyond_the_basics.html">Clustering beyond the basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_introduction_outlier_detection.html">Outlier Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_dimensionality_reduction.html">Dimensionality Reduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning (Basics)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="15_machine_learning.html">Supervised Machine Learning - Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_machine_learning_algorithms.html">Common Algorithms - k-Nearest Neighbors (k-NN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_machine_learning_algorithms_2.html">Common Algorithms II - Linear Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_machine_learning_algorithms_3.html">Common Algorithms III - Decision Trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_machine_learning_techniques.html">Supervised Machine Learning - Key Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_machine_learning_ensembles.html">Ensemble Models and Outlook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Text Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="21_working_with_text_data.html">Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_NLP_2_tokenization.html">NLP - Basic Techniques to Analyze Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_NLP_3_tfifd_and_machine_learning.html">Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_NLP_4_ngrams_word_vectors.html">Beyond Counting Individual Words: N-grams</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the Networks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="25_graphs.html">Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_graph_visualization.html">Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="27_graphs_communities.html">Bottlenecks, Hubs, Communities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Next Steps</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="outlook.html">What are the next steps?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/references.html">Complete Bibliography</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/github.html">Source Code on GitHub</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/florian-huber/data_science_course/main?urlpath=lab/tree/notebooks/09_data_preparation.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/florian-huber/data_science_course/blob/main/notebooks/09_data_preparation.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/florian-huber/data_science_course" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/09_data_preparation.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data Cleaning and Preprocessing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-data-preprocessing">What is Data Preprocessing?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-it-important">Why is it Important?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-in-data-pre-processing">Steps in Data Pre-Processing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dealing-with-missing-values">Dealing with Missing Values</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-missing-values">Understanding Missing Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#techniques-to-handle-missing-values">Techniques to Handle Missing Values</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deletion">1. Deletion</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#imputation">2. Imputation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-examples-handling-missing-values">Python Examples: Handling Missing Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-missing-values">Remove missing values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Imputation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-datasets">Combining Datasets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-combine-datasets">Why Combine Datasets?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-different-types-of-merges">Understanding Different Types of Merges</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-join">Inner Join</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#outer-join">Outer Join</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-challenges">Typical Challenges:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-common-preprocessing-tasks">Other Common Preprocessing Tasks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-data-types-in-pandas">Converting Data Types in Pandas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-dates-and-strings">Formatting dates and strings</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-handling-decimal-delimiters">Example: Handling Decimal Delimiters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#string-manipulation">String Manipulation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-cleaning-steps">Further Cleaning Steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-duplicates">Removing Duplicates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standardizing-data">Standardizing Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions">Conclusions</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="data-cleaning-and-preprocessing">
+<h1>Data Cleaning and Preprocessing<a class="headerlink" href="#data-cleaning-and-preprocessing" title="Link to this heading">#</a></h1>
+<section id="what-is-data-preprocessing">
+<h2>What is Data Preprocessing?<a class="headerlink" href="#what-is-data-preprocessing" title="Link to this heading">#</a></h2>
+<p>We have now arrived at what we call <em>Scrub Data</em> in the <strong>ASEMIC</strong> data science workflow.
+More formally, this is usually termed <strong>Data Preprocessing</strong> and is a crucial step in every data science project. Data preprocessing refers to the steps we take to turn collected data into a form that is suitable for analysis. This includes identifying problems in the data, correcting or documenting them where possible, and transforming the dataset into a format that fits the task at hand. In practice, preprocessing often involves handling missing values, combining datasets, correcting inconsistent formats, adjusting data types, removing duplicates, and sometimes transforming variables for later analysis.</p>
+<p>Data preprocessing is necessary because real-world data is nearly always incomplete, inconsistent, and/or lacking in certain behaviors or trends. Data might also be contaminated by errors or outliers that could skew the results of any analysis.</p>
+<section id="why-is-it-important">
+<h3>Why is it Important?<a class="headerlink" href="#why-is-it-important" title="Link to this heading">#</a></h3>
+<p>As already mentioned in <a class="reference internal" href="../book/06_data_acquisition.html#ch-data-acquisition"><span class="std std-ref">Data Acquisition – Where Do We Get Our Data?</span></a>, one of the most common sayings in data science and machine learning is:</p>
+<blockquote>
+<div><p><em>Garbage in, garbage out!</em></p>
+</div></blockquote>
+<p>This phrase underscores a crucial truth about data science: the quality of the output depends heavily on the quality of the input. Despite the huge range of sophisticated tools available today, there is still a common misconception that clever methods can somehow compensate for poor data. They usually cannot. Machine learning models and other analytical tools can detect patterns and make predictions, but they are not miracle machines (don’t trust people who tell you otherwise). If the data is misleading, incomplete, inconsistent, or poorly matched to the task, then the results will often be misleading as well.</p>
+<p>Data preprocessing is often perceived as a less “shiny” part of the data science process, especially in comparison to steps such as data visualization or training a machine-learning model. It is not uncommon, though, that the data acquisition and data preparation phase is what ultimately determines if a project will be a huge success or a complete failure!
+And, time for an important spoiler: if you are going to work in the field of data science you might be surprised to find out that getting, understanding, and preparing the data you need for an analysis or the training of a model might cost you much more time, sweat and tears than the shiny parts that people will see in your final results.</p>
+</section>
+<section id="steps-in-data-pre-processing">
+<h3>Steps in Data Pre-Processing<a class="headerlink" href="#steps-in-data-pre-processing" title="Link to this heading">#</a></h3>
+<p>Common preprocessing tasks include handling missing values, combining data from different sources, correcting inconsistent entries, converting data types, standardizing formats, removing duplicates, transforming variables, and sometimes reducing the complexity of the dataset. Which of these steps matter most depends on the data and on the analysis we want to perform.</p>
+<p>In sum, these steps allow transforming “raw data” <a class="footnote-reference brackets" href="#raw-data" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> into a refined format that enhances the analytical capabilities of data science tools, leading to more accurate and insightful outcomes.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="dealing-with-missing-values">
+<h2>Dealing with Missing Values<a class="headerlink" href="#dealing-with-missing-values" title="Link to this heading">#</a></h2>
+<section id="understanding-missing-values">
+<h3>Understanding Missing Values<a class="headerlink" href="#understanding-missing-values" title="Link to this heading">#</a></h3>
+<p>Missing data is a prevalent issue in most data-gathering processes. It can occur for a variety of reasons, including errors in data entry, failures in data collection processes, or during data transmission. The presence of missing values can significantly impact the performance of data analysis models, as most algorithms are designed to handle complete datasets.</p>
+<p>Handling missing data is therefore a crucial step; if not addressed properly, it can lead to biased or invalid results. Different strategies can be employed depending on the nature of the data and the intended analysis.</p>
+</section>
+<section id="techniques-to-handle-missing-values">
+<h3>Techniques to Handle Missing Values<a class="headerlink" href="#techniques-to-handle-missing-values" title="Link to this heading">#</a></h3>
+<p>Missing values are not all the same. Sometimes a value is missing completely by accident. Sometimes it is systematically missing, for example because a subgroup is less likely to answer a question. And sometimes a missing entry itself carries information. These differences matter, because they influence whether deletion or imputation is a sensible strategy.</p>
+<section id="deletion">
+<h4>1. Deletion<a class="headerlink" href="#deletion" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Listwise Deletion</strong>: This involves removing any data entries that contain a missing value. While straightforward, this method can lead to a significant reduction in data size, which might not be ideal for statistical analysis.</p></li>
+<li><p><strong>Pairwise Deletion</strong>: Used primarily in statistical analyses, this method only excludes missing data in calculations where it is relevant. This allows for the use of all available data, although it can complicate the analysis process.</p></li>
+</ul>
+</section>
+<section id="imputation">
+<h4>2. Imputation<a class="headerlink" href="#imputation" title="Link to this heading">#</a></h4>
+<p>Imputation means that we try to make good guesses of what the missing data <em>could have been</em>. This is often <strong>much</strong> more complex than a simple deletion step. First and foremost, we would therefore ask if imputation is really necessary because we cannot afford to “lose” any more data. Whether or not we can then, at least partly, rescue our data by imputation  depends on how well we understand the data and how sensitive the following data science tasks are.
+Suppose we, or the experts we collaborate with, do not have a solid understanding of the data, its meaning, its measurement process, etc. In that case, we should not include imputation because it comes with a high risk of introducing artifacts that we might not even be aware of.</p>
+<p>The same is true if the following analysis is very sensitive and thus requires properly measured values.</p>
+<p>In other cases, however, imputation can indeed improve later results because it might allow us to work with a larger part of the available data. Common imputation types are:</p>
+<ul class="simple">
+<li><p><strong>Mean/Median/Mode Imputation</strong>: This is one of the simplest methods, where missing values are replaced with the mean, median, or mode of the respective column. It’s quick and easy, but it can introduce bias if the data is not normally distributed.</p></li>
+<li><p><strong>Predictive Models</strong>: More sophisticated methods involve using statistical models, such as regression, to estimate missing values based on other data points within the dataset.</p></li>
+<li><p><strong>K-Nearest Neighbors (KNN)</strong>: This method imputes values based on the similarity of instances that are nearest to each other. It is more computationally intensive but can provide better results for complex datasets.</p></li>
+</ul>
+<p>In general, I would strongly advise to consider imputations as a last resort, or something for training or prototyping purposes. Because in terms of knowledge generation (see <a class="reference internal" href="../book/07_data_information_knowledge.html#ch-data-to-knowledge"><span class="std std-ref">Data - Information - Knowledge</span></a>), imputed values are not observed data but estimated values, or if you want to put it more drastically, <strong>imputations are essentially fake data</strong>!</p>
+</section>
+</section>
+<section id="python-examples-handling-missing-values">
+<h3>Python Examples: Handling Missing Values<a class="headerlink" href="#python-examples-handling-missing-values" title="Link to this heading">#</a></h3>
+<p>We will include detailed Python examples demonstrating these techniques, showing practical implementations using key data science libraries such as <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> <span id="id3">[<a class="reference internal" href="../book/references.html#id84" title="The pandas development team. Pandas-dev/pandas: pandas. February 2020. URL: https://doi.org/10.5281/zenodo.3509134, doi:10.5281/zenodo.3509134.">pandas development team, 2020</a>]</span> or <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> <span id="id4">[<a class="reference internal" href="../book/references.html#id87" title="F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay. Scikit-learn: machine learning in Python. Journal of Machine Learning Research, 12:2825–2830, 2011.">Pedregosa <em>et al.</em>, 2011</a>]</span>. This hands-on approach will help in solidifying the theoretical concepts discussed and provide learners with the tools they need to effectively handle missing data in their projects.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Create dummy data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;Diane&quot;</span><span class="p">],</span>
+    <span class="s1">&#39;Age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">25</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">28</span><span class="p">],</span>
+    <span class="s1">&#39;Salary&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">50000</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">60000</span><span class="p">,</span> <span class="mi">52000</span><span class="p">]</span>
+<span class="p">}</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original DataFrame:&quot;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original DataFrame:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alice</td>
+      <td>25.0</td>
+      <td>50000.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Bob</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td></td>
+      <td>30.0</td>
+      <td>60000.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Diane</td>
+      <td>28.0</td>
+      <td>52000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We have several missing values in our data.</p>
+<p>A problem that we commonly face during data processing is that <em>missing</em> values can mean different things. In the technical sense, this simply means that there is no value at all. This is represented by <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (= <em>Not a Number</em>) entries, such as <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> in Numpy. But there are many different ways to represent missing data, which can easily lead to a lot of confusion. Pandas, for instance, also has options such as <code class="docutils literal notranslate"><span class="pre">NA</span></code> (see <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/missing_data.html#na-semantics">Pandas documentation on missing values</a>). <code class="docutils literal notranslate"><span class="pre">None</span></code> is also commonly used to represent a non-existing or non-available entry.</p>
+<p>The most problematic entry representing missing data is custom codes. Some devices, for instance, add values such as <code class="docutils literal notranslate"><span class="pre">9999</span></code> if a measurement is not possible. Or look at the table above in the code example, where an obviously missing name is represented by an empty string (<code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>). In a similar fashion, you will get data with values such as <code class="docutils literal notranslate"><span class="pre">&quot;N/A&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;NA&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;None&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;unknown&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;missing&quot;</span></code>, and countless others.</p>
+<p>For a human reader, that might not seem too difficult at first. However, datasets will often be huge, and we don’t want to (or simply cannot) inspect all those options manually. In practice, this can make it surprisingly difficult to spot all missing values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.DataFrame&#39;&gt;
+RangeIndex: 4 entries, 0 to 3
+Data columns (total 3 columns):
+ #   Column  Non-Null Count  Dtype  
+---  ------  --------------  -----  
+ 0   Name    4 non-null      str    
+ 1   Age     3 non-null      float64
+ 2   Salary  3 non-null      float64
+dtypes: float64(2), str(1)
+memory usage: 228.0 bytes
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">.info()</span></code> method is a very easy and quick way to check for missing entries. But it won’t work for string-entries of any type, so that it here misses the empty entry in the “Name” column! For Pandas, this column has 4 entries and all are “non-null” which means “not missing”. Simply because there <em>is</em> a value in every row, even if one of them is a probably undesired <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>.</p>
+</section>
+<section id="remove-missing-values">
+<h3>Remove missing values<a class="headerlink" href="#remove-missing-values" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Removing any rows that have at least one missing value</span>
+<span class="n">clean_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DataFrame after dropna():&quot;</span><span class="p">)</span>
+<span class="n">clean_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DataFrame after dropna():
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alice</td>
+      <td>25.0</td>
+      <td>50000.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td></td>
+      <td>30.0</td>
+      <td>60000.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Diane</td>
+      <td>28.0</td>
+      <td>52000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Very often, just like in this case, we have to find our own work-arounds for the data we get. Here, we could use a simple mask to remove names that we found to be represented by certain strings.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;unknown&quot;</span><span class="p">,</span> <span class="s2">&quot;missing&quot;</span><span class="p">,</span> <span class="s2">&quot;None&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">Name</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[True, True, False, True]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;unknown&quot;</span><span class="p">,</span> <span class="s2">&quot;missing&quot;</span><span class="p">,</span> <span class="s2">&quot;None&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">Name</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alice</td>
+      <td>25.0</td>
+      <td>50000.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Bob</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Diane</td>
+      <td>28.0</td>
+      <td>52000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>A cleaner way is usually to standardize custom missing codes, for instance like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;Name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">([</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="s2">&quot;unknown&quot;</span><span class="p">,</span> <span class="s2">&quot;missing&quot;</span><span class="p">,</span> <span class="s2">&quot;None&quot;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alice</td>
+      <td>25.0</td>
+      <td>50000.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Bob</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>30.0</td>
+      <td>60000.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Diane</td>
+      <td>28.0</td>
+      <td>52000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Removing any rows that have at least one missing value</span>
+<span class="n">clean_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DataFrame after deletions:&quot;</span><span class="p">)</span>
+<span class="n">clean_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DataFrame after deletions:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alice</td>
+      <td>25.0</td>
+      <td>50000.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Diane</td>
+      <td>28.0</td>
+      <td>52000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="id5">
+<h3>Imputation<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>Let’s now see how we can impute missing values. But again, as explained above, imputation means that we alter, or rather fake data. So, obviously, we should be extremely careful in how and when we do this in practice!</p>
+<p>And be careful not to overinterpret the following example. Here, the relationship between age and salary was artificially built into the simulated data, so imputing salary from age is easier than it would often be in real life.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">random</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">faker</span><span class="w"> </span><span class="kn">import</span> <span class="n">Faker</span>  <span class="c1"># a small Python library to create dummy data</span>
+<span class="n">fake</span> <span class="o">=</span> <span class="n">Faker</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">123</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">create_salary</span><span class="p">(</span><span class="n">age</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Just making things up here...&quot;&quot;&quot;</span>
+    <span class="n">random_base</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+    <span class="n">non_random_part</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="n">age</span>
+    <span class="k">return</span> <span class="n">random_base</span> <span class="o">+</span> <span class="n">non_random_part</span>
+
+<span class="c1"># Now let&#39;s create some fake data:</span>
+<span class="n">num_data</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">fake</span><span class="o">.</span><span class="n">first_name</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_data</span><span class="p">)]</span>
+<span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">62</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_data</span><span class="p">)]</span>
+<span class="n">salaries</span> <span class="o">=</span> <span class="p">[</span><span class="n">create_salary</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="k">for</span> <span class="n">age</span> <span class="ow">in</span> <span class="n">ages</span><span class="p">]</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="n">names</span><span class="p">,</span>
+    <span class="s2">&quot;Age&quot;</span><span class="p">:</span> <span class="n">ages</span><span class="p">,</span>
+    <span class="s2">&quot;Salary&quot;</span><span class="p">:</span> <span class="n">salaries</span><span class="p">,</span>
+<span class="p">})</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Brianna</td>
+      <td>56</td>
+      <td>94000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Kathleen</td>
+      <td>24</td>
+      <td>60000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Michael</td>
+      <td>55</td>
+      <td>90000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Virginia</td>
+      <td>53</td>
+      <td>93000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Andrew</td>
+      <td>55</td>
+      <td>75000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Let us now remove some data to see what we could do to later fix this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Brianna</td>
+      <td>56</td>
+      <td>94000.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Kathleen</td>
+      <td>24</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Michael</td>
+      <td>55</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Virginia</td>
+      <td>53</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Andrew</td>
+      <td>55</td>
+      <td>75000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Often people will simply fill missing entries with a global value such as the mean or median.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">median_salary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">Salary</span><span class="p">)</span>
+<span class="n">median_salary</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(73000.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_imputed</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">median_salary</span><span class="p">)</span>
+<span class="n">data_imputed</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Brianna</td>
+      <td>56</td>
+      <td>94000.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Kathleen</td>
+      <td>24</td>
+      <td>73000.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Michael</td>
+      <td>55</td>
+      <td>73000.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Virginia</td>
+      <td>53</td>
+      <td>73000.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Andrew</td>
+      <td>55</td>
+      <td>75000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>If this is now “only” 3 entries out of 100 and we are not primarily interested in the Salary for further analysis it could be OK to do something like this. Still, always remember that we just invented new values, so this data should not be kept or shared without making this clear.</p>
+<p>Technically often a bit better than simple mean or median substitutions are imputations based on existing data, for instance using the kNN-imputer from Scikit-Learn. We will later, in the machine-learning part see in depth how such a model works. Here we will skip the details and just say that it will replace missing values by what is found in the <em>k</em> most similar existing entries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.impute</span><span class="w"> </span><span class="kn">import</span> <span class="n">KNNImputer</span>
+
+<span class="c1"># Creating the imputer object</span>
+<span class="n">imputer</span> <span class="o">=</span> <span class="n">KNNImputer</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Copy all data</span>
+<span class="n">data_imputed</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Replace the columns used for imputation (the imputor object will only change missing values and leave existing ones unchanged!)</span>
+<span class="n">data_imputed</span><span class="p">[[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Salary&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">imputer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;Age&#39;</span><span class="p">,</span> <span class="s1">&#39;Salary&#39;</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;DataFrame after KNN Imputation:&quot;</span><span class="p">)</span>
+<span class="n">data_imputed</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DataFrame after KNN Imputation:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Brianna</td>
+      <td>56.0</td>
+      <td>94000.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Kathleen</td>
+      <td>24.0</td>
+      <td>63000.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Michael</td>
+      <td>55.0</td>
+      <td>88500.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Virginia</td>
+      <td>53.0</td>
+      <td>85000.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Andrew</td>
+      <td>55.0</td>
+      <td>75000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>If you now go back to our original data you will see that those guesses are still off, but better than just taking the global median value.</p>
+</section>
+</section>
+<section id="combining-datasets">
+<h2>Combining Datasets<a class="headerlink" href="#combining-datasets" title="Link to this heading">#</a></h2>
+<section id="why-combine-datasets">
+<h3>Why Combine Datasets?<a class="headerlink" href="#why-combine-datasets" title="Link to this heading">#</a></h3>
+<p>In many real-world data science scenarios, data doesn’t come in a single, comprehensive package. Instead, relevant information is often scattered across multiple datasets. Combining these datasets is a crucial step as it enables a holistic analysis, providing a more complete view of the data subjects. Whether it’s merging customer information from different branches of a company, integrating sales data from various regions, or linking patient data from multiple clinical studies, effectively combining datasets can yield insights that aren’t observable in isolated data.</p>
+<p>At first, this may seem like a rather simple operation. In practice, however, this is often surprisingly complicated and critical. If merging is not done correctly, we might either lose data or create incorrect entries.</p>
+<figure class="align-default" id="fig-data-merging01">
+<img alt="../_images/fig_data_merging_types.png" src="../_images/fig_data_merging_types.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">There are different ways of merging data. Which one to use is best decided based on the data we have at hand and the types of operations we plan to run with the resulting data. Here are three of the most common types of merges: inner, left, and outer merges.</span><a class="headerlink" href="#fig-data-merging01" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Figure (<a class="reference internal" href="#fig-data-merging01"><span class="std std-numref">Fig. 12</span></a>) shows some common merging types. More information on different ways to combine data using pandas can be found in the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html">pandas documentation on merging</a>.</p>
+<p>Here, only briefly: The basic syntax of the <code class="docutils literal notranslate"><span class="pre">merge</span></code> function is:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left_data</span><span class="p">,</span> <span class="n">right_data</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>With the following key parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">how</span></code>: The type of merge to be performed. The options include:</p>
+<ul>
+<li><p>‘inner’: Returns rows with matching keys in both DataFrames.</p></li>
+<li><p>‘left’: Returns all rows from the left DataFrame, along with matching rows from the right DataFrame.</p></li>
+<li><p>‘right’: Returns all rows from the right DataFrame, along with matching rows from the left DataFrame.</p></li>
+<li><p>‘outer’: Returns all rows from both DataFrames. Missing values will be filled with NaN.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">on</span></code>: Column or list of columns to join on. The column(s) must be present in both DataFrames.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">left_on</span></code> and <code class="docutils literal notranslate"><span class="pre">right_on</span></code>: These are used when the keys to merge on have different names in the left and right DataFrames.</p></li>
+</ul>
+</section>
+<section id="understanding-different-types-of-merges">
+<h3>Understanding Different Types of Merges<a class="headerlink" href="#understanding-different-types-of-merges" title="Link to this heading">#</a></h3>
+<p>Combining datasets effectively requires understanding the nature of the relationships between them. This understanding guides the choice of merging technique, each of which can affect the outcome of the analysis differently.</p>
+<section id="inner-join">
+<h4>Inner Join<a class="headerlink" href="#inner-join" title="Link to this heading">#</a></h4>
+<p><strong>Description</strong>: The inner join returns only those records that have matching values in both datasets. This method is most useful when you need to combine records that have a direct correspondence in both sources.<br />
+<strong>Use Case</strong>: Analyzing data where only complete records from both datasets are necessary, such as matching customer demographics with their purchasing records.</p>
+</section>
+<section id="outer-join">
+<h4>Outer Join<a class="headerlink" href="#outer-join" title="Link to this heading">#</a></h4>
+<p>There are different types of outer joins:
+- <strong>Full Outer Join</strong>: Combines all records from both datasets, filling in missing values with NaNs where no match is found.
+- <strong>Left Outer Join</strong>: Includes all records from the left dataset and the matched records from the right dataset.
+- <strong>Right Outer Join</strong>: Includes all records from the right dataset and the matched records from the left dataset.</p>
+<p><strong>Use Case</strong>: Useful when you want to retain all information from one or both datasets, filling gaps with missing values for further analysis.</p>
+<p>To illustrate these concepts, let’s see practical examples.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create sample data for products</span>
+<span class="n">data_products</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;ProductID&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">101</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">103</span><span class="p">,</span> <span class="mi">104</span><span class="p">],</span>
+    <span class="s1">&#39;ProductName&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Widget&#39;</span><span class="p">,</span> <span class="s1">&#39;Gadget&#39;</span><span class="p">,</span> <span class="s1">&#39;DoesWhat&#39;</span><span class="p">,</span> <span class="s1">&#39;DoSomething&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="c1"># Create sample data for sales</span>
+<span class="n">data_sales</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;ProductID&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">101</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">105</span><span class="p">],</span>
+    <span class="s1">&#39;UnitsSold&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">134</span><span class="p">,</span> <span class="mi">243</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="n">data_products</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ProductID</th>
+      <th>ProductName</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>101</td>
+      <td>Widget</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>102</td>
+      <td>Gadget</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>103</td>
+      <td>DoesWhat</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>104</td>
+      <td>DoSomething</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_sales</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ProductID</th>
+      <th>UnitsSold</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>101</td>
+      <td>134</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>102</td>
+      <td>243</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>104</td>
+      <td>76</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>105</td>
+      <td>100</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Inner Join Example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inner_join_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data_products</span><span class="p">,</span> <span class="n">data_sales</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;ProductID&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inner Join Result:&quot;</span><span class="p">)</span>
+<span class="n">inner_join_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Inner Join Result:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ProductID</th>
+      <th>ProductName</th>
+      <th>UnitsSold</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>101</td>
+      <td>Widget</td>
+      <td>134</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>102</td>
+      <td>Gadget</td>
+      <td>243</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>104</td>
+      <td>DoSomething</td>
+      <td>76</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Left outer join and full outer join examples:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">left_outer_join_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data_products</span><span class="p">,</span> <span class="n">data_sales</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;ProductID&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Left Outer Join Result:&quot;</span><span class="p">)</span>
+<span class="n">left_outer_join_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Left Outer Join Result:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ProductID</th>
+      <th>ProductName</th>
+      <th>UnitsSold</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>101</td>
+      <td>Widget</td>
+      <td>134.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>102</td>
+      <td>Gadget</td>
+      <td>243.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>103</td>
+      <td>DoesWhat</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>104</td>
+      <td>DoSomething</td>
+      <td>76.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">full_outer_join_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data_products</span><span class="p">,</span> <span class="n">data_sales</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;ProductID&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Full Outer Join Result:&quot;</span><span class="p">)</span>
+<span class="n">full_outer_join_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full Outer Join Result:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ProductID</th>
+      <th>ProductName</th>
+      <th>UnitsSold</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>101</td>
+      <td>Widget</td>
+      <td>134.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>102</td>
+      <td>Gadget</td>
+      <td>243.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>103</td>
+      <td>DoesWhat</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>104</td>
+      <td>DoSomething</td>
+      <td>76.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>105</td>
+      <td>NaN</td>
+      <td>100.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="typical-challenges">
+<h3>Typical Challenges:<a class="headerlink" href="#typical-challenges" title="Link to this heading">#</a></h3>
+<p>The given example is fairly simple. In practice, you will often face far more complex situations that often require specific work-arounds. Some very common challenges for merging data are:</p>
+<ul class="simple">
+<li><p><strong>Duplicates</strong>: Data can have repeated or conflicting entries.</p></li>
+<li><p><strong>Inconsistent Nomenclature</strong>: Consistency in naming conventions can save hours of data wrangling later on. A classic example being different formats of names. “First Name Last Name” versus “Last Name, First Name”.</p></li>
+</ul>
+<p>Before merging datasets, it is often worth asking whether the join key is actually unique and trustworthy. A merge based on a flawed identifier can silently create incorrect rows.
+It is therefore often a good strategy to work with a good identifier system where every datapoint is linked to one specific, unique ID. This can be a number, a hash, a specific code, a filename etc.</p>
+</section>
+</section>
+<section id="other-common-preprocessing-tasks">
+<h2>Other Common Preprocessing Tasks<a class="headerlink" href="#other-common-preprocessing-tasks" title="Link to this heading">#</a></h2>
+<p>Handling missing values and combining datasets are two of the most common preprocessing challenges, but they are far from the only ones. In practice, data preprocessing also involves a range of smaller but still very important steps that help make the dataset more consistent, interpretable, and usable for later analysis.</p>
+<p>One frequent issue concerns <strong>data types</strong>. When data is imported from spreadsheets, text files, or external databases, values often do not end up in the format we actually need. Numbers may be stored as strings, dates may appear as plain text, and categories may be represented in inconsistent ways. This can easily lead to errors or strange results later on. A column containing values like <code class="docutils literal notranslate"><span class="pre">&quot;12.5&quot;</span></code> may look numerical to us, but for Python or pandas it is still just text until we explicitly convert it.</p>
+<p>Closely related to this is the question of <strong>formatting</strong>. Even if values refer to the same kind of information, they may be written in very different ways. Dates might appear as <code class="docutils literal notranslate"><span class="pre">2024-01-15</span></code>, <code class="docutils literal notranslate"><span class="pre">15/01/2024</span></code>, or <code class="docutils literal notranslate"><span class="pre">Jan</span> <span class="pre">15,</span> <span class="pre">2024</span></code>. Decimal numbers may use either dots or commas, depending on regional conventions. Text entries may contain extra spaces, inconsistent capitalization, or small spelling differences. All of this may look harmless at first, but it can cause major problems when filtering, sorting, grouping, merging, or analyzing the data.</p>
+<p>Another common preprocessing task is the <strong>standardization of text entries</strong>. Names, labels, and categories are often written inconsistently. A dataset may contain entries such as <code class="docutils literal notranslate"><span class="pre">&quot;alice&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;</span> <span class="pre">Alice</span> <span class="pre">&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;ALICE&quot;</span></code> even though all of them refer to the same person. Similar issues arise with country names, product categories, or free-text answers. In such cases, simple string operations such as trimming spaces, converting to lower or upper case, or applying a consistent naming scheme can already make the data much easier to work with.</p>
+<p>It is also often necessary to look for <strong>duplicate entries</strong>. Exact duplicates can arise when records are accidentally entered twice or when datasets are merged incorrectly. These duplicates may distort summaries and statistical analyses. In practice, however, duplicate detection is not always straightforward. Sometimes two rows refer to the same real-world object or person but are not written in exactly the same way. Detecting such near-duplicates can be much more difficult and may require additional identifiers or manual checks.</p>
+<p>A further issue is <strong>unit consistency</strong>. Measurements may be recorded in different units without this being immediately obvious. One file may store height in centimeters, another in meters. One dataset may report temperatures in Celsius, another in Fahrenheit. If such inconsistencies are not detected early, they can completely distort the analysis.</p>
+<p>Finally, there are also <strong>mathematical transformations</strong> of variables. Sometimes values need to be rescaled or transformed before they are used in later methods. For example, it may be helpful to standardize variables so that they have a mean of 0 and a standard deviation of 1, or to transform strongly skewed data using a logarithm. These steps are especially important for some machine-learning methods, clustering approaches, and dimensionality-reduction techniques. Since their importance depends strongly on the later analysis, we will return to them in more detail in later chapters.</p>
+<p>Overall, these preprocessing steps may seem small when considered one by one. But together, they often make the difference between a dataset that merely exists and one that can actually be analyzed in a meaningful and reliable way.</p>
+<section id="converting-data-types-in-pandas">
+<h3>Converting Data Types in Pandas<a class="headerlink" href="#converting-data-types-in-pandas" title="Link to this heading">#</a></h3>
+<p>Pandas provides several useful tools for converting data into more appropriate types. This is often necessary when data is imported from external files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample data with incorrect data types</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;ProductID&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;001&#39;</span><span class="p">,</span> <span class="s1">&#39;002&#39;</span><span class="p">,</span> <span class="s1">&#39;003&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;Price&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;12.5&#39;</span><span class="p">,</span> <span class="s1">&#39;15.0&#39;</span><span class="p">,</span> <span class="s1">&#39;20,25&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;Date&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;2026-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2026-01-02&#39;</span><span class="p">,</span> <span class="s1">&#39;2026-01-03&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="c1"># Convert &#39;ProductID&#39; to integer</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;ProductID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ProductID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="c1"># Convert &#39;Price&#39; to float</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data after conversion:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data after conversion:
+   ProductID  Price        Date
+0          1  12.50  2026-01-01
+1          2  15.00  2026-01-02
+2          3  20.25  2026-01-03
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="formatting-dates-and-strings">
+<h3>Formatting dates and strings<a class="headerlink" href="#formatting-dates-and-strings" title="Link to this heading">#</a></h3>
+<p>Proper formatting also includes converting dates into a consistent datetime format and standardizing text entries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert &#39;Date&#39; to datetime format</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data after formatting Date:&quot;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data after formatting Date:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ProductID</th>
+      <th>Price</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>12.50</td>
+      <td>2026-01-01</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>15.00</td>
+      <td>2026-01-02</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>20.25</td>
+      <td>2026-01-03</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="example-handling-decimal-delimiters">
+<h4>Example: Handling Decimal Delimiters<a class="headerlink" href="#example-handling-decimal-delimiters" title="Link to this heading">#</a></h4>
+<p>This example demonstrates how to handle a common issue where decimal delimiters vary between commas and dots, which can lead to misinterpretation of numerical values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample data with decimal confusion</span>
+<span class="n">sales_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Region&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;US&#39;</span><span class="p">,</span> <span class="s1">&#39;EU&#39;</span><span class="p">,</span> <span class="s1">&#39;IN&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;Sales&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;10,000.50&#39;</span><span class="p">,</span> <span class="s1">&#39;8.000,75&#39;</span><span class="p">,</span> <span class="s1">&#39;1,000.00&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="c1"># Correcting decimal delimiters based on region</span>
+<span class="n">sales_data</span><span class="p">[</span><span class="s1">&#39;Sales&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sales_data</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="k">lambda</span> <span class="n">row</span><span class="p">:</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Sales&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Region&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;EU&#39;</span> <span class="k">else</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Sales&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>
+    <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Corrected Sales Data:&quot;</span><span class="p">)</span>
+<span class="n">sales_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Corrected Sales Data:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Region</th>
+      <th>Sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>US</td>
+      <td>10000.50</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>EU</td>
+      <td>8000.75</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>IN</td>
+      <td>1000.00</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="string-manipulation">
+<h4>String Manipulation<a class="headerlink" href="#string-manipulation" title="Link to this heading">#</a></h4>
+<p>Handling strings effectively can also play a crucial part in cleaning data, such as trimming extra spaces, correcting typos, and standardizing text formats. String handling in Pandas mostly works just as in regular Python. By using <code class="docutils literal notranslate"><span class="pre">.str</span></code> we can access columns in a dataframe and apply specific string methods such as <code class="docutils literal notranslate"><span class="pre">.strip()</span></code> or <code class="docutils literal notranslate"><span class="pre">.split()</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample data with string inconsistencies</span>
+<span class="n">customer_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;CustomerName&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39; Alice &#39;</span><span class="p">,</span> <span class="s1">&#39;bob&#39;</span><span class="p">,</span> <span class="s1">&#39;CHARLES&#39;</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="c1"># Standardizing string format: trim, lower case, capitalize</span>
+<span class="n">customer_data</span><span class="p">[</span><span class="s1">&#39;CustomerName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">customer_data</span><span class="p">[</span><span class="s1">&#39;CustomerName&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Standardized Customer Names:&quot;</span><span class="p">)</span>
+<span class="n">customer_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Standardized Customer Names:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CustomerName</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alice</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Bob</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Charles</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+</section>
+<section id="further-cleaning-steps">
+<h2>Further Cleaning Steps<a class="headerlink" href="#further-cleaning-steps" title="Link to this heading">#</a></h2>
+<section id="removing-duplicates">
+<h3>Removing Duplicates<a class="headerlink" href="#removing-duplicates" title="Link to this heading">#</a></h3>
+<p>Duplicate entries in a dataset can skew analysis and lead to incorrect conclusions.
+It’s often important to identify and remove duplicates to ensure data integrity.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample data with duplicate entries</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;CustomerID&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+    <span class="s1">&#39;Name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Charlie&#39;</span><span class="p">,</span> <span class="s1">&#39;Dave&#39;</span><span class="p">,</span> <span class="s1">&#39;Dave&#39;</span><span class="p">,</span> <span class="s1">&#39;Dave&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;PurchaseAmount&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">250</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">400</span><span class="p">]</span>
+<span class="p">})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Original Data:&quot;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original Data:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CustomerID</th>
+      <th>Name</th>
+      <th>PurchaseAmount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Alice</td>
+      <td>250</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Bob</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>Bob</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>Charlie</td>
+      <td>300</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>Dave</td>
+      <td>400</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Removing duplicates</span>
+<span class="n">data_unique</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Data after Removing Duplicates:&quot;</span><span class="p">)</span>
+<span class="n">data_unique</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data after Removing Duplicates:
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CustomerID</th>
+      <th>Name</th>
+      <th>PurchaseAmount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Alice</td>
+      <td>250</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>Bob</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>Charlie</td>
+      <td>300</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>Dave</td>
+      <td>400</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>In practice, duplicates are not always exact copies. Sometimes two rows refer to the same real-world entity but differ slightly in spelling, formatting, or timestamp. Detecting such “near duplicates” is much harder.</p>
+</section>
+<section id="standardizing-data">
+<h3>Standardizing Data<a class="headerlink" href="#standardizing-data" title="Link to this heading">#</a></h3>
+<p>Data standardization involves rescaling the values to a standard, such as having a mean of zero and a standard deviation of one (z-score standardization), or scaling data to a fixed range like 0 to 1 (normalization). This is crucial for many algorithms, including many algorithms in dimensionality reduction, clustering or many machine learning. We will therefore skip this for now, and address this question in later chapters where this processing step becomes crucial (see, for instance, <a class="reference internal" href="12_clustering.html#ch-clustering"><span class="std std-ref">Clustering</span></a>).</p>
+</section>
+</section>
+<section id="conclusions">
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Link to this heading">#</a></h2>
+<p>Data preprocessing is one of the least glamorous parts of data science, but also one of the most important. Real datasets are messy. Values are missing, formats are inconsistent, identifiers are unreliable, and useful information is often spread across several files or tables. Preparing data well takes time, care, and a good understanding of the task.</p>
+<p>In practice, preprocessing is rarely just a technical cleanup step. It is also a stage of learning: by cleaning, checking, merging, and transforming data, we often begin to understand what the data really contains, where its weaknesses lie, and what kinds of analyses are actually possible.</p>
+<p>From my own experience, it is not unusual that a very large part of a data science project is spent on getting, understanding, and preparing the data. It may not be the shiny part, but it is often the part that makes the shiny part possible.</p>
+</section>
+</section>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="raw-data" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>In a technical sense, it can sometimes make sense to speak of “raw data”, for instance camera RAW data, which has undergone less post-processing than a final JPG image. In a broader sense, however, we should be careful not to assume that “raw data” is ever fully neutral or unbiased <span id="id2">[<a class="reference internal" href="../book/references.html#id34" title="Lisa Gitelman, editor. Raw Data Is an Oxymoron. The MIT Press, 2013. ISBN 978-0-262-31233-2.">Gitelman, 2013</a>]</span>.</p>
+</aside>
+</aside>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../book/08_data_science_workflow.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data Science Workflow</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="10_distributions_statistical_measures.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Statistical Measures and Distributions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-data-preprocessing">What is Data Preprocessing?</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-is-it-important">Why is it Important?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#steps-in-data-pre-processing">Steps in Data Pre-Processing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dealing-with-missing-values">Dealing with Missing Values</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-missing-values">Understanding Missing Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#techniques-to-handle-missing-values">Techniques to Handle Missing Values</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deletion">1. Deletion</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#imputation">2. Imputation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-examples-handling-missing-values">Python Examples: Handling Missing Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-missing-values">Remove missing values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Imputation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-datasets">Combining Datasets</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-combine-datasets">Why Combine Datasets?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#understanding-different-types-of-merges">Understanding Different Types of Merges</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-join">Inner Join</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#outer-join">Outer Join</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#typical-challenges">Typical Challenges:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-common-preprocessing-tasks">Other Common Preprocessing Tasks</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#converting-data-types-in-pandas">Converting Data Types in Pandas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#formatting-dates-and-strings">Formatting dates and strings</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-handling-decimal-delimiters">Example: Handling Decimal Delimiters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#string-manipulation">String Manipulation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-cleaning-steps">Further Cleaning Steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#removing-duplicates">Removing Duplicates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#standardizing-data">Standardizing Data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions">Conclusions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Florian Huber
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Florian Huber.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

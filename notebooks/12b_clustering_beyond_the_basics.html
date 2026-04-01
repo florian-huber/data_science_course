@@ -1,0 +1,1156 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Clustering beyond the basics &#8212; Hands-on Introduction to Data Science with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/12b_clustering_beyond_the_basics';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Outlier Detection" href="13_introduction_outlier_detection.html" />
+    <link rel="prev" title="Clustering" href="12_clustering.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-light" alt="Hands-on Introduction to Data Science with Python - Home"/>
+    <img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-dark pst-js-only" alt="Hands-on Introduction to Data Science with Python - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/cover.html">Hands-on Introduction to Data Science with Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/01_intro.html">Introduction to this book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/02_what_is_data_science.html">What is Data Science?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/03_data_science_ethics_society.html">Data Science, Ethics, and Society</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/04_use_of_this_book.html">How to use this book (… if you ask us)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">From Data to Knowledge</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/05_data_and_types.html">Data and Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/06_data_acquisition.html">Data Acquisition – Where Do We Get Our Data?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/07_data_information_knowledge.html">Data - Information - Knowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/08_data_science_workflow.html">Data Science Workflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">First Data Exploration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="09_data_preparation.html">Data Cleaning and Preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_distributions_statistical_measures.html">Statistical Measures and Distributions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth Data Exploration</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="11_correlation_analysis.html">Correlation Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_clustering.html">Clustering</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Clustering beyond the basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_introduction_outlier_detection.html">Outlier Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_dimensionality_reduction.html">Dimensionality Reduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning (Basics)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="15_machine_learning.html">Supervised Machine Learning - Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_machine_learning_algorithms.html">Common Algorithms - k-Nearest Neighbors (k-NN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_machine_learning_algorithms_2.html">Common Algorithms II - Linear Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_machine_learning_algorithms_3.html">Common Algorithms III - Decision Trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_machine_learning_techniques.html">Supervised Machine Learning - Key Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_machine_learning_ensembles.html">Ensemble Models and Outlook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Text Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="21_working_with_text_data.html">Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_NLP_2_tokenization.html">NLP - Basic Techniques to Analyze Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_NLP_3_tfifd_and_machine_learning.html">Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_NLP_4_ngrams_word_vectors.html">Beyond Counting Individual Words: N-grams</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the Networks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="25_graphs.html">Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_graph_visualization.html">Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="27_graphs_communities.html">Bottlenecks, Hubs, Communities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Next Steps</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="outlook.html">What are the next steps?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/references.html">Complete Bibliography</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/github.html">Source Code on GitHub</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/florian-huber/data_science_course/main?urlpath=lab/tree/notebooks/12b_clustering_beyond_the_basics.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/florian-huber/data_science_course/blob/main/notebooks/12b_clustering_beyond_the_basics.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/florian-huber/data_science_course" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/12b_clustering_beyond_the_basics.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Clustering beyond the basics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-mixture-models">Gaussian Mixture Models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#soft-clustering">Soft clustering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-gmm-works">How GMM works</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gmm-on-our-toy-dataset">GMM on our toy dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-the-gaussian-components">Visualizing the Gaussian components</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strengths-and-weaknesses-of-gmm">Strengths and weaknesses of GMM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchical-clustering">Hierarchical clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agglomerative-clustering">Agglomerative clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-ward-clustering-works">How Ward clustering works</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-dendrogram">The dendrogram</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#varying-the-distance-threshold">Varying the distance threshold</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strengths-and-weaknesses-of-hierarchical-clustering">Strengths and weaknesses of hierarchical clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-more-important-density-based-methods-optics-and-hdbscan">Two more important density-based methods: OPTICS and HDBSCAN</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optics">OPTICS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hdbscan">HDBSCAN</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-clustering-approaches">Comparing clustering approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-compact-visual-comparison">A compact visual comparison</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continue-learning">Continue learning</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="clustering-beyond-the-basics">
+<span id="ch-clustering-2"></span><h1>Clustering beyond the basics<a class="headerlink" href="#clustering-beyond-the-basics" title="Link to this heading">#</a></h1>
+<p>In the previous chapter, we introduced clustering as the task of grouping similar data points and looked at two important approaches: <strong>K-means</strong>, which represents clusters by their centers, and <strong>DBSCAN</strong>, which defines clusters through dense regions of points. These two methods already illustrate an important lesson: different clustering algorithms come with different ideas of what a cluster is.</p>
+<p>In this chapter, we go a step further. We will look at two additional and very important clustering approaches:</p>
+<ul class="simple">
+<li><p><strong>Gaussian Mixture Models (GMMs)</strong>, which allow for <em>soft clustering</em> and can model more flexible cluster shapes than K-means.</p></li>
+<li><p><strong>Hierarchical clustering</strong>, which does not just produce one final partition of the data, but a whole hierarchy of nested groupings.</p></li>
+</ul>
+<p>At the end, we will compare the different clustering approaches more directly and summarize when each of them tends to work well.</p>
+<section id="gaussian-mixture-models">
+<h2>Gaussian Mixture Models<a class="headerlink" href="#gaussian-mixture-models" title="Link to this heading">#</a></h2>
+<p>Gaussian Mixture Models, usually abbreviated as <strong>GMMs</strong>, are a more flexible and probabilistic approach to clustering. If K-means imagines each cluster as a group around a center point, then GMM imagines the data as having been generated from a mixture of several overlapping probability distributions.</p>
+<p>More specifically, GMM assumes that the data points come from a combination of several <strong>Gaussian distributions</strong>. Each Gaussian distribution corresponds to one cluster and is described by parameters such as:</p>
+<ul class="simple">
+<li><p>a <strong>mean</strong> (the center of the cluster),</p></li>
+<li><p>a <strong>covariance matrix</strong> (which describes the spread and orientation of the cluster),</p></li>
+<li><p>and a <strong>weight</strong> (which reflects how much this component contributes to the full dataset).</p></li>
+</ul>
+<p>This makes GMM more flexible than K-means. K-means effectively prefers roughly spherical clusters of similar spread, while GMM can model elongated, tilted, and differently shaped clusters.</p>
+</section>
+<section id="soft-clustering">
+<h2>Soft clustering<a class="headerlink" href="#soft-clustering" title="Link to this heading">#</a></h2>
+<p>A particularly important feature of GMM is that it performs <strong>soft clustering</strong>.</p>
+<p>K-means assigns every point to exactly one cluster. GMM, by contrast, assigns each point a <strong>probability of belonging to each cluster</strong>. A point near the center of one Gaussian may have a very high probability for that cluster and very low probabilities for all others. A point located between two clusters may have a more mixed assignment.</p>
+<p>This is often useful in practice, because real data does not always contain perfectly separated groups. Sometimes the boundaries between groups are fuzzy, and it is more honest to reflect this uncertainty directly.</p>
+<section id="how-gmm-works">
+<h3>How GMM works<a class="headerlink" href="#how-gmm-works" title="Link to this heading">#</a></h3>
+<p>The standard way to fit a Gaussian mixture model is the <strong>Expectation-Maximization (EM)</strong> algorithm.</p>
+<p>In simplified form, the process looks like this:</p>
+<ol class="arabic simple">
+<li><p><strong>Initialization</strong><br />
+We start with an initial guess for the Gaussian components: their means, covariances, and weights.</p></li>
+<li><p><strong>Expectation step (E-step)</strong><br />
+For each data point, the algorithm estimates the probability that it belongs to each Gaussian component.</p></li>
+<li><p><strong>Maximization step (M-step)</strong><br />
+Using these probabilities, the algorithm updates the Gaussian parameters so that the model better fits the data.</p></li>
+<li><p><strong>Repeat</strong><br />
+The E-step and M-step are repeated until the parameter changes become small enough.</p></li>
+</ol>
+<p>So, unlike K-means, which alternates between hard assignment and centroid update, GMM alternates between probabilistic assignment and parameter update.</p>
+</section>
+</section>
+<section id="gmm-on-our-toy-dataset">
+<h2>GMM on our toy dataset<a class="headerlink" href="#gmm-on-our-toy-dataset" title="Link to this heading">#</a></h2>
+<p>Let us again use the same five-cluster toy dataset from the previous chapter.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1"># optional, only to avoid KMeans warning on Windows (too few chunks compared to threads)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;OMP_NUM_THREADS&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+
+<span class="c1"># Set the ggplot style (optional)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;ggplot&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clusters</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">61</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">),</span>
+           <span class="p">(</span><span class="mi">37</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.2</span><span class="p">),</span>
+           <span class="p">(</span><span class="mi">49</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.6</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">),</span>
+           <span class="p">(</span><span class="mi">44</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">),</span>
+           <span class="p">(</span><span class="mi">70</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.7</span><span class="p">)]</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">n_points</span><span class="p">,</span> <span class="n">x_scale</span><span class="p">,</span> <span class="n">y_scale</span><span class="p">,</span> <span class="n">x_offset</span><span class="p">,</span> <span class="n">y_offset</span><span class="p">)</span> <span class="ow">in</span> <span class="n">clusters</span><span class="p">:</span>
+    <span class="n">xpts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_points</span><span class="p">)</span> <span class="o">*</span> <span class="n">x_scale</span> <span class="o">+</span> <span class="n">x_offset</span>
+    <span class="n">ypts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_points</span><span class="p">)</span> <span class="o">*</span> <span class="n">y_scale</span> <span class="o">+</span> <span class="n">y_offset</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">data</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">xpts</span><span class="p">,</span> <span class="n">ypts</span><span class="p">))</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.mixture</span><span class="w"> </span><span class="kn">import</span> <span class="n">GaussianMixture</span>
+
+<span class="n">gm</span> <span class="o">=</span> <span class="n">GaussianMixture</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">gm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;nipy_spectral&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Gaussian Mixture model with 5 components&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/53de3140e00829a332b1f2947de32a6db4c1a4b83f55a0cbd48ad71f2ef0d00f.png" src="../_images/53de3140e00829a332b1f2947de32a6db4c1a4b83f55a0cbd48ad71f2ef0d00f.png" />
+</div>
+</div>
+<p>The result may look similar to K-means at first glance, but conceptually something important has changed. The model is no longer just assigning points to the nearest center. Instead, it is fitting several Gaussian distributions to the data.</p>
+<p>We can inspect the estimated component means:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gm</span><span class="o">.</span><span class="n">means_</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-2.80121071,  2.49623595],
+       [ 2.08237568, -0.79412545],
+       [-2.96321278, -1.69907782],
+       [ 0.49887671,  2.26838731],
+       [-1.43864991, -1.67923165]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>And we can also inspect the <strong>probabilities</strong> for the cluster membership, for instance for the last five elements in our data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">gm</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">:]),</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;cluster </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cluster 1</th>
+      <th>cluster 2</th>
+      <th>cluster 3</th>
+      <th>cluster 4</th>
+      <th>cluster 5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.000117</td>
+      <td>0.000631</td>
+      <td>0.243636</td>
+      <td>1.626793e-21</td>
+      <td>0.755616</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.000075</td>
+      <td>0.000002</td>
+      <td>0.934538</td>
+      <td>1.678483e-28</td>
+      <td>0.065385</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.000227</td>
+      <td>0.004955</td>
+      <td>0.064392</td>
+      <td>1.869280e-18</td>
+      <td>0.930427</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.001274</td>
+      <td>0.000005</td>
+      <td>0.901200</td>
+      <td>3.493556e-25</td>
+      <td>0.097520</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.000033</td>
+      <td>0.000735</td>
+      <td>0.223215</td>
+      <td>3.389279e-24</td>
+      <td>0.776017</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">gm.predict_proba()</span></code> returns, for each of the first five data points, a vector of probabilities indicating how strongly the model associates that point with each Gaussian component.</p>
+</section>
+<section id="visualizing-the-gaussian-components">
+<h2>Visualizing the Gaussian components<a class="headerlink" href="#visualizing-the-gaussian-components" title="Link to this heading">#</a></h2>
+<p>One nice aspect of GMM is that we can visualize the estimated distributions directly through ellipses derived from the covariance matrices.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ellipse</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">linalg</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">itertools</span>
+
+<span class="n">color_iter</span> <span class="o">=</span> <span class="n">itertools</span><span class="o">.</span><span class="n">cycle</span><span class="p">([</span><span class="s1">&#39;teal&#39;</span><span class="p">,</span> <span class="s1">&#39;cornflowerblue&#39;</span><span class="p">,</span> <span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="s1">&#39;crimson&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_gmm</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y_</span><span class="p">,</span> <span class="n">means</span><span class="p">,</span> <span class="n">covariances</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covar</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">means</span><span class="p">,</span> <span class="n">covariances</span><span class="p">,</span> <span class="n">color_iter</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">Y_</span> <span class="o">==</span> <span class="n">i</span><span class="p">):</span>
+            <span class="k">continue</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">Y_</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">Y_</span> <span class="o">==</span> <span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Cluster </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+        <span class="n">v</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">covar</span><span class="p">)</span>
+        <span class="n">v</span> <span class="o">=</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">2.</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+        <span class="n">u</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">angle</span> <span class="o">=</span> <span class="mf">180.</span> <span class="o">*</span> <span class="n">angle</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+
+        <span class="k">for</span> <span class="n">std_dev</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+            <span class="n">ell</span> <span class="o">=</span> <span class="n">Ellipse</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">std_dev</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">std_dev</span> <span class="o">*</span> <span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">angle</span><span class="o">=</span><span class="mf">180.</span> <span class="o">+</span> <span class="n">angle</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+            <span class="n">ell</span><span class="o">.</span><span class="n">set_clip_box</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">bbox</span><span class="p">)</span>
+            <span class="n">ell</span><span class="o">.</span><span class="n">set_alpha</span><span class="p">(</span><span class="mf">0.25</span> <span class="o">/</span> <span class="n">std_dev</span><span class="p">)</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">add_artist</span><span class="p">(</span><span class="n">ell</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Feature 1&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Feature 2&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plot_gmm</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">gm</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">gm</span><span class="o">.</span><span class="n">means_</span><span class="p">,</span> <span class="n">gm</span><span class="o">.</span><span class="n">covariances_</span><span class="p">,</span> <span class="s2">&quot;Detailed Gaussian Mixture Model&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e9c37ff2b965f2aa5048877e04402489ff4229a430a578baf5cdda511c7f52ec.png" src="../_images/e9c37ff2b965f2aa5048877e04402489ff4229a430a578baf5cdda511c7f52ec.png" />
+</div>
+</div>
+<p>This visualization makes the underlying idea of GMM much clearer: the algorithm is not just drawing boundaries between groups, but modeling the data as overlapping probability clouds.</p>
+</section>
+<section id="strengths-and-weaknesses-of-gmm">
+<h2>Strengths and weaknesses of GMM<a class="headerlink" href="#strengths-and-weaknesses-of-gmm" title="Link to this heading">#</a></h2>
+<p>GMM has several important advantages.</p>
+<p>It is more flexible than K-means because it can model clusters with different shapes, sizes, and orientations. It also provides soft assignments, which can be very useful when cluster boundaries are unclear. And because it is probabilistic, it often gives a more nuanced description of the data.</p>
+<p>At the same time, GMM also has limitations. Like K-means, it requires us to specify the number of components in advance. It is usually more computationally demanding than K-means, and it depends more strongly on the assumption that clusters are reasonably well described by Gaussian distributions. If the true data structure is very non-Gaussian, the model may still impose Gaussian components in a way that is not very meaningful.</p>
+<p>So GMM is powerful, but it is not simply “better than K-means.” It is better suited for some situations and less suitable for others.</p>
+</section>
+<hr class="docutils" />
+<section id="hierarchical-clustering">
+<h2>Hierarchical clustering<a class="headerlink" href="#hierarchical-clustering" title="Link to this heading">#</a></h2>
+<p>Another important family of clustering methods is <strong>hierarchical clustering</strong>.</p>
+<p>Instead of directly dividing the data into one fixed set of clusters, hierarchical clustering builds a <strong>hierarchy of nested groups</strong>. This means that it does not just tell us one possible clustering, but gives us a whole tree-like structure showing how small groups merge into larger ones.</p>
+<p>This is especially useful when we do not know in advance how many clusters we want, or when we want to explore the data at different levels of granularity.</p>
+</section>
+<section id="agglomerative-clustering">
+<h2>Agglomerative clustering<a class="headerlink" href="#agglomerative-clustering" title="Link to this heading">#</a></h2>
+<p>The most common version is <strong>agglomerative hierarchical clustering</strong>, a bottom-up method.</p>
+<p>The basic idea is simple:</p>
+<ol class="arabic simple">
+<li><p>Start with every data point as its own cluster.</p></li>
+<li><p>Repeatedly merge the two most similar clusters.</p></li>
+<li><p>Continue until all points have been merged into one large hierarchy.</p></li>
+</ol>
+<p>To make this work, we need two ingredients:</p>
+<ul class="simple">
+<li><p>a way to measure the <strong>distance between data points</strong>,</p></li>
+<li><p>and a rule for measuring the <strong>distance between clusters</strong>.</p></li>
+</ul>
+<p>There are different linkage methods for this second step. In this section, we focus on <strong>Ward linkage</strong>, which tries to merge clusters in a way that keeps the increase in within-cluster variance as small as possible.</p>
+</section>
+<section id="how-ward-clustering-works">
+<h2>How Ward clustering works<a class="headerlink" href="#how-ward-clustering-works" title="Link to this heading">#</a></h2>
+<p>Ward’s method favors merges that create relatively compact clusters. In that sense, it has some similarity to K-means, because it also prefers clusters that are internally coherent. But unlike K-means, it does not require us to specify the number of clusters at the start.</p>
+<p>Using scikit-learn, we can fit agglomerative clustering as follows:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">AgglomerativeClustering</span>
+
+<span class="n">ward</span> <span class="o">=</span> <span class="n">AgglomerativeClustering</span><span class="p">(</span>
+    <span class="n">linkage</span><span class="o">=</span><span class="s2">&quot;ward&quot;</span><span class="p">,</span>
+    <span class="n">n_clusters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">distance_threshold</span><span class="o">=</span><span class="mf">10.0</span>
+<span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">ward</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;nipy_spectral&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Agglomerative Clustering with distance_threshold=10&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/4af3ac5838b0a4b392297fd4b392d72675a57a9b83bc766abf680a61c03f5138.png" src="../_images/4af3ac5838b0a4b392297fd4b392d72675a57a9b83bc766abf680a61c03f5138.png" />
+</div>
+</div>
+<p>This produces one clustering result, but the real strength of hierarchical clustering lies in the fact that it has built a full hierarchy in the background.</p>
+</section>
+<section id="the-dendrogram">
+<h2>The dendrogram<a class="headerlink" href="#the-dendrogram" title="Link to this heading">#</a></h2>
+<p>The hierarchy can be visualized using a <strong>dendrogram</strong>. This is a tree-like plot that shows which clusters were merged and at what distance.
+A low merge in the dendrogram means that two clusters were very similar. A high merge means that the algorithm had to go much further to combine them.<br />
+Here is a helper function to plot a dendrogram for the fitted model:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.cluster.hierarchy</span><span class="w"> </span><span class="kn">import</span> <span class="n">dendrogram</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_dendrogram</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">n_samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">labels_</span><span class="p">)</span>
+
+    <span class="n">counts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">children_</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">merge</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">children_</span><span class="p">):</span>
+        <span class="n">current_count</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">child_idx</span> <span class="ow">in</span> <span class="n">merge</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">child_idx</span> <span class="o">&lt;</span> <span class="n">n_samples</span><span class="p">:</span>
+                <span class="n">current_count</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">current_count</span> <span class="o">+=</span> <span class="n">counts</span><span class="p">[</span><span class="n">child_idx</span> <span class="o">-</span> <span class="n">n_samples</span><span class="p">]</span>
+        <span class="n">counts</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">current_count</span>
+
+    <span class="n">linkage_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">model</span><span class="o">.</span><span class="n">children_</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">distances_</span><span class="p">,</span> <span class="n">counts</span><span class="p">]</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+    <span class="n">dendrogram</span><span class="p">(</span><span class="n">linkage_matrix</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">plot_dendrogram</span><span class="p">(</span>
+    <span class="n">ward</span><span class="p">,</span>
+    <span class="n">leaf_rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span>
+    <span class="n">leaf_font_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">truncate_mode</span><span class="o">=</span><span class="s2">&quot;level&quot;</span><span class="p">,</span>
+    <span class="n">p</span><span class="o">=</span><span class="mi">4</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Hierarchical Clustering Dendrogram&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Sample index&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Distance&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6b89b4d78476fb2115c12f74bc44d96b4094f4b33c173fdfebe7327e27d930f6.png" src="../_images/6b89b4d78476fb2115c12f74bc44d96b4094f4b33c173fdfebe7327e27d930f6.png" />
+</div>
+</div>
+<p>The important practical idea is this: <strong>cutting</strong> the dendrogram at different heights gives different numbers of clusters. A high cut produces only a few broad clusters. A low cut produces many smaller ones.<br />
+So hierarchical clustering does not eliminate the question of how many clusters to use. But it does postpone that decision and allows us to explore several possibilities.</p>
+</section>
+<section id="varying-the-distance-threshold">
+<h2>Varying the distance threshold<a class="headerlink" href="#varying-the-distance-threshold" title="Link to this heading">#</a></h2>
+<p>In scikit-learn’s agglomerative clustering, one way to control the final clustering is through the <code class="docutils literal notranslate"><span class="pre">distance_threshold</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+
+<span class="n">distance_thresholds</span> <span class="o">=</span> <span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">distance_threshold</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">distance_thresholds</span><span class="p">):</span>
+    <span class="n">ward</span> <span class="o">=</span> <span class="n">AgglomerativeClustering</span><span class="p">(</span>
+        <span class="n">linkage</span><span class="o">=</span><span class="s2">&quot;ward&quot;</span><span class="p">,</span>
+        <span class="n">n_clusters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">distance_threshold</span><span class="o">=</span><span class="n">distance_threshold</span>
+    <span class="p">)</span>
+    <span class="n">ward</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span><span class="p">]</span>
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">ward</span><span class="o">.</span><span class="n">labels_</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;nipy_spectral&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Agglomerative Clustering with distance_threshold=</span><span class="si">{</span><span class="n">distance_threshold</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Feature 1&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Feature 2&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/94cf267d6df3f37d28dddb5264dca1145b583d0286660145e97aa9ba31e26aae.png" src="../_images/94cf267d6df3f37d28dddb5264dca1145b583d0286660145e97aa9ba31e26aae.png" />
+</div>
+</div>
+<p>A lower distance threshold cuts the hierarchy closer to the individual points, leading to more clusters. A higher threshold merges more groups together, leading to fewer clusters.</p>
+</section>
+<section id="strengths-and-weaknesses-of-hierarchical-clustering">
+<h2>Strengths and weaknesses of hierarchical clustering<a class="headerlink" href="#strengths-and-weaknesses-of-hierarchical-clustering" title="Link to this heading">#</a></h2>
+<p>Hierarchical clustering has several attractive features. Most importantly, it gives us a multi-scale view of the data instead of just one partition. The dendrogram can also be very informative, especially in exploratory work.</p>
+<p>Another advantage is that we do not have to fix the number of clusters at the start. We can inspect the hierarchy first and then decide which level of grouping is useful.</p>
+<p>However, hierarchical clustering also has clear disadvantages. It can become computationally expensive for large datasets. Early merge decisions cannot be undone later, which means that a questionable early merge can influence the whole hierarchy. And although we do not need to decide on the number of clusters immediately, we still need some criterion for deciding where to cut the tree.</p>
+</section>
+<hr class="docutils" />
+<section id="two-more-important-density-based-methods-optics-and-hdbscan">
+<h2>Two more important density-based methods: OPTICS and HDBSCAN<a class="headerlink" href="#two-more-important-density-based-methods-optics-and-hdbscan" title="Link to this heading">#</a></h2>
+<p>Before we move on to a broader comparison, it is worth briefly mentioning two further clustering methods that are especially relevant when working with data of <strong>varying density</strong>: <strong>OPTICS</strong> and <strong>HDBSCAN</strong>.</p>
+<section id="optics">
+<h3>OPTICS<a class="headerlink" href="#optics" title="Link to this heading">#</a></h3>
+<p><strong>OPTICS</strong> stands for <em>Ordering Points To Identify the Clustering Structure</em>. Like DBSCAN, it is a <strong>density-based</strong> clustering method. But instead of committing immediately to one fixed neighborhood radius <code class="docutils literal notranslate"><span class="pre">eps</span></code>, OPTICS explores the data across a range of density levels and records how points are connected to one another.</p>
+<p>This makes OPTICS especially useful when clusters have different densities. In situations where DBSCAN struggles because one single <code class="docutils literal notranslate"><span class="pre">eps</span></code> value is too small for one cluster and too large for another, OPTICS can often give a more informative picture of the clustering structure.<br />
+Conceptually, OPTICS is closely related to DBSCAN, but more flexible. The trade-off is that it is also somewhat more complex to understand and interpret.</p>
+</section>
+<section id="hdbscan">
+<h3>HDBSCAN<a class="headerlink" href="#hdbscan" title="Link to this heading">#</a></h3>
+<p><strong>HDBSCAN</strong> stands for <em>Hierarchical Density-Based Spatial Clustering of Applications with Noise</em>. It can be seen as an extension of DBSCAN that combines <strong>density-based clustering</strong> with a <strong>hierarchical view</strong> of the data.</p>
+<p>Instead of fixing one global density threshold, HDBSCAN builds a hierarchy of density-connected clusters and then extracts the most stable ones. This makes it particularly attractive when the dataset contains clusters with very different densities or when we want a method that is more adaptive than DBSCAN.</p>
+<p>Like DBSCAN, HDBSCAN can also identify noise points. In practice, it is often considered one of the most powerful off-the-shelf clustering methods for messy real-world data—especially when clusters are irregularly shaped and vary in density.
+The downside is that, like many more flexible methods, it is somewhat less intuitive than K-means and usually not the first clustering algorithm people learn.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="comparing-clustering-approaches">
+<h2>Comparing clustering approaches<a class="headerlink" href="#comparing-clustering-approaches" title="Link to this heading">#</a></h2>
+<p>At this point, we have seen six different clustering methods across the two clustering chapters. These methods follow sometimes very different conceptual routes so that they naturally differ in what they consider to be a cluster.</p>
+<p><strong>K-means</strong> sees clusters as groups around centroids. It works best when clusters are compact, roughly spherical, and of similar size.</p>
+<p><strong>DBSCAN</strong> sees clusters as dense regions separated by sparse regions. It is good at finding irregularly shaped clusters and identifying noise, but struggles when clusters have very different densities.</p>
+<p><strong>Gaussian Mixture Models (GMMs)</strong> model clusters as Gaussian probability distributions. They are more flexible than K-means and allow soft assignments, but assume that Gaussian components are a meaningful description of the data.</p>
+<p><strong>Hierarchical clustering</strong> builds a hierarchy of nested groups. It is especially useful when we want to explore grouping at multiple levels, but it can become computationally expensive on larger datasets.</p>
+<p><strong>OPTICS</strong> is closely related to DBSCAN, but instead of relying on a single fixed density threshold, it explores the data across a range of density levels. This makes it useful when different clusters have different densities.</p>
+<p><strong>HDBSCAN</strong> combines density-based clustering with a hierarchical view and is often particularly effective on real-world datasets with irregular cluster shapes, noise, and varying densities.</p>
+<p>None of these algorithms is universally best. The right choice depends on the geometry of the data, the amount of noise, whether the number of clusters is roughly known, whether densities vary strongly, and what we ultimately want to do with the clustering result.</p>
+</section>
+<section id="a-compact-visual-comparison">
+<h2>A compact visual comparison<a class="headerlink" href="#a-compact-visual-comparison" title="Link to this heading">#</a></h2>
+<p>To conclude, it is helpful to compare different clustering algorithms on several kinds of datasets.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">itertools</span><span class="w"> </span><span class="kn">import</span> <span class="n">cycle</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_blobs</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">KMeans</span><span class="p">,</span> <span class="n">DBSCAN</span><span class="p">,</span> <span class="n">HDBSCAN</span><span class="p">,</span> <span class="n">OPTICS</span><span class="p">,</span> <span class="n">AgglomerativeClustering</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.mixture</span><span class="w"> </span><span class="kn">import</span> <span class="n">GaussianMixture</span>
+
+<span class="c1"># Seed for reproducibility</span>
+<span class="n">random_state</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">random_state</span><span class="p">)</span>
+
+<span class="c1"># Generate datasets</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">500</span>
+
+<span class="c1"># 1. Ideal clusters (blobs)</span>
+<span class="n">X_blobs</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">centers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">cluster_std</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
+
+<span class="c1"># 2. Spiral data</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_samples</span><span class="o">/</span><span class="mi">2</span><span class="p">)),</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mf">4.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_samples</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+<span class="p">])</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">theta</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="o">/</span> <span class="mi">5</span>
+<span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="n">random_state</span><span class="p">)</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">X_spiral</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)))</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="n">noise</span>
+
+<span class="c1"># 3. Varied clusters with pronounced density fluctuations</span>
+<span class="n">X_varied</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">make_blobs</span><span class="p">(</span>
+    <span class="n">n_samples</span><span class="o">=</span><span class="n">n_samples</span><span class="p">,</span>
+    <span class="n">centers</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">cluster_std</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">],</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span>
+<span class="p">)</span>
+
+<span class="c1"># 4. No structure</span>
+<span class="n">X_no_structure</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="n">X_blobs</span><span class="p">,</span> <span class="s2">&quot;Blobs (ideal clusters)&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">X_spiral</span><span class="p">,</span> <span class="s2">&quot;Spiral&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">X_varied</span><span class="p">,</span> <span class="s2">&quot;Varied clusters&quot;</span><span class="p">),</span>
+    <span class="c1">#(X_no_structure, &quot;No structure&quot;)</span>
+<span class="p">]</span>
+
+<span class="c1"># Define clustering algorithms</span>
+<span class="n">algorithms</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;K-Means&quot;</span><span class="p">,</span> <span class="n">KMeans</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;DBSCAN&quot;</span><span class="p">,</span> <span class="n">DBSCAN</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">5</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;HDBSCAN&quot;</span><span class="p">,</span> <span class="n">HDBSCAN</span><span class="p">(</span><span class="n">min_cluster_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">min_samples</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;OPTICS&quot;</span><span class="p">,</span> <span class="n">OPTICS</span><span class="p">(</span><span class="n">min_samples</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">xi</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">min_cluster_size</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;Ward&quot;</span><span class="p">,</span> <span class="n">AgglomerativeClustering</span><span class="p">(</span><span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">linkage</span><span class="o">=</span><span class="s2">&quot;ward&quot;</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s2">&quot;Gaussian Mixture&quot;</span><span class="p">,</span> <span class="n">GaussianMixture</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">covariance_type</span><span class="o">=</span><span class="s2">&quot;full&quot;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">))</span>
+<span class="p">]</span>
+
+<span class="c1"># Create overview plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">datasets</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">algorithms</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">row</span><span class="p">,</span> <span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">datasets</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">algo</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">algorithms</span><span class="p">):</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span>
+        <span class="c1"># Fit and predict</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">algo</span><span class="p">,</span> <span class="s2">&quot;fit_predict&quot;</span><span class="p">):</span>
+            <span class="n">labels</span> <span class="o">=</span> <span class="n">algo</span><span class="o">.</span><span class="n">fit_predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">algo</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+            <span class="n">labels</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+        
+        <span class="c1"># Color mapping</span>
+        <span class="n">unique_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+        <span class="n">color_cycle</span> <span class="o">=</span> <span class="n">cycle</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">)</span>
+        <span class="n">cluster_colors</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">lab</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">lab</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span> <span class="k">else</span> <span class="nb">next</span><span class="p">(</span><span class="n">color_cycle</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">lab</span> <span class="ow">in</span> <span class="n">unique_labels</span>
+        <span class="p">}</span>
+        <span class="n">colors</span> <span class="o">=</span> <span class="p">[</span><span class="n">cluster_colors</span><span class="p">[</span><span class="n">lab</span><span class="p">]</span> <span class="k">for</span> <span class="n">lab</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">]</span>
+        
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">row</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">col</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([])</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Comparison of Clustering Algorithms on Different Datasets&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.96</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/3b8193d6eae96f991eba8ae1bfbe9372a92f5e0f79d6d7b24f19bfdfd0a51c39.png" src="../_images/3b8193d6eae96f991eba8ae1bfbe9372a92f5e0f79d6d7b24f19bfdfd0a51c39.png" />
+</div>
+</div>
+</section>
+<section id="continue-learning">
+<h2>Continue learning<a class="headerlink" href="#continue-learning" title="Link to this heading">#</a></h2>
+<p>There are many more clustering methods beyond the ones introduced here. A good next step is to further explore more modern methods such as <strong>OPTICS</strong>, <strong>spectral clustering</strong>, or <strong>HDBSCAN</strong>, each of which addresses particular limitations of the methods discussed so far.</p>
+<p>For further reading, the scikit-learn clustering module is an excellent place to explore additional examples and practical comparisons:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html">Scikit-learn clustering documentation</a></p></li>
+</ul>
+<p>There are many books, tutorials, and articles on various clustering techniques. Here is just one more recent scientific review article on different clustering techniques:</p>
+<ul class="simple">
+<li><p>“A review of clustering techniques and developments” by Amit Saxena and Mukesh Prasad and Akshansh Gupta and Neha Bharill and Om Prakash Patel and Aruna Tiwari and Meng Joo Er and Weiping Ding and Chin-Teng Lin, 2017, Neurocomputing, Vol.267, https://doi.org/10.1016/j.neucom.2017.06.053 <span id="id1">[<a class="reference internal" href="../book/references.html#id86" title="Amit Saxena, Mukesh Prasad, Akshansh Gupta, Neha Bharill, Om Prakash Patel, Aruna Tiwari, Meng Joo Er, Weiping Ding, and Chin-Teng Lin. A review of clustering techniques and developments. Neurocomputing, 267:664–681, 2017.">Saxena <em>et al.</em>, 2017</a>]</span></p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="12_clustering.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Clustering</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="13_introduction_outlier_detection.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Outlier Detection</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-mixture-models">Gaussian Mixture Models</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#soft-clustering">Soft clustering</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-gmm-works">How GMM works</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gmm-on-our-toy-dataset">GMM on our toy dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-the-gaussian-components">Visualizing the Gaussian components</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strengths-and-weaknesses-of-gmm">Strengths and weaknesses of GMM</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hierarchical-clustering">Hierarchical clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agglomerative-clustering">Agglomerative clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-ward-clustering-works">How Ward clustering works</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-dendrogram">The dendrogram</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#varying-the-distance-threshold">Varying the distance threshold</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strengths-and-weaknesses-of-hierarchical-clustering">Strengths and weaknesses of hierarchical clustering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-more-important-density-based-methods-optics-and-hdbscan">Two more important density-based methods: OPTICS and HDBSCAN</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optics">OPTICS</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hdbscan">HDBSCAN</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparing-clustering-approaches">Comparing clustering approaches</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-compact-visual-comparison">A compact visual comparison</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#continue-learning">Continue learning</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Florian Huber
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Florian Huber.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

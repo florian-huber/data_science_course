@@ -1,0 +1,583 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Data - Information - Knowledge &#8212; Hands-on Introduction to Data Science with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/07_data_information_knowledge';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Data Science Workflow" href="08_data_science_workflow.html" />
+    <link rel="prev" title="Data Acquisition – Where Do We Get Our Data?" href="06_data_acquisition.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-light" alt="Hands-on Introduction to Data Science with Python - Home"/>
+    <img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-dark pst-js-only" alt="Hands-on Introduction to Data Science with Python - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    <no title>
+                </a>
+            </li>
+        </ul>
+        <ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="cover.html">Hands-on Introduction to Data Science with Python</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="01_intro.html">Introduction to this book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_what_is_data_science.html">What is Data Science?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_data_science_ethics_society.html">Data Science, Ethics, and Society</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_use_of_this_book.html">How to use this book (… if you ask us)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">From Data to Knowledge</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="05_data_and_types.html">Data and Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_data_acquisition.html">Data Acquisition – Where Do We Get Our Data?</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data - Information - Knowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_data_science_workflow.html">Data Science Workflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">First Data Exploration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/09_data_preparation.html">Data Cleaning and Preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/10_distributions_statistical_measures.html">Statistical Measures and Distributions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth Data Exploration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/11_correlation_analysis.html">Correlation Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/12_clustering.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/12b_clustering_beyond_the_basics.html">Clustering beyond the basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/13_introduction_outlier_detection.html">Outlier Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/14_dimensionality_reduction.html">Dimensionality Reduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning (Basics)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/15_machine_learning.html">Supervised Machine Learning - Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/16_machine_learning_algorithms.html">Common Algorithms - k-Nearest Neighbors (k-NN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/17_machine_learning_algorithms_2.html">Common Algorithms II - Linear Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/18_machine_learning_algorithms_3.html">Common Algorithms III - Decision Trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/19_machine_learning_techniques.html">Supervised Machine Learning - Key Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/20_machine_learning_ensembles.html">Ensemble Models and Outlook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Text Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/21_working_with_text_data.html">Introduction to Working with Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/22_NLP_2_tokenization.html">NLP - Basic Techniques to Analyze Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/23_NLP_3_tfifd_and_machine_learning.html">Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/24_NLP_4_ngrams_word_vectors.html">Beyond Counting Individual Words: N-grams</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the Networks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/25_graphs.html">Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/26_graph_visualization.html">Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/27_graphs_communities.html">Bottlenecks, Hubs, Communities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Next Steps</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/outlook.html">What are the next steps?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">Complete Bibliography</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="github.html">Source Code on GitHub</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/florian-huber/data_science_course" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/book/07_data_information_knowledge.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Data - Information - Knowledge</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-it-mean-to-know-something">What does it mean to “know” something?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-information-and-knowledge">Data, information, and knowledge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-data-to-knowledge">From data to knowledge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters-for-data-science">Why this matters for data science</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-readings">Further readings</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="data-information-knowledge">
+<span id="ch-data-to-knowledge"></span><h1>Data - Information - Knowledge<a class="headerlink" href="#data-information-knowledge" title="Link to this heading">#</a></h1>
+<p>In <a class="reference internal" href="06_data_acquisition.html#ch-data-acquisition"><span class="std std-ref">Data Acquisition – Where Do We Get Our Data?</span></a> we just made an effort to collect our own data. What comes next?</p>
+<p>Contrary to what the term <em>data science</em> might suggest, data science is not really about data alone. If data is the raw material, then the actual goal is something else: understanding. Or, put a bit more formally, the goal is to generate knowledge. We search through data not because data itself is so beautiful, but because we hope to learn something from it.</p>
+<p>To understand what this means, we need to look a little more closely at the terms data, information, and knowledge, and at how they relate to each other.</p>
+<p>Imagine the following scene. I am holding a small stone in my hand and ask you what will happen if I release it. Almost everyone will confidently answer that the stone will fall to the ground (except if you expect a trick question, which this is not). And that answer is, of course, correct. But why are you so sure? You have never seen <em>this specific stone</em> fall before. In other words, you do not have data about this exact event. And yet you are still confident that you <em>know</em> what will happen.</p>
+<p>This small example already reveals something important: knowledge is not the same thing as directly observed data. We often know things because we can relate new situations to previous experiences, background assumptions, and general rules that we have learned about the world.</p>
+<section id="what-does-it-mean-to-know-something">
+<h2>What does it mean to “know” something?<a class="headerlink" href="#what-does-it-mean-to-know-something" title="Link to this heading">#</a></h2>
+<p>Philosophers have thought about this question for a very long time, and there is no single final answer. But one classical idea is surprisingly useful for us here. It says that a person <em>S</em> knows a proposition <em>p</em> if three conditions are met:</p>
+<ol class="arabic simple">
+<li><p><strong>S believes that p</strong></p></li>
+<li><p><strong>p is true</strong></p></li>
+<li><p><strong>S has good reasons to believe that p</strong></p></li>
+</ol>
+<p>This is often called the idea of knowledge as <strong>justified true belief</strong>.</p>
+<p>Why do we need all three parts?</p>
+<p>The first part alone is obviously not enough. If you (mistakenly) believe that you “know that Mumbai is the capital of India”, it is clear that this alone does not make it <em>knowledge</em>. When someone would then point out that the capital of India is New Delhi it would make it very clear that you only thought you knew. So, the statement has to be true.</p>
+<p>But even truth and belief together are still not enough. Imagine someone saying, “I know that the next dice roll will be a six!”. Suppose the dice is then rolled, and by pure chance it really does land on six. The person believed it, and the statement turned out to be true. Still, we would hesitate to call this knowledge, because the person had no good reason to think it would happen.</p>
+<p>This is why the third part matters: knowledge requires some form of justification, support, or good reason.</p>
+<p>Now let us return to the stone. Why do you know that it will fall? Not because you have observed this exact event before, but because you have good reasons to expect it. You have seen countless similar events, and your experience fits with a broader understanding of gravity and how objects behave near the Earth’s surface. So your belief is not only true, but also well justified.</p>
+<p>For our purposes, this is already enough. The point is not to solve philosophy once and for all, but to understand that knowledge goes beyond isolated observations. It involves interpretation, background assumptions, and reasons.</p>
+</section>
+<section id="data-information-and-knowledge">
+<h2>Data, information, and knowledge<a class="headerlink" href="#data-information-and-knowledge" title="Link to this heading">#</a></h2>
+<p>A commonly shown model for the relation between these concepts is the <strong>DIKW pyramid</strong>: Data, Information, Knowledge, Wisdom (<a class="reference internal" href="#fig-dikw-pyramid"><span class="std std-numref">Fig. 8</span></a>). It presents a simple hierarchy from raw data to deeper understanding and finally to wisdom.</p>
+<p>In practice, however, this model is often criticized for being too simplistic, too vague, or even misleading <span id="id1">[<a class="reference internal" href="references.html#id32" title="Martin Frické. The knowledge pyramid: a critique of the DIKW hierarchy. Journal of Information Science, 35(2):131–142, April 2009. Publisher: SAGE Publications Ltd. URL: https://doi.org/10.1177/0165551508094050 (visited on 2024-04-22), doi:10.1177/0165551508094050.">Frické, 2009</a>]</span>. And for an introduction to data science, the top level, <em>wisdom</em>, is not very important for now. What <em>is</em> useful, however, is the distinction between <em>data</em>, <em>information</em>, and <em>knowledge</em>. In the following chapters, I will use these terms roughly in the following sense:</p>
+<ul class="simple">
+<li><p><strong>Data</strong>: Raw values or findings obtained through observations, measurements, surveys, logs, experiments, or other forms of recording. At this stage, data may still be unstructured, incomplete, or entirely meaningless to us. Imagine a wildlife camera in a forest that records day and night. Most of the data may just show empty scenery, wind, shadows, or leaves. It is data, but it may not yet be informative for our actual question.</p></li>
+<li><p><strong>Information</strong>: Data in context. Information is data that has been organized, structured, or interpreted in a way that gives it potential meaning. One useful formulation is: “Information is data with potential significance for a user” <span id="id2">[<a class="reference internal" href="references.html#id72" title="Ralf Otte, Boris Wippermann, Sebastian Schade, and Viktor Otte. Von Data Mining bis Big Data: Handbuch für die industrielle Praxis. Carl Hanser Verlag GmbH &amp; Co. KG, München, 1 edition, July 2020. ISBN 978-3-446-45550-4.">Otte <em>et al.</em>, 2020</a>]</span>. Once we identify which camera images show animals, at what times, and in which locations, the raw recordings begin to turn into information.</p></li>
+<li><p><strong>Knowledge</strong>: Understanding that goes beyond isolated pieces of information. Knowledge includes rules, patterns, theories, and explanations that we can use with a relatively high degree of confidence. If repeated camera observations show that a certain animal tends to appear in a particular area at dawn, and if this pattern is robust enough to guide future expectations or decisions, we are already moving toward knowledge.</p></li>
+</ul>
+<figure class="align-default" id="fig-dikw-pyramid">
+<a class="reference internal image-reference" href="../_images/fig_DIKW_pyramid.png"><img alt="../_images/fig_DIKW_pyramid.png" src="../_images/fig_DIKW_pyramid.png" style="width: 75%;" />
+</a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">The DIKW Pyramid. <a class="reference external" href="https://en.wikipedia.org/wiki/DIKW_pyramid#/media/File:DIKW_Pyramid.png">Source: wikipedia</a></span><a class="headerlink" href="#fig-dikw-pyramid" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>These distinctions are not perfectly sharp, and different authors use the terms somewhat differently. But for our purposes, they are useful. They help us see that there is a difference between recording values, structuring and interpreting them, and finally arriving at something like robust understanding.</p>
+</section>
+<section id="from-data-to-knowledge">
+<h2>From data to knowledge<a class="headerlink" href="#from-data-to-knowledge" title="Link to this heading">#</a></h2>
+<p>A helpful analogy is detective work. A detective starts with clues. A footprint here, a broken window there, a suspicious message, a missing key. Each clue on its own may seem random, weak, or unimportant. These are like our data.</p>
+<p>As the detective starts connecting these clues, putting them into context, and relating them to the case, a clearer picture begins to emerge. This is like information: the clues are no longer isolated, but organized in a meaningful way.</p>
+<p>Finally, the detective tries to understand what actually happened. They consider alternative explanations, compare them, discard unlikely ones, and arrive at the explanation that best fits the available evidence. This is much closer to knowledge.</p>
+<p>That is also what we are after in data science. We usually do not just want to store or summarize data. We want to detect patterns, test ideas, build explanations, and generate understanding that can inform decisions or further inquiry.</p>
+<p>At the same time, there is no simple recipe for moving from data to knowledge. In fact, this question has been central not only in science, but also in philosophy: how can we derive reliable knowledge from limited observations? There is no single final answer, and discussing all major positions would take us far beyond the scope of this book. Still, it is worth briefly looking at two influential ideas.</p>
+<p>A classical view of scientific progress was proposed by Karl Popper <span id="id3">[<a class="reference internal" href="references.html#id79" title="Karl Popper. Karl Popper: Logik der Forschung. Akademie Verlag, July 2013. ISBN 978-3-05-006378-2. URL: https://www.degruyter.com/document/doi/10.1524/9783050063782/html (visited on 2023-09-04), doi:10.1524/9783050063782.">Popper, 2013</a>]</span>. According to Popper, scientists formulate hypotheses based on initial observations, background knowledge, and creative reasoning. These hypotheses are then tested as rigorously as possible. If a hypothesis fails, it must be revised or rejected. In this way, knowledge progresses not because we can ever prove a theory with absolute certainty, but because we can eliminate explanations that do not survive confrontation with the data.</p>
+<p>Another useful idea is <strong>Inference to the Best Explanation</strong> <span id="id4">[<a class="reference internal" href="references.html#id7" title="Thomas Bartelborth. Die erkenntnistheoretischen Grundlagen induktiven Schließens. Universität Leipzig, 2017. URL: https://nbn-resolving.org/urn:nbn:de:bsz:15-qucosa-220168.">Bartelborth, 2017</a>]</span>. The basic logic is simple. We begin with observations, that is, with data. We then formulate several possible explanations for what we observe. Some of these explanations will fit the data poorly and can be discarded. Others remain plausible. Among these, we then prefer the explanation that best accounts for the observations while also fitting with our broader background knowledge.</p>
+<p>A simplified version of this process looks like this:</p>
+<ol class="arabic simple">
+<li><p><strong>Observation</strong>: We start with phenomena that we observe or record. This is our raw data.</p></li>
+<li><p><strong>Hypothesis formulation</strong>: We develop possible explanations for what we observe.</p></li>
+<li><p><strong>Testing and refinement</strong>: Some explanations fit the data poorly and must be revised or rejected.</p></li>
+<li><p><strong>Comparison</strong>: We compare the remaining explanations. Which one accounts for the data best?</p></li>
+<li><p><strong>Selection</strong>: We tentatively accept the explanation that appears most plausible, most coherent, and most compatible with other established knowledge.</p></li>
+</ol>
+<p>This kind of reasoning is everywhere in science, and also in data science. When we look for patterns in data, test statistical hypotheses, build predictive models, or compare alternative explanations for an observed effect, we are essentially trying to move from isolated observations toward better-supported understanding.</p>
+<p>Of course, this process is never free of pitfalls. Data may be incomplete, biased, noisy, or misleading. Important alternative explanations may be overlooked. Patterns may appear meaningful even though they arose by chance. And even good models may capture correlations without telling us much about deeper causal mechanisms. So moving from data to knowledge is not automatic. It requires caution, critical thinking, and repeated checking.</p>
+<p>Still, that is exactly what makes data science interesting. It is not simply about handling data or applying tools. It is about carefully transforming recorded observations into meaningful, defensible understanding.</p>
+</section>
+<section id="why-this-matters-for-data-science">
+<h2>Why this matters for data science<a class="headerlink" href="#why-this-matters-for-data-science" title="Link to this heading">#</a></h2>
+<p>This distinction between data, information, and knowledge is not just philosophical decoration. It has practical consequences.</p>
+<p>As data scientists, we often begin with data that is incomplete, messy, or difficult to interpret. Our first task is usually not to jump to conclusions, but to structure, explore, and understand the data well enough that it becomes informative. Only then can we begin asking whether we are actually learning something robust from it.</p>
+<p>This also reminds us that not every output of an analysis is already knowledge. A model prediction, a graph, or a statistical association may be informative, but it does not automatically count as knowledge. We still need to ask: Is it trustworthy? Does it generalize? Are there alternative explanations? Does it fit with what else we know? And can we justify why we believe it?</p>
+<p>In that sense, data science is part technical craft, part scientific reasoning, and part careful skepticism.</p>
+</section>
+<section id="further-readings">
+<h2>Further readings<a class="headerlink" href="#further-readings" title="Link to this heading">#</a></h2>
+<p>If this topic interests you, there are many exciting philosophical discussions about knowledge and about how scientific methods allow us to move from observations to more reliable understanding.</p>
+<p>Here are two further examples:</p>
+<ul class="simple">
+<li><p>Keith Lehrer, <em>Theory of Knowledge</em>, 2nd edition, 2019 <span id="id5">[<a class="reference internal" href="references.html#id52" title="Keith Lehrer. Theory Of Knowledge: Second Edition. Routledge, New York, 2 edition, September 2019. ISBN 978-0-429-49426-0. doi:10.4324/9780429494260.">Lehrer, 2019</a>]</span></p></li>
+<li><p>Max Boisot and Augustí Canals, “Data, information and knowledge: have we got it right?””, 2004, <em>Journal of Evolutionary Economics</em> <span id="id6">[<a class="reference internal" href="references.html#id12" title="Max Boisot and Agustí Canals. Data, information and knowledge: have we got it right? Journal of Evolutionary Economics, 14(1):43–67, January 2004. URL: https://doi.org/10.1007/s00191-003-0181-9 (visited on 2024-04-22), doi:10.1007/s00191-003-0181-9.">Boisot and Canals, 2004</a>]</span></p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="06_data_acquisition.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data Acquisition – Where Do We Get Our Data?</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="08_data_science_workflow.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Data Science Workflow</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-does-it-mean-to-know-something">What does it mean to “know” something?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-information-and-knowledge">Data, information, and knowledge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-data-to-knowledge">From data to knowledge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-this-matters-for-data-science">Why this matters for data science</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-readings">Further readings</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Florian Huber
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Florian Huber.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
