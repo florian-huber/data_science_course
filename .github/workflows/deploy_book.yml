@@ -30,15 +30,18 @@ jobs:
         run: |
           which python
           python --version
+
+      - name: Install Sphinx docs dependencies
+        run: |
+          pip install sphinx sphinx-book-theme myst-nb sphinxcontrib-bibtex
+
       - name: Show pip list
         run: |
           pip list
 
-      # Build the book
       - name: Build the book
         run: |
-          pip install jupyter-book
-          jupyter-book build --html
+          sphinx-build -E -a -b html . _build/html
 
       # Push the book's HTML to github-pages
       - name: GitHub Pages action
