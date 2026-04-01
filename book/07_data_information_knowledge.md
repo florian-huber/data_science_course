@@ -1,7 +1,7 @@
 (ch-data-to-knowledge)=
 # Data - Information - Knowledge
 
-In {numref}`ch_data_acquisition` we just made an effort to collect our own data. What comes next?
+In {ref}`ch_data_acquisition` we just made an effort to collect our own data. What comes next?
 
 Contrary to what the term *data science* might suggest, data science is not really about data alone. If data is the raw material, then the actual goal is something else: understanding. Or, put a bit more formally, the goal is to generate knowledge. We search through data not because data itself is so beautiful, but because we hope to learn something from it.
 

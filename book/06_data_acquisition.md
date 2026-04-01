@@ -51,7 +51,7 @@ To judge whether data is suitable for a task, it is usually not enough to ask on
 
 If this sounds a bit too obvious, you may be surprised how often people encounter the following kind of situation in practice: a student starts an internship, is given a business problem to solve, and is reassured with something like, *"Don’t worry, we have huge amounts of data for that."*. That sounds promising, until it turns out that the available data is, for example, only a collection of website clicks and purchase logs, while the actual goal is to understand **why** customers stop using a service. The company may indeed have millions of rows of data, but none of them contains the crucial information: the reasons, frustrations, or external circumstances that led customers to leave. In such a case, the problem is not a lack of data. It is a lack of the *right* data.
 
-And finally, we also have to consider legal, ethical, and practical restrictions on how data may be used (see {numref}`ch_ethics`). Having access to data is not the same as being allowed to use it for every purpose we might have in mind.
+And finally, we also have to consider legal, ethical, and practical restrictions on how data may be used (see {ref}`ch_ethics`). Having access to data is not the same as being allowed to use it for every purpose we might have in mind.
 
 These questions are not side issues. They shape everything that comes afterwards.
 
@@ -59,7 +59,7 @@ These questions are not side issues. They shape everything that comes afterwards
 
 A very important insight is that data is not simply out there waiting for us in neutral form. Data is always collected, selected, recorded, structured, and stored in some way {cite}`DataFeminism2020,kitchin_data_2014, gitelman_raw_2013`. This means that data already reflects decisions. Someone decided what to measure, whom to include, when to record, which categories to use, and what to leave out. And often the data was originally collected for a purpose that may be quite different from the one we have in mind now.
 
-This is one reason why ethical questions arise so early in data science. The ethical dimension does not begin only when a model makes a prediction. It already begins when data is collected {numref}`ch_ethics`.
+This is one reason why ethical questions arise so early in data science. The ethical dimension does not begin only when a model makes a prediction. It already begins when data is collected {ref}`ch_ethics`.
 
 ## A student-focused example: building our own dataset
 
