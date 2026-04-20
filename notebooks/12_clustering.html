@@ -476,11 +476,11 @@
 <section id="what-is-clustering">
 <h3>What is clustering?<a class="headerlink" href="#what-is-clustering" title="Link to this heading">#</a></h3>
 <p>Clustering aims to divide data points into groups in a meaningful way. Usually, we hope that points within the same cluster share important properties or are close to one another according to some notion of similarity.
-In some simple examples, this can look almost trivial. In <a class="reference internal" href="#fig-clustering-intro"><span class="std std-numref">Fig. 13</span></a>, most people would probably agree that the points fall naturally into three groups. At least so far, I have not yet had a student answer anything other than “three” when asked how many clusters they see in this dataset.</p>
+In some simple examples, this can look almost trivial. In <a class="reference internal" href="#fig-clustering-intro"><span class="std std-numref">Fig. 14</span></a>, most people would probably agree that the points fall naturally into three groups. At least so far, I have not yet had a student answer anything other than “three” when asked how many clusters they see in this dataset.</p>
 <figure class="align-default" id="fig-clustering-intro">
 <img alt="../_images/fig_clustering_intro.png" src="../_images/fig_clustering_intro.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Clustering refers to dividing data points into separate groups, called <strong>clusters</strong>.</span><a class="headerlink" href="#fig-clustering-intro" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Clustering refers to dividing data points into separate groups, called <strong>clusters</strong>.</span><a class="headerlink" href="#fig-clustering-intro" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Still, even in such apparently simple situations, there is already an important conceptual point hiding in the background: <em>what exactly counts as a cluster?</em> Is it a dense cloud of points? A group around a center? A region separated by empty space from other regions? Different clustering algorithms answer these questions differently.</p>
@@ -547,11 +547,11 @@ In some simple examples, this can look almost trivial. In <a class="reference in
 </section>
 <section id="hard-and-soft-clustering">
 <h3>Hard and Soft Clustering<a class="headerlink" href="#hard-and-soft-clustering" title="Link to this heading">#</a></h3>
-<p>The most common type of clustering is <strong>hard clustering</strong>, where each data point is assigned to one cluster only. O, in some methods, possibly to no cluster at all if it is treated as noise. In <strong>soft clustering</strong>, by contrast, a data point can belong to several clusters with different degrees of membership. An example of soft clustering is shown in <a class="reference internal" href="#fig-clustering-hard-soft"><span class="std std-numref">Fig. 14</span></a>.</p>
+<p>The most common type of clustering is <strong>hard clustering</strong>, where each data point is assigned to one cluster only. O, in some methods, possibly to no cluster at all if it is treated as noise. In <strong>soft clustering</strong>, by contrast, a data point can belong to several clusters with different degrees of membership. An example of soft clustering is shown in <a class="reference internal" href="#fig-clustering-hard-soft"><span class="std std-numref">Fig. 15</span></a>.</p>
 <figure class="align-default" id="fig-clustering-hard-soft">
 <img alt="../_images/fig_clustering_hard_soft.png" src="../_images/fig_clustering_hard_soft.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Two common approaches to clustering. In <strong>hard clustering</strong>, each element belongs to one cluster only. In <strong>soft clustering</strong>, an element can belong to several clusters with different degrees of membership.</span><a class="headerlink" href="#fig-clustering-hard-soft" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Two common approaches to clustering. In <strong>hard clustering</strong>, each element belongs to one cluster only. In <strong>soft clustering</strong>, an element can belong to several clusters with different degrees of membership.</span><a class="headerlink" href="#fig-clustering-hard-soft" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In this introductory chapter, unless stated otherwise, we will mainly focus on <strong>hard clustering</strong>. Later, in the next chapter, we will return to soft clustering with Gaussian mixture models.</p>
@@ -559,7 +559,7 @@ In some simple examples, this can look almost trivial. In <a class="reference in
 <section id="mini-exercise">
 <h3>Mini-exercise<a class="headerlink" href="#mini-exercise" title="Link to this heading">#</a></h3>
 <p><strong>Team up with your neighbor (if in class), or try on your own:</strong>
-Look again at the data shown in <a class="reference internal" href="#fig-clustering-intro"><span class="std std-numref">Fig. 13</span></a>. How would you design an algorithm that automatically assigns each data point to a cluster?</p>
+Look again at the data shown in <a class="reference internal" href="#fig-clustering-intro"><span class="std std-numref">Fig. 14</span></a>. How would you design an algorithm that automatically assigns each data point to a cluster?</p>
 <p>Think about questions such as:</p>
 <ul class="simple">
 <li><p>How could we decide whether two points are “close enough” to belong together?</p></li>
@@ -585,11 +585,11 @@ Look again at the data shown in <a class="reference internal" href="#fig-cluster
 <li><p><strong>Choose the number of clusters</strong>
 First, we decide how many clusters we want. This number is called <span class="math notranslate nohighlight">\(K\)</span>.</p></li>
 <li><p><strong>Initialize the centroids</strong>
-We start with <span class="math notranslate nohighlight">\(K\)</span> initial center points. In simple versions of the algorithm, these may be chosen randomly from the data (<a class="reference internal" href="#fig-kmeans"><span class="std std-numref">Fig. 15</span></a> A).</p></li>
+We start with <span class="math notranslate nohighlight">\(K\)</span> initial center points. In simple versions of the algorithm, these may be chosen randomly from the data (<a class="reference internal" href="#fig-kmeans"><span class="std std-numref">Fig. 16</span></a> A).</p></li>
 <li><p><strong>Assign each point to the nearest centroid</strong>
-Every data point is assigned to the cluster whose centroid is closest. Often, this closeness is measured using the Euclidean distance (<a class="reference internal" href="#fig-kmeans"><span class="std std-numref">Fig. 15</span></a> B).</p></li>
+Every data point is assigned to the cluster whose centroid is closest. Often, this closeness is measured using the Euclidean distance (<a class="reference internal" href="#fig-kmeans"><span class="std std-numref">Fig. 16</span></a> B).</p></li>
 <li><p><strong>Update the centroids</strong>
-For each cluster, we compute the average position of all points assigned to it. This new average becomes the new centroid (<a class="reference internal" href="#fig-kmeans"><span class="std std-numref">Fig. 15</span></a> C).</p></li>
+For each cluster, we compute the average position of all points assigned to it. This new average becomes the new centroid (<a class="reference internal" href="#fig-kmeans"><span class="std std-numref">Fig. 16</span></a> C).</p></li>
 <li><p><strong>Repeat</strong>
 We repeat the assignment and update steps until the assignments no longer change much, or until the centroid positions stabilize.</p></li>
 </ol>
@@ -597,7 +597,7 @@ We repeat the assignment and update steps until the assignments no longer change
 <figure class="align-default" id="fig-kmeans">
 <img alt="../_images/fig_kmeans_sketch.png" src="../_images/fig_kmeans_sketch.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Illustration of the K-means clustering process: initialization of centroids, assignment of points to the nearest centroid, update of centroid positions, and repeated iteration until convergence.</span><a class="headerlink" href="#fig-kmeans" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Illustration of the K-means clustering process: initialization of centroids, assignment of points to the nearest centroid, update of centroid positions, and repeated iteration until convergence.</span><a class="headerlink" href="#fig-kmeans" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In more technical terms, K-means tries to find cluster assignments that minimize the distances between data points and their assigned cluster centers.</p>
@@ -675,7 +675,7 @@ We repeat the assignment and update steps until the assignments no longer change
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fd926c2f380&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f3cf7829130&gt;
 </pre></div>
 </div>
 <img alt="../_images/c1154ff6191feceaae34f8c4788a7e86b542fc0eb4f8b1f9cc2356ce06828ec6.png" src="../_images/c1154ff6191feceaae34f8c4788a7e86b542fc0eb4f8b1f9cc2356ce06828ec6.png" />
@@ -945,7 +945,7 @@ Points that do not belong to any dense region are labeled as <strong>noise</stro
 <figure class="align-default" id="fig-dbscan">
 <img alt="../_images/fig_dbscan_sketch.png" src="../_images/fig_dbscan_sketch.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Illustrative diagram of the DBSCAN clustering process. For each data point, the algorithm iteratively searches points within a distance <span class="math notranslate nohighlight">\(\epsilon\)</span>, starting from a randomly chosen point (A) and then expanding (B). Points that are close but have fewer than required connections still belong to clusters (light blue point in panel C). Only if no such points are found, a point is labeled an outlier (gray dots, D).</span><a class="headerlink" href="#fig-dbscan" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Illustrative diagram of the DBSCAN clustering process. For each data point, the algorithm iteratively searches points within a distance <span class="math notranslate nohighlight">\(\epsilon\)</span>, starting from a randomly chosen point (A) and then expanding (B). Points that are close but have fewer than required connections still belong to clusters (light blue point in panel C). Only if no such points are found, a point is labeled an outlier (gray dots, D).</span><a class="headerlink" href="#fig-dbscan" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>This makes DBSCAN especially attractive when clusters are not nicely round or when the data contains clear outliers.</p>

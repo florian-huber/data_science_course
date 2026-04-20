@@ -493,11 +493,18 @@ More formally, this is usually termed <strong>Data Preprocessing</strong> and is
 <p>This phrase underscores a crucial truth about data science: the quality of the output depends heavily on the quality of the input. Despite the huge range of sophisticated tools available today, there is still a common misconception that clever methods can somehow compensate for poor data. They usually cannot. Machine learning models and other analytical tools can detect patterns and make predictions, but they are not miracle machines (don’t trust people who tell you otherwise). If the data is misleading, incomplete, inconsistent, or poorly matched to the task, then the results will often be misleading as well.</p>
 <p>Data preprocessing is often perceived as a less “shiny” part of the data science process, especially in comparison to steps such as data visualization or training a machine-learning model. It is not uncommon, though, that the data acquisition and data preparation phase is what ultimately determines if a project will be a huge success or a complete failure!
 And, time for an important spoiler: if you are going to work in the field of data science you might be surprised to find out that getting, understanding, and preparing the data you need for an analysis or the training of a model might cost you much more time, sweat and tears than the shiny parts that people will see in your final results.</p>
+<figure class="align-default" id="fig-data-acquisition-problems">
+<img alt="../_images/fig_data_acquisition_problems.png" src="../_images/fig_data_acquisition_problems.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Real life can be hard in data science. <em>Getting</em> the data is the often the most overlooked part of a project and can easily then turn out to be the most time-consuming part. You might be lucky at times…
+but every experienced data scientist can usually recount many anecdotes of “fantastic” data that was <em>supposed</em> to be ready to go.</span><a class="headerlink" href="#fig-data-acquisition-problems" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="steps-in-data-pre-processing">
 <h3>Steps in Data Pre-Processing<a class="headerlink" href="#steps-in-data-pre-processing" title="Link to this heading">#</a></h3>
 <p>Common preprocessing tasks include handling missing values, combining data from different sources, correcting inconsistent entries, converting data types, standardizing formats, removing duplicates, transforming variables, and sometimes reducing the complexity of the dataset. Which of these steps matter most depends on the data and on the analysis we want to perform.</p>
-<p>In sum, these steps allow transforming “raw data” <a class="footnote-reference brackets" href="#raw-data" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> into a refined format that enhances the analytical capabilities of data science tools, leading to more accurate and insightful outcomes.</p>
+<p>In sum, these steps allow transforming “raw data” <a class="footnote-reference brackets" href="#raw-data" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> into a refined format that enhances the analytical capabilities of data science tools, leading to more accurate and insightful outcomes. In the following part, a few of the most common issues will briefly be introduced: dealing with missing values, combining datasets, or converting data types.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -879,6 +886,7 @@ memory usage: 228.0 bytes
 </table>
 </div></div></div>
 </div>
+<p>This seems rather clean and simple. In practice, however, we often do not want to remove any row with one or more missing value because it would remove <em>far too much</em> of our available data.</p>
 </section>
 <section id="id5">
 <h3>Imputation<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
@@ -939,33 +947,33 @@ memory usage: 228.0 bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>George</td>
-      <td>21</td>
-      <td>45000</td>
+      <td>Marie</td>
+      <td>51</td>
+      <td>83000</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Karen</td>
-      <td>48</td>
-      <td>76000</td>
+      <td>Elizabeth</td>
+      <td>35</td>
+      <td>80000</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Pamela</td>
-      <td>50</td>
-      <td>61000</td>
+      <td>Ian</td>
+      <td>33</td>
+      <td>54000</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Ashley</td>
-      <td>36</td>
-      <td>82000</td>
+      <td>Christine</td>
+      <td>54</td>
+      <td>95000</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Bradley</td>
-      <td>25</td>
-      <td>47000</td>
+      <td>Daniel</td>
+      <td>38</td>
+      <td>50000</td>
     </tr>
   </tbody>
 </table>
@@ -1006,33 +1014,33 @@ memory usage: 228.0 bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>George</td>
-      <td>21</td>
-      <td>45000.0</td>
+      <td>Marie</td>
+      <td>51</td>
+      <td>83000.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Karen</td>
-      <td>48</td>
+      <td>Elizabeth</td>
+      <td>35</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Pamela</td>
-      <td>50</td>
+      <td>Ian</td>
+      <td>33</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Ashley</td>
-      <td>36</td>
+      <td>Christine</td>
+      <td>54</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Bradley</td>
-      <td>25</td>
-      <td>47000.0</td>
+      <td>Daniel</td>
+      <td>38</td>
+      <td>50000.0</td>
     </tr>
   </tbody>
 </table>
@@ -1047,7 +1055,7 @@ memory usage: 228.0 bytes
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(69000.0)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(74000.0)
 </pre></div>
 </div>
 </div>
@@ -1086,33 +1094,33 @@ memory usage: 228.0 bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>George</td>
-      <td>21</td>
-      <td>45000.0</td>
+      <td>Marie</td>
+      <td>51</td>
+      <td>83000.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Karen</td>
-      <td>48</td>
-      <td>69000.0</td>
+      <td>Elizabeth</td>
+      <td>35</td>
+      <td>74000.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Pamela</td>
-      <td>50</td>
-      <td>69000.0</td>
+      <td>Ian</td>
+      <td>33</td>
+      <td>74000.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Ashley</td>
-      <td>36</td>
-      <td>69000.0</td>
+      <td>Christine</td>
+      <td>54</td>
+      <td>74000.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Bradley</td>
-      <td>25</td>
-      <td>47000.0</td>
+      <td>Daniel</td>
+      <td>38</td>
+      <td>50000.0</td>
     </tr>
   </tbody>
 </table>
@@ -1168,33 +1176,33 @@ memory usage: 228.0 bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>George</td>
-      <td>21.0</td>
-      <td>45000.0</td>
+      <td>Marie</td>
+      <td>51.0</td>
+      <td>83000.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Karen</td>
-      <td>48.0</td>
-      <td>82000.0</td>
+      <td>Elizabeth</td>
+      <td>35.0</td>
+      <td>65000.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Pamela</td>
-      <td>50.0</td>
-      <td>77500.0</td>
+      <td>Ian</td>
+      <td>33.0</td>
+      <td>68500.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Ashley</td>
-      <td>36.0</td>
-      <td>82000.0</td>
+      <td>Christine</td>
+      <td>54.0</td>
+      <td>91500.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Bradley</td>
-      <td>25.0</td>
-      <td>47000.0</td>
+      <td>Daniel</td>
+      <td>38.0</td>
+      <td>50000.0</td>
     </tr>
   </tbody>
 </table>
@@ -1212,10 +1220,10 @@ memory usage: 228.0 bytes
 <figure class="align-default" id="fig-data-merging01">
 <img alt="../_images/fig_data_merging_types.png" src="../_images/fig_data_merging_types.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 12 </span><span class="caption-text">There are different ways of merging data. Which one to use is best decided based on the data we have at hand and the types of operations we plan to run with the resulting data. Here are three of the most common types of merges: inner, left, and outer merges.</span><a class="headerlink" href="#fig-data-merging01" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">There are different ways of merging data. Which one to use is best decided based on the data we have at hand and the types of operations we plan to run with the resulting data. Here are three of the most common types of merges: inner, left, and outer merges.</span><a class="headerlink" href="#fig-data-merging01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Figure (<a class="reference internal" href="#fig-data-merging01"><span class="std std-numref">Fig. 12</span></a>) shows some common merging types. More information on different ways to combine data using pandas can be found in the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html">pandas documentation on merging</a>.</p>
+<p>Figure (<a class="reference internal" href="#fig-data-merging01"><span class="std std-numref">Fig. 13</span></a>) shows some common merging types. More information on different ways to combine data using pandas can be found in the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html">pandas documentation on merging</a>.</p>
 <p>Here, only briefly: The basic syntax of the <code class="docutils literal notranslate"><span class="pre">merge</span></code> function is:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left_data</span><span class="p">,</span> <span class="n">right_data</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </pre></div>

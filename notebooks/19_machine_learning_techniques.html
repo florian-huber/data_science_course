@@ -530,7 +530,7 @@
 <figure class="align-default" id="fig-classification-metrics">
 <img alt="../_images/fig_classification_metrics_sketch.png" src="../_images/fig_classification_metrics_sketch.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 32 </span><span class="caption-text">The confusion matrix is a good way to quickly display and assess the true positive value (TP), the true negative value (TN) as well as the false positives (FP) and false negatives (FN). Based on those numbers different standard metrics to evaluate a model are computed such as  accuracy, recall, specificiy, and precision.</span><a class="headerlink" href="#fig-classification-metrics" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 33 </span><span class="caption-text">The confusion matrix is a good way to quickly display and assess the true positive value (TP), the true negative value (TN) as well as the false positives (FP) and false negatives (FN). Based on those numbers different standard metrics to evaluate a model are computed such as  accuracy, recall, specificiy, and precision.</span><a class="headerlink" href="#fig-classification-metrics" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -644,7 +644,7 @@ When tuning hyperparameters or making decisions about model architecture, it’s
 <figure class="align-default" id="fig-cross-validation-training">
 <img alt="../_images/fig_cross_validation_training.png" src="../_images/fig_cross_validation_training.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 33 </span><span class="caption-text">Illustration of a model training workflow using cross-validation to find the best hyperparameters. The displayed workflow also contains an additional first split into train and test set, a common best practice to avoid any form of overfitting. Under certain circumstances, however, it is also possible to skip this split and only work with k-fold cross-validation, in particular for very small datasets.</span><a class="headerlink" href="#fig-cross-validation-training" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text">Illustration of a model training workflow using cross-validation to find the best hyperparameters. The displayed workflow also contains an additional first split into train and test set, a common best practice to avoid any form of overfitting. Under certain circumstances, however, it is also possible to skip this split and only work with k-fold cross-validation, in particular for very small datasets.</span><a class="headerlink" href="#fig-cross-validation-training" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -670,7 +670,7 @@ Common strategies to work with highly imbalanced data are:</p>
 </section>
 <section id="nice-to-have-scikit-learn-pipeline">
 <h2>Nice-to-have: Scikit-learn Pipeline<a class="headerlink" href="#nice-to-have-scikit-learn-pipeline" title="Link to this heading">#</a></h2>
-<p>The scikit-learn Pipeline is an essential tool for encapsulating your entire workflow in machine learning model construction. The purpose of a Pipeline is to assemble several steps that can be cross-validated together while setting different parameters. It helps in maintaining the sequence of transformations and ensuring that all steps in the process are carried out consistently (see <a class="reference internal" href="#fig-scikit-pipeline"><span class="std std-numref">Fig. 34</span></a>). This makes the model building process cleaner, easier to manage, and repeatable.</p>
+<p>The scikit-learn Pipeline is an essential tool for encapsulating your entire workflow in machine learning model construction. The purpose of a Pipeline is to assemble several steps that can be cross-validated together while setting different parameters. It helps in maintaining the sequence of transformations and ensuring that all steps in the process are carried out consistently (see <a class="reference internal" href="#fig-scikit-pipeline"><span class="std std-numref">Fig. 35</span></a>). This makes the model building process cleaner, easier to manage, and repeatable.</p>
 <p><strong>Key Features:</strong></p>
 <ul class="simple">
 <li><p><strong>Automation of Workflow</strong>: Pipeline automates the process of applying the same sequence of transformations for fitting and predicting data. For example, scaling data, extracting features, and then training a model.</p></li>
@@ -698,7 +698,7 @@ Common strategies to work with highly imbalanced data are:</p>
 <figure class="align-default" id="fig-scikit-pipeline">
 <img alt="../_images/fig_scikit_pipeline.png" src="../_images/fig_scikit_pipeline.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 34 </span><span class="caption-text">In addition to the “normal” workflow to train a model directly (<strong>A</strong>), the Scikit-Learn Pipeline allows combining multiple processing steps into a <code class="docutils literal notranslate"><span class="pre">Pipline</span></code> object. This can then be used just like a single model, for instance by running <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> or <code class="docutils literal notranslate"><span class="pre">.predict()</span></code>.</span><a class="headerlink" href="#fig-scikit-pipeline" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 35 </span><span class="caption-text">In addition to the “normal” workflow to train a model directly (<strong>A</strong>), the Scikit-Learn Pipeline allows combining multiple processing steps into a <code class="docutils literal notranslate"><span class="pre">Pipline</span></code> object. This can then be used just like a single model, for instance by running <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> or <code class="docutils literal notranslate"><span class="pre">.predict()</span></code>.</span><a class="headerlink" href="#fig-scikit-pipeline" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -2415,11 +2415,11 @@ At least for cases like the one at hand, where computation time is no restrictio
 <ul class="simple">
 <li><p><strong>RandomizedSearchCV</strong>: Can sample a given number of candidates from a parameter space with a specified distribution. More efficient than GridSearchCV when dealing with a large hyperparameter space or when we aim to reduce the computational burden.</p></li>
 </ul>
-<p>We will here only do a simple grid search using Scikit-Learn’s <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code>. This works with any Scikit-Learn machine learning model, but also with <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code> objects as displayed in <a class="reference internal" href="#fig-scikit-gridsearch"><span class="std std-numref">Fig. 35</span></a>.</p>
+<p>We will here only do a simple grid search using Scikit-Learn’s <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code>. This works with any Scikit-Learn machine learning model, but also with <code class="docutils literal notranslate"><span class="pre">Pipeline</span></code> objects as displayed in <a class="reference internal" href="#fig-scikit-gridsearch"><span class="std std-numref">Fig. 36</span></a>.</p>
 <figure class="align-default" id="fig-scikit-gridsearch">
 <img alt="../_images/fig_scikit_gridsearch.png" src="../_images/fig_scikit_gridsearch.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 35 </span><span class="caption-text">Scikit-Learn’s <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> combines a grid search for systematically comparing different parameter sets with a cross-validation approach. GridSearchCV objects again follow the Scikit-Learn workflow and can be trained using <code class="docutils literal notranslate"><span class="pre">.fit()</span></code>.</span><a class="headerlink" href="#fig-scikit-gridsearch" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 36 </span><span class="caption-text">Scikit-Learn’s <code class="docutils literal notranslate"><span class="pre">GridSearchCV</span></code> combines a grid search for systematically comparing different parameter sets with a cross-validation approach. GridSearchCV objects again follow the Scikit-Learn workflow and can be trained using <code class="docutils literal notranslate"><span class="pre">.fit()</span></code>.</span><a class="headerlink" href="#fig-scikit-gridsearch" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="cell docutils container">
@@ -3548,10 +3548,10 @@ forceTheme('sk-container-id-2');</script></body></div></div>
   <tbody>
     <tr>
       <th>1</th>
-      <td>0.004801</td>
-      <td>0.000032</td>
-      <td>0.003917</td>
-      <td>0.000028</td>
+      <td>0.004950</td>
+      <td>0.000041</td>
+      <td>0.004139</td>
+      <td>0.000388</td>
       <td>3</td>
       <td>{'model__n_neighbors': 3}</td>
       <td>0.788644</td>
@@ -3572,10 +3572,10 @@ forceTheme('sk-container-id-2');</script></body></div></div>
     </tr>
     <tr>
       <th>0</th>
-      <td>0.005318</td>
-      <td>0.000469</td>
-      <td>0.004025</td>
-      <td>0.000215</td>
+      <td>0.005186</td>
+      <td>0.000267</td>
+      <td>0.003972</td>
+      <td>0.000174</td>
       <td>2</td>
       <td>{'model__n_neighbors': 2}</td>
       <td>0.794953</td>
@@ -3596,10 +3596,10 @@ forceTheme('sk-container-id-2');</script></body></div></div>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.004811</td>
-      <td>0.000017</td>
-      <td>0.004075</td>
-      <td>0.000284</td>
+      <td>0.005131</td>
+      <td>0.000365</td>
+      <td>0.003967</td>
+      <td>0.000018</td>
       <td>4</td>
       <td>{'model__n_neighbors': 4}</td>
       <td>0.769716</td>
@@ -7258,7 +7258,7 @@ a.param-doc-link::before {
                 </table>
             </details>
         </div>
-    </div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-16" type="checkbox" ><label for="sk-estimator-id-16" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>best_estimator_: DecisionTreeClassifier</div></div></label><div class="sk-toggleable__content fitted" data-param-prefix="best_estimator___"><pre>DecisionTreeClassifier(max_depth=20)</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-17" type="checkbox" ><label for="sk-estimator-id-17" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>DecisionTreeClassifier</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.8/modules/generated/sklearn.tree.DecisionTreeClassifier.html">?<span>Documentation for DecisionTreeClassifier</span></a></div></label><div class="sk-toggleable__content fitted" data-param-prefix="best_estimator___">
+    </div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-16" type="checkbox" ><label for="sk-estimator-id-16" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>best_estimator_: DecisionTreeClassifier</div></div></label><div class="sk-toggleable__content fitted" data-param-prefix="best_estimator___"><pre>DecisionTreeClassifier(max_depth=15)</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-17" type="checkbox" ><label for="sk-estimator-id-17" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>DecisionTreeClassifier</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.8/modules/generated/sklearn.tree.DecisionTreeClassifier.html">?<span>Documentation for DecisionTreeClassifier</span></a></div></label><div class="sk-toggleable__content fitted" data-param-prefix="best_estimator___">
         <div class="estimator-table">
             <details>
                 <summary>Parameters</summary>
@@ -7309,7 +7309,7 @@ a.param-doc-link::before {
             <span class="param-doc-description">max_depth: int, default=None<br><br>The maximum depth of the tree. If None, then nodes are expanded until<br>all leaves are pure or until all leaves contain less than<br>min_samples_split samples.</span>
         </a>
     </td>
-            <td class="value">20</td>
+            <td class="value">15</td>
         </tr>
     
 
@@ -7641,19 +7641,19 @@ forceTheme('sk-container-id-6');</script></body></div></div>
   </thead>
   <tbody>
     <tr>
-      <th>12</th>
-      <td>0.007290</td>
-      <td>0.000135</td>
-      <td>0.001873</td>
-      <td>0.000055</td>
-      <td>20</td>
+      <th>9</th>
+      <td>0.007247</td>
+      <td>0.000091</td>
+      <td>0.001841</td>
+      <td>0.000010</td>
+      <td>15</td>
       <td>2</td>
-      <td>{'max_depth': 20, 'min_samples_split': 2}</td>
-      <td>0.916667</td>
-      <td>0.907197</td>
-      <td>0.943074</td>
-      <td>0.922313</td>
-      <td>0.015181</td>
+      <td>{'max_depth': 15, 'min_samples_split': 2}</td>
+      <td>0.912879</td>
+      <td>0.901515</td>
+      <td>0.944972</td>
+      <td>0.919788</td>
+      <td>0.018401</td>
       <td>1</td>
       <td>1.000000</td>
       <td>1.000000</td>
@@ -7663,18 +7663,18 @@ forceTheme('sk-container-id-6');</script></body></div></div>
     </tr>
     <tr>
       <th>6</th>
-      <td>0.007170</td>
-      <td>0.000112</td>
-      <td>0.001775</td>
-      <td>0.000025</td>
+      <td>0.007204</td>
+      <td>0.000075</td>
+      <td>0.001867</td>
+      <td>0.000079</td>
       <td>10</td>
       <td>2</td>
       <td>{'max_depth': 10, 'min_samples_split': 2}</td>
-      <td>0.895833</td>
-      <td>0.905303</td>
+      <td>0.907197</td>
+      <td>0.901515</td>
       <td>0.948767</td>
-      <td>0.916634</td>
-      <td>0.023048</td>
+      <td>0.919160</td>
+      <td>0.021063</td>
       <td>2</td>
       <td>0.990521</td>
       <td>0.994313</td>
@@ -7683,25 +7683,25 @@ forceTheme('sk-container-id-6');</script></body></div></div>
       <td>0.002719</td>
     </tr>
     <tr>
-      <th>7</th>
-      <td>0.007059</td>
-      <td>0.000029</td>
-      <td>0.001771</td>
-      <td>0.000005</td>
-      <td>10</td>
-      <td>5</td>
-      <td>{'max_depth': 10, 'min_samples_split': 5}</td>
-      <td>0.914773</td>
-      <td>0.893939</td>
-      <td>0.941176</td>
-      <td>0.916630</td>
-      <td>0.019329</td>
+      <th>12</th>
+      <td>0.007269</td>
+      <td>0.000097</td>
+      <td>0.001839</td>
+      <td>0.000037</td>
+      <td>20</td>
+      <td>2</td>
+      <td>{'max_depth': 20, 'min_samples_split': 2}</td>
+      <td>0.903409</td>
+      <td>0.895833</td>
+      <td>0.946869</td>
+      <td>0.915370</td>
+      <td>0.022487</td>
       <td>3</td>
-      <td>0.983886</td>
-      <td>0.981991</td>
-      <td>0.987689</td>
-      <td>0.984522</td>
-      <td>0.002370</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
     </tr>
   </tbody>
 </table>
@@ -7725,10 +7725,10 @@ Here, however, we will now do another cross-validation run to illustrate what th
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;fit_time&#39;: array([0.01255727, 0.01169086, 0.01141119, 0.01193428, 0.01132846,
-        0.01189327, 0.01133823, 0.01151824, 0.01171827, 0.01179814]),
- &#39;score_time&#39;: array([0.0039711 , 0.00375557, 0.00376439, 0.00377965, 0.00375676,
-        0.00372744, 0.00365567, 0.0035646 , 0.00361848, 0.00360632]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;fit_time&#39;: array([0.01252413, 0.01204801, 0.01169086, 0.01207328, 0.01155114,
+        0.01232219, 0.01157165, 0.01242423, 0.01194429, 0.01228666]),
+ &#39;score_time&#39;: array([0.00413489, 0.00392008, 0.00383258, 0.00381875, 0.0038507 ,
+        0.00380015, 0.00381732, 0.00398564, 0.0041995 , 0.00423026]),
  &#39;test_accuracy&#39;: array([0.80188679, 0.87203791, 0.9478673 , 0.95260664, 0.95260664,
         0.93364929, 0.95260664, 0.9478673 , 0.95260664, 0.95260664]),
  &#39;test_f1_macro&#39;: array([0.80315095, 0.86771551, 0.9453898 , 0.95293603, 0.95135921,

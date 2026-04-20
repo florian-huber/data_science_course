@@ -455,20 +455,20 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="common-algorithms-iii-decision-trees">
 <span id="ch-decision-trees"></span><h1>Common Algorithms III - Decision Trees<a class="headerlink" href="#common-algorithms-iii-decision-trees" title="Link to this heading">#</a></h1>
-<p>Decision Trees are intuitive and easily interpretable models that mimic human decision-making processes. They work by partitioning the data into subsets that contain instances with similar values. This is done through a series of questions that segment the data based on feature values, ultimately leading to a decision at each leaf node. A simple example is shown in <a class="reference internal" href="#fig-decision-tree-example"><span class="std std-numref">Fig. 28</span></a>.</p>
+<p>Decision Trees are intuitive and easily interpretable models that mimic human decision-making processes. They work by partitioning the data into subsets that contain instances with similar values. This is done through a series of questions that segment the data based on feature values, ultimately leading to a decision at each leaf node. A simple example is shown in <a class="reference internal" href="#fig-decision-tree-example"><span class="std std-numref">Fig. 29</span></a>.</p>
 <figure class="align-default" id="fig-decision-tree-example">
 <img alt="../_images/fig_decision_tree_example.png" src="../_images/fig_decision_tree_example.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 28 </span><span class="caption-text">Decision trees are very intuitive to understand, but also to create! They can, in principle, both be designed and used manually. This sketch shows a very basic student classifier supposed to distinguish professors, employees, and students on campus. Admittedly, it will perform rather poorly, but you’ll get the idea.</span><a class="headerlink" href="#fig-decision-tree-example" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 29 </span><span class="caption-text">Decision trees are very intuitive to understand, but also to create! They can, in principle, both be designed and used manually. This sketch shows a very basic student classifier supposed to distinguish professors, employees, and students on campus. Admittedly, it will perform rather poorly, but you’ll get the idea.</span><a class="headerlink" href="#fig-decision-tree-example" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="building-a-decision-tree">
 <h2>Building a Decision Tree<a class="headerlink" href="#building-a-decision-tree" title="Link to this heading">#</a></h2>
-<p>How can we build a decision tree, say to distinguish red squares from blue triangles in <a class="reference internal" href="#fig-decision-tree-first-steps"><span class="std std-numref">Fig. 29</span></a>?</p>
+<p>How can we build a decision tree, say to distinguish red squares from blue triangles in <a class="reference internal" href="#fig-decision-tree-first-steps"><span class="std std-numref">Fig. 30</span></a>?</p>
 <figure class="align-default" id="fig-decision-tree-first-steps">
 <img alt="../_images/fig_decision_tree_first_steps.png" src="../_images/fig_decision_tree_first_steps.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 29 </span><span class="caption-text">To design a decision tree we could search for suitable decision boundaries that separate one species from the others (if the task is classification). After a first step (<strong>A</strong>), we will iteratively continue to <strong>B</strong> and further.</span><a class="headerlink" href="#fig-decision-tree-first-steps" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 30 </span><span class="caption-text">To design a decision tree we could search for suitable decision boundaries that separate one species from the others (if the task is classification). After a first step (<strong>A</strong>), we will iteratively continue to <strong>B</strong> and further.</span><a class="headerlink" href="#fig-decision-tree-first-steps" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>That seems to work OK. But how could we automate this? What could be a good algorithm to find good decision boundaries for us?</p>
@@ -499,7 +499,7 @@ Gini = 1 - \sum_{i=1}^K p_i^2
 <figure class="align-default" id="fig-decision-tree-algorithm">
 <img alt="../_images/fig_decision_tree_entropy.png" src="../_images/fig_decision_tree_entropy.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 30 </span><span class="caption-text">We here compare two possible splits (x &gt; 3 or x &gt; 3.5) to decide which one is better based on the Gini index.</span><a class="headerlink" href="#fig-decision-tree-algorithm" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 31 </span><span class="caption-text">We here compare two possible splits (x &gt; 3 or x &gt; 3.5) to decide which one is better based on the Gini index.</span><a class="headerlink" href="#fig-decision-tree-algorithm" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The Gini index at the beginning (in the “parent” node) is</p>
@@ -558,7 +558,7 @@ G_B = \tfrac{2}{20}\times0 + \tfrac{18}{20}\times0.493 = 0.444
 <figure class="align-default" id="fig-decision-tree-issues">
 <img alt="../_images/fig_decision_tree_issues.png" src="../_images/fig_decision_tree_issues.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 31 </span><span class="caption-text">Decision trees come with several possible shortcomings. When their depth is not limited they have a high risk of overfitting on the training data because they can in principle separate each data point and thereby memorize training data.</span><a class="headerlink" href="#fig-decision-tree-issues" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 32 </span><span class="caption-text">Decision trees come with several possible shortcomings. When their depth is not limited they have a high risk of overfitting on the training data because they can in principle separate each data point and thereby memorize training data.</span><a class="headerlink" href="#fig-decision-tree-issues" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Pros:</strong></p>

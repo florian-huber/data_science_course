@@ -541,7 +541,7 @@ Distance between vector1 and vector3: 4.243.
 <div class="math notranslate nohighlight">
 \[TF(t)=\frac{\text{Number of times term t appears in a document}}{\text{Total number of terms in the document}}
 \]</div>
-<p>The <strong>Inverse Document Frequency (IDF)</strong> is computed as the logarithm of the number of documents in the corpus divided by the number of documents where the specific term appears. See <a class="reference internal" href="#fig-nlp-tfidf-example"><span class="std std-numref">Fig. 40</span></a> for a simple example.</p>
+<p>The <strong>Inverse Document Frequency (IDF)</strong> is computed as the logarithm of the number of documents in the corpus divided by the number of documents where the specific term appears. See <a class="reference internal" href="#fig-nlp-tfidf-example"><span class="std std-numref">Fig. 41</span></a> for a simple example.</p>
 <div class="math notranslate nohighlight">
 \[IDF(t)=\log(\frac{\text{Total number of documents}}{\text{Number of documents with term t in it}})
 \]</div>
@@ -551,7 +551,7 @@ Distance between vector1 and vector3: 4.243.
 <figure class="align-default" id="fig-nlp-tfidf-example">
 <img alt="../_images/fig_nlp_tfidf_example.png" src="../_images/fig_nlp_tfidf_example.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 40 </span><span class="caption-text">Here is an example of a very simple corpus <span class="math notranslate nohighlight">\(D\)</span> that consists of only two documents <span class="math notranslate nohighlight">\(d_1\)</span> and <span class="math notranslate nohighlight">\(d_2\)</span> to illustrate how TF and IDF values are computed.</span><a class="headerlink" href="#fig-nlp-tfidf-example" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 41 </span><span class="caption-text">Here is an example of a very simple corpus <span class="math notranslate nohighlight">\(D\)</span> that consists of only two documents <span class="math notranslate nohighlight">\(d_1\)</span> and <span class="math notranslate nohighlight">\(d_2\)</span> to illustrate how TF and IDF values are computed.</span><a class="headerlink" href="#fig-nlp-tfidf-example" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>This results in a vector space model where each word is assigned a TF-IDF score, and a document is represented as a vector of these scores. We can use libraries like <code class="docutils literal notranslate"><span class="pre">Scikit-Learn</span></code><span id="id1">[<a class="reference internal" href="../book/references.html#id87" title="F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay. Scikit-learn: machine learning in Python. Journal of Machine Learning Research, 12:2825–2830, 2011.">Pedregosa <em>et al.</em>, 2011</a>]</span> to compute these scores easily.</p>

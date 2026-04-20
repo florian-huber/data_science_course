@@ -478,11 +478,11 @@ However, their meanings are diametrically opposed. The order of words and the co
 <p><strong>N-grams</strong> are continuous sequences of n items in a given sample of text or speech. In the context of text analysis, an item can be a character, a syllable, or a word, although words are the most commonly used items. The integer <em>n</em> in “n-gram” refers to the number of items in the sequence, so a bigram (or 2-gram) is a sequence of two words, a trigram (3-gram) is a sequence of three words, and so on.</p>
 <p>To illustrate, consider the two sentences above.
 With 3-grams we could also get the pieces “movie is good”, “movie is bad”, “actor was bad”, and “actor was good”.
-Bigrams (or 2-grams) would not catch those differences. However, they can be helpful in slightly simpler cases, such as “don’t like” versus “do like” (see <a class="reference internal" href="#fig-ngrams-example"><span class="std std-numref">Fig. 41</span></a>). A lot will depend here on the text normalization and tokenization process. In some cases <code class="docutils literal notranslate"><span class="pre">don't</span></code> will be interpreted as two tokens (<code class="docutils literal notranslate"><span class="pre">do</span></code> and <code class="docutils literal notranslate"><span class="pre">not</span></code>), while other workflows might leave it at <code class="docutils literal notranslate"><span class="pre">don't</span></code> or <code class="docutils literal notranslate"><span class="pre">don'</span></code> (for instance the <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer</span></code> from Sckit-Learn). In the first case, we would again need 3-grams to fully represent the “don’t” like as <code class="docutils literal notranslate"><span class="pre">(&quot;do&quot;,</span> <span class="pre">&quot;not&quot;,</span> <span class="pre">&quot;like&quot;)</span></code>.</p>
+Bigrams (or 2-grams) would not catch those differences. However, they can be helpful in slightly simpler cases, such as “don’t like” versus “do like” (see <a class="reference internal" href="#fig-ngrams-example"><span class="std std-numref">Fig. 42</span></a>). A lot will depend here on the text normalization and tokenization process. In some cases <code class="docutils literal notranslate"><span class="pre">don't</span></code> will be interpreted as two tokens (<code class="docutils literal notranslate"><span class="pre">do</span></code> and <code class="docutils literal notranslate"><span class="pre">not</span></code>), while other workflows might leave it at <code class="docutils literal notranslate"><span class="pre">don't</span></code> or <code class="docutils literal notranslate"><span class="pre">don'</span></code> (for instance the <code class="docutils literal notranslate"><span class="pre">TfidfVectorizer</span></code> from Sckit-Learn). In the first case, we would again need 3-grams to fully represent the “don’t” like as <code class="docutils literal notranslate"><span class="pre">(&quot;do&quot;,</span> <span class="pre">&quot;not&quot;,</span> <span class="pre">&quot;like&quot;)</span></code>.</p>
 <figure class="align-default" id="fig-ngrams-example">
 <img alt="../_images/fig_ngrams_example.png" src="../_images/fig_ngrams_example.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 41 </span><span class="caption-text">Two example sentences can be compared based on the words they contain (left table). But in many cases, meaningful distinctions get more pronounced when including n-grams (here: 2-grams added ot the right table). Identical words and 2-grams between the sentences are marked by yellow boxes.</span><a class="headerlink" href="#fig-ngrams-example" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 42 </span><span class="caption-text">Two example sentences can be compared based on the words they contain (left table). But in many cases, meaningful distinctions get more pronounced when including n-grams (here: 2-grams added ot the right table). Identical words and 2-grams between the sentences are marked by yellow boxes.</span><a class="headerlink" href="#fig-ngrams-example" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Now we will see how we can make use of such n-grams.</p>
@@ -3590,7 +3590,7 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 <p>The most prominent example of such a technique is <strong>Word2Vec</strong> <span id="id1">[<a class="reference internal" href="../book/references.html#id66" title="Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, and Jeffrey Dean. Distributed Representations of Words and Phrases and their Compositionality. October 2013. arXiv:1310.4546 [cs, stat]. URL: http://arxiv.org/abs/1310.4546 (visited on 2023-06-12), doi:10.48550/arXiv.1310.4546.">Mikolov <em>et al.</em>, 2013</a>]</span><span id="id2">[<a class="reference internal" href="../book/references.html#id67" title="Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. Efficient Estimation of Word Representations in Vector Space. September 2013. arXiv:1301.3781 [cs]. URL: http://arxiv.org/abs/1301.3781 (visited on 2023-06-12), doi:10.48550/arXiv.1301.3781.">Mikolov <em>et al.</em>, 2013</a>]</span>.</p>
 <section id="word2vec">
 <h3>Word2Vec<a class="headerlink" href="#word2vec" title="Link to this heading">#</a></h3>
-<p>The fundamental idea behind Word2Vec is to use the context in which words appear to learn their meanings. As shown in the <a class="reference internal" href="#fig-word2vec-sliding-window"><span class="std std-numref">Fig. 42</span></a>, a sliding window of a fixed size (here, 5) moves over the sentence</p>
+<p>The fundamental idea behind Word2Vec is to use the context in which words appear to learn their meanings. As shown in the <a class="reference internal" href="#fig-word2vec-sliding-window"><span class="std std-numref">Fig. 43</span></a>, a sliding window of a fixed size (here, 5) moves over the sentence</p>
 <blockquote>
 <div><p>“The customer likes cake with a cappuccino.”</p>
 </div></blockquote>
@@ -3599,14 +3599,14 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 <figure class="align-default" id="fig-word2vec-sliding-window">
 <img alt="../_images/fig_word2vec_sliding_window.png" src="../_images/fig_word2vec_sliding_window.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 42 </span><span class="caption-text">Techniques such as Word2Vec learn vector representations of individual words based on their “context”, which is given by the neighboring words.</span><a class="headerlink" href="#fig-word2vec-sliding-window" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 43 </span><span class="caption-text">Techniques such as Word2Vec learn vector representations of individual words based on their “context”, which is given by the neighboring words.</span><a class="headerlink" href="#fig-word2vec-sliding-window" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Word2Vec models can be trained using two main methods: Continuous Bag of Words (CBOW) and Skip-Gram. In CBOW, the model predicts a target word based on its surrounding context words, focusing on understanding the word’s context to infer its meaning (see <a class="reference internal" href="#fig-nlp-word2vec"><span class="std std-numref">Fig. 43</span></a>). Conversely, the Skip-Gram model predicts the surrounding context words given a target word, emphasizing the ability to generate context from a single word <span id="id3">[<a class="reference internal" href="../book/references.html#id66" title="Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, and Jeffrey Dean. Distributed Representations of Words and Phrases and their Compositionality. October 2013. arXiv:1310.4546 [cs, stat]. URL: http://arxiv.org/abs/1310.4546 (visited on 2023-06-12), doi:10.48550/arXiv.1310.4546.">Mikolov <em>et al.</em>, 2013</a>]</span><span id="id4">[<a class="reference internal" href="../book/references.html#id67" title="Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. Efficient Estimation of Word Representations in Vector Space. September 2013. arXiv:1301.3781 [cs]. URL: http://arxiv.org/abs/1301.3781 (visited on 2023-06-12), doi:10.48550/arXiv.1301.3781.">Mikolov <em>et al.</em>, 2013</a>]</span>.</p>
+<p>Word2Vec models can be trained using two main methods: Continuous Bag of Words (CBOW) and Skip-Gram. In CBOW, the model predicts a target word based on its surrounding context words, focusing on understanding the word’s context to infer its meaning (see <a class="reference internal" href="#fig-nlp-word2vec"><span class="std std-numref">Fig. 44</span></a>). Conversely, the Skip-Gram model predicts the surrounding context words given a target word, emphasizing the ability to generate context from a single word <span id="id3">[<a class="reference internal" href="../book/references.html#id66" title="Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, and Jeffrey Dean. Distributed Representations of Words and Phrases and their Compositionality. October 2013. arXiv:1310.4546 [cs, stat]. URL: http://arxiv.org/abs/1310.4546 (visited on 2023-06-12), doi:10.48550/arXiv.1310.4546.">Mikolov <em>et al.</em>, 2013</a>]</span><span id="id4">[<a class="reference internal" href="../book/references.html#id67" title="Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. Efficient Estimation of Word Representations in Vector Space. September 2013. arXiv:1301.3781 [cs]. URL: http://arxiv.org/abs/1301.3781 (visited on 2023-06-12), doi:10.48550/arXiv.1301.3781.">Mikolov <em>et al.</em>, 2013</a>]</span>.</p>
 <figure class="align-default" id="fig-nlp-word2vec">
 <img alt="../_images/fig_nlp_word2vec.png" src="../_images/fig_nlp_word2vec.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 43 </span><span class="caption-text">The aim of a Word2Vec model is typically to learn vector representations of individual words based on some context words. This is done in such a way that the very large (and very sparse) input vectors are converted into highly compressed float vectors. In this example figure, the context words are “cherry”, “is”, “and”, “sweet”, and the target word would be “red”.</span><a class="headerlink" href="#fig-nlp-word2vec" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 44 </span><span class="caption-text">The aim of a Word2Vec model is typically to learn vector representations of individual words based on some context words. This is done in such a way that the very large (and very sparse) input vectors are converted into highly compressed float vectors. In this example figure, the context words are “cherry”, “is”, “and”, “sweet”, and the target word would be “red”.</span><a class="headerlink" href="#fig-nlp-word2vec" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="cell docutils container">
@@ -3635,7 +3635,7 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "bcea5b5e5402408cb58454a35e52783b"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "c895497b06c14b0c8d9a54b629799792"}</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3687,10 +3687,10 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.1601834 , -1.6351801 ,  0.5880454 , -0.97603047,  0.36211893,
-        0.09113916,  0.8310345 , -0.01949962, -0.8555823 ,  0.0233144 ,
-       -0.4933886 ,  0.10806072, -0.98963684,  0.93595576,  0.91884285,
-        1.4210942 ,  0.92717475, -0.73120165, -0.18239179,  1.1742561 ],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.5977687 , -0.8125376 ,  0.18625213, -0.5372248 ,  0.44879323,
+       -0.4122769 ,  1.302773  ,  0.53139836, -1.4143784 , -0.93206424,
+        0.02277035,  0.4632168 , -1.2254169 ,  0.38299632,  0.0227763 ,
+        1.0179815 ,  1.7501522 , -0.64078546,  0.13246386,  1.5177293 ],
       dtype=float32)
 </pre></div>
 </div>
@@ -3704,16 +3704,16 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;yummy&#39;, 0.8203738927841187),
- (&#39;fantastic&#39;, 0.8167252540588379),
- (&#39;tasty&#39;, 0.8163812160491943),
- (&#39;amazing&#39;, 0.7695211172103882),
- (&#39;fabulous&#39;, 0.7577654719352722),
- (&#39;incredible&#39;, 0.7444900274276733),
- (&#39;superb&#39;, 0.7413480281829834),
- (&#39;outstanding&#39;, 0.7192289233207703),
- (&#39;excellent&#39;, 0.7140443921089172),
- (&#39;awesome&#39;, 0.7045375108718872)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;tasty&#39;, 0.8295963406562805),
+ (&#39;yummy&#39;, 0.8192607164382935),
+ (&#39;fantastic&#39;, 0.815644383430481),
+ (&#39;amazing&#39;, 0.7787504196166992),
+ (&#39;incredible&#39;, 0.748714029788971),
+ (&#39;superb&#39;, 0.7463289499282837),
+ (&#39;fabulous&#39;, 0.728270947933197),
+ (&#39;awesome&#39;, 0.7224911451339722),
+ (&#39;excellent&#39;, 0.713874101638794),
+ (&#39;phenomenal&#39;, 0.7128053307533264)]
 </pre></div>
 </div>
 </div>
@@ -3725,16 +3725,16 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;burger&#39;, 0.8311595916748047),
- (&#39;hamburger&#39;, 0.7378823161125183),
- (&#39;pasta&#39;, 0.7204414010047913),
- (&#39;sushi&#39;, 0.7094042897224426),
- (&#39;paella&#39;, 0.7042527794837952),
- (&#39;salad&#39;, 0.6849405169487),
- (&#39;Paella&#39;, 0.6813434958457947),
- (&#39;ramen&#39;, 0.6659983992576599),
- (&#39;steak&#39;, 0.6580000519752502),
- (&#39;sauce&#39;, 0.6470530033111572)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;burger&#39;, 0.8280271291732788),
+ (&#39;hamburger&#39;, 0.7420767545700073),
+ (&#39;paella&#39;, 0.7192294001579285),
+ (&#39;pasta&#39;, 0.7019428610801697),
+ (&#39;ramen&#39;, 0.6916012763977051),
+ (&#39;sushi&#39;, 0.6904711127281189),
+ (&#39;topping&#39;, 0.6837136745452881),
+ (&#39;salad&#39;, 0.6826504468917847),
+ (&#39;Paella&#39;, 0.680330216884613),
+ (&#39;fry&#39;, 0.6484569311141968)]
 </pre></div>
 </div>
 </div>
@@ -3746,16 +3746,16 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;terrible&#39;, 0.8982292413711548),
- (&#39;awful&#39;, 0.8890866041183472),
- (&#39;alright&#39;, 0.7776164412498474),
- (&#39;okay&#39;, 0.7531435489654541),
- (&#39;appalling&#39;, 0.7511820793151855),
- (&#39;exceptional&#39;, 0.7282692790031433),
- (&#39;OK&#39;, 0.7085649371147156),
- (&#39;disgusting&#39;, 0.7046204209327698),
- (&#39;edible&#39;, 0.6998059153556824),
- (&#39;outstanding&#39;, 0.6936972141265869)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;terrible&#39;, 0.9092776775360107),
+ (&#39;awful&#39;, 0.8993695974349976),
+ (&#39;exceptional&#39;, 0.8149914145469666),
+ (&#39;alright&#39;, 0.7993800044059753),
+ (&#39;okay&#39;, 0.796234130859375),
+ (&#39;OK&#39;, 0.7507289052009583),
+ (&#39;spectacular&#39;, 0.7349824905395508),
+ (&#39;disgusting&#39;, 0.7333320379257202),
+ (&#39;appalling&#39;, 0.7304786443710327),
+ (&#39;outstanding&#39;, 0.7200807332992554)]
 </pre></div>
 </div>
 </div>
@@ -3767,16 +3767,16 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;attentive&#39;, 0.8434270620346069),
- (&#39;polite&#39;, 0.8277435302734375),
- (&#39;welcoming&#39;, 0.8229902386665344),
- (&#39;helpful&#39;, 0.8229853510856628),
- (&#39;professional&#39;, 0.7859737873077393),
- (&#39;courteous&#39;, 0.7593449950218201),
- (&#39;accommodating&#39;, 0.7465936541557312),
- (&#39;efficient&#39;, 0.7304710745811462),
- (&#39;pleasant&#39;, 0.6894866228103638),
- (&#39;unfriendly&#39;, 0.663801908493042)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;attentive&#39;, 0.8319776058197021),
+ (&#39;polite&#39;, 0.8085693120956421),
+ (&#39;welcoming&#39;, 0.8038524389266968),
+ (&#39;helpful&#39;, 0.79594486951828),
+ (&#39;professional&#39;, 0.7844725847244263),
+ (&#39;courteous&#39;, 0.7708751559257507),
+ (&#39;efficient&#39;, 0.7356531023979187),
+ (&#39;accommodating&#39;, 0.701850175857544),
+ (&#39;pleasant&#39;, 0.7002405524253845),
+ (&#39;prompt&#39;, 0.6712468862533569)]
 </pre></div>
 </div>
 </div>
@@ -3788,16 +3788,16 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;cake&#39;, 0.9003868699073792),
- (&#39;churros&#39;, 0.8842087388038635),
- (&#39;strawberry&#39;, 0.847547173500061),
- (&#39;yogurt&#39;, 0.8416576981544495),
- (&#39;brownie&#39;, 0.8404905796051025),
- (&#39;lemon&#39;, 0.8359001874923706),
- (&#39;tea&#39;, 0.8348470330238342),
- (&#39;almond&#39;, 0.8289188742637634),
- (&#39;mango&#39;, 0.820530891418457),
- (&#39;carrot&#39;, 0.8188021779060364)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;cake&#39;, 0.9000855088233948),
+ (&#39;lemon&#39;, 0.8597840666770935),
+ (&#39;strawberry&#39;, 0.8547112941741943),
+ (&#39;sorbet&#39;, 0.8441497683525085),
+ (&#39;ice&#39;, 0.8422191739082336),
+ (&#39;yogurt&#39;, 0.8393285870552063),
+ (&#39;mango&#39;, 0.8381040096282959),
+ (&#39;churros&#39;, 0.8366515040397644),
+ (&#39;carrot&#39;, 0.8271347880363464),
+ (&#39;cream&#39;, 0.825984001159668)]
 </pre></div>
 </div>
 </div>
@@ -3809,16 +3809,16 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;tea&#39;, 0.7582964897155762),
- (&#39;beer&#39;, 0.744032621383667),
- (&#39;snack&#39;, 0.739352822303772),
- (&#39;croissant&#39;, 0.6952734589576721),
- (&#39;desert&#39;, 0.6913290023803711),
- (&#39;juice&#39;, 0.6892976760864258),
- (&#39;churros&#39;, 0.6883108019828796),
- (&#39;chocolate&#39;, 0.6853784918785095),
- (&#39;soda&#39;, 0.6803005933761597),
- (&#39;pastry&#39;, 0.6749447584152222)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;beer&#39;, 0.7705553770065308),
+ (&#39;snack&#39;, 0.7351241707801819),
+ (&#39;tea&#39;, 0.7249175310134888),
+ (&#39;refill&#39;, 0.6882874965667725),
+ (&#39;juice&#39;, 0.6721787452697754),
+ (&#39;churros&#39;, 0.6710314750671387),
+ (&#39;croissant&#39;, 0.6680178046226501),
+ (&#39;soda&#39;, 0.6652652025222778),
+ (&#39;desert&#39;, 0.6651529669761658),
+ (&#39;chocolate&#39;, 0.6635875701904297)]
 </pre></div>
 </div>
 </div>
