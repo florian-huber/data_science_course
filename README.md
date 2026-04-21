@@ -37,5 +37,8 @@ This should create a Python 3.12 environment with the packages listed in the yam
 
 ## Build book locally
 
-The current book project is meant to be generated using [*Sphinx*]([https://jupyterbook.org](https://www.sphinx-doc.org/en/master/index.html)). More instructions will follow.
+The current book project is meant to be generated using [*Sphinx*]([https://jupyterbook.org](https://www.sphinx-doc.org/en/master/index.html)). 
+The html rendered version can be generated locally by running:
+```
+sphinx-build -E -a -b html . _build/html
 ```
