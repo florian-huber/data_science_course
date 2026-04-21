@@ -460,7 +460,7 @@
 <h1>Bottlenecks, Hubs, Communities<a class="headerlink" href="#bottlenecks-hubs-communities" title="Link to this heading">#</a></h1>
 <section id="measuring-the-structure-of-a-graph">
 <h2>Measuring the Structure of a Graph<a class="headerlink" href="#measuring-the-structure-of-a-graph" title="Link to this heading">#</a></h2>
-<p>Graphs come in a multitude of different forms or structures. There are graphs with few connections per node (low average degree) such as networks based on high-school dating (most people date few others, see <span id="id1">[<a class="reference internal" href="../book/references.html#id8" title="Peter S Bearman, James Moody, and Katherine Stovel. Chains of affection: the structure of adolescent romantic and sexual networks. American journal of sociology, 110(1):44–91, 2004.">Bearman <em>et al.</em>, 2004</a>]</span>) and those with many connections per node such as many social networks.</p>
+<p>Graphs come in a multitude of different forms or structures. There are graphs with few connections per node (low average degree) such as networks based on high-school dating (most people date few others, see <span id="id1">[<a class="reference internal" href="../book/references.html#id9" title="Peter S Bearman, James Moody, and Katherine Stovel. Chains of affection: the structure of adolescent romantic and sexual networks. American journal of sociology, 110(1):44–91, 2004.">Bearman <em>et al.</em>, 2004</a>]</span>) and those with many connections per node such as many social networks.</p>
 <p>Moreover, there is a wide range of different metrics that are applied to measure important aspects or properties of a graph. Some of the most commonly used such measures will be introduced in this chapter.</p>
 <section id="average-path-length">
 <h3>Average path length<a class="headerlink" href="#average-path-length" title="Link to this heading">#</a></h3>
@@ -871,7 +871,7 @@ b_e = \sum_{i, j}\frac{\sigma(i, j |e)}{\sigma(i,j)}
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_4217/3250153097.py:23: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_4126/3250153097.py:23: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
   plt.legend()
 </pre></div>
 </div>
@@ -899,7 +899,7 @@ Q = \frac{1}{2m} \sum_{ij} \left[ A_{ij} - \frac{k_i k_j}{2m} \right] \delta(c_i
 </section>
 <section id="louvain-algorithm">
 <h3>Louvain algorithm<a class="headerlink" href="#louvain-algorithm" title="Link to this heading">#</a></h3>
-<p>A very popular method for community detection is the <strong>Louvain algorithm</strong> <span id="id2">[<a class="reference internal" href="../book/references.html#id11" title="Vincent D Blondel, Jean-Loup Guillaume, Renaud Lambiotte, and Etienne Lefebvre. Fast unfolding of communities in large networks. Journal of statistical mechanics: theory and experiment, 2008(10):P10008, 2008.">Blondel <em>et al.</em>, 2008</a>]</span>. This algorithm is designed to uncover communities in large networks quickly and efficiently. It works in two main phases:</p>
+<p>A very popular method for community detection is the <strong>Louvain algorithm</strong> <span id="id2">[<a class="reference internal" href="../book/references.html#id12" title="Vincent D Blondel, Jean-Loup Guillaume, Renaud Lambiotte, and Etienne Lefebvre. Fast unfolding of communities in large networks. Journal of statistical mechanics: theory and experiment, 2008(10):P10008, 2008.">Blondel <em>et al.</em>, 2008</a>]</span>. This algorithm is designed to uncover communities in large networks quickly and efficiently. It works in two main phases:</p>
 <ol class="arabic simple">
 <li><p><strong>Modularity Optimization</strong>: Initially, each node is assigned to its own community. The algorithm then repeatedly moves individual nodes to neighboring communities in a way that maximizes the increase in modularity, a measure that quantifies the density of links inside communities compared to links between communities.</p></li>
 <li><p><strong>Community Aggregation</strong>: After modularity cannot be increased further, the algorithm aggregates nodes belonging to the same community and builds a new network where each community is treated as a single node. The process of modularity optimization is then repeated on this new, smaller network.</p></li>
@@ -979,7 +979,7 @@ Q = \frac{1}{2m} \sum_{ij} \left[ A_{ij} - \frac{k_i k_j}{2m} \right] \delta(c_i
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_4217/1809915951.py:23: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_4126/1809915951.py:23: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
   plt.legend()
 </pre></div>
 </div>
@@ -1041,7 +1041,7 @@ Q = \frac{1}{2m} \sum_{ij} \left[ A_{ij} - \frac{k_i k_j}{2m} \right] \delta(c_i
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_4217/2251159713.py:41: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_4126/2251159713.py:41: UserWarning: No artists with labels found to put in legend.  Note that artists whose label start with an underscore are ignored when legend() is called with no argument.
   plt.legend()
 </pre></div>
 </div>
@@ -1054,10 +1054,10 @@ Q = \frac{1}{2m} \sum_{ij} \left[ A_{ij} - \frac{k_i k_j}{2m} \right] \delta(c_i
 <h2>More on Networks<a class="headerlink" href="#more-on-networks" title="Link to this heading">#</a></h2>
 <p>Obviously, there is <em>much</em> more to learn and explore about working with networks!</p>
 <ul class="simple">
-<li><p>A great introduction to the topic of networks and network analysis is the book “A first course in network science” <span id="id3">[<a class="reference internal" href="../book/references.html#id65" title="Filippo Menczer, Santo Fortunato, and Clayton A Davis. A first course in network science. Cambridge University Press, 2020.">Menczer <em>et al.</em>, 2020</a>]</span>.</p></li>
-<li><p>A good textbook as well as an online book resource to have a deeper look is <span id="id4">[<a class="reference internal" href="../book/references.html#id64" title="Keith McNulty. Welcome \textbar  Handbook of Graphs and Networks in People Analytics: With Examples in R and Python. Routledge &amp; CRC Press, 2022. ISBN 978-1-03-220497-0. URL: https://ona-book.org (visited on 2024-01-23).">McNulty, 2022</a>]</span> (see <a class="reference external" href="https://ona-book.org/index.html">online version</a>, too).</p></li>
+<li><p>A great introduction to the topic of networks and network analysis is the book “A first course in network science” <span id="id3">[<a class="reference internal" href="../book/references.html#id67" title="Filippo Menczer, Santo Fortunato, and Clayton A Davis. A first course in network science. Cambridge University Press, 2020.">Menczer <em>et al.</em>, 2020</a>]</span>.</p></li>
+<li><p>A good textbook as well as an online book resource to have a deeper look is <span id="id4">[<a class="reference internal" href="../book/references.html#id66" title="Keith McNulty. Welcome \textbar  Handbook of Graphs and Networks in People Analytics: With Examples in R and Python. Routledge &amp; CRC Press, 2022. ISBN 978-1-03-220497-0. URL: https://ona-book.org (visited on 2024-01-23).">McNulty, 2022</a>]</span> (see <a class="reference external" href="https://ona-book.org/index.html">online version</a>, too).</p></li>
 <li><p>Much more on community detection can be found in:
-<span id="id5">[<a class="reference internal" href="../book/references.html#id31" title="Santo Fortunato. Community detection in graphs. Physics reports, 486(3-5):75–174, 2010.">Fortunato, 2010</a>, <a class="reference internal" href="../book/references.html#id74" title="Tiago P Peixoto. Descriptive vs. inferential community detection in networks: Pitfalls, myths and half-truths. Cambridge University Press, 2023.">Peixoto, 2023</a>]</span></p></li>
+<span id="id5">[<a class="reference internal" href="../book/references.html#id33" title="Santo Fortunato. Community detection in graphs. Physics reports, 486(3-5):75–174, 2010.">Fortunato, 2010</a>, <a class="reference internal" href="../book/references.html#id76" title="Tiago P Peixoto. Descriptive vs. inferential community detection in networks: Pitfalls, myths and half-truths. Cambridge University Press, 2023.">Peixoto, 2023</a>]</span></p></li>
 <li><p>Do you need some network datasets to play with? Try the <a class="reference external" href="https://snap.stanford.edu/data/">Stanford Large Network Dataset Collection</a>.</p></li>
 </ul>
 </section>

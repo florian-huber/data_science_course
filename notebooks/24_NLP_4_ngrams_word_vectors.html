@@ -3587,7 +3587,7 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 (2) <em>The client loves to have a cookie and a coffee.</em></p>
 <p>We will immediately identify that both sentences speak of very similar things. But if you look at the words in both sentences you will realize that only <em>“The”</em> and <em>“a”</em> are found in both. And, as we have seen in the tfidf-part, such words tell very little about the sentence content. All other words, however, only occur in one or the other sentence. Tfidf-vectors would compute a zero similarity here.</p>
 <p>This is where we come to <strong>word vectors</strong>. Word vectors, also known as <strong>word embeddings</strong>, are mathematical representations of words in a high-dimensional space where the semantic similarity between words corresponds to the geometric distance in the embedding space. Simply put, similar words are close together, and dissimilar words are farther apart. If done well, this should show that <em>“cookie”</em> and <em>“cake”</em> are not the same word, but mean something very related.</p>
-<p>The most prominent example of such a technique is <strong>Word2Vec</strong> <span id="id1">[<a class="reference internal" href="../book/references.html#id66" title="Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, and Jeffrey Dean. Distributed Representations of Words and Phrases and their Compositionality. October 2013. arXiv:1310.4546 [cs, stat]. URL: http://arxiv.org/abs/1310.4546 (visited on 2023-06-12), doi:10.48550/arXiv.1310.4546.">Mikolov <em>et al.</em>, 2013</a>]</span><span id="id2">[<a class="reference internal" href="../book/references.html#id67" title="Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. Efficient Estimation of Word Representations in Vector Space. September 2013. arXiv:1301.3781 [cs]. URL: http://arxiv.org/abs/1301.3781 (visited on 2023-06-12), doi:10.48550/arXiv.1301.3781.">Mikolov <em>et al.</em>, 2013</a>]</span>.</p>
+<p>The most prominent example of such a technique is <strong>Word2Vec</strong> <span id="id1">[<a class="reference internal" href="../book/references.html#id68" title="Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, and Jeffrey Dean. Distributed Representations of Words and Phrases and their Compositionality. October 2013. arXiv:1310.4546 [cs, stat]. URL: http://arxiv.org/abs/1310.4546 (visited on 2023-06-12), doi:10.48550/arXiv.1310.4546.">Mikolov <em>et al.</em>, 2013</a>]</span><span id="id2">[<a class="reference internal" href="../book/references.html#id69" title="Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. Efficient Estimation of Word Representations in Vector Space. September 2013. arXiv:1301.3781 [cs]. URL: http://arxiv.org/abs/1301.3781 (visited on 2023-06-12), doi:10.48550/arXiv.1301.3781.">Mikolov <em>et al.</em>, 2013</a>]</span>.</p>
 <section id="word2vec">
 <h3>Word2Vec<a class="headerlink" href="#word2vec" title="Link to this heading">#</a></h3>
 <p>The fundamental idea behind Word2Vec is to use the context in which words appear to learn their meanings. As shown in the <a class="reference internal" href="#fig-word2vec-sliding-window"><span class="std std-numref">Fig. 43</span></a>, a sliding window of a fixed size (here, 5) moves over the sentence</p>
@@ -3602,7 +3602,7 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 <p><span class="caption-number">Fig. 43 </span><span class="caption-text">Techniques such as Word2Vec learn vector representations of individual words based on their “context”, which is given by the neighboring words.</span><a class="headerlink" href="#fig-word2vec-sliding-window" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Word2Vec models can be trained using two main methods: Continuous Bag of Words (CBOW) and Skip-Gram. In CBOW, the model predicts a target word based on its surrounding context words, focusing on understanding the word’s context to infer its meaning (see <a class="reference internal" href="#fig-nlp-word2vec"><span class="std std-numref">Fig. 44</span></a>). Conversely, the Skip-Gram model predicts the surrounding context words given a target word, emphasizing the ability to generate context from a single word <span id="id3">[<a class="reference internal" href="../book/references.html#id66" title="Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, and Jeffrey Dean. Distributed Representations of Words and Phrases and their Compositionality. October 2013. arXiv:1310.4546 [cs, stat]. URL: http://arxiv.org/abs/1310.4546 (visited on 2023-06-12), doi:10.48550/arXiv.1310.4546.">Mikolov <em>et al.</em>, 2013</a>]</span><span id="id4">[<a class="reference internal" href="../book/references.html#id67" title="Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. Efficient Estimation of Word Representations in Vector Space. September 2013. arXiv:1301.3781 [cs]. URL: http://arxiv.org/abs/1301.3781 (visited on 2023-06-12), doi:10.48550/arXiv.1301.3781.">Mikolov <em>et al.</em>, 2013</a>]</span>.</p>
+<p>Word2Vec models can be trained using two main methods: Continuous Bag of Words (CBOW) and Skip-Gram. In CBOW, the model predicts a target word based on its surrounding context words, focusing on understanding the word’s context to infer its meaning (see <a class="reference internal" href="#fig-nlp-word2vec"><span class="std std-numref">Fig. 44</span></a>). Conversely, the Skip-Gram model predicts the surrounding context words given a target word, emphasizing the ability to generate context from a single word <span id="id3">[<a class="reference internal" href="../book/references.html#id68" title="Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, and Jeffrey Dean. Distributed Representations of Words and Phrases and their Compositionality. October 2013. arXiv:1310.4546 [cs, stat]. URL: http://arxiv.org/abs/1310.4546 (visited on 2023-06-12), doi:10.48550/arXiv.1310.4546.">Mikolov <em>et al.</em>, 2013</a>]</span><span id="id4">[<a class="reference internal" href="../book/references.html#id69" title="Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. Efficient Estimation of Word Representations in Vector Space. September 2013. arXiv:1301.3781 [cs]. URL: http://arxiv.org/abs/1301.3781 (visited on 2023-06-12), doi:10.48550/arXiv.1301.3781.">Mikolov <em>et al.</em>, 2013</a>]</span>.</p>
 <figure class="align-default" id="fig-nlp-word2vec">
 <img alt="../_images/fig_nlp_word2vec.png" src="../_images/fig_nlp_word2vec.png" />
 <figcaption>
@@ -3635,7 +3635,7 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "0d5fee3824ce4e7188d9501d807221db"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "de49098d85a24bd985db1efd9095f0e4"}</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3687,10 +3687,10 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.1780452 , -0.1756211 ,  0.36138293, -0.5822789 ,  0.03890674,
-       -0.22791053,  0.08051936, -0.35656047, -1.4614748 , -0.09982251,
-       -0.01301144,  0.02732064, -0.9024613 ,  0.8820738 ,  0.9047174 ,
-        0.7646114 ,  1.582036  , -1.3121383 , -0.06946871,  2.8266807 ],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-1.5000857 , -0.09801379,  0.693154  , -1.4266828 , -1.0926312 ,
+        1.4244138 ,  0.70337164, -3.525657  , -0.7515106 , -0.48355147,
+       -0.01979106,  1.4386557 , -1.1651539 , -0.5601509 ,  0.6749848 ,
+        1.5108926 ,  1.5332905 , -1.1126939 ,  0.2947397 ,  3.0769804 ],
       dtype=float32)
 </pre></div>
 </div>
@@ -3704,16 +3704,16 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;yummy&#39;, 0.8142629265785217),
- (&#39;fantastic&#39;, 0.8092831969261169),
- (&#39;tasty&#39;, 0.8080393671989441),
- (&#39;amazing&#39;, 0.7810462713241577),
- (&#39;incredible&#39;, 0.7679471373558044),
- (&#39;superb&#39;, 0.7442048788070679),
- (&#39;fabulous&#39;, 0.7411754727363586),
- (&#39;awesome&#39;, 0.732926607131958),
- (&#39;excellent&#39;, 0.7294468283653259),
- (&#39;outstanding&#39;, 0.7211788296699524)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;yummy&#39;, 0.8127263784408569),
+ (&#39;tasty&#39;, 0.8060523867607117),
+ (&#39;fantastic&#39;, 0.7950434684753418),
+ (&#39;amazing&#39;, 0.7616921067237854),
+ (&#39;superb&#39;, 0.7590214610099792),
+ (&#39;incredible&#39;, 0.7499696612358093),
+ (&#39;fabulous&#39;, 0.733108639717102),
+ (&#39;phenomenal&#39;, 0.7323530316352844),
+ (&#39;awesome&#39;, 0.7277258038520813),
+ (&#39;outstanding&#39;, 0.711603581905365)]
 </pre></div>
 </div>
 </div>
@@ -3725,16 +3725,16 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;burger&#39;, 0.813048243522644),
- (&#39;hamburger&#39;, 0.7534880042076111),
- (&#39;paella&#39;, 0.702336847782135),
- (&#39;pasta&#39;, 0.701627254486084),
- (&#39;sushi&#39;, 0.6956171989440918),
- (&#39;Paella&#39;, 0.6939775347709656),
- (&#39;salad&#39;, 0.6618035435676575),
- (&#39;ramen&#39;, 0.65030837059021),
- (&#39;topping&#39;, 0.6494051814079285),
- (&#39;spaghetti&#39;, 0.6439075469970703)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;burger&#39;, 0.8239617943763733),
+ (&#39;hamburger&#39;, 0.7408950328826904),
+ (&#39;sushi&#39;, 0.7082628011703491),
+ (&#39;paella&#39;, 0.6989564299583435),
+ (&#39;pasta&#39;, 0.6987225413322449),
+ (&#39;sandwich&#39;, 0.6889508366584778),
+ (&#39;ramen&#39;, 0.6864352822303772),
+ (&#39;salad&#39;, 0.6767229437828064),
+ (&#39;topping&#39;, 0.6701561808586121),
+ (&#39;nacho&#39;, 0.6699848175048828)]
 </pre></div>
 </div>
 </div>
@@ -3746,16 +3746,16 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;terrible&#39;, 0.9028406739234924),
- (&#39;awful&#39;, 0.8942406177520752),
- (&#39;okay&#39;, 0.7759456038475037),
- (&#39;OK&#39;, 0.7742792367935181),
- (&#39;alright&#39;, 0.7688611149787903),
- (&#39;exceptional&#39;, 0.7590073347091675),
- (&#39;appalling&#39;, 0.72478848695755),
- (&#39;poor&#39;, 0.723170280456543),
- (&#39;disgusting&#39;, 0.7211466431617737),
- (&#39;bad&#39;, 0.718881368637085)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;awful&#39;, 0.9117420315742493),
+ (&#39;terrible&#39;, 0.910013735294342),
+ (&#39;disgusting&#39;, 0.8063542246818542),
+ (&#39;okay&#39;, 0.7994619607925415),
+ (&#39;alright&#39;, 0.7840330600738525),
+ (&#39;exceptional&#39;, 0.7631072998046875),
+ (&#39;OK&#39;, 0.7537270188331604),
+ (&#39;appalling&#39;, 0.7415879964828491),
+ (&#39;bad&#39;, 0.7370356917381287),
+ (&#39;lacking&#39;, 0.7127495408058167)]
 </pre></div>
 </div>
 </div>
@@ -3767,16 +3767,16 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;attentive&#39;, 0.8282111287117004),
- (&#39;professional&#39;, 0.8103151321411133),
- (&#39;welcoming&#39;, 0.8090981245040894),
- (&#39;polite&#39;, 0.8028297424316406),
- (&#39;helpful&#39;, 0.7880856990814209),
- (&#39;courteous&#39;, 0.7720699906349182),
- (&#39;accommodating&#39;, 0.7404983043670654),
- (&#39;efficient&#39;, 0.7276193499565125),
- (&#39;pleasant&#39;, 0.6822269558906555),
- (&#39;cheerful&#39;, 0.670289158821106)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;attentive&#39;, 0.8396907448768616),
+ (&#39;welcoming&#39;, 0.8247292637825012),
+ (&#39;professional&#39;, 0.8220344185829163),
+ (&#39;helpful&#39;, 0.8163774013519287),
+ (&#39;polite&#39;, 0.8137066960334778),
+ (&#39;courteous&#39;, 0.7819076776504517),
+ (&#39;efficient&#39;, 0.7604636549949646),
+ (&#39;accommodating&#39;, 0.7273218035697937),
+ (&#39;pleasant&#39;, 0.6948645710945129),
+ (&#39;unfriendly&#39;, 0.6685371398925781)]
 </pre></div>
 </div>
 </div>
@@ -3788,16 +3788,16 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;cake&#39;, 0.8954158425331116),
- (&#39;yogurt&#39;, 0.8563262820243835),
- (&#39;churros&#39;, 0.8522019386291504),
- (&#39;lemon&#39;, 0.8490216135978699),
- (&#39;strawberry&#39;, 0.8429782390594482),
- (&#39;carrot&#39;, 0.8315919041633606),
- (&#39;sorbet&#39;, 0.828869104385376),
- (&#39;mango&#39;, 0.8236002922058105),
- (&#39;milk&#39;, 0.8188583850860596),
- (&#39;brownie&#39;, 0.8182227611541748)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;cake&#39;, 0.898651659488678),
+ (&#39;strawberry&#39;, 0.8698774576187134),
+ (&#39;lemon&#39;, 0.8678867220878601),
+ (&#39;sorbet&#39;, 0.861882746219635),
+ (&#39;yogurt&#39;, 0.8534176349639893),
+ (&#39;cream&#39;, 0.853361189365387),
+ (&#39;churros&#39;, 0.8450964093208313),
+ (&#39;mousse&#39;, 0.8337063193321228),
+ (&#39;mango&#39;, 0.8329598307609558),
+ (&#39;almond&#39;, 0.826829195022583)]
 </pre></div>
 </div>
 </div>
@@ -3809,16 +3809,16 @@ Mc donalds for tapas. Only 2 types of beers on tap. The service is fast. Locatio
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;beer&#39;, 0.754205584526062),
- (&#39;tea&#39;, 0.7330499887466431),
- (&#39;snack&#39;, 0.7207176089286804),
- (&#39;juice&#39;, 0.7099376320838928),
- (&#39;croissant&#39;, 0.6993162035942078),
- (&#39;churros&#39;, 0.690394937992096),
- (&#39;cava&#39;, 0.6750019192695618),
- (&#39;vermouth&#39;, 0.6705290675163269),
- (&#39;desert&#39;, 0.6632548570632935),
- (&#39;soda&#39;, 0.6629142761230469)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;snack&#39;, 0.7504245638847351),
+ (&#39;beer&#39;, 0.7453048229217529),
+ (&#39;croissant&#39;, 0.7225507497787476),
+ (&#39;tea&#39;, 0.7212784886360168),
+ (&#39;juice&#39;, 0.6958158612251282),
+ (&#39;churros&#39;, 0.6926436424255371),
+ (&#39;desert&#39;, 0.6693375706672668),
+ (&#39;pastry&#39;, 0.6646690964698792),
+ (&#39;chocolate&#39;, 0.6557620763778687),
+ (&#39;vermouth&#39;, 0.6550760269165039)]
 </pre></div>
 </div>
 </div>
@@ -4040,7 +4040,7 @@ afskfsd False 0.0 True
 <h3>Limitations and More Powerful Alternatives<a class="headerlink" href="#limitations-and-more-powerful-alternatives" title="Link to this heading">#</a></h3>
 <p>While Word2Vec is a powerful tool, it has limitations. One significant issue is that Word2Vec assigns one vector per word, which poses a problem for words with multiple meanings based on their context (homonyms and polysemes, such as “apple” the fruit vs. “apple” the company).</p>
 <p>A more fundamental limitation of Word2Vec and similar algorithms lies in the underlying bag-of-words approach, which removes information related to the order of words. Even constructs like n-grams can only compensate for extremely local patterns, such as differentiating “do not like” from “do like”.</p>
-<p>In contrast, deep learning techniques like recurrent neural networks and, more powerfully, <strong>transformers</strong>, can learn patterns across many more words. Transformers, in particular, can learn patterns across entire pages of text <span id="id5">[<a class="reference internal" href="../book/references.html#id94" title="Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin. Attention is all you need. Advances in neural information processing systems, 2017.">Vaswani <em>et al.</em>, 2017</a>]</span>, enabling models like ChatGPT and other large language models to use natural language with unprecedented subtlety. Models such as BERT (Bidirectional Encoder Representations from Transformers) <span id="id6">[<a class="reference internal" href="../book/references.html#id26" title="Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. Bert: pre-training of deep bidirectional transformers for language understanding. arXiv preprint arXiv:1810.04805, 2018.">Devlin <em>et al.</em>, 2018</a>]</span> and GPT (Generative Pretrained Transformer) <span id="id7">[<a class="reference internal" href="../book/references.html#id82" title="Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, Ilya Sutskever, and others. Language models are unsupervised multitask learners. OpenAI blog, 1(8):9, 2019.">Radford <em>et al.</em>, 2019</a>]</span> produce contextualized representations of words within a given context, taking the entire sentence or paragraph into account rather than generating static word embeddings. Working in Python also allows you to try and test many different transformer models, for instance via <em>huggingface</em> <span id="id8">[<a class="reference internal" href="../book/references.html#id99" title="Thomas Wolf, Lysandre Debut, Victor Sanh, Julien Chaumond, Clement Delangue, Anthony Moi, Pierric Cistac, Tim Rault, Rémi Louf, Morgan Funtowicz, and others. Huggingface's transformers: state-of-the-art natural language processing. arXiv preprint arXiv:1910.03771, 2019.">Wolf <em>et al.</em>, 2019</a>]</span>.</p>
+<p>In contrast, deep learning techniques like recurrent neural networks and, more powerfully, <strong>transformers</strong>, can learn patterns across many more words. Transformers, in particular, can learn patterns across entire pages of text <span id="id5">[<a class="reference internal" href="../book/references.html#id96" title="Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin. Attention is all you need. Advances in neural information processing systems, 2017.">Vaswani <em>et al.</em>, 2017</a>]</span>, enabling models like ChatGPT and other large language models to use natural language with unprecedented subtlety. Models such as BERT (Bidirectional Encoder Representations from Transformers) <span id="id6">[<a class="reference internal" href="../book/references.html#id28" title="Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. Bert: pre-training of deep bidirectional transformers for language understanding. arXiv preprint arXiv:1810.04805, 2018.">Devlin <em>et al.</em>, 2018</a>]</span> and GPT (Generative Pretrained Transformer) <span id="id7">[<a class="reference internal" href="../book/references.html#id84" title="Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, Ilya Sutskever, and others. Language models are unsupervised multitask learners. OpenAI blog, 1(8):9, 2019.">Radford <em>et al.</em>, 2019</a>]</span> produce contextualized representations of words within a given context, taking the entire sentence or paragraph into account rather than generating static word embeddings. Working in Python also allows you to try and test many different transformer models, for instance via <em>huggingface</em> <span id="id8">[<a class="reference internal" href="../book/references.html#id101" title="Thomas Wolf, Lysandre Debut, Victor Sanh, Julien Chaumond, Clement Delangue, Anthony Moi, Pierric Cistac, Tim Rault, Rémi Louf, Morgan Funtowicz, and others. Huggingface's transformers: state-of-the-art natural language processing. arXiv preprint arXiv:1910.03771, 2019.">Wolf <em>et al.</em>, 2019</a>]</span>.</p>
 <p>In conclusion, while TF-IDF and n-grams offer a solid start, word embeddings like those produced by Word2Vec and contextualized representations from transformers provide more advanced methods for working with text by considering context and semantic meaning.</p>
 </section>
 </section>
@@ -4049,9 +4049,9 @@ afskfsd False 0.0 True
 <p>It should come as no surprise that there is <em>much</em> more to learn about NLP than what was presented in this, and the previous chapters.</p>
 <p>Very good starting points for going deeper are:</p>
 <ul class="simple">
-<li><p>The book “Speech and Language Processing” by Jurafsky and Martin <span id="id9">[<a class="reference internal" href="../book/references.html#id43" title="Dan Jurafsky and James H Martin. Speech and language processing. 3rd ed. draft. 2024.">Jurafsky and Martin, 2024</a>]</span>, see <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">link to the book</a>.</p></li>
-<li><p>“Natural language processing with transformers” by Tunstall, von Werra, and Wolf <span id="id10">[<a class="reference internal" href="../book/references.html#id92" title="Lewis Tunstall, Leandro Von Werra, and Thomas Wolf. Natural language processing with transformers. &quot; O'Reilly Media, Inc.&quot;, 2022.">Tunstall <em>et al.</em>, 2022</a>]</span></p></li>
-<li><p>“The Hundred-Page Language Models Book” by Andriy Burkov <span id="id11">[<a class="reference internal" href="../book/references.html#id18" title="Andriy Burkov. The Hundred-Page Language Models Book: hands-on with PyTorch. True Positive Inc., Quebec, 2025. ISBN 978-1-77804-272-0.">Burkov, 2025</a>]</span></p></li>
+<li><p>The book “Speech and Language Processing” by Jurafsky and Martin <span id="id9">[<a class="reference internal" href="../book/references.html#id45" title="Dan Jurafsky and James H Martin. Speech and language processing. 3rd ed. draft. 2024.">Jurafsky and Martin, 2024</a>]</span>, see <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">link to the book</a>.</p></li>
+<li><p>“Natural language processing with transformers” by Tunstall, von Werra, and Wolf <span id="id10">[<a class="reference internal" href="../book/references.html#id94" title="Lewis Tunstall, Leandro Von Werra, and Thomas Wolf. Natural language processing with transformers. &quot; O'Reilly Media, Inc.&quot;, 2022.">Tunstall <em>et al.</em>, 2022</a>]</span></p></li>
+<li><p>“The Hundred-Page Language Models Book” by Andriy Burkov <span id="id11">[<a class="reference internal" href="../book/references.html#id19" title="Andriy Burkov. The Hundred-Page Language Models Book: hands-on with PyTorch. True Positive Inc., Quebec, 2025. ISBN 978-1-77804-272-0.">Burkov, 2025</a>]</span></p></li>
 <li><p>Another free online course with Python code material: <a class="reference external" href="https://www.nlplanet.org/course-practical-nlp/">nlp planet</a>.</p></li>
 </ul>
 </section>

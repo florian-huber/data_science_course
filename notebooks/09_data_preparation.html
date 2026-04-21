@@ -438,7 +438,7 @@
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-examples-handling-missing-values">Python Examples: Handling Missing Values</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-missing-values">Remove missing values</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Imputation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Imputation</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-datasets">Combining Datasets</a><ul class="nav section-nav flex-column">
@@ -496,14 +496,14 @@ And, time for an important spoiler: if you are going to work in the field of dat
 <figure class="align-default" id="fig-data-acquisition-problems">
 <img alt="../_images/fig_data_acquisition_problems.png" src="../_images/fig_data_acquisition_problems.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Real life can be hard in data science. <em>Getting</em> the data is often the most overlooked part of a project and can easily turn out to be the most time-consuming part. You might be lucky at times. But every experienced data scientist can usually recount many anecdotes of starting a project where “fantastic” data was <strong>supposed</strong> to be readily available… only to find out later that this data was either required substantial amounts of additional work. Or, in the most unlucky cases, where the data turned out to be unsuitable for the given task, which might then be the early end of a project or the starting point of an entirely new project path that first involves <em>truly</em> getting the data.</span><a class="headerlink" href="#fig-data-acquisition-problems" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Real life can be hard in data science. <em>Getting</em> the data is often the most overlooked part of a project and can easily turn out to be the most time-consuming part. You might be lucky at times. But every experienced data scientist can usually recount many anecdotes of starting a project where “fantastic” data was <strong>supposed</strong> to be readily available… only to find out later that this data was either required substantial amounts of additional work. Or, in the most unlucky cases, where the data turned out to be unsuitable for the given task, which might then be the early end of a project or the starting point of an entirely new project path that first involves <em>truly</em> getting the data. And, <strong>careful</strong>!, the percentages shown in the plot to illustrate the fraction of the total project time needed for data acquisition and processing are not directly based on actual data but are my own subjective estimates. Actual reported numbers, however, are on the order of magnitude, usually with an average reported time between 40% and 80% <span id="id1">[<a class="reference internal" href="../book/references.html#id3" title="Anaconda, Inc. 2022 state of data science report. Technical Report, Anaconda, Inc., 2022. Accessed: 2026-04-21. URL: https://know.anaconda.com/rs/387-XNW-688/images/ANA_2022SODSReport.pdf.">Anaconda, Inc., 2022</a>, <a class="reference internal" href="../book/references.html#id26" title="CrowdFlower, Inc. 2016 data science report. Technical Report, CrowdFlower, Inc., 2016. Accessed: 2026-04-21. URL: https://www2.cs.uh.edu/~ceick/UDM/CFDS16.pdf.">CrowdFlower, Inc., 2016</a>]</span>.</span><a class="headerlink" href="#fig-data-acquisition-problems" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="steps-in-data-pre-processing">
 <h3>Steps in Data Pre-Processing<a class="headerlink" href="#steps-in-data-pre-processing" title="Link to this heading">#</a></h3>
 <p>Common preprocessing tasks include handling missing values, combining data from different sources, correcting inconsistent entries, converting data types, standardizing formats, removing duplicates, transforming variables, and sometimes reducing the complexity of the dataset. Which of these steps matter most depends on the data and on the analysis we want to perform.</p>
-<p>In sum, these steps allow transforming “raw data” <a class="footnote-reference brackets" href="#raw-data" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> into a refined format that enhances the analytical capabilities of data science tools, leading to more accurate and insightful outcomes. In the following part, a few of the most common issues will briefly be introduced: dealing with missing values, combining datasets, or converting data types.</p>
+<p>In sum, these steps allow transforming “raw data” <a class="footnote-reference brackets" href="#raw-data" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> into a refined format that enhances the analytical capabilities of data science tools, leading to more accurate and insightful outcomes. In the following part, a few of the most common issues will briefly be introduced: dealing with missing values, combining datasets, or converting data types.</p>
 </section>
 </section>
 <hr class="docutils" />
@@ -540,7 +540,7 @@ Suppose we, or the experts we collaborate with, do not have a solid understandin
 </section>
 <section id="python-examples-handling-missing-values">
 <h3>Python Examples: Handling Missing Values<a class="headerlink" href="#python-examples-handling-missing-values" title="Link to this heading">#</a></h3>
-<p>We will include detailed Python examples demonstrating these techniques, showing practical implementations using key data science libraries such as <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> <span id="id3">[<a class="reference internal" href="../book/references.html#id84" title="The pandas development team. Pandas-dev/pandas: pandas. February 2020. URL: https://doi.org/10.5281/zenodo.3509134, doi:10.5281/zenodo.3509134.">pandas development team, 2020</a>]</span> or <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> <span id="id4">[<a class="reference internal" href="../book/references.html#id87" title="F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay. Scikit-learn: machine learning in Python. Journal of Machine Learning Research, 12:2825–2830, 2011.">Pedregosa <em>et al.</em>, 2011</a>]</span>. This hands-on approach will help in solidifying the theoretical concepts discussed and provide learners with the tools they need to effectively handle missing data in their projects.</p>
+<p>We will include detailed Python examples demonstrating these techniques, showing practical implementations using key data science libraries such as <code class="docutils literal notranslate"><span class="pre">Pandas</span></code> <span id="id4">[<a class="reference internal" href="../book/references.html#id86" title="The pandas development team. Pandas-dev/pandas: pandas. February 2020. URL: https://doi.org/10.5281/zenodo.3509134, doi:10.5281/zenodo.3509134.">pandas development team, 2020</a>]</span> or <code class="docutils literal notranslate"><span class="pre">scikit-learn</span></code> <span id="id5">[<a class="reference internal" href="../book/references.html#id89" title="F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay. Scikit-learn: machine learning in Python. Journal of Machine Learning Research, 12:2825–2830, 2011.">Pedregosa <em>et al.</em>, 2011</a>]</span>. This hands-on approach will help in solidifying the theoretical concepts discussed and provide learners with the tools they need to effectively handle missing data in their projects.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -887,8 +887,8 @@ memory usage: 228.0 bytes
 </div>
 <p>This seems rather clean and simple. In practice, however, we often do not want to remove any row with one or more missing value because it would remove <em>far too much</em> of our available data.</p>
 </section>
-<section id="id5">
-<h3>Imputation<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<section id="id6">
+<h3>Imputation<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>Let’s now see how we can impute missing values. But again, as explained above, imputation means that we alter, or rather fake data. So, obviously, we should be extremely careful in how and when we do this in practice!</p>
 <p>And be careful not to overinterpret the following example. Here, the relationship between age and salary was artificially built into the simulated data, so imputing salary from age is easier than it would often be in real life.</p>
 <div class="cell docutils container">
@@ -946,33 +946,33 @@ memory usage: 228.0 bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>Sylvia</td>
-      <td>57</td>
-      <td>73000</td>
+      <td>Lydia</td>
+      <td>31</td>
+      <td>75000</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Heather</td>
-      <td>36</td>
-      <td>76000</td>
+      <td>Sandra</td>
+      <td>27</td>
+      <td>56000</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Richard</td>
-      <td>20</td>
-      <td>31000</td>
+      <td>Roberto</td>
+      <td>40</td>
+      <td>54000</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Sean</td>
+      <td>Tina</td>
       <td>48</td>
-      <td>93000</td>
+      <td>62000</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Emily</td>
-      <td>31</td>
-      <td>43000</td>
+      <td>Nicole</td>
+      <td>30</td>
+      <td>61000</td>
     </tr>
   </tbody>
 </table>
@@ -1013,33 +1013,33 @@ memory usage: 228.0 bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>Sylvia</td>
-      <td>57</td>
-      <td>73000.0</td>
+      <td>Lydia</td>
+      <td>31</td>
+      <td>75000.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Heather</td>
-      <td>36</td>
+      <td>Sandra</td>
+      <td>27</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Richard</td>
-      <td>20</td>
+      <td>Roberto</td>
+      <td>40</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Sean</td>
+      <td>Tina</td>
       <td>48</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Emily</td>
-      <td>31</td>
-      <td>43000.0</td>
+      <td>Nicole</td>
+      <td>30</td>
+      <td>61000.0</td>
     </tr>
   </tbody>
 </table>
@@ -1054,7 +1054,7 @@ memory usage: 228.0 bytes
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(68000.0)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(69000.0)
 </pre></div>
 </div>
 </div>
@@ -1093,33 +1093,33 @@ memory usage: 228.0 bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>Sylvia</td>
-      <td>57</td>
-      <td>73000.0</td>
+      <td>Lydia</td>
+      <td>31</td>
+      <td>75000.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Heather</td>
-      <td>36</td>
-      <td>68000.0</td>
+      <td>Sandra</td>
+      <td>27</td>
+      <td>69000.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Richard</td>
-      <td>20</td>
-      <td>68000.0</td>
+      <td>Roberto</td>
+      <td>40</td>
+      <td>69000.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Sean</td>
+      <td>Tina</td>
       <td>48</td>
-      <td>68000.0</td>
+      <td>69000.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Emily</td>
-      <td>31</td>
-      <td>43000.0</td>
+      <td>Nicole</td>
+      <td>30</td>
+      <td>61000.0</td>
     </tr>
   </tbody>
 </table>
@@ -1175,33 +1175,33 @@ memory usage: 228.0 bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>Sylvia</td>
-      <td>57.0</td>
-      <td>73000.0</td>
+      <td>Lydia</td>
+      <td>31.0</td>
+      <td>75000.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Heather</td>
-      <td>36.0</td>
-      <td>66500.0</td>
+      <td>Sandra</td>
+      <td>27.0</td>
+      <td>62000.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Richard</td>
-      <td>20.0</td>
-      <td>44000.0</td>
+      <td>Roberto</td>
+      <td>40.0</td>
+      <td>78000.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Sean</td>
+      <td>Tina</td>
       <td>48.0</td>
-      <td>68500.0</td>
+      <td>65500.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Emily</td>
-      <td>31.0</td>
-      <td>43000.0</td>
+      <td>Nicole</td>
+      <td>30.0</td>
+      <td>61000.0</td>
     </tr>
   </tbody>
 </table>
@@ -1222,7 +1222,7 @@ memory usage: 228.0 bytes
 <p><span class="caption-number">Fig. 13 </span><span class="caption-text">There are different ways of merging data. Which one to use is best decided based on the data we have at hand and the types of operations we plan to run with the resulting data. Here are three of the most common types of merges: inner, left, and outer merges.</span><a class="headerlink" href="#fig-data-merging01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Figure (<a class="reference internal" href="#fig-data-merging01"><span class="std std-numref">Fig. 13</span></a>) shows some common merging types. More information on different ways to combine data using pandas can be found in the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html">pandas documentation on merging</a>.</p>
+<p><a class="reference internal" href="#fig-data-merging01"><span class="std std-numref">Fig. 13</span></a> shows common merging types. More information on different ways to combine data using pandas can be found in the <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html">pandas documentation on merging</a>.</p>
 <p>Here, only briefly: The basic syntax of the <code class="docutils literal notranslate"><span class="pre">merge</span></code> function is:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left_data</span><span class="p">,</span> <span class="n">right_data</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </pre></div>
@@ -1985,8 +1985,8 @@ It’s often important to identify and remove duplicates to ensure data integrit
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
 <aside class="footnote brackets" id="raw-data" role="doc-footnote">
-<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
-<p>In a technical sense, it can sometimes make sense to speak of “raw data”, for instance camera RAW data, which has undergone less post-processing than a final JPG image. In a broader sense, however, we should be careful not to assume that “raw data” is ever fully neutral or unbiased <span id="id2">[<a class="reference internal" href="../book/references.html#id34" title="Lisa Gitelman, editor. Raw Data Is an Oxymoron. The MIT Press, 2013. ISBN 978-0-262-31233-2.">Gitelman, 2013</a>]</span>.</p>
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">1</a><span class="fn-bracket">]</span></span>
+<p>In a technical sense, it can sometimes make sense to speak of “raw data”, for instance camera RAW data, which has undergone less post-processing than a final JPG image. In a broader sense, however, we should be careful not to assume that “raw data” is ever fully neutral or unbiased <span id="id3">[<a class="reference internal" href="../book/references.html#id36" title="Lisa Gitelman, editor. Raw Data Is an Oxymoron. The MIT Press, 2013. ISBN 978-0-262-31233-2.">Gitelman, 2013</a>]</span>.</p>
 </aside>
 </aside>
 
@@ -2051,7 +2051,7 @@ It’s often important to identify and remove duplicates to ensure data integrit
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-examples-handling-missing-values">Python Examples: Handling Missing Values</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-missing-values">Remove missing values</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Imputation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Imputation</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-datasets">Combining Datasets</a><ul class="nav section-nav flex-column">
