@@ -433,7 +433,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">Mini-exercise</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kmeans">KMeans</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means">K-Means</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-k-means-works">How K-means works</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means-on-the-simple-toy-dataset">K-means on the simple toy dataset</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-slightly-more-difficult-example">A slightly more difficult example</a></li>
@@ -569,23 +569,22 @@ Look again at the data shown in <a class="reference internal" href="#fig-cluster
 <p>Make a few notes and try to sketch a simple clustering rule or algorithm.</p>
 <hr class="docutils" />
 <p><strong>What did you come up with?</strong></p>
-<p>When I ask this question in class, students usually come up with a variety of good ideas. Some propose grouping points by <strong>distance</strong>, some by drawing <strong>boundaries</strong>, and others by looking for <strong>dense regions</strong>. That is exactly the point: there is no single universal notion of what a cluster is. Different clustering algorithms formalize different intuitions.</p>
+<p>When I ask this question in class, students usually come up with a variety of good ideas. Some propose grouping points by <strong>distance</strong>, some by drawing <strong>boundaries</strong>, and others by looking for <strong>dense regions</strong>. That is exactly the point: there is no single universal notion of what a cluster is. Different clustering algorithms formalize different intuitions and, as we will see in the next chapter, there are indeed many different clustering algorithms. In this chapter, we will take a closer look at two of them, both of which are fundamental and widely used, and should be understood by any data scientist.</p>
 <p>In the following, we will start with one of the most common and intuitive clustering algorithms: <strong>K-means</strong>.</p>
 </section>
 </section>
-<section id="kmeans">
-<h2>KMeans<a class="headerlink" href="#kmeans" title="Link to this heading">#</a></h2>
+<section id="k-means">
+<h2>K-Means<a class="headerlink" href="#k-means" title="Link to this heading">#</a></h2>
 <p>K-means is a <strong>centroid-based clustering algorithm</strong>. Its central idea is simple: each cluster is represented by a center point, called a <strong>centroid</strong>, and every data point is assigned to the nearest centroid.</p>
 <section id="how-k-means-works">
 <h3>How K-means works<a class="headerlink" href="#how-k-means-works" title="Link to this heading">#</a></h3>
-<p>To build an intuition, imagine that we want to sort fruits based on two features such as sweetness and size. Each fruit is a data point, and our goal is to divide the fruits into a fixed number of groups.</p>
-<p>The basic K-means procedure looks like this:</p>
+<p>To build an intuition, imagine that we want to sort fruits based on two features, such as sweetness and size. Each fruit is a data point, and our goal is to divide the fruits into a fixed number of groups.</p>
 <p>The basic K-means procedure looks like this:</p>
 <ol class="arabic simple">
 <li><p><strong>Choose the number of clusters</strong>
-First, we decide how many clusters we want. This number is called <span class="math notranslate nohighlight">\(K\)</span>.</p></li>
+First, we decide how many clusters we want. This number is called <span class="math notranslate nohighlight">\(k\)</span>.</p></li>
 <li><p><strong>Initialize the centroids</strong>
-We start with <span class="math notranslate nohighlight">\(K\)</span> initial center points. In simple versions of the algorithm, these may be chosen randomly from the data (<a class="reference internal" href="#fig-kmeans"><span class="std std-numref">Fig. 16</span></a> A).</p></li>
+We start with <span class="math notranslate nohighlight">\(k\)</span> initial center points. In simple versions of the algorithm, these may be chosen randomly from the data (<a class="reference internal" href="#fig-kmeans"><span class="std std-numref">Fig. 16</span></a> A).</p></li>
 <li><p><strong>Assign each point to the nearest centroid</strong>
 Every data point is assigned to the cluster whose centroid is closest. Often, this closeness is measured using the Euclidean distance (<a class="reference internal" href="#fig-kmeans"><span class="std std-numref">Fig. 16</span></a> B).</p></li>
 <li><p><strong>Update the centroids</strong>
@@ -593,7 +592,7 @@ For each cluster, we compute the average position of all points assigned to it. 
 <li><p><strong>Repeat</strong>
 We repeat the assignment and update steps until the assignments no longer change much, or until the centroid positions stabilize.</p></li>
 </ol>
-<p>The result is a partition of the data into <span class="math notranslate nohighlight">\(K\)</span> clusters.</p>
+<p>The result is a partition of the data into <span class="math notranslate nohighlight">\(k\)</span> clusters.</p>
 <figure class="align-default" id="fig-kmeans">
 <img alt="../_images/fig_kmeans_sketch.png" src="../_images/fig_kmeans_sketch.png" />
 <figcaption>
@@ -634,7 +633,8 @@ We repeat the assignment and update steps until the assignments no longer change
 </section>
 <section id="a-slightly-more-difficult-example">
 <h3>A slightly more difficult example<a class="headerlink" href="#a-slightly-more-difficult-example" title="Link to this heading">#</a></h3>
-<p>The next synthetic dataset is already a bit more realistic. The clusters are less cleanly separated, and the task becomes less obvious.</p>
+<p>The next synthetic dataset is already a bit more realistic. The clusters are less cleanly separated, and the task becomes less obvious.
+After plotting the data, start asking yourself how many clusters <em>you</em> would assign to this data. Are you fully certain of one particular number? Or would you here accept different solutions?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clusters</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">61</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">),</span>
@@ -675,12 +675,15 @@ We repeat the assignment and update steps until the assignments no longer change
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f0e62ac8ef0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f5e689b8dd0&gt;
 </pre></div>
 </div>
 <img alt="../_images/c1154ff6191feceaae34f8c4788a7e86b542fc0eb4f8b1f9cc2356ce06828ec6.png" src="../_images/c1154ff6191feceaae34f8c4788a7e86b542fc0eb4f8b1f9cc2356ce06828ec6.png" />
 </div>
 </div>
+<p>So, what would you say. How many clusters are there?<br />
+Common answers I get are 3, 4, or 5. We could move on with any of those answers, and it makes total sense for you to simply run the code and vary the <span class="math notranslate nohighlight">\(k\)</span> to get a better understanding of what this does to the data.
+For now, let’s start with <code class="docutils literal notranslate"><span class="pre">k=5</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">KMeans</span>
@@ -708,6 +711,7 @@ We repeat the assignment and update steps until the assignments no longer change
 </div>
 </div>
 </div>
+<p>This array contains the assigned clusters for every input data point. Try to run the above command using differnt <code class="docutils literal notranslate"><span class="pre">random_state</span></code> numbers. What do you observe?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kmeans</span><span class="o">.</span><span class="n">cluster_centers_</span>
@@ -773,19 +777,19 @@ We repeat the assignment and update steps until the assignments no longer change
 </section>
 <section id="strengths-of-k-means">
 <h3>Strengths of K-means<a class="headerlink" href="#strengths-of-k-means" title="Link to this heading">#</a></h3>
-<p>K-means is popular for good reasons. It is relatively easy to understand, easy to implement, and often computationally efficient. For many practical problems, it is a very reasonable first clustering method to try.</p>
-<p>It often works well when:</p>
+<p>K-means is popular for good reasons. It is relatively easy to understand, easy to implement, and often computationally efficient. For many practical problems, it is a very reasonable first clustering method to try.
+In practice, it often works well when:</p>
 <ul class="simple">
 <li><p>clusters are compact,</p></li>
 <li><p>clusters are roughly round or isotropic,</p></li>
-<li><p>and clusters are of similar size.</p></li>
+<li><p>clusters are of similar size.</p></li>
 </ul>
 </section>
 <section id="limitations-of-k-means">
 <h3>Limitations of K-means<a class="headerlink" href="#limitations-of-k-means" title="Link to this heading">#</a></h3>
-<p>K-means is useful, but it comes with important assumptions and limitations.</p>
-<p>The first major limitation is that we must specify the number of clusters <strong>beforehand</strong>. In many real problems, we do not know this number in advance. We can try several values of <span class="math notranslate nohighlight">\(K\)</span> and compare the results, but there is no universally perfect method for choosing the right value.</p>
-<p>A second important limitation is more subtle: K-means works best when clusters are roughly <strong>spherical</strong>, similarly sized, and not too different in density. In other words, it has a fairly specific built-in idea of what a cluster should look like. The scikit-learn example <em>Demonstration of k-means assumptions</em> illustrates this point very nicely: K-means works well on simple blob-like clusters, but can struggle when clusters are stretched, have very different variances, or have very unequal sizes <a class="footnote-reference brackets" href="#scikit-learn" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+<p>While K-means is very useful and is also commonly applied, it very clearly comes with important assumptions and limitations.<br />
+The first major limitation is that <strong>we must specify the number of clusters beforehand</strong>. Already in the last example above, we might have doubts about whether <span class="math notranslate nohighlight">\(k\)</span> should be 3, 4, or 5. In many real problems, the data is not two-dimensional, so we can not simply plot it, and therefore often have no good approach to know this number in advance. We can try several values of <span class="math notranslate nohighlight">\(k\)</span> and compare the results, but there is no universally perfect method for choosing the right value <a class="footnote-reference brackets" href="#elbow-method" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+<p>A second important limitation is more subtle: K-means works best when clusters are roughly <strong>spherical</strong>, similarly sized, and not too different in density. In other words, it has a fairly specific built-in idea of what a cluster should look like. The scikit-learn example <em>Demonstration of k-means assumptions</em> illustrates this point very nicely: K-means works well on simple blob-like clusters, but can struggle when clusters are stretched, have very different variances, or have very unequal sizes <a class="footnote-reference brackets" href="#scikit-learn" id="id2" role="doc-noteref"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></a>.</p>
 <p>The following variation shows the same idea.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="admonition hide above-input">
@@ -914,7 +918,7 @@ We repeat the assignment and update steps until the assignments no longer change
 </ul>
 <p>A further limitation is that K-means is sensitive to <strong>outliers</strong>, because cluster centers are based on averages. A few unusual points can pull a centroid away from where it would otherwise be.</p>
 <p>Finally, the result can depend on the <strong>initial placement</strong> of the centroids. Modern implementations reduce this problem, for example through better initialization methods such as K-means++, but the issue does not disappear completely.</p>
-<p>So K-means is a great first method to know and use, but it clearly cannot solve every clustering problem (spoiler: no single method can do that!).</p>
+<p>In summary, K-means is a great first method to know and use, but it clearly cannot solve every clustering problem (spoiler: no single method can do that!).</p>
 </section>
 </section>
 <section id="dbscan-density-based-spatial-clustering-of-applications-with-noise">
@@ -1248,14 +1252,18 @@ This is why clustering is often best understood as a dialogue between the <stron
 <p>For a broader overview of clustering methods, the <a class="reference external" href="https://scikit-learn.org/stable/modules/clustering.html">scikit-learn clustering documentation</a> is an excellent place to explore further examples and compare algorithms.</p>
 <p>If you want a more general review article, one useful starting point is:</p>
 <ul class="simple">
-<li><p>“A review of clustering techniques and developments” by Amit Saxena and Mukesh Prasad and Akshansh Gupta and Neha Bharill and Om Prakash Patel and Aruna Tiwari and Meng Joo Er and Weiping Ding and Chin-Teng Lin, 2017, Neurocomputing, Vol.267, https://doi.org/10.1016/j.neucom.2017.06.053 <span id="id2">[<a class="reference internal" href="../book/references.html#id88" title="Amit Saxena, Mukesh Prasad, Akshansh Gupta, Neha Bharill, Om Prakash Patel, Aruna Tiwari, Meng Joo Er, Weiping Ding, and Chin-Teng Lin. A review of clustering techniques and developments. Neurocomputing, 267:664–681, 2017.">Saxena <em>et al.</em>, 2017</a>]</span></p></li>
+<li><p>“A review of clustering techniques and developments” by Amit Saxena and Mukesh Prasad and Akshansh Gupta and Neha Bharill and Om Prakash Patel and Aruna Tiwari and Meng Joo Er and Weiping Ding and Chin-Teng Lin, 2017, Neurocomputing, Vol.267, https://doi.org/10.1016/j.neucom.2017.06.053 <span id="id3">[<a class="reference internal" href="../book/references.html#id88" title="Amit Saxena, Mukesh Prasad, Akshansh Gupta, Neha Bharill, Om Prakash Patel, Aruna Tiwari, Meng Joo Er, Weiping Ding, and Chin-Teng Lin. A review of clustering techniques and developments. Neurocomputing, 267:664–681, 2017.">Saxena <em>et al.</em>, 2017</a>]</span></p></li>
 </ul>
 </section>
 </section>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
-<aside class="footnote brackets" id="scikit-learn" role="doc-footnote">
+<aside class="footnote brackets" id="elbow-method" role="doc-footnote">
 <span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>When you do a little research on how to determine the <span class="math notranslate nohighlight">\(k\)</span> for clustering approaches, you will probably first come across something that is called the “elbow-method”. This is indeed often used, but please don’t be fooled by it too much. While it <em>can</em> help to determine <span class="math notranslate nohighlight">\(k\)</span> if we know next to nothing about the data or the task, in many real-life use cases, your <span class="math notranslate nohighlight">\(k\)</span> might rather depend on other factors, or simply on intuition. In some cases, for instance, you actually want <em>many</em> clusters because that is closer to your task or question. Then the elbow method will be of no help.</p>
+</aside>
+<aside class="footnote brackets" id="scikit-learn" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id2">2</a><span class="fn-bracket">]</span></span>
 <p>See also the very nice <a class="reference external" href="https://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_assumptions.html">demonstration of k-means assumptions in the scikit-learn documentation</a></p>
 </aside>
 </aside>
@@ -1314,7 +1322,7 @@ This is why clustering is often best understood as a dialogue between the <stron
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-exercise">Mini-exercise</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kmeans">KMeans</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means">K-Means</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-k-means-works">How K-means works</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#k-means-on-the-simple-toy-dataset">K-means on the simple toy dataset</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-slightly-more-difficult-example">A slightly more difficult example</a></li>
