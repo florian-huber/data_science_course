@@ -454,6 +454,27 @@
 <p>Correlation analysis is a fundamental statistical tool used to study the relationship between two or more features. The term “correlation” originates from the Latin <em>correlatio</em>, meaning a mutual relationship. In statistics, correlation is used as a <strong>measure of association</strong>, that is, as a numerical way of describing how strongly two variables tend to vary together.</p>
 <p>Understanding correlation is important in data science for several reasons. Correlations can help us identify potentially interesting relationships in the data, detect redundant variables, and guide feature selection in later modeling steps. They are also often a useful starting point for a deeper investigation of a system. At the same time, we have to be careful: correlation and causation are very clearly <strong>not</strong> the same.</p>
 <p>In everyday language, we often say that two things “correlate” when they seem to go together or line up well. In statistics, however, we want something more precise: a numerical measure that tells us whether an association exists and, if so, how strong it is.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sb</span>
+
+<span class="c1"># Set the ggplot style (optional)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;ggplot&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
 <section id="covariance-and-the-pearson-correlation-coefficient">
 <h2>Covariance, and the (Pearson) correlation coefficient<a class="headerlink" href="#covariance-and-the-pearson-correlation-coefficient" title="Link to this heading">#</a></h2>
 <p><strong>Covariance</strong><br />
@@ -483,19 +504,86 @@ A value close to 1 indicates a strong positive linear relationship, whereas a va
 <p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Few defined example points</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+<span class="n">x_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sb</span>
+<span class="c1"># Pick one point to highlight</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">x_i</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="n">y_i</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 
-<span class="c1"># Set the ggplot style (optional)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;ggplot&quot;</span><span class="p">)</span>
+<span class="c1"># Create plot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;teal&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;data points&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_i</span><span class="p">,</span> <span class="n">y_i</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;teal&quot;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">fr</span><span class="s2">&quot;selected point $(x_i, y_i)$&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x_mean</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;deepskyblue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">fr</span><span class="s2">&quot;$\overline</span><span class="se">{{</span><span class="s2">X</span><span class="se">}}</span><span class="s2"> = </span><span class="si">{</span><span class="n">x_mean</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y_mean</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;slateblue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">fr</span><span class="s2">&quot;$\overline</span><span class="se">{{</span><span class="s2">Y</span><span class="se">}}</span><span class="s2"> = </span><span class="si">{</span><span class="n">y_mean</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">$&quot;</span><span class="p">)</span>
+
+<span class="c1"># Show deviations for selected point</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">x_mean</span><span class="p">,</span> <span class="n">x_i</span><span class="p">],</span>
+    <span class="p">[</span><span class="n">y_i</span><span class="p">,</span> <span class="n">y_i</span><span class="p">],</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;slateblue&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="sa">fr</span><span class="s2">&quot;$x_i - \overline</span><span class="se">{{</span><span class="s2">X</span><span class="se">}}</span><span class="s2"> = </span><span class="si">{</span><span class="n">x_i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">x_mean</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">$&quot;</span>
+<span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">x_i</span><span class="p">,</span> <span class="n">x_i</span><span class="p">],</span>
+    <span class="p">[</span><span class="n">y_mean</span><span class="p">,</span> <span class="n">y_i</span><span class="p">],</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;deepskyblue&quot;</span><span class="p">,</span>
+    <span class="n">label</span><span class="o">=</span><span class="sa">fr</span><span class="s2">&quot;$y_i - \overline</span><span class="se">{{</span><span class="s2">Y</span><span class="se">}}</span><span class="s2"> = </span><span class="si">{</span><span class="n">y_i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">y_mean</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">$&quot;</span>
+<span class="p">)</span>
+
+<span class="c1"># Labels and annotations</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+    <span class="n">x_i</span> <span class="o">+</span> <span class="n">delta</span><span class="p">,</span>
+    <span class="n">y_i</span> <span class="o">+</span> <span class="n">delta</span><span class="p">,</span>
+    <span class="sa">fr</span><span class="s2">&quot;$(x_i, y_i)=(</span><span class="si">{</span><span class="n">x_i</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">y_i</span><span class="si">}</span><span class="s2">)$&quot;</span><span class="p">,</span>
+    <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;left&quot;</span>
+<span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">x_mean</span> <span class="o">+</span> <span class="n">x_i</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="n">y_i</span> <span class="o">+</span> <span class="n">delta</span><span class="p">,</span>
+    <span class="sa">fr</span><span class="s2">&quot;$x_i - \overline</span><span class="se">{{</span><span class="s2">X</span><span class="se">}}</span><span class="s2">$&quot;</span><span class="p">,</span>
+    <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span>
+<span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+    <span class="n">x_i</span> <span class="o">-</span> <span class="n">delta</span><span class="p">,</span>
+    <span class="p">(</span><span class="n">y_mean</span> <span class="o">+</span> <span class="n">y_i</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="sa">fr</span><span class="s2">&quot;$y_i - \overline</span><span class="se">{{</span><span class="s2">Y</span><span class="se">}}</span><span class="s2">$&quot;</span><span class="p">,</span>
+    <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+    <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span>
+    <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span>
+<span class="p">)</span>
+
+<span class="c1"># Formatting</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Deviations from the mean for one data point&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">6.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">8.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.02</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
+<div class="cell_output docutils container">
+<img alt="../_images/f4d5d33237f975e5cdafd7ca2281a550031aa5e39e3ff553cc9a9da3f7348255.png" src="../_images/f4d5d33237f975e5cdafd7ca2281a550031aa5e39e3ff553cc9a9da3f7348255.png" />
+</div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <details class="admonition hide above-input">
@@ -509,7 +597,7 @@ A value close to 1 indicates a strong positive linear relationship, whereas a va
 <span class="c1"># Random number generator</span>
 <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="c1"># Genereated data</span>
+<span class="c1"># Generated data</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
@@ -591,16 +679,16 @@ A value close to 1 indicates a strong positive linear relationship, whereas a va
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
-<span class="n">corr_data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
-<span class="n">corr_data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">)</span>
-<span class="n">corr_data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax3</span><span class="p">)</span>
+<span class="n">corr_data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;teal&quot;</span><span class="p">)</span>
+<span class="n">corr_data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;teal&quot;</span><span class="p">)</span>
+<span class="n">corr_data</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;teal&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/36144215c53584e63a46f8ce8d13a6a3f68e66a20f4d1baaef6c45028bc95123.png" src="../_images/36144215c53584e63a46f8ce8d13a6a3f68e66a20f4d1baaef6c45028bc95123.png" />
+<img alt="../_images/5d9329d0ee41dc2bdeec52a1bedaeb25f8a642d2ab3dd821a6a14202ec2ba27c.png" src="../_images/5d9329d0ee41dc2bdeec52a1bedaeb25f8a642d2ab3dd821a6a14202ec2ba27c.png" />
 </div>
 </div>
 <blockquote>
@@ -1075,7 +1163,7 @@ and almost no linear correlation between <code class="docutils literal notransla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8856ca40f1b9d0bb917980cb9ee35eaf504ea797f4b15e3f9b6e42c0c4666f4c.png" src="../_images/8856ca40f1b9d0bb917980cb9ee35eaf504ea797f4b15e3f9b6e42c0c4666f4c.png" />
+<img alt="../_images/143614782805dec1e914f5b99be09faa9b41f83bf8cc3a8c14ea62ee474ea887.png" src="../_images/143614782805dec1e914f5b99be09faa9b41f83bf8cc3a8c14ea62ee474ea887.png" />
 </div>
 </div>
 </section>
@@ -1149,7 +1237,7 @@ and almost no linear correlation between <code class="docutils literal notransla
   c /= stddev[None, :]
 </pre></div>
 </div>
-<img alt="../_images/eb8e396d5ad60de88740ac4909a27bf5d22d3318b4d018a6172b843d81b54e00.png" src="../_images/eb8e396d5ad60de88740ac4909a27bf5d22d3318b4d018a6172b843d81b54e00.png" />
+<img alt="../_images/be60989e33b319ee1306bd733f540bce6dc7cfb6e3b45c1989a36cb069dceac1.png" src="../_images/be60989e33b319ee1306bd733f540bce6dc7cfb6e3b45c1989a36cb069dceac1.png" />
 </div>
 </div>
 </section>
@@ -1222,7 +1310,7 @@ and almost no linear correlation between <code class="docutils literal notransla
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/fc3718134fba44572e0ea165870e70311c1412476290b64c87c541a23c57c7d3.png" src="../_images/fc3718134fba44572e0ea165870e70311c1412476290b64c87c541a23c57c7d3.png" />
+<img alt="../_images/0eb581527947de00a0575072dba5c25dd39ca3528ef9438be0a91141d8e98ba8.png" src="../_images/0eb581527947de00a0575072dba5c25dd39ca3528ef9438be0a91141d8e98ba8.png" />
 </div>
 </div>
 <p>Another prominent example to illustrate how little the Pearson correlation coefficient sometimes tells us is the <code class="docutils literal notranslate"><span class="pre">datasaurus</span></code> dataset from the last chapter. Here, too, the data is distributed very differently, but the correlation coefficient remains the same.</p>
@@ -1284,7 +1372,7 @@ and almost no linear correlation between <code class="docutils literal notransla
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/3a832ef6e1460b6ced0b960cf7d615613abed212645cc6cf5a363b22a31a7e23.png" src="../_images/3a832ef6e1460b6ced0b960cf7d615613abed212645cc6cf5a363b22a31a7e23.png" />
+<img alt="../_images/f06bbfbe2a4ea18a524d612209043e7aa90b59dca3297e7a1b65942857c8b530.png" src="../_images/f06bbfbe2a4ea18a524d612209043e7aa90b59dca3297e7a1b65942857c8b530.png" />
 </div>
 </div>
 </section>
@@ -1301,7 +1389,7 @@ and almost no linear correlation between <code class="docutils literal notransla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f9f4422e568860930bd9f2397c7037753be5cec6cc7c615bcfe8245844383a2e.png" src="../_images/f9f4422e568860930bd9f2397c7037753be5cec6cc7c615bcfe8245844383a2e.png" />
+<img alt="../_images/111d1686298249d1924d98034e4cf48eeb4b1fba425297ebef9d6aab236cb187.png" src="../_images/111d1686298249d1924d98034e4cf48eeb4b1fba425297ebef9d6aab236cb187.png" />
 </div>
 </div>
 <p>It is of course also easily possible to plot only the parts we are most interested in, for instance:</p>
@@ -1334,7 +1422,7 @@ and almost no linear correlation between <code class="docutils literal notransla
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/9c9451d1a130649a825167b6c4944118715cba2c07dbf760fe6388e59669d1f4.png" src="../_images/9c9451d1a130649a825167b6c4944118715cba2c07dbf760fe6388e59669d1f4.png" />
+<img alt="../_images/194984944ef58adbfea14e26496f9e87714c49d0258149c37cca08a3ba3a6214.png" src="../_images/194984944ef58adbfea14e26496f9e87714c49d0258149c37cca08a3ba3a6214.png" />
 </div>
 </div>
 </section>
