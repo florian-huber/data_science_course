@@ -665,7 +665,7 @@ Common strategies to work with highly imbalanced data are:</p>
 </section>
 <section id="beyond-this-course">
 <h3>Beyond this course:<a class="headerlink" href="#beyond-this-course" title="Link to this heading">#</a></h3>
-<p>Here, we did the sampling, that is the selection of data points, for either training or testing, fully randomly. In many real-world cases, however, the situation can be more complex. For instance, we might have many medical observations in a dataset with sometimes multiple entries for the same patient. In such a case we would have to split the data by patient and not fully randomly (see, for instance, here: <span id="id1">[<a class="reference internal" href="../book/references.html#id93" title="Ilias Tougui, Abdelilah Jilbab, and Jamal El Mhamdi. Impact of the choice of cross-validation techniques on the results of machine learning-based diagnostic applications. Healthcare informatics research, 27(3):189, 2021.">Tougui <em>et al.</em>, 2021</a>]</span>). In other cases, we will have strong biases and we would often like to compensate for this. For example, to avoid that -purely by chance- a certain population or class is not well represented in a certain data split. The process to compensate for this is called <strong>stratification</strong>.</p>
+<p>Here, we did the sampling, that is the selection of data points, for either training or testing, fully randomly. In many real-world cases, however, the situation can be more complex. For instance, we might have many medical observations in a dataset with sometimes multiple entries for the same patient. In such a case we would have to split the data by patient and not fully randomly (see, for instance, here: <span class="bibtex-citation" id="id1">[<a class="reference internal" href="../book/references.html#id93" title="Ilias Tougui, Abdelilah Jilbab, and Jamal El Mhamdi. Impact of the choice of cross-validation techniques on the results of machine learning-based diagnostic applications. Healthcare informatics research, 27(3):189, 2021.">Tougui <em>et al.</em>, 2021</a>]</span>). In other cases, we will have strong biases and we would often like to compensate for this. For example, to avoid that -purely by chance- a certain population or class is not well represented in a certain data split. The process to compensate for this is called <strong>stratification</strong>.</p>
 </section>
 </section>
 <section id="nice-to-have-scikit-learn-pipeline">
@@ -704,7 +704,7 @@ Common strategies to work with highly imbalanced data are:</p>
 </section>
 <section id="hands-on-example-obesity-prediction">
 <h2>Hands-on Example: Obesity prediction<a class="headerlink" href="#hands-on-example-obesity-prediction" title="Link to this heading">#</a></h2>
-<p>We will here work with an <a class="reference external" href="https://archive.ics.uci.edu/dataset/544/estimation+of+obesity+levels+based+on+eating+habits+and+physical+condition"><code class="docutils literal notranslate"><span class="pre">Obesity</span> <span class="pre">Levels</span> <span class="pre">Dataset</span></code></a> <span id="id2">[<a class="reference internal" href="../book/references.html#id75" title="Fabio Mendoza Palechor and Alexis De la Hoz Manotas. Dataset for estimation of obesity levels based on eating habits and physical condition in individuals from colombia, peru and mexico. Data in Brief, 2019. URL: https://api.semanticscholar.org/CorpusID:201195793.">Palechor and la Hoz Manotas, 2019</a>]</span> which was downloaded from the <a class="reference external" href="https://archive.ics.uci.edu/dataset/544/estimation+of+obesity+levels+based+on+eating+habits+and+physical+condition">UCI archive</a>.</p>
+<p>We will here work with an <a class="reference external" href="https://archive.ics.uci.edu/dataset/544/estimation+of+obesity+levels+based+on+eating+habits+and+physical+condition"><code class="docutils literal notranslate"><span class="pre">Obesity</span> <span class="pre">Levels</span> <span class="pre">Dataset</span></code></a> <span class="bibtex-citation" id="id2">[<a class="reference internal" href="../book/references.html#id75" title="Fabio Mendoza Palechor and Alexis De la Hoz Manotas. Dataset for estimation of obesity levels based on eating habits and physical condition in individuals from colombia, peru and mexico. Data in Brief, 2019. URL: https://api.semanticscholar.org/CorpusID:201195793.">Palechor and la Hoz Manotas, 2019</a>]</span> which was downloaded from the <a class="reference external" href="https://archive.ics.uci.edu/dataset/544/estimation+of+obesity+levels+based+on+eating+habits+and+physical+condition">UCI archive</a>.</p>
 <p>This dataset comprises data for predicting obesity levels in individuals from Mexico, Peru, and Colombia, utilizing information about their dietary habits and physical condition. It includes 17 attributes across 2111 records. Each record is categorized under the class variable NObesity (Obesity Level), which facilitates the classification of data into categories such as Insufficient Weight, Normal Weight, Overweight Level I, Overweight Level II, Obesity Type I, Obesity Type II, and Obesity Type III. Only 23% of the data was sourced directly from individuals through a web-based platform. The larger part of the dataset, 77%, was synthetically generated using the Weka software and the SMOTE filter to augment the data diversity.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3548,10 +3548,10 @@ forceTheme('sk-container-id-2');</script></body></div></div>
   <tbody>
     <tr>
       <th>1</th>
-      <td>0.004674</td>
-      <td>0.000062</td>
-      <td>0.003933</td>
-      <td>0.000085</td>
+      <td>0.004852</td>
+      <td>0.000023</td>
+      <td>0.003984</td>
+      <td>0.000052</td>
       <td>3</td>
       <td>{'model__n_neighbors': 3}</td>
       <td>0.788644</td>
@@ -3572,10 +3572,10 @@ forceTheme('sk-container-id-2');</script></body></div></div>
     </tr>
     <tr>
       <th>0</th>
-      <td>0.005094</td>
-      <td>0.000441</td>
-      <td>0.003916</td>
-      <td>0.000190</td>
+      <td>0.005505</td>
+      <td>0.000546</td>
+      <td>0.004445</td>
+      <td>0.000622</td>
       <td>2</td>
       <td>{'model__n_neighbors': 2}</td>
       <td>0.794953</td>
@@ -3596,10 +3596,10 @@ forceTheme('sk-container-id-2');</script></body></div></div>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.004850</td>
-      <td>0.000377</td>
-      <td>0.003933</td>
-      <td>0.000019</td>
+      <td>0.005019</td>
+      <td>0.000094</td>
+      <td>0.004115</td>
+      <td>0.000036</td>
       <td>4</td>
       <td>{'model__n_neighbors': 4}</td>
       <td>0.769716</td>
@@ -7258,7 +7258,7 @@ a.param-doc-link::before {
                 </table>
             </details>
         </div>
-    </div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-16" type="checkbox" ><label for="sk-estimator-id-16" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>best_estimator_: DecisionTreeClassifier</div></div></label><div class="sk-toggleable__content fitted" data-param-prefix="best_estimator___"><pre>DecisionTreeClassifier(max_depth=20)</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-17" type="checkbox" ><label for="sk-estimator-id-17" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>DecisionTreeClassifier</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.8/modules/generated/sklearn.tree.DecisionTreeClassifier.html">?<span>Documentation for DecisionTreeClassifier</span></a></div></label><div class="sk-toggleable__content fitted" data-param-prefix="best_estimator___">
+    </div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-16" type="checkbox" ><label for="sk-estimator-id-16" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>best_estimator_: DecisionTreeClassifier</div></div></label><div class="sk-toggleable__content fitted" data-param-prefix="best_estimator___"><pre>DecisionTreeClassifier(max_depth=15)</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-17" type="checkbox" ><label for="sk-estimator-id-17" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>DecisionTreeClassifier</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.8/modules/generated/sklearn.tree.DecisionTreeClassifier.html">?<span>Documentation for DecisionTreeClassifier</span></a></div></label><div class="sk-toggleable__content fitted" data-param-prefix="best_estimator___">
         <div class="estimator-table">
             <details>
                 <summary>Parameters</summary>
@@ -7309,7 +7309,7 @@ a.param-doc-link::before {
             <span class="param-doc-description">max_depth: int, default=None<br><br>The maximum depth of the tree. If None, then nodes are expanded until<br>all leaves are pure or until all leaves contain less than<br>min_samples_split samples.</span>
         </a>
     </td>
-            <td class="value">20</td>
+            <td class="value">15</td>
         </tr>
     
 
@@ -7641,19 +7641,19 @@ forceTheme('sk-container-id-6');</script></body></div></div>
   </thead>
   <tbody>
     <tr>
-      <th>12</th>
-      <td>0.007577</td>
-      <td>0.000123</td>
-      <td>0.001642</td>
-      <td>0.000007</td>
-      <td>20</td>
+      <th>9</th>
+      <td>0.007620</td>
+      <td>0.000116</td>
+      <td>0.001707</td>
+      <td>0.000013</td>
+      <td>15</td>
       <td>2</td>
-      <td>{'max_depth': 20, 'min_samples_split': 2}</td>
+      <td>{'max_depth': 15, 'min_samples_split': 2}</td>
       <td>0.912879</td>
-      <td>0.897727</td>
-      <td>0.941176</td>
-      <td>0.917261</td>
-      <td>0.018007</td>
+      <td>0.914773</td>
+      <td>0.946869</td>
+      <td>0.924840</td>
+      <td>0.015596</td>
       <td>1</td>
       <td>1.000000</td>
       <td>1.000000</td>
@@ -7662,46 +7662,46 @@ forceTheme('sk-container-id-6');</script></body></div></div>
       <td>0.000000</td>
     </tr>
     <tr>
-      <th>10</th>
-      <td>0.007591</td>
-      <td>0.000101</td>
-      <td>0.001650</td>
-      <td>0.000014</td>
-      <td>15</td>
-      <td>5</td>
-      <td>{'max_depth': 15, 'min_samples_split': 5}</td>
-      <td>0.918561</td>
-      <td>0.895833</td>
-      <td>0.937381</td>
-      <td>0.917258</td>
-      <td>0.016987</td>
+      <th>12</th>
+      <td>0.007631</td>
+      <td>0.000084</td>
+      <td>0.001798</td>
+      <td>0.000115</td>
+      <td>20</td>
       <td>2</td>
-      <td>0.988626</td>
-      <td>0.985782</td>
-      <td>0.988636</td>
-      <td>0.987681</td>
-      <td>0.001343</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>0.007624</td>
-      <td>0.000055</td>
-      <td>0.001661</td>
-      <td>0.000031</td>
-      <td>15</td>
-      <td>2</td>
-      <td>{'max_depth': 15, 'min_samples_split': 2}</td>
+      <td>{'max_depth': 20, 'min_samples_split': 2}</td>
+      <td>0.914773</td>
       <td>0.901515</td>
-      <td>0.905303</td>
-      <td>0.943074</td>
-      <td>0.916631</td>
-      <td>0.018762</td>
-      <td>3</td>
+      <td>0.941176</td>
+      <td>0.919155</td>
+      <td>0.016485</td>
+      <td>2</td>
       <td>1.000000</td>
       <td>1.000000</td>
       <td>1.000000</td>
       <td>1.000000</td>
       <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.007487</td>
+      <td>0.000089</td>
+      <td>0.001664</td>
+      <td>0.000005</td>
+      <td>10</td>
+      <td>5</td>
+      <td>{'max_depth': 10, 'min_samples_split': 5}</td>
+      <td>0.912879</td>
+      <td>0.897727</td>
+      <td>0.939279</td>
+      <td>0.916628</td>
+      <td>0.017169</td>
+      <td>3</td>
+      <td>0.983886</td>
+      <td>0.981991</td>
+      <td>0.986742</td>
+      <td>0.984206</td>
+      <td>0.001953</td>
     </tr>
   </tbody>
 </table>
@@ -7725,10 +7725,10 @@ Here, however, we will now do another cross-validation run to illustrate what th
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;fit_time&#39;: array([0.01361823, 0.01266098, 0.01224995, 0.01294398, 0.01222086,
-        0.01286173, 0.01239252, 0.01262403, 0.01262069, 0.01288486]),
- &#39;score_time&#39;: array([0.00363827, 0.0033536 , 0.00333047, 0.0032649 , 0.00330186,
-        0.00331187, 0.00326133, 0.00324345, 0.00322771, 0.00322938]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;fit_time&#39;: array([0.01429629, 0.01283097, 0.01246405, 0.01305604, 0.0123055 ,
+        0.01298952, 0.01262951, 0.01267123, 0.01282334, 0.01296806]),
+ &#39;score_time&#39;: array([0.00377297, 0.0034318 , 0.00333548, 0.00331616, 0.00334597,
+        0.00368333, 0.00349832, 0.00369239, 0.00343132, 0.0035305 ]),
  &#39;test_accuracy&#39;: array([0.80188679, 0.87203791, 0.9478673 , 0.95260664, 0.95260664,
         0.93364929, 0.95260664, 0.9478673 , 0.95260664, 0.95260664]),
  &#39;test_f1_macro&#39;: array([0.80315095, 0.86771551, 0.9453898 , 0.95293603, 0.95135921,

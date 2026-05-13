@@ -893,9 +893,37 @@ Conceptually, OPTICS is closely related to DBSCAN, but more flexible. The trade-
 <p>Instead of fixing one global density threshold, HDBSCAN builds a hierarchy of density-connected clusters and then extracts the most stable ones. This makes it particularly attractive when the dataset contains clusters with very different densities or when we want a method that is more adaptive than DBSCAN.</p>
 <p>Like DBSCAN, HDBSCAN can also identify noise points. In practice, it is often considered one of the most powerful off-the-shelf clustering methods for messy real-world data—especially when clusters are irregularly shaped and vary in density.
 The downside is that, like many more flexible methods, it is somewhat less intuitive than K-means and usually not the first clustering algorithm people learn.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.cluster</span><span class="w"> </span><span class="kn">import</span> <span class="n">HDBSCAN</span>
+
+<span class="n">hdbscan</span> <span class="o">=</span> <span class="n">HDBSCAN</span><span class="p">(</span><span class="n">min_cluster_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">hdbscan</span><span class="o">.</span><span class="n">labels_</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;nipy_spectral&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;HDBSCAN Clustering with distance_threshold=10&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ea9b11e2680c59f87de142df0f17f34617969a7dfe0e9a323a8d1b1615f8e9bc.png" src="../_images/ea9b11e2680c59f87de142df0f17f34617969a7dfe0e9a323a8d1b1615f8e9bc.png" />
+</div>
+</div>
 </section>
 </section>
-<hr class="docutils" />
 <section id="comparing-clustering-approaches">
 <h2>Comparing clustering approaches<a class="headerlink" href="#comparing-clustering-approaches" title="Link to this heading">#</a></h2>
 <p>At this point, we have seen six different clustering methods across the two clustering chapters. These methods follow sometimes very different conceptual routes so that they naturally differ in what they consider to be a cluster.</p>
@@ -1022,7 +1050,7 @@ The downside is that, like many more flexible methods, it is somewhat less intui
 </ul>
 <p>There are many books, tutorials, and articles on various clustering techniques. Here is just one more recent scientific review article on different clustering techniques:</p>
 <ul class="simple">
-<li><p>“A review of clustering techniques and developments” by Amit Saxena and Mukesh Prasad and Akshansh Gupta and Neha Bharill and Om Prakash Patel and Aruna Tiwari and Meng Joo Er and Weiping Ding and Chin-Teng Lin, 2017, Neurocomputing, Vol.267, https://doi.org/10.1016/j.neucom.2017.06.053 <span id="id1">[<a class="reference internal" href="../book/references.html#id88" title="Amit Saxena, Mukesh Prasad, Akshansh Gupta, Neha Bharill, Om Prakash Patel, Aruna Tiwari, Meng Joo Er, Weiping Ding, and Chin-Teng Lin. A review of clustering techniques and developments. Neurocomputing, 267:664–681, 2017.">Saxena <em>et al.</em>, 2017</a>]</span></p></li>
+<li><p>“A review of clustering techniques and developments” by Amit Saxena and Mukesh Prasad and Akshansh Gupta and Neha Bharill and Om Prakash Patel and Aruna Tiwari and Meng Joo Er and Weiping Ding and Chin-Teng Lin, 2017, Neurocomputing, Vol.267, https://doi.org/10.1016/j.neucom.2017.06.053 <span class="bibtex-citation" id="id1">[<a class="reference internal" href="../book/references.html#id88" title="Amit Saxena, Mukesh Prasad, Akshansh Gupta, Neha Bharill, Om Prakash Patel, Aruna Tiwari, Meng Joo Er, Weiping Ding, and Chin-Teng Lin. A review of clustering techniques and developments. Neurocomputing, 267:664–681, 2017.">Saxena <em>et al.</em>, 2017</a>]</span></p></li>
 </ul>
 </section>
 </section>
