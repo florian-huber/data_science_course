@@ -1919,6 +1919,7 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 <li><p>turning this into a weighted representation of local relationships,</p></li>
 <li><p>and then optimizing a low-dimensional layout that preserves as much of that neighborhood structure as possible.</p></li>
 </ol>
+<p>In reality, UMAP is a fairly complex algorithm and requires a notable effort to understand fully (see, for instance, the original scientific article: <span class="bibtex-citation" id="id8">[<a class="reference internal" href="../book/references.html#id65" title="Leland McInnes, John Healy, and James Melville. Umap: uniform manifold approximation and projection for dimension reduction. arXiv preprint arXiv:1802.03426, 2018.">McInnes <em>et al.</em>, 2018</a>]</span>).</p>
 </section>
 <section id="important-parameters">
 <h4>Important parameters<a class="headerlink" href="#important-parameters" title="Link to this heading">#</a></h4>
@@ -1930,9 +1931,9 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 <p>This means that UMAP is not a push-button method where one single default setting is always ideal.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">umap</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">umap</span><span class="w"> </span><span class="kn">import</span> <span class="n">UMAP</span>
 
-<span class="n">reducer</span> <span class="o">=</span> <span class="n">umap</span><span class="o">.</span><span class="n">UMAP</span><span class="p">(</span>
+<span class="n">reducer</span> <span class="o">=</span> <span class="n">UMAP</span><span class="p">(</span>
     <span class="n">n_components</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
     <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
     <span class="n">min_dist</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
@@ -1956,7 +1957,7 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/43a769b2d3bbcc090cc1f9aba70516723324a53d95306e62df9b8542a72fa3eb.png" src="../_images/43a769b2d3bbcc090cc1f9aba70516723324a53d95306e62df9b8542a72fa3eb.png" />
+<img alt="../_images/7984856711d005493ce0360a3a8f8a31ba2381301b183c8a6ac5f031607e1546.png" src="../_images/7984856711d005493ce0360a3a8f8a31ba2381301b183c8a6ac5f031607e1546.png" />
 </div>
 </div>
 <p>This is better than the PCA result, because here the different groups no longer overlap. But UMAP was apparently not able to “find” the underlying structure (or: manifold). We can see what some parameter changes will do:</p>
@@ -1983,19 +1984,33 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/55193b0812426128230ddeb4609b0bbcdbfb1a3255b4c6a56e752ce90842b315.png" src="../_images/55193b0812426128230ddeb4609b0bbcdbfb1a3255b4c6a56e752ce90842b315.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">33</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">]):</span>
+<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="n">reducer</span> <span class="o">=</span> <span class="n">umap</span><span class="o">.</span><span class="n">UMAP</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>         <span class="n">n_components</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span>         <span class="n">n_neighbors</span><span class="o">=</span><span class="n">k</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>         <span class="n">min_dist</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+
+<span class="ne">NameError</span>: name &#39;umap&#39; is not defined
+</pre></div>
+</div>
+<img alt="../_images/7b64af9bd5fe3d273605eacc68704e132761aaaaa4fabee338c678e12c058ae4.png" src="../_images/7b64af9bd5fe3d273605eacc68704e132761aaaaa4fabee338c678e12c058ae4.png" />
 </div>
 </div>
 <p>Some of these results are comming close to aligning the data in one dimension, but we see that (1) the parameter choice is very important, and (2) am ideal reconstruction of our geometry is not easily found by the UMAP algorithm.</p>
 <p>And, just for completeness and reference to the methods described in the first part (kernel PCA), here also an attempt of using UMAP for the spherical data, which is easier to project than the spiral data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">umap</span> <span class="o">=</span> <span class="n">UMAP</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reducer</span> <span class="o">=</span> <span class="n">UMAP</span><span class="p">(</span>
     <span class="n">n_components</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
     <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
     <span class="n">random_state</span><span class="o">=</span><span class="mi">5317</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">X_umap</span> <span class="o">=</span> <span class="n">umap</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">gen_data</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="n">X_umap</span> <span class="o">=</span> <span class="n">reducer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">gen_data</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 <span class="n">y</span><span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">X_umap</span><span class="p">))</span>
@@ -2008,17 +2023,11 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">34</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">umap</span> <span class="o">=</span> <span class="n">UMAP</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">n_components</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">random_state</span><span class="o">=</span><span class="mi">5317</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-
-<span class="ne">NameError</span>: name &#39;UMAP&#39; is not defined
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\flori\anaconda3\envs\data_science\Lib\site-packages\umap\umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
 </pre></div>
 </div>
+<img alt="../_images/b69f4fd8c44bb81a846863848d5538ae74697ccf1ce15df417ce90dc661b73ac.png" src="../_images/b69f4fd8c44bb81a846863848d5538ae74697ccf1ce15df417ce90dc661b73ac.png" />
 </div>
 </div>
 </section>
@@ -2028,14 +2037,12 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 <p>Let us now continue with our use case of the marketing dataset. Before we used PCA, which did work to some extent, but maybe not as well as we wanted. Let’s compare this to using t-SNE to reduce the data points to only two dimensions, so we can visualize all data points in a 2D scatter plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">umap</span><span class="w"> </span><span class="kn">import</span> <span class="n">UMAP</span>
-
-<span class="n">umap</span> <span class="o">=</span> <span class="n">UMAP</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reducer</span> <span class="o">=</span> <span class="n">UMAP</span><span class="p">(</span>
     <span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
     <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
     <span class="n">min_dist</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="n">X_umap</span> <span class="o">=</span> <span class="n">umap</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_scaled</span><span class="p">)</span>
+<span class="n">X_umap</span> <span class="o">=</span> <span class="n">reducer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_scaled</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2045,7 +2052,7 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_plot</span><span class="p">[[</span><span class="s2">&quot;umap1&quot;</span><span class="p">,</span> <span class="s2">&quot;umap2&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">X_umap</span>
 
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 <span class="n">sb</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
     <span class="n">data</span><span class="o">=</span><span class="n">data_plot</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="s2">&quot;umap1&quot;</span><span class="p">,</span>
@@ -2064,7 +2071,7 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Income&quot;</span><span class="p">,</span> <span class="s2">&quot;Spent&quot;</span><span class="p">,</span> <span class="s2">&quot;Kidhome&quot;</span><span class="p">,</span> <span class="s2">&quot;Teenhome&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;Education&quot;</span><span class="p">]</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)):</span>
     <span class="n">sb</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
@@ -2099,9 +2106,8 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 </ul>
 <p><strong>Disadvantages of UMAP:</strong></p>
 <ul class="simple">
-<li><p>Like other non-linear methods, it requires parameter tuning.</p></li>
-<li><p>The results can be very sensitive to these parameter choices.</p></li>
-<li><p>Just like t-SNE, the resulting 2D or 3D embedding should not be interpreted as a perfect map of the original high-dimensional relationships.</p></li>
+<li><p>Like other non-linear methods, it requires parameter tuning (and the results can be very sensitive to these parameter choices!).</p></li>
+<li><p>The resulting 2D or 3D embedding should not be interpreted as a perfect map of the original high-dimensional relationships (just like t-SNE). Distances in the lower dimensional space do not always correspond well to distance in the original data space.</p></li>
 </ul>
 </section>
 <section id="practical-note">
@@ -2114,16 +2120,16 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 <p>Both t-SNE and UMAP currently see widespread use. Neither of them is always better or worse. And often, it appears, it is also a matter of personal preference.</p>
 <ul class="simple">
 <li><p>Re-run the above dimensionality reduction but use t-SNE instead of UMAP</p></li>
-<li><p>Explore different settings for the parameter <code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code></p></li>
+<li><p>Explore different settings for the parameter <code class="docutils literal notranslate"><span class="pre">perplexity</span></code></p></li>
 <li><p>Which one do you prefer, t-SNE or UMAP? And why is that?</p></li>
-<li><p>What made you intuitively decide which <code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code> setting is best?</p></li>
+<li><p>What made you intuitively decide which <code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code> (UMP) or <code class="docutils literal notranslate"><span class="pre">perplexity</span></code> (tSNE) setting is best?</p></li>
 </ul>
 </section>
 </section>
 <section id="more-than-just-t-sne-and-umap">
 <h2>More than just t-SNE and UMAP<a class="headerlink" href="#more-than-just-t-sne-and-umap" title="Link to this heading">#</a></h2>
 <p>Even though <strong>t-SNE</strong> and <strong>UMAP</strong> are currently among the most widely used techniques for non-linear dimensionality reduction and visualization, they are by no means the only available methods.</p>
-<p>One further method that has received considerable attention is <strong>PaCMAP</strong> (<em>Pairwise Controlled Manifold Approximation</em>), which was developed with the goal of balancing the preservation of local and more global structure in the low-dimensional embedding <span class="bibtex-citation" id="id8">[<a class="reference internal" href="../book/references.html#id97" title="Yingfan Wang, Haiyang Huang, Cynthia Rudin, and Yaron Shaposhnik. Understanding how dimension reduction tools work: an empirical approach to deciphering t-sne, umap, trimap, and pacmap for data visualization. Journal of Machine Learning Research, 22(201):1–73, 2021.">Wang <em>et al.</em>, 2021</a>]</span>. Just like t-SNE and UMAP, it aims to create useful 2D or 3D visualizations of complex high-dimensional data, but it does so with a somewhat different optimization strategy.</p>
+<p>One further method that has received considerable attention is <strong>PaCMAP</strong> (<em>Pairwise Controlled Manifold Approximation</em>), which was developed with the goal of balancing the preservation of local and more global structure in the low-dimensional embedding <span class="bibtex-citation" id="id9">[<a class="reference internal" href="../book/references.html#id97" title="Yingfan Wang, Haiyang Huang, Cynthia Rudin, and Yaron Shaposhnik. Understanding how dimension reduction tools work: an empirical approach to deciphering t-sne, umap, trimap, and pacmap for data visualization. Journal of Machine Learning Research, 22(201):1–73, 2021.">Wang <em>et al.</em>, 2021</a>]</span>. Just like t-SNE and UMAP, it aims to create useful 2D or 3D visualizations of complex high-dimensional data, but it does so with a somewhat different optimization strategy.</p>
 <p>And beyond these manifold-learning methods, there is yet another broad route to visualizing complex data: instead of reducing the data directly into 2D coordinates, one can first represent the data as a <strong>graph</strong> or <strong>network</strong> and then visualize that graph using a layout algorithm. In such approaches, data points become nodes and relationships or similarities become edges. This can be especially useful when pairwise relationships matter more than exact geometric positions. We will come back to this later in <a class="reference internal" href="26_graph_visualization.html#ch-graph-visualization"><span class="std std-ref">Visualizing Graphs</span></a>.</p>
 <p>So, even within the specific task of displaying complex data in two or three dimensions, there is a whole toolbox of possible approaches. The methods covered in this chapter are important and widely used, but they are only a small selection.</p>
 </section>
@@ -2153,14 +2159,14 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 <p>What should have become clear in this chapter is that dimensionality reduction is both powerful and subtle.</p>
 <p>On the one hand, reducing data from many dimensions to only two or three can make previously inaccessible structure visible. This is why methods such as PCA, t-SNE, and UMAP have become such important tools in modern data science. In the marketing example above, we saw that non-linear methods can reveal patterns that are much less obvious when using only linear techniques such as PCA.</p>
 <p>On the other hand, the resulting plots are never neutral windows into the data. They are always shaped by the assumptions of the method and by the parameter choices we make. This is especially true for the non-linear methods. They often require substantial tuning, and different settings can lead to noticeably different embeddings. That raises an important practical question: what exactly do we mean by the “best” low-dimensional representation?</p>
-<p>There is no single universally accepted answer to that question. In practice, people often try several methods and parameter settings and compare the results. That can be very useful—but it also means that one must resist the temptation to simply choose the prettiest plot or the one that fits a preferred story best.</p>
+<p>There is no single universally accepted answer to that question. In practice, people often try several methods and parameter settings and compare the results. That can be very useful, but it also means that one must resist the temptation to simply choose the prettiest plot or the one that fits a preferred story best.</p>
 <p>Performance is another important factor. If the goal is a fast and robust reduction of large high-dimensional datasets, <strong>PCA</strong> often remains the most practical baseline method. Recent advances using GPU-acceleration for UMAP, however, make it now possible to even use UMAP on comparably large datasets, <a class="reference external" href="https://docs.rapids.ai/api/cuml/stable/">see rapids.ai</a>.</p>
 </section>
 <section id="literature-and-next-steps">
 <h2>Literature and next steps<a class="headerlink" href="#literature-and-next-steps" title="Link to this heading">#</a></h2>
 <p>There is much more to learn about dimensionality reduction than we could cover here.</p>
-<p>If you want to understand more deeply why high-dimensional spaces behave so differently from low-dimensional ones, it is worth reading more on the <strong>curse of dimensionality</strong>, especially in relation to distance-based methods and nearest-neighbor search <span class="bibtex-citation" id="id9">[<a class="reference internal" href="../book/references.html#id64" title="R. B. Marimont and M. B. Shapiro. Nearest Neighbour Searches and the Curse of Dimensionality. IMA Journal of Applied Mathematics, 24(1):59–70, August 1979. URL: https://doi.org/10.1093/imamat/24.1.59 (visited on 2026-03-20), doi:10.1093/imamat/24.1.59.">Marimont and Shapiro, 1979</a>, <a class="reference internal" href="../book/references.html#id23" title="Edgar Chávez, Gonzalo Navarro, Ricardo Baeza-Yates, and José Luis Marroquín. Searching in metric spaces. ACM Comput. Surv., 33(3):273–321, September 2001. URL: https://dl.acm.org/doi/10.1145/502807.502808 (visited on 2026-03-20), doi:10.1145/502807.502808.">Chávez <em>et al.</em>, 2001</a>]</span>.</p>
-<p>For a broader overview of dimensionality reduction techniques, including many methods not covered here, see for instance <span class="bibtex-citation" id="id10">[<a class="reference internal" href="../book/references.html#id5" title="Farzana Anowar, Samira Sadaoui, and Bassant Selim. Conceptual and empirical comparison of dimensionality reduction algorithms (pca, kpca, lda, mds, svd, lle, isomap, le, ica, t-sne). Computer Science Review, 40:100378, 2021.">Anowar <em>et al.</em>, 2021</a>]</span> or <span class="bibtex-citation" id="id11">[<a class="reference internal" href="../book/references.html#id97" title="Yingfan Wang, Haiyang Huang, Cynthia Rudin, and Yaron Shaposhnik. Understanding how dimension reduction tools work: an empirical approach to deciphering t-sne, umap, trimap, and pacmap for data visualization. Journal of Machine Learning Research, 22(201):1–73, 2021.">Wang <em>et al.</em>, 2021</a>]</span>.</p>
+<p>If you want to understand more deeply why high-dimensional spaces behave so differently from low-dimensional ones, it is worth reading more on the <strong>curse of dimensionality</strong>, especially in relation to distance-based methods and nearest-neighbor search <span class="bibtex-citation" id="id10">[<a class="reference internal" href="../book/references.html#id64" title="R. B. Marimont and M. B. Shapiro. Nearest Neighbour Searches and the Curse of Dimensionality. IMA Journal of Applied Mathematics, 24(1):59–70, August 1979. URL: https://doi.org/10.1093/imamat/24.1.59 (visited on 2026-03-20), doi:10.1093/imamat/24.1.59.">Marimont and Shapiro, 1979</a>, <a class="reference internal" href="../book/references.html#id23" title="Edgar Chávez, Gonzalo Navarro, Ricardo Baeza-Yates, and José Luis Marroquín. Searching in metric spaces. ACM Comput. Surv., 33(3):273–321, September 2001. URL: https://dl.acm.org/doi/10.1145/502807.502808 (visited on 2026-03-20), doi:10.1145/502807.502808.">Chávez <em>et al.</em>, 2001</a>]</span>.</p>
+<p>For a broader overview of dimensionality reduction techniques, including many methods not covered here, see for instance <span class="bibtex-citation" id="id11">[<a class="reference internal" href="../book/references.html#id5" title="Farzana Anowar, Samira Sadaoui, and Bassant Selim. Conceptual and empirical comparison of dimensionality reduction algorithms (pca, kpca, lda, mds, svd, lle, isomap, le, ica, t-sne). Computer Science Review, 40:100378, 2021.">Anowar <em>et al.</em>, 2021</a>]</span> or <span class="bibtex-citation" id="id12">[<a class="reference internal" href="../book/references.html#id97" title="Yingfan Wang, Haiyang Huang, Cynthia Rudin, and Yaron Shaposhnik. Understanding how dimension reduction tools work: an empirical approach to deciphering t-sne, umap, trimap, and pacmap for data visualization. Journal of Machine Learning Research, 22(201):1–73, 2021.">Wang <em>et al.</em>, 2021</a>]</span>.</p>
 <p>And finally, as already mentioned above, not all useful 2D or 3D representations of complex data come from direct dimensionality reduction. Another important family of approaches is based on <strong>graphs and network layouts</strong>, which we will later discuss in <a class="reference internal" href="26_graph_visualization.html#ch-graph-visualization"><span class="std std-ref">Visualizing Graphs</span></a>.</p>
 </section>
 </section>

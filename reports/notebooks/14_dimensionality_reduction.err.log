@@ -18,30 +18,36 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-umap = UMAP(
-    n_components=1,
-    n_neighbors=25,
-    random_state=5317, n_jobs=1,
-)
-X_umap = umap.fit_transform(gen_data.T)
+fig, axes = plt.subplots(5, 1, figsize=(8, 5), dpi=300, sharex=True)
 
-fig, ax = plt.subplots(figsize=(8, 0.8), dpi=300)
-y= rng.uniform(-0.1, 0.1, size=len(X_umap))
-ax.scatter(X_umap, y, alpha=0.5, c=labels, s=20)
-ax.grid(True)
-ax.set_xlabel("UMAP 1")
-ax.set_ylabel("Random noise", rotation=0, labelpad=5, ha="right", va="center")
+for i, k in enumerate([5, 10, 15, 25, 50]):
+    reducer = umap.UMAP(
+        n_components=1,
+        n_neighbors=k,
+        min_dist=0.2,
+        random_state=123456, n_jobs=1
+    )
+
+    X_umap = reducer.fit_transform(X)
+    axes[i].scatter(X_umap, np.random.random(X.shape[0]), c=t, s=8, cmap="viridis")
+    axes[i].set_title(f"k={k}", fontsize=8)
+
+axes[-1].set_xlabel("UMAP 1")
+fig.subplots_adjust(hspace=0.8)
 plt.show()
 ------------------
 
 
 [31m---------------------------------------------------------------------------[39m
 [31mNameError[39m                                 Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[34][39m[32m, line 1[39m
-[32m----> [39m[32m1[39m umap = UMAP(
-[32m      2[39m     n_components=[32m1[39m,
-[32m      3[39m     n_neighbors=[32m25[39m,
-[32m      4[39m     random_state=[32m5317[39m, n_jobs=[32m1[39m,
+[36mCell[39m[36m [39m[32mIn[33][39m[32m, line 4[39m
+[32m      1[39m fig, axes = plt.subplots([32m5[39m, [32m1[39m, figsize=([32m8[39m, [32m5[39m), dpi=[32m300[39m, sharex=[38;5;28;01mTrue[39;00m)
+[32m      2[39m 
+[32m      3[39m [38;5;28;01mfor[39;00m i, k [38;5;28;01min[39;00m enumerate([[32m5[39m, [32m10[39m, [32m15[39m, [32m25[39m, [32m50[39m]):
+[32m----> [39m[32m4[39m     reducer = umap.UMAP(
+[32m      5[39m         n_components=[32m1[39m,
+[32m      6[39m         n_neighbors=k,
+[32m      7[39m         min_dist=[32m0.2[39m,
 
-[31mNameError[39m: name 'UMAP' is not defined
+[31mNameError[39m: name 'umap' is not defined
 
