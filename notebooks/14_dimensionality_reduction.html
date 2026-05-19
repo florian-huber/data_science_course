@@ -459,14 +459,13 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-extraction-2-manifold-learning">Feature Extraction 2: Manifold Learning</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-sne">t-SNE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-marketing-analysis-t-sne">Use case: Marketing Analysis (t-SNE)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-dimensionality-reduction-methods">Modern dimensionality reduction methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umap-uniform-manifold-approximation-and-projection">UMAP (Uniform Manifold Approximation and Projection)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-sketch-of-how-umap-works">A brief sketch of how UMAP works</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#important-parameters">Important parameters</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-dimensionality-reduction">More on dimensionality reduction</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umap-uniform-manifold-approximation-and-projection">UMAP (Uniform Manifold Approximation and Projection)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-sketch-of-how-umap-works">A brief sketch of how UMAP works</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important-parameters">Important parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-marketing-analysis-umap">Use case: Marketing Analysis (UMAP)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-note">Practical note</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
 </ul>
@@ -1643,7 +1642,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 <img alt="../_images/01d5e2e602d90211ca8244ad866356c285c48f8530b2607fb991a833043401fa.png" src="../_images/01d5e2e602d90211ca8244ad866356c285c48f8530b2607fb991a833043401fa.png" />
 </div>
 </div>
-<p>First we will apply <strong>PCA</strong> to reduce this data to one dimension.</p>
+<p>First we will apply <strong>PCA</strong> to reduce this data to only one dimension.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
@@ -1661,17 +1660,22 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 <p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span> <span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_pca</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">300</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">))</span>
+
+<span class="n">y</span><span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">X_pca</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_pca</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;PCA 1&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Random noise&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+
+<span class="c1">#plt.tight_layout()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/66e0194f08034d734a0ae76211e10353b5f8053afa9a4a2afd7a24497d431296.png" src="../_images/66e0194f08034d734a0ae76211e10353b5f8053afa9a4a2afd7a24497d431296.png" />
+<img alt="../_images/ecce54817fa5e763bb3c11ee079dfd893093c3c6301d4f92c4c5a34eb22a5387.png" src="../_images/ecce54817fa5e763bb3c11ee079dfd893093c3c6301d4f92c4c5a34eb22a5387.png" />
 </div>
 </div>
 <p>As we see from this plot, <strong>PCA</strong> is not able to separate the two different colors. This means it does not find a good lower-dimensional representation of this particular dataset.</p>
@@ -1741,99 +1745,48 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 <img alt="../_images/916a004e9160960599eae10d5a1b3171760aef4b16c354a24ea74014e722b3fe.png" src="../_images/916a004e9160960599eae10d5a1b3171760aef4b16c354a24ea74014e722b3fe.png" />
 </div>
 </div>
+<p>Now let us use Kernel-PCA to reduce the data to only one dimension.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kpca</span> <span class="o">=</span> <span class="n">KernelPCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> 
-                 <span class="n">gamma</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kpca</span> <span class="o">=</span> <span class="n">KernelPCA</span><span class="p">(</span>
+    <span class="n">n_components</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> 
+    <span class="n">gamma</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+<span class="p">)</span>
 <span class="n">X_kpca</span> <span class="o">=</span> <span class="n">kpca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">gen_data</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span> <span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_kpca</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">300</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">X_pca</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_kpca</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;PCA 1&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Random noise&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2654f6bb054e649c8cb7c00392bc040bc1b92f6a33dd08c2864b04ad50202762.png" src="../_images/2654f6bb054e649c8cb7c00392bc040bc1b92f6a33dd08c2864b04ad50202762.png" />
+<img alt="../_images/9e8c2d40877bb193fa262100facab32a162cf7001210ff0515ec0a5272eb0429.png" src="../_images/9e8c2d40877bb193fa262100facab32a162cf7001210ff0515ec0a5272eb0429.png" />
 </div>
 </div>
 <p>Here we see, that kernel-PCA is capable of keeping the two colors separate even after reducing all points to one dimension.</p>
 </section>
 </section>
+<hr class="docutils" />
 <section id="feature-extraction-2-manifold-learning">
 <h2>Feature Extraction 2: Manifold Learning<a class="headerlink" href="#feature-extraction-2-manifold-learning" title="Link to this heading">#</a></h2>
-<p>Manifold Learning is a class of techniques designed for discovering the underlying structure or manifold of high-dimensional data. Unlike linear methods that attempt to preserve global linear relationships, manifold learning focuses on uncovering local structures, ideally capturing the intrinsic geometry of the data (see <a class="reference internal" href="#fig-manifolds"><span class="std std-numref">Fig. 20</span></a>). The central assumption of manifold learning is that the data of interest lies on an embedded non-linear manifold within the higher-dimensional space. By understanding this manifold, one can reduce the dimensionality while preserving the data’s essential characteristics, which is particularly useful for complex datasets where linear projections like PCA fall short.</p>
+<p>Before discussing <em>manifold learning</em>, it is useful to build an intuition for the term <strong>manifold</strong> itself. In simple terms, a manifold is a shape or surface that may be curved in a higher-dimensional space, but that locally looks much simpler and lower-dimensional.</p>
+<p>A classic example is the surface of the Earth. Globally, Earth is approximately spherical, but if we look only at a small region around us, it appears almost flat. In other words, the Earth’s surface is a two-dimensional manifold embedded in three-dimensional space. Similarly, a spiral in a two-dimensional plot is still essentially a one-dimensional structure: each point can be described mainly by its position along the spiral, even though the spiral itself is drawn in two dimensions.</p>
+<p>Manifold Learning is a class of techniques designed for discovering the underlying structure or manifold of high-dimensional data. Unlike linear methods that attempt to preserve global linear relationships, manifold learning focuses on uncovering local structures, ideally capturing the intrinsic geometry of the data. The central assumption of manifold learning is that the data of interest lies on an embedded nonlinear manifold within the higher-dimensional space. By understanding this manifold, one can reduce the dimensionality while preserving the data’s essential characteristics, which is particularly useful for complex datasets where linear projections like PCA fall short.</p>
+<p>A typical instructive example of such data is datapoints in a spiral shape, as sketched in <a class="reference internal" href="#fig-manifolds"><span class="std std-numref">Fig. 20</span></a>.</p>
 <figure class="align-default" id="fig-manifolds">
 <img alt="../_images/fig_dimensionality_reduction_manifolds.png" src="../_images/fig_dimensionality_reduction_manifolds.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Linear projections of highly non-linear data onto fewer dimensions are often far from ideal (left). A central goal in manifold learning is to find geometries that better represent the intrinsic structure of the data (right) thereby leading to much better dimensionality reduction results.</span><a class="headerlink" href="#fig-manifolds" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Linear projections of highly non-linear data onto fewer dimensions are often far from ideal (left). A central goal in manifold learning is to find geometries that better represent the intrinsic structure of the data (right side), thereby leading to much better dimensionality reduction results.</span><a class="headerlink" href="#fig-manifolds" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<section id="t-sne">
-<h3>t-SNE<a class="headerlink" href="#t-sne" title="Link to this heading">#</a></h3>
-<p>t-SNE, introduced by Maaten and Hinton in 2008, is a sophisticated technique that has rapidly gained popularity for its effectiveness in visualizing and reducing the dimensions of data that reside on complex manifolds {cite}maaten2008tsne. Unlike PCA, t-SNE is particularly suited for embedding high-dimensional data into a space of two or three dimensions, which makes it an excellent tool for visualizing data clusters.</p>
-<p><strong>Advantages:</strong></p>
-<ul class="simple">
-<li><p><strong>Handling Non-Linearity</strong>: t-SNE excels in managing non-linear relationships in data, making it ideal for datasets where the underlying structure is intricate.</p></li>
-<li><p><strong>Superior Visualization</strong>: It produces visually appealing results that highlight clusters and structures that are not apparent in linear dimensionality reduction outputs.</p></li>
-</ul>
-<p><strong>Disadvantages:</strong></p>
-<ul class="simple">
-<li><p><strong>Computational Intensity</strong>: The technique is computationally intensive, particularly as the size of the dataset increases, making it less scalable than some linear methods.</p></li>
-<li><p><strong>Parameter Sensitivity</strong>: t-SNE involves several hyperparameters such as the perplexity and learning rate, which require careful tuning to get meaningful results. The outcome of t-SNE can vary significantly with different settings of these parameters.</p></li>
-</ul>
-<p><strong>How t-SNE Works:</strong></p>
-<ul class="simple">
-<li><p><strong>Probability Distributions</strong>: t-SNE converts the distances between data points in high-dimensional space into conditional probabilities that represent similarities. The similarity of datapoint xjxj to datapoint xixi is the conditional probability that xixi would pick xjxj as its neighbor if neighbors were picked in proportion to their probability density under a Gaussian centered at xixi.</p></li>
-<li><p><strong>KL Divergence Minimization</strong>: In the low-dimensional space, t-SNE similarly creates a probability distribution using a Student’s t-distribution to model the similarity between points. The optimization objective is to minimize the Kullback–Leibler divergence between the two distributions over the positions of points in the low-dimensional space. This divergence measures how much one probability distribution differs from a second, reference probability distribution.</p></li>
-</ul>
-<p><strong>Practical Considerations:</strong></p>
-<ul class="simple">
-<li><p><strong>Data Scaling</strong>: Similar to PCA, data should be scaled (standardized) before applying t-SNE to ensure that all features contribute equally.</p></li>
-<li><p><strong>Dimensionality Curse</strong>: Although t-SNE is designed for high-dimensional data, excessively high dimensions can degrade its performance, often necessitating the use of an initial dimensionality reduction method like PCA before applying t-SNE.</p></li>
-</ul>
-<p>By focusing on local rather than global relationships, t-SNE can uncover intricate patterns in the data, making it highly suitable for exploratory data analysis and data visualization in tasks where understanding the data’s grouping and structure is crucial.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.manifold</span><span class="w"> </span><span class="kn">import</span> <span class="n">TSNE</span>
-
-<span class="n">perplexities</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">perplexities</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">perplexities</span><span class="p">)</span> <span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">perplexity</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">perplexities</span><span class="p">):</span>
-    <span class="n">tsne</span> <span class="o">=</span> <span class="n">TSNE</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">perplexity</span><span class="o">=</span><span class="n">perplexity</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="s2">&quot;random&quot;</span><span class="p">)</span>
-    <span class="n">X_tsne</span> <span class="o">=</span> <span class="n">tsne</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">gen_data</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-
-    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_tsne</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_tsne</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;perplexity: </span><span class="si">{</span><span class="n">perplexity</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../_images/87e5cf61d667ec6228bdc93ce992111ed2b999171e3315f1646217fac9dc7cd1.png" src="../_images/87e5cf61d667ec6228bdc93ce992111ed2b999171e3315f1646217fac9dc7cd1.png" />
-</div>
-</div>
-</section>
-<section id="use-case-marketing-analysis-t-sne">
-<h3>Use case: Marketing Analysis (t-SNE)<a class="headerlink" href="#use-case-marketing-analysis-t-sne" title="Link to this heading">#</a></h3>
-<p>Let us now continue with our use case of the marketing dataset. Before we used PCA which did work to some extent, but maybe not as well as we wanted. Let’s compare this to using t-SNE for reducing the datapoints to only two dimensions so that we can visualize all data points in a 2D scatter plot.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.manifold</span><span class="w"> </span><span class="kn">import</span> <span class="n">TSNE</span>
-
-<span class="n">tsne</span> <span class="o">=</span> <span class="n">TSNE</span><span class="p">(</span><span class="n">perplexity</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
-           <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">X_tsne</span> <span class="o">=</span> <span class="n">tsne</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_scaled</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
+<p>Let us know first look if PCA indeed performs so poorly on this type of data. Then, we will apply a powerfull dimensionality reduction method called <strong>UMAP</strong> to see if we can improve on the results.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="admonition hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1841,76 +1794,138 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 <p class="expanded admonition-title">Hide code cell source</p>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_plot</span><span class="p">[[</span><span class="s2">&quot;tsne1&quot;</span><span class="p">,</span> <span class="s2">&quot;tsne2&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">X_tsne</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
 
+<span class="n">n_1</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">n_2</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">n_dense</span> <span class="o">+</span> <span class="n">n_sparse</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<span class="n">sb</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data_plot</span><span class="p">,</span>
-                <span class="n">x</span><span class="o">=</span><span class="s2">&quot;tsne1&quot;</span><span class="p">,</span>
-                <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tsne2&quot;</span><span class="p">,</span>
-                <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Income&quot;</span><span class="p">,</span>
-                <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">)</span>
+<span class="n">t_1</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n_1</span><span class="p">)</span>
+<span class="n">t_2</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mf">4.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n_2</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">t_1</span><span class="p">,</span> <span class="n">t_2</span><span class="p">])</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">t</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">r</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">+</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Data in spiral form&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/ebdfff6f2ee33b6005bd341309732bdc302fd1ce72766a8dd8e407e3f721787f.png" src="../_images/ebdfff6f2ee33b6005bd341309732bdc302fd1ce72766a8dd8e407e3f721787f.png" />
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">27</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">n_1</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">n_2</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">n</span> <span class="o">=</span> <span class="n">n_dense</span> <span class="o">+</span> <span class="n">n_sparse</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">t_1</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n_1</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">t_2</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mf">4.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n_2</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;n_dense&#39; is not defined
+</pre></div>
 </div>
 </div>
-<p>We can of course, also plot several features in parallel by combining multiple plots.</p>
-<div class="cell tag_hide-input docutils container">
-<details class="admonition hide above-input">
-<summary aria-label="Toggle hidden content">
-<p class="collapsed admonition-title">Show code cell source</p>
-<p class="expanded admonition-title">Hide code cell source</p>
-</summary>
+</div>
+<p>We can now again try to reduce this data to one dimension using PCA:</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Income&quot;</span><span class="p">,</span> <span class="s2">&quot;Spent&quot;</span><span class="p">,</span> <span class="s2">&quot;Kidhome&quot;</span><span class="p">,</span> <span class="s2">&quot;Teenhome&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;Education&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)):</span>
-    <span class="n">sb</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data_plot</span><span class="p">,</span>
-                   <span class="n">x</span><span class="o">=</span><span class="s2">&quot;tsne1&quot;</span><span class="p">,</span>
-                   <span class="n">y</span><span class="o">=</span><span class="s2">&quot;tsne2&quot;</span><span class="p">,</span>
-                   <span class="n">hue</span><span class="o">=</span><span class="n">features</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
-                   <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span>
-                   <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-    
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="p">[])</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_pca</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">c</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;PCA projection&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;PC1&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Random noise&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-</details>
 <div class="cell_output docutils container">
-<img alt="../_images/c04513cb0367f6da082767e4d360e9afe56e2215abf8c154c588e73d75e8aa33.png" src="../_images/c04513cb0367f6da082767e4d360e9afe56e2215abf8c154c588e73d75e8aa33.png" />
+<img alt="../_images/612966d7e6d2e6b120d0f11adcb1aa2ad7630089c46f968e111b73dcc1ff3b0f.png" src="../_images/612966d7e6d2e6b120d0f11adcb1aa2ad7630089c46f968e111b73dcc1ff3b0f.png" />
 </div>
 </div>
-<p>When we compare this result to the PCA results from before, it becomes clear that t-SNE is clearly able to draw a much more nuanced picture of our data. We will explore some more techniques in the “More on dimensionality reduction” part below, but for a first general picture, we could stop here and conclude:</p>
-<ul class="simple">
-<li><p><strong>Dimensionality</strong> reduction techniques are extremely powerful for exploring complex and larger datasets.</p></li>
-<li><p><strong>PCA</strong> is a standard technique every data scientist should know about. It also has many other use cases beyond data visualization, but we will come to that in later chapters.</p></li>
-<li><p>Current de facto standards in many data science processes are non-linear manifold-learning techniques such as <strong>t-SNE</strong> or <strong>UMAP</strong>. Those are more difficult to fully understand algorithmically, but they typically deliver better data representations than PCA.</p></li>
-</ul>
+<p>The result show, as expected, that a linear technique like PCA is not well-suited for this type of data.</p>
+<section id="modern-dimensionality-reduction-methods">
+<h3>Modern dimensionality reduction methods<a class="headerlink" href="#modern-dimensionality-reduction-methods" title="Link to this heading">#</a></h3>
+<p>Over the last two decades, several very powerful dimensionality reduction tools have been developed and quickly changed the field of data science.</p>
+<p><strong>t-SNE</strong>, introduced by van der Maaten and Hinton in 2008, was an important milestone in nonlinear dimensionality reduction and became especially popular for visualizing high-dimensional data with complex local structure <span class="bibtex-citation" id="id6">[<a class="reference internal" href="../book/references.html#id63" title="Laurens Van der Maaten and Geoffrey Hinton. Visualizing data using t-sne. Journal of machine learning research, 2008.">Van der Maaten and Hinton, 2008</a>]</span>.</p>
+<p>In many applications, however, it is now often used alongside, or replaced by, other manifold-learning techniques, most notably <strong>UMAP</strong>.</p>
 </section>
-</section>
-<section id="more-on-dimensionality-reduction">
-<h2>More on dimensionality reduction<a class="headerlink" href="#more-on-dimensionality-reduction" title="Link to this heading">#</a></h2>
-<p><strong>t-SNE</strong> was an extremely important milestone in the field of data science. In many applications, however, it has recently been succeeded by other manifold-learning techniques, most notably <strong>UMAP</strong>. Later in this subsection, we will discuss general limitations of all those techniques, and we will mention other techniques and provide starting points for those eager to dive deeper into the matter of dimensionality reduction.</p>
 <section id="umap-uniform-manifold-approximation-and-projection">
 <h3>UMAP (Uniform Manifold Approximation and Projection)<a class="headerlink" href="#umap-uniform-manifold-approximation-and-projection" title="Link to this heading">#</a></h3>
-<p>UMAP is a relatively recent addition to dimensionality reduction techniques <span class="bibtex-citation" id="id6">[<a class="reference internal" href="../book/references.html#id65" title="Leland McInnes, John Healy, and James Melville. Umap: uniform manifold approximation and projection for dimension reduction. arXiv preprint arXiv:1802.03426, 2018.">McInnes <em>et al.</em>, 2018</a>]</span>. Like t-SNE, UMAP is especially popular for visualization. In practice, it is often faster than t-SNE and sometimes preserves more global structure, although this depends strongly on the data and parameter choices.</p>
-<p>The central assumption behind UMAP is similar to that of other manifold-learning methods: although the data may live in a very high-dimensional space, its actually relevant structure might lie on a lower-dimensional manifold. The task is then to find a low-dimensional representation that keeps as much of this structure as possible.</p>
-</section>
+<p>UMAP is a relatively recent addition to dimensionality reduction techniques <span class="bibtex-citation" id="id7">[<a class="reference internal" href="../book/references.html#id65" title="Leland McInnes, John Healy, and James Melville. Umap: uniform manifold approximation and projection for dimension reduction. arXiv preprint arXiv:1802.03426, 2018.">McInnes <em>et al.</em>, 2018</a>]</span>. Like t-SNE, UMAP is especially popular for visualization. In practice, it is often faster than t-SNE and sometimes preserves more global structure, although this depends strongly on the data and parameter choices.</p>
+<p>The central assumption behind UMAP is similar to that of other manifold-learning methods: although the data may live in a very high-dimensional space, the relevant structure may lie on a lower-dimensional manifold. The task is then to find a low-dimensional representation that keeps as much of this structure as possible.</p>
 <section id="a-brief-sketch-of-how-umap-works">
-<h3>A brief sketch of how UMAP works<a class="headerlink" href="#a-brief-sketch-of-how-umap-works" title="Link to this heading">#</a></h3>
+<h4>A brief sketch of how UMAP works<a class="headerlink" href="#a-brief-sketch-of-how-umap-works" title="Link to this heading">#</a></h4>
 <p>UMAP is mathematically quite sophisticated, but the main idea can be sketched in a fairly intuitive way.</p>
 <p>First, UMAP builds a graph of the data by connecting each point to its nearest neighbors. In this step, the method tries to capture the <strong>local structure</strong> of the data: which points are close to each other and how strongly they appear to be connected.</p>
-<p>Second, UMAP interprets this graph in a probabilistic or weighted way. Rather than saying simply <em>“these two points are neighbors”</em> or <em>“they are not”</em>, it assigns strengths to these neighborhood relations. In this way, the high-dimensional dataset is represented as a kind of weighted network.</p>
+<p>The following plot will illustrate this idea by showing a graph (or network) that connects the <code class="docutils literal notranslate"><span class="pre">k=5</span></code> nearest neighbors of every data point.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.neighbors</span><span class="w"> </span><span class="kn">import</span> <span class="n">NearestNeighbors</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">neighbors</span> <span class="o">=</span> <span class="n">NearestNeighbors</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+<span class="n">neighbors</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="n">distances</span><span class="p">,</span> <span class="n">indices</span> <span class="o">=</span> <span class="n">neighbors</span><span class="o">.</span><span class="n">kneighbors</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">LineCollection</span>
+
+<span class="n">segments</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">indices</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]:</span>  <span class="c1"># skip itself</span>
+        <span class="n">segments</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">j</span><span class="p">]])</span>
+
+<span class="n">line_collection</span> <span class="o">=</span> <span class="n">LineCollection</span><span class="p">(</span>
+    <span class="n">segments</span><span class="p">,</span>
+    <span class="n">colors</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span>
+    <span class="n">linewidths</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">add_collection</span><span class="p">(</span><span class="n">line_collection</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nearest-neighbor graph (k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">autoscale</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../_images/163701d4f4997c1922cf85f6af56c4b0e37da79cb6511775dc34434e28afd024.png" src="../_images/163701d4f4997c1922cf85f6af56c4b0e37da79cb6511775dc34434e28afd024.png" />
+</div>
+</div>
+<p>Second, UMAP assigns weights to these neighbor relationships. Close and reliable neighbor relations receive stronger weights, while more distant or uncertain relations receive weaker weights.</p>
 <p>Third, UMAP searches for a low-dimensional arrangement of the points—usually in 2D or 3D—such that points that were strongly connected in the original high-dimensional graph stay close together, while weakly connected or disconnected points are allowed to lie farther apart.</p>
 <p>So, in very rough terms, UMAP works by:</p>
 <ol class="arabic simple">
@@ -1918,58 +1933,188 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 <li><p>turning this into a weighted representation of local relationships,</p></li>
 <li><p>and then optimizing a low-dimensional layout that preserves as much of that neighborhood structure as possible.</p></li>
 </ol>
-<p>This may sound somewhat similar to t-SNE, and indeed both methods try to preserve neighborhood relations. But UMAP usually places more emphasis on maintaining a meaningful overall arrangement of the data and is often computationally more efficient.</p>
 </section>
 <section id="important-parameters">
-<h3>Important parameters<a class="headerlink" href="#important-parameters" title="Link to this heading">#</a></h3>
-<p>Just like t-SNE, UMAP has parameters that can strongly influence the result. Two of the most important ones are:</p>
+<h4>Important parameters<a class="headerlink" href="#important-parameters" title="Link to this heading">#</a></h4>
+<p>UMAP has parameters that can strongly influence the result. Two of the most important ones are:</p>
 <ul class="simple">
 <li><p><strong><code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code></strong>: controls how strongly UMAP focuses on very local versus somewhat broader structure. Smaller values emphasize local neighborhoods more strongly, while larger values tend to preserve more global structure.</p></li>
 <li><p><strong><code class="docutils literal notranslate"><span class="pre">min_dist</span></code></strong>: controls how tightly points are allowed to pack together in the low-dimensional embedding. Small values often produce more compact, visually separated clusters, while larger values lead to smoother and more spread-out layouts.</p></li>
 </ul>
-<p>This means that UMAP, just like t-SNE, is not a push-button method where one single default setting is always ideal.</p>
-<p><strong>Advantages:</strong></p>
-<ul class="simple">
-<li><p>Efficient with large datasets.</p></li>
-<li><p>Often faster than t-SNE (in particular when we use newer GPU-based implementations such as in <code class="docutils literal notranslate"><span class="pre">cuml</span></code>, <a class="reference external" href="https://docs.rapids.ai/api/cuml/stable/">see rapids.ai documentation</a> !)</p></li>
-<li><p>Can preserve both local structure and, in many cases, more of the global structure than t-SNE.</p></li>
-<li><p>Flexible and widely used for exploratory data analysis and visualization.</p></li>
-</ul>
-<p><strong>Disadvantages:</strong></p>
-<ul class="simple">
-<li><p>Like other non-linear methods, it requires parameter tuning.</p></li>
-<li><p>The results can be sensitive to these parameter choices.</p></li>
-<li><p>Just like t-SNE, the resulting 2D or 3D embedding should not be interpreted as a perfect map of the original high-dimensional relationships.</p></li>
-</ul>
-</section>
-<section id="practical-note">
-<h3>Practical note<a class="headerlink" href="#practical-note" title="Link to this heading">#</a></h3>
-<p>In practice, UMAP has become a very popular choice for visualizing high-dimensional data, especially in areas such as bioinformatics, image analysis, and text embeddings. Many people prefer it over t-SNE because it is often faster, often scales better to larger datasets, and frequently produces layouts that are easier to interpret across repeated runs.</p>
-<p>Still, it is important to keep in mind that UMAP is primarily a tool for <strong>exploration and visualization</strong>. A beautiful 2D UMAP plot is not a proof that the underlying data really consists of clearly separated groups. It is always a reduced representation, and therefore always a simplification.</p>
+<p>This means that UMAP is not a push-button method where one single default setting is always ideal.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">umap</span>
 
-<span class="n">n_neighbors_values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">n_neighbors_values</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">n_neighbors_values</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">reducer</span> <span class="o">=</span> <span class="n">umap</span><span class="o">.</span><span class="n">UMAP</span><span class="p">(</span>
+    <span class="n">n_components</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">min_dist</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">123456</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
 
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n_neighbors</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">n_neighbors_values</span><span class="p">):</span>
-    <span class="n">reducer</span> <span class="o">=</span> <span class="n">umap</span><span class="o">.</span><span class="n">UMAP</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="n">n_neighbors</span><span class="p">,</span> <span class="n">init</span><span class="o">=</span><span class="s2">&quot;random&quot;</span><span class="p">)</span>
-    <span class="n">X_umap</span> <span class="o">=</span> <span class="n">reducer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">gen_data</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-
-    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_umap</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_umap</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;n_neighbors: </span><span class="si">{</span><span class="n">n_neighbors</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">X_umap</span> <span class="o">=</span> <span class="n">reducer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_umap</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">c</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;UMAP projection&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;UMAP 1&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Random noise&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/083b2067c5b58a9689ecdb21a312037c981df25f59e79fd1620a37822a961217.png" src="../_images/083b2067c5b58a9689ecdb21a312037c981df25f59e79fd1620a37822a961217.png" />
+<img alt="../_images/1a98495c527547b0f837060ba28916548c9a2e21d9a6404fc7b75b40b339f365.png" src="../_images/1a98495c527547b0f837060ba28916548c9a2e21d9a6404fc7b75b40b339f365.png" />
 </div>
 </div>
+<p>This is better than the PCA result, because here the different groups no longer overlap. But UMAP was apparently not able to “find” the underlying structure (or: manifold). We can see what some parameter changes will do:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">]):</span>
+    <span class="n">reducer</span> <span class="o">=</span> <span class="n">umap</span><span class="o">.</span><span class="n">UMAP</span><span class="p">(</span>
+        <span class="n">n_components</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">n_neighbors</span><span class="o">=</span><span class="n">k</span><span class="p">,</span>
+        <span class="n">min_dist</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+        <span class="n">random_state</span><span class="o">=</span><span class="mi">123456</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span>
+    <span class="p">)</span>
+
+    <span class="n">X_umap</span> <span class="o">=</span> <span class="n">reducer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_umap</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">c</span><span class="o">=</span><span class="n">t</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;k=</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;UMAP 1&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/52d35d805fda60a9b8993322f6b2b9dadb02aee36489b7f2776e59b2cfd46f14.png" src="../_images/52d35d805fda60a9b8993322f6b2b9dadb02aee36489b7f2776e59b2cfd46f14.png" />
+</div>
+</div>
+<p>Some of these results are comming close to aligning the data in one dimension, but we see that (1) the parameter choice is very important, and (2) am ideal reconstruction of our geometry is not easily found by the UMAP algorithm.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">umap</span> <span class="o">=</span> <span class="n">UMAP</span><span class="p">(</span>
+    <span class="n">n_components</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+<span class="p">)</span>
+<span class="n">X_umap</span> <span class="o">=</span> <span class="n">umap</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">gen_data</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">y</span><span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">X_umap</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_umap</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;UMAP 1&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Random noise&quot;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\flori\anaconda3\envs\data_science\Lib\site-packages\umap\umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
+  warn(
+</pre></div>
+</div>
+<img alt="../_images/b69f4fd8c44bb81a846863848d5538ae74697ccf1ce15df417ce90dc661b73ac.png" src="../_images/b69f4fd8c44bb81a846863848d5538ae74697ccf1ce15df417ce90dc661b73ac.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="use-case-marketing-analysis-umap">
+<h3>Use case: Marketing Analysis (UMAP)<a class="headerlink" href="#use-case-marketing-analysis-umap" title="Link to this heading">#</a></h3>
+<p>Let us now continue with our use case of the marketing dataset. Before we used PCA, which did work to some extent, but maybe not as well as we wanted. Let’s compare this to using t-SNE to reduce the data points to only two dimensions, so we can visualize all data points in a 2D scatter plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">umap</span><span class="w"> </span><span class="kn">import</span> <span class="n">UMAP</span>
+
+<span class="n">umap</span> <span class="o">=</span> <span class="n">UMAP</span><span class="p">(</span>
+    <span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">min_dist</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">X_umap</span> <span class="o">=</span> <span class="n">umap</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_scaled</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_plot</span><span class="p">[[</span><span class="s2">&quot;umap1&quot;</span><span class="p">,</span> <span class="s2">&quot;umap2&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">X_umap</span>
+
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">sb</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="n">data_plot</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;umap1&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;umap2&quot;</span><span class="p">,</span>
+    <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;Income&quot;</span><span class="p">,</span>
+    <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/a4cdb3d5563b1ad0030aa93dc12c0665218e55e8815e50d5cbd5c995d189e7d5.png" src="../_images/a4cdb3d5563b1ad0030aa93dc12c0665218e55e8815e50d5cbd5c995d189e7d5.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Income&quot;</span><span class="p">,</span> <span class="s2">&quot;Spent&quot;</span><span class="p">,</span> <span class="s2">&quot;Kidhome&quot;</span><span class="p">,</span> <span class="s2">&quot;Teenhome&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;Education&quot;</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)):</span>
+    <span class="n">sb</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">data_plot</span><span class="p">,</span>
+        <span class="n">x</span><span class="o">=</span><span class="s2">&quot;umap1&quot;</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=</span><span class="s2">&quot;umap2&quot;</span><span class="p">,</span>
+        <span class="n">hue</span><span class="o">=</span><span class="n">features</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+        <span class="n">palette</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span>
+        <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span>
+    <span class="p">)</span>
+    
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="p">[])</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="p">[])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/9c49b2e7ae65a9a166ee9f0629a762138018d2f38a48cdc41876a6936b5fd605.png" src="../_images/9c49b2e7ae65a9a166ee9f0629a762138018d2f38a48cdc41876a6936b5fd605.png" />
+</div>
+</div>
+<p>We can of course, also plot several features in parallel by combining multiple plots.</p>
+<p>When we compare this result to the PCA results from before, it becomes clear that UMAP is clearly able to draw a much more nuanced picture of our data.</p>
+<p><strong>Advantages of UMAP:</strong></p>
+<ul class="simple">
+<li><p>Efficient with large datasets.</p></li>
+<li><p>Often faster than t-SNE, especially for larger datasets and when efficient implementations are used.</p></li>
+<li><p>GPU-based implementations, such as the implementation in <code class="docutils literal notranslate"><span class="pre">cuml</span></code>, can further improve performance for suitable datasets. (<a class="reference external" href="https://docs.rapids.ai/api/cuml/stable/">see rapids.ai documentation</a> !)</p></li>
+<li><p>Often preserves local structure well and may preserve more global structure than t-SNE, depending on the data and parameters.</p></li>
+<li><p>Flexible and widely used for exploratory data analysis and visualization.</p></li>
+</ul>
+<p><strong>Disadvantages of UMAP:</strong></p>
+<ul class="simple">
+<li><p>Like other non-linear methods, it requires parameter tuning.</p></li>
+<li><p>The results can be very sensitive to these parameter choices.</p></li>
+<li><p>Just like t-SNE, the resulting 2D or 3D embedding should not be interpreted as a perfect map of the original high-dimensional relationships.</p></li>
+</ul>
+</section>
+<section id="practical-note">
+<h3>Practical note<a class="headerlink" href="#practical-note" title="Link to this heading">#</a></h3>
+<p>In practice, UMAP has become a very popular choice for visualizing high-dimensional data, especially in areas such as bioinformatics, image analysis, and text embeddings. Many people prefer it over t-SNE because it is often faster, often scales better to larger datasets, and frequently produces layouts that many users find easier to interpret. However, as with t-SNE, repeated runs can differ unless the random initialization is controlled.</p>
+<p>Still, especially when used for 2D or 3D plots, it is important to keep in mind that UMAP is mainly an exploratory tool.</p>
 </section>
 <section id="exercise">
 <h3>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h3>
@@ -1985,7 +2130,7 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 <section id="more-than-just-t-sne-and-umap">
 <h2>More than just t-SNE and UMAP<a class="headerlink" href="#more-than-just-t-sne-and-umap" title="Link to this heading">#</a></h2>
 <p>Even though <strong>t-SNE</strong> and <strong>UMAP</strong> are currently among the most widely used techniques for non-linear dimensionality reduction and visualization, they are by no means the only available methods.</p>
-<p>One further method that has received considerable attention is <strong>PaCMAP</strong> (<em>Pairwise Controlled Manifold Approximation</em>), which was developed with the goal of balancing the preservation of local and more global structure in the low-dimensional embedding <span class="bibtex-citation" id="id7">[<a class="reference internal" href="../book/references.html#id97" title="Yingfan Wang, Haiyang Huang, Cynthia Rudin, and Yaron Shaposhnik. Understanding how dimension reduction tools work: an empirical approach to deciphering t-sne, umap, trimap, and pacmap for data visualization. Journal of Machine Learning Research, 22(201):1–73, 2021.">Wang <em>et al.</em>, 2021</a>]</span>. Just like t-SNE and UMAP, it aims to create useful 2D or 3D visualizations of complex high-dimensional data, but it does so with a somewhat different optimization strategy.</p>
+<p>One further method that has received considerable attention is <strong>PaCMAP</strong> (<em>Pairwise Controlled Manifold Approximation</em>), which was developed with the goal of balancing the preservation of local and more global structure in the low-dimensional embedding <span class="bibtex-citation" id="id8">[<a class="reference internal" href="../book/references.html#id97" title="Yingfan Wang, Haiyang Huang, Cynthia Rudin, and Yaron Shaposhnik. Understanding how dimension reduction tools work: an empirical approach to deciphering t-sne, umap, trimap, and pacmap for data visualization. Journal of Machine Learning Research, 22(201):1–73, 2021.">Wang <em>et al.</em>, 2021</a>]</span>. Just like t-SNE and UMAP, it aims to create useful 2D or 3D visualizations of complex high-dimensional data, but it does so with a somewhat different optimization strategy.</p>
 <p>And beyond these manifold-learning methods, there is yet another broad route to visualizing complex data: instead of reducing the data directly into 2D coordinates, one can first represent the data as a <strong>graph</strong> or <strong>network</strong> and then visualize that graph using a layout algorithm. In such approaches, data points become nodes and relationships or similarities become edges. This can be especially useful when pairwise relationships matter more than exact geometric positions. We will come back to this later in <a class="reference internal" href="26_graph_visualization.html#ch-graph-visualization"><span class="std std-ref">Visualizing Graphs</span></a>.</p>
 <p>So, even within the specific task of displaying complex data in two or three dimensions, there is a whole toolbox of possible approaches. The methods covered in this chapter are important and widely used, but they are only a small selection.</p>
 </section>
@@ -2021,8 +2166,8 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 <section id="literature-and-next-steps">
 <h2>Literature and next steps<a class="headerlink" href="#literature-and-next-steps" title="Link to this heading">#</a></h2>
 <p>There is much more to learn about dimensionality reduction than we could cover here.</p>
-<p>If you want to understand more deeply why high-dimensional spaces behave so differently from low-dimensional ones, it is worth reading more on the <strong>curse of dimensionality</strong>, especially in relation to distance-based methods and nearest-neighbor search <span class="bibtex-citation" id="id8">[<a class="reference internal" href="../book/references.html#id64" title="R. B. Marimont and M. B. Shapiro. Nearest Neighbour Searches and the Curse of Dimensionality. IMA Journal of Applied Mathematics, 24(1):59–70, August 1979. URL: https://doi.org/10.1093/imamat/24.1.59 (visited on 2026-03-20), doi:10.1093/imamat/24.1.59.">Marimont and Shapiro, 1979</a>, <a class="reference internal" href="../book/references.html#id23" title="Edgar Chávez, Gonzalo Navarro, Ricardo Baeza-Yates, and José Luis Marroquín. Searching in metric spaces. ACM Comput. Surv., 33(3):273–321, September 2001. URL: https://dl.acm.org/doi/10.1145/502807.502808 (visited on 2026-03-20), doi:10.1145/502807.502808.">Chávez <em>et al.</em>, 2001</a>]</span>.</p>
-<p>For a broader overview of dimensionality reduction techniques, including many methods not covered here, see for instance <span class="bibtex-citation" id="id9">[<a class="reference internal" href="../book/references.html#id5" title="Farzana Anowar, Samira Sadaoui, and Bassant Selim. Conceptual and empirical comparison of dimensionality reduction algorithms (pca, kpca, lda, mds, svd, lle, isomap, le, ica, t-sne). Computer Science Review, 40:100378, 2021.">Anowar <em>et al.</em>, 2021</a>]</span> or <span class="bibtex-citation" id="id10">[<a class="reference internal" href="../book/references.html#id97" title="Yingfan Wang, Haiyang Huang, Cynthia Rudin, and Yaron Shaposhnik. Understanding how dimension reduction tools work: an empirical approach to deciphering t-sne, umap, trimap, and pacmap for data visualization. Journal of Machine Learning Research, 22(201):1–73, 2021.">Wang <em>et al.</em>, 2021</a>]</span>.</p>
+<p>If you want to understand more deeply why high-dimensional spaces behave so differently from low-dimensional ones, it is worth reading more on the <strong>curse of dimensionality</strong>, especially in relation to distance-based methods and nearest-neighbor search <span class="bibtex-citation" id="id9">[<a class="reference internal" href="../book/references.html#id64" title="R. B. Marimont and M. B. Shapiro. Nearest Neighbour Searches and the Curse of Dimensionality. IMA Journal of Applied Mathematics, 24(1):59–70, August 1979. URL: https://doi.org/10.1093/imamat/24.1.59 (visited on 2026-03-20), doi:10.1093/imamat/24.1.59.">Marimont and Shapiro, 1979</a>, <a class="reference internal" href="../book/references.html#id23" title="Edgar Chávez, Gonzalo Navarro, Ricardo Baeza-Yates, and José Luis Marroquín. Searching in metric spaces. ACM Comput. Surv., 33(3):273–321, September 2001. URL: https://dl.acm.org/doi/10.1145/502807.502808 (visited on 2026-03-20), doi:10.1145/502807.502808.">Chávez <em>et al.</em>, 2001</a>]</span>.</p>
+<p>For a broader overview of dimensionality reduction techniques, including many methods not covered here, see for instance <span class="bibtex-citation" id="id10">[<a class="reference internal" href="../book/references.html#id5" title="Farzana Anowar, Samira Sadaoui, and Bassant Selim. Conceptual and empirical comparison of dimensionality reduction algorithms (pca, kpca, lda, mds, svd, lle, isomap, le, ica, t-sne). Computer Science Review, 40:100378, 2021.">Anowar <em>et al.</em>, 2021</a>]</span> or <span class="bibtex-citation" id="id11">[<a class="reference internal" href="../book/references.html#id97" title="Yingfan Wang, Haiyang Huang, Cynthia Rudin, and Yaron Shaposhnik. Understanding how dimension reduction tools work: an empirical approach to deciphering t-sne, umap, trimap, and pacmap for data visualization. Journal of Machine Learning Research, 22(201):1–73, 2021.">Wang <em>et al.</em>, 2021</a>]</span>.</p>
 <p>And finally, as already mentioned above, not all useful 2D or 3D representations of complex data come from direct dimensionality reduction. Another important family of approaches is based on <strong>graphs and network layouts</strong>, which we will later discuss in <a class="reference internal" href="26_graph_visualization.html#ch-graph-visualization"><span class="std std-ref">Visualizing Graphs</span></a>.</p>
 </section>
 </section>
@@ -2114,14 +2259,13 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-extraction-2-manifold-learning">Feature Extraction 2: Manifold Learning</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#t-sne">t-SNE</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-marketing-analysis-t-sne">Use case: Marketing Analysis (t-SNE)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-dimensionality-reduction-methods">Modern dimensionality reduction methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umap-uniform-manifold-approximation-and-projection">UMAP (Uniform Manifold Approximation and Projection)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-sketch-of-how-umap-works">A brief sketch of how UMAP works</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#important-parameters">Important parameters</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-dimensionality-reduction">More on dimensionality reduction</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umap-uniform-manifold-approximation-and-projection">UMAP (Uniform Manifold Approximation and Projection)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-sketch-of-how-umap-works">A brief sketch of how UMAP works</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important-parameters">Important parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-marketing-analysis-umap">Use case: Marketing Analysis (UMAP)</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-note">Practical note</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
 </ul>

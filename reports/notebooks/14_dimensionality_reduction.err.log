@@ -1,0 +1,60 @@
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/nbclient/client.py", line 1323, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/micromamba/envs/data_science/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+rng = np.random.default_rng(123)
+
+n_1 = 200
+n_2 = 300
+n = n_dense + n_sparse
+
+t_1 = rng.uniform(0, 2.5 * np.pi, n_1)
+t_2 = rng.uniform(2.5 * np.pi, 4.5 * np.pi, n_2)
+
+t = np.concatenate([t_1, t_2])
+t = np.sort(t)
+
+r = t
+x = r * np.cos(t) + rng.normal(0, 0.5, len(t))
+y = r * np.sin(t) + rng.normal(0, 0.5, len(t))
+
+X = np.column_stack([x, y])
+
+plt.figure(figsize=(8, 8), dpi=300)
+plt.scatter(X[:, 0], X[:, 1], c=t, s=10, cmap="viridis")
+plt.axis("equal")
+plt.title("Data in spiral form")
+plt.show()
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mNameError[39m                                 Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[27][39m[32m, line 5[39m
+[32m      1[39m rng = np.random.default_rng([32m123[39m)
+[32m      2[39m 
+[32m      3[39m n_1 = [32m200[39m
+[32m      4[39m n_2 = [32m300[39m
+[32m----> [39m[32m5[39m n = n_dense + n_sparse
+[32m      6[39m 
+[32m      7[39m t_1 = rng.uniform([32m0[39m, [32m2.5[39m * np.pi, n_1)
+[32m      8[39m t_2 = rng.uniform([32m2.5[39m * np.pi, [32m4.5[39m * np.pi, n_2)
+
+[31mNameError[39m: name 'n_dense' is not defined
+
