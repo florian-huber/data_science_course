@@ -18,43 +18,30 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-rng = np.random.default_rng(123)
+umap = UMAP(
+    n_components=1,
+    n_neighbors=25,
+    random_state=5317, n_jobs=1,
+)
+X_umap = umap.fit_transform(gen_data.T)
 
-n_1 = 200
-n_2 = 300
-n = n_dense + n_sparse
-
-t_1 = rng.uniform(0, 2.5 * np.pi, n_1)
-t_2 = rng.uniform(2.5 * np.pi, 4.5 * np.pi, n_2)
-
-t = np.concatenate([t_1, t_2])
-t = np.sort(t)
-
-r = t
-x = r * np.cos(t) + rng.normal(0, 0.5, len(t))
-y = r * np.sin(t) + rng.normal(0, 0.5, len(t))
-
-X = np.column_stack([x, y])
-
-plt.figure(figsize=(8, 8), dpi=300)
-plt.scatter(X[:, 0], X[:, 1], c=t, s=10, cmap="viridis")
-plt.axis("equal")
-plt.title("Data in spiral form")
+fig, ax = plt.subplots(figsize=(8, 0.8), dpi=300)
+y= rng.uniform(-0.1, 0.1, size=len(X_umap))
+ax.scatter(X_umap, y, alpha=0.5, c=labels, s=20)
+ax.grid(True)
+ax.set_xlabel("UMAP 1")
+ax.set_ylabel("Random noise", rotation=0, labelpad=5, ha="right", va="center")
 plt.show()
 ------------------
 
 
 [31m---------------------------------------------------------------------------[39m
 [31mNameError[39m                                 Traceback (most recent call last)
-[36mCell[39m[36m [39m[32mIn[27][39m[32m, line 5[39m
-[32m      1[39m rng = np.random.default_rng([32m123[39m)
-[32m      2[39m 
-[32m      3[39m n_1 = [32m200[39m
-[32m      4[39m n_2 = [32m300[39m
-[32m----> [39m[32m5[39m n = n_dense + n_sparse
-[32m      6[39m 
-[32m      7[39m t_1 = rng.uniform([32m0[39m, [32m2.5[39m * np.pi, n_1)
-[32m      8[39m t_2 = rng.uniform([32m2.5[39m * np.pi, [32m4.5[39m * np.pi, n_2)
+[36mCell[39m[36m [39m[32mIn[34][39m[32m, line 1[39m
+[32m----> [39m[32m1[39m umap = UMAP(
+[32m      2[39m     n_components=[32m1[39m,
+[32m      3[39m     n_neighbors=[32m25[39m,
+[32m      4[39m     random_state=[32m5317[39m, n_jobs=[32m1[39m,
 
-[31mNameError[39m: name 'n_dense' is not defined
+[31mNameError[39m: name 'UMAP' is not defined
 

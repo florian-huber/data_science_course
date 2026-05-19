@@ -1798,7 +1798,7 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 
 <span class="n">n_1</span> <span class="o">=</span> <span class="mi">200</span>
 <span class="n">n_2</span> <span class="o">=</span> <span class="mi">300</span>
-<span class="n">n</span> <span class="o">=</span> <span class="n">n_dense</span> <span class="o">+</span> <span class="n">n_sparse</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">n_1</span> <span class="o">+</span> <span class="n">n_2</span>
 
 <span class="n">t_1</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n_1</span><span class="p">)</span>
 <span class="n">t_2</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mf">4.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n_2</span><span class="p">)</span>
@@ -1822,21 +1822,7 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">27</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">n_1</span> <span class="o">=</span> <span class="mi">200</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">n_2</span> <span class="o">=</span> <span class="mi">300</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">n</span> <span class="o">=</span> <span class="n">n_dense</span> <span class="o">+</span> <span class="n">n_sparse</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> 
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">t_1</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n_1</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">t_2</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">2.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mf">4.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n_2</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;n_dense&#39; is not defined
-</pre></div>
-</div>
+<img alt="../_images/b8c675e0c7289f8561deee4e11bbfa5f9c722b4240fd7e4e8107f8626e86bcb9.png" src="../_images/b8c675e0c7289f8561deee4e11bbfa5f9c722b4240fd7e4e8107f8626e86bcb9.png" />
 </div>
 </div>
 <p>We can now again try to reduce this data to one dimension using PCA:</p>
@@ -1855,7 +1841,7 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/612966d7e6d2e6b120d0f11adcb1aa2ad7630089c46f968e111b73dcc1ff3b0f.png" src="../_images/612966d7e6d2e6b120d0f11adcb1aa2ad7630089c46f968e111b73dcc1ff3b0f.png" />
+<img alt="../_images/6eb468e6c82fcbb74e7d2ade362b52f65be82bdc2fd33f42b36952c96623a0f7.png" src="../_images/6eb468e6c82fcbb74e7d2ade362b52f65be82bdc2fd33f42b36952c96623a0f7.png" />
 </div>
 </div>
 <p>The result show, as expected, that a linear technique like PCA is not well-suited for this type of data.</p>
@@ -1922,7 +1908,7 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/163701d4f4997c1922cf85f6af56c4b0e37da79cb6511775dc34434e28afd024.png" src="../_images/163701d4f4997c1922cf85f6af56c4b0e37da79cb6511775dc34434e28afd024.png" />
+<img alt="../_images/0caf2e4b24abba843f57627cac996f0377e4a70897c4e6c37694a8511f61ca05.png" src="../_images/0caf2e4b24abba843f57627cac996f0377e4a70897c4e6c37694a8511f61ca05.png" />
 </div>
 </div>
 <p>Second, UMAP assigns weights to these neighbor relationships. Close and reliable neighbor relations receive stronger weights, while more distant or uncertain relations receive weaker weights.</p>
@@ -1970,7 +1956,7 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1a98495c527547b0f837060ba28916548c9a2e21d9a6404fc7b75b40b339f365.png" src="../_images/1a98495c527547b0f837060ba28916548c9a2e21d9a6404fc7b75b40b339f365.png" />
+<img alt="../_images/43a769b2d3bbcc090cc1f9aba70516723324a53d95306e62df9b8542a72fa3eb.png" src="../_images/43a769b2d3bbcc090cc1f9aba70516723324a53d95306e62df9b8542a72fa3eb.png" />
 </div>
 </div>
 <p>This is better than the PCA result, because here the different groups no longer overlap. But UMAP was apparently not able to “find” the underlying structure (or: manifold). We can see what some parameter changes will do:</p>
@@ -1997,16 +1983,17 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/52d35d805fda60a9b8993322f6b2b9dadb02aee36489b7f2776e59b2cfd46f14.png" src="../_images/52d35d805fda60a9b8993322f6b2b9dadb02aee36489b7f2776e59b2cfd46f14.png" />
+<img alt="../_images/55193b0812426128230ddeb4609b0bbcdbfb1a3255b4c6a56e752ce90842b315.png" src="../_images/55193b0812426128230ddeb4609b0bbcdbfb1a3255b4c6a56e752ce90842b315.png" />
 </div>
 </div>
 <p>Some of these results are comming close to aligning the data in one dimension, but we see that (1) the parameter choice is very important, and (2) am ideal reconstruction of our geometry is not easily found by the UMAP algorithm.</p>
+<p>And, just for completeness and reference to the methods described in the first part (kernel PCA), here also an attempt of using UMAP for the spherical data, which is easier to project than the spiral data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">umap</span> <span class="o">=</span> <span class="n">UMAP</span><span class="p">(</span>
     <span class="n">n_components</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
     <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
-    <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">5317</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">X_umap</span> <span class="o">=</span> <span class="n">umap</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">gen_data</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 
@@ -2021,11 +2008,17 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\flori\anaconda3\envs\data_science\Lib\site-packages\umap\umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
-  warn(
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">34</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">umap</span> <span class="o">=</span> <span class="n">UMAP</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">n_components</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">random_state</span><span class="o">=</span><span class="mi">5317</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+
+<span class="ne">NameError</span>: name &#39;UMAP&#39; is not defined
 </pre></div>
 </div>
-<img alt="../_images/b69f4fd8c44bb81a846863848d5538ae74697ccf1ce15df417ce90dc661b73ac.png" src="../_images/b69f4fd8c44bb81a846863848d5538ae74697ccf1ce15df417ce90dc661b73ac.png" />
 </div>
 </div>
 </section>
@@ -2120,7 +2113,7 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 <h3>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h3>
 <p>Both t-SNE and UMAP currently see widespread use. Neither of them is always better or worse. And often, it appears, it is also a matter of personal preference.</p>
 <ul class="simple">
-<li><p>Re-run the above dimensionality reduction but use UMAP instead of t-SNE</p></li>
+<li><p>Re-run the above dimensionality reduction but use t-SNE instead of UMAP</p></li>
 <li><p>Explore different settings for the parameter <code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code></p></li>
 <li><p>Which one do you prefer, t-SNE or UMAP? And why is that?</p></li>
 <li><p>What made you intuitively decide which <code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code> setting is best?</p></li>
