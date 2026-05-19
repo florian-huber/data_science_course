@@ -1957,7 +1957,7 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7984856711d005493ce0360a3a8f8a31ba2381301b183c8a6ac5f031607e1546.png" src="../_images/7984856711d005493ce0360a3a8f8a31ba2381301b183c8a6ac5f031607e1546.png" />
+<img alt="../_images/43a769b2d3bbcc090cc1f9aba70516723324a53d95306e62df9b8542a72fa3eb.png" src="../_images/43a769b2d3bbcc090cc1f9aba70516723324a53d95306e62df9b8542a72fa3eb.png" />
 </div>
 </div>
 <p>This is better than the PCA result, because here the different groups no longer overlap. But UMAP was apparently not able to “find” the underlying structure (or: manifold). We can see what some parameter changes will do:</p>
@@ -1966,7 +1966,7 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">]):</span>
-    <span class="n">reducer</span> <span class="o">=</span> <span class="n">umap</span><span class="o">.</span><span class="n">UMAP</span><span class="p">(</span>
+    <span class="n">reducer</span> <span class="o">=</span> <span class="n">UMAP</span><span class="p">(</span>
         <span class="n">n_components</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
         <span class="n">n_neighbors</span><span class="o">=</span><span class="n">k</span><span class="p">,</span>
         <span class="n">min_dist</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
@@ -1984,31 +1984,19 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">33</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">]):</span>
-<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="n">reducer</span> <span class="o">=</span> <span class="n">umap</span><span class="o">.</span><span class="n">UMAP</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>         <span class="n">n_components</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>         <span class="n">n_neighbors</span><span class="o">=</span><span class="n">k</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>         <span class="n">min_dist</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
-
-<span class="ne">NameError</span>: name &#39;umap&#39; is not defined
-</pre></div>
-</div>
-<img alt="../_images/7b64af9bd5fe3d273605eacc68704e132761aaaaa4fabee338c678e12c058ae4.png" src="../_images/7b64af9bd5fe3d273605eacc68704e132761aaaaa4fabee338c678e12c058ae4.png" />
+<img alt="../_images/55193b0812426128230ddeb4609b0bbcdbfb1a3255b4c6a56e752ce90842b315.png" src="../_images/55193b0812426128230ddeb4609b0bbcdbfb1a3255b4c6a56e752ce90842b315.png" />
 </div>
 </div>
-<p>Some of these results are comming close to aligning the data in one dimension, but we see that (1) the parameter choice is very important, and (2) am ideal reconstruction of our geometry is not easily found by the UMAP algorithm.</p>
+<p>Some of these results are comming close to aligning the data in one dimension, but we see that<br />
+(1) the parameter choice is very important, and<br />
+(2) am ideal reconstruction of our geometry is not easily found by the UMAP algorithm.</p>
 <p>And, just for completeness and reference to the methods described in the first part (kernel PCA), here also an attempt of using UMAP for the spherical data, which is easier to project than the spiral data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reducer</span> <span class="o">=</span> <span class="n">UMAP</span><span class="p">(</span>
     <span class="n">n_components</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
-    <span class="n">random_state</span><span class="o">=</span><span class="mi">5317</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">1317</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="n">X_umap</span> <span class="o">=</span> <span class="n">reducer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">gen_data</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 
@@ -2023,11 +2011,7 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\flori\anaconda3\envs\data_science\Lib\site-packages\umap\umap_.py:1952: UserWarning: n_jobs value 1 overridden to 1 by setting random_state. Use no seed for parallelism.
-  warn(
-</pre></div>
-</div>
-<img alt="../_images/b69f4fd8c44bb81a846863848d5538ae74697ccf1ce15df417ce90dc661b73ac.png" src="../_images/b69f4fd8c44bb81a846863848d5538ae74697ccf1ce15df417ce90dc661b73ac.png" />
+<img alt="../_images/04c3000caf9163d4e99b13fd5730aaa432bd1c197e2cc22b0cf5314327a203ca.png" src="../_images/04c3000caf9163d4e99b13fd5730aaa432bd1c197e2cc22b0cf5314327a203ca.png" />
 </div>
 </div>
 </section>
@@ -2040,7 +2024,8 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reducer</span> <span class="o">=</span> <span class="n">UMAP</span><span class="p">(</span>
     <span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
     <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
-    <span class="n">min_dist</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+    <span class="n">min_dist</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">7654</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>  <span class="c1"># this is only to make it reproducible --&gt; faster without this line</span>
 <span class="p">)</span>
 <span class="n">X_umap</span> <span class="o">=</span> <span class="n">reducer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data_scaled</span><span class="p">)</span>
 </pre></div>
@@ -2064,12 +2049,12 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a4cdb3d5563b1ad0030aa93dc12c0665218e55e8815e50d5cbd5c995d189e7d5.png" src="../_images/a4cdb3d5563b1ad0030aa93dc12c0665218e55e8815e50d5cbd5c995d189e7d5.png" />
+<img alt="../_images/ab580cb91064c0c8fe454da10446119dd3f6e33f0b5329d301dec6c85abf21b8.png" src="../_images/ab580cb91064c0c8fe454da10446119dd3f6e33f0b5329d301dec6c85abf21b8.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Income&quot;</span><span class="p">,</span> <span class="s2">&quot;Spent&quot;</span><span class="p">,</span> <span class="s2">&quot;Kidhome&quot;</span><span class="p">,</span> <span class="s2">&quot;Teenhome&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;Education&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Income&quot;</span><span class="p">,</span> <span class="s2">&quot;Spent&quot;</span><span class="p">,</span> <span class="s2">&quot;Kidhome&quot;</span><span class="p">,</span> <span class="s2">&quot;Teenhome&quot;</span><span class="p">,</span> <span class="s2">&quot;Age&quot;</span><span class="p">,</span> <span class="s2">&quot;Education&quot;</span><span class="p">]</span>  <span class="c1">#&quot;NumDealsPurchases&quot;]</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
 
@@ -2091,7 +2076,7 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9c49b2e7ae65a9a166ee9f0629a762138018d2f38a48cdc41876a6936b5fd605.png" src="../_images/9c49b2e7ae65a9a166ee9f0629a762138018d2f38a48cdc41876a6936b5fd605.png" />
+<img alt="../_images/999b7583e0ba92672aca270a4fd4f6bc825240ebf4b4eec5215bdd56325e905d.png" src="../_images/999b7583e0ba92672aca270a4fd4f6bc825240ebf4b4eec5215bdd56325e905d.png" />
 </div>
 </div>
 <p>We can of course, also plot several features in parallel by combining multiple plots.</p>
