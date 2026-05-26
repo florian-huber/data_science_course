@@ -179,7 +179,14 @@
 <li class="toctree-l1"><a class="reference internal" href="12_clustering.html">Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12b_clustering_beyond_the_basics.html">Clustering beyond the basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="13_introduction_outlier_detection.html">Outlier Detection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_dimensionality_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_dimensionality_reduction.html">Why high dimensions are hard, or: the curse of dimensionality</a></li>
+
+
+
+
+
+
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning (Basics)</span></p>
 <ul class="nav bd-sidenav">
@@ -946,33 +953,33 @@ memory usage: 228.0 bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>Austin</td>
-      <td>30</td>
-      <td>80000</td>
+      <td>Andrew</td>
+      <td>37</td>
+      <td>68000</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Jonathan</td>
-      <td>43</td>
-      <td>71000</td>
+      <td>Tina</td>
+      <td>59</td>
+      <td>85000</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Kyle</td>
-      <td>61</td>
-      <td>101000</td>
+      <td>Sarah</td>
+      <td>33</td>
+      <td>64000</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>April</td>
-      <td>57</td>
-      <td>100000</td>
+      <td>Caroline</td>
+      <td>49</td>
+      <td>95000</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Benjamin</td>
-      <td>35</td>
-      <td>77000</td>
+      <td>Robert</td>
+      <td>36</td>
+      <td>64000</td>
     </tr>
   </tbody>
 </table>
@@ -1013,33 +1020,33 @@ memory usage: 228.0 bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>Austin</td>
-      <td>30</td>
-      <td>80000.0</td>
+      <td>Andrew</td>
+      <td>37</td>
+      <td>68000.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Jonathan</td>
-      <td>43</td>
+      <td>Tina</td>
+      <td>59</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Kyle</td>
-      <td>61</td>
+      <td>Sarah</td>
+      <td>33</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>April</td>
-      <td>57</td>
+      <td>Caroline</td>
+      <td>49</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Benjamin</td>
-      <td>35</td>
-      <td>77000.0</td>
+      <td>Robert</td>
+      <td>36</td>
+      <td>64000.0</td>
     </tr>
   </tbody>
 </table>
@@ -1054,7 +1061,7 @@ memory usage: 228.0 bytes
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(73000.0)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(72000.0)
 </pre></div>
 </div>
 </div>
@@ -1093,33 +1100,33 @@ memory usage: 228.0 bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>Austin</td>
-      <td>30</td>
-      <td>80000.0</td>
+      <td>Andrew</td>
+      <td>37</td>
+      <td>68000.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Jonathan</td>
-      <td>43</td>
-      <td>73000.0</td>
+      <td>Tina</td>
+      <td>59</td>
+      <td>72000.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Kyle</td>
-      <td>61</td>
-      <td>73000.0</td>
+      <td>Sarah</td>
+      <td>33</td>
+      <td>72000.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>April</td>
-      <td>57</td>
-      <td>73000.0</td>
+      <td>Caroline</td>
+      <td>49</td>
+      <td>72000.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Benjamin</td>
-      <td>35</td>
-      <td>77000.0</td>
+      <td>Robert</td>
+      <td>36</td>
+      <td>64000.0</td>
     </tr>
   </tbody>
 </table>
@@ -1175,33 +1182,33 @@ memory usage: 228.0 bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>Austin</td>
-      <td>30.0</td>
-      <td>80000.0</td>
+      <td>Andrew</td>
+      <td>37.0</td>
+      <td>68000.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Jonathan</td>
-      <td>43.0</td>
-      <td>69500.0</td>
+      <td>Tina</td>
+      <td>59.0</td>
+      <td>98000.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Kyle</td>
-      <td>61.0</td>
-      <td>91000.0</td>
+      <td>Sarah</td>
+      <td>33.0</td>
+      <td>69000.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>April</td>
-      <td>57.0</td>
-      <td>79000.0</td>
+      <td>Caroline</td>
+      <td>49.0</td>
+      <td>76500.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Benjamin</td>
-      <td>35.0</td>
-      <td>77000.0</td>
+      <td>Robert</td>
+      <td>36.0</td>
+      <td>64000.0</td>
     </tr>
   </tbody>
 </table>

@@ -181,7 +181,14 @@
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12b_clustering_beyond_the_basics.html">Clustering beyond the basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="13_introduction_outlier_detection.html">Outlier Detection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_dimensionality_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_dimensionality_reduction.html">Why high dimensions are hard, or: the curse of dimensionality</a></li>
+
+
+
+
+
+
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning (Basics)</span></p>
 <ul class="nav bd-sidenav">
@@ -675,7 +682,7 @@ After plotting the data, start asking yourself how many clusters <em>you</em> wo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7f71d579c920&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fb86c383380&gt;
 </pre></div>
 </div>
 <img alt="../_images/f7eab8b3849733fdadc0f8507673891c51cd8663a63375b8dd28f1a0a46b1d2f.png" src="../_images/f7eab8b3849733fdadc0f8507673891c51cd8663a63375b8dd28f1a0a46b1d2f.png" />
@@ -1220,7 +1227,7 @@ Third, it can naturally identify <strong>noise points</strong> or outliers, rath
 <p>Another important preprocessing step is dealing with <strong>missing values</strong>. Most clustering algorithms cannot handle missing entries directly. Depending on the situation, we may need to remove incomplete rows, impute missing values, or drop variables with too many missing entries.</p>
 <p>We also need to think carefully about <strong>outliers</strong>. For K-means in particular, outliers can have a strong influence because cluster centers are based on means. DBSCAN is often more robust here, but even DBSCAN can be affected if the scale of the data is distorted by extreme values.</p>
 <p>Data preprocessing for clustering also includes checking <strong>data types</strong> and <strong>feature meaning</strong>. A variable that is technically numeric is not automatically suitable for Euclidean-distance-based clustering. Postal codes, IDs, and arbitrary category encodings are classic examples: they may look numeric, but treating them as continuous distances can be highly misleading.</p>
-<p>Finally, preprocessing sometimes includes <strong>dimensionality reduction</strong>. In high-dimensional spaces, many points start to appear similarly far away from one another, which can make distance-based clustering much harder. Methods such as PCA can help reduce dimensionality while retaining important structure. We will return to this in later chapters (see <a class="reference internal" href="14_dimensionality_reduction.html#ch-dimensionality"><span class="std std-ref">Dimensionality Reduction</span></a>).</p>
+<p>Finally, preprocessing sometimes includes <strong>dimensionality reduction</strong>. In high-dimensional spaces, many points start to appear similarly far away from one another, which can make distance-based clustering much harder. Methods such as PCA can help reduce dimensionality while retaining important structure. We will return to this in later chapters (see <span class="xref std std-ref">ch_dimensionality</span>).</p>
 </section>
 <section id="choosing-meaningful-features">
 <h3>Choosing meaningful features<a class="headerlink" href="#choosing-meaningful-features" title="Link to this heading">#</a></h3>

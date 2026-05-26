@@ -52,7 +52,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Common Algorithms - k-Nearest Neighbors (k-NN)" href="16_machine_learning_algorithms.html" />
-    <link rel="prev" title="Dimensionality Reduction" href="14_dimensionality_reduction.html" />
+    <link rel="prev" title="Why high dimensions are hard, or: the curse of dimensionality" href="14_dimensionality_reduction.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -181,7 +181,14 @@
 <li class="toctree-l1"><a class="reference internal" href="12_clustering.html">Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12b_clustering_beyond_the_basics.html">Clustering beyond the basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="13_introduction_outlier_detection.html">Outlier Detection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_dimensionality_reduction.html">Dimensionality Reduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_dimensionality_reduction.html">Why high dimensions are hard, or: the curse of dimensionality</a></li>
+
+
+
+
+
+
+
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning (Basics)</span></p>
 <ul class="current nav bd-sidenav">
@@ -452,14 +459,14 @@
 <span id="ch-machine-learning-intro"></span><h1>Supervised Machine Learning - Introduction<a class="headerlink" href="#supervised-machine-learning-introduction" title="Link to this heading">#</a></h1>
 <section id="what-is-machine-learning">
 <h2>What is Machine Learning?<a class="headerlink" href="#what-is-machine-learning" title="Link to this heading">#</a></h2>
-<p>There is still a lot of confusion about terms like <strong>artificial intelligence</strong> (or: <strong>A.I.</strong>), <strong>machine learning</strong>, and <strong>deep learning</strong>.
-The aim of this course is not to give a full in-depth introduction to all those topics, because this clearly demands one (or usually: multiple) course on its own. For more in-depth information we will provide some resources at the end of this chapter.</p>
-<p>However, what this section should show is, that the underlying idea of machine learning is often quite approachable. And some of the respective techniques can be used with relative ease, at least from the code perspective. If you haven’t learned the basics of machine learning before, it is unlikely that this section will make you feel like you have mastered the art. But, again, this is not the main goal.</p>
-<p>Machine learning is a subfield of <em>artificial intelligence</em> (see <a class="reference internal" href="14_dimensionality_reduction.html#fig-dimensionality-reduction01"><span class="std std-numref">Fig. 18</span></a>), which often makes this sound very intimidating at first. In its full complexity, this is indeed hard to master. But it is important to note at this point, that machine learning itself can also be seen as <em>just another tool</em> that we have as data scientists. In fact, many of its techniques are no more complicated or complex than methods in dimensionality reduction or clustering that we have seen in the last chapters (actually, those are often considered machine learning techniques as well, but we will skip this discussion for now).</p>
+<p>There is still a lot of confusion about terms like <strong>artificial intelligence</strong> (or: <strong>A.I.</strong>), <strong>machine learning</strong>, <strong>deep learning</strong>, and <strong>generative AI</strong>.
+The aim of this course is not to give a full in-depth introduction to all those topics, because this clearly demands one (or usually multiple) courses on its own. For more in-depth information, you can find some resources at the end of this chapter.</p>
+<p>However, what this section should show is that the underlying idea of machine learning is often quite approachable. And some of the respective techniques can be used with relative ease, at least from the code perspective. If you haven’t learned the basics of machine learning before, it is unlikely that this section will make you feel like you have mastered the art. But, again, this is not the main goal.</p>
+<p>Machine learning is a subfield of <em>artificial intelligence</em> (see <a class="reference internal" href="#fig-ai-vs-ml-vs-dl"><span class="std std-numref">Fig. 22</span></a>), which often makes this sound very intimidating at first. In its full complexity, this is indeed hard to master. But it is important to note at this point that machine learning itself can also be seen as <em>just another tool</em> that we have as data scientists. In fact, many of its techniques are no more complicated than methods for dimensionality reduction or clustering we have seen in the last chapters (in fact, those are often considered machine learning techniques as well, but we will skip this discussion for now).</p>
 <figure class="align-default" id="fig-ai-vs-ml-vs-dl">
 <img alt="../_images/fig_ai_vs_ml_vs_deep_learning.png" src="../_images/fig_ai_vs_ml_vs_deep_learning.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 22 </span><span class="caption-text">Machine Learning is a field of techniques that belongs to <em>artificial intelligence</em>. Currently, machine learning is even the main representation of artificial intelligence with <em>deep learning</em> being the most prominent subset. Here, however, we will focus on more classical machine learning techniques (no worries, those remain equally important in real-life practice!).</span><a class="headerlink" href="#fig-ai-vs-ml-vs-dl" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text">Machine Learning is a field of techniques that belongs to <em>artificial intelligence</em>. Currently, machine learning is even the main representation of artificial intelligence with <em>deep learning</em>, and more recently <em>generative AI</em>  being the most prominent subsets. Here, however, we will focus on more classical machine learning techniques (no worries, those remain equally important in real-life practice!).</span><a class="headerlink" href="#fig-ai-vs-ml-vs-dl" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The key idea behind machine learning is that we use algorithms that <em>“learn from data”</em>. Learning here is nothing magic and typically means something very different from our everyday use of the word “learning” in a human context. Learning here simply means that the rules by which a program decides on its outcome or behavior are no longer <em>hard-coded</em> by a person, but they are automatically searched and optimized.</p>
@@ -480,7 +487,7 @@ When we have an algorithm that does this guessing based on the data for us it is
 <p><strong>Supervised Learning</strong> involves training a model on a labeled dataset, which means that each training example is paired with an output label. The model learns to make predictions based on this input-output mapping. Common tasks in supervised learning include classification and regression. An example of supervised learning is spam email detection, where the model is trained on emails labeled as “spam” or “not spam.”</p>
 <p><strong>Unsupervised Learning</strong>, on the other hand, involves training a model on data that does not have labeled responses. The goal here is to infer the natural structure present within a set of data points. This is often used for clustering and association problems. An example of unsupervised learning is customer segmentation, where the model identifies distinct groups of customers based on purchasing behavior without prior knowledge of the group definitions.</p>
 <p>Wait. That sounds familiar, right?<br />
-And indeed, this is exactly what we covered in the prior sections! Many algorithms used in dimensionality reduction (<a class="reference internal" href="14_dimensionality_reduction.html#ch-dimensionality"><span class="std std-ref">Dimensionality Reduction</span></a>) and clustering (<a class="reference internal" href="12_clustering.html#ch-clustering"><span class="std std-ref">Clustering</span></a>) were already machine learning and examples of unsupervised learning.</p>
+And indeed, this is exactly what we covered in the prior sections! Many algorithms used in dimensionality reduction (<span class="xref std std-ref">ch_dimensionality</span>) and clustering (<a class="reference internal" href="12_clustering.html#ch-clustering"><span class="std std-ref">Clustering</span></a>) were already machine learning and examples of unsupervised learning.</p>
 </section>
 <section id="classification-vs-regression">
 <h3>Classification vs. Regression<a class="headerlink" href="#classification-vs-regression" title="Link to this heading">#</a></h3>
@@ -541,7 +548,7 @@ And indeed, this is exactly what we covered in the prior sections! Many algorith
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Dimensionality Reduction</p>
+        <p class="prev-next-title">Why high dimensions are hard, or: the curse of dimensionality</p>
       </div>
     </a>
     <a class="right-next"
