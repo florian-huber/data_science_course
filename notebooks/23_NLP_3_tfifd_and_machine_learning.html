@@ -438,7 +438,10 @@
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding">One-Hot Encoding</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-frequency-inverse-document-frequency-tf-idf">Term Frequency-Inverse Document Frequency (TF-IDF)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-frequency-inverse-document-frequency-tf-idf">Term Frequency-Inverse Document Frequency (TF-IDF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-important-is-a-word-a-simple-tf-idf-example">How important is a word? A simple TF-IDF example</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-hotel-reviews">Hands-on: Hotel Reviews</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-import-and-exploration">Data import and exploration</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">Train/Test Split</a><ul class="nav section-nav flex-column">
@@ -548,22 +551,88 @@ Distance between vector1 and vector3: 4.243.
 <div class="math notranslate nohighlight">
 \[TF(t)=\frac{\text{Number of times term t appears in a document}}{\text{Total number of terms in the document}}
 \]</div>
-<p>The <strong>Inverse Document Frequency (IDF)</strong> is computed as the logarithm of the number of documents in the corpus divided by the number of documents where the specific term appears. See <a class="reference internal" href="#fig-nlp-tfidf-example"><span class="std std-numref">Fig. 41</span></a> for a simple example.</p>
+<p>The <strong>Inverse Document Frequency (IDF)</strong> is computed as the logarithm of the number of documents in the corpus divided by the number of documents where the specific term appears.</p>
 <div class="math notranslate nohighlight">
 \[IDF(t)=\log(\frac{\text{Total number of documents}}{\text{Number of documents with term t in it}})
 \]</div>
 <p>The <strong>TF-IDF</strong> weight is then the product of these two quantities:</p>
 <div class="math notranslate nohighlight">
-\[\text{TF−IDF}=TF×IDF\]</div>
-<figure class="align-default" id="fig-nlp-tfidf-example">
-<img alt="../_images/fig_nlp_tfidf_example.png" src="../_images/fig_nlp_tfidf_example.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 41 </span><span class="caption-text">Here is an example of a very simple corpus <span class="math notranslate nohighlight">\(D\)</span> that consists of only two documents <span class="math notranslate nohighlight">\(d_1\)</span> and <span class="math notranslate nohighlight">\(d_2\)</span> to illustrate how TF and IDF values are computed.</span><a class="headerlink" href="#fig-nlp-tfidf-example" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
+\[
+\text{TF−IDF}=TF×IDF
+\]</div>
+<section id="how-important-is-a-word-a-simple-tf-idf-example">
+<h3>How important is a word? A simple TF-IDF example<a class="headerlink" href="#how-important-is-a-word-a-simple-tf-idf-example" title="Link to this heading">#</a></h3>
+<p>Consider the following small corpus:</p>
+<div class="math notranslate nohighlight">
+\[
+D = \{d_1, d_2\}
+\]</div>
+<p>with two documents:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>d1: That is the one and only way to happiness.
+d2: That is the one and only way to die.
+</pre></div>
+</div>
+<p>The term frequency (TF) of a word <span class="math notranslate nohighlight">\(w_i\)</span> in a document <span class="math notranslate nohighlight">\(d\)</span> is defined as:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{TF}(w_i, d) =
+\frac{\mathrm{count}(w_i)}
+{\sum_{i \in d} \mathrm{count}(w_i)}
+\]</div>
+<p>The inverse document frequency (IDF) of a word <span class="math notranslate nohighlight">\(w_i\)</span> in a corpus <span class="math notranslate nohighlight">\(D\)</span> is defined as:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{IDF}(w_i, D) =
+\log \frac{N}{|\{d \in D : w_i \in d\}|}
+\]</div>
+<p>The TF-IDF score combines both quantities:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{tfidf}(w_i, d, D) =
+\mathrm{TF}(w_i, d) \times \mathrm{IDF}(w_i, D)
+\]</div>
+<p>For document <span class="math notranslate nohighlight">\(d_1\)</span>, both <code class="docutils literal notranslate"><span class="pre">that</span></code> and <code class="docutils literal notranslate"><span class="pre">happiness</span></code> occur once in a document with nine words:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{TF}(\text{that}, d_1) = \frac{1}{9}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{TF}(\text{happiness}, d_1) = \frac{1}{9}
+\]</div>
+<p>The word <code class="docutils literal notranslate"><span class="pre">die</span></code> does not occur in <span class="math notranslate nohighlight">\(d_1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{TF}(\text{die}, d_1) = \frac{0}{9} = 0
+\]</div>
+<p>The word <code class="docutils literal notranslate"><span class="pre">that</span></code> occurs in both documents, so its IDF is zero:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{IDF}(\text{that}, D) =
+\log \frac{2}{2} = 0
+\]</div>
+<p>The word <code class="docutils literal notranslate"><span class="pre">die</span></code> occurs only in one document:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{IDF}(\text{die}, D) =
+\log \frac{2}{1} \approx 0.301
+\]</div>
+<p>For document <span class="math notranslate nohighlight">\(d_2\)</span>, this gives:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{tfidf}(\text{that}, d_2, D) =
+\frac{1}{9} \times 0 = 0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{tfidf}(\text{die}, d_2, D) =
+\frac{1}{9} \times 0.301 \approx 0.033
+\]</div>
+<p>This illustrates the main idea of TF-IDF: words that occur in many documents, such as <code class="docutils literal notranslate"><span class="pre">that</span></code>, receive a low weight, while words that are more specific to a document, such as <code class="docutils literal notranslate"><span class="pre">die</span></code>, receive a higher weight.</p>
 <p>This results in a vector space model where each word is assigned a TF-IDF score, and a document is represented as a vector of these scores. We can use libraries like <code class="docutils literal notranslate"><span class="pre">Scikit-Learn</span></code><span class="bibtex-citation" id="id1">[<a class="reference internal" href="../book/references.html#id89" title="F. Pedregosa, G. Varoquaux, A. Gramfort, V. Michel, B. Thirion, O. Grisel, M. Blondel, P. Prettenhofer, R. Weiss, V. Dubourg, J. Vanderplas, A. Passos, D. Cournapeau, M. Brucher, M. Perrot, and E. Duchesnay. Scikit-learn: machine learning in Python. Journal of Machine Learning Research, 12:2825–2830, 2011.">Pedregosa <em>et al.</em>, 2011</a>]</span> to compute these scores easily.</p>
 <p>Finally, we can use these TF-IDF vectors to train Machine Learning models. For example, we can train a logistic regression model (see <a class="reference internal" href="17_machine_learning_algorithms_2.html#ch-linear-models"><span class="std std-ref">Common Algorithms II - Linear Models</span></a>) for sentiment analysis.</p>
 <p>In this chapter, and the next one, we will see that turning words into vectors is a fundamental approach in NLP that opens up countless new possibilities for analysis and model training.</p>
+</section>
 </section>
 <section id="hands-on-hotel-reviews">
 <h2>Hands-on: Hotel Reviews<a class="headerlink" href="#hands-on-hotel-reviews" title="Link to this heading">#</a></h2>
@@ -5212,7 +5281,10 @@ weighted avg       0.83      0.86      0.83      4099
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding">One-Hot Encoding</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-frequency-inverse-document-frequency-tf-idf">Term Frequency-Inverse Document Frequency (TF-IDF)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-frequency-inverse-document-frequency-tf-idf">Term Frequency-Inverse Document Frequency (TF-IDF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-important-is-a-word-a-simple-tf-idf-example">How important is a word? A simple TF-IDF example</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hands-on-hotel-reviews">Hands-on: Hotel Reviews</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-import-and-exploration">Data import and exploration</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#train-test-split">Train/Test Split</a><ul class="nav section-nav flex-column">

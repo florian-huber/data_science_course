@@ -7,7 +7,7 @@
 Düsseldorf University of Applied Sciences (HSD)  
 & Centre for Digitalization and Digitality (ZDD)
 
-**v0.26** 2026-05-19
+**v0.27** 2026-06-08
 
 **About me:**
 I work as a professor for Data Science and Visual Analytics at the [Düsseldorf University of Applied Sciences](https://www.hs-duesseldorf.de/). This is also where I teach students the basics of data science, Python programming, machine learning, or where I give unsolicited advice on coffee, chocolate, and all other things that really matter in life.

@@ -514,15 +514,15 @@
 <p>Model evaluation is crucial in understanding the performance of machine learning algorithms. Beyond the basic metrics introduced previously like accuracy and confusion matrices, it is very useful to know more about additional metrics to capture different aspects of model performance comprehensively.</p>
 <p>First off, there is not a simple general answer to which metric is the best. This largely depends on the type of data, the type of model, and the actual question we want to answer with our model. Let’s take an example of a use case where we want to predict fraudulent phone calls from data such as call duration, call origin, time, etc. This data could easily have many more regular calls than fraudulent calls, let’s assume we have 99,000 non-fraudulent calls and 1,000 fraudulent calls in the data. We call this <strong>biased data</strong>, and handling this correctly is one of the most common challenges in machine learning.</p>
 <p>We now train a machine learning model, say a decision tree, to predict if a phone call is fraudulent or not. What would be a good accuracy for such a model?</p>
-<p>If you think about this for a moment (please do!), then you might realize that it is not easy to define what a <em>good</em> accuracy value is. For this reason, you should never only present an accuracy value without context! Always at least ask what would be achievable with little effort and compare to this <strong>baseline</strong>. In the phone call example, I can easily come up with a toy “model” that will always predict <code class="docutils literal notranslate"><span class="pre">non-fraudulent</span></code>. What would the accuracy of this toy model be?</p>
-<p>The accuracy is the fraction of correct predictions, and if I simply label all calls as non-fraudulent I would be correct in <span class="math notranslate nohighlight">\(99%\)</span> of the cases. So, my accuracy becomes <span class="math notranslate nohighlight">\(0.99\)</span>. Without any context, that might look like a good result, but this baseline example makes clear that a model with such an accuracy is not at all impressive on the given task.</p>
+<p>If you think about this for a moment (please do!), then you might realize that it is not easy to define what a <em>good</em> accuracy value is. For this reason, you should never only present an accuracy value without context! Always at least ask what would be achievable with little effort and compare to this <strong>baseline</strong>. In the phone call example, I can easily come up with a toy “model” that will always predict non-fraudulent. What would the accuracy of this toy model be?</p>
+<p>The accuracy is the fraction of correct predictions, and if I simply label all calls as non-fraudulent I would be correct in <span class="math notranslate nohighlight">\(99\%\)</span> of the cases. So, my accuracy becomes <span class="math notranslate nohighlight">\(0.99\)</span>. Without any context, that might look like a good result, but this baseline example makes clear that a model with such an accuracy value is not at all impressive on the given task.</p>
 <p>The confusion matrix we used earlier will do much better here because this will also reveal that our toy model does not discover any of the fraudulent calls (which makes it completely useless for any application…).</p>
 <section id="detailed-model-evaluation-metrics-classification">
 <h3>Detailed Model Evaluation Metrics (classification)<a class="headerlink" href="#detailed-model-evaluation-metrics-classification" title="Link to this heading">#</a></h3>
 <p>Here are a few of the most commonly used metrics to evaluate classification models.</p>
 <section id="confusion-matrix">
 <h4>1. Confusion Matrix<a class="headerlink" href="#confusion-matrix" title="Link to this heading">#</a></h4>
-<p>A confusion matrix is an N x N matrix used for evaluating the performance of a classification model, where N is the number of target classes. The matrix compares the actual target values with those predicted by the machine learning model, providing insight into the types of errors made by the classifier.</p>
+<p>A confusion matrix is an <span class="math notranslate nohighlight">\(N \times N\)</span> matrix used for evaluating the performance of a classification model, where N is the number of target classes. The matrix compares the actual target values with those predicted by the machine learning model, providing insight into the types of errors made by the classifier.</p>
 <ul class="simple">
 <li><p>Elements:</p>
 <ul>
@@ -537,7 +537,7 @@
 <figure class="align-default" id="fig-classification-metrics">
 <img alt="../_images/fig_classification_metrics_sketch.png" src="../_images/fig_classification_metrics_sketch.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 33 </span><span class="caption-text">The confusion matrix is a good way to quickly display and assess the true positive value (TP), the true negative value (TN) as well as the false positives (FP) and false negatives (FN). Based on those numbers different standard metrics to evaluate a model are computed such as  accuracy, recall, specificiy, and precision.</span><a class="headerlink" href="#fig-classification-metrics" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 33 </span><span class="caption-text">The confusion matrix is a good way to quickly display and assess the true positive value (TP), the true negative value (TN) as well as the false positives (FP) and false negatives (FN). Based on those numbers different standard metrics to evaluate a model are computed such as  accuracy, recall, specificity, and precision.</span><a class="headerlink" href="#fig-classification-metrics" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -548,14 +548,14 @@
 The ratio of correctly predicted positive observations to the total predicted positives.</p>
 <div class="math notranslate nohighlight">
 \[
-Precision = \frac{TP}{TP + FP}
+\mathrm{Precision} = \frac{TP}{TP + FP}
 \]</div>
 <p>High precision indicates a low false positive rate, which is crucial in scenarios where the cost of a false positive is high, such as in email spam classification.</p>
 <p><strong>Recall (Sensitivity, True Positive Rate)</strong>:<br />
 The ratio of correctly predicted positive observations to all observations in actual class.</p>
 <div class="math notranslate nohighlight">
 \[
-Recall = \frac{TP}{TP + FN}
+\mathrm{Recall} = \frac{TP}{TP + FN}
 \]</div>
 <p>High recall is vital in medical scenarios or fraud detection, where failing to detect an anomaly can have severe consequences.</p>
 </section>
@@ -564,7 +564,7 @@ Recall = \frac{TP}{TP + FN}
 <p>The F1 Score is the weighted average of Precision and Recall. Therefore, this score takes both false positives and false negatives into account. It is particularly useful when the class distribution is uneven (biased data).</p>
 <div class="math notranslate nohighlight">
 \[
-F_1 = 2 \cdot \frac{Precision \cdot Recall}{Precision + Recall}
+F_1 = 2 \cdot \frac{\mathrm{Precision} \cdot \mathrm{Recall}}{\mathrm{Precision} + \mathrm{Recall}}
 \]</div>
 <p>The F1 score is an excellent measure to use if you need to seek a balance between Precision and Recall and there is an uneven class distribution (as in the case of your fraudulent vs. non-fraudulent calls scenario).</p>
 </section>
@@ -573,7 +573,7 @@ F_1 = 2 \cdot \frac{Precision \cdot Recall}{Precision + Recall}
 <p>As previously discussed, accuracy is the ratio of correctly predicted observations to the total observations and can be misleading in the presence of an imbalanced dataset.</p>
 <div class="math notranslate nohighlight">
 \[
-Accuracy = \frac{TP + TN}{TP + TN + FP + FN}
+\mathrm{Accuracy} = \frac{TP + TN}{TP + TN + FP + FN}
 \]</div>
 </section>
 </section>
@@ -4225,7 +4225,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">dict</td>
-           <td>{&#x27;me...me&#x27;: array([0.0051..., 0.00498719]), &#x27;me...me&#x27;: array([0.0045..., 0.00543427]), &#x27;me...re&#x27;: array([0.7984..., 0.70877491]), &#x27;me...re&#x27;: array([0.9121..., 0.73184133]), ...}</td>
+           <td>{&#x27;me...me&#x27;: array([0.0054..., 0.00565724]), &#x27;me...me&#x27;: array([0.0047..., 0.00569353]), &#x27;me...re&#x27;: array([0.7984..., 0.70877491]), &#x27;me...re&#x27;: array([0.9121..., 0.73184133]), ...}</td>
 
 
        </tr>
@@ -4316,7 +4316,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">float</td>
-           <td>0.004642</td>
+           <td>0.005184</td>
 
 
        </tr>
@@ -5221,10 +5221,10 @@ forceTheme('sk-container-id-2');</script></body></div></div>
   <tbody>
     <tr>
       <th>1</th>
-      <td>0.004953</td>
-      <td>0.000022</td>
-      <td>0.004251</td>
-      <td>0.000028</td>
+      <td>0.005272</td>
+      <td>0.000093</td>
+      <td>0.004383</td>
+      <td>0.000041</td>
       <td>3</td>
       <td>{'model__n_neighbors': 3}</td>
       <td>0.788644</td>
@@ -5245,10 +5245,10 @@ forceTheme('sk-container-id-2');</script></body></div></div>
     </tr>
     <tr>
       <th>0</th>
-      <td>0.005129</td>
-      <td>0.000375</td>
-      <td>0.004512</td>
-      <td>0.000613</td>
+      <td>0.005467</td>
+      <td>0.000455</td>
+      <td>0.004708</td>
+      <td>0.000742</td>
       <td>2</td>
       <td>{'model__n_neighbors': 2}</td>
       <td>0.794953</td>
@@ -5269,10 +5269,10 @@ forceTheme('sk-container-id-2');</script></body></div></div>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.004888</td>
-      <td>0.000033</td>
-      <td>0.004500</td>
-      <td>0.000370</td>
+      <td>0.005317</td>
+      <td>0.000292</td>
+      <td>0.004427</td>
+      <td>0.000047</td>
       <td>4</td>
       <td>{'model__n_neighbors': 4}</td>
       <td>0.769716</td>
@@ -9853,7 +9853,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">Tree</td>
-           <td>&lt;sklearn.tree...x7f26b82648f0&gt;</td>
+           <td>&lt;sklearn.tree...x7fcdd09b08f0&gt;</td>
 
 
        </tr>
@@ -11076,7 +11076,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">float64</td>
-           <td>0.9229</td>
+           <td>0.9255</td>
 
 
        </tr>
@@ -11113,7 +11113,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">dict</td>
-           <td>{&#x27;me...me&#x27;: array([0.0062..., 0.00729918]), &#x27;me...me&#x27;: array([0.0020..., 0.00203713]), &#x27;me...re&#x27;: array([0.8168..., 0.90715504]), &#x27;me...re&#x27;: array([0.8528..., 0.9734657 ]), ...}</td>
+           <td>{&#x27;me...me&#x27;: array([0.0064..., 0.00732978]), &#x27;me...me&#x27;: array([0.0025..., 0.00251603]), &#x27;me...re&#x27;: array([0.8155..., 0.90462739]), &#x27;me...re&#x27;: array([0.8528..., 0.9734657 ]), ...}</td>
 
 
        </tr>
@@ -11204,7 +11204,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">float</td>
-           <td>0.00981</td>
+           <td>0.009156</td>
 
 
        </tr>
@@ -11531,7 +11531,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">ndarray[float64](30,)</td>
-           <td>[0.02,0.26,0.48,...,0.  ,0.  ,0.  ]</td>
+           <td>[0.02,0.26,0.47,...,0.  ,0.  ,0.  ]</td>
 
 
        </tr>
@@ -11640,7 +11640,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">Tree</td>
-           <td>&lt;sklearn.tree...x7f26b82677c0&gt;</td>
+           <td>&lt;sklearn.tree...x7fcdd09b37c0&gt;</td>
 
 
        </tr>
@@ -11870,18 +11870,18 @@ forceTheme('sk-container-id-6');</script></body></div></div>
   <tbody>
     <tr>
       <th>9</th>
-      <td>0.007367</td>
-      <td>0.000126</td>
-      <td>0.002036</td>
-      <td>0.000006</td>
+      <td>0.007379</td>
+      <td>0.000105</td>
+      <td>0.002446</td>
+      <td>0.000084</td>
       <td>15</td>
       <td>2</td>
       <td>{'max_depth': 15, 'min_samples_split': 2}</td>
       <td>0.914773</td>
-      <td>0.905303</td>
+      <td>0.912879</td>
       <td>0.948767</td>
-      <td>0.922947</td>
-      <td>0.018662</td>
+      <td>0.925473</td>
+      <td>0.016489</td>
       <td>1</td>
       <td>1.000000</td>
       <td>1.000000</td>
@@ -11890,46 +11890,46 @@ forceTheme('sk-container-id-6');</script></body></div></div>
       <td>0.000000</td>
     </tr>
     <tr>
-      <th>12</th>
-      <td>0.007415</td>
-      <td>0.000120</td>
-      <td>0.002057</td>
-      <td>0.000024</td>
-      <td>20</td>
-      <td>2</td>
-      <td>{'max_depth': 20, 'min_samples_split': 2}</td>
-      <td>0.918561</td>
-      <td>0.907197</td>
-      <td>0.943074</td>
-      <td>0.922944</td>
-      <td>0.014971</td>
-      <td>2</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>0.000000</td>
-    </tr>
-    <tr>
       <th>6</th>
-      <td>0.007302</td>
-      <td>0.000068</td>
-      <td>0.002065</td>
-      <td>0.000005</td>
+      <td>0.007324</td>
+      <td>0.000074</td>
+      <td>0.002552</td>
+      <td>0.000038</td>
       <td>10</td>
       <td>2</td>
       <td>{'max_depth': 10, 'min_samples_split': 2}</td>
-      <td>0.897727</td>
       <td>0.905303</td>
-      <td>0.946869</td>
-      <td>0.916633</td>
-      <td>0.021603</td>
-      <td>3</td>
+      <td>0.905303</td>
+      <td>0.952562</td>
+      <td>0.921056</td>
+      <td>0.022278</td>
+      <td>2</td>
       <td>0.990521</td>
       <td>0.994313</td>
       <td>0.997159</td>
       <td>0.993998</td>
       <td>0.002719</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>0.007411</td>
+      <td>0.000122</td>
+      <td>0.002476</td>
+      <td>0.000019</td>
+      <td>20</td>
+      <td>2</td>
+      <td>{'max_depth': 20, 'min_samples_split': 2}</td>
+      <td>0.909091</td>
+      <td>0.905303</td>
+      <td>0.943074</td>
+      <td>0.919156</td>
+      <td>0.016983</td>
+      <td>3</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
     </tr>
   </tbody>
 </table>
@@ -11953,10 +11953,10 @@ Here, however, we will now do another cross-validation run to illustrate what th
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;fit_time&#39;: array([0.01302934, 0.01226521, 0.01191688, 0.01244688, 0.01186466,
-        0.0123744 , 0.01184344, 0.01202798, 0.01205516, 0.01231885]),
- &#39;score_time&#39;: array([0.00436115, 0.00405622, 0.00398946, 0.00400877, 0.00396299,
-        0.00396633, 0.00394106, 0.00390887, 0.00392747, 0.00394678]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;fit_time&#39;: array([0.01263523, 0.01181197, 0.01156783, 0.01202297, 0.01143885,
+        0.01183605, 0.01122952, 0.01175094, 0.01185775, 0.01192808]),
+ &#39;score_time&#39;: array([0.00541186, 0.00552201, 0.0052433 , 0.00530005, 0.00504875,
+        0.00485659, 0.00526357, 0.00490594, 0.0050602 , 0.00468159]),
  &#39;test_accuracy&#39;: array([0.80188679, 0.87203791, 0.9478673 , 0.95260664, 0.95260664,
         0.93364929, 0.95260664, 0.9478673 , 0.95260664, 0.95260664]),
  &#39;test_f1_macro&#39;: array([0.80315095, 0.86771551, 0.9453898 , 0.95293603, 0.95135921,
