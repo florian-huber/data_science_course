@@ -65,7 +65,6 @@ def convert_hide_input_tags() -> None:
     """Add remove-input to notebook cells tagged hide-input."""
     skip_parts = {
         "_build",
-        "_pdf_source",
         ".git",
         ".jupyter_cache",
         ".ipynb_checkpoints",
@@ -75,8 +74,10 @@ def convert_hide_input_tags() -> None:
     changed_cells = 0
     cells_with_tags = 0
 
-    for notebook_path in notebooks:
-        if any(part in skip_parts for part in notebook_path.parts):
+    for notebook_path in ROOT.rglob("*.ipynb"):
+        relative_parts = notebook_path.relative_to(ROOT).parts
+
+        if any(part in skip_parts for part in relative_parts):
             continue
 
         try:
@@ -94,7 +95,6 @@ def convert_hide_input_tags() -> None:
             if tags:
                 cells_with_tags += 1
 
-            # Normalize all tags to strings, just in case.
             tags = [str(tag) for tag in tags]
             metadata["tags"] = tags
 
