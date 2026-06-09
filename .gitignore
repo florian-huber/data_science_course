@@ -1,5 +1,6 @@
 _build
-_pdf_source
+_pdf_source/
+book_pdf/
 datasets_local
 material_and_raw
 .ipynb_checkpoints
