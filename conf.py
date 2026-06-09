@@ -1,6 +1,14 @@
+from pathlib import Path
+
+
+# -- Project information -----------------------------------------------------
+
 project = "Hands-on Introduction to Data Science with Python"
 author = "Florian Huber"
 copyright = "2026, Florian Huber"
+
+
+# -- General configuration ---------------------------------------------------
 
 extensions = [
     "myst_nb",
@@ -24,8 +32,34 @@ exclude_patterns = [
     "**.ipynb_checkpoints",
 ]
 
+
+# -- MyST / notebook configuration ------------------------------------------
+
+myst_enable_extensions = [
+    "colon_fence",
+    "deflist",
+    "dollarmath",
+    "amsmath",
+    "substitution",
+]
+
+nb_execution_mode = "cache"
+
+numfig = True
+
+
+# -- Bibliography ------------------------------------------------------------
+
+bibtex_bibfiles = ["book/references.bib"]
+bibtex_default_style = "unsrt"
+bibtex_reference_style = "author_year"
+bibtex_bibliography_header = ".. rubric:: References"
+
+
+# -- HTML output -------------------------------------------------------------
+
 html_theme = "sphinx_book_theme"
-html_title = "Hands-on Introduction to Data Science with Python"
+html_title = project
 html_logo = "_static/data_science_cover_illustration_logo.png"
 html_favicon = "_static/favicon.ico"
 html_static_path = ["_static"]
@@ -45,25 +79,49 @@ html_theme_options = {
     },
 }
 
-# Notebook behavior
-nb_execution_mode = "cache"
-
 html_js_files = [
-    "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"
+    "https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js",
 ]
 
-# Optional MyST features
-myst_enable_extensions = [
-    "colon_fence",
-    "deflist",
-    "dollarmath",
-    "amsmath",
-    "substitution",
+
+# -- LaTeX / PDF output ------------------------------------------------------
+
+latex_engine = "lualatex"
+
+cover_image = Path(__file__).parent / "_static" / "data_science_cover_illustration.png"
+
+latex_documents = [
+    (
+        "index",
+        "hands_on_data_science_with_python.tex",
+        project,
+        author,
+        "manual",
+    ),
 ]
 
-numfig = True
+latex_elements = {
+    "papersize": "a4paper",
+    "pointsize": "11pt",
+    "classoptions": ",oneside,openany",
 
-bibtex_bibfiles = ["book/references.bib"]
-bibtex_default_style = "unsrt"
-bibtex_reference_style = "author_year"
-bibtex_bibliography_header = ".. rubric:: References"
+    "preamble": r"""
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{geometry}
+
+% Avoid fancyhdr warning:
+\setlength{\headheight}{14pt}
+""",
+
+    "maketitle": rf"""
+\begin{{titlepage}}
+\thispagestyle{{empty}}
+\centering
+\vspace*{{-1in}}
+\hspace*{{-1in}}
+\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{{{cover_image.as_posix()}}}
+\end{{titlepage}}
+\clearpage
+""",
+}
