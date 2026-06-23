@@ -52,7 +52,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Beyond Counting Individual Words: N-grams" href="24_NLP_4_ngrams_word_vectors.html" />
-    <link rel="prev" title="NLP - Basic Techniques to Analyze Text Data" href="22_NLP_2_tokenization.html" />
+    <link rel="prev" title="From Text to Tokens" href="22_NLP_2_tokenization.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -201,8 +201,8 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Text Data</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="21_working_with_text_data.html">Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="22_NLP_2_tokenization.html">NLP - Basic Techniques to Analyze Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_working_with_text_data.html">Natural Language Processing (NLP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_NLP_2_tokenization.html">From Text to Tokens</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Computing with Text: Counting words</a></li>
 <li class="toctree-l1"><a class="reference internal" href="24_NLP_4_ngrams_word_vectors.html">Beyond Counting Individual Words: N-grams</a></li>
 </ul>
@@ -505,6 +505,7 @@ The distance between “happiness” and “die” is the same as between “Tha
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
@@ -652,9 +653,6 @@ d2: That is the one and only way to die.
 <span class="sd">This code block downloads the data from zenodo and stores it in</span>
 <span class="sd">a local &#39;datasets&#39; folder.</span>
 <span class="sd">&quot;&quot;&quot;</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">download_from_zenodo</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">):</span>
@@ -808,7 +806,7 @@ memory usage: 480.4 KB
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Rating Distribution&#39;)
 </pre></div>
 </div>
-<img alt="../_images/3ba1b77f61ac8952214d7165bd8728136f034ad6b1ffc56813f31f18638bec4a.png" src="../_images/3ba1b77f61ac8952214d7165bd8728136f034ad6b1ffc56813f31f18638bec4a.png" />
+<img alt="../_images/cb87bbaa46f7f90ff9ddf5ab9b07386b2de7f570259b258be060942c7bea72c0.png" src="../_images/cb87bbaa46f7f90ff9ddf5ab9b07386b2de7f570259b258be060942c7bea72c0.png" />
 </div>
 </div>
 <p>Here we see a first potential issue, a <strong>bias of the ratings</strong>. The dataset contains far more positive reviews (&gt;= 4) than neutral or negative ones. This is a common problem in machine learning and there are strategies to deal with this (e.g. <em>oversampling</em> or using <em>class weights</em>), but for now we will simply ignore it.</p>
@@ -821,7 +819,10 @@ memory usage: 480.4 KB
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
 
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
-    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Review&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Rating&#39;</span><span class="p">],</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Review&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Rating&#39;</span><span class="p">],</span>
+    <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+    <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Train dataset size: </span><span class="si">{</span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Test dataset size: </span><span class="si">{</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>    
@@ -2032,7 +2033,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">ndarray[float64](8530,)</td>
-           <td>[-0.23,-1.08, 0.12,...,-0.38, 0.48, 0.6 ]</td>
+           <td>[-0.23,-1.08, 0.12,...,-0.38, 0.48, 0.59]</td>
 
 
        </tr>
@@ -2296,7 +2297,7 @@ forceTheme('sk-container-id-1');</script></body></div></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e1bcb606e848a996ce9686d5bd93e4de7def8228aee1454f1db2f86d811371b7.png" src="../_images/e1bcb606e848a996ce9686d5bd93e4de7def8228aee1454f1db2f86d811371b7.png" />
+<img alt="../_images/6e68e98d6e806420eef10c9111ea281e0ab2eb8667817002edb93ab3960abb76.png" src="../_images/6e68e98d6e806420eef10c9111ea281e0ab2eb8667817002edb93ab3960abb76.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2307,7 +2308,7 @@ forceTheme('sk-container-id-1');</script></body></div></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.7871552642604432)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.7871552254732878)
 </pre></div>
 </div>
 </div>
@@ -2320,7 +2321,7 @@ forceTheme('sk-container-id-1');</script></body></div></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(-1.8631590531914668), np.float64(7.252571500977485))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(-1.8631768682804744), np.float64(7.25259508754613))
 </pre></div>
 </div>
 </div>
@@ -2339,7 +2340,7 @@ forceTheme('sk-container-id-1');</script></body></div></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean absolute error after clipping the predictions: 0.6741914994271189
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean absolute error after clipping the predictions: 0.6741914327154894
 </pre></div>
 </div>
 </div>
@@ -2353,7 +2354,7 @@ forceTheme('sk-container-id-1');</script></body></div></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/46f32ca18c2943435f2e59f426dfb932020b876db92a1ccd4fa5eedec14b994e.png" src="../_images/46f32ca18c2943435f2e59f426dfb932020b876db92a1ccd4fa5eedec14b994e.png" />
+<img alt="../_images/80e6fcb1f7793446c40b1761c93cbb1e9f698542cc339fca2ed21aeac88ab987.png" src="../_images/80e6fcb1f7793446c40b1761c93cbb1e9f698542cc339fca2ed21aeac88ab987.png" />
 </div>
 </div>
 <p>Interestingly, this clipping step improved the quality of the predictions notably which can both be seen in the mean absolute error (MAE) and the error distribution.</p>
@@ -3670,7 +3671,7 @@ forceTheme('sk-container-id-2');</script></body></div></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/21362375e06f6a020783c69e2d1a51625c6f055bbf31ce24340e8283a29657e7.png" src="../_images/21362375e06f6a020783c69e2d1a51625c6f055bbf31ce24340e8283a29657e7.png" />
+<img alt="../_images/587e052f0ae493b95be4c52102ea33385a1178f2cac68ee2a7dd7997f952cd33.png" src="../_images/587e052f0ae493b95be4c52102ea33385a1178f2cac68ee2a7dd7997f952cd33.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -3742,7 +3743,7 @@ weighted avg       0.58      0.60      0.58      4099
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3a2ac8faed5d47c89b22ae4a921c7f82e66c7892838004338b581768e521516e.png" src="../_images/3a2ac8faed5d47c89b22ae4a921c7f82e66c7892838004338b581768e521516e.png" />
+<img alt="../_images/e3861c6efc36d3a4b460faa41ea0ad1250749b0aa8a3fc0bc718bf9041c09231.png" src="../_images/e3861c6efc36d3a4b460faa41ea0ad1250749b0aa8a3fc0bc718bf9041c09231.png" />
 </div>
 </div>
 </section>
@@ -5211,7 +5212,7 @@ weighted avg       0.83      0.86      0.83      4099
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3789a094487fc5ee481096e80e7e7f0f31ab2ef74bf24f9101e77987face3b17.png" src="../_images/3789a094487fc5ee481096e80e7e7f0f31ab2ef74bf24f9101e77987face3b17.png" />
+<img alt="../_images/5487dd5ce98f393a441e4472138c355ea5f0d2be47a4d112896019d6e93f8ce5.png" src="../_images/5487dd5ce98f393a441e4472138c355ea5f0d2be47a4d112896019d6e93f8ce5.png" />
 </div>
 </div>
 </section>
@@ -5246,7 +5247,7 @@ weighted avg       0.83      0.86      0.83      4099
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">NLP - Basic Techniques to Analyze Text Data</p>
+        <p class="prev-next-title">From Text to Tokens</p>
       </div>
     </a>
     <a class="right-next"

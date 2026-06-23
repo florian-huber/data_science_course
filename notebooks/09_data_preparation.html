@@ -199,8 +199,8 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Text Data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="21_working_with_text_data.html">Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="22_NLP_2_tokenization.html">NLP - Basic Techniques to Analyze Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_working_with_text_data.html">Natural Language Processing (NLP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_NLP_2_tokenization.html">From Text to Tokens</a></li>
 <li class="toctree-l1"><a class="reference internal" href="23_NLP_3_tfifd_and_machine_learning.html">Computing with Text: Counting words</a></li>
 <li class="toctree-l1"><a class="reference internal" href="24_NLP_4_ngrams_word_vectors.html">Beyond Counting Individual Words: N-grams</a></li>
 </ul>
@@ -953,33 +953,33 @@ memory usage: 228.0 bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>Robert</td>
-      <td>47</td>
-      <td>60000</td>
+      <td>Marie</td>
+      <td>54</td>
+      <td>93000</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Chad</td>
-      <td>27</td>
+      <td>Chase</td>
+      <td>20</td>
       <td>63000</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Daniel</td>
-      <td>33</td>
-      <td>68000</td>
+      <td>John</td>
+      <td>48</td>
+      <td>95000</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Alicia</td>
-      <td>39</td>
-      <td>68000</td>
+      <td>Jennifer</td>
+      <td>42</td>
+      <td>52000</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Holly</td>
-      <td>30</td>
-      <td>56000</td>
+      <td>Jennifer</td>
+      <td>31</td>
+      <td>81000</td>
     </tr>
   </tbody>
 </table>
@@ -1020,33 +1020,33 @@ memory usage: 228.0 bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>Robert</td>
-      <td>47</td>
-      <td>60000.0</td>
+      <td>Marie</td>
+      <td>54</td>
+      <td>93000.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Chad</td>
-      <td>27</td>
+      <td>Chase</td>
+      <td>20</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Daniel</td>
-      <td>33</td>
+      <td>John</td>
+      <td>48</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Alicia</td>
-      <td>39</td>
+      <td>Jennifer</td>
+      <td>42</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Holly</td>
-      <td>30</td>
-      <td>56000.0</td>
+      <td>Jennifer</td>
+      <td>31</td>
+      <td>81000.0</td>
     </tr>
   </tbody>
 </table>
@@ -1061,7 +1061,7 @@ memory usage: 228.0 bytes
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(73000.0)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(72000.0)
 </pre></div>
 </div>
 </div>
@@ -1100,33 +1100,33 @@ memory usage: 228.0 bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>Robert</td>
-      <td>47</td>
-      <td>60000.0</td>
+      <td>Marie</td>
+      <td>54</td>
+      <td>93000.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Chad</td>
-      <td>27</td>
-      <td>73000.0</td>
+      <td>Chase</td>
+      <td>20</td>
+      <td>72000.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Daniel</td>
-      <td>33</td>
-      <td>73000.0</td>
+      <td>John</td>
+      <td>48</td>
+      <td>72000.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Alicia</td>
-      <td>39</td>
-      <td>73000.0</td>
+      <td>Jennifer</td>
+      <td>42</td>
+      <td>72000.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Holly</td>
-      <td>30</td>
-      <td>56000.0</td>
+      <td>Jennifer</td>
+      <td>31</td>
+      <td>81000.0</td>
     </tr>
   </tbody>
 </table>
@@ -1182,33 +1182,33 @@ memory usage: 228.0 bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>Robert</td>
-      <td>47.0</td>
-      <td>60000.0</td>
+      <td>Marie</td>
+      <td>54.0</td>
+      <td>93000.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Chad</td>
-      <td>27.0</td>
-      <td>57500.0</td>
+      <td>Chase</td>
+      <td>20.0</td>
+      <td>41000.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Daniel</td>
-      <td>33.0</td>
-      <td>55000.0</td>
+      <td>John</td>
+      <td>48.0</td>
+      <td>89000.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Alicia</td>
-      <td>39.0</td>
-      <td>86500.0</td>
+      <td>Jennifer</td>
+      <td>42.0</td>
+      <td>64000.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Holly</td>
-      <td>30.0</td>
-      <td>56000.0</td>
+      <td>Jennifer</td>
+      <td>31.0</td>
+      <td>81000.0</td>
     </tr>
   </tbody>
 </table>

@@ -201,8 +201,8 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Text Data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="21_working_with_text_data.html">Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="22_NLP_2_tokenization.html">NLP - Basic Techniques to Analyze Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_working_with_text_data.html">Natural Language Processing (NLP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_NLP_2_tokenization.html">From Text to Tokens</a></li>
 <li class="toctree-l1"><a class="reference internal" href="23_NLP_3_tfifd_and_machine_learning.html">Computing with Text: Counting words</a></li>
 <li class="toctree-l1"><a class="reference internal" href="24_NLP_4_ngrams_word_vectors.html">Beyond Counting Individual Words: N-grams</a></li>
 </ul>
@@ -1568,8 +1568,8 @@ a.param-doc-link::before {
             rank_: int<br><br>Rank of matrix `X`. Only available when `X` is dense.</span>
         </a>
     </td>
-           <td class="fitted-att-type">int</td>
-           <td>4</td>
+           <td class="fitted-att-type">int64</td>
+           <td>np.int64(4)</td>
 
 
        </tr>
@@ -1792,7 +1792,7 @@ Through the training, which here is simply an optimization of the linear fit, ou
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(156.04773034515995)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(156.0477303451591)
 </pre></div>
 </div>
 </div>
@@ -1852,7 +1852,7 @@ Just as before with the k-NN model, we can simply create predictions on any data
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Predicted label&#39;)
 </pre></div>
 </div>
-<img alt="../_images/c41a06fade448b2839117c97fc5db876e5b304271108635f954d7bc1c3fb3623.png" src="../_images/c41a06fade448b2839117c97fc5db876e5b304271108635f954d7bc1c3fb3623.png" />
+<img alt="../_images/806ac0590944ee8dab76876a5b458f97ae3a08ea4187e152bf1d6bdea8c37d92.png" src="../_images/806ac0590944ee8dab76876a5b458f97ae3a08ea4187e152bf1d6bdea8c37d92.png" />
 </div>
 </div>
 <p>We can also look at the prediction errors, which simply is <code class="docutils literal notranslate"><span class="pre">y_test</span> <span class="pre">-</span> <span class="pre">predictions</span></code>.<br />
@@ -1870,7 +1870,7 @@ A histogram can quickly show us by how far our model predictions are off.</p>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Prediction errors&#39;)
 </pre></div>
 </div>
-<img alt="../_images/b146918fe2a95f3763b204b5459c228a6889604765e37564f22f149ae89cb3a4.png" src="../_images/b146918fe2a95f3763b204b5459c228a6889604765e37564f22f149ae89cb3a4.png" />
+<img alt="../_images/2959bc55cb1f74f9dae413b4e4d12e1e1b7c154630f7fefcbfe968f8ac4fade2.png" src="../_images/2959bc55cb1f74f9dae413b4e4d12e1e1b7c154630f7fefcbfe968f8ac4fade2.png" />
 </div>
 </div>
 <p>In this example we see that most predictions are off by no more than +- 5.</p>
@@ -3294,7 +3294,7 @@ forceTheme('sk-container-id-2');</script></body></div></div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/90d82f0c8e201712d3e52be77bb62d43265bb144a8347f15d8ca8dd8890bc8cc.png" src="../_images/90d82f0c8e201712d3e52be77bb62d43265bb144a8347f15d8ca8dd8890bc8cc.png" />
+<img alt="../_images/f40c7a7bc757a0bcae726019a190a16c7a5896e9902fe81cc387f4f7f7bd7abe.png" src="../_images/f40c7a7bc757a0bcae726019a190a16c7a5896e9902fe81cc387f4f7f7bd7abe.png" />
 </div>
 </div>
 <p>As we can see from the plot, the decision boundary is set at around 5 hours of preparation. This means that our model will simply predict “passed” for any student that prepared for more than 5 hours, and “not passed” if not.</p>
@@ -3461,7 +3461,7 @@ weighted avg       0.99      0.99      0.99        67
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Axes: &gt;
 </pre></div>
 </div>
-<img alt="../_images/1deb46d248817a5adb2de4ce13c88b15a9af307ba860bb5e5e175c38d599c0d3.png" src="../_images/1deb46d248817a5adb2de4ce13c88b15a9af307ba860bb5e5e175c38d599c0d3.png" />
+<img alt="../_images/4eb1147e19a724b94e579d032bec989f47c978671c2a2cfd9319ad12fc116945.png" src="../_images/4eb1147e19a724b94e579d032bec989f47c978671c2a2cfd9319ad12fc116945.png" />
 </div>
 </div>
 <p>Logistic regression is a comparably simple model. It remains, however, a widely used algorithm in machine learning, and we will apply it in a later chapter to classify text documents.</p>

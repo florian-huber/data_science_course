@@ -51,7 +51,7 @@
     <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Introduction to Working with Text Data" href="21_working_with_text_data.html" />
+    <link rel="next" title="Natural Language Processing (NLP)" href="21_working_with_text_data.html" />
     <link rel="prev" title="Supervised Machine Learning - Key Techniques" href="19_machine_learning_techniques.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -201,8 +201,8 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Text Data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="21_working_with_text_data.html">Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="22_NLP_2_tokenization.html">NLP - Basic Techniques to Analyze Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_working_with_text_data.html">Natural Language Processing (NLP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_NLP_2_tokenization.html">From Text to Tokens</a></li>
 <li class="toctree-l1"><a class="reference internal" href="23_NLP_3_tfifd_and_machine_learning.html">Computing with Text: Counting words</a></li>
 <li class="toctree-l1"><a class="reference internal" href="24_NLP_4_ngrams_word_vectors.html">Beyond Counting Individual Words: N-grams</a></li>
 </ul>
@@ -517,7 +517,7 @@
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/b3da501f5ad697da72314f3288ba52d652b8187942d601fe701ee3a36acd0bf0.png" src="../_images/b3da501f5ad697da72314f3288ba52d652b8187942d601fe701ee3a36acd0bf0.png" />
+<img alt="../_images/65a010c79ac9da389a9a727ce6799aef7bed379c0eb244325d7b3b646d01d899.png" src="../_images/65a010c79ac9da389a9a727ce6799aef7bed379c0eb244325d7b3b646d01d899.png" />
 </div>
 </div>
 <p>A decision tree can handle such data, but the highly non-linear arrangement of the data points makes it slightly cumbersome for such a model. The decision tree (<a class="reference internal" href="18_machine_learning_algorithms_3.html#ch-decision-trees"><span class="std std-ref">Common Algorithms III - Decision Trees</span></a>) learns decision boundaries along the x- and y-axis, and the shape of a spiral cannot be approximated very well with only a few such binary decisions.</p>
@@ -1625,7 +1625,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">Tree</td>
-           <td>&lt;sklearn.tree...x7fa1be5f4e30&gt;</td>
+           <td>&lt;sklearn.tree...x7f42b4e32640&gt;</td>
 
 
        </tr>
@@ -1843,7 +1843,7 @@ forceTheme('sk-container-id-1');</script></body></div></div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Tree with max_depth None&#39;)
 </pre></div>
 </div>
-<img alt="../_images/137cf1973318fece8d893ff06a891493caca62a93fedd0fceb898cb74ddc9d54.png" src="../_images/137cf1973318fece8d893ff06a891493caca62a93fedd0fceb898cb74ddc9d54.png" />
+<img alt="../_images/b94804f1be9bf114a5495b937df25932351114fdad4bec9ea5d6b9b77c197bf0.png" src="../_images/b94804f1be9bf114a5495b937df25932351114fdad4bec9ea5d6b9b77c197bf0.png" />
 </div>
 </div>
 <p>As expected, the decision tree with low depth is incapable of modeling the data’s spiral shape very well. This is also called <strong>underfitting</strong>. On the other hand, the tree with unrestricted depth will come with the problem of <strong>overfitting</strong>.</p>
@@ -1935,7 +1935,7 @@ During prediction, the output of all <span class="math notranslate nohighlight">
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/ee710d7e0975a7cb04929c840b5145e5bc4214267df8785b46c73e110834c0a0.png" src="../_images/ee710d7e0975a7cb04929c840b5145e5bc4214267df8785b46c73e110834c0a0.png" />
+<img alt="../_images/2600108b03a6a3b4681d44b2d5a4c0c90b5b2a5b8b750c3981e226f36fdabd84.png" src="../_images/2600108b03a6a3b4681d44b2d5a4c0c90b5b2a5b8b750c3981e226f36fdabd84.png" />
 </div>
 </div>
 <p>The individual decision trees were trained with different subsets of our data (for <code class="docutils literal notranslate"><span class="pre">BOOTSTRAP</span> <span class="pre">=</span> <span class="pre">True</span></code>). As a consequence, they all learned different decision boundaries, none of them being very good overall due to the limited depth of each tree.</p>
@@ -2304,7 +2304,7 @@ As we saw in the last chapter, such a model works OK-ish on this dataset.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy of AdaBoost Classifier: 0.97
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy of AdaBoost Classifier: 0.96
 </pre></div>
 </div>
 </div>
@@ -2327,7 +2327,7 @@ As we saw in the last chapter, such a model works OK-ish on this dataset.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7a1be100d1b38b9d4034a19a73392a729bd4a84b47830a6b7c47c6c102823b93.png" src="../_images/7a1be100d1b38b9d4034a19a73392a729bd4a84b47830a6b7c47c6c102823b93.png" />
+<img alt="../_images/2ad9f8576d8e3d786806f44a700a64bd1b47d552674d07af918e0adae9572dae.png" src="../_images/2ad9f8576d8e3d786806f44a700a64bd1b47d552674d07af918e0adae9572dae.png" />
 </div>
 </div>
 <p>In many cases, ensemble models outperform individual models when it comes to robustness and the quality of the predictions. They come with two downsides. Firstly, they require the training and internal handling of dozens or hundreds of models instead of only one. For moderately sized datasets this is usually a price people are very willing to pay.</p>
@@ -2379,7 +2379,7 @@ There are many, in fact probably too many, courses and tutorials out there. One 
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction to Working with Text Data</p>
+        <p class="prev-next-title">Natural Language Processing (NLP)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

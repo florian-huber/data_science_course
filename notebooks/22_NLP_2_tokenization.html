@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>NLP - Basic Techniques to Analyze Text Data &#8212; Hands-on Introduction to Data Science with Python</title>
+    <title>From Text to Tokens &#8212; Hands-on Introduction to Data Science with Python</title>
   
   
   
@@ -50,7 +50,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Computing with Text: Counting words" href="23_NLP_3_tfifd_and_machine_learning.html" />
-    <link rel="prev" title="Introduction to Working with Text Data" href="21_working_with_text_data.html" />
+    <link rel="prev" title="Natural Language Processing (NLP)" href="21_working_with_text_data.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -199,8 +199,8 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Text Data</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="21_working_with_text_data.html">Introduction to Working with Text Data</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">NLP - Basic Techniques to Analyze Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_working_with_text_data.html">Natural Language Processing (NLP)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">From Text to Tokens</a></li>
 <li class="toctree-l1"><a class="reference internal" href="23_NLP_3_tfifd_and_machine_learning.html">Computing with Text: Counting words</a></li>
 <li class="toctree-l1"><a class="reference internal" href="24_NLP_4_ngrams_word_vectors.html">Beyond Counting Individual Words: N-grams</a></li>
 </ul>
@@ -421,7 +421,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>NLP - Basic Techniques to Analyze Text Data</h1>
+    <h1>From Text to Tokens</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -431,12 +431,12 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-areas-for-the-use-of-nlp-techniques">Example areas for the use of NLP techniques</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-nlp-libraries">Python NLP libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-nlp-libraries">Python NLP Libraries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nlp-preprocessing-workflow">NLP Preprocessing Workflow</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raw-text-cleaning">Raw Text Cleaning</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization">Tokenization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#token-cleaning-normalization">Token Cleaning &amp; Normalization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#token-cleaning">Token Cleaning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#token-normalization">Token Normalization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-these-stages-fit-together">How These Stages Fit Together</a></li>
 </ul>
 </li>
@@ -470,46 +470,116 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="nlp-basic-techniques-to-analyze-text-data">
-<span id="ch-nlp-basics"></span><h1>NLP - Basic Techniques to Analyze Text Data<a class="headerlink" href="#nlp-basic-techniques-to-analyze-text-data" title="Link to this heading">#</a></h1>
-<p>Natural Language Processing (NLP) is an interdisciplinary field at the intersection of computer science, artificial intelligence, and linguistics. It focuses on enabling computers to process, interpret, and derive meaning from human language (see <a class="reference internal" href="#fig-nlp-venn"><span class="std std-numref">Fig. 39</span></a>). A central objective of NLP is to develop systems capable of “reading” and “understanding” text in order to perform tasks such as translation, summarization, sentiment analysis, and information extraction.</p>
-<figure class="align-default" id="fig-nlp-venn">
-<img alt="../_images/fig_nlp_venn.png" src="../_images/fig_nlp_venn.png" />
+  <section class="tex2jax_ignore mathjax_ignore" id="from-text-to-tokens">
+<span id="ch-nlp-tokenization"></span><h1>From Text to Tokens<a class="headerlink" href="#from-text-to-tokens" title="Link to this heading">#</a></h1>
+<p>Before we can analyze text computationally, we need to transform it into a form that algorithms can work with. Raw text is usually messy: it may contain HTML tags, URLs, punctuation, inconsistent spelling, capitalization, emojis, line breaks, or other artifacts. Moreover, a text is initially just one long sequence of characters. Most NLP methods, however, operate on smaller units such as words, sentences, or subword pieces.</p>
+<p>This chapter introduces the basic preprocessing steps that turn raw text into a more structured representation. We will start with raw text cleaning, then split text into <strong>tokens</strong>, clean these tokens further, and finally normalize them using techniques such as <strong>stemming</strong> or <strong>lemmatization</strong>. These steps form the basis for many later NLP workflows, including word frequency analysis, TF-IDF, text classification, topic modeling, and other machine-learning approaches for text data.</p>
+<section id="python-nlp-libraries">
+<h2>Python NLP Libraries<a class="headerlink" href="#python-nlp-libraries" title="Link to this heading">#</a></h2>
+<p>There are several Python libraries that are commonly used for Natural Language Processing (NLP). They differ in their goals, complexity, and typical use cases. Some are especially useful for teaching and experimenting with basic concepts, while others are designed for efficient large-scale or production-oriented NLP workflows.</p>
+<ol class="arabic simple">
+<li><p><strong>NLTK (Natural Language Toolkit)</strong>: NLTK is a widely used library for symbolic and statistical NLP. It provides easy-to-use interfaces to many corpora and lexical resources, such as WordNet. NLTK also includes tools for tokenization, stemming, tagging, parsing, classification, and semantic analysis. It is especially useful for teaching and for understanding the basic building blocks of NLP.</p></li>
+<li><p><strong>spaCy</strong>: spaCy is designed for efficient and modern NLP workflows. It provides fast and robust tools for tokenization, sentence segmentation, part-of-speech tagging, named entity recognition, dependency parsing, and more. Because of its speed and well-designed API, spaCy is often used for larger-scale and production-oriented NLP tasks <span class="bibtex-citation" id="id1">[<a class="reference internal" href="../book/references.html#id95" title="Yuli Vasiliev. Natural language processing with Python and spaCy: A practical introduction. No Starch Press, 2020.">Vasiliev, 2020</a>]</span>.</p></li>
+<li><p><strong>Gensim</strong>: Gensim is an open-source library for vector space modeling, topic modeling, and document similarity analysis. It is designed to handle large text collections efficiently using streaming and incremental algorithms. Gensim is particularly useful for tasks such as topic modeling, word embeddings, and similarity search.</p></li>
+<li><p><strong>TextBlob</strong>: TextBlob provides a simple and beginner-friendly API for common NLP tasks such as part-of-speech tagging, noun phrase extraction, sentiment analysis, and basic text classification. It is useful for quick experiments and for getting started with NLP, although it is less flexible and less powerful than some more specialized libraries.</p></li>
+<li><p><strong>Transformers by Hugging Face</strong>: The Transformers library provides access to many pre-trained transformer-based language models, such as BERT, RoBERTa, GPT-style models, and many others. It supports tasks such as text classification, named entity recognition, translation, summarization, and question answering. This library is central to many state-of-the-art NLP applications, but it goes beyond the NLP basics covered in this chapter.</p></li>
+</ol>
+<p>In this course, we will mainly work with <strong>spaCy</strong> and <strong>NLTK</strong>. NLTK is useful for understanding fundamental NLP concepts, while spaCy provides a modern and efficient framework for applying many of these concepts in practice.</p>
+</section>
+<section id="nlp-preprocessing-workflow">
+<h2>NLP Preprocessing Workflow<a class="headerlink" href="#nlp-preprocessing-workflow" title="Link to this heading">#</a></h2>
+<p>Text data can come from many different sources and file formats, such as <code class="docutils literal notranslate"><span class="pre">.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">.html</span></code>, PDFs, social media exports, log files, or scraped web pages. Before we can systematically analyze such data or use it for machine-learning models, we usually need to preprocess it in a consistent way.</p>
+<p>A typical NLP preprocessing workflow is shown in <a class="reference internal" href="#fig-nlp-processing-workflow"><span class="std std-numref">Fig. 40</span></a>.</p>
+<figure class="align-default" id="fig-nlp-processing-workflow">
+<img alt="../_images/fig_nlp_processing_workflow_clean.png" src="../_images/fig_nlp_processing_workflow_clean.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 39 </span><span class="caption-text">Yes, again a Venn diagram. This time to illustrate that NLP is a highly interdisciplinary field with roots in computer science, AI, but also linguistics.</span><a class="headerlink" href="#fig-nlp-venn" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 40 </span><span class="caption-text">A typical NLP preprocessing workflow consists of several stages: raw text cleaning, tokenization, token cleaning, and token normalization. These steps prepare text for later analysis or modeling.</span><a class="headerlink" href="#fig-nlp-processing-workflow" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The importance of NLP in data science cannot be overstated. Every day, individuals and organizations generate massive volumes of text, ranging from social media updates and product reviews to customer support tickets and emails. NLP provides the tools and techniques necessary to make sense of this data in an automated or semi-automated fashion. By transforming unstructured text into structured data, NLP allows us to analyze and extract insights from human language, providing valuable context to support decision-making processes.</p>
-<p>Because NLP encompasses a broad set of methods (from rule-based pattern matching to modern neural language models), this chapter will introduce only the foundational techniques most commonly used in data science workflows. Our goal is to equip you with the basic tools needed to preprocess text, represent it numerically, and perform simple analyses.</p>
-<section id="example-areas-for-the-use-of-nlp-techniques">
-<h2>Example areas for the use of NLP techniques<a class="headerlink" href="#example-areas-for-the-use-of-nlp-techniques" title="Link to this heading">#</a></h2>
-<p>The following examples illustrate how broadly NLP can be applied and why it is so valuable:</p>
-<ol class="arabic simple">
-<li><p><strong>Text Classification</strong><br />
-Text classification automatically assigns predefined categories or tags to text. By analyzing content and learning patterns, it streamlines tasks such as spam detection, news topic labeling, and document organization.</p></li>
-<li><p><strong>Sentiment Analysis</strong><br />
-Sentiment analysis uses NLP to detect and quantify the emotional tone of a text. Businesses rely on this technique to gauge customer opinions in reviews, social media posts, or survey responses, helping them make informed decisions based on positive, neutral, or negative sentiment.</p></li>
-<li><p><strong>Summarizationg</strong><br />
-Summarization distills lengthy documents into concise versions that preserve key points. It can be extractive (selecting important sentences) or abstractive (generating new summary sentences).</p></li>
-<li><p><strong>Spell Checking</strong><br />
-Spell-checking tools detect and suggest corrections for misspelled words. Modern approaches go beyond simple dictionary lookups by using context-aware models (e.g., probabilistic or neural methods) to correct typos or wrong word choices (e.g., “their” vs. “there”), which improves clarity and credibility in written text.</p></li>
-<li><p><strong>Machine Translation</strong><br />
-Machine translation (MT) converts text from one language to another. Contemporary MT systems—often based on neural sequence-to-sequence architectures—handle idiomatic expressions and context far better than older rule-based or phrase-based methods. MT accelerates multilingual communication, making large volumes of content accessible across languages.</p></li>
-<li><p><strong>Chatbots</strong><br />
-Chatbots leverage NLP to understand user queries, infer intent, and generate appropriate replies in real time. They combine components such as intent classification, entity recognition, dialogue management, and response generation. Modern chatbots are, for instance, used to handle customer service, information retrieval, and even casual conversation.</p></li>
-</ol>
+<section id="raw-text-cleaning">
+<h3>Raw Text Cleaning<a class="headerlink" href="#raw-text-cleaning" title="Link to this heading">#</a></h3>
+<p>When we obtain text from real-world sources, it often contains elements that are not part of the actual linguistic content. For example, scraped web pages may contain HTML tags, social media posts may contain URLs and emojis, and PDF exports may contain irregular line breaks or broken words.</p>
+<p>Typical raw text cleaning steps include:</p>
+<ul class="simple">
+<li><p>removing or replacing HTML/XML tags,</p></li>
+<li><p>removing or replacing URLs, email addresses, and file paths,</p></li>
+<li><p>normalizing whitespace, such as multiple spaces, tabs, and line breaks,</p></li>
+<li><p>handling special characters, emojis, or encoding problems,</p></li>
+<li><p>standardizing quotation marks, apostrophes, or hyphens,</p></li>
+<li><p>optionally converting text to lowercase.</p></li>
+</ul>
+<p>The goal of raw text cleaning is not always to remove everything that looks unusual. Sometimes, URLs, emojis, hashtags, punctuation, or casing may carry important information. For example, emojis can be useful in sentiment analysis, and capitalization can be important for named entity recognition. Therefore, cleaning decisions should always depend on the task.</p>
+<p>After raw text cleaning, we aim to have a more regular and manageable text string that can be passed to the next stage.</p>
 </section>
-<section id="python-nlp-libraries">
-<h2>Python NLP libraries<a class="headerlink" href="#python-nlp-libraries" title="Link to this heading">#</a></h2>
-<p>There are several Python libraries that are popularly used for modern Natural Language Processing (NLP) tasks. Here are a few of the most commonly used ones:</p>
+<section id="tokenization">
+<h3>Tokenization<a class="headerlink" href="#tokenization" title="Link to this heading">#</a></h3>
+<p>After initial cleaning, the text is split into smaller units called <strong>tokens</strong>. A token is a unit of text that we want to treat as one element in our analysis. In many simple workflows, tokens correspond roughly to words. However, tokens can also be punctuation marks, numbers, hashtags, sentence boundaries, subwords, or even characters, depending on the tokenizer and the application.</p>
+<p>For example, the sentence</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>This is an example sentence. It contains punctuation and mixed case.
+</pre></div>
+</div>
+<p>could be tokenized as:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;This&quot;</span><span class="p">,</span> <span class="s2">&quot;is&quot;</span><span class="p">,</span> <span class="s2">&quot;an&quot;</span><span class="p">,</span> <span class="s2">&quot;example&quot;</span><span class="p">,</span> <span class="s2">&quot;sentence&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;It&quot;</span><span class="p">,</span> <span class="s2">&quot;contains&quot;</span><span class="p">,</span> <span class="s2">&quot;punctuation&quot;</span><span class="p">,</span> <span class="s2">&quot;and&quot;</span><span class="p">,</span> <span class="s2">&quot;mixed&quot;</span><span class="p">,</span> <span class="s2">&quot;case&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>At first glance, tokenization may seem easy: we could simply split a string at every space. However, real text quickly becomes more complicated. Consider punctuation, abbreviations, contractions, hyphenated words, numbers, or domain-specific terms such as <code class="docutils literal notranslate"><span class="pre">C++</span></code>, <code class="docutils literal notranslate"><span class="pre">U.S.A.</span></code>, <code class="docutils literal notranslate"><span class="pre">don't</span></code>, <code class="docutils literal notranslate"><span class="pre">COVID-19</span></code>, or <code class="docutils literal notranslate"><span class="pre">data-driven</span></code>. A good tokenizer needs to handle such cases more carefully than a simple whitespace split.</p>
+<p>Depending on the task, we may use different types of tokenization:</p>
+<ul class="simple">
+<li><p><strong>Word-level tokenization</strong> splits text into word-like units and punctuation marks.</p></li>
+<li><p><strong>Sentence-level tokenization</strong> splits a text into sentences, which is useful for tasks such as summarization or sentence-level sentiment analysis.</p></li>
+<li><p><strong>Subword tokenization</strong> splits words into smaller units and is widely used in modern transformer-based language models. We will not focus on this in the current chapter.</p></li>
+</ul>
+<p>In this chapter, we will mainly work with word-level tokenization.</p>
+</section>
+<section id="token-cleaning">
+<h3>Token Cleaning<a class="headerlink" href="#token-cleaning" title="Link to this heading">#</a></h3>
+<p>After tokenization, we often clean the resulting tokens further. This step works on individual tokens rather than on the original raw text.</p>
+<p>Common token cleaning steps include:</p>
+<ul class="simple">
+<li><p>removing punctuation-only tokens, such as <code class="docutils literal notranslate"><span class="pre">&quot;.&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;,&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;!&quot;</span></code>,</p></li>
+<li><p>removing or replacing numbers,</p></li>
+<li><p>removing very short or very long tokens,</p></li>
+<li><p>filtering out tokens that contain unwanted characters,</p></li>
+<li><p>removing stop words such as <code class="docutils literal notranslate"><span class="pre">&quot;the&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;and&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;to&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">&quot;is&quot;</span></code>.</p></li>
+</ul>
+<p>Stop-word removal is common in tasks such as word frequency analysis or topic modeling, where very frequent function words may not be informative. However, it is not always useful. For example, in sentiment analysis, words such as <code class="docutils literal notranslate"><span class="pre">&quot;not&quot;</span></code> can be crucial, and in authorship analysis, small function words may carry important stylistic information.</p>
+<p>After token cleaning, a token list may look like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;example&quot;</span><span class="p">,</span> <span class="s2">&quot;sentence&quot;</span><span class="p">,</span> <span class="s2">&quot;contains&quot;</span><span class="p">,</span> <span class="s2">&quot;punctuation&quot;</span><span class="p">,</span> <span class="s2">&quot;mixed&quot;</span><span class="p">,</span> <span class="s2">&quot;case&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>This list is shorter and more focused than the original token sequence, but it may still contain different grammatical forms of the same word.</p>
+</section>
+<section id="token-normalization">
+<h3>Token Normalization<a class="headerlink" href="#token-normalization" title="Link to this heading">#</a></h3>
+<p>Token normalization aims to reduce variation between related word forms. For example, the words <code class="docutils literal notranslate"><span class="pre">&quot;connect&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;connects&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;connected&quot;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&quot;connecting&quot;</span></code> are different surface forms, but they are closely related in meaning. Depending on the analysis, we may want to treat them as variants of the same underlying word.</p>
+<p>Two common normalization techniques are <strong>stemming</strong> and <strong>lemmatization</strong>.</p>
+<p><strong>Stemming</strong> cuts words down to a shorter base form, often using simple rules. For example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>connected → connect
+connecting → connect
+studies → studi
+</pre></div>
+</div>
+<p>Stemming is fast and simple, but the resulting stems are not always valid words.</p>
+<p><strong>Lemmatization</strong> maps a word to its dictionary form, called a <strong>lemma</strong>. For example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>connected → connect
+connecting → connect
+studies → study
+better → good
+</pre></div>
+</div>
+<p>Lemmatization is usually linguistically more accurate than stemming, but it often requires more information, such as the part of speech of a word.</p>
+<p>Whether normalization is useful depends on the task. For word counts, search, or topic modeling, it can help reduce vocabulary size and group related word forms. For other tasks, such as some forms of text generation or linguistic analysis, preserving the original word forms may be more appropriate.</p>
+</section>
+<section id="how-these-stages-fit-together">
+<h3>How These Stages Fit Together<a class="headerlink" href="#how-these-stages-fit-together" title="Link to this heading">#</a></h3>
+<p>A simplified preprocessing workflow can be summarized as follows:</p>
 <ol class="arabic simple">
-<li><p><strong>NLTK (Natural Language Toolkit)</strong>: This is a widely used library for symbolic and statistical NLP. It provides easy-to-use interfaces to over 50 corpora and lexical resources, such as WordNet. NLTK also includes text processing libraries for classification, tokenization, stemming, tagging, parsing, and semantic reasoning. It’s excellent for teaching and working with the basics of NLP.</p></li>
-<li><p><strong>SpaCy</strong>: This library is known for its advanced NLP capabilities and efficient performance. SpaCy is designed to handle large volumes of text, and its features include named entity recognition, part-of-speech tagging, dependency parsing, and sentence segmentation. Its flexibility and speed make it ideal for production-grade NLP tasks <span class="bibtex-citation" id="id1">[<a class="reference internal" href="../book/references.html#id95" title="Yuli Vasiliev. Natural language processing with Python and spaCy: A practical introduction. No Starch Press, 2020.">Vasiliev, 2020</a>]</span>.</p></li>
-<li><p><strong>Gensim</strong>: This is a robust open-source vector space modeling and topic modeling toolkit. Gensim is designed to handle large text collections using data streaming and incremental algorithms, which is different from most other scientific software packages that only target batch and in-memory processing. It is especially good for tasks that involve topic modeling and document similarity analysis.</p></li>
-<li><p><strong>TextBlob</strong>: This library simplifies text processing tasks by providing a consistent API for diving into common NLP tasks such as part-of-speech tagging, noun phrase extraction, sentiment analysis, and more. TextBlob is very beginner-friendly and is an excellent choice for basic NLP tasks and for people getting started with NLP in Python.</p></li>
-<li><p><strong>Transformers (by Hugging Face)</strong>: This library is based on the transformer architecture (like BERT, GPT, RoBERTa, XLM, etc) and has pre-trained models for many NLP tasks. It offers simple, yet powerful, APIs for performing tasks such as text classification, named entity recognition, translation, summarization, and more. It is a go-to library for state-of-the-art NLP (but clearly beyond the NLP basics that we will cover here).</p></li>
+<li><p><strong>Raw text cleaning</strong> prepares the original text by removing or standardizing unwanted elements such as markup, URLs, irregular whitespace, or encoding artifacts.</p></li>
+<li><p><strong>Tokenization</strong> splits the cleaned text into smaller units called tokens.</p></li>
+<li><p><strong>Token cleaning</strong> removes or filters tokens that are not useful for the current task, such as punctuation-only tokens or stop words.</p></li>
+<li><p><strong>Token normalization</strong> reduces variation between related word forms using methods such as stemming or lemmatization.</p></li>
 </ol>
-<p>Here, we will work with <strong>SpaCy</strong> and <strong>NLTK</strong>.</p>
+<p>Together, these steps transform raw text into a more consistent and analyzable representation. The exact workflow is not fixed: each decision depends on the data, the language, and the goal of the analysis. In the following sections, we will implement these steps in Python and compare simple manual approaches with tools from established NLP libraries.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="ch">#!pip install nltk</span>
@@ -530,89 +600,6 @@ Chatbots leverage NLP to understand user queries, infer intent, and generate app
 </div>
 </div>
 </div>
-</section>
-<section id="nlp-preprocessing-workflow">
-<h2>NLP Preprocessing Workflow<a class="headerlink" href="#nlp-preprocessing-workflow" title="Link to this heading">#</a></h2>
-<p>We usually work with text in various formats and sizes, for instance, from <code class="docutils literal notranslate"><span class="pre">.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">.html</span></code>, or other structured or unstructured text file formats. For a later systematic data analysis or the training of machine-learning models, we first have to preprocess the text data consistently, typically done as sketched in <a class="reference internal" href="#fig-nlp-processing-workflow"><span class="std std-numref">Fig. 40</span></a>.</p>
-<figure class="align-default" id="fig-nlp-processing-workflow">
-<img alt="../_images/fig_nlp_processing_workflow_clean.png" src="../_images/fig_nlp_processing_workflow_clean.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 40 </span><span class="caption-text">Typically, an NLP preprocessing workflow consists of several stages, including raw text cleaning, tokenization, token cleaning, and token normalization. This is often the basis for later analysis or modeling steps.</span><a class="headerlink" href="#fig-nlp-processing-workflow" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<section id="raw-text-cleaning">
-<h3>Raw Text Cleaning<a class="headerlink" href="#raw-text-cleaning" title="Link to this heading">#</a></h3>
-<p>When you obtain or scrape text from various sources (web pages, PDFs, social media, logs), it often contains “noise” that can hinder analysis:</p>
-<ul class="simple">
-<li><p><strong>HTML/XML tags and markup</strong>: Words mixed with <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code>, or other tags become fragmented tokens unless those tags are removed first.</p></li>
-<li><p><strong>URLs, email addresses, and file paths</strong>: Raw links (e.g., <code class="docutils literal notranslate"><span class="pre">https://…</span></code>) or email strings (<code class="docutils literal notranslate"><span class="pre">foo&#64;example.com</span></code>) tend to inflate your vocabulary with nonsensical tokens.</p></li>
-<li><p><strong>Irregular whitespace</strong>: Multiple spaces, tabs, or stray line breaks can lead to empty or malformed tokens.</p></li>
-<li><p><strong>Mixed casing and punctuation</strong>: “DataScience,” “Data Science,” and “data science” may all appear separately unless you normalize case and handle punctuation uniformly.</p></li>
-<li><p><strong>Contractions, emojis, and special characters</strong>: In user‐generated content (tweets, reviews), apostrophes (“don’t”), emoticons, or accented letters can either be informative or troublesome, depending on the task.</p></li>
-</ul>
-<p>The goal of raw‐text cleaning is to strip away or standardize these unwanted elements so that what remains is plain, continuous text composed of meaningful characters. In practice, cleaning might involve:</p>
-<ol class="arabic simple">
-<li><p>Removing or replacing HTML/XML tags (so that <code class="docutils literal notranslate"><span class="pre">&lt;strong&gt;Bold&lt;/strong&gt;</span></code> becomes simply “Bold”).</p></li>
-<li><p>Stripping out URLs and email patterns (or substituting them with placeholder tokens like <code class="docutils literal notranslate"><span class="pre">&lt;URL&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;EMAIL&gt;</span></code> if you want to preserve their presence).</p></li>
-<li><p>Collapsing multiple spaces/newlines into single spaces.</p></li>
-<li><p>Converting all characters to lowercase (unless you plan to preserve casing for named‐entity recognition or similar tasks).</p></li>
-<li><p>Handling punctuation—either by removing most punctuation marks or by preserving certain symbols (like apostrophes) until the tokenization step.</p></li>
-</ol>
-<p>By cleaning first, you avoid feeding spurious tokens (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;&lt;a&gt;&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;http://&quot;</span></code>, or stray “—”) into your tokenization process. Clean text provides a stable foundation for the next stage.</p>
-</section>
-<section id="tokenization">
-<h3>Tokenization<a class="headerlink" href="#tokenization" title="Link to this heading">#</a></h3>
-<p>Once the text is “clean” (i.e., markup removed, URLs taken out, whitespace normalized, and casing standardized), the next step is to split it into discrete units called <strong>tokens</strong>. Tokens typically represent words, but depending on your approach, they can also be punctuation marks, subwords, or even entire sentences.</p>
-<ul class="simple">
-<li><p><strong>Word‐Level Tokenization</strong>
-At its simplest, you break a cleaned string on spaces to get individual words. In practice, however, you often rely on more robust tokenizers that handle punctuation attached to words (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;hello!&quot;</span> <span class="pre">→</span> <span class="pre">[&quot;hello&quot;,</span> <span class="pre">&quot;!&quot;]</span></code>) and contractions (<code class="docutils literal notranslate"><span class="pre">&quot;don’t&quot;</span> <span class="pre">→</span> <span class="pre">[&quot;do&quot;,</span> <span class="pre">&quot;n’t&quot;]</span></code>). The key point is that tokenization turns a long string into a list of word‐like elements you can process one at a time.</p></li>
-<li><p><strong>Sentence‐Level Tokenization (Optional)</strong>
-Some applications—such as summarization or sentiment analysis at the sentence level—require you to split a text into sentences before tokenizing words. In that case, you first identify sentence boundaries (e.g., by looking for periods, question marks, or line breaks) and then tokenize each sentence separately.</p></li>
-<li><p><strong>Subword or Character‐Level Tokenization (Beyond Basics)</strong>
-For many modern neural models, individual words are further split into subword units (e.g., “running” → [“run”, “##ning”]) or even individual characters. This helps handle rare or out‐of‐vocabulary words. We will cover those approaches in later chapters; for now, assume that tokens correspond roughly to English words or punctuation.</p></li>
-</ul>
-<p>After tokenization, you have a sequence such as:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;this&quot;</span><span class="p">,</span> <span class="s2">&quot;is&quot;</span><span class="p">,</span> <span class="s2">&quot;an&quot;</span><span class="p">,</span> <span class="s2">&quot;example&quot;</span><span class="p">,</span> <span class="s2">&quot;sentence&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="s2">&quot;it&quot;</span><span class="p">,</span> <span class="s2">&quot;contains&quot;</span><span class="p">,</span> <span class="s2">&quot;punctuation&quot;</span><span class="p">,</span> <span class="s2">&quot;and&quot;</span><span class="p">,</span> <span class="s2">&quot;mixed&quot;</span><span class="p">,</span> <span class="s2">&quot;case&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>Each of these tokens can now be examined, counted, or transformed in isolation.</p>
-</section>
-<section id="token-cleaning-normalization">
-<h3>Token Cleaning &amp; Normalization<a class="headerlink" href="#token-cleaning-normalization" title="Link to this heading">#</a></h3>
-<p>Even after tokenization, many tokens still need further refinement before they become truly useful for feature extraction or modeling. Token cleaning and normalization typically include:</p>
-<ol class="arabic simple">
-<li><p><strong>Lowercasing (if not already applied globally)</strong>
-Ensures that “Data” and “data” are treated identically rather than as two separate tokens.</p></li>
-<li><p><strong>Punctuation Stripping or Filtering</strong>
-If punctuation was not fully removed during raw‐text cleaning, you may drop tokens that consist only of punctuation (e.g., “.”, “,”, “!”). Alternatively, you can strip punctuation characters from the beginnings or ends of word tokens (e.g., <code class="docutils literal notranslate"><span class="pre">&quot;science,&quot;</span> <span class="pre">→</span> <span class="pre">&quot;science&quot;</span></code>). Be careful: sometimes punctuation conveys meaning (e.g., “U.S.A.” or “C++”), so decide based on your specific use case.</p></li>
-<li><p><strong>Stop‐Word Removal (Optional)</strong>
-Common words like “the,” “and,” “to,” and “is” often appear so frequently that they contribute little to distinguishing meaning in tasks like topic classification. By removing these <strong>stop words</strong>, you reduce noise and shrink the vocabulary. However, for certain tasks (e.g., sentiment analysis or author attribution), you might retain pronouns and auxiliary verbs because they can carry important signals.</p></li>
-<li><p><strong>Digit and Special‐Character Handling (Optional)</strong>
-Some pipelines remove tokens that contain digits (e.g., “2025” or “A1B2”), replace them with a <code class="docutils literal notranslate"><span class="pre">&lt;NUM&gt;</span></code> placeholder, or leave them intact if numeric information is relevant (e.g., product codes, dates).</p></li>
-<li><p><strong>Contraction Expansion (If Deferred)</strong>
-If you did not expand contractions during raw‐text cleaning, you can handle them at this stage. For example, mapping “don’t” → “do not” ensures that both “do” and “not” become separate, meaningful tokens rather than <code class="docutils literal notranslate"><span class="pre">&quot;don’t&quot;</span></code> which may not appear in your vocabulary.</p></li>
-</ol>
-<p>After token cleaning, your list of tokens might look like:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;this&quot;</span><span class="p">,</span> <span class="s2">&quot;example&quot;</span><span class="p">,</span> <span class="s2">&quot;sentence&quot;</span><span class="p">,</span> <span class="s2">&quot;contains&quot;</span><span class="p">,</span> <span class="s2">&quot;punctuation&quot;</span><span class="p">,</span> <span class="s2">&quot;mixed&quot;</span><span class="p">,</span> <span class="s2">&quot;case&quot;</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>Notice that casing has been unified, purely punctuation tokens have been removed, and any stop words (e.g., “is”, “an”, “and”) have been dropped. At this point, each token represents a distilled, meaningful unit ready for the next stages—such as converting to stems or lemmas, computing frequency counts, or feeding into a vectorization algorithm.</p>
-</section>
-<hr class="docutils" />
-<section id="how-these-stages-fit-together">
-<h3>How These Stages Fit Together<a class="headerlink" href="#how-these-stages-fit-together" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p><strong>Raw Text Cleaning</strong>
-• Strips away extraneous markup, URLs, and inconsistent spacing.
-• Produces one long, lowercase string of “plain” text.</p></li>
-<li><p><strong>Tokenization</strong>
-• Splits the cleaned string into atomic units (tokens).
-• Creates a sequence (list) of tokens that still reflect some noise (e.g., punctuation, stop words).</p></li>
-<li><p><strong>Token Cleaning &amp; Normalization</strong>
-• Further purifies tokens by removing punctuation‐only tokens, lowercasing (if needed), filtering out stop words, and handling numbers or contractions.
-• Yields a final list of tokens that are consistent, comparable, and ready for stemming, lemmatization, or direct feature extraction.</p></li>
-</ol>
-<p>This entire process allows us to transform raw text data into a more digestible and analyzable format, preparing the ground for more advanced NLP techniques.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;wordnet&#39;</span><span class="p">)</span>
@@ -634,11 +621,10 @@ If you did not expand contractions during raw‐text cleaning, you can handle th
 </section>
 <section id="nltk">
 <h2>NLTK<a class="headerlink" href="#nltk" title="Link to this heading">#</a></h2>
-<p>Here, we demonstrate the NLTK processes of tokenization, stemming, and lemmatization.</p>
+<p>Here, we briefly demonstrate the NLTK processes of tokenization, stemming, and lemmatization.</p>
 <section id="id2">
 <h3>Tokenization<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<p>Tokenization is the process of splitting a large paragraph or text into sentences or words. These sentences or words are known as tokens. This is a crucial step in NLP as we often deal with words in text data.</p>
-<p>In this block of code, we import NLTK and define a string of text. The text contains a list of words with different grammatical forms. Using NLTK’s <code class="docutils literal notranslate"><span class="pre">TreebankWordTokenizer</span></code>, we break down the text into individual words, or “tokens”. The output is a list of these tokens.</p>
+<p>In the following block of code, we define a simple string of text. The text contains a list of words with different grammatical forms. Using NLTK’s <code class="docutils literal notranslate"><span class="pre">TreebankWordTokenizer</span></code>, we break down the text into individual words, or “tokens”. The output is a list of these tokens.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;feet cats wolves talking talked?&quot;</span>
@@ -658,7 +644,6 @@ If you did not expand contractions during raw‐text cleaning, you can handle th
 </section>
 <section id="stemming">
 <h3>Stemming<a class="headerlink" href="#stemming" title="Link to this heading">#</a></h3>
-<p>Stemming is a process of reducing inflected (or sometimes derived) words to their word stem or root form—generally a written word form. The stem need not be identical to the morphological root of the word.</p>
 <p>Here, we create a <code class="docutils literal notranslate"><span class="pre">PorterStemmer</span></code> object and use it to find the root stem of each word in our list of tokens. The result is a list of these stems. You’ll notice that the stems aren’t always valid words (like ‘wolv’ for ‘wolves’), as stemming operates on a rule-based approach without understanding the context.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -676,7 +661,6 @@ If you did not expand contractions during raw‐text cleaning, you can handle th
 </section>
 <section id="lemmatization">
 <h3>Lemmatization<a class="headerlink" href="#lemmatization" title="Link to this heading">#</a></h3>
-<p>Lemmatization is the process of reducing inflected words to their word base or dictionary form. It’s similar to stemming but is more accurate as it takes the context and meaning of the word into consideration.</p>
 <p>Instead of the <code class="docutils literal notranslate"><span class="pre">PorterStemmer</span></code>, we use NLTK’s <code class="docutils literal notranslate"><span class="pre">WordNetLemmatizer</span></code> to find the dictionary base form (or lemma) of each word. This results in a list of lemmas. As you can see, lemmatization provides a more accurate root form (‘wolf’ for ‘wolves’) as compared to stemming.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -754,10 +738,7 @@ python<span class="w"> </span>-m<span class="w"> </span>spacy<span class="w"> </
 ?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/12.8 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╺ <span class=" -Color -Color-Green">12.6/12.8 MB</span> <span class=" -Color -Color-Red">120.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:01</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">12.8/12.8 MB</span> <span class=" -Color -Color-Red">34.9 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">12.8/12.8 MB</span> <span class=" -Color -Color-Red">260.6 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
 ?25h
 </pre></div>
 </div>
@@ -1080,7 +1061,7 @@ like/love 67580 67582 like sheep
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Introduction to Working with Text Data</p>
+        <p class="prev-next-title">Natural Language Processing (NLP)</p>
       </div>
     </a>
     <a class="right-next"
@@ -1110,12 +1091,12 @@ like/love 67580 67582 like sheep
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-areas-for-the-use-of-nlp-techniques">Example areas for the use of NLP techniques</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-nlp-libraries">Python NLP libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-nlp-libraries">Python NLP Libraries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nlp-preprocessing-workflow">NLP Preprocessing Workflow</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#raw-text-cleaning">Raw Text Cleaning</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenization">Tokenization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#token-cleaning-normalization">Token Cleaning &amp; Normalization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#token-cleaning">Token Cleaning</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#token-normalization">Token Normalization</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-these-stages-fit-together">How These Stages Fit Together</a></li>
 </ul>
 </li>

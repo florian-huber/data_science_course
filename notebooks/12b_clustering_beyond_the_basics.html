@@ -199,8 +199,8 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Text Data</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="21_working_with_text_data.html">Introduction to Working with Text Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="22_NLP_2_tokenization.html">NLP - Basic Techniques to Analyze Text Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_working_with_text_data.html">Natural Language Processing (NLP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_NLP_2_tokenization.html">From Text to Tokens</a></li>
 <li class="toctree-l1"><a class="reference internal" href="23_NLP_3_tfifd_and_machine_learning.html">Computing with Text: Counting words</a></li>
 <li class="toctree-l1"><a class="reference internal" href="24_NLP_4_ngrams_word_vectors.html">Beyond Counting Individual Words: N-grams</a></li>
 </ul>
@@ -576,7 +576,7 @@ The E-step and M-step are repeated until the parameter changes become small enou
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d9896f5d6bc2eef002b5ebb4470a9b618fe662c975a1137714d74e84cd10ab16.png" src="../_images/d9896f5d6bc2eef002b5ebb4470a9b618fe662c975a1137714d74e84cd10ab16.png" />
+<img alt="../_images/bc99708d8eb46c4a0ef0e7866647f1fef9d185ffd8c573bf4142eb85e99aab71.png" src="../_images/bc99708d8eb46c4a0ef0e7866647f1fef9d185ffd8c573bf4142eb85e99aab71.png" />
 </div>
 </div>
 <p>The result may look similar to K-means at first glance, but conceptually something important has changed. The model is no longer just assigning points to the nearest center. Instead, it is fitting several Gaussian distributions to the data.</p>
@@ -721,7 +721,7 @@ The E-step and M-step are repeated until the parameter changes become small enou
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ed6df2dc2aeb6bba68901b64b34b5e621788592019e00868defe3b3798e99c4f.png" src="../_images/ed6df2dc2aeb6bba68901b64b34b5e621788592019e00868defe3b3798e99c4f.png" />
+<img alt="../_images/88de13ee28e104bda191579b59cff3bc1861096e74c05b088025842c6ed0be9e.png" src="../_images/88de13ee28e104bda191579b59cff3bc1861096e74c05b088025842c6ed0be9e.png" />
 </div>
 </div>
 <p>This visualization makes the underlying idea of GMM much clearer: the algorithm is not just drawing boundaries between groups, but modeling the data as overlapping probability clouds.</p>
@@ -784,7 +784,7 @@ The E-step and M-step are repeated until the parameter changes become small enou
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f72a192aafba54e3dfbd7503c20fe6fb158ae85061d52d457c7daed2ff2fe3ea.png" src="../_images/f72a192aafba54e3dfbd7503c20fe6fb158ae85061d52d457c7daed2ff2fe3ea.png" />
+<img alt="../_images/edb8328412eb35037b3ff1fa79610e548424e2ef0fa01668cb6062fac038382b.png" src="../_images/edb8328412eb35037b3ff1fa79610e548424e2ef0fa01668cb6062fac038382b.png" />
 </div>
 </div>
 <p>This produces one clustering result, but the real strength of hierarchical clustering lies in the fact that it has built a full hierarchy in the background.</p>
@@ -838,7 +838,7 @@ Here is a helper function to plot a dendrogram for the fitted model:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d0f98542b310430e88dc8ca6ce8700031365bb01c75973e20c21d5df8720b3fa.png" src="../_images/d0f98542b310430e88dc8ca6ce8700031365bb01c75973e20c21d5df8720b3fa.png" />
+<img alt="../_images/de21c81665f96668d62bb146303ed90d951c80a09c014f6d7ce098f796998d88.png" src="../_images/de21c81665f96668d62bb146303ed90d951c80a09c014f6d7ce098f796998d88.png" />
 </div>
 </div>
 <p>The important practical idea is this: <strong>cutting</strong> the dendrogram at different heights gives different numbers of clusters. A high cut produces only a few broad clusters. A low cut produces many smaller ones.<br />
@@ -873,7 +873,7 @@ So hierarchical clustering does not eliminate the question of how many clusters 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6b82a13f9e12c5857e35b7e8c05a4b1de525b036c921ec4fd745c7946c0bf57f.png" src="../_images/6b82a13f9e12c5857e35b7e8c05a4b1de525b036c921ec4fd745c7946c0bf57f.png" />
+<img alt="../_images/22d48b6e130e960a1eccde0596b1521f03b579c464cdba52ae59681f329d390c.png" src="../_images/22d48b6e130e960a1eccde0596b1521f03b579c464cdba52ae59681f329d390c.png" />
 </div>
 </div>
 <p>A lower distance threshold cuts the hierarchy closer to the individual points, leading to more clusters. A higher threshold merges more groups together, leading to fewer clusters.</p>
@@ -926,7 +926,7 @@ The downside is that, like many more flexible methods, it is somewhat less intui
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ea9b11e2680c59f87de142df0f17f34617969a7dfe0e9a323a8d1b1615f8e9bc.png" src="../_images/ea9b11e2680c59f87de142df0f17f34617969a7dfe0e9a323a8d1b1615f8e9bc.png" />
+<img alt="../_images/968469b3c5636e93657fd7d31cb9ba5a0a91b209a311e4412c7e02c981063f65.png" src="../_images/968469b3c5636e93657fd7d31cb9ba5a0a91b209a311e4412c7e02c981063f65.png" />
 </div>
 </div>
 </section>
@@ -1044,7 +1044,7 @@ The downside is that, like many more flexible methods, it is somewhat less intui
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/1170fc2ebcd2d22680ef8cd3a43487bb417a24c1215820bfda44beefe88aaeb4.png" src="../_images/1170fc2ebcd2d22680ef8cd3a43487bb417a24c1215820bfda44beefe88aaeb4.png" />
+<img alt="../_images/c6940f5cd7f548c1d6ae81e48fdfbf8391d9d9b566f391f3b2975a301a8fb7e7.png" src="../_images/c6940f5cd7f548c1d6ae81e48fdfbf8391d9d9b566f391f3b2975a301a8fb7e7.png" />
 </div>
 </div>
 </section>
