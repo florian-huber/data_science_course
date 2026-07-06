@@ -82,6 +82,7 @@ notebooks/21_working_with_text_data
 notebooks/22_NLP_2_tokenization
 notebooks/23_NLP_3_tfifd_and_machine_learning
 notebooks/24_NLP_4_ngrams_word_vectors
+notebooks/25_NLP_5_embeddings
 ```
 
 ```{toctree}
