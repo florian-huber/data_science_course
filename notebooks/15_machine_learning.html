@@ -52,7 +52,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Common Algorithms - k-Nearest Neighbors (k-NN)" href="16_machine_learning_algorithms.html" />
-    <link rel="prev" title="Why high dimensions are hard, or: the curse of dimensionality" href="14_dimensionality_reduction.html" />
+    <link rel="prev" title="Dimensionality Reduction" href="14_dimensionality_reduction.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -181,14 +181,7 @@
 <li class="toctree-l1"><a class="reference internal" href="12_clustering.html">Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12b_clustering_beyond_the_basics.html">Clustering beyond the basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="13_introduction_outlier_detection.html">Outlier Detection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_dimensionality_reduction.html">Why high dimensions are hard, or: the curse of dimensionality</a></li>
-
-
-
-
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="14_dimensionality_reduction.html">Dimensionality Reduction</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning (Basics)</span></p>
 <ul class="current nav bd-sidenav">
@@ -205,6 +198,7 @@
 <li class="toctree-l1"><a class="reference internal" href="22_NLP_2_tokenization.html">From Text to Tokens</a></li>
 <li class="toctree-l1"><a class="reference internal" href="23_NLP_3_tfifd_and_machine_learning.html">Computing with Text: Counting words</a></li>
 <li class="toctree-l1"><a class="reference internal" href="24_NLP_4_ngrams_word_vectors.html">Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_NLP_5_embeddings.html">Embeddings</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the Networks</span></p>
 <ul class="nav bd-sidenav">
@@ -487,7 +481,7 @@ When we have an algorithm that does this guessing based on the data for us it is
 <p><strong>Supervised Learning</strong> involves training a model on a labeled dataset, which means that each training example is paired with an output label. The model learns to make predictions based on this input-output mapping. Common tasks in supervised learning include classification and regression. An example of supervised learning is spam email detection, where the model is trained on emails labeled as “spam” or “not spam.”</p>
 <p><strong>Unsupervised Learning</strong>, on the other hand, involves training a model on data that does not have labeled responses. The goal here is to infer the natural structure present within a set of data points. This is often used for clustering and association problems. An example of unsupervised learning is customer segmentation, where the model identifies distinct groups of customers based on purchasing behavior without prior knowledge of the group definitions.</p>
 <p>Wait. That sounds familiar, right?<br />
-And indeed, this is exactly what we covered in the prior sections! Many algorithms used in dimensionality reduction (<span class="xref std std-ref">ch_dimensionality</span>) and clustering (<a class="reference internal" href="12_clustering.html#ch-clustering"><span class="std std-ref">Clustering</span></a>) were already machine learning and examples of unsupervised learning.</p>
+And indeed, this is exactly what we covered in the prior sections! Many algorithms used in dimensionality reduction (<a class="reference internal" href="14_dimensionality_reduction.html#ch-dimensionality"><span class="std std-ref">Dimensionality Reduction</span></a>) and clustering (<a class="reference internal" href="12_clustering.html#ch-clustering"><span class="std std-ref">Clustering</span></a>) were already machine learning and examples of unsupervised learning.</p>
 </section>
 <section id="classification-vs-regression">
 <h3>Classification vs. Regression<a class="headerlink" href="#classification-vs-regression" title="Link to this heading">#</a></h3>
@@ -548,7 +542,7 @@ And indeed, this is exactly what we covered in the prior sections! Many algorith
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Why high dimensions are hard, or: the curse of dimensionality</p>
+        <p class="prev-next-title">Dimensionality Reduction</p>
       </div>
     </a>
     <a class="right-next"

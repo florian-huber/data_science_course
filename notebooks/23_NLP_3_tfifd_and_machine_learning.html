@@ -181,14 +181,7 @@
 <li class="toctree-l1"><a class="reference internal" href="12_clustering.html">Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12b_clustering_beyond_the_basics.html">Clustering beyond the basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="13_introduction_outlier_detection.html">Outlier Detection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_dimensionality_reduction.html">Why high dimensions are hard, or: the curse of dimensionality</a></li>
-
-
-
-
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="14_dimensionality_reduction.html">Dimensionality Reduction</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning (Basics)</span></p>
 <ul class="nav bd-sidenav">
@@ -205,6 +198,7 @@
 <li class="toctree-l1"><a class="reference internal" href="22_NLP_2_tokenization.html">From Text to Tokens</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Computing with Text: Counting words</a></li>
 <li class="toctree-l1"><a class="reference internal" href="24_NLP_4_ngrams_word_vectors.html">Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_NLP_5_embeddings.html">Embeddings</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the Networks</span></p>
 <ul class="nav bd-sidenav">
@@ -2033,7 +2027,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">ndarray[float64](8530,)</td>
-           <td>[-0.23,-1.08, 0.12,...,-0.38, 0.48, 0.59]</td>
+           <td>[-0.23,-1.08, 0.12,...,-0.38, 0.48, 0.6 ]</td>
 
 
        </tr>
@@ -2297,7 +2291,7 @@ forceTheme('sk-container-id-1');</script></body></div></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/6e68e98d6e806420eef10c9111ea281e0ab2eb8667817002edb93ab3960abb76.png" src="../_images/6e68e98d6e806420eef10c9111ea281e0ab2eb8667817002edb93ab3960abb76.png" />
+<img alt="../_images/ed2f0fa669569233cfc73e3642ac4858b55e9c16e433a895801e6c42dae543cd.png" src="../_images/ed2f0fa669569233cfc73e3642ac4858b55e9c16e433a895801e6c42dae543cd.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2308,7 +2302,7 @@ forceTheme('sk-container-id-1');</script></body></div></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.7871552254732878)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.7871552642604432)
 </pre></div>
 </div>
 </div>
@@ -2321,7 +2315,7 @@ forceTheme('sk-container-id-1');</script></body></div></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(-1.8631768682804744), np.float64(7.25259508754613))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(np.float64(-1.8631590531914668), np.float64(7.252571500977485))
 </pre></div>
 </div>
 </div>
@@ -2340,7 +2334,7 @@ forceTheme('sk-container-id-1');</script></body></div></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean absolute error after clipping the predictions: 0.6741914327154894
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean absolute error after clipping the predictions: 0.6741914994271189
 </pre></div>
 </div>
 </div>
@@ -2354,7 +2348,7 @@ forceTheme('sk-container-id-1');</script></body></div></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/80e6fcb1f7793446c40b1761c93cbb1e9f698542cc339fca2ed21aeac88ab987.png" src="../_images/80e6fcb1f7793446c40b1761c93cbb1e9f698542cc339fca2ed21aeac88ab987.png" />
+<img alt="../_images/427482a07015875ea4c790b3ee7efb1b016db9d0b5ce99d1c1957ca28116caad.png" src="../_images/427482a07015875ea4c790b3ee7efb1b016db9d0b5ce99d1c1957ca28116caad.png" />
 </div>
 </div>
 <p>Interestingly, this clipping step improved the quality of the predictions notably which can both be seen in the mean absolute error (MAE) and the error distribution.</p>

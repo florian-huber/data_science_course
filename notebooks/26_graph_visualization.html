@@ -181,14 +181,7 @@
 <li class="toctree-l1"><a class="reference internal" href="12_clustering.html">Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12b_clustering_beyond_the_basics.html">Clustering beyond the basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="13_introduction_outlier_detection.html">Outlier Detection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_dimensionality_reduction.html">Why high dimensions are hard, or: the curse of dimensionality</a></li>
-
-
-
-
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="14_dimensionality_reduction.html">Dimensionality Reduction</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning (Basics)</span></p>
 <ul class="nav bd-sidenav">
@@ -205,6 +198,7 @@
 <li class="toctree-l1"><a class="reference internal" href="22_NLP_2_tokenization.html">From Text to Tokens</a></li>
 <li class="toctree-l1"><a class="reference internal" href="23_NLP_3_tfifd_and_machine_learning.html">Computing with Text: Counting words</a></li>
 <li class="toctree-l1"><a class="reference internal" href="24_NLP_4_ngrams_word_vectors.html">Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_NLP_5_embeddings.html">Embeddings</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the Networks</span></p>
 <ul class="current nav bd-sidenav">
@@ -463,7 +457,7 @@
 <figure class="align-default" id="fig-graph-layouts01">
 <img alt="../_images/fig_graph_layout_intro.png" src="../_images/fig_graph_layout_intro.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 46 </span><span class="caption-text">Graphs are based on nodes and their connections (links/edges). But in nearly all cases, this does not fully determine the position of the nodes.</span><a class="headerlink" href="#fig-graph-layouts01" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 47 </span><span class="caption-text">Graphs are based on nodes and their connections (links/edges). But in nearly all cases, this does not fully determine the position of the nodes.</span><a class="headerlink" href="#fig-graph-layouts01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>When we need to visualize a graph, we (or an algorithm) must decide how to arrange the nodes. There are numerous possibilities for this, and the following images show six such network layouts that are included in networkx.</p>
@@ -543,7 +537,7 @@
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/82f088d57ed319e7149d638e1f67ce576ca5fc2c8f3475cae6466e9561f2bf6d.png" src="../_images/82f088d57ed319e7149d638e1f67ce576ca5fc2c8f3475cae6466e9561f2bf6d.png" />
+<img alt="../_images/229268985371575c902012c4ca68709e03c7d77becfdf036ffb71bd71bf3f6d2.png" src="../_images/229268985371575c902012c4ca68709e03c7d77becfdf036ffb71bd71bf3f6d2.png" />
 </div>
 </div>
 <section id="add-more-dimensions-to-the-visualization">
@@ -583,7 +577,7 @@
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/709052ed5807fd951b390601fd7d045ceda87115b376a15a4071ff3e68527b01.png" src="../_images/709052ed5807fd951b390601fd7d045ceda87115b376a15a4071ff3e68527b01.png" />
+<img alt="../_images/e5a86e964b28005146eb223334dd0f5ea5863d65a9607aec6cc89aff4d57c5d7.png" src="../_images/e5a86e964b28005146eb223334dd0f5ea5863d65a9607aec6cc89aff4d57c5d7.png" />
 </div>
 </div>
 <p>Different layouts have different strengths and weaknesses. A circular arrangement (<strong>circular layout</strong>) can, for instance, be useful for quickly identifying which nodes have the most connections (and where these lead). Layouts such as random layout or other fixed forms like spirals etc. (as seen above: <strong>spiral layout</strong>) are much less commonly used in practice.</p>
@@ -618,7 +612,7 @@
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/e87656bf596c88e1dce0eadafbca3c26d4b715c9a407f60ba9bafdb9db14f18b.png" src="../_images/e87656bf596c88e1dce0eadafbca3c26d4b715c9a407f60ba9bafdb9db14f18b.png" />
+<img alt="../_images/2529a5e17b3de5ec4f2adbb2e17a294cc9246e469bac7f54b8a4f8e4ba62da61.png" src="../_images/2529a5e17b3de5ec4f2adbb2e17a294cc9246e469bac7f54b8a4f8e4ba62da61.png" />
 </div>
 </div>
 <section id="visual-randomness">

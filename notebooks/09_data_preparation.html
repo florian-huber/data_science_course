@@ -179,14 +179,7 @@
 <li class="toctree-l1"><a class="reference internal" href="12_clustering.html">Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12b_clustering_beyond_the_basics.html">Clustering beyond the basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="13_introduction_outlier_detection.html">Outlier Detection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_dimensionality_reduction.html">Why high dimensions are hard, or: the curse of dimensionality</a></li>
-
-
-
-
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="14_dimensionality_reduction.html">Dimensionality Reduction</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning (Basics)</span></p>
 <ul class="nav bd-sidenav">
@@ -203,6 +196,7 @@
 <li class="toctree-l1"><a class="reference internal" href="22_NLP_2_tokenization.html">From Text to Tokens</a></li>
 <li class="toctree-l1"><a class="reference internal" href="23_NLP_3_tfifd_and_machine_learning.html">Computing with Text: Counting words</a></li>
 <li class="toctree-l1"><a class="reference internal" href="24_NLP_4_ngrams_word_vectors.html">Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_NLP_5_embeddings.html">Embeddings</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the Networks</span></p>
 <ul class="nav bd-sidenav">
@@ -953,33 +947,33 @@ memory usage: 228.0 bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>Jacqueline</td>
-      <td>43</td>
-      <td>86000</td>
+      <td>Lawrence</td>
+      <td>28</td>
+      <td>51000</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Lisa</td>
-      <td>34</td>
-      <td>84000</td>
+      <td>Jeffrey</td>
+      <td>24</td>
+      <td>40000</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Douglas</td>
-      <td>28</td>
-      <td>64000</td>
+      <td>Ryan</td>
+      <td>31</td>
+      <td>46000</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Tracy</td>
-      <td>61</td>
-      <td>76000</td>
+      <td>Elizabeth</td>
+      <td>30</td>
+      <td>59000</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>William</td>
-      <td>60</td>
-      <td>77000</td>
+      <td>Ian</td>
+      <td>29</td>
+      <td>55000</td>
     </tr>
   </tbody>
 </table>
@@ -1020,33 +1014,33 @@ memory usage: 228.0 bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>Jacqueline</td>
-      <td>43</td>
-      <td>86000.0</td>
+      <td>Lawrence</td>
+      <td>28</td>
+      <td>51000.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Lisa</td>
-      <td>34</td>
+      <td>Jeffrey</td>
+      <td>24</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Douglas</td>
-      <td>28</td>
+      <td>Ryan</td>
+      <td>31</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Tracy</td>
-      <td>61</td>
+      <td>Elizabeth</td>
+      <td>30</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>William</td>
-      <td>60</td>
-      <td>77000.0</td>
+      <td>Ian</td>
+      <td>29</td>
+      <td>55000.0</td>
     </tr>
   </tbody>
 </table>
@@ -1061,7 +1055,7 @@ memory usage: 228.0 bytes
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(73000.0)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(72000.0)
 </pre></div>
 </div>
 </div>
@@ -1100,33 +1094,33 @@ memory usage: 228.0 bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>Jacqueline</td>
-      <td>43</td>
-      <td>86000.0</td>
+      <td>Lawrence</td>
+      <td>28</td>
+      <td>51000.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Lisa</td>
-      <td>34</td>
-      <td>73000.0</td>
+      <td>Jeffrey</td>
+      <td>24</td>
+      <td>72000.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Douglas</td>
-      <td>28</td>
-      <td>73000.0</td>
+      <td>Ryan</td>
+      <td>31</td>
+      <td>72000.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Tracy</td>
-      <td>61</td>
-      <td>73000.0</td>
+      <td>Elizabeth</td>
+      <td>30</td>
+      <td>72000.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>William</td>
-      <td>60</td>
-      <td>77000.0</td>
+      <td>Ian</td>
+      <td>29</td>
+      <td>55000.0</td>
     </tr>
   </tbody>
 </table>
@@ -1182,33 +1176,33 @@ memory usage: 228.0 bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>Jacqueline</td>
-      <td>43.0</td>
-      <td>86000.0</td>
+      <td>Lawrence</td>
+      <td>28.0</td>
+      <td>51000.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Lisa</td>
-      <td>34.0</td>
-      <td>72000.0</td>
+      <td>Jeffrey</td>
+      <td>24.0</td>
+      <td>49000.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Douglas</td>
-      <td>28.0</td>
-      <td>53500.0</td>
+      <td>Ryan</td>
+      <td>31.0</td>
+      <td>54500.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Tracy</td>
-      <td>61.0</td>
-      <td>77500.0</td>
+      <td>Elizabeth</td>
+      <td>30.0</td>
+      <td>57500.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>William</td>
-      <td>60.0</td>
-      <td>77000.0</td>
+      <td>Ian</td>
+      <td>29.0</td>
+      <td>55000.0</td>
     </tr>
   </tbody>
 </table>

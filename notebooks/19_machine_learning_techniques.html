@@ -181,14 +181,7 @@
 <li class="toctree-l1"><a class="reference internal" href="12_clustering.html">Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12b_clustering_beyond_the_basics.html">Clustering beyond the basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="13_introduction_outlier_detection.html">Outlier Detection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_dimensionality_reduction.html">Why high dimensions are hard, or: the curse of dimensionality</a></li>
-
-
-
-
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="14_dimensionality_reduction.html">Dimensionality Reduction</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning (Basics)</span></p>
 <ul class="current nav bd-sidenav">
@@ -205,6 +198,7 @@
 <li class="toctree-l1"><a class="reference internal" href="22_NLP_2_tokenization.html">From Text to Tokens</a></li>
 <li class="toctree-l1"><a class="reference internal" href="23_NLP_3_tfifd_and_machine_learning.html">Computing with Text: Counting words</a></li>
 <li class="toctree-l1"><a class="reference internal" href="24_NLP_4_ngrams_word_vectors.html">Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_NLP_5_embeddings.html">Embeddings</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the Networks</span></p>
 <ul class="nav bd-sidenav">
@@ -4225,7 +4219,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">dict</td>
-           <td>{&#x27;me...me&#x27;: array([0.0056..., 0.00500159]), &#x27;me...me&#x27;: array([0.0048..., 0.00555487]), &#x27;me...re&#x27;: array([0.7984..., 0.70877491]), &#x27;me...re&#x27;: array([0.9121..., 0.73184133]), ...}</td>
+           <td>{&#x27;me...me&#x27;: array([0.0048..., 0.00483694]), &#x27;me...me&#x27;: array([0.0040..., 0.00529151]), &#x27;me...re&#x27;: array([0.7984..., 0.70877491]), &#x27;me...re&#x27;: array([0.9121..., 0.73184133]), ...}</td>
 
 
        </tr>
@@ -4316,7 +4310,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">float</td>
-           <td>0.004744</td>
+           <td>0.004551</td>
 
 
        </tr>
@@ -5221,10 +5215,10 @@ forceTheme('sk-container-id-2');</script></body></div></div>
   <tbody>
     <tr>
       <th>1</th>
-      <td>0.005256</td>
-      <td>0.000463</td>
-      <td>0.004386</td>
-      <td>0.000064</td>
+      <td>0.004671</td>
+      <td>0.000070</td>
+      <td>0.003975</td>
+      <td>0.000031</td>
       <td>3</td>
       <td>{'model__n_neighbors': 3}</td>
       <td>0.788644</td>
@@ -5245,10 +5239,10 @@ forceTheme('sk-container-id-2');</script></body></div></div>
     </tr>
     <tr>
       <th>0</th>
-      <td>0.005630</td>
-      <td>0.000710</td>
-      <td>0.004817</td>
-      <td>0.000643</td>
+      <td>0.004867</td>
+      <td>0.000305</td>
+      <td>0.004021</td>
+      <td>0.000185</td>
       <td>2</td>
       <td>{'model__n_neighbors': 2}</td>
       <td>0.794953</td>
@@ -5269,10 +5263,10 @@ forceTheme('sk-container-id-2');</script></body></div></div>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.005203</td>
-      <td>0.000322</td>
-      <td>0.004414</td>
-      <td>0.000054</td>
+      <td>0.004782</td>
+      <td>0.000106</td>
+      <td>0.004228</td>
+      <td>0.000234</td>
       <td>4</td>
       <td>{'model__n_neighbors': 4}</td>
       <td>0.769716</td>
@@ -9853,7 +9847,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">Tree</td>
-           <td>&lt;sklearn.tree...x7f7d04f2c730&gt;</td>
+           <td>&lt;sklearn.tree...x7f6fc8614d50&gt;</td>
 
 
        </tr>
@@ -11022,7 +11016,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">DecisionTreeClassifier</td>
-           <td>DecisionTreeC...(max_depth=20)</td>
+           <td>DecisionTreeC...(max_depth=15)</td>
 
 
        </tr>
@@ -11040,7 +11034,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">int64</td>
-           <td>np.int64(12)</td>
+           <td>np.int64(9)</td>
 
 
        </tr>
@@ -11058,7 +11052,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">dict</td>
-           <td>{&#x27;ma...th&#x27;: 20, &#x27;mi...it&#x27;: 2}</td>
+           <td>{&#x27;ma...th&#x27;: 15, &#x27;mi...it&#x27;: 2}</td>
 
 
        </tr>
@@ -11076,7 +11070,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">float64</td>
-           <td>0.9236</td>
+           <td>0.9204</td>
 
 
        </tr>
@@ -11113,7 +11107,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">dict</td>
-           <td>{&#x27;me...me&#x27;: array([0.0063..., 0.0073897 ]), &#x27;me...me&#x27;: array([0.0021..., 0.00211922]), &#x27;me...re&#x27;: array([0.8155..., 0.90336477]), &#x27;me...re&#x27;: array([0.8528..., 0.9734657 ]), ...}</td>
+           <td>{&#x27;me...me&#x27;: array([0.0060..., 0.00681678]), &#x27;me...me&#x27;: array([0.0021..., 0.00194756]), &#x27;me...re&#x27;: array([0.8161..., 0.90336477]), &#x27;me...re&#x27;: array([0.8528..., 0.9734657 ]), ...}</td>
 
 
        </tr>
@@ -11204,7 +11198,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">float</td>
-           <td>0.009857</td>
+           <td>0.009056</td>
 
 
        </tr>
@@ -11231,7 +11225,7 @@ a.param-doc-link::before {
                 </table>
             </details>
         </div>
-    </div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually sk-global" id="sk-estimator-id-16" type="checkbox" ><label for="sk-estimator-id-16" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>best_estimator_: DecisionTreeClassifier</div></div></label><div class="sk-toggleable__content fitted" data-param-prefix="best_estimator___"><pre>DecisionTreeClassifier(max_depth=20)</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually sk-global" id="sk-estimator-id-17" type="checkbox" ><label for="sk-estimator-id-17" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>DecisionTreeClassifier</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.9/modules/generated/sklearn.tree.DecisionTreeClassifier.html">?<span>Documentation for DecisionTreeClassifier</span></a></div></label><div class="sk-toggleable__content fitted" data-param-prefix="best_estimator___">
+    </div></div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually sk-global" id="sk-estimator-id-16" type="checkbox" ><label for="sk-estimator-id-16" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>best_estimator_: DecisionTreeClassifier</div></div></label><div class="sk-toggleable__content fitted" data-param-prefix="best_estimator___"><pre>DecisionTreeClassifier(max_depth=15)</pre></div></div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually sk-global" id="sk-estimator-id-17" type="checkbox" ><label for="sk-estimator-id-17" class="sk-toggleable__label fitted sk-toggleable__label-arrow"><div><div>DecisionTreeClassifier</div></div><div><a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.9/modules/generated/sklearn.tree.DecisionTreeClassifier.html">?<span>Documentation for DecisionTreeClassifier</span></a></div></label><div class="sk-toggleable__content fitted" data-param-prefix="best_estimator___">
         <div class="estimator-table">
             <details>
                 <summary>Parameters</summary>
@@ -11253,7 +11247,7 @@ a.param-doc-link::before {
             max_depth: int, default=None<br><br>The maximum depth of the tree. If None, then nodes are expanded until<br>all leaves are pure or until all leaves contain less than<br>min_samples_split samples.</span>
         </a>
     </td>
-            <td class="value">20</td>
+            <td class="value">15</td>
         </tr>
     
 
@@ -11640,7 +11634,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">Tree</td>
-           <td>&lt;sklearn.tree...x7f7d04d5d8b0&gt;</td>
+           <td>&lt;sklearn.tree...x7f6fc8649920&gt;</td>
 
 
        </tr>
@@ -11869,19 +11863,19 @@ forceTheme('sk-container-id-6');</script></body></div></div>
   </thead>
   <tbody>
     <tr>
-      <th>12</th>
-      <td>0.007469</td>
-      <td>0.000124</td>
-      <td>0.002102</td>
-      <td>0.000031</td>
-      <td>20</td>
+      <th>9</th>
+      <td>0.007090</td>
+      <td>0.000089</td>
+      <td>0.002010</td>
+      <td>0.000020</td>
+      <td>15</td>
       <td>2</td>
-      <td>{'max_depth': 20, 'min_samples_split': 2}</td>
-      <td>0.920455</td>
-      <td>0.903409</td>
+      <td>{'max_depth': 15, 'min_samples_split': 2}</td>
+      <td>0.907197</td>
+      <td>0.907197</td>
       <td>0.946869</td>
-      <td>0.923578</td>
-      <td>0.017879</td>
+      <td>0.920421</td>
+      <td>0.018702</td>
       <td>1</td>
       <td>1.000000</td>
       <td>1.000000</td>
@@ -11890,46 +11884,46 @@ forceTheme('sk-container-id-6');</script></body></div></div>
       <td>0.000000</td>
     </tr>
     <tr>
-      <th>9</th>
-      <td>0.007453</td>
-      <td>0.000079</td>
-      <td>0.002075</td>
-      <td>0.000007</td>
-      <td>15</td>
+      <th>6</th>
+      <td>0.006869</td>
+      <td>0.000015</td>
+      <td>0.001961</td>
+      <td>0.000031</td>
+      <td>10</td>
       <td>2</td>
-      <td>{'max_depth': 15, 'min_samples_split': 2}</td>
+      <td>{'max_depth': 10, 'min_samples_split': 2}</td>
+      <td>0.909091</td>
       <td>0.903409</td>
-      <td>0.907197</td>
-      <td>0.946869</td>
-      <td>0.919158</td>
-      <td>0.019655</td>
+      <td>0.941176</td>
+      <td>0.917892</td>
+      <td>0.016627</td>
       <td>2</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>1.000000</td>
-      <td>0.000000</td>
+      <td>0.990521</td>
+      <td>0.994313</td>
+      <td>0.997159</td>
+      <td>0.993998</td>
+      <td>0.002719</td>
     </tr>
     <tr>
-      <th>13</th>
-      <td>0.007419</td>
-      <td>0.000107</td>
-      <td>0.002122</td>
-      <td>0.000032</td>
-      <td>20</td>
+      <th>10</th>
+      <td>0.006968</td>
+      <td>0.000058</td>
+      <td>0.001957</td>
+      <td>0.000030</td>
+      <td>15</td>
       <td>5</td>
-      <td>{'max_depth': 20, 'min_samples_split': 5}</td>
+      <td>{'max_depth': 15, 'min_samples_split': 5}</td>
       <td>0.912879</td>
-      <td>0.901515</td>
-      <td>0.939279</td>
-      <td>0.917891</td>
-      <td>0.015819</td>
+      <td>0.897727</td>
+      <td>0.937381</td>
+      <td>0.915996</td>
+      <td>0.016338</td>
       <td>3</td>
       <td>0.989573</td>
       <td>0.985782</td>
-      <td>0.988636</td>
-      <td>0.987997</td>
-      <td>0.001612</td>
+      <td>0.987689</td>
+      <td>0.987682</td>
+      <td>0.001548</td>
     </tr>
   </tbody>
 </table>
@@ -11953,10 +11947,10 @@ Here, however, we will now do another cross-validation run to illustrate what th
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;fit_time&#39;: array([0.01026797, 0.00948572, 0.00966835, 0.00928092, 0.00993299,
-        0.00945187, 0.00954342, 0.01014066, 0.00977373, 0.00946069]),
- &#39;score_time&#39;: array([0.00430775, 0.0040679 , 0.00396633, 0.00392938, 0.00394678,
-        0.00395989, 0.00398159, 0.00394797, 0.00389218, 0.00396109]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;fit_time&#39;: array([0.01031709, 0.00884414, 0.0093348 , 0.00917959, 0.00953269,
+        0.00908089, 0.00913954, 0.00974727, 0.00941896, 0.00892997]),
+ &#39;score_time&#39;: array([0.0042038 , 0.0037694 , 0.00380731, 0.0037396 , 0.0038619 ,
+        0.00369143, 0.00382447, 0.00389886, 0.00365567, 0.00367618]),
  &#39;test_accuracy&#39;: array([0.94339623, 0.93081761, 0.93710692, 0.91772152, 0.89873418,
         0.92405063, 0.92405063, 0.90506329, 0.94936709, 0.93037975]),
  &#39;test_f1_macro&#39;: array([0.93997462, 0.93043011, 0.93587503, 0.9171811 , 0.89191806,

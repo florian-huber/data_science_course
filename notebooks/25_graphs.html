@@ -52,7 +52,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Visualizing Graphs" href="26_graph_visualization.html" />
-    <link rel="prev" title="Beyond Counting Individual Words: N-grams" href="24_NLP_4_ngrams_word_vectors.html" />
+    <link rel="prev" title="Embeddings" href="25_NLP_5_embeddings.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -181,14 +181,7 @@
 <li class="toctree-l1"><a class="reference internal" href="12_clustering.html">Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12b_clustering_beyond_the_basics.html">Clustering beyond the basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="13_introduction_outlier_detection.html">Outlier Detection</a></li>
-<li class="toctree-l1"><a class="reference internal" href="14_dimensionality_reduction.html">Why high dimensions are hard, or: the curse of dimensionality</a></li>
-
-
-
-
-
-
-
+<li class="toctree-l1"><a class="reference internal" href="14_dimensionality_reduction.html">Dimensionality Reduction</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning (Basics)</span></p>
 <ul class="nav bd-sidenav">
@@ -205,6 +198,7 @@
 <li class="toctree-l1"><a class="reference internal" href="22_NLP_2_tokenization.html">From Text to Tokens</a></li>
 <li class="toctree-l1"><a class="reference internal" href="23_NLP_3_tfifd_and_machine_learning.html">Computing with Text: Counting words</a></li>
 <li class="toctree-l1"><a class="reference internal" href="24_NLP_4_ngrams_word_vectors.html">Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_NLP_5_embeddings.html">Embeddings</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the Networks</span></p>
 <ul class="current nav bd-sidenav">
@@ -492,7 +486,7 @@
 <figure class="align-default" id="fig-graphs01">
 <img alt="../_images/fig_graphs_types_weighted_directed.png" src="../_images/fig_graphs_types_weighted_directed.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 44 </span><span class="caption-text">Graphs come in different types or flavors. Key distinctions to make are whether or not links are directed or undirected. And whether or not link are weighted.</span><a class="headerlink" href="#fig-graphs01" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 45 </span><span class="caption-text">Graphs come in different types or flavors. Key distinctions to make are whether or not links are directed or undirected. And whether or not link are weighted.</span><a class="headerlink" href="#fig-graphs01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In the simplest form of a graph, we have unweighted and undirected edges, but real-world graphs often feature directed and/or weighted edges.</p>
@@ -500,7 +494,7 @@
 <figure class="align-default" id="fig-graphs02">
 <img alt="../_images/fig_graphs_types_weighted_directed_degree.png" src="../_images/fig_graphs_types_weighted_directed_degree.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 45 </span><span class="caption-text">The degree describes the number of links of a particular node. For directed graphs we distinguish in-degree and out-degree.</span><a class="headerlink" href="#fig-graphs02" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 46 </span><span class="caption-text">The degree describes the number of links of a particular node. For directed graphs we distinguish in-degree and out-degree.</span><a class="headerlink" href="#fig-graphs02" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The standard library in Python for working with graphs is <code class="docutils literal notranslate"><span class="pre">networkx</span></code>. Comprehensive documentation is available at this link: https://networkx.org/documentation/latest/_downloads/networkx_reference.pdf.</p>
@@ -635,7 +629,7 @@ To initiate a directed graph we can use <code class="docutils literal notranslat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/26406e97a1d41f59809df27fe59fc6a7d72b371d709c5b8733d0735692cabb2e.png" src="../_images/26406e97a1d41f59809df27fe59fc6a7d72b371d709c5b8733d0735692cabb2e.png" />
+<img alt="../_images/af033890c49334305c67ca64c6b73728f3259bd543ab2a23b0908e1acb98ac52.png" src="../_images/af033890c49334305c67ca64c6b73728f3259bd543ab2a23b0908e1acb98ac52.png" />
 </div>
 </div>
 <p>We see that some nodes have more connections (up to three in this example), while others have fewer connections, such as the node “Alice” with only one edge to another node (“Peter”).
@@ -806,7 +800,7 @@ Density = 0.6
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/90ddb628ebc63b157e12e56de1f5d74871da1c760179d1093e4700ec03323853.png" src="../_images/90ddb628ebc63b157e12e56de1f5d74871da1c760179d1093e4700ec03323853.png" />
+<img alt="../_images/0057f84ebb1e09fba04bad330dded1feff38376e4d9df038d1331bfb4caf3b73.png" src="../_images/0057f84ebb1e09fba04bad330dded1feff38376e4d9df038d1331bfb4caf3b73.png" />
 </div>
 </div>
 <p>Using networkx this can be tested very easily:</p>
@@ -842,7 +836,7 @@ Density = 0.6
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/461f8f12bb76ca94180bd0e907c91beeef3bbfc0b6d43a0a636a0f875a4ec332.png" src="../_images/461f8f12bb76ca94180bd0e907c91beeef3bbfc0b6d43a0a636a0f875a4ec332.png" />
+<img alt="../_images/7717da8b446fb78f51af3f16c73667b187d00dc8049de31316fac6b93d368327.png" src="../_images/7717da8b446fb78f51af3f16c73667b187d00dc8049de31316fac6b93d368327.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -856,7 +850,7 @@ Density = 0.6
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/ac9e3fb8b171c6fcaa7c16fe9d308e4da6739d199e7601c2bc9fbd6f2507418b.png" src="../_images/ac9e3fb8b171c6fcaa7c16fe9d308e4da6739d199e7601c2bc9fbd6f2507418b.png" />
+<img alt="../_images/adc148cf0d3c476aa6460ec282b2068799fd403fe5dfa9ae81bd463b71cfa740.png" src="../_images/adc148cf0d3c476aa6460ec282b2068799fd403fe5dfa9ae81bd463b71cfa740.png" />
 </div>
 </div>
 </section>
@@ -904,12 +898,12 @@ Density = 0.6
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="24_NLP_4_ngrams_word_vectors.html"
+       href="25_NLP_5_embeddings.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Beyond Counting Individual Words: N-grams</p>
+        <p class="prev-next-title">Embeddings</p>
       </div>
     </a>
     <a class="right-next"

@@ -1,0 +1,1568 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Embeddings &#8212; Hands-on Introduction to Data Science with Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/25_NLP_5_embeddings';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Networks / Graph Theory" href="25_graphs.html" />
+    <link rel="prev" title="Beyond Counting Individual Words: N-grams" href="24_NLP_4_ngrams_word_vectors.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-light" alt="Hands-on Introduction to Data Science with Python - Home"/>
+    <img src="../_static/data_science_cover_illustration_logo.png" class="logo__image only-dark pst-js-only" alt="Hands-on Introduction to Data Science with Python - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Hands-on Introduction to Data Science with Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/01_intro.html">Introduction to this book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/02_what_is_data_science.html">What is Data Science?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/03_data_science_ethics_society.html">Data Science, Ethics, and Society</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/04_use_of_this_book.html">How to use this book (… if you ask us)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">From Data to Knowledge</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/05_data_and_types.html">Data and Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/06_data_acquisition.html">Data Acquisition – Where Do We Get Our Data?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/07_data_information_knowledge.html">Data - Information - Knowledge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/08_data_science_workflow.html">Data Science Workflow</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">First Data Exploration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="09_data_preparation.html">Data Cleaning and Preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_distributions_statistical_measures.html">Statistical Measures and Distributions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">In-depth Data Exploration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="11_correlation_analysis.html">Correlation Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_clustering.html">Clustering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12b_clustering_beyond_the_basics.html">Clustering beyond the basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_introduction_outlier_detection.html">Outlier Detection</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_dimensionality_reduction.html">Dimensionality Reduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning (Basics)</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="15_machine_learning.html">Supervised Machine Learning - Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_machine_learning_algorithms.html">Common Algorithms - k-Nearest Neighbors (k-NN)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_machine_learning_algorithms_2.html">Common Algorithms II - Linear Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_machine_learning_algorithms_3.html">Common Algorithms III - Decision Trees</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_machine_learning_techniques.html">Supervised Machine Learning - Key Techniques</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_machine_learning_ensembles.html">Ensemble Models and Outlook</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Working with Text Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="21_working_with_text_data.html">Natural Language Processing (NLP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_NLP_2_tokenization.html">From Text to Tokens</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_NLP_3_tfifd_and_machine_learning.html">Computing with Text: Counting words</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_NLP_4_ngrams_word_vectors.html">Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Embeddings</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the Networks</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="25_graphs.html">Networks / Graph Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_graph_visualization.html">Visualizing Graphs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="27_graphs_communities.html">Bottlenecks, Hubs, Communities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Next Steps</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="outlook.html">What are the next steps?</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">References</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/acknowledgements.html">Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book/references.html">Complete Bibliography</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Source Code and Contributions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../book/github.html">Source Code on GitHub</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/florian-huber/data_science_course/main?urlpath=lab/tree/notebooks/25_NLP_5_embeddings.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/florian-huber/data_science_course/blob/main/notebooks/25_NLP_5_embeddings.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/florian-huber/data_science_course" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/25_NLP_5_embeddings.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Embeddings</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word-vectors-word2vec-and-co">Word Vectors: Word2Vec and Co</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#word2vec">Word2Vec</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#umap-of-words">Umap of words</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-word-to-document-embeddings">From Word to Document-Embeddings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-short-cuts">Alternative short-cuts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-and-more-powerful-alternatives">Limitations and More Powerful Alternatives</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-nlp">More on NLP</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="embeddings">
+<h1>Embeddings<a class="headerlink" href="#embeddings" title="Link to this heading">#</a></h1>
+<section id="word-vectors-word2vec-and-co">
+<h2>Word Vectors: Word2Vec and Co<a class="headerlink" href="#word-vectors-word2vec-and-co" title="Link to this heading">#</a></h2>
+<p><strong>Tfidf vectors</strong> are a rather basic, but still often used, technique. Arguably, this is because they are based on relatively simple statistics and easy to compute. They typically do a good job in weighing words according to their importance in a larger corpus and allow us to ignore words with low <em>distriminative power</em> (for instance so-called <em>stopwords</em> such as “a”, “the”, “that”, …).</p>
+<p>With <strong>n-grams</strong> we can even go one step further and also count sentence pieces longer than one word. With n-grams our models can identify important word combinations such as negations (“do not like”), comparatives, or specific expressions (“the best”) into account. The price, however, is that we have to restrict the number of n-grams to avoid exploding vector sizes.</p>
+<p>TF-IDF vectors and n-grams serve as powerful techniques to represent and manipulate text data, but they have limitations. These methods treat words, or tiny groups of words, as individual, isolated units, devoid of any context or relation to other words. In other words, they cannot capture the semantic meanings of words and the linguistic context in which they are used.</p>
+<p>Take these two sentences as an example:</p>
+<p>(1) <em>The customer likes cake with a cappuccino.</em><br />
+(2) <em>The client loves to have a cookie and a coffee.</em></p>
+<p>We will immediately identify that both sentences speak of very similar things. But if you look at the words in both sentences you will realize that only <em>“The”</em> and <em>“a”</em> are found in both. And, as we have seen in the tfidf-part, such words tell very little about the sentence content. All other words, however, only occur in one or the other sentence. Tfidf-vectors would compute a zero similarity here.</p>
+<p>This is where we come to <strong>word vectors</strong>. Word vectors, also known as <strong>word embeddings</strong>, are mathematical representations of words in a high-dimensional space where the semantic similarity between words corresponds to the geometric distance in the embedding space. Simply put, similar words are close together, and dissimilar words are farther apart. If done well, this should show that <em>“cookie”</em> and <em>“cake”</em> are not the same word, but mean something very related.</p>
+<p>The most prominent example of such a technique is <strong>Word2Vec</strong> <span class="bibtex-citation" id="id1">[<a class="reference internal" href="../book/references.html#id68" title="Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, and Jeffrey Dean. Distributed Representations of Words and Phrases and their Compositionality. October 2013. arXiv:1310.4546 [cs, stat]. URL: http://arxiv.org/abs/1310.4546 (visited on 2023-06-12), doi:10.48550/arXiv.1310.4546.">Mikolov <em>et al.</em>, 2013</a>]</span><span class="bibtex-citation" id="id2">[<a class="reference internal" href="../book/references.html#id69" title="Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. Efficient Estimation of Word Representations in Vector Space. September 2013. arXiv:1301.3781 [cs]. URL: http://arxiv.org/abs/1301.3781 (visited on 2023-06-12), doi:10.48550/arXiv.1301.3781.">Mikolov <em>et al.</em>, 2013</a>]</span>.</p>
+<section id="word2vec">
+<h3>Word2Vec<a class="headerlink" href="#word2vec" title="Link to this heading">#</a></h3>
+<p>The fundamental idea behind Word2Vec is to use the context in which words appear to learn their meanings. As shown in the <a class="reference internal" href="#fig-word2vec-sliding-window"><span class="std std-numref">Fig. 42</span></a>, a sliding window of a fixed size (here, 5) moves over the sentence</p>
+<blockquote>
+<div><p>“The customer likes cake with a cappuccino.”</p>
+</div></blockquote>
+<p>At each position, the algorithm selects the central word as <strong>target</strong> treats the remaining words in the window as its <strong>context</strong>. For example, in the phrase “the customer likes,” the target word is “the,” and the context words are “customer” and “likes.” This process is repeated for each possible position in the sentence.</p>
+<p>These word-context pairs are fed into the Word2Vec model, which learns to map each word to a unique vector in such a way that words appearing in similar contexts have similar vectors. This vector representation captures semantic similarities, meaning that words with similar meanings or usages are positioned closer together in the vector space. Word2Vec thereby enables various applications such as sentiment analysis, machine translation, and recommendation systems by providing a mathematical representation of words that reflects their meanings and relationships.</p>
+<figure class="align-default" id="fig-word2vec-sliding-window">
+<img alt="../_images/fig_word2vec_sliding_window.png" src="../_images/fig_word2vec_sliding_window.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 42 </span><span class="caption-text">Techniques such as Word2Vec learn vector representations of individual words based on their “context”, which is given by the neighboring words.</span><a class="headerlink" href="#fig-word2vec-sliding-window" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Word2Vec models can be trained using two main methods: Continuous Bag of Words (CBOW) and Skip-Gram. In CBOW, the model predicts a target word based on its surrounding context words, focusing on understanding the word’s context to infer its meaning (see <a class="reference internal" href="#fig-nlp-word2vec"><span class="std std-numref">Fig. 43</span></a>). Conversely, the Skip-Gram model predicts the surrounding context words given a target word, emphasizing the ability to generate context from a single word <span class="bibtex-citation" id="id3">[<a class="reference internal" href="../book/references.html#id68" title="Tomas Mikolov, Ilya Sutskever, Kai Chen, Greg Corrado, and Jeffrey Dean. Distributed Representations of Words and Phrases and their Compositionality. October 2013. arXiv:1310.4546 [cs, stat]. URL: http://arxiv.org/abs/1310.4546 (visited on 2023-06-12), doi:10.48550/arXiv.1310.4546.">Mikolov <em>et al.</em>, 2013</a>]</span><span class="bibtex-citation" id="id4">[<a class="reference internal" href="../book/references.html#id69" title="Tomas Mikolov, Kai Chen, Greg Corrado, and Jeffrey Dean. Efficient Estimation of Word Representations in Vector Space. September 2013. arXiv:1301.3781 [cs]. URL: http://arxiv.org/abs/1301.3781 (visited on 2023-06-12), doi:10.48550/arXiv.1301.3781.">Mikolov <em>et al.</em>, 2013</a>]</span>.</p>
+<figure class="align-default" id="fig-nlp-word2vec">
+<img alt="../_images/fig_nlp_word2vec.png" src="../_images/fig_nlp_word2vec.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 43 </span><span class="caption-text">The aim of a Word2Vec model is typically to learn vector representations of individual words based on some context words. This is done in such a way that the very large (and very sparse) input vectors are converted into highly compressed float vectors. In this example figure, the context words are “cherry”, “is”, “and”, “sweet”, and the target word would be “red”.</span><a class="headerlink" href="#fig-nlp-word2vec" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sb</span>
+
+<span class="c1"># Set the ggplot style</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;ggplot&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="admonition hide above-input">
+<summary aria-label="Toggle hidden content">
+<p class="collapsed admonition-title">Show code cell source</p>
+<p class="expanded admonition-title">Hide code cell source</p>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This code block downloads the data from zenodo and stores it in a local &#39;datasets&#39; folder.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">download_from_zenodo</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">save_path</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Downloads a file from a given Zenodo link and saves it to the specified path.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - url: The Zenodo link to the file to be downloaded.</span>
+<span class="sd">    - save_path: Path where the file should be saved.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Check if the file already exists</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">save_path</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File </span><span class="si">{</span><span class="n">save_path</span><span class="si">}</span><span class="s2"> already exists. Skipping download.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_path</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">iter_content</span><span class="p">(</span><span class="n">chunk_size</span><span class="o">=</span><span class="mi">8192</span><span class="p">):</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File downloaded successfully and saved to </span><span class="si">{</span><span class="n">save_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># Zenodo link to the dataset</span>
+<span class="n">zenodo_link</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;https://zenodo.org/records/21107801/files/reviews_madrid_40k.csv?download=1&quot;</span>
+
+<span class="c1"># Path to save the downloaded dataset (you can modify this as needed)</span>
+<span class="n">output_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;..&quot;</span><span class="p">,</span> <span class="s2">&quot;datasets&quot;</span><span class="p">,</span> <span class="s2">&quot;reviews_madrid_40k.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create directory if it doesn&#39;t exist</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">output_path</span><span class="p">),</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Download the dataset</span>
+<span class="n">download_from_zenodo</span><span class="p">(</span><span class="n">zenodo_link</span><span class="p">,</span> <span class="n">output_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>File ../datasets/reviews_madrid_40k.csv already exists. Skipping download.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;../datasets/reviews_madrid_40k.csv&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rating_review</th>
+      <th>title_review</th>
+      <th>review_full</th>
+      <th>date</th>
+      <th>city</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>Friendly fakey</td>
+      <td>'Vegetable Korma' was really just a bland yell...</td>
+      <td>March 12, 2013</td>
+      <td>Madrid</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>Great value &amp; home made.</td>
+      <td>A typical restaurant/bar very popular with loc...</td>
+      <td>February 15, 2018</td>
+      <td>Madrid</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Great salmon! Big serving.</td>
+      <td>Though the place looks a bit old and some of t...</td>
+      <td>September 27, 2013</td>
+      <td>Madrid</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>Apauling management</td>
+      <td>My boyfriend and I came here for a birthday lu...</td>
+      <td>September 10, 2015</td>
+      <td>Madrid</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>Poor Service, paella was not prepared properly...</td>
+      <td>It is almost impossible to get a bad meal in M...</td>
+      <td>October 6, 2015</td>
+      <td>Madrid</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(40000, 5)
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see, we have a pretty extensive dataset with many different restaurant reviews, our documents (<code class="docutils literal notranslate"><span class="pre">review_full</span></code>), as well as ratings (<code class="docutils literal notranslate"><span class="pre">rating_review</span></code>). We will use both of them in the following part. Let’s first check a few random examples of our reviews, just to get a first idea of how the data looks like.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">review_full</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;&#39;Vegetable Korma&#39; was really just a bland yellow curry?frozen peas &amp; carrots, turmeric, milk, maybe a bit of onion. Papadums OK. Others said other dishes were fine. But all lacked the odors of the many spices I&#39;ve come to expect from India.&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
+
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">tokenize</span><span class="o">.</span><span class="n">TreebankWordTokenizer</span><span class="p">()</span>
+<span class="n">stemmer</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">stem</span><span class="o">.</span><span class="n">WordNetLemmatizer</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">process_document</span><span class="p">(</span><span class="n">doc</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert document to lemmas.&quot;&quot;&quot;</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="n">tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot;.,;:!? &quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">]</span>
+    <span class="n">tokens</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">tokens</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">stemmer</span><span class="o">.</span><span class="n">lemmatize</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The entire text will be divided into sentences, that will be our “documents” in Word2vec terms. To reduce the computation time we will only use a fraction of the sentences, but feel free to repeat the following code parts with all sentences.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">tqdm.notebook</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span><span class="n">process_document</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">review_full</span><span class="o">.</span><span class="n">values</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "3e6019d8899c40cdaf42bcd68571d596"}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">sentences</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>40000
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s inspect how our documents, or sentences, actually look like after the data processing:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sentences</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&quot;&#39;Vegetable&quot;, &#39;Korma&#39;, &quot;&#39;&quot;, &#39;wa&#39;, &#39;really&#39;, &#39;just&#39;, &#39;a&#39;, &#39;bland&#39;, &#39;yellow&#39;, &#39;curry&#39;, &#39;frozen&#39;, &#39;pea&#39;, &#39;&amp;&#39;, &#39;carrot&#39;, &#39;turmeric&#39;, &#39;milk&#39;, &#39;maybe&#39;, &#39;a&#39;, &#39;bit&#39;, &#39;of&#39;, &#39;onion&#39;, &#39;Papadums&#39;, &#39;OK&#39;, &#39;Others&#39;, &#39;said&#39;, &#39;other&#39;, &#39;dish&#39;, &#39;were&#39;, &#39;fine&#39;, &#39;But&#39;, &#39;all&#39;, &#39;lacked&#39;, &#39;the&#39;, &#39;odor&#39;, &#39;of&#39;, &#39;the&#39;, &#39;many&#39;, &#39;spice&#39;, &#39;I&#39;, &quot;&#39;ve&quot;, &#39;come&#39;, &#39;to&#39;, &#39;expect&#39;, &#39;from&#39;, &#39;India&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will now train our own Word2Vec model using <code class="docutils literal notranslate"><span class="pre">Gensim</span></code>, see also <a class="reference external" href="https://radimrehurek.com/gensim/models/word2vec.html#usage-examples">documentation</a>.<br />
+In addition to the text corpus (in our case: <code class="docutils literal notranslate"><span class="pre">sentences</span></code>), we should at least specify the desired embedding size (<code class="docutils literal notranslate"><span class="pre">vector_size</span></code>) and the context window (<code class="docutils literal notranslate"><span class="pre">window</span></code>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">gensim.models</span><span class="w"> </span><span class="kn">import</span> <span class="n">Word2Vec</span>
+
+<span class="c1"># Assume &#39;sentences&#39; is a list of lists of tokenized sentences</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Word2Vec</span><span class="p">(</span>
+    <span class="n">sentences</span><span class="p">,</span>
+    <span class="n">vector_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+    <span class="n">window</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+    <span class="n">min_count</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">workers</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In particular when we work with very large text corpora, training models such as Word2Vec can be time consuming. Usually, we therefore want to save the trained models for later re-use.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># model.save(&quot;word2vec_madrid_reviews.model&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="p">[</span><span class="s1">&#39;delicious&#39;</span><span class="p">]</span>  <span class="c1"># get numpy vector of a word</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># just to get an idea how these vectors look like</span>
+<span class="n">vector</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.2212195 , -0.66019523,  1.1963056 , -0.16426848,  0.3946547 ,
+        0.37437078, -2.686645  ,  1.9300647 , -0.5309763 , -0.2045296 ,
+        0.70793724,  1.5923969 , -2.1450646 , -0.7642242 , -1.5025655 ,
+       -2.6661801 ,  0.9330037 , -2.1544676 , -1.1510154 , -0.52902454],
+      dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s now have a look at what work similarities we can get from the Word2Vec model that we just trained on the above sentences.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="s1">&#39;delicious&#39;</span><span class="p">,</span> <span class="n">topn</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;tasty&#39;, 0.8306624293327332),
+ (&#39;yummy&#39;, 0.8113247752189636),
+ (&#39;fantastic&#39;, 0.804166853427887),
+ (&#39;amazing&#39;, 0.7822973132133484),
+ (&#39;incredible&#39;, 0.7718956470489502),
+ (&#39;fabulous&#39;, 0.7561768889427185),
+ (&#39;superb&#39;, 0.755753219127655),
+ (&#39;outstanding&#39;, 0.7289324998855591),
+ (&#39;awesome&#39;, 0.7223183512687683),
+ (&#39;excellent&#39;, 0.7218221426010132)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="s1">&#39;pizza&#39;</span><span class="p">,</span> <span class="n">topn</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;burger&#39;, 0.8233067989349365),
+ (&#39;sushi&#39;, 0.7474636435508728),
+ (&#39;hamburger&#39;, 0.7395260334014893),
+ (&#39;paella&#39;, 0.7154074311256409),
+ (&#39;pasta&#39;, 0.689720630645752),
+ (&#39;sandwich&#39;, 0.6896101236343384),
+ (&#39;ramen&#39;, 0.6865301132202148),
+ (&#39;topping&#39;, 0.6710342168807983),
+ (&#39;veggie&#39;, 0.661179780960083),
+ (&#39;meat&#39;, 0.6558374166488647)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="s1">&#39;horrible&#39;</span><span class="p">,</span> <span class="n">topn</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;awful&#39;, 0.9041618704795837),
+ (&#39;terrible&#39;, 0.882222056388855),
+ (&#39;okay&#39;, 0.7705864906311035),
+ (&#39;alright&#39;, 0.7463761568069458),
+ (&#39;appalling&#39;, 0.7411492466926575),
+ (&#39;OK&#39;, 0.7409698367118835),
+ (&#39;disgusting&#39;, 0.7354027628898621),
+ (&#39;exceptional&#39;, 0.7260152697563171),
+ (&#39;spectacular&#39;, 0.7257086038589478),
+ (&#39;bad&#39;, 0.7110033631324768)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="s1">&#39;friendly&#39;</span><span class="p">,</span> <span class="n">topn</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;attentive&#39;, 0.8589848279953003),
+ (&#39;welcoming&#39;, 0.8211615681648254),
+ (&#39;courteous&#39;, 0.807298481464386),
+ (&#39;helpful&#39;, 0.8053763508796692),
+ (&#39;professional&#39;, 0.8016655445098877),
+ (&#39;polite&#39;, 0.8003712892532349),
+ (&#39;accommodating&#39;, 0.7409184575080872),
+ (&#39;efficient&#39;, 0.7395914196968079),
+ (&#39;personable&#39;, 0.6994585990905762),
+ (&#39;gracious&#39;, 0.6899521946907043)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="s1">&#39;chocolate&#39;</span><span class="p">,</span> <span class="n">topn</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;cake&#39;, 0.8937661647796631),
+ (&#39;strawberry&#39;, 0.8563712239265442),
+ (&#39;lemon&#39;, 0.8541326522827148),
+ (&#39;churros&#39;, 0.8488591313362122),
+ (&#39;tea&#39;, 0.8451688885688782),
+ (&#39;mousse&#39;, 0.8407328128814697),
+ (&#39;mango&#39;, 0.8343726396560669),
+ (&#39;brownie&#39;, 0.8312857747077942),
+ (&#39;yogurt&#39;, 0.8283945322036743),
+ (&#39;carrot&#39;, 0.8234522342681885)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="s1">&#39;coffee&#39;</span><span class="p">,</span> <span class="n">topn</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;tea&#39;, 0.7772073745727539),
+ (&#39;croissant&#39;, 0.7390631437301636),
+ (&#39;desert&#39;, 0.7009077668190002),
+ (&#39;snack&#39;, 0.6982337236404419),
+ (&#39;beer&#39;, 0.6967042684555054),
+ (&#39;juice&#39;, 0.6889410018920898),
+ (&#39;soda&#39;, 0.6818888187408447),
+ (&#39;churros&#39;, 0.6805729866027832),
+ (&#39;chocolate&#39;, 0.679759681224823),
+ (&#39;refill&#39;, 0.6503035426139832)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="umap-of-words">
+<h2>Umap of words<a class="headerlink" href="#umap-of-words" title="Link to this heading">#</a></h2>
+<p>The above examples already indicate that our first small Word2Vec model does indeed “learn” meaningful relationships between words. To inspect this a bit more broadly, we can switch back to a technique from earlier chapters: dimensionality reduction. <strong>UMAP</strong> for instance, can be applied on a larger set of word embeddings and reduce them to 2 or 3 dimensions for later visualization.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Choose how many words we should try to visualize</span>
+<span class="n">n_words</span> <span class="o">=</span> <span class="mi">1000</span>   <span class="c1"># or 500</span>
+<span class="n">skip_n_most_frequent</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># those might be boring! (a, the, and....)</span>
+
+<span class="c1"># Get words sorted by frequency in the training corpus</span>
+<span class="c1"># In gensim 4.x, each vocab entry has a `.count` attribute</span>
+<span class="n">most_common_words</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">key_to_index</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span>
+    <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">word</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">get_vecattr</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">),</span>
+    <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># Keep only the top n</span>
+<span class="n">selected_words</span> <span class="o">=</span> <span class="n">most_common_words</span><span class="p">[</span><span class="n">skip_n_most_frequent</span><span class="p">:(</span><span class="n">skip_n_most_frequent</span> <span class="o">+</span> <span class="n">n_words</span><span class="p">)]</span>
+
+<span class="c1"># Extract the corresponding embedding vectors</span>
+<span class="n">word_embeddings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">selected_words</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">word_embeddings</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">selected_words</span><span class="p">[:</span><span class="mi">20</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1000, 100)
+[&#39;about&#39;, &#39;what&#39;, &#39;dinner&#39;, &#39;people&#39;, &#39;went&#39;, &#39;lunch&#39;, &#39;A&#39;, &#39;your&#39;, &#39;other&#39;, &#39;up&#39;, &#39;amazing&#39;, &#39;try&#39;, &#39;no&#39;, &#39;much&#39;, &#39;little&#39;, &#39;small&#39;, &#39;day&#39;, &#39;been&#39;, &#39;could&#39;, &#39;night&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">umap</span><span class="w"> </span><span class="kn">import</span> <span class="n">UMAP</span>
+
+<span class="n">reducer</span> <span class="o">=</span> <span class="n">UMAP</span><span class="p">(</span>
+    <span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+    <span class="n">min_dist</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">X_umap</span> <span class="o">=</span> <span class="n">reducer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">word_embeddings</span><span class="p">)</span>
+<span class="n">X_umap</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(1000, 3)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_umap</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;word&quot;</span><span class="p">:</span> <span class="n">selected_words</span><span class="p">,</span>
+    <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="n">X_umap</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="n">X_umap</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+    <span class="s2">&quot;z&quot;</span><span class="p">:</span> <span class="n">X_umap</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span>
+    <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">get_vecattr</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="s2">&quot;count&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">selected_words</span><span class="p">],</span>
+<span class="p">})</span>
+
+<span class="n">df_umap</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>word</th>
+      <th>x</th>
+      <th>y</th>
+      <th>z</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>about</td>
+      <td>2.747701</td>
+      <td>3.025487</td>
+      <td>-3.314244</td>
+      <td>3889</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>what</td>
+      <td>3.145102</td>
+      <td>3.159736</td>
+      <td>-3.831074</td>
+      <td>3876</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>dinner</td>
+      <td>1.137843</td>
+      <td>3.566895</td>
+      <td>-2.077517</td>
+      <td>3847</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>people</td>
+      <td>1.685968</td>
+      <td>2.972447</td>
+      <td>-3.921936</td>
+      <td>3814</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>went</td>
+      <td>1.873464</td>
+      <td>4.687618</td>
+      <td>-2.287654</td>
+      <td>3814</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_labels</span> <span class="o">=</span> <span class="mi">1000</span>  <span class="c1"># how many small text labels to display (besides the hover option)</span>
+
+<span class="n">df_umap</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="n">df_umap</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="n">n_labels</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_umap</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="n">n_labels</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;word&quot;</span><span class="p">]</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter_3d</span><span class="p">(</span>
+    <span class="n">df_umap</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span>
+    <span class="n">z</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="s2">&quot;label&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span>
+    <span class="n">hover_name</span><span class="o">=</span><span class="s2">&quot;word&quot;</span><span class="p">,</span>
+    <span class="n">hover_data</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;count&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;UMAP projection of </span><span class="si">{</span><span class="n">n_words</span><span class="si">}</span><span class="s2"> most common Word2Vec embeddings&quot;</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">1200</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_traces</span><span class="p">(</span>
+    <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">),</span>
+    <span class="n">textposition</span><span class="o">=</span><span class="s2">&quot;top center&quot;</span><span class="p">,</span>
+    <span class="n">textfont_size</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">df_umap</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">df_umap</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="n">n_labels</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;label&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_umap</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="n">n_labels</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;word&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+<span class="ne">----&gt; </span><span class="mi">6</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter_3d</span><span class="p">(</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="n">df_umap</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span>
+
+<span class="ne">NameError</span>: name &#39;px&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="from-word-to-document-embeddings">
+<h2>From Word to Document-Embeddings<a class="headerlink" href="#from-word-to-document-embeddings" title="Link to this heading">#</a></h2>
+<p>Even though we only trained our <strong>Word2Vec</strong> model on a fairly small corpus (for current NLP standards), we can still have a look at how to move from <strong>word embeddings</strong> to <strong>document embeddings</strong>.</p>
+<p>One big conceptual advantage of word embeddings, in contrast to the TF-IDF vectors from the former chapter, is that Word2Vec is apparently able to identify words of similar meaning. This can potentially address one of the main weaknesses of TF-IDF, as illustrated in <a class="reference internal" href="#fig-nlp-tfidf-vs-embeddings"><span class="std std-numref">Fig. 44</span></a>.</p>
+<figure class="align-default" id="fig-nlp-tfidf-vs-embeddings">
+<img alt="../_images/fig_tfidf_vs_embeddings.jpg" src="../_images/fig_tfidf_vs_embeddings.jpg" />
+<figcaption>
+<p><span class="caption-number">Fig. 44 </span><span class="caption-text">After processing documents (here: sentences) using techniques for tokenization and token normalization, TF-IDF can be used to convert text into numerical vectors. TF-IDF creates very sparse vectors consisting mostly of zeros, and a few values for specific tokens. Relations between different tokens, such as a very related meaning of the words <code class="docutils literal notranslate"><span class="pre">cappuccino</span></code> and <code class="docutils literal notranslate"><span class="pre">coffee</span></code>, however, cannot be accounted for by TF-IDF models. Models such as Word2Vec, in contrast, can learn related context or meaning between words and will produce similar vectors for similar-context words. Those vectors can later also be used to create full document (or sentence-) embeddings.</span><a class="headerlink" href="#fig-nlp-tfidf-vs-embeddings" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">doc1</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;want&quot;</span><span class="p">,</span> <span class="s2">&quot;cake&quot;</span><span class="p">,</span> <span class="s2">&quot;cappuccino&quot;</span><span class="p">]</span>
+<span class="n">doc2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;need&quot;</span><span class="p">,</span> <span class="s2">&quot;cookie&quot;</span><span class="p">,</span> <span class="s2">&quot;coffee&quot;</span><span class="p">]</span>
+
+<span class="n">doc_vec1</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="p">[</span><span class="s2">&quot;want&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="p">[</span><span class="s2">&quot;cake&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="p">[</span><span class="s2">&quot;cappuccino&quot;</span><span class="p">]</span>
+<span class="n">doc_vec2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="p">[</span><span class="s2">&quot;need&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="p">[</span><span class="s2">&quot;cookie&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="p">[</span><span class="s2">&quot;coffee&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics.pairwise</span><span class="w"> </span><span class="kn">import</span> <span class="n">cosine_similarity</span>
+
+<span class="n">cosine_similarity</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">doc_vec1</span><span class="p">],</span> <span class="p">[</span><span class="n">doc_vec2</span><span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.72021705]], dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="alternative-short-cuts">
+<h2>Alternative short-cuts<a class="headerlink" href="#alternative-short-cuts" title="Link to this heading">#</a></h2>
+<p>Training your own Word2Vec model is fun and sometimes also really helpful. Here it is quite OK for instance, because we have a relatively big text corpus (&gt; 140,000 documents) with a clear general topic focus on restaurants and food.</p>
+<p>Often, however, you simply may want to use a model that covers a language more broadly. Instead of training your own model on a much bigger corpus, we can simply use a model that was trained already, see for instance here <a class="reference external" href="https://radimrehurek.com/gensim/models/word2vec.html#usage-examples">on the Gensim website</a>.</p>
+<p>Another way is to use <strong>SpaCy</strong>. Its larger language models already contain word embeddings!
+<strong>SpaCy</strong> provided already trained word embeddings, as documented <a class="reference external" href="https://spacy.io/models/en/">here</a>.
+For the followinc code blocks, we would ideally like to use the larger english model <code class="docutils literal notranslate"><span class="pre">en_core_web_lg</span></code>, but for the online version of this book we will fall back to the much smaller medium-sized model <code class="docutils literal notranslate"><span class="pre">en_core_web_md</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comment out and run the following to first download a large english model</span>
+<span class="c1">#!python -m spacy download en_core_web_lg</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">spacy</span>
+
+<span class="c1">#nlp = spacy.load(&quot;en_core_web_lg&quot;)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;en_core_web_md&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+    <span class="o">!</span>python<span class="w"> </span>-m<span class="w"> </span>spacy<span class="w"> </span>download<span class="w"> </span>en_core_web_md
+    <span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;en_core_web_md&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting en-core-web-md==3.8.0
+  Downloading https://github.com/explosion/spacy-models/releases/download/en_core_web_md-3.8.0/en_core_web_md-3.8.0-py3-none-any.whl (33.5 MB)
+     ---------------------------------------- 0.0/33.5 MB ? eta -:--:--
+     --- ------------------------------------ 2.6/33.5 MB 13.8 MB/s eta 0:00:03
+     ------- -------------------------------- 6.6/33.5 MB 16.8 MB/s eta 0:00:02
+     -------------- ------------------------ 12.1/33.5 MB 19.9 MB/s eta 0:00:02
+     --------------------- ----------------- 18.1/33.5 MB 22.4 MB/s eta 0:00:01
+     ---------------------------- ---------- 24.4/33.5 MB 24.1 MB/s eta 0:00:01
+     ----------------------------------- --- 30.7/33.5 MB 25.0 MB/s eta 0:00:01
+     ---------------------------------------- 33.5/33.5 MB 24.4 MB/s  0:00:01
+Installing collected packages: en-core-web-md
+Successfully installed en-core-web-md-3.8.0
+<span class=" -Color -Color-C2">[+] Download and installation successful</span>
+You can now load the package via spacy.load(&#39;en_core_web_md&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we have seen before, SpaCy converts the text into tokens, but also does much more. We can look at different attributes of the tokens to extract the computed information. For instance:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">.text</span></code>: The original token text.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">has_vector</span></code>: Does the token have a vector representation?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.vector_norm</span></code>: The L2 norm of the token’s vector (the square root of the sum of the values squared)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.is_oov</span></code>: Out-of-vocabulary</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokens</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="s2">&quot;dog cat banana afskfsd&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Token:</span><span class="se">\t\t</span><span class="s2">has_vector</span><span class="se">\t</span><span class="s2">vector_norm</span><span class="se">\t</span><span class="s2">out-of-vocab&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">tokens</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">token</span><span class="o">.</span><span class="n">text</span><span class="si">}</span><span class="se">\t\t</span><span class="si">{</span><span class="n">token</span><span class="o">.</span><span class="n">has_vector</span><span class="si">}</span><span class="se">\t\t</span><span class="si">{</span><span class="n">token</span><span class="o">.</span><span class="n">vector_norm</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="se">\t\t</span><span class="si">{</span><span class="n">token</span><span class="o">.</span><span class="n">is_oov</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Token:		has_vector	vector_norm	out-of-vocab
+dog		True		7.443		False
+cat		True		7.443		False
+banana		True		6.896		False
+afskfsd		False		0.000		True
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">vector</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(300,)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># let us have a look at the vector</span>
+<span class="n">tokens</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">vector</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-0.72483 ,  0.42538 ,  0.025489, -0.39807 ,  0.037463, -0.29811 ,
+       -0.28279 ,  0.29333 ,  0.57775 ,  1.2205  , -0.27903 ,  0.80879 ,
+       -0.71291 ,  0.045808, -0.46751 ,  0.55944 ,  0.42745 ,  0.58238 ,
+        0.20854 , -0.42718 ], dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nlp1</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">review_full</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">nlp2</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">review_full</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nlp1</span><span class="o">.</span><span class="n">similarity</span><span class="p">(</span><span class="n">nlp1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nlp1</span><span class="o">.</span><span class="n">similarity</span><span class="p">(</span><span class="n">nlp2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9306227564811707
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nlp1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Vegetable Korma&#39; was really just a bland yellow curry?frozen peas &amp; carrots, turmeric, milk, maybe a bit of onion. Papadums OK. Others said other dishes were fine. But all lacked the odors of the many spices I&#39;ve come to expect from India.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nlp2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A typical restaurant/bar very popular with locals for their midweek lunchtime &#39;menu del dia&#39;. All fresh food in a traditional style (so much better than a modern &#39;could be anywhere in the world&#39; restaurant). There are no menu&#39;s on the tables though so check the menu outside(available from 1pm ish) before entering as their they wont have menu&#39;s in English. 3 courses incl wine between 10-13euros.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">doc_vectors</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">review_full</span><span class="p">[:</span><span class="mi">1000</span><span class="p">]):</span>
+    <span class="n">doc_vectors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nlp</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span><span class="o">.</span><span class="n">vector</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "457004abf7774d7480abe98b03236e44", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">umap</span><span class="w"> </span><span class="kn">import</span> <span class="n">UMAP</span>
+
+<span class="n">reducer</span> <span class="o">=</span> <span class="n">UMAP</span><span class="p">(</span>
+    <span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
+    <span class="n">min_dist</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="c1">#random_state=123456,</span>
+    <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">X_umap</span> <span class="o">=</span> <span class="n">reducer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">doc_vectors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_plot</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s2">&quot;rating_review&quot;</span><span class="p">,</span> <span class="s2">&quot;title_review&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">1000</span><span class="p">]</span>
+<span class="n">data_plot</span><span class="p">[</span><span class="s2">&quot;review_start&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;review_full&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">1000</span><span class="p">]]</span>
+<span class="n">data_plot</span><span class="p">[[</span><span class="s2">&quot;umap1&quot;</span><span class="p">,</span> <span class="s2">&quot;umap2&quot;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">X_umap</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_plot</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rating_review</th>
+      <th>title_review</th>
+      <th>review_start</th>
+      <th>umap1</th>
+      <th>umap2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>Friendly fakey</td>
+      <td>'Vegetable Korma' was really just a bland yell...</td>
+      <td>5.285711</td>
+      <td>1.802638</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>Great value &amp; home made.</td>
+      <td>A typical restaurant/bar very popular with loc...</td>
+      <td>6.236052</td>
+      <td>3.382683</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>Great salmon! Big serving.</td>
+      <td>Though the place looks a bit old and some of t...</td>
+      <td>5.075050</td>
+      <td>2.009973</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2</td>
+      <td>Apauling management</td>
+      <td>My boyfriend and I came here for a birthday lu...</td>
+      <td>4.617874</td>
+      <td>3.827918</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2</td>
+      <td>Poor Service, paella was not prepared properly...</td>
+      <td>It is almost impossible to get a bad meal in M...</td>
+      <td>4.558860</td>
+      <td>4.384440</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span>
+    <span class="n">data_plot</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;umap1&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;umap2&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;rating_review&quot;</span><span class="p">,</span>
+    <span class="n">hover_name</span><span class="o">=</span><span class="s2">&quot;title_review&quot;</span><span class="p">,</span>
+    <span class="n">hover_data</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;rating_review&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;title_review&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;review_start&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s2">&quot;umap1&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s2">&quot;umap2&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;UMAP projection of Madrid restaurant reviews&quot;</span><span class="p">,</span>
+    <span class="n">width</span><span class="o">=</span><span class="mi">900</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="mi">700</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/45c13e9cbfee4ecec0966093bc660ffc70855b297bb47f0b7cfad103113533e7.png" src="../_images/45c13e9cbfee4ecec0966093bc660ffc70855b297bb47f0b7cfad103113533e7.png" />
+</div>
+</div>
+<section id="limitations-and-more-powerful-alternatives">
+<h3>Limitations and More Powerful Alternatives<a class="headerlink" href="#limitations-and-more-powerful-alternatives" title="Link to this heading">#</a></h3>
+<p>Word2Vec is a powerful tool because it represents words as dense vectors in a semantic space. Instead of treating each word as an isolated dimension in a large vocabulary, as in simple bag-of-words or TF-IDF representations, Word2Vec learns vectors in which words with similar usage patterns tend to appear close to each other. This makes it possible to compare words by similarity, visualize groups of related words, and use word vectors as building blocks for larger text representations.</p>
+<p>For example, word vectors can be combined into simple document vectors by summing or averaging the vectors of all words in a document. These document vectors can then be used for similarity comparisons, clustering, classification, or visualization with dimensionality reduction techniques such as UMAP. This is a useful and intuitive first approach to representing larger pieces of text numerically.</p>
+<p>However, this simple approach also shows one of the central limitations of Word2Vec-based document representations. When word vectors are summed or averaged, the result is essentially a <strong>bag of word embeddings</strong>. The document is represented by the words it contains, but not by the order in which they appear. As a result, important linguistic structures such as negation, syntax, and long-range dependencies are usually not captured well. For example, two sentences with similar words but different meanings may receive similar averaged document vectors.</p>
+<p>Word2Vec also has limitations at the word level. In a standard Word2Vec model, each word has one fixed vector. This becomes problematic for words with multiple meanings, such as <em>apple</em> as a fruit versus <em>Apple</em> as a company. Both meanings are represented by the same vector, even though the intended meaning depends strongly on context.</p>
+<p>These limitations are partly related to how Word2Vec learns from text. During training, it uses neighboring words within a fixed-size window, but it does not directly model the full structure of a sentence, paragraph, or document. It can learn that certain words tend to occur in similar contexts, but it does not truly process text as an ordered sequence. Even extensions such as n-grams can only capture very local patterns, for example distinguishing <em>do not like</em> from <em>do like</em>.</p>
+<p>This is where sequence-aware and context-aware models become important. Recurrent neural networks process text as an ordered sequence, which allows them to learn patterns that depend on word order. <strong>Transformers</strong> go further by allowing words or subword tokens to interact with many other positions in the text <span class="bibtex-citation" id="id5">[<a class="reference internal" href="../book/references.html#id96" title="Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin. Attention is all you need. Advances in neural information processing systems, 2017.">Vaswani <em>et al.</em>, 2017</a>]</span>. This makes it possible to learn relationships across much longer passages and to build representations that are sensitive to context, word order, and more complex linguistic patterns.</p>
+<p>Importantly, modern NLP models do not abandon embeddings. On the contrary, embeddings remain a fundamental building block. Neural language models typically represent words, subwords, sentences, paragraphs, or entire documents internally as vectors. These vectors can then be processed, compared, transformed, and used as input for downstream tasks.</p>
+<p>The major difference is that modern models often produce <strong>contextualized embeddings</strong>. Models such as BERT (Bidirectional Encoder Representations from Transformers) <span class="bibtex-citation" id="id6">[<a class="reference internal" href="../book/references.html#id28" title="Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova. Bert: pre-training of deep bidirectional transformers for language understanding. arXiv preprint arXiv:1810.04805, 2018.">Devlin <em>et al.</em>, 2018</a>]</span> and GPT (Generative Pretrained Transformer) <span class="bibtex-citation" id="id7">[<a class="reference internal" href="../book/references.html#id84" title="Alec Radford, Jeffrey Wu, Rewon Child, David Luan, Dario Amodei, Ilya Sutskever, and others. Language models are unsupervised multitask learners. OpenAI blog, 1(8):9, 2019.">Radford <em>et al.</em>, 2019</a>]</span> do not simply assign one fixed vector to each word. Instead, the representation of a word depends on the surrounding sentence or paragraph. For example, the word <em>apple</em> can receive a different representation in a sentence about fruit than in a sentence about technology companies.</p>
+<p>Modern NLP models also commonly produce embeddings for larger units of text, such as sentences, paragraphs, or documents. These sentence and document embeddings are widely used for semantic search, duplicate detection, recommendation systems, clustering, retrieval-augmented generation, and many other applications. In this sense, simple document vectors created by summing or averaging Word2Vec vectors are an early and intuitive version of a broader idea: representing text as meaningful numerical vectors.</p>
+<p>Working in Python makes it possible to experiment with many of these approaches. Libraries such as <em>huggingface</em> <span class="bibtex-citation" id="id8">[<a class="reference internal" href="../book/references.html#id101" title="Thomas Wolf, Lysandre Debut, Victor Sanh, Julien Chaumond, Clement Delangue, Anthony Moi, Pierric Cistac, Tim Rault, Rémi Louf, Morgan Funtowicz, and others. Huggingface's transformers: state-of-the-art natural language processing. arXiv preprint arXiv:1910.03771, 2019.">Wolf <em>et al.</em>, 2019</a>]</span> provide access to a wide range of transformer models that can generate contextualized word embeddings, sentence embeddings, and document-level representations.</p>
+<p>In conclusion, TF-IDF and n-grams provide a useful starting point for representing text numerically. Word2Vec goes further by learning dense semantic word vectors, and simple combinations of these vectors can already be used to represent documents. However, such representations still often behave like a bag of word embeddings and therefore struggle with word order, negation, syntax, and context-dependent meaning. Modern neural NLP methods, especially transformer-based models, build on the same general principle of vector representations, but make these representations contextual, sequence-aware, and much more powerful.</p>
+</section>
+</section>
+<section id="more-on-nlp">
+<h2>More on NLP<a class="headerlink" href="#more-on-nlp" title="Link to this heading">#</a></h2>
+<p>It should come as no surprise that there is <em>much</em> more to learn about NLP than what was presented in this, and the previous chapters.</p>
+<p>Very good starting points for going deeper are:</p>
+<ul class="simple">
+<li><p>The book “Speech and Language Processing” by Jurafsky and Martin <span class="bibtex-citation" id="id9">[<a class="reference internal" href="../book/references.html#id45" title="Dan Jurafsky and James H Martin. Speech and language processing. 3rd ed. draft. 2024.">Jurafsky and Martin, 2024</a>]</span>, see <a class="reference external" href="https://web.stanford.edu/~jurafsky/slp3/">link to the book</a>.</p></li>
+<li><p>“Natural language processing with transformers” by Tunstall, von Werra, and Wolf <span class="bibtex-citation" id="id10">[<a class="reference internal" href="../book/references.html#id94" title="Lewis Tunstall, Leandro Von Werra, and Thomas Wolf. Natural language processing with transformers. &quot; O'Reilly Media, Inc.&quot;, 2022.">Tunstall <em>et al.</em>, 2022</a>]</span></p></li>
+<li><p>“The Hundred-Page Language Models Book” by Andriy Burkov <span class="bibtex-citation" id="id11">[<a class="reference internal" href="../book/references.html#id19" title="Andriy Burkov. The Hundred-Page Language Models Book: hands-on with PyTorch. True Positive Inc., Quebec, 2025. ISBN 978-1-77804-272-0.">Burkov, 2025</a>]</span></p></li>
+<li><p>Another free online course with Python code material: <a class="reference external" href="https://www.nlplanet.org/course-practical-nlp/">nlp planet</a>.</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="24_NLP_4_ngrams_word_vectors.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Beyond Counting Individual Words: N-grams</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="25_graphs.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Networks / Graph Theory</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word-vectors-word2vec-and-co">Word Vectors: Word2Vec and Co</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#word2vec">Word2Vec</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#umap-of-words">Umap of words</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#from-word-to-document-embeddings">From Word to Document-Embeddings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alternative-short-cuts">Alternative short-cuts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-and-more-powerful-alternatives">Limitations and More Powerful Alternatives</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-on-nlp">More on NLP</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Florian Huber
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Florian Huber.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

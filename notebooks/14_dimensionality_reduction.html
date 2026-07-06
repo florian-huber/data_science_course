@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Why high dimensions are hard, or: the curse of dimensionality &#8212; Hands-on Introduction to Data Science with Python</title>
+    <title>Dimensionality Reduction &#8212; Hands-on Introduction to Data Science with Python</title>
   
   
   
@@ -181,14 +181,7 @@
 <li class="toctree-l1"><a class="reference internal" href="12_clustering.html">Clustering</a></li>
 <li class="toctree-l1"><a class="reference internal" href="12b_clustering_beyond_the_basics.html">Clustering beyond the basics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="13_introduction_outlier_detection.html">Outlier Detection</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Why high dimensions are hard, or: the curse of dimensionality</a></li>
-
-
-
-
-
-
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Dimensionality Reduction</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Supervised Machine Learning (Basics)</span></p>
 <ul class="nav bd-sidenav">
@@ -205,6 +198,7 @@
 <li class="toctree-l1"><a class="reference internal" href="22_NLP_2_tokenization.html">From Text to Tokens</a></li>
 <li class="toctree-l1"><a class="reference internal" href="23_NLP_3_tfifd_and_machine_learning.html">Computing with Text: Counting words</a></li>
 <li class="toctree-l1"><a class="reference internal" href="24_NLP_4_ngrams_word_vectors.html">Beyond Counting Individual Words: N-grams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_NLP_5_embeddings.html">Embeddings</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the Networks</span></p>
 <ul class="nav bd-sidenav">
@@ -423,7 +417,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Why high dimensions are hard, or: the curse of dimensionality</h1>
+    <h1>Dimensionality Reduction</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -433,56 +427,55 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Why high dimensions are hard, or: the curse of dimensionality</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#growing-feature-spaces-too-much-space-too-little-data">1) Growing feature spaces: too much space, too little data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distance-measures-become-less-informative">2) Distance measures become less informative</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-small-experiment-euclidean-distances-in-higher-dimensions">A small experiment: Euclidean distances in higher dimensions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-becomes-impossible-very-quickly">3. Visualization becomes impossible very quickly</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-high-dimensions-are-hard-or-the-curse-of-dimensionality">Why high dimensions are hard, or: the curse of dimensionality</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#growing-feature-spaces-too-much-space-too-little-data">1) Growing feature spaces: too much space, too little data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distance-measures-become-less-informative">2) Distance measures become less informative</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-small-experiment-euclidean-distances-in-higher-dimensions">A small experiment: Euclidean distances in higher dimensions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-becomes-impossible-very-quickly">3. Visualization becomes impossible very quickly</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-role-of-dimensionality-reduction">The Role of Dimensionality Reduction</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brief-excursion-feature-selection">Brief excursion: Feature Selection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-role-of-dimensionality-reduction">The Role of Dimensionality Reduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brief-excursion-feature-selection">Brief excursion: Feature Selection</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-extraction-1-projection-methods">Feature Extraction 1: Projection Methods</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-projections">Linear Projections</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-projections">Non-linear Projections</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-principal-component-analysis">PCA (Principal Component Analysis)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept">Concept</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-example-with-python">Practical Example with Python</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-synthetic-data">Generating Synthetic Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-pca">Applying PCA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-extraction-1-projection-methods">Feature Extraction 1: Projection Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-projections">Linear Projections</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-projections">Non-linear Projections</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-principal-component-analysis">PCA (Principal Component Analysis)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#concept">Concept</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-example-with-python">Practical Example with Python</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-synthetic-data">Generating Synthetic Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-pca">Applying PCA</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-marketing-analysis-with-pca">Use Case: Marketing Analysis (with PCA)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-import-and-inspection">Data import and inspection</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">Data cleaning</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing">Data processing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-marketing-analysis-with-pca">Use Case: Marketing Analysis (with PCA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-import-and-inspection">Data import and inspection</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">Data cleaning</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing">Data processing</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Non-linear Projections</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-on-generated-2d-test-data">PCA on generated 2D test data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-pca">Kernel-PCA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Non-linear Projections</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-on-generated-2d-test-data">PCA on generated 2D test data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-pca">Kernel-PCA</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-extraction-2-manifold-learning">Feature Extraction 2: Manifold Learning</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-dimensionality-reduction-methods">Modern dimensionality reduction methods</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#umap-uniform-manifold-approximation-and-projection">UMAP (Uniform Manifold Approximation and Projection)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-sketch-of-how-umap-works">A brief sketch of how UMAP works</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important-parameters">Important parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-extraction-2-manifold-learning">Feature Extraction 2: Manifold Learning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-dimensionality-reduction-methods">Modern dimensionality reduction methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umap-uniform-manifold-approximation-and-projection">UMAP (Uniform Manifold Approximation and Projection)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-sketch-of-how-umap-works">A brief sketch of how UMAP works</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#important-parameters">Important parameters</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-marketing-analysis-umap">Use case: Marketing Analysis (UMAP)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-note">Practical note</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-marketing-analysis-umap">Use case: Marketing Analysis (UMAP)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-note">Practical note</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#more-than-just-t-sne-and-umap">More than just t-SNE and UMAP</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-of-dimensionality-reduction">Limitations of dimensionality reduction</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions">Conclusions</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#literature-and-next-steps">Literature and next steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-than-just-t-sne-and-umap">More than just t-SNE and UMAP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-of-dimensionality-reduction">Limitations of dimensionality reduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions">Conclusions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#literature-and-next-steps">Literature and next steps</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -493,13 +486,15 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="why-high-dimensions-are-hard-or-the-curse-of-dimensionality">
-<h1>Why high dimensions are hard, or: the curse of dimensionality<a class="headerlink" href="#why-high-dimensions-are-hard-or-the-curse-of-dimensionality" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="dimensionality-reduction">
+<span id="ch-dimensionality"></span><h1>Dimensionality Reduction<a class="headerlink" href="#dimensionality-reduction" title="Link to this heading">#</a></h1>
+<section id="why-high-dimensions-are-hard-or-the-curse-of-dimensionality">
+<h2>Why high dimensions are hard, or: the curse of dimensionality<a class="headerlink" href="#why-high-dimensions-are-hard-or-the-curse-of-dimensionality" title="Link to this heading">#</a></h2>
 <p>In data science, we often work with datasets that contain many variables, or <strong>dimensions</strong>, for each observation. Just as a reminder: any feature or property of our data can be counted as a dimension. I guess you can easily imagine tabular data that is described by 5, 10, or 20 different columns. That would then be 5-, 10-, or 20-dimensional data. But we can easily make it much more extreme by simply taking image data. Say we have images of 1000 x 1000 pixels, then every pixel is a dimension <a class="footnote-reference brackets" href="#pixel" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a> so that we end up with one million dimensions!</p>
 <p>Here, we are not so much concerned with data storage or raw performance issues. In other words: the main question in this section is <strong>not</strong> how to compress files efficiently or how to save memory on a disk. Instead, the real problem is that high-dimensional data becomes increasingly difficult to <strong>understand, compare, visualize, and analyze</strong> in a meaningful way.</p>
 <p>This collection of difficulties is often summarized under the term <strong>curse of dimensionality</strong>. The phrase sounds dramatic, but it is actually very fitting. Once data lives in many dimensions, several things that feel natural and intuitive in 2D or 3D begin to break down.</p>
 <section id="growing-feature-spaces-too-much-space-too-little-data">
-<h2>1) Growing feature spaces: too much space, too little data<a class="headerlink" href="#growing-feature-spaces-too-much-space-too-little-data" title="Link to this heading">#</a></h2>
+<h3>1) Growing feature spaces: too much space, too little data<a class="headerlink" href="#growing-feature-spaces-too-much-space-too-little-data" title="Link to this heading">#</a></h3>
 <p>A first problem is simply that higher-dimensional spaces grow extremely fast. If we want to “cover” a one-dimensional line with 100 positions, that is easy. If we want the same resolution in two dimensions, we already need 100 × 100 = 10,000 positions. In three dimensions, that becomes 1,000,000. Imagine, for instance, a dataset with just three features: age, weight, and height as indicated in <a class="reference internal" href="#fig-dimensionality-reduction01"><span class="std std-numref">Fig. 18</span></a>. And from there on, things escalate quickly. This means that with every added dimension, the available data becomes relatively more sparse. Even datasets that look very large to us may in fact be tiny compared to the size of the feature space they occupy.</p>
 <p>This sparsity has serious consequences. It becomes harder to estimate densities, harder to detect reliable local structure, and harder to learn general patterns without overfitting. Many methods that work well in low dimensions quietly rely on the assumption that nearby observations tell us something useful about each other. In very high dimensions, that assumption becomes much weaker.</p>
 <p>So one way to think about the curse of dimensionality is:</p>
@@ -515,14 +510,14 @@ The <em>curse of dimensionality</em> can be understood by imagining that we have
 </figure>
 </section>
 <section id="distance-measures-become-less-informative">
-<h2>2) Distance measures become less informative<a class="headerlink" href="#distance-measures-become-less-informative" title="Link to this heading">#</a></h2>
+<h3>2) Distance measures become less informative<a class="headerlink" href="#distance-measures-become-less-informative" title="Link to this heading">#</a></h3>
 <p>A second, very important problem concerns <strong>distance</strong>. Many methods in data science rely on distances, either directly or indirectly. We have already seen this for <strong>clustering</strong> algorithms such as K-means or DBSCAN in <a class="reference internal" href="12_clustering.html#ch-clustering"><span class="std std-ref">Clustering</span></a>, both of which are computed based on the distances between datapoints. Later in this course, we will see many more examples of where distance functions will be essential, in particular for many machine-learning models.</p>
 <p>In 2D or 3D, distances often behave in a very intuitive way. Some points are clearly close, others are clearly far away. In high dimensions, this starts to change.</p>
 <p>A well-known effect is that distances tend to become more and more similar <span class="bibtex-citation" id="id2">[<a class="reference internal" href="../book/references.html#id64" title="R. B. Marimont and M. B. Shapiro. Nearest Neighbour Searches and the Curse of Dimensionality. IMA Journal of Applied Mathematics, 24(1):59–70, August 1979. URL: https://doi.org/10.1093/imamat/24.1.59 (visited on 2026-03-20), doi:10.1093/imamat/24.1.59.">Marimont and Shapiro, 1979</a>, <a class="reference internal" href="../book/references.html#id23" title="Edgar Chávez, Gonzalo Navarro, Ricardo Baeza-Yates, and José Luis Marroquín. Searching in metric spaces. ACM Comput. Surv., 33(3):273–321, September 2001. URL: https://dl.acm.org/doi/10.1145/502807.502808 (visited on 2026-03-20), doi:10.1145/502807.502808.">Chávez <em>et al.</em>, 2001</a>]</span>. The difference between the nearest and the farthest neighbor often shrinks relative to the overall scale of the distances. In other words, the geometry becomes less contrasted. Points are still not literally all at the same distance—but the distinction between “close” and “far” becomes much weaker.</p>
 <p>This is a serious problem for any method that depends on meaningful neighborhood structure.</p>
 </section>
 <section id="a-small-experiment-euclidean-distances-in-higher-dimensions">
-<h2>A small experiment: Euclidean distances in higher dimensions<a class="headerlink" href="#a-small-experiment-euclidean-distances-in-higher-dimensions" title="Link to this heading">#</a></h2>
+<h3>A small experiment: Euclidean distances in higher dimensions<a class="headerlink" href="#a-small-experiment-euclidean-distances-in-higher-dimensions" title="Link to this heading">#</a></h3>
 <p>Let us make this more concrete. In the following code, we generate points uniformly at random in spaces of different dimensionality and compute many random pairwise Euclidean distances.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -644,14 +639,14 @@ The <em>curse of dimensionality</em> can be understood by imagining that we have
 </div></blockquote>
 </section>
 <section id="visualization-becomes-impossible-very-quickly">
-<h2>3. Visualization becomes impossible very quickly<a class="headerlink" href="#visualization-becomes-impossible-very-quickly" title="Link to this heading">#</a></h2>
+<h3>3. Visualization becomes impossible very quickly<a class="headerlink" href="#visualization-becomes-impossible-very-quickly" title="Link to this heading">#</a></h3>
 <p>A third problem is more obvious, but still important: we cannot directly visualize high-dimensional data.</p>
 <p>Two dimensions are easy to plot. Three dimensions are still manageable, although already harder to interpret. Beyond that, we quickly run out of intuitive visual representations. We can encode a few extra dimensions using color, marker size, or symbol type, but this only gets us a little further.</p>
 <p>This means that for many real datasets, we are effectively blind unless we reduce the data to fewer dimensions first.</p>
 </section>
 </section>
 <section id="the-role-of-dimensionality-reduction">
-<h1>The Role of Dimensionality Reduction<a class="headerlink" href="#the-role-of-dimensionality-reduction" title="Link to this heading">#</a></h1>
+<h2>The Role of Dimensionality Reduction<a class="headerlink" href="#the-role-of-dimensionality-reduction" title="Link to this heading">#</a></h2>
 <p><strong>Dimensionality reduction</strong> techniques address these challenges by transforming high-dimensional data into a lower-dimensional representation that retains the most informative aspects. This can be viewed as a form of data compression that simplifies large datasets, making them easier to explore and analyze.</p>
 <p>Dimensionality reduction is often required for later data visualizations, as we will see later in this chapter. But it can also be applied to enhance the performance of analytical models by reducing the computational burden and minimizing the risk of overfitting.</p>
 <p>Luckily, we as (future) data scientists can apply a wide variety of powerful techniques to reduce the number of our feature dimensions. In this chapter, we will focus on a few common techniques which fall into different categories of algorithms as shown in <a class="reference internal" href="#fig-dimensionality-reduction-techniques"><span class="std std-numref">Fig. 19</span></a>. There are, however, plenty of other methods that we cannot cover here, see for instance <span class="bibtex-citation" id="id3">[<a class="reference internal" href="../book/references.html#id5" title="Farzana Anowar, Samira Sadaoui, and Bassant Selim. Conceptual and empirical comparison of dimensionality reduction algorithms (pca, kpca, lda, mds, svd, lle, isomap, le, ica, t-sne). Computer Science Review, 40:100378, 2021.">Anowar <em>et al.</em>, 2021</a>]</span> or <span class="bibtex-citation" id="id4">[<a class="reference internal" href="../book/references.html#id97" title="Yingfan Wang, Haiyang Huang, Cynthia Rudin, and Yaron Shaposhnik. Understanding how dimension reduction tools work: an empirical approach to deciphering t-sne, umap, trimap, and pacmap for data visualization. Journal of Machine Learning Research, 22(201):1–73, 2021.">Wang <em>et al.</em>, 2021</a>]</span>.</p>
@@ -663,7 +658,7 @@ The <em>curse of dimensionality</em> can be understood by imagining that we have
 </figcaption>
 </figure>
 <section id="brief-excursion-feature-selection">
-<h2>Brief excursion: Feature Selection<a class="headerlink" href="#brief-excursion-feature-selection" title="Link to this heading">#</a></h2>
+<h3>Brief excursion: Feature Selection<a class="headerlink" href="#brief-excursion-feature-selection" title="Link to this heading">#</a></h3>
 <p>A variant of dimensionality reduction is <strong>feature selection</strong>, which involves identifying and removing less important features for a specific task. Common methods include:</p>
 <ul class="simple">
 <li><p><strong>High Correlation Filter</strong>: Remove one of each pair of highly correlated features to reduce redundancy.</p></li>
@@ -675,17 +670,17 @@ The <em>curse of dimensionality</em> can be understood by imagining that we have
 </section>
 </section>
 <section id="feature-extraction-1-projection-methods">
-<h1>Feature Extraction 1: Projection Methods<a class="headerlink" href="#feature-extraction-1-projection-methods" title="Link to this heading">#</a></h1>
+<h2>Feature Extraction 1: Projection Methods<a class="headerlink" href="#feature-extraction-1-projection-methods" title="Link to this heading">#</a></h2>
 <p><strong>Feature extraction</strong> transforms original features into a new set of variables that capture the essence of the data in fewer dimensions. Projection methods, one of the most widely used extraction techniques, can be linear or non-linear:</p>
 <section id="linear-projections">
-<h2>Linear Projections<a class="headerlink" href="#linear-projections" title="Link to this heading">#</a></h2>
+<h3>Linear Projections<a class="headerlink" href="#linear-projections" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Principal Component Analysis (PCA)</strong>: Reduces dimensionality by transforming features into a new coordinate system, where the greatest variance by any projection of the data comes to lie on the first coordinate (called the first principal component), the second greatest variance on the second coordinate, and so on.</p></li>
 <li><p><strong>Linear Discriminant Analysis (LDA)</strong>: Identifies directions that maximize class separability, making it ideal for supervised dimensionality reduction when class labels are available.</p></li>
 </ul>
 </section>
 <section id="non-linear-projections">
-<h2>Non-linear Projections<a class="headerlink" href="#non-linear-projections" title="Link to this heading">#</a></h2>
+<h3>Non-linear Projections<a class="headerlink" href="#non-linear-projections" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p><strong>Kernel PCA</strong>:  Extends PCA by applying the kernel trick to project data into a high-dimensional feature space before performing PCA, capturing non-linear relationships.</p></li>
 <li><p><strong>Multidimensional Scaling (MDS)</strong> and <strong>Isomap</strong>: Preserve pairwise distances or geodesic distances on a manifold, respectively, enabling more flexible embeddings.
@@ -694,10 +689,10 @@ These projection methods can be highly effective for pattern recognition and mac
 <p>Projection methods can dramatically reduce dimensionality with minimal loss of structure, improving both visualization and downstream model performance.</p>
 </section>
 <section id="pca-principal-component-analysis">
-<h2>PCA (Principal Component Analysis)<a class="headerlink" href="#pca-principal-component-analysis" title="Link to this heading">#</a></h2>
+<h3>PCA (Principal Component Analysis)<a class="headerlink" href="#pca-principal-component-analysis" title="Link to this heading">#</a></h3>
 <p>Principal Component Analysis (PCA) is a cornerstone technique in dimensionality reduction, used extensively to simplify the complexity inherent in multi-dimensional data. This simplification aids in improving data interpretability, visualizations, and can even enhance the performance of machine learning algorithms by eliminating noise and redundancy. Below we detail the mechanisms of PCA and its practical application.</p>
 <section id="concept">
-<h3>Concept<a class="headerlink" href="#concept" title="Link to this heading">#</a></h3>
+<h4>Concept<a class="headerlink" href="#concept" title="Link to this heading">#</a></h4>
 <p>PCA systematically transforms the original correlated features into a new set of uncorrelated features, called principal components, ordered so that the first few retain most of the variation present in all of the original dimensions.</p>
 <p><strong>Key steps in PCA:</strong></p>
 <ol class="arabic">
@@ -740,7 +735,7 @@ Solve the equation <span class="math notranslate nohighlight">\(\Sigma v = \lamb
 </ol>
 </section>
 <section id="practical-example-with-python">
-<h3>Practical Example with Python<a class="headerlink" href="#practical-example-with-python" title="Link to this heading">#</a></h3>
+<h4>Practical Example with Python<a class="headerlink" href="#practical-example-with-python" title="Link to this heading">#</a></h4>
 <p>We’ll create a 2D dataset and apply PCA to reduce it to 1D. First, we’ll generate a synthetic dataset.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="admonition hide above-input">
@@ -762,7 +757,7 @@ Solve the equation <span class="math notranslate nohighlight">\(\Sigma v = \lamb
 </div>
 </section>
 <section id="generating-synthetic-data">
-<h3>Generating Synthetic Data<a class="headerlink" href="#generating-synthetic-data" title="Link to this heading">#</a></h3>
+<h4>Generating Synthetic Data<a class="headerlink" href="#generating-synthetic-data" title="Link to this heading">#</a></h4>
 <p>Let’s create a dataset of 2 features with a clear linear relationship.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -779,7 +774,7 @@ Solve the equation <span class="math notranslate nohighlight">\(\Sigma v = \lamb
 </div>
 </section>
 <section id="applying-pca">
-<h3>Applying PCA<a class="headerlink" href="#applying-pca" title="Link to this heading">#</a></h3>
+<h4>Applying PCA<a class="headerlink" href="#applying-pca" title="Link to this heading">#</a></h4>
 <p>We will then standardize this data and apply PCA to reduce its dimensionality.
 To inspect the results, we will use a simple scatter plot visualization.</p>
 <div class="cell docutils container">
@@ -877,11 +872,11 @@ The upper limit is the number of input dimensions, which in our simple example h
 </section>
 </section>
 <section id="use-case-marketing-analysis-with-pca">
-<h2>Use Case: Marketing Analysis (with PCA)<a class="headerlink" href="#use-case-marketing-analysis-with-pca" title="Link to this heading">#</a></h2>
+<h3>Use Case: Marketing Analysis (with PCA)<a class="headerlink" href="#use-case-marketing-analysis-with-pca" title="Link to this heading">#</a></h3>
 <p>Let’s now move to a more realistic use case to show what the dimensionality reduction method can be used for.
 In the following part, we will look at data from a marketing campaign, or more generally, data from an online store (<a class="reference external" href="https://www.kaggle.com/datasets/ahsan81/superstore-marketing-campaign-dataset">link to the dataset</a>). In the first step, we will import and inspect the data. Then, we will clean and process the data a little before we can actually apply <code class="docutils literal notranslate"><span class="pre">PCA</span></code> to reduce the data to two dimensions.</p>
 <section id="data-import-and-inspection">
-<h3>Data import and inspection<a class="headerlink" href="#data-import-and-inspection" title="Link to this heading">#</a></h3>
+<h4>Data import and inspection<a class="headerlink" href="#data-import-and-inspection" title="Link to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_data</span> <span class="o">=</span> <span class="s2">&quot;../datasets/&quot;</span>
@@ -1138,7 +1133,7 @@ memory usage: 380.9 KB
 </div>
 </section>
 <section id="data-cleaning">
-<h3>Data cleaning<a class="headerlink" href="#data-cleaning" title="Link to this heading">#</a></h3>
+<h4>Data cleaning<a class="headerlink" href="#data-cleaning" title="Link to this heading">#</a></h4>
 <p>Some values appear weird, for instance in the column <code class="docutils literal notranslate"><span class="pre">Year_Birth</span></code>. In addition, we might want to remove some “outliers”, i.e., rare cases in which we might not be so interested. Here, this could be the few people with enormously high incomes (independent of whether those values are true or not…).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1358,7 +1353,7 @@ memory usage: 380.9 KB
 </div>
 </section>
 <section id="data-processing">
-<h3>Data processing<a class="headerlink" href="#data-processing" title="Link to this heading">#</a></h3>
+<h4>Data processing<a class="headerlink" href="#data-processing" title="Link to this heading">#</a></h4>
 <p>Dimensionality reduction techniques such as PCA require numerical data, which makes sense if we look at how the method works (see above).
 The most common pitfall, however, is that <strong>PCA is extremely sensitive to the scaling of the data</strong>. It looks for the features with the largest variance, so imagine that one feature is income, which can have values of many 10,000s, and another feature is age, which will usually stay below 100. Then PCA will virtually ignore the feature “age” in comparison to the much higher values of the feature “income”. To circumvent this undesirable effect, the data needs to be <strong>scaled so that all features show comparable ranges</strong>.</p>
 <p>Here, we will use the Scikit-Learn <code class="docutils literal notranslate"><span class="pre">StandardScaler</span></code> for this task.</p>
@@ -1602,7 +1597,7 @@ The most common pitfall, however, is that <strong>PCA is extremely sensitive to 
 </section>
 </section>
 <section id="id5">
-<h2>Non-linear Projections<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<h3>Non-linear Projections<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
 <p>The PCA plots above show that the dimensionality reduction worked to some extent. How do we know this? Well, first we see that the points are not randomly distributed without any visible correlation to their features. We see that high- and low-income people are placed in different areas of the plot, and the same is true for other features as well.</p>
 <p>Still, in many cases, PCA might not provide the best possible results. Mostly because of its main limitation: being a linear method. This can be seen particularly well in the plot, which uses the income for the dot color. This clearly shows a clear overall direction from low to high incomes.</p>
 <p><strong>Why is this a problem?</strong><br />
@@ -1610,7 +1605,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 <p>In such cases, it is recommended to also try non-linear approaches. First, we will stay with the projection-based methods and have a look at PCA variants that can handle non-linearity to some extent, such as <strong>kernel-PCA</strong>.</p>
 </section>
 <section id="pca-on-generated-2d-test-data">
-<h2>PCA on generated 2D test data<a class="headerlink" href="#pca-on-generated-2d-test-data" title="Link to this heading">#</a></h2>
+<h3>PCA on generated 2D test data<a class="headerlink" href="#pca-on-generated-2d-test-data" title="Link to this heading">#</a></h3>
 <p>We will now test a few methods with strongly non-linear generated 2D data to better understand what the above mentioned limitation means.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1688,7 +1683,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 <p>Its inability to handle non-linearity is the main limitation of PCA. For many applications, in particular data visualization, this is a very strong limitation and the reason why other techniques have often taken its place.</p>
 </section>
 <section id="kernel-pca">
-<h2>Kernel-PCA<a class="headerlink" href="#kernel-pca" title="Link to this heading">#</a></h2>
+<h3>Kernel-PCA<a class="headerlink" href="#kernel-pca" title="Link to this heading">#</a></h3>
 <p>Kernel-PCA processes data in a higher-dimensional space, a technique often referred to as the “kernel trick.” A commonly used kernel function in this context is the Radial Basis Function (RBF).</p>
 <p>Initially, this approach might seem counterintuitive. The objective of dimensionality reduction is to simplify data, so why first move it into a higher-dimensional space? The purpose of this step is to overcome the limitations of linear transformations, such as the principal axis transformation or rotation, found in PCA. By implicitly mapping the data into a higher-dimensional feature space, Kernel PCA can sometimes uncover structure that ordinary linear PCA cannot capture.<br />
 In practice, Kernel PCA is often useful as a conceptual bridge between linear PCA and more flexible manifold-learning methods.</p>
@@ -1777,11 +1772,11 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 </div>
 </div>
 <p>Here we see, that kernel-PCA is capable of keeping the two colors separate even after reducing all points to one dimension.</p>
+</section>
+</section>
 <hr class="docutils" />
-</section>
-</section>
 <section id="feature-extraction-2-manifold-learning">
-<h1>Feature Extraction 2: Manifold Learning<a class="headerlink" href="#feature-extraction-2-manifold-learning" title="Link to this heading">#</a></h1>
+<h2>Feature Extraction 2: Manifold Learning<a class="headerlink" href="#feature-extraction-2-manifold-learning" title="Link to this heading">#</a></h2>
 <p>Before discussing <em>manifold learning</em>, it is useful to build an intuition for the term <strong>manifold</strong> itself. In simple terms, a manifold is a shape or surface that may be curved in a higher-dimensional space, but that locally looks much simpler and lower-dimensional.</p>
 <p>A classic example is the surface of the Earth. Globally, Earth is approximately spherical, but if we look only at a small region around us, it appears almost flat. In other words, the Earth’s surface is a two-dimensional manifold embedded in three-dimensional space. Similarly, a spiral in a two-dimensional plot is still essentially a one-dimensional structure: each point can be described mainly by its position along the spiral, even though the spiral itself is drawn in two dimensions.</p>
 <p>Manifold Learning is a class of techniques designed for discovering the underlying structure or manifold of high-dimensional data. Unlike linear methods that attempt to preserve global linear relationships, manifold learning focuses on uncovering local structures, ideally capturing the intrinsic geometry of the data. The central assumption of manifold learning is that the data of interest lies on an embedded nonlinear manifold within the higher-dimensional space. By understanding this manifold, one can reduce the dimensionality while preserving the data’s essential characteristics, which is particularly useful for complex datasets where linear projections like PCA fall short.</p>
@@ -1852,17 +1847,17 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 </div>
 <p>The result show, as expected, that a linear technique like PCA is not well-suited for this type of data.</p>
 <section id="modern-dimensionality-reduction-methods">
-<h2>Modern dimensionality reduction methods<a class="headerlink" href="#modern-dimensionality-reduction-methods" title="Link to this heading">#</a></h2>
+<h3>Modern dimensionality reduction methods<a class="headerlink" href="#modern-dimensionality-reduction-methods" title="Link to this heading">#</a></h3>
 <p>Over the last two decades, several very powerful dimensionality reduction tools have been developed and quickly changed the field of data science.</p>
 <p><strong>t-SNE</strong>, introduced by van der Maaten and Hinton in 2008, was an important milestone in nonlinear dimensionality reduction and became especially popular for visualizing high-dimensional data with complex local structure <span class="bibtex-citation" id="id6">[<a class="reference internal" href="../book/references.html#id63" title="Laurens Van der Maaten and Geoffrey Hinton. Visualizing data using t-sne. Journal of machine learning research, 2008.">Van der Maaten and Hinton, 2008</a>]</span>.</p>
 <p>In many applications, however, it is now often used alongside, or replaced by, other manifold-learning techniques, most notably <strong>UMAP</strong>.</p>
 </section>
 <section id="umap-uniform-manifold-approximation-and-projection">
-<h2>UMAP (Uniform Manifold Approximation and Projection)<a class="headerlink" href="#umap-uniform-manifold-approximation-and-projection" title="Link to this heading">#</a></h2>
+<h3>UMAP (Uniform Manifold Approximation and Projection)<a class="headerlink" href="#umap-uniform-manifold-approximation-and-projection" title="Link to this heading">#</a></h3>
 <p>UMAP is a relatively recent addition to dimensionality reduction techniques <span class="bibtex-citation" id="id7">[<a class="reference internal" href="../book/references.html#id65" title="Leland McInnes, John Healy, and James Melville. Umap: uniform manifold approximation and projection for dimension reduction. arXiv preprint arXiv:1802.03426, 2018.">McInnes <em>et al.</em>, 2018</a>]</span>. Like t-SNE, UMAP is especially popular for visualization. In practice, it is often faster than t-SNE and sometimes preserves more global structure, although this depends strongly on the data and parameter choices.</p>
 <p>The central assumption behind UMAP is similar to that of other manifold-learning methods: although the data may live in a very high-dimensional space, the relevant structure may lie on a lower-dimensional manifold. The task is then to find a low-dimensional representation that keeps as much of this structure as possible.</p>
 <section id="a-brief-sketch-of-how-umap-works">
-<h3>A brief sketch of how UMAP works<a class="headerlink" href="#a-brief-sketch-of-how-umap-works" title="Link to this heading">#</a></h3>
+<h4>A brief sketch of how UMAP works<a class="headerlink" href="#a-brief-sketch-of-how-umap-works" title="Link to this heading">#</a></h4>
 <p>UMAP is mathematically quite sophisticated, but the main idea can be sketched in a fairly intuitive way.</p>
 <p><strong>1.</strong> UMAP builds a graph of the data by connecting each point to its nearest neighbors. In this step, the method tries to capture the <strong>local structure</strong> of the data: which points are close to each other and how strongly they appear to be connected.<br />
 The following plot will illustrate this idea by showing a graph (or network) that connects the <code class="docutils literal notranslate"><span class="pre">k=5</span></code> nearest neighbors of every data point.</p>
@@ -1983,7 +1978,7 @@ In the following, we let UMAP compute the dimensionality reduction and then visu
 <p>In reality, UMAP is a fairly complex algorithm and requires a notable effort to understand fully (see, for instance, the original scientific article: <span class="bibtex-citation" id="id8">[<a class="reference internal" href="../book/references.html#id65" title="Leland McInnes, John Healy, and James Melville. Umap: uniform manifold approximation and projection for dimension reduction. arXiv preprint arXiv:1802.03426, 2018.">McInnes <em>et al.</em>, 2018</a>]</span>).</p>
 </section>
 <section id="important-parameters">
-<h3>Important parameters<a class="headerlink" href="#important-parameters" title="Link to this heading">#</a></h3>
+<h4>Important parameters<a class="headerlink" href="#important-parameters" title="Link to this heading">#</a></h4>
 <p>UMAP has parameters that can strongly influence the result. Two of the most important ones are:</p>
 <ul class="simple">
 <li><p><strong><code class="docutils literal notranslate"><span class="pre">n_neighbors</span></code></strong>: controls how strongly UMAP focuses on very local versus somewhat broader structure. Smaller values emphasize local neighborhoods more strongly, while larger values tend to preserve more global structure.</p></li>
@@ -2018,7 +2013,7 @@ In the following, we let UMAP compute the dimensionality reduction and then visu
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/fde02706f79047829d86a12ef1d053a500dee247b8af1b417491f75552f2c552.png" src="../_images/fde02706f79047829d86a12ef1d053a500dee247b8af1b417491f75552f2c552.png" />
+<img alt="../_images/1c1b191950ea2a5bda2a6f43e1ee25b83bdb01936c879cb34497075286b3fbc3.png" src="../_images/1c1b191950ea2a5bda2a6f43e1ee25b83bdb01936c879cb34497075286b3fbc3.png" />
 </div>
 </div>
 <p>This is better than the PCA result, because here the different groups no longer overlap. But UMAP was apparently not able to “find” the underlying structure (or: manifold). We can see what some parameter changes will do:</p>
@@ -2045,7 +2040,7 @@ In the following, we let UMAP compute the dimensionality reduction and then visu
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b10a419bdeb05e657b00786df6cc485f526cfa2f3bb4bd427d088119f452ace5.png" src="../_images/b10a419bdeb05e657b00786df6cc485f526cfa2f3bb4bd427d088119f452ace5.png" />
+<img alt="../_images/ef9363a9da72625806a26366b74a0a8edf4fc226427181d1a5260e07f0a697ca.png" src="../_images/ef9363a9da72625806a26366b74a0a8edf4fc226427181d1a5260e07f0a697ca.png" />
 </div>
 </div>
 <p>Some of these results are comming close to aligning the data in one dimension, but we see that<br />
@@ -2072,13 +2067,13 @@ In the following, we let UMAP compute the dimensionality reduction and then visu
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/84cb761490fc3339172bfdfbf476406068b1fcf3a11c336a23c40f46905fe098.png" src="../_images/84cb761490fc3339172bfdfbf476406068b1fcf3a11c336a23c40f46905fe098.png" />
+<img alt="../_images/0a1a20e34f4f042492bf2cd9e6c3f32e3b37f93383b9a0c7ce24b1f709f6e9b2.png" src="../_images/0a1a20e34f4f042492bf2cd9e6c3f32e3b37f93383b9a0c7ce24b1f709f6e9b2.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="use-case-marketing-analysis-umap">
-<h2>Use case: Marketing Analysis (UMAP)<a class="headerlink" href="#use-case-marketing-analysis-umap" title="Link to this heading">#</a></h2>
+<h3>Use case: Marketing Analysis (UMAP)<a class="headerlink" href="#use-case-marketing-analysis-umap" title="Link to this heading">#</a></h3>
 <p>Let us now continue with our use case of the marketing dataset. Before we used PCA, which did work to some extent, but maybe not as well as we wanted. Let’s compare this to using t-SNE to reduce the data points to only two dimensions, so we can visualize all data points in a 2D scatter plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2110,7 +2105,7 @@ In the following, we let UMAP compute the dimensionality reduction and then visu
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d2289501e8eab6f157cc5117c62091e40add363cec971216e4819a478a071237.png" src="../_images/d2289501e8eab6f157cc5117c62091e40add363cec971216e4819a478a071237.png" />
+<img alt="../_images/2986850220e551051b7709528f055ecebec8cb14544e46429cdcdc1f9fd82f7e.png" src="../_images/2986850220e551051b7709528f055ecebec8cb14544e46429cdcdc1f9fd82f7e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2137,7 +2132,7 @@ In the following, we let UMAP compute the dimensionality reduction and then visu
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0373b6266ab7811a5b0dca85f3fa06a11504ce8776dd9a38b47e3f409c4e1ba4.png" src="../_images/0373b6266ab7811a5b0dca85f3fa06a11504ce8776dd9a38b47e3f409c4e1ba4.png" />
+<img alt="../_images/449a0c54d8fea08d5b0870363c060d45d97cf80721e56d472ee1effa20ee6e37.png" src="../_images/449a0c54d8fea08d5b0870363c060d45d97cf80721e56d472ee1effa20ee6e37.png" />
 </div>
 </div>
 <p>We can of course, also plot several features in parallel by combining multiple plots.</p>
@@ -2157,12 +2152,12 @@ In the following, we let UMAP compute the dimensionality reduction and then visu
 </ul>
 </section>
 <section id="practical-note">
-<h2>Practical note<a class="headerlink" href="#practical-note" title="Link to this heading">#</a></h2>
+<h3>Practical note<a class="headerlink" href="#practical-note" title="Link to this heading">#</a></h3>
 <p>In practice, UMAP has become a very popular choice for visualizing high-dimensional data, especially in areas such as bioinformatics, image analysis, and text embeddings. Many people prefer it over t-SNE because it is often faster, often scales better to larger datasets, and frequently produces layouts that many users find easier to interpret. However, as with t-SNE, repeated runs can differ unless the random initialization is controlled.</p>
 <p>Still, especially when used for 2D or 3D plots, it is important to keep in mind that UMAP is mainly an exploratory tool.</p>
 </section>
 <section id="exercise">
-<h2>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h2>
+<h3>Exercise<a class="headerlink" href="#exercise" title="Link to this heading">#</a></h3>
 <p>Both t-SNE and UMAP currently see widespread use. Neither of them is always better or worse. And often, it appears, it is also a matter of personal preference.</p>
 <ul class="simple">
 <li><p>Re-run the above dimensionality reduction but use t-SNE instead of UMAP</p></li>
@@ -2173,14 +2168,14 @@ In the following, we let UMAP compute the dimensionality reduction and then visu
 </section>
 </section>
 <section id="more-than-just-t-sne-and-umap">
-<h1>More than just t-SNE and UMAP<a class="headerlink" href="#more-than-just-t-sne-and-umap" title="Link to this heading">#</a></h1>
+<h2>More than just t-SNE and UMAP<a class="headerlink" href="#more-than-just-t-sne-and-umap" title="Link to this heading">#</a></h2>
 <p>Even though <strong>t-SNE</strong> and <strong>UMAP</strong> are currently among the most widely used techniques for non-linear dimensionality reduction and visualization, they are by no means the only available methods.</p>
 <p>One further method that has received considerable attention is <strong>PaCMAP</strong> (<em>Pairwise Controlled Manifold Approximation</em>), which was developed with the goal of balancing the preservation of local and more global structure in the low-dimensional embedding <span class="bibtex-citation" id="id9">[<a class="reference internal" href="../book/references.html#id97" title="Yingfan Wang, Haiyang Huang, Cynthia Rudin, and Yaron Shaposhnik. Understanding how dimension reduction tools work: an empirical approach to deciphering t-sne, umap, trimap, and pacmap for data visualization. Journal of Machine Learning Research, 22(201):1–73, 2021.">Wang <em>et al.</em>, 2021</a>]</span>. Just like t-SNE and UMAP, it aims to create useful 2D or 3D visualizations of complex high-dimensional data, but it does so with a somewhat different optimization strategy.</p>
 <p>And beyond these manifold-learning methods, there is yet another broad route to visualizing complex data: instead of reducing the data directly into 2D coordinates, one can first represent the data as a <strong>graph</strong> or <strong>network</strong> and then visualize that graph using a layout algorithm. In such approaches, data points become nodes and relationships or similarities become edges. This can be especially useful when pairwise relationships matter more than exact geometric positions. We will come back to this later in <a class="reference internal" href="26_graph_visualization.html#ch-graph-visualization"><span class="std std-ref">Visualizing Graphs</span></a>.</p>
 <p>So, even within the specific task of displaying complex data in two or three dimensions, there is a whole toolbox of possible approaches. The methods covered in this chapter are important and widely used, but they are only a small selection.</p>
 </section>
 <section id="limitations-of-dimensionality-reduction">
-<h1>Limitations of dimensionality reduction<a class="headerlink" href="#limitations-of-dimensionality-reduction" title="Link to this heading">#</a></h1>
+<h2>Limitations of dimensionality reduction<a class="headerlink" href="#limitations-of-dimensionality-reduction" title="Link to this heading">#</a></h2>
 <p>Dimensionality reduction can be an extremely powerful tool in data science. It can help us better understand data, simplify later analyses, and communicate patterns in a more accessible way. Large and complex datasets often become far more approachable once we can inspect them in a 2D scatter plot or a similar visual representation.</p>
 <p>However, all of this comes with an important limitation: <strong>dimensionality reduction nearly always implies information loss</strong>.</p>
 <p>This is not a small technical inconvenience but a fundamental fact. A high-dimensional dataset simply contains relationships that cannot all be represented faithfully in only two or three dimensions. This can be understood with the simple geometric example shown in <a class="reference internal" href="#fig-dimensionality-reduction-limits"><span class="std std-numref">Fig. 21</span></a>, so we could say that 2D is <em>too small</em> for that purpose.</p>
@@ -2201,7 +2196,7 @@ In the following, we let UMAP compute the dimensionality reduction and then visu
 <p>This is why low-dimensional embeddings should usually be interpreted as <strong>tools for exploration</strong>, not as definitive answers. They can reveal suggestive patterns, possible groups, and interesting structure—but these observations should usually be checked against the original features and, where appropriate, against other methods as well.</p>
 </section>
 <section id="conclusions">
-<h1>Conclusions<a class="headerlink" href="#conclusions" title="Link to this heading">#</a></h1>
+<h2>Conclusions<a class="headerlink" href="#conclusions" title="Link to this heading">#</a></h2>
 <p>What should have become clear in this chapter is that dimensionality reduction is both powerful and subtle.</p>
 <p>On the one hand, reducing data from many dimensions to only two or three can make previously inaccessible structure visible. This is why methods such as PCA, t-SNE, and UMAP have become such important tools in modern data science. In the marketing example above, we saw that non-linear methods can reveal patterns that are much less obvious when using only linear techniques such as PCA.</p>
 <p>On the other hand, the resulting plots are never neutral windows into the data. They are always shaped by the assumptions of the method and by the parameter choices we make. This is especially true for the non-linear methods. They often require substantial tuning, and different settings can lead to noticeably different embeddings. That raises an important practical question: what exactly do we mean by the “best” low-dimensional representation?</p>
@@ -2209,11 +2204,12 @@ In the following, we let UMAP compute the dimensionality reduction and then visu
 <p>Performance is another important factor. If the goal is a fast and robust reduction of large high-dimensional datasets, <strong>PCA</strong> often remains the most practical baseline method. Recent advances using GPU-acceleration for UMAP, however, make it now possible to even use UMAP on comparably large datasets, <a class="reference external" href="https://docs.rapids.ai/api/cuml/stable/">see rapids.ai</a>.</p>
 </section>
 <section id="literature-and-next-steps">
-<h1>Literature and next steps<a class="headerlink" href="#literature-and-next-steps" title="Link to this heading">#</a></h1>
+<h2>Literature and next steps<a class="headerlink" href="#literature-and-next-steps" title="Link to this heading">#</a></h2>
 <p>There is much more to learn about dimensionality reduction than we could cover here.</p>
 <p>If you want to understand more deeply why high-dimensional spaces behave so differently from low-dimensional ones, it is worth reading more on the <strong>curse of dimensionality</strong>, especially in relation to distance-based methods and nearest-neighbor search <span class="bibtex-citation" id="id10">[<a class="reference internal" href="../book/references.html#id64" title="R. B. Marimont and M. B. Shapiro. Nearest Neighbour Searches and the Curse of Dimensionality. IMA Journal of Applied Mathematics, 24(1):59–70, August 1979. URL: https://doi.org/10.1093/imamat/24.1.59 (visited on 2026-03-20), doi:10.1093/imamat/24.1.59.">Marimont and Shapiro, 1979</a>, <a class="reference internal" href="../book/references.html#id23" title="Edgar Chávez, Gonzalo Navarro, Ricardo Baeza-Yates, and José Luis Marroquín. Searching in metric spaces. ACM Comput. Surv., 33(3):273–321, September 2001. URL: https://dl.acm.org/doi/10.1145/502807.502808 (visited on 2026-03-20), doi:10.1145/502807.502808.">Chávez <em>et al.</em>, 2001</a>]</span>.</p>
 <p>For a broader overview of dimensionality reduction techniques, including many methods not covered here, see for instance <span class="bibtex-citation" id="id11">[<a class="reference internal" href="../book/references.html#id5" title="Farzana Anowar, Samira Sadaoui, and Bassant Selim. Conceptual and empirical comparison of dimensionality reduction algorithms (pca, kpca, lda, mds, svd, lle, isomap, le, ica, t-sne). Computer Science Review, 40:100378, 2021.">Anowar <em>et al.</em>, 2021</a>]</span> or <span class="bibtex-citation" id="id12">[<a class="reference internal" href="../book/references.html#id97" title="Yingfan Wang, Haiyang Huang, Cynthia Rudin, and Yaron Shaposhnik. Understanding how dimension reduction tools work: an empirical approach to deciphering t-sne, umap, trimap, and pacmap for data visualization. Journal of Machine Learning Research, 22(201):1–73, 2021.">Wang <em>et al.</em>, 2021</a>]</span>.</p>
 <p>And finally, as already mentioned above, not all useful 2D or 3D representations of complex data come from direct dimensionality reduction. Another important family of approaches is based on <strong>graphs and network layouts</strong>, which we will later discuss in <a class="reference internal" href="26_graph_visualization.html#ch-graph-visualization"><span class="std std-ref">Visualizing Graphs</span></a>.</p>
+</section>
 </section>
 <hr class="footnotes docutils" />
 <aside class="footnote-list brackets">
@@ -2270,56 +2266,55 @@ In the following, we let UMAP compute the dimensionality reduction and then visu
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Why high dimensions are hard, or: the curse of dimensionality</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#growing-feature-spaces-too-much-space-too-little-data">1) Growing feature spaces: too much space, too little data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distance-measures-become-less-informative">2) Distance measures become less informative</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-small-experiment-euclidean-distances-in-higher-dimensions">A small experiment: Euclidean distances in higher dimensions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-becomes-impossible-very-quickly">3. Visualization becomes impossible very quickly</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#why-high-dimensions-are-hard-or-the-curse-of-dimensionality">Why high dimensions are hard, or: the curse of dimensionality</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#growing-feature-spaces-too-much-space-too-little-data">1) Growing feature spaces: too much space, too little data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distance-measures-become-less-informative">2) Distance measures become less informative</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-small-experiment-euclidean-distances-in-higher-dimensions">A small experiment: Euclidean distances in higher dimensions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-becomes-impossible-very-quickly">3. Visualization becomes impossible very quickly</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#the-role-of-dimensionality-reduction">The Role of Dimensionality Reduction</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brief-excursion-feature-selection">Brief excursion: Feature Selection</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-role-of-dimensionality-reduction">The Role of Dimensionality Reduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#brief-excursion-feature-selection">Brief excursion: Feature Selection</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-extraction-1-projection-methods">Feature Extraction 1: Projection Methods</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-projections">Linear Projections</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-projections">Non-linear Projections</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-principal-component-analysis">PCA (Principal Component Analysis)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#concept">Concept</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-example-with-python">Practical Example with Python</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-synthetic-data">Generating Synthetic Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-pca">Applying PCA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-extraction-1-projection-methods">Feature Extraction 1: Projection Methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-projections">Linear Projections</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-projections">Non-linear Projections</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-principal-component-analysis">PCA (Principal Component Analysis)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#concept">Concept</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-example-with-python">Practical Example with Python</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-synthetic-data">Generating Synthetic Data</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#applying-pca">Applying PCA</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-marketing-analysis-with-pca">Use Case: Marketing Analysis (with PCA)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-import-and-inspection">Data import and inspection</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">Data cleaning</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing">Data processing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-marketing-analysis-with-pca">Use Case: Marketing Analysis (with PCA)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-import-and-inspection">Data import and inspection</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-cleaning">Data cleaning</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing">Data processing</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Non-linear Projections</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-on-generated-2d-test-data">PCA on generated 2D test data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-pca">Kernel-PCA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Non-linear Projections</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pca-on-generated-2d-test-data">PCA on generated 2D test data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kernel-pca">Kernel-PCA</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-extraction-2-manifold-learning">Feature Extraction 2: Manifold Learning</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-dimensionality-reduction-methods">Modern dimensionality reduction methods</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#umap-uniform-manifold-approximation-and-projection">UMAP (Uniform Manifold Approximation and Projection)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-sketch-of-how-umap-works">A brief sketch of how UMAP works</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#important-parameters">Important parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-extraction-2-manifold-learning">Feature Extraction 2: Manifold Learning</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-dimensionality-reduction-methods">Modern dimensionality reduction methods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#umap-uniform-manifold-approximation-and-projection">UMAP (Uniform Manifold Approximation and Projection)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-brief-sketch-of-how-umap-works">A brief sketch of how UMAP works</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#important-parameters">Important parameters</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-marketing-analysis-umap">Use case: Marketing Analysis (UMAP)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-note">Practical note</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-case-marketing-analysis-umap">Use case: Marketing Analysis (UMAP)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#practical-note">Practical note</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise">Exercise</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#more-than-just-t-sne-and-umap">More than just t-SNE and UMAP</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-of-dimensionality-reduction">Limitations of dimensionality reduction</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions">Conclusions</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#literature-and-next-steps">Literature and next steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#more-than-just-t-sne-and-umap">More than just t-SNE and UMAP</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-of-dimensionality-reduction">Limitations of dimensionality reduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusions">Conclusions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#literature-and-next-steps">Literature and next steps</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
