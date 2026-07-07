@@ -41,7 +41,7 @@ jobs:
 
       - name: Install Python dependencies
         run: |
-          uv pip sync requirements.txt
+          uv pip install -r requirements.in
 
       - name: Show installed packages
         run: |

@@ -22,4 +22,5 @@ llvmlite>=0.43
 umap-learn
 sphinx
 sphinxcontrib-bibtex
+sphinx-pdf-generate
 myst-nb

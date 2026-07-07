@@ -43,8 +43,12 @@ jobs:
 
       - name: Install Python dependencies
         run: |
-          uv pip sync requirements.txt
+          uv pip install -r requirements.in
 
+      - name: Install extra Sphinx docs dependencies (if not already installed)
+        run: |
+          uv pip install sphinx sphinx-book-theme myst-nb sphinxcontrib-bibtex
+    
       - name: Show installed packages
         run: |
           uv pip list
