@@ -502,19 +502,6 @@ In some simple examples, this can look almost trivial. In <a class="reference in
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span><span class="w"> </span><span class="nn">colormaps</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">cmaps</span>  <span class="c1"># optional: for some more colormaps</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -544,7 +531,7 @@ In some simple examples, this can look almost trivial. In <a class="reference in
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d99466e2addd1a96685c961c4bec04f33b22f67c62d8e6d3b049e9db1e1e3176.png" src="../_images/d99466e2addd1a96685c961c4bec04f33b22f67c62d8e6d3b049e9db1e1e3176.png" />
+<img alt="../_images/a4986960bdbb5f36f1b5dca7d99d3b32f3384046debc6b70f40c0b9432df3258.png" src="../_images/a4986960bdbb5f36f1b5dca7d99d3b32f3384046debc6b70f40c0b9432df3258.png" />
 </div>
 </div>
 <p>Assigning the three clusters in this case does not exactly feel like rocket science. We could all do this manually with a pen in no time. So why do we need clustering algorithms at all?</p>
@@ -640,7 +627,7 @@ We repeat the assignment and update steps until the assignments no longer change
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3c43d8a3d0124fd032455227c2b2423af57ae4f51bb4bc518d388b05cfc7e0fb.png" src="../_images/3c43d8a3d0124fd032455227c2b2423af57ae4f51bb4bc518d388b05cfc7e0fb.png" />
+<img alt="../_images/cee8f8973284e33c697f68417f9d6fa31cac929559b8cf4efbeefebb33014b14.png" src="../_images/cee8f8973284e33c697f68417f9d6fa31cac929559b8cf4efbeefebb33014b14.png" />
 </div>
 </div>
 <p>This works very well here. But of course, this is still a very friendly example.</p>
@@ -689,10 +676,10 @@ After plotting the data, start asking yourself how many clusters <em>you</em> wo
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x1b66b1dd3a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x7fc6a17bcda0&gt;
 </pre></div>
 </div>
-<img alt="../_images/c1154ff6191feceaae34f8c4788a7e86b542fc0eb4f8b1f9cc2356ce06828ec6.png" src="../_images/c1154ff6191feceaae34f8c4788a7e86b542fc0eb4f8b1f9cc2356ce06828ec6.png" />
+<img alt="../_images/8e62b2489d6f0a2890e4c460833699fee6c79b5e36adc8348b01c0020bb42792.png" src="../_images/8e62b2489d6f0a2890e4c460833699fee6c79b5e36adc8348b01c0020bb42792.png" />
 </div>
 </div>
 <p>So, what would you say. How many clusters are there?<br />
@@ -755,7 +742,7 @@ For now, let’s start with <code class="docutils literal notranslate"><span cla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b494bada639689f97aacafdcbaeb5c6447cb201a9d2b45c3ab98b2773c4b1b2b.png" src="../_images/b494bada639689f97aacafdcbaeb5c6447cb201a9d2b45c3ab98b2773c4b1b2b.png" />
+<img alt="../_images/0d804e8dca75c2946c823030b405b2d1c7ca806cd0eb35d964c4098b11001513.png" src="../_images/0d804e8dca75c2946c823030b405b2d1c7ca806cd0eb35d964c4098b11001513.png" />
 </div>
 </div>
 <p>Once the clusters have been found (using the <code class="docutils literal notranslate"><span class="pre">.fit()</span></code> method as done above), we can also use a k-means model to make predctions on unknown datapoints.</p>
@@ -921,7 +908,7 @@ The first major limitation is that <strong>we must specify the number of cluster
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/bb20aadb336614565b9a2dd3d2cbe9426481f455a5a07d5a2ad4fd55dc3f6504.png" src="../_images/bb20aadb336614565b9a2dd3d2cbe9426481f455a5a07d5a2ad4fd55dc3f6504.png" />
+<img alt="../_images/ecdca584c706c13949c67c39e8abf92562345f546b71c94c8d759f207ba189df.png" src="../_images/ecdca584c706c13949c67c39e8abf92562345f546b71c94c8d759f207ba189df.png" />
 </div>
 </div>
 <p>This illustrates three important points:</p>
@@ -987,10 +974,22 @@ Points that do not belong to any dense region are labeled as <strong>noise</stro
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0,  0,  0,  0,  0, -1,  0,  0,  0,  0,  0,  0,  0,  1,  1,  2, -1,
-        3,  3,  3, -1,  3,  3,  3,  3,  3,  3,  3,  3,  3,  2,  3,  3,  3,
-        3, -1,  4,  4, -1, -1,  4,  4,  4, -1,  4, -1,  4,  4,  4, -1,  4,
-        4, -1,  4,  4,  4, -1,  4,  4, -1,  4])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0,  1,  1,  1,  1,  2,  0,  3,  4,  5, -1,  1,  1,  1, -1,  1,  1,
+        1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  1,  6,  1,  1,  1,  1,
+        1,  1,  1,  1, -1,  1,  1,  1,  1, -1,  1,  1, -1, -1,  1,  4,  1,
+        1,  1,  1,  5,  1,  4,  6,  1,  1,  1,  1,  1,  7,  1,  1,  1,  8,
+        1,  1,  1, -1,  1,  1,  1,  1,  8,  1,  1,  1,  1,  1,  1,  1,  1,
+        1,  1,  1,  1,  1,  7,  1,  1,  1,  1,  1,  1,  1,  9,  9, 10, -1,
+       11, 10, 12,  7, -1, 13, -1, -1, 13,  3, 12, 13, -1, -1, -1, -1,  9,
+       12,  3, 12, -1,  9, -1,  9, 13,  2, 12, 11, -1, 12,  9, -1, 10,  3,
+        9, 13, 13, 12, 13, -1, 12, 12, 12, 13, 12,  2,  2,  3,  3,  3,  3,
+        3,  3,  3,  3,  3,  3,  3,  3,  3,  3,  3,  3,  3,  3,  3,  3,  3,
+        3,  2,  3,  3,  3,  3,  2,  3,  3,  3,  3,  3,  3,  3,  3, -1,  3,
+        3,  3,  3,  3,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,
+        7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,
+        7,  7, -1,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,
+        7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,  7,
+        7,  7,  7,  7,  7,  7])
 </pre></div>
 </div>
 </div>
@@ -1006,7 +1005,7 @@ Points that do not belong to any dense region are labeled as <strong>noise</stro
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/616137b70116056e817b4e4771b118007dc88bf27290072e9f1b42669c53e20a.png" src="../_images/616137b70116056e817b4e4771b118007dc88bf27290072e9f1b42669c53e20a.png" />
+<img alt="../_images/99c8385cf32b9afcf41d8bf8cf041bc30f15887b1d875647e04c1dbf6db8b57f.png" src="../_images/99c8385cf32b9afcf41d8bf8cf041bc30f15887b1d875647e04c1dbf6db8b57f.png" />
 </div>
 </div>
 </section>
@@ -1026,7 +1025,7 @@ Points that do not belong to any dense region are labeled as <strong>noise</stro
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2f3aa38dd284c27fd5d89cd1ea7d63fc867e3fdd3088db68703e4ee49710414e.png" src="../_images/2f3aa38dd284c27fd5d89cd1ea7d63fc867e3fdd3088db68703e4ee49710414e.png" />
+<img alt="../_images/107faae6be25658826aae0832a489393c6862545d645648ddaf664ef0dbef6bc.png" src="../_images/107faae6be25658826aae0832a489393c6862545d645648ddaf664ef0dbef6bc.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1085,7 +1084,7 @@ Points that do not belong to any dense region are labeled as <strong>noise</stro
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/623582c5d1a1ed82b9bf26eaea161ecb18aa2e705aad2161874e611b31ccfca3.png" src="../_images/623582c5d1a1ed82b9bf26eaea161ecb18aa2e705aad2161874e611b31ccfca3.png" />
+<img alt="../_images/645ae5c1c5d696a61848c2478acbe4b7d26cd964fd380439066bd6dda748cfcb.png" src="../_images/645ae5c1c5d696a61848c2478acbe4b7d26cd964fd380439066bd6dda748cfcb.png" />
 </div>
 </div>
 <p>This shows an important lesson: DBSCAN can work very well, but only if its parameters match the scale and density structure of the data reasonably well.</p>
@@ -1147,7 +1146,7 @@ Third, it can naturally identify <strong>noise points</strong> or outliers, rath
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/e2a29766ffbe69d75d5703a21a818f21263a4d5072f34f985dfe00ac89b98fbf.png" src="../_images/e2a29766ffbe69d75d5703a21a818f21263a4d5072f34f985dfe00ac89b98fbf.png" />
+<img alt="../_images/5123fd9b88fc9943236c20013b9bc6a19d59a707c2e01fd0b2e675eba2331d64.png" src="../_images/5123fd9b88fc9943236c20013b9bc6a19d59a707c2e01fd0b2e675eba2331d64.png" />
 </div>
 </div>
 <p>Here we see the central problem. With a small <code class="docutils literal notranslate"><span class="pre">eps</span></code>, the sparser clusters may be fragmented or partly labeled as noise. With a larger <code class="docutils literal notranslate"><span class="pre">eps</span></code>, denser and sparser regions may be merged too aggressively. In the example shown here, for instance, we cannot find an <code class="docutils literal notranslate"><span class="pre">eps</span></code>-setting able to properly detect both the two more distributed clusters and the two very dense clusters. This shows that DBSCAN can work very well when the density structure is suitable, but is generally less reliable when densities vary strongly across the dataset.</p>
@@ -1191,7 +1190,7 @@ Third, it can naturally identify <strong>noise points</strong> or outliers, rath
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/37e9ecbea7f1ea0b9dc619180be9681efa3e2f31a3a8b46769a13ef7038f79cc.png" src="../_images/37e9ecbea7f1ea0b9dc619180be9681efa3e2f31a3a8b46769a13ef7038f79cc.png" />
+<img alt="../_images/d429628c772c1a6b2fa3463fcba3bb1bfacaa51437aea1031dad3ca37cecd2e1.png" src="../_images/d429628c772c1a6b2fa3463fcba3bb1bfacaa51437aea1031dad3ca37cecd2e1.png" />
 </div>
 </div>
 <p>In the scatter plot, we clearly recognize three clusters, but K-Means apparently fails.</p>
@@ -1215,7 +1214,7 @@ Third, it can naturally identify <strong>noise points</strong> or outliers, rath
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d7d1964e1ad87f553a6e3f7d96c83bbeda2fd29dd8831fd8cb55766d04ab564d.png" src="../_images/d7d1964e1ad87f553a6e3f7d96c83bbeda2fd29dd8831fd8cb55766d04ab564d.png" />
+<img alt="../_images/9c327a372315a9ad7f538dba11c9eb6aff6c8a8adbbd12cb5b90238fe02e8c57.png" src="../_images/9c327a372315a9ad7f538dba11c9eb6aff6c8a8adbbd12cb5b90238fe02e8c57.png" />
 </div>
 </div>
 <p>After standardizing the data, K-Means indentifies the three clusters as we would expect.</p>

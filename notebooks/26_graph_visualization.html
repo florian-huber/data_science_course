@@ -477,19 +477,6 @@
 </div>
 </div>
 </details>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -500,6 +487,7 @@
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;bipartite_layout&#39;,
  &#39;circular_layout&#39;,
+ &#39;forceatlas2_layout&#39;,
  &#39;kamada_kawai_layout&#39;,
  &#39;random_layout&#39;,
  &#39;rescale_layout&#39;,
@@ -511,6 +499,7 @@
  &#39;fruchterman_reingold_layout&#39;,
  &#39;spiral_layout&#39;,
  &#39;multipartite_layout&#39;,
+ &#39;bfs_layout&#39;,
  &#39;arf_layout&#39;]
 </pre></div>
 </div>
@@ -548,7 +537,7 @@
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/4593d1557328d8aa1c01cddae66f05408eca4b7ea0610f5b4de5a691bea3133b.png" src="../_images/4593d1557328d8aa1c01cddae66f05408eca4b7ea0610f5b4de5a691bea3133b.png" />
+<img alt="../_images/58caebe2d90341ced48a41c0f73e73cae03fafa150ab1759ea08c837399af2b6.png" src="../_images/58caebe2d90341ced48a41c0f73e73cae03fafa150ab1759ea08c837399af2b6.png" />
 </div>
 </div>
 <section id="add-more-dimensions-to-the-visualization">
@@ -588,7 +577,7 @@
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/47a26776f844b4e47e74c455b150d41e7889e7344b0a53462cbce26748fa5578.png" src="../_images/47a26776f844b4e47e74c455b150d41e7889e7344b0a53462cbce26748fa5578.png" />
+<img alt="../_images/1cc8a742ec74f7ebf7ecee4ad09df5cf8a541a4bb604f5950f34909f9b5d13da.png" src="../_images/1cc8a742ec74f7ebf7ecee4ad09df5cf8a541a4bb604f5950f34909f9b5d13da.png" />
 </div>
 </div>
 <p>Different layouts have different strengths and weaknesses. A circular arrangement (<strong>circular layout</strong>) can, for instance, be useful for quickly identifying which nodes have the most connections (and where these lead). Layouts such as random layout or other fixed forms like spirals etc. (as seen above: <strong>spiral layout</strong>) are much less commonly used in practice.</p>
@@ -623,7 +612,7 @@
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/1eba9ae63e2ff5a9d4e37611871da21d839b34024619e6e566d833c0f13efa06.png" src="../_images/1eba9ae63e2ff5a9d4e37611871da21d839b34024619e6e566d833c0f13efa06.png" />
+<img alt="../_images/4f618c042ffd7fc436475ec1c2e0761feb9d68a5f398565e54b3cf6d67981317.png" src="../_images/4f618c042ffd7fc436475ec1c2e0761feb9d68a5f398565e54b3cf6d67981317.png" />
 </div>
 </div>
 <section id="visual-randomness">
@@ -654,7 +643,7 @@
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/a4eb27d22dbf91d02cf94806252112ba76651e2374429b8825b7c12bd4f4996c.png" src="../_images/a4eb27d22dbf91d02cf94806252112ba76651e2374429b8825b7c12bd4f4996c.png" />
+<img alt="../_images/7e87d77cee90d26b4eb05cc9923e66eaa59d782be82b34627126d798e6c010f8.png" src="../_images/7e87d77cee90d26b4eb05cc9923e66eaa59d782be82b34627126d798e6c010f8.png" />
 </div>
 </div>
 </section>

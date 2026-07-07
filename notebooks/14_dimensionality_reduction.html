@@ -530,19 +530,6 @@ The <em>curse of dimensionality</em> can be understood by imagining that we have
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <details class="admonition hide above-input">
@@ -591,7 +578,7 @@ The <em>curse of dimensionality</em> can be understood by imagining that we have
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/bbe05f76d0c303fa36bf826e42901543978bbcdc14fbc5f4bb9a8c12fc1731bb.png" src="../_images/bbe05f76d0c303fa36bf826e42901543978bbcdc14fbc5f4bb9a8c12fc1731bb.png" />
+<img alt="../_images/a8262701cc83f8e923354fe8b832ac3df708a065d2bdad91a287710efdaddaee.png" src="../_images/a8262701cc83f8e923354fe8b832ac3df708a065d2bdad91a287710efdaddaee.png" />
 </div>
 </div>
 <p>Or, we can even make this much more extreme and go up to 1000 dimensions:</p>
@@ -642,7 +629,7 @@ The <em>curse of dimensionality</em> can be understood by imagining that we have
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/b458336482b1c75ad27e31fa01c3fb8b51a2c6f6fe82fd9cc25991322c053df3.png" src="../_images/b458336482b1c75ad27e31fa01c3fb8b51a2c6f6fe82fd9cc25991322c053df3.png" />
+<img alt="../_images/c0c2b68f42e91b15766785f2764e814492d4862a3a51c8977662a5835fcce76c.png" src="../_images/c0c2b68f42e91b15766785f2764e814492d4862a3a51c8977662a5835fcce76c.png" />
 </div>
 </div>
 <p>We see that for very high-dimensional data, nearly all computed distances are in a very narrow range (at least in our example when using Euclidean distances). This is one reason why computing “nearest” neighbors for high-dimensional data can quickly become complicated.</p>
@@ -872,7 +859,7 @@ The upper limit is the number of input dimensions, which in our simple example h
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/37127a28d21c2eff857e695e902865a993db158723c87ed11a04a5999a85dee5.png" src="../_images/37127a28d21c2eff857e695e902865a993db158723c87ed11a04a5999a85dee5.png" />
+<img alt="../_images/514f68b8a7ba121ab518fd04fabf73bf9a7714f62467cb7bd96005a0e0e8ad19.png" src="../_images/514f68b8a7ba121ab518fd04fabf73bf9a7714f62467cb7bd96005a0e0e8ad19.png" />
 </div>
 </div>
 <p>In the figures above, we can see a clear demonstration of PCA in action:</p>
@@ -1101,7 +1088,7 @@ In the following part, we will look at data from a marketing campaign, or more g
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/8e051437da7117e5970156970b9b588ef2e67a95e33b6120fcf4a3ef3fdbd310.png" src="../_images/8e051437da7117e5970156970b9b588ef2e67a95e33b6120fcf4a3ef3fdbd310.png" />
+<img alt="../_images/9adece7dbbbb9bc32dd95da8f0eda5edfb22e1d043a0cacb5ae8ad4922659cc5.png" src="../_images/9adece7dbbbb9bc32dd95da8f0eda5edfb22e1d043a0cacb5ae8ad4922659cc5.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1581,7 +1568,7 @@ The most common pitfall, however, is that <strong>PCA is extremely sensitive to 
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/80ee0d1e550a8b38b2636d902f8bb7057f1fd28805f7c174df53740de90b6667.png" src="../_images/80ee0d1e550a8b38b2636d902f8bb7057f1fd28805f7c174df53740de90b6667.png" />
+<img alt="../_images/f5bd30db3ff3e80b3c312d93d91521ba01dd0fd73bd02a0e7a3a9c9c131fe544.png" src="../_images/f5bd30db3ff3e80b3c312d93d91521ba01dd0fd73bd02a0e7a3a9c9c131fe544.png" />
 </div>
 </div>
 <p>We can, obviously, freely choose which feature we want to use for coloring. It is also possible to add another feature for scaling the size of the dots.</p>
@@ -1604,7 +1591,7 @@ The most common pitfall, however, is that <strong>PCA is extremely sensitive to 
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/bb51548785b3d5f2e48a10ba4c0f9a6a611b113680f2af80ed64d82a973c8b37.png" src="../_images/bb51548785b3d5f2e48a10ba4c0f9a6a611b113680f2af80ed64d82a973c8b37.png" />
+<img alt="../_images/0a46c50274e3ce9f5dce5905ee792a7ba822cde5260cd65100691e0868fe8224.png" src="../_images/0a46c50274e3ce9f5dce5905ee792a7ba822cde5260cd65100691e0868fe8224.png" />
 </div>
 </div>
 </section>
@@ -1653,7 +1640,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/161cebf44c44d3c595bf7e714e527c73f84be83d5307ea934fb27fec617129aa.png" src="../_images/161cebf44c44d3c595bf7e714e527c73f84be83d5307ea934fb27fec617129aa.png" />
+<img alt="../_images/5ba87571a15c30a7c890785e688600eec646ca36e4213ffa22721fb899a35223.png" src="../_images/5ba87571a15c30a7c890785e688600eec646ca36e4213ffa22721fb899a35223.png" />
 </div>
 </div>
 <p>First we will apply <strong>PCA</strong> to reduce this data to only one dimension.</p>
@@ -1689,7 +1676,7 @@ A lot of data we care about is highly non-linear. And linear methods are then of
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/a55f235d5f59909a2d752d063c6bd715d0eb1a2487abb79a6d902025bb4bd0d1.png" src="../_images/a55f235d5f59909a2d752d063c6bd715d0eb1a2487abb79a6d902025bb4bd0d1.png" />
+<img alt="../_images/c04079df2438f5c7035863efcbe7d4a18ebaf3d3636448f128e9deff77c39ae7.png" src="../_images/c04079df2438f5c7035863efcbe7d4a18ebaf3d3636448f128e9deff77c39ae7.png" />
 </div>
 </div>
 <p>As we see from this plot, <strong>PCA</strong> is not able to separate the two different colors. This means it does not find a good lower-dimensional representation of this particular dataset.</p>
@@ -1733,7 +1720,7 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/671661c5a88fd2cc83174a21f3d5f422badf2ec4f991e30f85737357c7966717.png" src="../_images/671661c5a88fd2cc83174a21f3d5f422badf2ec4f991e30f85737357c7966717.png" />
+<img alt="../_images/22804dff81a2f0577146850abe830838232ed4caff9c26e61f86426cb93dce37.png" src="../_images/22804dff81a2f0577146850abe830838232ed4caff9c26e61f86426cb93dce37.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1756,7 +1743,7 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/38029a6da1b8fe6013c94125b15eb0f0a8a3a0f534fe0493292903cc763dad6c.png" src="../_images/38029a6da1b8fe6013c94125b15eb0f0a8a3a0f534fe0493292903cc763dad6c.png" />
+<img alt="../_images/a4cfe98a6aa890fe214d648158298c4f0f379e061e06b5f5eaa9c559ace370ec.png" src="../_images/a4cfe98a6aa890fe214d648158298c4f0f379e061e06b5f5eaa9c559ace370ec.png" />
 </div>
 </div>
 <p>Now let us use Kernel-PCA to reduce the data to only one dimension.</p>
@@ -1781,7 +1768,7 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5f57f0513c9da73171524ba944545b3f777c231b5f291ea7dc1aae30d8dfc2a3.png" src="../_images/5f57f0513c9da73171524ba944545b3f777c231b5f291ea7dc1aae30d8dfc2a3.png" />
+<img alt="../_images/1b4b4f600458307b5a0451003395a52f49821dedb083c165a508ec8f8f62b613.png" src="../_images/1b4b4f600458307b5a0451003395a52f49821dedb083c165a508ec8f8f62b613.png" />
 </div>
 </div>
 <p>Here we see, that kernel-PCA is capable of keeping the two colors separate even after reducing all points to one dimension.</p>
@@ -1836,7 +1823,7 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/a63f47e7bdbcbb23ab525d48b157c8a4727a65aed4397184485b69038ac3cac6.png" src="../_images/a63f47e7bdbcbb23ab525d48b157c8a4727a65aed4397184485b69038ac3cac6.png" />
+<img alt="../_images/0653c9002ed58d1f11789976252996a7381aff1977b1e5db4ae6ea67c223b925.png" src="../_images/0653c9002ed58d1f11789976252996a7381aff1977b1e5db4ae6ea67c223b925.png" />
 </div>
 </div>
 <p>We can now again try to reduce this data to one dimension using PCA:</p>
@@ -1855,7 +1842,7 @@ In practice, Kernel PCA is often useful as a conceptual bridge between linear PC
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e3f09280132a2d3ae29e6bd5284a5256c74ef5ce695f69a8bbb93637ac6ff0e8.png" src="../_images/e3f09280132a2d3ae29e6bd5284a5256c74ef5ce695f69a8bbb93637ac6ff0e8.png" />
+<img alt="../_images/2b58596836150d7718d274fb44687ec788da663341de461cd559fc668c11e4bd.png" src="../_images/2b58596836150d7718d274fb44687ec788da663341de461cd559fc668c11e4bd.png" />
 </div>
 </div>
 <p>The result show, as expected, that a linear technique like PCA is not well-suited for this type of data.</p>
@@ -1922,7 +1909,7 @@ The following plot will illustrate this idea by showing a graph (or network) tha
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/58043a3872a3e5113d1a3edcc1682ec7b09e560a3b5e889bca327269ff3bc423.png" src="../_images/58043a3872a3e5113d1a3edcc1682ec7b09e560a3b5e889bca327269ff3bc423.png" />
+<img alt="../_images/cd28925fca268dca147549a5da8f2c101ad39f6134c6bf5db5eb24584a0cdeff.png" src="../_images/cd28925fca268dca147549a5da8f2c101ad39f6134c6bf5db5eb24584a0cdeff.png" />
 </div>
 </div>
 <p><strong>2.</strong> UMAP assigns weights to these neighbor relationships. Close and reliable neighbor relations receive stronger weights, while more distant or uncertain relations receive weaker weights.<br />
@@ -1978,7 +1965,7 @@ In the following, we let UMAP compute the dimensionality reduction and then visu
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/704e574e07eddc69718d54766bdedcd48787da3a1d1c2265e9de2cf57659729a.png" src="../_images/704e574e07eddc69718d54766bdedcd48787da3a1d1c2265e9de2cf57659729a.png" />
+<img alt="../_images/730e9740be777929722dca379747fb9c3eb9220666c82fc333fa12bf38be2831.png" src="../_images/730e9740be777929722dca379747fb9c3eb9220666c82fc333fa12bf38be2831.png" />
 </div>
 </div>
 <p><strong>3.</strong> UMAP searches for a low-dimensional arrangement of the points—usually in 2D or 3D—such that points that were strongly connected in the original high-dimensional graph stay close together, while weakly connected or disconnected points are allowed to lie farther apart.</p>
@@ -2026,7 +2013,7 @@ In the following, we let UMAP compute the dimensionality reduction and then visu
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e1a6f84c51865e4456aed1005c5101e5e1ac07050685a878784ad1b1d8e37876.png" src="../_images/e1a6f84c51865e4456aed1005c5101e5e1ac07050685a878784ad1b1d8e37876.png" />
+<img alt="../_images/20472d387119a71e7c7d71114138bed9c0a1653a82247716d18131924fd743b1.png" src="../_images/20472d387119a71e7c7d71114138bed9c0a1653a82247716d18131924fd743b1.png" />
 </div>
 </div>
 <p>This is better than the PCA result, because here the different groups no longer overlap. But UMAP was apparently not able to “find” the underlying structure (or: manifold). We can see what some parameter changes will do:</p>
@@ -2053,7 +2040,7 @@ In the following, we let UMAP compute the dimensionality reduction and then visu
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/32874574293d2bed937bc42c0236ed37bd44f71c49746babc01addd011157f37.png" src="../_images/32874574293d2bed937bc42c0236ed37bd44f71c49746babc01addd011157f37.png" />
+<img alt="../_images/d62c7525a6a113c7a337de2b7ce7321c138d1691439e09587bae12d0efcd3759.png" src="../_images/d62c7525a6a113c7a337de2b7ce7321c138d1691439e09587bae12d0efcd3759.png" />
 </div>
 </div>
 <p>Some of these results are comming close to aligning the data in one dimension, but we see that<br />
@@ -2080,7 +2067,7 @@ In the following, we let UMAP compute the dimensionality reduction and then visu
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3f93690a53609715495387b8db1a821037fb52c7a6d442f76be3a952fa588826.png" src="../_images/3f93690a53609715495387b8db1a821037fb52c7a6d442f76be3a952fa588826.png" />
+<img alt="../_images/c6b0b3ff4d8fb2ebf1ef93cba56d6569597307993e81dff96aae19ec01c59919.png" src="../_images/c6b0b3ff4d8fb2ebf1ef93cba56d6569597307993e81dff96aae19ec01c59919.png" />
 </div>
 </div>
 </section>
@@ -2118,7 +2105,7 @@ In the following, we let UMAP compute the dimensionality reduction and then visu
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b71d2dffe9b3956fd0e0c0fe3d0f2be6a26644055636706b932a8aefd66ab04c.png" src="../_images/b71d2dffe9b3956fd0e0c0fe3d0f2be6a26644055636706b932a8aefd66ab04c.png" />
+<img alt="../_images/075dcdd447aff408e79af09092fb5a25656dee03ab06f4149b2417aa77609f29.png" src="../_images/075dcdd447aff408e79af09092fb5a25656dee03ab06f4149b2417aa77609f29.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2145,7 +2132,7 @@ In the following, we let UMAP compute the dimensionality reduction and then visu
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/95a538dac3c904cbd1347f786696823cd4e3010249be987ad78bf5423b53843a.png" src="../_images/95a538dac3c904cbd1347f786696823cd4e3010249be987ad78bf5423b53843a.png" />
+<img alt="../_images/17b9987fb48f997cebc25c8f8eb30683affe44fc2b30b986654c7cb453412843.png" src="../_images/17b9987fb48f997cebc25c8f8eb30683affe44fc2b30b986654c7cb453412843.png" />
 </div>
 </div>
 <p>We can of course, also plot several features in parallel by combining multiple plots.</p>
