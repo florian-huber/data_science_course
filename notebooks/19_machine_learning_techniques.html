@@ -198,7 +198,7 @@
 <li class="toctree-l1"><a class="reference internal" href="22_NLP_2_tokenization.html">From Text to Tokens</a></li>
 <li class="toctree-l1"><a class="reference internal" href="23_NLP_3_tfifd_and_machine_learning.html">Computing with Text: Counting words</a></li>
 <li class="toctree-l1"><a class="reference internal" href="24_NLP_4_ngrams_word_vectors.html">Beyond Counting Individual Words: N-grams</a></li>
-<li class="toctree-l1"><a class="reference internal" href="25_NLP_5_embeddings.html">Embeddings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_NLP_5_embeddings.html">Word Embeddings and Document representations</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the Networks</span></p>
 <ul class="nav bd-sidenav">
@@ -4219,7 +4219,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">dict</td>
-           <td>{&#x27;me...me&#x27;: array([0.0056..., 0.00548935]), &#x27;me...me&#x27;: array([0.0049..., 0.00568409]), &#x27;me...re&#x27;: array([0.7984..., 0.70877491]), &#x27;me...re&#x27;: array([0.9121..., 0.73184133]), ...}</td>
+           <td>{&#x27;me...me&#x27;: array([0.0053..., 0.00508647]), &#x27;me...me&#x27;: array([0.0046..., 0.00536661]), &#x27;me...re&#x27;: array([0.7984..., 0.70877491]), &#x27;me...re&#x27;: array([0.9121..., 0.73184133]), ...}</td>
 
 
        </tr>
@@ -4310,7 +4310,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">float</td>
-           <td>0.004864</td>
+           <td>0.00467</td>
 
 
        </tr>
@@ -5215,10 +5215,10 @@ forceTheme('sk-container-id-2');</script></body></div></div>
   <tbody>
     <tr>
       <th>1</th>
-      <td>0.005527</td>
-      <td>0.000083</td>
-      <td>0.004686</td>
-      <td>0.000031</td>
+      <td>0.005125</td>
+      <td>0.000020</td>
+      <td>0.004327</td>
+      <td>0.000041</td>
       <td>3</td>
       <td>{'model__n_neighbors': 3}</td>
       <td>0.788644</td>
@@ -5239,10 +5239,10 @@ forceTheme('sk-container-id-2');</script></body></div></div>
     </tr>
     <tr>
       <th>0</th>
-      <td>0.005645</td>
-      <td>0.000298</td>
-      <td>0.004905</td>
-      <td>0.000635</td>
+      <td>0.005330</td>
+      <td>0.000317</td>
+      <td>0.004609</td>
+      <td>0.000665</td>
       <td>2</td>
       <td>{'model__n_neighbors': 2}</td>
       <td>0.794953</td>
@@ -5263,10 +5263,10 @@ forceTheme('sk-container-id-2');</script></body></div></div>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.005519</td>
-      <td>0.000174</td>
-      <td>0.004671</td>
-      <td>0.000125</td>
+      <td>0.005128</td>
+      <td>0.000050</td>
+      <td>0.004354</td>
+      <td>0.000030</td>
       <td>4</td>
       <td>{'model__n_neighbors': 4}</td>
       <td>0.769716</td>
@@ -9847,7 +9847,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">Tree</td>
-           <td>&lt;sklearn.tree...x7f24e09f4d50&gt;</td>
+           <td>&lt;sklearn.tree...x7fa5a468c5e0&gt;</td>
 
 
        </tr>
@@ -11070,7 +11070,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">float64</td>
-           <td>0.9185</td>
+           <td>0.9223</td>
 
 
        </tr>
@@ -11107,7 +11107,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">dict</td>
-           <td>{&#x27;me...me&#x27;: array([0.0061..., 0.00699282]), &#x27;me...me&#x27;: array([0.0022..., 0.00223597]), &#x27;me...re&#x27;: array([0.8180..., 0.9052611 ]), &#x27;me...re&#x27;: array([0.8528..., 0.9734657 ]), ...}</td>
+           <td>{&#x27;me...me&#x27;: array([0.0060..., 0.00699687]), &#x27;me...me&#x27;: array([0.0022..., 0.00220092]), &#x27;me...re&#x27;: array([0.8168..., 0.90399608]), &#x27;me...re&#x27;: array([0.8528..., 0.9734657 ]), ...}</td>
 
 
        </tr>
@@ -11198,7 +11198,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">float</td>
-           <td>0.008907</td>
+           <td>0.008893</td>
 
 
        </tr>
@@ -11525,7 +11525,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">ndarray[float64](30,)</td>
-           <td>[0.02,0.26,0.47,...,0.  ,0.  ,0.  ]</td>
+           <td>[0.03,0.26,0.47,...,0.  ,0.  ,0.  ]</td>
 
 
        </tr>
@@ -11634,7 +11634,7 @@ a.param-doc-link::before {
         </a>
     </td>
            <td class="fitted-att-type">Tree</td>
-           <td>&lt;sklearn.tree...x7f24e09ca090&gt;</td>
+           <td>&lt;sklearn.tree...x7fa5a468f440&gt;</td>
 
 
        </tr>
@@ -11864,18 +11864,18 @@ forceTheme('sk-container-id-6');</script></body></div></div>
   <tbody>
     <tr>
       <th>6</th>
-      <td>0.007012</td>
-      <td>0.000090</td>
-      <td>0.002219</td>
-      <td>0.000015</td>
+      <td>0.006996</td>
+      <td>0.000055</td>
+      <td>0.002240</td>
+      <td>0.000004</td>
       <td>10</td>
       <td>2</td>
       <td>{'max_depth': 10, 'min_samples_split': 2}</td>
-      <td>0.909091</td>
-      <td>0.899621</td>
+      <td>0.914773</td>
+      <td>0.905303</td>
       <td>0.946869</td>
-      <td>0.918527</td>
-      <td>0.020410</td>
+      <td>0.922315</td>
+      <td>0.017788</td>
       <td>1</td>
       <td>0.990521</td>
       <td>0.994313</td>
@@ -11884,19 +11884,19 @@ forceTheme('sk-container-id-6');</script></body></div></div>
       <td>0.002719</td>
     </tr>
     <tr>
-      <th>12</th>
-      <td>0.007061</td>
-      <td>0.000098</td>
-      <td>0.002213</td>
-      <td>0.000007</td>
-      <td>20</td>
+      <th>9</th>
+      <td>0.007125</td>
+      <td>0.000059</td>
+      <td>0.002272</td>
+      <td>0.000026</td>
+      <td>15</td>
       <td>2</td>
-      <td>{'max_depth': 20, 'min_samples_split': 2}</td>
-      <td>0.909091</td>
+      <td>{'max_depth': 15, 'min_samples_split': 2}</td>
+      <td>0.916667</td>
       <td>0.899621</td>
-      <td>0.944972</td>
-      <td>0.917895</td>
-      <td>0.019533</td>
+      <td>0.946869</td>
+      <td>0.921052</td>
+      <td>0.019537</td>
       <td>2</td>
       <td>1.000000</td>
       <td>1.000000</td>
@@ -11905,25 +11905,25 @@ forceTheme('sk-container-id-6');</script></body></div></div>
       <td>0.000000</td>
     </tr>
     <tr>
-      <th>7</th>
-      <td>0.006973</td>
-      <td>0.000069</td>
-      <td>0.002221</td>
+      <th>12</th>
+      <td>0.007053</td>
+      <td>0.000071</td>
+      <td>0.002211</td>
       <td>0.000010</td>
-      <td>10</td>
-      <td>5</td>
-      <td>{'max_depth': 10, 'min_samples_split': 5}</td>
-      <td>0.910985</td>
-      <td>0.897727</td>
-      <td>0.939279</td>
-      <td>0.915997</td>
-      <td>0.017330</td>
+      <td>20</td>
+      <td>2</td>
+      <td>{'max_depth': 20, 'min_samples_split': 2}</td>
+      <td>0.905303</td>
+      <td>0.907197</td>
+      <td>0.941176</td>
+      <td>0.917892</td>
+      <td>0.016483</td>
       <td>3</td>
-      <td>0.983886</td>
-      <td>0.981991</td>
-      <td>0.986742</td>
-      <td>0.984206</td>
-      <td>0.001953</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
     </tr>
   </tbody>
 </table>
@@ -11947,10 +11947,10 @@ Here, however, we will now do another cross-validation run to illustrate what th
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;fit_time&#39;: array([0.00982666, 0.00886679, 0.00885749, 0.00870037, 0.00920534,
-        0.00881696, 0.00892186, 0.00940967, 0.00909948, 0.00877857]),
- &#39;score_time&#39;: array([0.00461268, 0.00444317, 0.00444961, 0.00434875, 0.00444412,
-        0.00436592, 0.00439668, 0.00437284, 0.00439978, 0.00435519]),
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;fit_time&#39;: array([0.00945878, 0.00878406, 0.00890589, 0.00869226, 0.00923562,
+        0.00890207, 0.00893736, 0.00944328, 0.00913239, 0.00885248]),
+ &#39;score_time&#39;: array([0.00470662, 0.00453305, 0.00460386, 0.00447297, 0.0044713 ,
+        0.00449133, 0.00444365, 0.00443602, 0.00447226, 0.00444698]),
  &#39;test_accuracy&#39;: array([0.94339623, 0.93081761, 0.93710692, 0.91772152, 0.89873418,
         0.92405063, 0.92405063, 0.90506329, 0.94936709, 0.93037975]),
  &#39;test_f1_macro&#39;: array([0.93997462, 0.93043011, 0.93587503, 0.9171811 , 0.89191806,

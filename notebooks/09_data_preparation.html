@@ -196,7 +196,7 @@
 <li class="toctree-l1"><a class="reference internal" href="22_NLP_2_tokenization.html">From Text to Tokens</a></li>
 <li class="toctree-l1"><a class="reference internal" href="23_NLP_3_tfifd_and_machine_learning.html">Computing with Text: Counting words</a></li>
 <li class="toctree-l1"><a class="reference internal" href="24_NLP_4_ngrams_word_vectors.html">Beyond Counting Individual Words: N-grams</a></li>
-<li class="toctree-l1"><a class="reference internal" href="25_NLP_5_embeddings.html">Embeddings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_NLP_5_embeddings.html">Word Embeddings and Document representations</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Look at the Networks</span></p>
 <ul class="nav bd-sidenav">
@@ -947,33 +947,33 @@ memory usage: 228.0 bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>Stacy</td>
-      <td>40</td>
+      <td>Diana</td>
+      <td>56</td>
       <td>73000</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Barbara</td>
-      <td>43</td>
-      <td>79000</td>
+      <td>Ann</td>
+      <td>32</td>
+      <td>82000</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Eric</td>
-      <td>38</td>
-      <td>65000</td>
+      <td>James</td>
+      <td>40</td>
+      <td>67000</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Nicholas</td>
-      <td>58</td>
-      <td>107000</td>
+      <td>Jennifer</td>
+      <td>52</td>
+      <td>69000</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Debra</td>
-      <td>24</td>
-      <td>43000</td>
+      <td>Stephen</td>
+      <td>21</td>
+      <td>71000</td>
     </tr>
   </tbody>
 </table>
@@ -1014,33 +1014,33 @@ memory usage: 228.0 bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>Stacy</td>
-      <td>40</td>
+      <td>Diana</td>
+      <td>56</td>
       <td>73000.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Barbara</td>
-      <td>43</td>
+      <td>Ann</td>
+      <td>32</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Eric</td>
-      <td>38</td>
+      <td>James</td>
+      <td>40</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Nicholas</td>
-      <td>58</td>
+      <td>Jennifer</td>
+      <td>52</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Debra</td>
-      <td>24</td>
-      <td>43000.0</td>
+      <td>Stephen</td>
+      <td>21</td>
+      <td>71000.0</td>
     </tr>
   </tbody>
 </table>
@@ -1094,33 +1094,33 @@ memory usage: 228.0 bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>Stacy</td>
-      <td>40</td>
+      <td>Diana</td>
+      <td>56</td>
       <td>73000.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Barbara</td>
-      <td>43</td>
+      <td>Ann</td>
+      <td>32</td>
       <td>70000.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Eric</td>
-      <td>38</td>
+      <td>James</td>
+      <td>40</td>
       <td>70000.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Nicholas</td>
-      <td>58</td>
+      <td>Jennifer</td>
+      <td>52</td>
       <td>70000.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Debra</td>
-      <td>24</td>
-      <td>43000.0</td>
+      <td>Stephen</td>
+      <td>21</td>
+      <td>71000.0</td>
     </tr>
   </tbody>
 </table>
@@ -1176,33 +1176,33 @@ memory usage: 228.0 bytes
   <tbody>
     <tr>
       <th>0</th>
-      <td>Stacy</td>
-      <td>40.0</td>
+      <td>Diana</td>
+      <td>56.0</td>
       <td>73000.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Barbara</td>
-      <td>43.0</td>
-      <td>79500.0</td>
+      <td>Ann</td>
+      <td>32.0</td>
+      <td>66500.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Eric</td>
-      <td>38.0</td>
-      <td>79500.0</td>
+      <td>James</td>
+      <td>40.0</td>
+      <td>64000.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Nicholas</td>
-      <td>58.0</td>
+      <td>Jennifer</td>
+      <td>52.0</td>
       <td>95000.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Debra</td>
-      <td>24.0</td>
-      <td>43000.0</td>
+      <td>Stephen</td>
+      <td>21.0</td>
+      <td>71000.0</td>
     </tr>
   </tbody>
 </table>
