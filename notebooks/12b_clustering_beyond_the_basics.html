@@ -524,6 +524,19 @@ The E-step and M-step are repeated until the parameter changes become small enou
 </div>
 </div>
 </details>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <details class="admonition hide above-input">
@@ -558,6 +571,20 @@ The E-step and M-step are repeated until the parameter changes become small enou
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\flori\anaconda3\envs\data_science\Lib\site-packages\threadpoolctl.py:1226: RuntimeWarning: 
+Found Intel OpenMP (&#39;libiomp&#39;) and LLVM OpenMP (&#39;libomp&#39;) loaded at
+the same time. Both libraries are known to be incompatible and this
+can cause random crashes or deadlocks on Linux when loaded in the
+same Python program.
+Using threadpoolctl may cause crashes or deadlocks. For more
+information and possible workarounds, please see
+    https://github.com/joblib/threadpoolctl/blob/master/multiple_openmp.md
+
+  warnings.warn(msg, RuntimeWarning)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -570,7 +597,7 @@ The E-step and M-step are repeated until the parameter changes become small enou
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/bc99708d8eb46c4a0ef0e7866647f1fef9d185ffd8c573bf4142eb85e99aab71.png" src="../_images/bc99708d8eb46c4a0ef0e7866647f1fef9d185ffd8c573bf4142eb85e99aab71.png" />
+<img alt="../_images/53de3140e00829a332b1f2947de32a6db4c1a4b83f55a0cbd48ad71f2ef0d00f.png" src="../_images/53de3140e00829a332b1f2947de32a6db4c1a4b83f55a0cbd48ad71f2ef0d00f.png" />
 </div>
 </div>
 <p>The result may look similar to K-means at first glance, but conceptually something important has changed. The model is no longer just assigning points to the nearest center. Instead, it is fitting several Gaussian distributions to the data.</p>
@@ -715,7 +742,7 @@ The E-step and M-step are repeated until the parameter changes become small enou
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/88de13ee28e104bda191579b59cff3bc1861096e74c05b088025842c6ed0be9e.png" src="../_images/88de13ee28e104bda191579b59cff3bc1861096e74c05b088025842c6ed0be9e.png" />
+<img alt="../_images/e9c37ff2b965f2aa5048877e04402489ff4229a430a578baf5cdda511c7f52ec.png" src="../_images/e9c37ff2b965f2aa5048877e04402489ff4229a430a578baf5cdda511c7f52ec.png" />
 </div>
 </div>
 <p>This visualization makes the underlying idea of GMM much clearer: the algorithm is not just drawing boundaries between groups, but modeling the data as overlapping probability clouds.</p>
@@ -778,7 +805,7 @@ The E-step and M-step are repeated until the parameter changes become small enou
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/edb8328412eb35037b3ff1fa79610e548424e2ef0fa01668cb6062fac038382b.png" src="../_images/edb8328412eb35037b3ff1fa79610e548424e2ef0fa01668cb6062fac038382b.png" />
+<img alt="../_images/4af3ac5838b0a4b392297fd4b392d72675a57a9b83bc766abf680a61c03f5138.png" src="../_images/4af3ac5838b0a4b392297fd4b392d72675a57a9b83bc766abf680a61c03f5138.png" />
 </div>
 </div>
 <p>This produces one clustering result, but the real strength of hierarchical clustering lies in the fact that it has built a full hierarchy in the background.</p>
@@ -832,7 +859,7 @@ Here is a helper function to plot a dendrogram for the fitted model:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/de21c81665f96668d62bb146303ed90d951c80a09c014f6d7ce098f796998d88.png" src="../_images/de21c81665f96668d62bb146303ed90d951c80a09c014f6d7ce098f796998d88.png" />
+<img alt="../_images/6b89b4d78476fb2115c12f74bc44d96b4094f4b33c173fdfebe7327e27d930f6.png" src="../_images/6b89b4d78476fb2115c12f74bc44d96b4094f4b33c173fdfebe7327e27d930f6.png" />
 </div>
 </div>
 <p>The important practical idea is this: <strong>cutting</strong> the dendrogram at different heights gives different numbers of clusters. A high cut produces only a few broad clusters. A low cut produces many smaller ones.<br />
@@ -867,7 +894,7 @@ So hierarchical clustering does not eliminate the question of how many clusters 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/22d48b6e130e960a1eccde0596b1521f03b579c464cdba52ae59681f329d390c.png" src="../_images/22d48b6e130e960a1eccde0596b1521f03b579c464cdba52ae59681f329d390c.png" />
+<img alt="../_images/94cf267d6df3f37d28dddb5264dca1145b583d0286660145e97aa9ba31e26aae.png" src="../_images/94cf267d6df3f37d28dddb5264dca1145b583d0286660145e97aa9ba31e26aae.png" />
 </div>
 </div>
 <p>A lower distance threshold cuts the hierarchy closer to the individual points, leading to more clusters. A higher threshold merges more groups together, leading to fewer clusters.</p>
@@ -903,7 +930,7 @@ The downside is that, like many more flexible methods, it is somewhat less intui
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\flori\anaconda3\envs\data_science\Lib\site-packages\sklearn\cluster\_hdbscan\hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
   warn(
 </pre></div>
 </div>
@@ -920,7 +947,7 @@ The downside is that, like many more flexible methods, it is somewhat less intui
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/968469b3c5636e93657fd7d31cb9ba5a0a91b209a311e4412c7e02c981063f65.png" src="../_images/968469b3c5636e93657fd7d31cb9ba5a0a91b209a311e4412c7e02c981063f65.png" />
+<img alt="../_images/cd0c6504ec205ba731bdb2efc680917197a829254183224a7b1e79a498899059.png" src="../_images/cd0c6504ec205ba731bdb2efc680917197a829254183224a7b1e79a498899059.png" />
 </div>
 </div>
 </section>
@@ -1038,7 +1065,7 @@ The downside is that, like many more flexible methods, it is somewhat less intui
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/c6940f5cd7f548c1d6ae81e48fdfbf8391d9d9b566f391f3b2975a301a8fb7e7.png" src="../_images/c6940f5cd7f548c1d6ae81e48fdfbf8391d9d9b566f391f3b2975a301a8fb7e7.png" />
+<img alt="../_images/3b8193d6eae96f991eba8ae1bfbe9372a92f5e0f79d6d7b24f19bfdfd0a51c39.png" src="../_images/3b8193d6eae96f991eba8ae1bfbe9372a92f5e0f79d6d7b24f19bfdfd0a51c39.png" />
 </div>
 </div>
 </section>

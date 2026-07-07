@@ -486,7 +486,7 @@
 <figure class="align-default" id="fig-graphs01">
 <img alt="../_images/fig_graphs_types_weighted_directed.png" src="../_images/fig_graphs_types_weighted_directed.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 45 </span><span class="caption-text">Graphs come in different types or flavors. Key distinctions to make are whether or not links are directed or undirected. And whether or not link are weighted.</span><a class="headerlink" href="#fig-graphs01" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 46 </span><span class="caption-text">Graphs come in different types or flavors. Key distinctions to make are whether or not links are directed or undirected. And whether or not link are weighted.</span><a class="headerlink" href="#fig-graphs01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In the simplest form of a graph, we have unweighted and undirected edges, but real-world graphs often feature directed and/or weighted edges.</p>
@@ -494,7 +494,7 @@
 <figure class="align-default" id="fig-graphs02">
 <img alt="../_images/fig_graphs_types_weighted_directed_degree.png" src="../_images/fig_graphs_types_weighted_directed_degree.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 46 </span><span class="caption-text">The degree describes the number of links of a particular node. For directed graphs we distinguish in-degree and out-degree.</span><a class="headerlink" href="#fig-graphs02" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 47 </span><span class="caption-text">The degree describes the number of links of a particular node. For directed graphs we distinguish in-degree and out-degree.</span><a class="headerlink" href="#fig-graphs02" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The standard library in Python for working with graphs is <code class="docutils literal notranslate"><span class="pre">networkx</span></code>. Comprehensive documentation is available at this link: https://networkx.org/documentation/latest/_downloads/networkx_reference.pdf.</p>
@@ -521,7 +521,16 @@ In addition, <code class="docutils literal notranslate"><span class="pre">Networ
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;3.6.1&#39;
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> 
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
 </pre></div>
 </div>
 </div>
@@ -629,7 +638,7 @@ To initiate a directed graph we can use <code class="docutils literal notranslat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b81abc7cc4e6d5bd440f8b216a25c73f1ca4ad887962f89d62703ac6fc767773.png" src="../_images/b81abc7cc4e6d5bd440f8b216a25c73f1ca4ad887962f89d62703ac6fc767773.png" />
+<img alt="../_images/1d5fbba6dd6ed8b53e7151649ff17b067d2926f6e5ddccb87f4b869cee04e35e.png" src="../_images/1d5fbba6dd6ed8b53e7151649ff17b067d2926f6e5ddccb87f4b869cee04e35e.png" />
 </div>
 </div>
 <p>We see that some nodes have more connections (up to three in this example), while others have fewer connections, such as the node “Alice” with only one edge to another node (“Peter”).
@@ -779,7 +788,7 @@ Density = 0.6
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/80caa24d84eb01358c72535bc54fc58c62d88a38ccdcab9dacd45cf401e1d408.png" src="../_images/80caa24d84eb01358c72535bc54fc58c62d88a38ccdcab9dacd45cf401e1d408.png" />
+<img alt="../_images/7551466dd8e2a6560c764e124ee16465c6249b7d636996f105ddfe73616e80ed.png" src="../_images/7551466dd8e2a6560c764e124ee16465c6249b7d636996f105ddfe73616e80ed.png" />
 </div>
 </div>
 </section>
@@ -800,7 +809,7 @@ Density = 0.6
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0c2f225112e17b256d854e6c3efe379e1c290ac6adbf521e0c58a09d13a162d1.png" src="../_images/0c2f225112e17b256d854e6c3efe379e1c290ac6adbf521e0c58a09d13a162d1.png" />
+<img alt="../_images/1b6e2c28271ea8b137061a9b06f4f3d594d5a150de085fb9d009cd04b4f04876.png" src="../_images/1b6e2c28271ea8b137061a9b06f4f3d594d5a150de085fb9d009cd04b4f04876.png" />
 </div>
 </div>
 <p>Using networkx this can be tested very easily:</p>
@@ -836,7 +845,7 @@ Density = 0.6
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/75e92a72c41a65682306b2e680b5d6c854d34e784b682ea6c5863b8fd9d4777e.png" src="../_images/75e92a72c41a65682306b2e680b5d6c854d34e784b682ea6c5863b8fd9d4777e.png" />
+<img alt="../_images/50ce1648480f598bb68c4b8e87e9365c4c95f88c6d281bebfa4e9c1c7046c2ea.png" src="../_images/50ce1648480f598bb68c4b8e87e9365c4c95f88c6d281bebfa4e9c1c7046c2ea.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -850,7 +859,7 @@ Density = 0.6
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2f2ef2fec4959c4488f17aaf4bd25b72f6bf44ab4ac321dcd9f7eb9d1393624c.png" src="../_images/2f2ef2fec4959c4488f17aaf4bd25b72f6bf44ab4ac321dcd9f7eb9d1393624c.png" />
+<img alt="../_images/72d53f602d1d344d606532a13099c87407668c522ff6aee7942eff90065cec70.png" src="../_images/72d53f602d1d344d606532a13099c87407668c522ff6aee7942eff90065cec70.png" />
 </div>
 </div>
 </section>

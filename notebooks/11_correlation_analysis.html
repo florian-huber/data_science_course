@@ -475,6 +475,20 @@
 </div>
 </div>
 </details>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <section id="covariance-and-the-pearson-correlation-coefficient">
 <h2>Covariance, and the (Pearson) correlation coefficient<a class="headerlink" href="#covariance-and-the-pearson-correlation-coefficient" title="Link to this heading">#</a></h2>
@@ -583,7 +597,7 @@ A value close to 1 indicates a strong positive linear relationship, whereas a va
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/0cf11e138fe4814cce3d443cb7bf02e822873731e9fb167c7022a26bd8685da5.png" src="../_images/0cf11e138fe4814cce3d443cb7bf02e822873731e9fb167c7022a26bd8685da5.png" />
+<img alt="../_images/b5cd82768f411d1b56efa06e9c1d7fa71837e3b2de1a04aefb0e04a2cd7eac4c.png" src="../_images/b5cd82768f411d1b56efa06e9c1d7fa71837e3b2de1a04aefb0e04a2cd7eac4c.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -689,7 +703,7 @@ A value close to 1 indicates a strong positive linear relationship, whereas a va
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/3e0bda812cfc8efd4e8580b6cda592ef5357d785ba51d22f6895331238b542b5.png" src="../_images/3e0bda812cfc8efd4e8580b6cda592ef5357d785ba51d22f6895331238b542b5.png" />
+<img alt="../_images/186791152acfff6121770e83275434f0a47044f9ef2a210490ea2d5e4f86d98c.png" src="../_images/186791152acfff6121770e83275434f0a47044f9ef2a210490ea2d5e4f86d98c.png" />
 </div>
 </div>
 <blockquote>
@@ -1167,7 +1181,7 @@ and almost no linear correlation between <code class="docutils literal notransla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7a1a4fc4a3c30c66030bb7866ed3afc6979cf683fe2d5c85f67300f1906a3596.png" src="../_images/7a1a4fc4a3c30c66030bb7866ed3afc6979cf683fe2d5c85f67300f1906a3596.png" />
+<img alt="../_images/7cb83f29a3d2f33065f3ef3293e2023f78440cb5e3c5c6b44bf97e6fc03855b2.png" src="../_images/7cb83f29a3d2f33065f3ef3293e2023f78440cb5e3c5c6b44bf97e6fc03855b2.png" />
 </div>
 </div>
 <p>Such data visualizations often make the results much more accessible and also more pleasent to explore. Since the used correlation coefficient is symmetric, that means <span class="math notranslate nohighlight">\(Corr(A, B) = Corr(B, A)\)</span>, we do not even have to display the full matrix. Instead we can select only the upper or lower triangle. We can also skip the diagonal which does not contain anything relevant here because each feature <em>of course</em> perfectly correlates with itself.</p>
@@ -1196,7 +1210,7 @@ and almost no linear correlation between <code class="docutils literal notransla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/aec28ffd09f3374c27dffe8034222fc7244b5bde78a8bb130fbbe8bbfacb00ee.png" src="../_images/aec28ffd09f3374c27dffe8034222fc7244b5bde78a8bb130fbbe8bbfacb00ee.png" />
+<img alt="../_images/47c48f14a0d0a393a6b6e0af2655cc42ba3d9753f28f725b53ad96b8fec3a44b.png" src="../_images/47c48f14a0d0a393a6b6e0af2655cc42ba3d9753f28f725b53ad96b8fec3a44b.png" />
 </div>
 </div>
 </section>
@@ -1264,13 +1278,13 @@ and almost no linear correlation between <code class="docutils literal notransla
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/numpy/lib/_function_base_impl.py:3023: RuntimeWarning: invalid value encountered in divide
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\flori\anaconda3\envs\data_science\Lib\site-packages\numpy\lib\_function_base_impl.py:3023: RuntimeWarning: invalid value encountered in divide
   c /= stddev[:, None]
-/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/numpy/lib/_function_base_impl.py:3024: RuntimeWarning: invalid value encountered in divide
+C:\Users\flori\anaconda3\envs\data_science\Lib\site-packages\numpy\lib\_function_base_impl.py:3024: RuntimeWarning: invalid value encountered in divide
   c /= stddev[None, :]
 </pre></div>
 </div>
-<img alt="../_images/bcd8bb76de1746c8cae1179eef8a5ba5d1127dc5ac5b1f4bfa1f594145ddf014.png" src="../_images/bcd8bb76de1746c8cae1179eef8a5ba5d1127dc5ac5b1f4bfa1f594145ddf014.png" />
+<img alt="../_images/eb8e396d5ad60de88740ac4909a27bf5d22d3318b4d018a6172b843d81b54e00.png" src="../_images/eb8e396d5ad60de88740ac4909a27bf5d22d3318b4d018a6172b843d81b54e00.png" />
 </div>
 </div>
 </section>
@@ -1343,7 +1357,7 @@ and almost no linear correlation between <code class="docutils literal notransla
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/522ed37d4e21ec435808ebf72d957106ae056db53a36092a9e9d845d2c167dba.png" src="../_images/522ed37d4e21ec435808ebf72d957106ae056db53a36092a9e9d845d2c167dba.png" />
+<img alt="../_images/fc3718134fba44572e0ea165870e70311c1412476290b64c87c541a23c57c7d3.png" src="../_images/fc3718134fba44572e0ea165870e70311c1412476290b64c87c541a23c57c7d3.png" />
 </div>
 </div>
 <p>Another prominent example to illustrate how little the Pearson correlation coefficient sometimes tells us is the <code class="docutils literal notranslate"><span class="pre">datasaurus</span></code> dataset from the last chapter. Here, too, the data is distributed very differently, but the correlation coefficient remains the same.</p>
@@ -1405,7 +1419,7 @@ and almost no linear correlation between <code class="docutils literal notransla
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/a24f4ebaf904292bf9b1f21665abfb055e17cd746fbea78ca09d63af1be877d6.png" src="../_images/a24f4ebaf904292bf9b1f21665abfb055e17cd746fbea78ca09d63af1be877d6.png" />
+<img alt="../_images/3a832ef6e1460b6ced0b960cf7d615613abed212645cc6cf5a363b22a31a7e23.png" src="../_images/3a832ef6e1460b6ced0b960cf7d615613abed212645cc6cf5a363b22a31a7e23.png" />
 </div>
 </div>
 </section>
@@ -1422,7 +1436,7 @@ and almost no linear correlation between <code class="docutils literal notransla
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f4de0ea692108b34b8025b1f812e4aa91dd392f30dead2df548d1b1abdd01740.png" src="../_images/f4de0ea692108b34b8025b1f812e4aa91dd392f30dead2df548d1b1abdd01740.png" />
+<img alt="../_images/f9f4422e568860930bd9f2397c7037753be5cec6cc7c615bcfe8245844383a2e.png" src="../_images/f9f4422e568860930bd9f2397c7037753be5cec6cc7c615bcfe8245844383a2e.png" />
 </div>
 </div>
 <p>It is of course also easily possible to plot only the parts we are most interested in, for instance:</p>
@@ -1455,7 +1469,7 @@ and almost no linear correlation between <code class="docutils literal notransla
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/2468c9566d6f7c8a30120fdd9c1ac75096b9d1e9be75d777c4cb4527fcd3a5ee.png" src="../_images/2468c9566d6f7c8a30120fdd9c1ac75096b9d1e9be75d777c4cb4527fcd3a5ee.png" />
+<img alt="../_images/9c9451d1a130649a825167b6c4944118715cba2c07dbf760fe6388e59669d1f4.png" src="../_images/9c9451d1a130649a825167b6c4944118715cba2c07dbf760fe6388e59669d1f4.png" />
 </div>
 </div>
 </section>

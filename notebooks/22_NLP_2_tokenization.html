@@ -483,11 +483,11 @@
 <section id="nlp-preprocessing-workflow">
 <h2>NLP Preprocessing Workflow<a class="headerlink" href="#nlp-preprocessing-workflow" title="Link to this heading">#</a></h2>
 <p>Text data can come from many different sources and file formats, such as <code class="docutils literal notranslate"><span class="pre">.txt</span></code>, <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, <code class="docutils literal notranslate"><span class="pre">.html</span></code>, PDFs, social media exports, log files, or scraped web pages. Before we can systematically analyze such data or use it for machine-learning models, we usually need to preprocess it in a consistent way.</p>
-<p>A typical NLP preprocessing workflow is shown in <a class="reference internal" href="#fig-nlp-processing-workflow"><span class="std std-numref">Fig. 40</span></a>.</p>
+<p>A typical NLP preprocessing workflow is shown in <a class="reference internal" href="#fig-nlp-processing-workflow"><span class="std std-numref">Fig. 41</span></a>.</p>
 <figure class="align-default" id="fig-nlp-processing-workflow">
 <img alt="../_images/fig_nlp_processing_workflow_clean.png" src="../_images/fig_nlp_processing_workflow_clean.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 40 </span><span class="caption-text">A typical NLP preprocessing workflow consists of several stages: raw text cleaning, tokenization, token cleaning, and token normalization. These steps prepare text for later analysis or modeling.</span><a class="headerlink" href="#fig-nlp-processing-workflow" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 41 </span><span class="caption-text">A typical NLP preprocessing workflow consists of several stages: raw text cleaning, tokenization, token cleaning, and token normalization. These steps prepare text for later analysis or modeling.</span><a class="headerlink" href="#fig-nlp-processing-workflow" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="raw-text-cleaning">
@@ -593,6 +593,20 @@ better → good
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> 
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># NLP related libraries to work with text data</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span><span class="w"> </span><span class="nn">nltk</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;matplotlib&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -603,7 +617,9 @@ better → good
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package wordnet to /home/runner/nltk_data...
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package wordnet to
+[nltk_data]     C:\Users\flori\AppData\Roaming\nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -720,29 +736,6 @@ python<span class="w"> </span>-m<span class="w"> </span>spacy<span class="w"> </
 
 <span class="c1"># There are many other models, here a small model for German:</span>
 <span class="c1">#!python -m spacy download de_core_news_sm</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting en-core-web-sm==3.8.0
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading en_core_web_sm-3.8.0-py3-none-any.whl (12.8 MB)
-?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/12.8 MB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">12.8/12.8 MB</span> <span class=" -Color -Color-Red">142.7 MB/s</span>  <span class=" -Color -Color-Yellow">0:00:00</span>
-?25h
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: en-core-web-sm
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed en-core-web-sm-3.8.0
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-C2">✔ Download and installation successful</span>
-You can now load the package via spacy.load(&#39;en_core_web_sm&#39;)
 </pre></div>
 </div>
 </div>

@@ -1,0 +1,71 @@
+Traceback (most recent call last):
+  File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/nbclient/client.py", line 1323, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/micromamba/envs/data_science/lib/python3.12/asyncio/base_events.py", line 691, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/runner/micromamba/envs/data_science/lib/python3.12/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import numpy as np
+import matplotlib.pyplot as plt
+
+from sklearn.ensemble import BaggingClassifier
+
+NUM_POINTS = 150
+
+def create_spiral_data(n_points,
+                       degree=450,
+                       noise=1.5,
+                       seed=0):
+    """Generate 2D spiral data.
+    """
+    # Initiate Numpy Random Generator (with seed)
+    rng = np.random.default_rng(seed)
+
+    # Class 1 points
+    n = np.sqrt(rng.random(n_points // 2)) * degree * (2 * np.pi) / 360
+    d1x = -np.cos(n) * n + rng.random(n_points // 2) * noise
+    d1y = np.sin(n) * n + rng.random(n_points // 2) * noise
+    x1 = np.vstack((d1x, d1y)).T
+
+    # Class 2 points
+    n = np.sqrt(rng.random(n_points // 2)) * degree * (2 * np.pi) / 360
+    d2x = np.cos(n) * n + rng.random(n_points // 2) * noise
+    d2y = -np.sin(n) * n + rng.random(n_points // 2) * noise
+    x2 = np.vstack((d2x, d2y)).T
+
+    X = np.vstack((x1, x2))
+    y = np.hstack((np.zeros(n_points // 2), np.ones(n_points // 2)))
+    return X, y
+
+# Create spiral data
+X, y = create_spiral_data(NUM_POINTS)
+
+fig, ax = plt.subplots(figsize=(7, 7), dpi=300)
+ax.scatter(X[:, 0], X[:, 1], c=y, cmap='coolwarm', edgecolor='k')
+ax.grid(True)
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mModuleNotFoundError[39m                       Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[1][39m[32m, line 1[39m
+[32m----> [39m[32m1[39m [38;5;28;01mimport[39;00m numpy [38;5;28;01mas[39;00m np
+[32m      2[39m [38;5;28;01mimport[39;00m matplotlib.pyplot [38;5;28;01mas[39;00m plt
+[32m      3[39m 
+[32m      4[39m [38;5;28;01mfrom[39;00m sklearn.ensemble [38;5;28;01mimport[39;00m BaggingClassifier
+
+[31mModuleNotFoundError[39m: No module named 'numpy'
+

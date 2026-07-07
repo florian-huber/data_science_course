@@ -457,7 +457,7 @@
 <figure class="align-default" id="fig-graph-layouts01">
 <img alt="../_images/fig_graph_layout_intro.png" src="../_images/fig_graph_layout_intro.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 47 </span><span class="caption-text">Graphs are based on nodes and their connections (links/edges). But in nearly all cases, this does not fully determine the position of the nodes.</span><a class="headerlink" href="#fig-graph-layouts01" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 48 </span><span class="caption-text">Graphs are based on nodes and their connections (links/edges). But in nearly all cases, this does not fully determine the position of the nodes.</span><a class="headerlink" href="#fig-graph-layouts01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>When we need to visualize a graph, we (or an algorithm) must decide how to arrange the nodes. There are numerous possibilities for this, and the following images show six such network layouts that are included in networkx.</p>
@@ -477,6 +477,19 @@
 </div>
 </div>
 </details>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> 
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;numpy&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -487,7 +500,6 @@
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;bipartite_layout&#39;,
  &#39;circular_layout&#39;,
- &#39;forceatlas2_layout&#39;,
  &#39;kamada_kawai_layout&#39;,
  &#39;random_layout&#39;,
  &#39;rescale_layout&#39;,
@@ -499,7 +511,6 @@
  &#39;fruchterman_reingold_layout&#39;,
  &#39;spiral_layout&#39;,
  &#39;multipartite_layout&#39;,
- &#39;bfs_layout&#39;,
  &#39;arf_layout&#39;]
 </pre></div>
 </div>
@@ -537,7 +548,7 @@
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/8ee6f4e46e59fdccf6e43ddd51a5dba5f159c057d0eb5a76728aa0db5f21034b.png" src="../_images/8ee6f4e46e59fdccf6e43ddd51a5dba5f159c057d0eb5a76728aa0db5f21034b.png" />
+<img alt="../_images/4593d1557328d8aa1c01cddae66f05408eca4b7ea0610f5b4de5a691bea3133b.png" src="../_images/4593d1557328d8aa1c01cddae66f05408eca4b7ea0610f5b4de5a691bea3133b.png" />
 </div>
 </div>
 <section id="add-more-dimensions-to-the-visualization">
@@ -577,7 +588,7 @@
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/b5bb28757069004712e86b044ee4bbefa3dba169f52cd95c79a32615ed3e14ab.png" src="../_images/b5bb28757069004712e86b044ee4bbefa3dba169f52cd95c79a32615ed3e14ab.png" />
+<img alt="../_images/47a26776f844b4e47e74c455b150d41e7889e7344b0a53462cbce26748fa5578.png" src="../_images/47a26776f844b4e47e74c455b150d41e7889e7344b0a53462cbce26748fa5578.png" />
 </div>
 </div>
 <p>Different layouts have different strengths and weaknesses. A circular arrangement (<strong>circular layout</strong>) can, for instance, be useful for quickly identifying which nodes have the most connections (and where these lead). Layouts such as random layout or other fixed forms like spirals etc. (as seen above: <strong>spiral layout</strong>) are much less commonly used in practice.</p>
@@ -612,7 +623,7 @@
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/76b3c037b2c260a3f929dd94c58874c0eb8dce539d70424129d1be6fb034669e.png" src="../_images/76b3c037b2c260a3f929dd94c58874c0eb8dce539d70424129d1be6fb034669e.png" />
+<img alt="../_images/1eba9ae63e2ff5a9d4e37611871da21d839b34024619e6e566d833c0f13efa06.png" src="../_images/1eba9ae63e2ff5a9d4e37611871da21d839b34024619e6e566d833c0f13efa06.png" />
 </div>
 </div>
 <section id="visual-randomness">
@@ -643,7 +654,7 @@
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../_images/eb0b97ee076e5fd1f0b5e2767e6f24654f3af677b0bb0c95f49f2f666383d509.png" src="../_images/eb0b97ee076e5fd1f0b5e2767e6f24654f3af677b0bb0c95f49f2f666383d509.png" />
+<img alt="../_images/a4eb27d22dbf91d02cf94806252112ba76651e2374429b8825b7c12bd4f4996c.png" src="../_images/a4eb27d22dbf91d02cf94806252112ba76651e2374429b8825b7c12bd4f4996c.png" />
 </div>
 </div>
 </section>
