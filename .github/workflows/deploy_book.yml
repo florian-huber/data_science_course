@@ -7,13 +7,12 @@ on:
     inputs:
       tag:
         description: Tag for manually running the deploy book workflow
-        required: True
+        required: true
         default: ''
 
 env:
   BASE_URL: /${{ github.event.repository.name }}
 
-# This job installs dependencies, builds the book #TODO: and pushes it to `gh-pages`
 jobs:
   deploy-book:
     runs-on: ubuntu-latest
@@ -23,27 +22,37 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: mamba-org/setup-micromamba@v3
+
+      - name: Set up micromamba
+        uses: mamba-org/setup-micromamba@v3
         with:
           environment-file: environment.yml
+          cache-environment: true
+          cache-downloads: true
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
       - name: Python info
         run: |
           which python
           python --version
+          uv --version
 
-      - name: Install Sphinx docs dependencies
+      - name: Install Python dependencies
         run: |
-          pip install sphinx sphinx-book-theme myst-nb sphinxcontrib-bibtex
+          uv pip sync requirements.txt
 
-      - name: Show pip list
+      - name: Show installed packages
         run: |
-          pip list
+          uv pip list
 
       - name: Build the book
         run: |
           sphinx-build -E -a -b html . _build/html
 
-      # Push the book's HTML to github-pages
       - name: GitHub Pages action
         uses: peaceiris/actions-gh-pages@v4
         with:

@@ -3,30 +3,50 @@ name: CI Tests
 on:
   push:
   pull_request:
-    types: [opened, reopened]
+    types: [opened, reopened, synchronize]
 
 jobs:
-
   basic_checks:
     name: Basic environment and code checks / ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     defaults:
       run:
         shell: bash -l {0}
+
     strategy:
       fail-fast: false
       matrix:
         os: ['ubuntu-latest', 'macos-latest', 'windows-latest']
-        
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: mamba-org/setup-micromamba@v1
+      - uses: actions/checkout@v4
+
+      - name: Set up micromamba
+        uses: mamba-org/setup-micromamba@v3
         with:
           environment-file: environment.yml
+          cache-environment: true
+          cache-downloads: true
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
       - name: Python info
         run: |
           which python
           python --version
-      - name: Show pip list
+          uv --version
+
+      - name: Install Python dependencies
         run: |
-          pip list
+          uv pip sync requirements.txt
+
+      - name: Show installed packages
+        run: |
+          uv pip list
+
+      - name: Import smoke test
+        run: |
+          python -c "import numpy, pandas, sklearn, spacy, scipy; print('core imports ok')"
