@@ -43,7 +43,7 @@ myst_enable_extensions = [
     "substitution",
 ]
 
-nb_execution_mode = "cache"
+nb_execution_timeout = 600
 
 numfig = True
 
